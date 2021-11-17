@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**findPetsByStatus()**](PetApi.md#findPetsByStatus) | **GET** /pet/findByStatus | Finds Pets by status
 [**findPetsByTags()**](PetApi.md#findPetsByTags) | **GET** /pet/findByTags | Finds Pets by tags
 [**getPetById()**](PetApi.md#getPetById) | **GET** /pet/{petId} | Find pet by ID
+[**updatePet()**](PetApi.md#updatePet) | **PUT** /pet | Update an existing pet
 [**updatePetWithForm()**](PetApi.md#updatePetWithForm) | **POST** /pet/{petId} | Updates a pet in the store with form data
 [**uploadFile()**](PetApi.md#uploadFile) | **POST** /pet/{petId}/uploadImage | uploads an image
 
@@ -311,6 +312,66 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/xml`, `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updatePet()`
+
+```php
+updatePet($pet): \criteo\api\petstore\preview\Model\Pet
+```
+
+Update an existing pet
+
+Update an existing pet by Id
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: petstore_auth
+$config = criteo\api\petstore\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\petstore\preview\Api\PetApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$pet = new \criteo\api\petstore\preview\Model\Pet(); // \criteo\api\petstore\preview\Model\Pet | Update an existent pet in the store
+
+try {
+    $result = $apiInstance->updatePet($pet);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PetApi->updatePet: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pet** | [**\criteo\api\petstore\preview\Model\Pet**](../Model/Pet.md)| Update an existent pet in the store |
+
+### Return type
+
+[**\criteo\api\petstore\preview\Model\Pet**](../Model/Pet.md)
+
+### Authorization
+
+[petstore_auth](../../README.md#petstore_auth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`, `application/x-www-form-urlencoded`
 - **Accept**: `application/xml`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
