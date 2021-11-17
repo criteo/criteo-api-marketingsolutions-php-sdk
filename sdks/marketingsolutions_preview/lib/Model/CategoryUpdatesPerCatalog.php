@@ -60,7 +60,7 @@ class CategoryUpdatesPerCatalog implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPITypes = [
         'catalog_id' => 'int',
-        'categories' => '\criteo\api\marketingsolutions\preview\Model\CategoryUpdateInput[]'
+        'categoriess' => '\criteo\api\marketingsolutions\preview\Model\CategoryUpdateInput[]'
     ];
 
     /**
@@ -72,7 +72,7 @@ class CategoryUpdatesPerCatalog implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPIFormats = [
         'catalog_id' => 'int32',
-        'categories' => null
+        'categoriess' => null
     ];
 
     /**
@@ -103,7 +103,7 @@ class CategoryUpdatesPerCatalog implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $attributeMap = [
         'catalog_id' => 'catalogId',
-        'categories' => 'categories'
+        'categoriess' => 'categoriess'
     ];
 
     /**
@@ -113,7 +113,7 @@ class CategoryUpdatesPerCatalog implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $setters = [
         'catalog_id' => 'setCatalogId',
-        'categories' => 'setCategories'
+        'categoriess' => 'setCategoriess'
     ];
 
     /**
@@ -123,7 +123,7 @@ class CategoryUpdatesPerCatalog implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $getters = [
         'catalog_id' => 'getCatalogId',
-        'categories' => 'getCategories'
+        'categoriess' => 'getCategoriess'
     ];
 
     /**
@@ -184,7 +184,7 @@ class CategoryUpdatesPerCatalog implements ModelInterface, ArrayAccess, \JsonSer
     public function __construct(array $data = null)
     {
         $this->container['catalog_id'] = $data['catalog_id'] ?? null;
-        $this->container['categories'] = $data['categories'] ?? null;
+        $this->container['categoriess'] = $data['categoriess'] ?? null;
     }
 
     /**
@@ -236,25 +236,25 @@ class CategoryUpdatesPerCatalog implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     /**
-     * Gets categories
+     * Gets categoriess
      *
      * @return \criteo\api\marketingsolutions\preview\Model\CategoryUpdateInput[]|null
      */
-    public function getCategories()
+    public function getCategoriess()
     {
-        return $this->container['categories'];
+        return $this->container['categoriess'];
     }
 
     /**
-     * Sets categories
+     * Sets categoriess
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\CategoryUpdateInput[]|null $categories categories
+     * @param \criteo\api\marketingsolutions\preview\Model\CategoryUpdateInput[]|null $categoriess categoriess
      *
      * @return self
      */
-    public function setCategories($categories)
+    public function setCategoriess($categoriess)
     {
-        $this->container['categories'] = $categories;
+        $this->container['categoriess'] = $categoriess;
 
         return $this;
     }
