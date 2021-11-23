@@ -24,7 +24,7 @@ Creates a token when the supplied client credentials are valid
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: Authorization
+// Configure OAuth2 access token for authorization: oauth
 $config = criteo\api\marketingsolutions\v2020_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../../README.md#Authorization)
+[oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
