@@ -303,7 +303,7 @@ class PetApi
             );
         }
 
-        $resourcePath = '/pet-test';
+        $resourcePath = '/pet';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
