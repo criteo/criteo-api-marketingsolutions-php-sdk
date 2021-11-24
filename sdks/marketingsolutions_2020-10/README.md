@@ -90,24 +90,28 @@ All URIs are relative to *https://api.criteo.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AdvertiserApi* | [**apiPortfolioGet**](docs/Api/AdvertiserApi.md#apiportfolioget) | **GET** /2021-10/advertisers/me | 
-*AnalyticsApi* | [**getAdsetReport**](docs/Api/AnalyticsApi.md#getadsetreport) | **POST** /2021-10/statistics/report | 
-*AnalyticsApi* | [**getTransactionsReport**](docs/Api/AnalyticsApi.md#gettransactionsreport) | **POST** /2021-10/transactions/report | 
-*AnalyticsApi* | [**getTransparencyReport**](docs/Api/AnalyticsApi.md#gettransparencyreport) | **POST** /2021-10/log-level/advertisers/{advertiser-id}/report | 
-*AudienceApi* | [**createAudience**](docs/Api/AudienceApi.md#createaudience) | **POST** /2021-10/audiences | 
-*AudienceApi* | [**deleteIdentifiers**](docs/Api/AudienceApi.md#deleteidentifiers) | **DELETE** /2021-10/audiences/{audience-id}/contactlist | 
-*AudienceApi* | [**getAudiences**](docs/Api/AudienceApi.md#getaudiences) | **GET** /2021-10/audiences | 
-*AudienceApi* | [**modifyAudience**](docs/Api/AudienceApi.md#modifyaudience) | **PATCH** /2021-10/audiences/{audience-id} | 
-*AudienceApi* | [**modifyAudienceUsers**](docs/Api/AudienceApi.md#modifyaudienceusers) | **PATCH** /2021-10/audiences/{audience-id}/contactlist | 
-*AudienceApi* | [**removeAudience**](docs/Api/AudienceApi.md#removeaudience) | **DELETE** /2021-10/audiences/{audience-id} | 
-*CampaignApi* | [**getAdSet**](docs/Api/CampaignApi.md#getadset) | **GET** /2021-10/marketing-solutions/ad-sets/{adSetId} | 
-*CampaignApi* | [**getCampaign**](docs/Api/CampaignApi.md#getcampaign) | **GET** /2021-10/marketing-solutions/campaigns/{campaign-id} | 
-*CampaignApi* | [**patchAdSets**](docs/Api/CampaignApi.md#patchadsets) | **PATCH** /2021-10/marketing-solutions/ad-sets | 
-*CampaignApi* | [**patchCampaigns**](docs/Api/CampaignApi.md#patchcampaigns) | **PATCH** /2021-10/marketing-solutions/campaigns | 
-*CampaignApi* | [**searchAdSets**](docs/Api/CampaignApi.md#searchadsets) | **POST** /2021-10/marketing-solutions/ad-sets/search | 
-*CampaignApi* | [**searchCampaigns**](docs/Api/CampaignApi.md#searchcampaigns) | **POST** /2021-10/marketing-solutions/campaigns/search | 
-*CampaignApi* | [**startAdSets**](docs/Api/CampaignApi.md#startadsets) | **POST** /2021-10/marketing-solutions/ad-sets/start | 
-*CampaignApi* | [**stopAdSets**](docs/Api/CampaignApi.md#stopadsets) | **POST** /2021-10/marketing-solutions/ad-sets/stop | 
+*AdvertiserApi* | [**apiPortfolioGet**](docs/Api/AdvertiserApi.md#apiportfolioget) | **GET** /2021-04/advertisers/me | 
+*AdvertiserApi* | [**getCategories**](docs/Api/AdvertiserApi.md#getcategories) | **GET** /legacy/marketing/v1/advertisers/{advertiserId}/categories | Gets all advertiser&#39;s categories
+*AdvertiserApi* | [**getCategory**](docs/Api/AdvertiserApi.md#getcategory) | **GET** /legacy/marketing/v1/advertisers/{advertiserId}/categories/{categoryHashCode} | Gets a specific advertiser&#39;s category
+*AnalyticsApi* | [**getAdsetReport**](docs/Api/AnalyticsApi.md#getadsetreport) | **POST** /2021-04/statistics/report | 
+*AnalyticsApi* | [**getTransactionsReport**](docs/Api/AnalyticsApi.md#gettransactionsreport) | **POST** /2021-04/transactions/report | 
+*AudienceApi* | [**createAudience**](docs/Api/AudienceApi.md#createaudience) | **POST** /2021-04/audiences | 
+*AudienceApi* | [**deleteIdentifiers**](docs/Api/AudienceApi.md#deleteidentifiers) | **DELETE** /2021-04/audiences/{audience-id}/contactlist | 
+*AudienceApi* | [**getAudiences**](docs/Api/AudienceApi.md#getaudiences) | **GET** /2021-04/audiences | 
+*AudienceApi* | [**modifyAudience**](docs/Api/AudienceApi.md#modifyaudience) | **PATCH** /2021-04/audiences/{audience-id} | 
+*AudienceApi* | [**modifyAudienceUsers**](docs/Api/AudienceApi.md#modifyaudienceusers) | **PATCH** /2021-04/audiences/{audience-id}/contactlist | 
+*AudienceApi* | [**removeAudience**](docs/Api/AudienceApi.md#removeaudience) | **DELETE** /2021-04/audiences/{audience-id} | 
+*CampaignApi* | [**getAdSet**](docs/Api/CampaignApi.md#getadset) | **GET** /2021-04/marketing-solutions/ad-sets/{adSetId} | 
+*CampaignApi* | [**getBids**](docs/Api/CampaignApi.md#getbids) | **GET** /legacy/marketing/v1/campaigns/bids | Gets a the bids for campaigns and their categories
+*CampaignApi* | [**getCategories**](docs/Api/CampaignApi.md#getcategories) | **GET** /legacy/marketing/v1/campaigns/{campaignId}/categories | Gets categories
+*CampaignApi* | [**getCategory**](docs/Api/CampaignApi.md#getcategory) | **GET** /legacy/marketing/v1/campaigns/{campaignId}/categories/{categoryHashCode} | Gets a specific category
+*CampaignApi* | [**patchAdSets**](docs/Api/CampaignApi.md#patchadsets) | **PATCH** /2021-04/marketing-solutions/ad-sets | 
+*CampaignApi* | [**searchAdSets**](docs/Api/CampaignApi.md#searchadsets) | **POST** /2021-04/marketing-solutions/ad-sets/search | 
+*CampaignApi* | [**startAdSets**](docs/Api/CampaignApi.md#startadsets) | **POST** /2021-04/marketing-solutions/ad-sets/start | 
+*CampaignApi* | [**stopAdSets**](docs/Api/CampaignApi.md#stopadsets) | **POST** /2021-04/marketing-solutions/ad-sets/stop | 
+*CampaignApi* | [**updateBids**](docs/Api/CampaignApi.md#updatebids) | **PUT** /legacy/marketing/v1/campaigns/bids | Update bids for campaigns and their categories
+*CategoryApi* | [**getCategories**](docs/Api/CategoryApi.md#getcategories) | **GET** /legacy/marketing/v1/categories | Gets categories
+*CategoryApi* | [**updateCategories**](docs/Api/CategoryApi.md#updatecategories) | **PUT** /legacy/marketing/v1/categories | Enables/disables categories
 *OAuthApi* | [**createToken**](docs/Api/OAuthApi.md#createtoken) | **POST** /oauth2/token | 
 
 
@@ -125,23 +129,30 @@ Class | Method | HTTP request | Description
  - [AudienceNameDescription](docs/Model/AudienceNameDescription.md)
  - [AudienceWarning](docs/Model/AudienceWarning.md)
  - [BasicAudienceDefinition](docs/Model/BasicAudienceDefinition.md)
- - [Campaign](docs/Model/Campaign.md)
- - [CampaignListResponse](docs/Model/CampaignListResponse.md)
- - [CampaignReadResource](docs/Model/CampaignReadResource.md)
- - [CampaignResponse](docs/Model/CampaignResponse.md)
- - [CampaignSearchFilters](docs/Model/CampaignSearchFilters.md)
- - [CampaignSearchRequest](docs/Model/CampaignSearchRequest.md)
- - [CampaignSpendLimit](docs/Model/CampaignSpendLimit.md)
+ - [BidMessage](docs/Model/BidMessage.md)
+ - [CampaignBidChangeRequest](docs/Model/CampaignBidChangeRequest.md)
+ - [CampaignBidChangeResponse](docs/Model/CampaignBidChangeResponse.md)
+ - [CampaignBidChangeResponseMessageWithDetails](docs/Model/CampaignBidChangeResponseMessageWithDetails.md)
+ - [CampaignBidMessage](docs/Model/CampaignBidMessage.md)
+ - [CampaignMessage](docs/Model/CampaignMessage.md)
+ - [CategoryBidChangeRequest](docs/Model/CategoryBidChangeRequest.md)
+ - [CategoryBidMessage](docs/Model/CategoryBidMessage.md)
+ - [CategoryMessage](docs/Model/CategoryMessage.md)
+ - [CategoryUpdateError](docs/Model/CategoryUpdateError.md)
+ - [CategoryUpdateInput](docs/Model/CategoryUpdateInput.md)
+ - [CategoryUpdatesPerCatalog](docs/Model/CategoryUpdatesPerCatalog.md)
+ - [CategoryUpdatesPerCatalogError](docs/Model/CategoryUpdatesPerCatalogError.md)
+ - [CategoryUpdatesPerCatalogErrorMessageWithDetails](docs/Model/CategoryUpdatesPerCatalogErrorMessageWithDetails.md)
  - [ContactlistAmendment](docs/Model/ContactlistAmendment.md)
  - [ContactlistAmendmentAttributes](docs/Model/ContactlistAmendmentAttributes.md)
  - [ContactlistAmendmentRequest](docs/Model/ContactlistAmendmentRequest.md)
  - [ContactlistOperation](docs/Model/ContactlistOperation.md)
  - [ContactlistOperationAttributes](docs/Model/ContactlistOperationAttributes.md)
+ - [CriteoApiDataOfPortfolioMessage](docs/Model/CriteoApiDataOfPortfolioMessage.md)
  - [CriteoApiError](docs/Model/CriteoApiError.md)
  - [CriteoApiWarning](docs/Model/CriteoApiWarning.md)
  - [DeleteAudienceContactListResponse](docs/Model/DeleteAudienceContactListResponse.md)
  - [DeleteAudienceResponse](docs/Model/DeleteAudienceResponse.md)
- - [EntityOfPortfolioMessage](docs/Model/EntityOfPortfolioMessage.md)
  - [ErrorCodeResponse](docs/Model/ErrorCodeResponse.md)
  - [ErrorMessage](docs/Model/ErrorMessage.md)
  - [GetAudiencesResponse](docs/Model/GetAudiencesResponse.md)
@@ -160,12 +171,6 @@ Class | Method | HTTP request | Description
  - [PatchAdSetBidding](docs/Model/PatchAdSetBidding.md)
  - [PatchAdSetBudget](docs/Model/PatchAdSetBudget.md)
  - [PatchAdSetScheduling](docs/Model/PatchAdSetScheduling.md)
- - [PatchCampaign](docs/Model/PatchCampaign.md)
- - [PatchCampaignListRequest](docs/Model/PatchCampaignListRequest.md)
- - [PatchCampaignSpendLimit](docs/Model/PatchCampaignSpendLimit.md)
- - [PatchCampaignWriteResource](docs/Model/PatchCampaignWriteResource.md)
- - [PatchResultCampaignListResponse](docs/Model/PatchResultCampaignListResponse.md)
- - [PatchResultCampaignReadResource](docs/Model/PatchResultCampaignReadResource.md)
  - [PortfolioMessage](docs/Model/PortfolioMessage.md)
  - [ProblemDetails](docs/Model/ProblemDetails.md)
  - [ReadAdSet](docs/Model/ReadAdSet.md)
@@ -188,11 +193,6 @@ Class | Method | HTTP request | Description
  - [TransactionsReportQueryDataMessage](docs/Model/TransactionsReportQueryDataMessage.md)
  - [TransactionsReportQueryEntityMessage](docs/Model/TransactionsReportQueryEntityMessage.md)
  - [TransactionsReportQueryMessage](docs/Model/TransactionsReportQueryMessage.md)
- - [TransparencyQueryMessage](docs/Model/TransparencyQueryMessage.md)
- - [TransparencyReportAttributes](docs/Model/TransparencyReportAttributes.md)
- - [TransparencyReportDataMessage](docs/Model/TransparencyReportDataMessage.md)
- - [TransparencyReportEntityMessage](docs/Model/TransparencyReportEntityMessage.md)
- - [TransparencyReportFile](docs/Model/TransparencyReportFile.md)
  - [WriteModelAdSetId](docs/Model/WriteModelAdSetId.md)
  - [WriteModelPatchAdSet](docs/Model/WriteModelPatchAdSet.md)
 
@@ -205,7 +205,7 @@ as explained in the [example](examples/).
 
 
 
-### oauth
+### Authorization
 
 
 - **Type**: OAuth

@@ -4,12 +4,12 @@ All URIs are relative to https://api.criteo.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createAudience()**](AudienceApi.md#createAudience) | **POST** /2021-10/audiences | 
-[**deleteIdentifiers()**](AudienceApi.md#deleteIdentifiers) | **DELETE** /2021-10/audiences/{audience-id}/contactlist | 
-[**getAudiences()**](AudienceApi.md#getAudiences) | **GET** /2021-10/audiences | 
-[**modifyAudience()**](AudienceApi.md#modifyAudience) | **PATCH** /2021-10/audiences/{audience-id} | 
-[**modifyAudienceUsers()**](AudienceApi.md#modifyAudienceUsers) | **PATCH** /2021-10/audiences/{audience-id}/contactlist | 
-[**removeAudience()**](AudienceApi.md#removeAudience) | **DELETE** /2021-10/audiences/{audience-id} | 
+[**createAudience()**](AudienceApi.md#createAudience) | **POST** /2021-04/audiences | 
+[**deleteIdentifiers()**](AudienceApi.md#deleteIdentifiers) | **DELETE** /2021-04/audiences/{audience-id}/contactlist | 
+[**getAudiences()**](AudienceApi.md#getAudiences) | **GET** /2021-04/audiences | 
+[**modifyAudience()**](AudienceApi.md#modifyAudience) | **PATCH** /2021-04/audiences/{audience-id} | 
+[**modifyAudienceUsers()**](AudienceApi.md#modifyAudienceUsers) | **PATCH** /2021-04/audiences/{audience-id}/contactlist | 
+[**removeAudience()**](AudienceApi.md#removeAudience) | **DELETE** /2021-04/audiences/{audience-id} | 
 
 
 ## `createAudience()`
@@ -29,7 +29,7 @@ Create an Audience for an Advertiser
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: oauth
+// Configure OAuth2 access token for authorization: Authorization
 $config = criteo\api\marketingsolutions\v2020_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth](../../README.md#oauth)
+[Authorization](../../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -89,7 +89,7 @@ delete all identifiers from an Audience
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: oauth
+// Configure OAuth2 access token for authorization: Authorization
 $config = criteo\api\marketingsolutions\v2020_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth](../../README.md#oauth)
+[Authorization](../../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -149,7 +149,7 @@ Get a list of all the audiences for the user or for the given advertiser_id
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: oauth
+// Configure OAuth2 access token for authorization: Authorization
 $config = criteo\api\marketingsolutions\v2020_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth](../../README.md#oauth)
+[Authorization](../../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -209,7 +209,7 @@ Update user audience specified by the audience id
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: oauth
+// Configure OAuth2 access token for authorization: Authorization
 $config = criteo\api\marketingsolutions\v2020_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth](../../README.md#oauth)
+[Authorization](../../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -271,7 +271,7 @@ Add/remove users to or from an audience
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: oauth
+// Configure OAuth2 access token for authorization: Authorization
 $config = criteo\api\marketingsolutions\v2020_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -305,7 +305,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth](../../README.md#oauth)
+[Authorization](../../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -333,7 +333,7 @@ Delete an audience by id
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: oauth
+// Configure OAuth2 access token for authorization: Authorization
 $config = criteo\api\marketingsolutions\v2020_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -365,7 +365,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth](../../README.md#oauth)
+[Authorization](../../README.md#Authorization)
 
 ### HTTP request headers
 
