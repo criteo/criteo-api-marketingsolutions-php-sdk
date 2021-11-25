@@ -314,7 +314,7 @@ class AudienceApi
             );
         }
 
-        $resourcePath = '/2021-04/audiences';
+        $resourcePath = '/2021-10/audiences';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -866,7 +866,7 @@ class AudienceApi
     public function getAudiencesRequest($advertiser_id = null)
     {
 
-        $resourcePath = '/2021-04/audiences';
+        $resourcePath = '/2021-10/audiences';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
