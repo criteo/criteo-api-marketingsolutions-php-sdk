@@ -1,6 +1,6 @@
 {
     "name": "criteo/criteo-api-marketingsolutions-sdk",
-    "version": "21.10.0.211125",
+    "version": "2021.10.0.211126",
     "description": "Official Criteo API PHP SDK for Marketing Solutions Service",
     "keywords": [
         "criteo",
