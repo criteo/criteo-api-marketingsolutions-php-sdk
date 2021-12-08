@@ -1,5 +1,5 @@
 {
-    "name": "criteo/criteo-api-mar",
+    "name": "criteo/criteo-api-marketingsolutions-sdk",
     "description": "Official Criteo API PHP SDK",
     "keywords": [
         "criteo",
@@ -13,7 +13,7 @@
     "license": "Apache-2.0",
     "authors": [{
         "name": "Criteo",
-        "homepage": "https://github.com/criteo/criteo-api-php-sdk"
+        "homepage": "https://github.com/criteo/criteo-api-marketingsolutions-php-sdk"
     }],
     "scripts": {
         "test": "phpunit test/Api"
