@@ -1,8 +1,8 @@
 <?php
 
-use criteo\api\marketingsolutions\v2021_10\Configuration;
-use criteo\api\marketingsolutions\v2021_10\ObjectSerializer;
-use criteo\api\marketingsolutions\v2021_10\TokenAutoRefreshClient;
+use criteo\api\marketingsolutions\preview\Configuration;
+use criteo\api\marketingsolutions\preview\ObjectSerializer;
+use criteo\api\marketingsolutions\preview\TokenAutoRefreshClient;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\Uri;
@@ -49,11 +49,11 @@ class TokenAutoRefreshClientTest extends TestCase
 
 
         // Call Authentication endpoint which does not require Authorization header
-        $response = (new criteo\api\marketingsolutions\v2021_10\Api\OAuthApi($mockClient))
+        $response = (new criteo\api\marketingsolutions\preview\Api\OAuthApi($mockClient))
             ->createToken($this->clientId, $this->clientSecret, $this->grantType);
 
 
-        $this->assertInstanceOf('criteo\api\marketingsolutions\v2021_10\Model\JwtModel', $response);
+        $this->assertInstanceOf('criteo\api\marketingsolutions\preview\Model\JwtModel', $response);
         $this->assertEquals($token, $response->getAccessToken());
     }
 
