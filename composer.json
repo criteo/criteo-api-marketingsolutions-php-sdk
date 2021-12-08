@@ -1,5 +1,5 @@
 {
-    "name": "criteo/GIT_REPO_ID",
+    "name": "criteo/criteo-api",
     "description": "Official Criteo API PHP SDK",
     "keywords": [
         "criteo",
