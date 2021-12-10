@@ -1,6 +1,6 @@
 {
-    "name": "GIT_USER_ID/GIT_REPO_ID",
-    "description": "Official Criteo API PHP SDK",
+    "name": "criteo-api-marketingsolutions-sdk",
+    "description": "PHP SDK for Criteo API 0.0.211210 version",
     "keywords": [
         "criteo",
         "openapi generator",
@@ -14,7 +14,7 @@
     "authors": [
         {
             "name": "Criteo",
-            "homepage": "https://github.com/criteo/criteo-api-php-sdk"
+            "homepage": "https://github.com/criteo/criteo-api-marketingsolutions-php-sdk"
         }
     ],
     "scripts": {
