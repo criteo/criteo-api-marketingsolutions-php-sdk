@@ -1,6 +1,6 @@
 {
-    "name": "criteo-api-marketingsolutions-sdk",
-    "description": "PHP SDK for Criteo API 2021.10.0.211210 version",
+    "name": "criteo/criteo-api-marketingsolutions-sdk",
+    "description": "Official Criteo API PHP SDK For Marketing Solutions",
     "keywords": [
         "criteo",
         "openapi generator",
@@ -11,12 +11,10 @@
     ],
     "homepage": "https://api.criteo.com",
     "license": "Apache-2.0",
-    "authors": [
-        {
-            "name": "Criteo",
-            "homepage": "https://github.com/criteo/criteo-api-marketingsolutions-php-sdk"
-        }
-    ],
+    "authors": [{
+        "name": "Criteo",
+        "homepage": "https://github.com/criteo/criteo-api-marketingsolutions-php-sdk"
+    }],
     "scripts": {
         "test": "phpunit test/Api"
     },
@@ -34,9 +32,9 @@
         "mockery/mockery": "^1.3"
     },
     "autoload": {
-        "psr-4": { "criteo\\api\\marketingsolutions\\v2021_10\\" : "lib/" }
+        "psr-4": { "criteo\\api\\marketingsolutions\\v2021_10\\": "lib/" }
     },
     "autoload-dev": {
-        "psr-4": { "criteo\\api\\marketingsolutions\\v2021_10\\" : "test/" }
+        "psr-4": { "criteo\\api\\marketingsolutions\\v2021_10\\": "test/" }
     }
 }
