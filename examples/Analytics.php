@@ -4,9 +4,9 @@
 // Then import it as follow:
 // require_once(__DIR__ . '/vendor/autoload.php');
 
-use criteo\api\marketingsolutions\v2021_10\Api\AnalyticsApi;
-use criteo\api\marketingsolutions\v2021_10\Model\StatisticsReportQueryMessage;
-use criteo\api\marketingsolutions\v2021_10\TokenAutoRefreshClient;
+use Criteo\SDK\Api\AnalyticsApi;
+use Criteo\SDK\Model\StatisticsReportQueryMessage;
+use Criteo\SDK\TokenAutoRefreshClient;
 
 /*
  * Although the OpenAPI specification, then this generated client, you can't simply use the API key feature.
