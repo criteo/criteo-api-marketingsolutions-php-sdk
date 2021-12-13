@@ -89,13 +89,13 @@ docs/Model/TransactionsReportQueryMessage.md
 docs/Model/WriteModelAdSetId.md
 docs/Model/WriteModelPatchAdSet.md
 git_push.sh
-lib/ApiException.php
 lib/Api/AdvertiserApi.php
 lib/Api/AnalyticsApi.php
 lib/Api/AudienceApi.php
 lib/Api/CampaignApi.php
 lib/Api/CategoryApi.php
 lib/Api/OAuthApi.php
+lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php
 lib/Model/AdSetDeliveryLimitations.php
