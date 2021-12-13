@@ -1,6 +1,6 @@
 {
     "name": "criteo/criteo-api-marketingsolutions-sdk",
-    "description": "Official Criteo API PHP SDK For Marketing Solutions",
+    "description": "Official Criteo API PHP SDK",
     "keywords": [
         "criteo",
         "openapi generator",
