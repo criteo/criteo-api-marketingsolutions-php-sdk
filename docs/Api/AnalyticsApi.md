@@ -4,8 +4,11 @@ All URIs are relative to https://api.criteo.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAdsetReport()**](AnalyticsApi.md#getAdsetReport) | **POST** /2021-04/statistics/report | 
-[**getTransactionsReport()**](AnalyticsApi.md#getTransactionsReport) | **POST** /2021-04/transactions/report | 
+[**getAdsetReport()**](AnalyticsApi.md#getAdsetReport) | **POST** /preview/statistics/report | 
+[**getCategoriesReport()**](AnalyticsApi.md#getCategoriesReport) | **POST** /preview/categories/report | 
+[**getPlacementsReport()**](AnalyticsApi.md#getPlacementsReport) | **POST** /preview/placements/report | 
+[**getTransactionsReport()**](AnalyticsApi.md#getTransactionsReport) | **POST** /preview/transactions/report | 
+[**getTransparencyReport()**](AnalyticsApi.md#getTransparencyReport) | **POST** /preview/log-level/advertisers/{advertiser-id}/report | 
 
 
 ## `getAdsetReport()`
@@ -25,7 +28,7 @@ This Statistics endpoint provides adset related data. It is an upgrade of our pr
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: Authorization
+// Configure OAuth2 access token for authorization: oauth
 $config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -57,7 +60,127 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../../README.md#Authorization)
+[oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Accept**: `text/plain`, `application/json`, `text/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getCategoriesReport()`
+
+```php
+getCategoriesReport($generate_categories_report_request): string
+```
+
+
+
+With this endpoint you can analyse what are the categories of the placements' domains your ads are placed in.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$generate_categories_report_request = new \criteo\api\marketingsolutions\preview\Model\GenerateCategoriesReportRequest(); // \criteo\api\marketingsolutions\preview\Model\GenerateCategoriesReportRequest
+
+try {
+    $result = $apiInstance->getCategoriesReport($generate_categories_report_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AnalyticsApi->getCategoriesReport: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **generate_categories_report_request** | [**\criteo\api\marketingsolutions\preview\Model\GenerateCategoriesReportRequest**](../Model/GenerateCategoriesReportRequest.md)|  | [optional]
+
+### Return type
+
+**string**
+
+### Authorization
+
+[oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Accept**: `text/plain`, `application/json`, `text/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getPlacementsReport()`
+
+```php
+getPlacementsReport($placements_report_query_data_message): string
+```
+
+
+
+Your ads are placed in different domains (publishers) and environments (websites and apps). Thanks to the placements endpoint, you can analyse the performances for each publisher, comparing displays, clicks and sales generated.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$placements_report_query_data_message = new \criteo\api\marketingsolutions\preview\Model\PlacementsReportQueryDataMessage(); // \criteo\api\marketingsolutions\preview\Model\PlacementsReportQueryDataMessage
+
+try {
+    $result = $apiInstance->getPlacementsReport($placements_report_query_data_message);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AnalyticsApi->getPlacementsReport: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **placements_report_query_data_message** | [**\criteo\api\marketingsolutions\preview\Model\PlacementsReportQueryDataMessage**](../Model/PlacementsReportQueryDataMessage.md)|  | [optional]
+
+### Return type
+
+**string**
+
+### Authorization
+
+[oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -85,7 +208,7 @@ This Transactions endpoint provides transactions id related data.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: Authorization
+// Configure OAuth2 access token for authorization: oauth
 $config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -117,12 +240,74 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../../README.md#Authorization)
+[oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
 - **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getTransparencyReport()`
+
+```php
+getTransparencyReport($advertiser_id, $transparency_query_message): \criteo\api\marketingsolutions\preview\Model\TransparencyReportDataMessage
+```
+
+
+
+This Statistics endpoint provides publisher data.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$advertiser_id = 56; // int | The advertiser id to fetch the transparency data.
+$transparency_query_message = new \criteo\api\marketingsolutions\preview\Model\TransparencyQueryMessage(); // \criteo\api\marketingsolutions\preview\Model\TransparencyQueryMessage
+
+try {
+    $result = $apiInstance->getTransparencyReport($advertiser_id, $transparency_query_message);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AnalyticsApi->getTransparencyReport: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **advertiser_id** | **int**| The advertiser id to fetch the transparency data. |
+ **transparency_query_message** | [**\criteo\api\marketingsolutions\preview\Model\TransparencyQueryMessage**](../Model/TransparencyQueryMessage.md)|  | [optional]
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\TransparencyReportDataMessage**](../Model/TransparencyReportDataMessage.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Accept**: `application/json`, `text/plain`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

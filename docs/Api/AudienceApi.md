@@ -4,12 +4,13 @@ All URIs are relative to https://api.criteo.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createAudience()**](AudienceApi.md#createAudience) | **POST** /2021-04/audiences | 
-[**deleteIdentifiers()**](AudienceApi.md#deleteIdentifiers) | **DELETE** /2021-04/audiences/{audience-id}/contactlist | 
-[**getAudiences()**](AudienceApi.md#getAudiences) | **GET** /2021-04/audiences | 
-[**modifyAudience()**](AudienceApi.md#modifyAudience) | **PATCH** /2021-04/audiences/{audience-id} | 
-[**modifyAudienceUsers()**](AudienceApi.md#modifyAudienceUsers) | **PATCH** /2021-04/audiences/{audience-id}/contactlist | 
-[**removeAudience()**](AudienceApi.md#removeAudience) | **DELETE** /2021-04/audiences/{audience-id} | 
+[**createAudience()**](AudienceApi.md#createAudience) | **POST** /preview/audiences | 
+[**deleteIdentifiers()**](AudienceApi.md#deleteIdentifiers) | **DELETE** /preview/audiences/{audience-id}/contactlist | 
+[**getAudiences()**](AudienceApi.md#getAudiences) | **GET** /preview/audiences | 
+[**modifyAudience()**](AudienceApi.md#modifyAudience) | **PATCH** /preview/audiences/{audience-id} | 
+[**modifyAudienceUsers()**](AudienceApi.md#modifyAudienceUsers) | **PATCH** /preview/audiences/{audience-id}/contactlist | 
+[**modifyAudienceUsersWithAttributes()**](AudienceApi.md#modifyAudienceUsersWithAttributes) | **PATCH** /preview/audiences/{audience-id}/contactlist-attributes | 
+[**removeAudience()**](AudienceApi.md#removeAudience) | **DELETE** /preview/audiences/{audience-id} | 
 
 
 ## `createAudience()`
@@ -29,7 +30,7 @@ Create an Audience for an Advertiser
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: Authorization
+// Configure OAuth2 access token for authorization: oauth
 $config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -61,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../../README.md#Authorization)
+[oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -89,7 +90,7 @@ delete all identifiers from an Audience
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: Authorization
+// Configure OAuth2 access token for authorization: oauth
 $config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -121,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../../README.md#Authorization)
+[oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -149,7 +150,7 @@ Get a list of all the audiences for the user or for the given advertiser_id
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: Authorization
+// Configure OAuth2 access token for authorization: oauth
 $config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -181,7 +182,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../../README.md#Authorization)
+[oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -209,7 +210,7 @@ Update user audience specified by the audience id
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: Authorization
+// Configure OAuth2 access token for authorization: oauth
 $config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -243,7 +244,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../../README.md#Authorization)
+[oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -271,7 +272,7 @@ Add/remove users to or from an audience
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: Authorization
+// Configure OAuth2 access token for authorization: oauth
 $config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -305,7 +306,69 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../../README.md#Authorization)
+[oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `modifyAudienceUsersWithAttributes()`
+
+```php
+modifyAudienceUsersWithAttributes($audience_id, $contactlist_with_attributes_amendment_request): \criteo\api\marketingsolutions\preview\Model\ModifyAudienceResponse
+```
+
+
+
+Add/remove users to or from an audience
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$audience_id = 56; // int | The id of the audience to amend
+$contactlist_with_attributes_amendment_request = new \criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest(); // \criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest
+
+try {
+    $result = $apiInstance->modifyAudienceUsersWithAttributes($audience_id, $contactlist_with_attributes_amendment_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AudienceApi->modifyAudienceUsersWithAttributes: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **audience_id** | **int**| The id of the audience to amend |
+ **contactlist_with_attributes_amendment_request** | [**\criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest**](../Model/ContactlistWithAttributesAmendmentRequest.md)|  |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\ModifyAudienceResponse**](../Model/ModifyAudienceResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -333,7 +396,7 @@ Delete an audience by id
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: Authorization
+// Configure OAuth2 access token for authorization: oauth
 $config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -365,7 +428,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../../README.md#Authorization)
+[oauth](../../README.md#oauth)
 
 ### HTTP request headers
 

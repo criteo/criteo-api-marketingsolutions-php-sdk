@@ -4,9 +4,10 @@ All URIs are relative to https://api.criteo.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**apiPortfolioGet()**](AdvertiserApi.md#apiPortfolioGet) | **GET** /2021-04/advertisers/me | 
-[**getCategories()**](AdvertiserApi.md#getCategories) | **GET** /legacy/marketing/v1/advertisers/{advertiserId}/categories | Gets all advertiser&#39;s categories
-[**getCategory()**](AdvertiserApi.md#getCategory) | **GET** /legacy/marketing/v1/advertisers/{advertiserId}/categories/{categoryHashCode} | Gets a specific advertiser&#39;s category
+[**apiPortfolioGet()**](AdvertiserApi.md#apiPortfolioGet) | **GET** /preview/advertisers/me | 
+[**createAdvertiser()**](AdvertiserApi.md#createAdvertiser) | **POST** /preview/advertisers | 
+[**getDatasetList()**](AdvertiserApi.md#getDatasetList) | **GET** /preview/advertisers/{advertiser-id}/datasets | 
+[**listIndustries()**](AdvertiserApi.md#listIndustries) | **GET** /preview/industries | 
 
 
 ## `apiPortfolioGet()`
@@ -17,7 +18,7 @@ apiPortfolioGet(): \criteo\api\marketingsolutions\preview\Model\GetPortfolioResp
 
 
 
-Use this call to fetch a list of all advertisers in your account.
+Fetch the portfolio of Advertisers for this account
 
 ### Example
 
@@ -26,7 +27,7 @@ Use this call to fetch a list of all advertisers in your account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: Authorization
+// Configure OAuth2 access token for authorization: oauth
 $config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -55,26 +56,26 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Authorization](../../README.md#Authorization)
+[oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `text/plain`, `application/json`, `text/json`
+- **Accept**: `application/json`, `text/plain`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getCategories()`
+## `createAdvertiser()`
 
 ```php
-getCategories($advertiser_id, $enabled_only): \criteo\api\marketingsolutions\preview\Model\CategoryMessage[]
+createAdvertiser($advertiser_creation_request): \criteo\api\marketingsolutions\preview\Model\AdvertiserCreationResponse
 ```
 
-Gets all advertiser's categories
 
-Get the list of all the categories linked to the requested advertiser.
+
+Create a new advertiser based on provided parameters. This could take up to 30 seconds.
 
 ### Example
 
@@ -83,7 +84,7 @@ Get the list of all the categories linked to the requested advertiser.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: Authorization
+// Configure OAuth2 access token for authorization: oauth
 $config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -93,14 +94,13 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AdvertiserApi(
     new GuzzleHttp\Client(),
     $config
 );
-$advertiser_id = 56; // int | Mandatory. The id of the advertiser to return.
-$enabled_only = True; // bool | Optional. Returns only categories you can bid on. Defaults to false.
+$advertiser_creation_request = new \criteo\api\marketingsolutions\preview\Model\AdvertiserCreationRequest(); // \criteo\api\marketingsolutions\preview\Model\AdvertiserCreationRequest
 
 try {
-    $result = $apiInstance->getCategories($advertiser_id, $enabled_only);
+    $result = $apiInstance->createAdvertiser($advertiser_creation_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AdvertiserApi->getCategories: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AdvertiserApi->createAdvertiser: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -108,35 +108,34 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **advertiser_id** | **int**| Mandatory. The id of the advertiser to return. |
- **enabled_only** | **bool**| Optional. Returns only categories you can bid on. Defaults to false. | [optional]
+ **advertiser_creation_request** | [**\criteo\api\marketingsolutions\preview\Model\AdvertiserCreationRequest**](../Model/AdvertiserCreationRequest.md)|  |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\preview\Model\CategoryMessage[]**](../Model/CategoryMessage.md)
+[**\criteo\api\marketingsolutions\preview\Model\AdvertiserCreationResponse**](../Model/AdvertiserCreationResponse.md)
 
 ### Authorization
 
-[Authorization](../../README.md#Authorization)
+[oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `text/json`, `application/xml`, `text/xml`, `text/html`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Accept**: `application/json`, `text/plain`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getCategory()`
+## `getDatasetList()`
 
 ```php
-getCategory($advertiser_id, $category_hash_code): \criteo\api\marketingsolutions\preview\Model\CategoryMessage[]
+getDatasetList($advertiser_id): \criteo\api\marketingsolutions\preview\Model\AdvertiserDatasetListResponse
 ```
 
-Gets a specific advertiser's category
 
-Get a specific category linked to the requested advertiser.
+
+Retrieves corresponding Datasets for a given Advertiser. Only those Datasets are included for which the given Advertiser is marked a primary.
 
 ### Example
 
@@ -145,7 +144,7 @@ Get a specific category linked to the requested advertiser.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: Authorization
+// Configure OAuth2 access token for authorization: oauth
 $config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -155,14 +154,13 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AdvertiserApi(
     new GuzzleHttp\Client(),
     $config
 );
-$advertiser_id = 56; // int | Mandatory. The id of the advertiser to return.
-$category_hash_code = 56; // int | Mandatory. The id of the category to return.
+$advertiser_id = 'advertiser_id_example'; // string | The id of the Advertiser for which Datasets are being retrieved.
 
 try {
-    $result = $apiInstance->getCategory($advertiser_id, $category_hash_code);
+    $result = $apiInstance->getDatasetList($advertiser_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AdvertiserApi->getCategory: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AdvertiserApi->getDatasetList: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -170,21 +168,77 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **advertiser_id** | **int**| Mandatory. The id of the advertiser to return. |
- **category_hash_code** | **int**| Mandatory. The id of the category to return. |
+ **advertiser_id** | **string**| The id of the Advertiser for which Datasets are being retrieved. |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\preview\Model\CategoryMessage[]**](../Model/CategoryMessage.md)
+[**\criteo\api\marketingsolutions\preview\Model\AdvertiserDatasetListResponse**](../Model/AdvertiserDatasetListResponse.md)
 
 ### Authorization
 
-[Authorization](../../README.md#Authorization)
+[oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`, `text/json`, `application/xml`, `text/xml`, `text/html`
+- **Accept**: `application/json`, `text/plain`, `text/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listIndustries()`
+
+```php
+listIndustries(): \criteo\api\marketingsolutions\preview\Model\ListAvailableIndustriesResponse
+```
+
+
+
+Returns the list of available industries for new advertisers.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\AdvertiserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->listIndustries();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AdvertiserApi->listIndustries: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\ListAvailableIndustriesResponse**](../Model/ListAvailableIndustriesResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `text/plain`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

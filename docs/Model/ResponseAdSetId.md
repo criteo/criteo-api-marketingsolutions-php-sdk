@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\criteo\api\marketingsolutions\preview\Model\ReadModelAdSetId[]**](ReadModelAdSetId.md) |  | [optional] [readonly]
+**data** | [**\criteo\api\marketingsolutions\preview\Model\ReadModelAdSetId**](ReadModelAdSetId.md) |  | [optional]
 **warnings** | [**\criteo\api\marketingsolutions\preview\Model\ProblemDetails[]**](ProblemDetails.md) |  | [optional] [readonly]
 **errors** | [**\criteo\api\marketingsolutions\preview\Model\ProblemDetails[]**](ProblemDetails.md) |  | [optional] [readonly]
 
