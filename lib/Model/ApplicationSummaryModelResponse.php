@@ -1,6 +1,6 @@
 <?php
 /**
- * OAuth2Error
+ * ApplicationSummaryModelResponse
  *
  * PHP version 7.3
  *
@@ -32,10 +32,10 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2021_10\ObjectSerializer;
 
 /**
- * OAuth2Error Class Doc Comment
+ * ApplicationSummaryModelResponse Class Doc Comment
  *
  * @category Class
- * @description Represents an error response from an OAuth2 flow
+ * @description Response of ApplicationSummaryModel
  * @package  criteo\api\marketingsolutions\v2021_10
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +43,7 @@ use \criteo\api\marketingsolutions\v2021_10\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class OAuth2Error implements ModelInterface, ArrayAccess, \JsonSerializable
+class ApplicationSummaryModelResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class OAuth2Error implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'OAuth2Error';
+    protected static $openAPIModelName = 'ApplicationSummaryModelResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +60,9 @@ class OAuth2Error implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'error' => 'string',
-        'error_description' => 'string'
+        'data' => '\criteo\api\marketingsolutions\v2021_10\Model\ApplicationSummaryModelResource',
+        'warnings' => '\criteo\api\marketingsolutions\v2021_10\Model\CommonProblem[]',
+        'errors' => '\criteo\api\marketingsolutions\v2021_10\Model\CommonProblem[]'
     ];
 
     /**
@@ -72,8 +73,9 @@ class OAuth2Error implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'error' => null,
-        'error_description' => null
+        'data' => null,
+        'warnings' => null,
+        'errors' => null
     ];
 
     /**
@@ -103,8 +105,9 @@ class OAuth2Error implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'error' => 'error',
-        'error_description' => 'error_description'
+        'data' => 'data',
+        'warnings' => 'warnings',
+        'errors' => 'errors'
     ];
 
     /**
@@ -113,8 +116,9 @@ class OAuth2Error implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'error' => 'setError',
-        'error_description' => 'setErrorDescription'
+        'data' => 'setData',
+        'warnings' => 'setWarnings',
+        'errors' => 'setErrors'
     ];
 
     /**
@@ -123,8 +127,9 @@ class OAuth2Error implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'error' => 'getError',
-        'error_description' => 'getErrorDescription'
+        'data' => 'getData',
+        'warnings' => 'getWarnings',
+        'errors' => 'getErrors'
     ];
 
     /**
@@ -184,8 +189,9 @@ class OAuth2Error implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['error'] = $data['error'] ?? null;
-        $this->container['error_description'] = $data['error_description'] ?? null;
+        $this->container['data'] = $data['data'] ?? null;
+        $this->container['warnings'] = $data['warnings'] ?? null;
+        $this->container['errors'] = $data['errors'] ?? null;
     }
 
     /**
@@ -197,9 +203,6 @@ class OAuth2Error implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['error'] === null) {
-            $invalidProperties[] = "'error' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -216,49 +219,77 @@ class OAuth2Error implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets error
+     * Gets data
      *
-     * @return string
+     * @return \criteo\api\marketingsolutions\v2021_10\Model\ApplicationSummaryModelResource|null
      */
-    public function getError()
+    public function getData()
     {
-        return $this->container['error'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets error
+     * Sets data
      *
-     * @param string $error error
+     * @param \criteo\api\marketingsolutions\v2021_10\Model\ApplicationSummaryModelResource|null $data data
      *
      * @return self
      */
-    public function setError($error)
+    public function setData($data)
     {
-        $this->container['error'] = $error;
+        $this->container['data'] = $data;
 
         return $this;
     }
 
     /**
-     * Gets error_description
+     * Gets warnings
      *
-     * @return string|null
+     * @return \criteo\api\marketingsolutions\v2021_10\Model\CommonProblem[]|null
      */
-    public function getErrorDescription()
+    public function getWarnings()
     {
-        return $this->container['error_description'];
+        return $this->container['warnings'];
     }
 
     /**
-     * Sets error_description
+     * Sets warnings
      *
-     * @param string|null $error_description error_description
+     * @param \criteo\api\marketingsolutions\v2021_10\Model\CommonProblem[]|null $warnings warnings
      *
      * @return self
      */
-    public function setErrorDescription($error_description)
+    public function setWarnings($warnings)
     {
-        $this->container['error_description'] = $error_description;
+
+
+        $this->container['warnings'] = $warnings;
+
+        return $this;
+    }
+
+    /**
+     * Gets errors
+     *
+     * @return \criteo\api\marketingsolutions\v2021_10\Model\CommonProblem[]|null
+     */
+    public function getErrors()
+    {
+        return $this->container['errors'];
+    }
+
+    /**
+     * Sets errors
+     *
+     * @param \criteo\api\marketingsolutions\v2021_10\Model\CommonProblem[]|null $errors errors
+     *
+     * @return self
+     */
+    public function setErrors($errors)
+    {
+
+
+        $this->container['errors'] = $errors;
 
         return $this;
     }

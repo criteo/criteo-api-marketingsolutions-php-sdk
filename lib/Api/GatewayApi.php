@@ -1,6 +1,6 @@
 <?php
 /**
- * OAuthApi
+ * GatewayApi
  * PHP version 7.3
  *
  * @category Class
@@ -39,14 +39,14 @@ use criteo\api\marketingsolutions\v2021_10\HeaderSelector;
 use criteo\api\marketingsolutions\v2021_10\ObjectSerializer;
 
 /**
- * OAuthApi Class Doc Comment
+ * GatewayApi Class Doc Comment
  *
  * @category Class
  * @package  criteo\api\marketingsolutions\v2021_10
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class OAuthApi
+class GatewayApi
 {
     /**
      * @var ClientInterface
@@ -115,34 +115,30 @@ class OAuthApi
     }
 
     /**
-     * Operation clientCredentials
-     *
-     * Creates a token when the supplied client credentials are valid
+     * Operation getCurrentApplication
      *
      *
      * @throws \criteo\api\marketingsolutions\v2021_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\v2021_10\Model\AccessTokenModel|\criteo\api\marketingsolutions\v2021_10\Model\OAuthErrorModel|\criteo\api\marketingsolutions\v2021_10\Model\OAuthErrorModel
+     * @return \criteo\api\marketingsolutions\v2021_10\Model\ApplicationSummaryModelResponse
      */
-    public function clientCredentials()
+    public function getCurrentApplication()
     {
-        list($response) = $this->clientCredentialsWithHttpInfo();
+        list($response) = $this->getCurrentApplicationWithHttpInfo();
         return $response;
     }
 
     /**
-     * Operation clientCredentialsWithHttpInfo
-     *
-     * Creates a token when the supplied client credentials are valid
+     * Operation getCurrentApplicationWithHttpInfo
      *
      *
      * @throws \criteo\api\marketingsolutions\v2021_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\v2021_10\Model\AccessTokenModel|\criteo\api\marketingsolutions\v2021_10\Model\OAuthErrorModel|\criteo\api\marketingsolutions\v2021_10\Model\OAuthErrorModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\v2021_10\Model\ApplicationSummaryModelResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientCredentialsWithHttpInfo()
+    public function getCurrentApplicationWithHttpInfo()
     {
-        $request = $this->clientCredentialsRequest();
+        $request = $this->getCurrentApplicationRequest();
 
         try {
             $options = $this->createHttpClientOption();
@@ -174,44 +170,20 @@ class OAuthApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\criteo\api\marketingsolutions\v2021_10\Model\AccessTokenModel' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\v2021_10\Model\ApplicationSummaryModelResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2021_10\Model\AccessTokenModel', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\criteo\api\marketingsolutions\v2021_10\Model\OAuthErrorModel' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2021_10\Model\OAuthErrorModel', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\criteo\api\marketingsolutions\v2021_10\Model\OAuthErrorModel' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2021_10\Model\OAuthErrorModel', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2021_10\Model\ApplicationSummaryModelResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\criteo\api\marketingsolutions\v2021_10\Model\AccessTokenModel';
+            $returnType = '\criteo\api\marketingsolutions\v2021_10\Model\ApplicationSummaryModelResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -229,23 +201,7 @@ class OAuthApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\v2021_10\Model\AccessTokenModel',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\v2021_10\Model\OAuthErrorModel',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\v2021_10\Model\OAuthErrorModel',
+                        '\criteo\api\marketingsolutions\v2021_10\Model\ApplicationSummaryModelResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -256,17 +212,15 @@ class OAuthApi
     }
 
     /**
-     * Operation clientCredentialsAsync
-     *
-     * Creates a token when the supplied client credentials are valid
+     * Operation getCurrentApplicationAsync
      *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientCredentialsAsync()
+    public function getCurrentApplicationAsync()
     {
-        return $this->clientCredentialsAsyncWithHttpInfo()
+        return $this->getCurrentApplicationAsyncWithHttpInfo()
             ->then(
                 function ($response) {
                     return $response[0];
@@ -275,18 +229,16 @@ class OAuthApi
     }
 
     /**
-     * Operation clientCredentialsAsyncWithHttpInfo
-     *
-     * Creates a token when the supplied client credentials are valid
+     * Operation getCurrentApplicationAsyncWithHttpInfo
      *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientCredentialsAsyncWithHttpInfo()
+    public function getCurrentApplicationAsyncWithHttpInfo()
     {
-        $returnType = '\criteo\api\marketingsolutions\v2021_10\Model\AccessTokenModel';
-        $request = $this->clientCredentialsRequest();
+        $returnType = '\criteo\api\marketingsolutions\v2021_10\Model\ApplicationSummaryModelResponse';
+        $request = $this->getCurrentApplicationRequest();
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -322,16 +274,16 @@ class OAuthApi
     }
 
     /**
-     * Create request for operation 'clientCredentials'
+     * Create request for operation 'getCurrentApplication'
      *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function clientCredentialsRequest()
+    public function getCurrentApplicationRequest()
     {
 
-        $resourcePath = '/oauth2/token';
+        $resourcePath = '/me';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -344,11 +296,11 @@ class OAuthApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['text/plain', 'application/json', 'text/json']
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['text/plain', 'application/json', 'text/json'],
+                ['application/json'],
                 []
             );
         }
@@ -396,7 +348,7 @@ class OAuthApi
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
-            'POST',
+            'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

@@ -1,6 +1,6 @@
 <?php
 /**
- * JwtModel
+ * ApplicationSummaryModelResource
  *
  * PHP version 7.3
  *
@@ -32,9 +32,10 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2021_10\ObjectSerializer;
 
 /**
- * JwtModel Class Doc Comment
+ * ApplicationSummaryModelResource Class Doc Comment
  *
  * @category Class
+ * @description Resource of ApplicationSummaryModel
  * @package  criteo\api\marketingsolutions\v2021_10
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -42,7 +43,7 @@ use \criteo\api\marketingsolutions\v2021_10\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class JwtModel implements ModelInterface, ArrayAccess, \JsonSerializable
+class ApplicationSummaryModelResource implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +52,7 @@ class JwtModel implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'JwtModel';
+    protected static $openAPIModelName = 'ApplicationSummaryModelResource';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +60,9 @@ class JwtModel implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'access_token' => 'string',
-        'token_type' => 'string',
-        'expires_in' => 'int'
+        'id' => 'string',
+        'type' => 'string',
+        'attributes' => '\criteo\api\marketingsolutions\v2021_10\Model\ApplicationSummaryModel'
     ];
 
     /**
@@ -72,9 +73,9 @@ class JwtModel implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'access_token' => null,
-        'token_type' => null,
-        'expires_in' => 'int32'
+        'id' => null,
+        'type' => null,
+        'attributes' => null
     ];
 
     /**
@@ -104,9 +105,9 @@ class JwtModel implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'access_token' => 'access_token',
-        'token_type' => 'token_type',
-        'expires_in' => 'expires_in'
+        'id' => 'id',
+        'type' => 'type',
+        'attributes' => 'attributes'
     ];
 
     /**
@@ -115,9 +116,9 @@ class JwtModel implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'access_token' => 'setAccessToken',
-        'token_type' => 'setTokenType',
-        'expires_in' => 'setExpiresIn'
+        'id' => 'setId',
+        'type' => 'setType',
+        'attributes' => 'setAttributes'
     ];
 
     /**
@@ -126,9 +127,9 @@ class JwtModel implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'access_token' => 'getAccessToken',
-        'token_type' => 'getTokenType',
-        'expires_in' => 'getExpiresIn'
+        'id' => 'getId',
+        'type' => 'getType',
+        'attributes' => 'getAttributes'
     ];
 
     /**
@@ -188,9 +189,9 @@ class JwtModel implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['access_token'] = $data['access_token'] ?? null;
-        $this->container['token_type'] = $data['token_type'] ?? null;
-        $this->container['expires_in'] = $data['expires_in'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
+        $this->container['type'] = $data['type'] ?? null;
+        $this->container['attributes'] = $data['attributes'] ?? null;
     }
 
     /**
@@ -218,73 +219,73 @@ class JwtModel implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets access_token
+     * Gets id
      *
      * @return string|null
      */
-    public function getAccessToken()
+    public function getId()
     {
-        return $this->container['access_token'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets access_token
+     * Sets id
      *
-     * @param string|null $access_token The access token issued by the authorization server.
+     * @param string|null $id id
      *
      * @return self
      */
-    public function setAccessToken($access_token)
+    public function setId($id)
     {
-        $this->container['access_token'] = $access_token;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets token_type
+     * Gets type
      *
      * @return string|null
      */
-    public function getTokenType()
+    public function getType()
     {
-        return $this->container['token_type'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets token_type
+     * Sets type
      *
-     * @param string|null $token_type The type of the token issued.
+     * @param string|null $type type
      *
      * @return self
      */
-    public function setTokenType($token_type)
+    public function setType($type)
     {
-        $this->container['token_type'] = $token_type;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets expires_in
+     * Gets attributes
      *
-     * @return int|null
+     * @return \criteo\api\marketingsolutions\v2021_10\Model\ApplicationSummaryModel|null
      */
-    public function getExpiresIn()
+    public function getAttributes()
     {
-        return $this->container['expires_in'];
+        return $this->container['attributes'];
     }
 
     /**
-     * Sets expires_in
+     * Sets attributes
      *
-     * @param int|null $expires_in The lifetime in seconds of the access token.For  example, the value \"3600\" denotes that the access token will  expire in one hour from the time the response was generated.  If omitted, the authorization server SHOULD provide the  expiration time via other means or document the default value.
+     * @param \criteo\api\marketingsolutions\v2021_10\Model\ApplicationSummaryModel|null $attributes attributes
      *
      * @return self
      */
-    public function setExpiresIn($expires_in)
+    public function setAttributes($attributes)
     {
-        $this->container['expires_in'] = $expires_in;
+        $this->container['attributes'] = $attributes;
 
         return $this;
     }

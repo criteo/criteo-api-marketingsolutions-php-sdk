@@ -1,4 +1,4 @@
-# # JwtModel
+# # AccessTokenModel
 
 ## Properties
 
