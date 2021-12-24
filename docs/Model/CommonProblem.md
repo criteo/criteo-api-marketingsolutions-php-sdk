@@ -11,6 +11,5 @@ Name | Type | Description | Notes
 **title** | **string** | A short human-readable description of the problem type | [optional]
 **detail** | **string** | A human-readable explanation specific to this occurrence of the problem | [optional]
 **source** | **array<string,string>** | A machine-readable structure to reference to the exact location(s) causing the error(s) | [optional]
-**stack_trace** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

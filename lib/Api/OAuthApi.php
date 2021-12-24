@@ -403,7 +403,7 @@ class OAuthApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['text/plain', 'application/json', 'text/json'],
-                ['multipart/form-data']
+                ['application/x-www-form-urlencoded']
             );
         }
 
