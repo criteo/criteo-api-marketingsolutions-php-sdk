@@ -53,9 +53,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grant_type** | **string**|  | [optional]
- **client_id** | **string**|  | [optional]
- **client_secret** | **string**|  | [optional]
+ **grant_type** | **string**|  |
+ **client_id** | **string**|  |
+ **client_secret** | **string**|  |
  **redirect_uri** | **string**|  | [optional]
  **code** | **string**|  | [optional]
  **refresh_token** | **string**|  | [optional]

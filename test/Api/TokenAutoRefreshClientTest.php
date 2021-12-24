@@ -50,7 +50,7 @@ class TokenAutoRefreshClientTest extends TestCase
 
         // Call Authentication endpoint which does not require Authorization header
         $response = (new criteo\api\marketingsolutions\v2021_10\Api\OAuthApi($mockClient))
-            ->createToken($this->clientId, $this->clientSecret, $this->grantType);
+            ->getToken($this->grantType, $this->clientId, $this->clientSecret);
 
 
         $this->assertInstanceOf('criteo\api\marketingsolutions\v2021_10\Model\JwtModel', $response);
