@@ -66,8 +66,7 @@ class CommonProblem implements ModelInterface, ArrayAccess, \JsonSerializable
         'instance' => 'string',
         'title' => 'string',
         'detail' => 'string',
-        'source' => 'array<string,string>',
-        'stack_trace' => 'string'
+        'source' => 'array<string,string>'
     ];
 
     /**
@@ -84,8 +83,7 @@ class CommonProblem implements ModelInterface, ArrayAccess, \JsonSerializable
         'instance' => null,
         'title' => null,
         'detail' => null,
-        'source' => null,
-        'stack_trace' => null
+        'source' => null
     ];
 
     /**
@@ -115,14 +113,13 @@ class CommonProblem implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'trace_identifier' => 'traceIdentifier',
-        'type' => 'type',
-        'code' => 'code',
-        'instance' => 'instance',
-        'title' => 'title',
-        'detail' => 'detail',
-        'source' => 'source',
-        'stack_trace' => 'stackTrace'
+        'trace_identifier' => 'TraceIdentifier',
+        'type' => 'Type',
+        'code' => 'Code',
+        'instance' => 'Instance',
+        'title' => 'Title',
+        'detail' => 'Detail',
+        'source' => 'Source'
     ];
 
     /**
@@ -137,8 +134,7 @@ class CommonProblem implements ModelInterface, ArrayAccess, \JsonSerializable
         'instance' => 'setInstance',
         'title' => 'setTitle',
         'detail' => 'setDetail',
-        'source' => 'setSource',
-        'stack_trace' => 'setStackTrace'
+        'source' => 'setSource'
     ];
 
     /**
@@ -153,8 +149,7 @@ class CommonProblem implements ModelInterface, ArrayAccess, \JsonSerializable
         'instance' => 'getInstance',
         'title' => 'getTitle',
         'detail' => 'getDetail',
-        'source' => 'getSource',
-        'stack_trace' => 'getStackTrace'
+        'source' => 'getSource'
     ];
 
     /**
@@ -248,7 +243,6 @@ class CommonProblem implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['title'] = $data['title'] ?? null;
         $this->container['detail'] = $data['detail'] ?? null;
         $this->container['source'] = $data['source'] ?? null;
-        $this->container['stack_trace'] = $data['stack_trace'] ?? null;
     }
 
     /**
@@ -458,30 +452,6 @@ class CommonProblem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSource($source)
     {
         $this->container['source'] = $source;
-
-        return $this;
-    }
-
-    /**
-     * Gets stack_trace
-     *
-     * @return string|null
-     */
-    public function getStackTrace()
-    {
-        return $this->container['stack_trace'];
-    }
-
-    /**
-     * Sets stack_trace
-     *
-     * @param string|null $stack_trace stack_trace
-     *
-     * @return self
-     */
-    public function setStackTrace($stack_trace)
-    {
-        $this->container['stack_trace'] = $stack_trace;
 
         return $this;
     }
