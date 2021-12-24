@@ -62,6 +62,7 @@ class AccessTokenModel implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'access_token' => 'string',
         'token_type' => 'string',
+        'refresh_token' => 'string',
         'expires_in' => 'int'
     ];
 
@@ -75,6 +76,7 @@ class AccessTokenModel implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'access_token' => null,
         'token_type' => null,
+        'refresh_token' => null,
         'expires_in' => 'int32'
     ];
 
@@ -107,6 +109,7 @@ class AccessTokenModel implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'access_token' => 'access_token',
         'token_type' => 'token_type',
+        'refresh_token' => 'refresh_token',
         'expires_in' => 'expires_in'
     ];
 
@@ -118,6 +121,7 @@ class AccessTokenModel implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'access_token' => 'setAccessToken',
         'token_type' => 'setTokenType',
+        'refresh_token' => 'setRefreshToken',
         'expires_in' => 'setExpiresIn'
     ];
 
@@ -129,6 +133,7 @@ class AccessTokenModel implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'access_token' => 'getAccessToken',
         'token_type' => 'getTokenType',
+        'refresh_token' => 'getRefreshToken',
         'expires_in' => 'getExpiresIn'
     ];
 
@@ -191,6 +196,7 @@ class AccessTokenModel implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['access_token'] = $data['access_token'] ?? null;
         $this->container['token_type'] = $data['token_type'] ?? null;
+        $this->container['refresh_token'] = $data['refresh_token'] ?? null;
         $this->container['expires_in'] = $data['expires_in'] ?? null;
     }
 
@@ -262,6 +268,30 @@ class AccessTokenModel implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTokenType($token_type)
     {
         $this->container['token_type'] = $token_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets refresh_token
+     *
+     * @return string|null
+     */
+    public function getRefreshToken()
+    {
+        return $this->container['refresh_token'];
+    }
+
+    /**
+     * Sets refresh_token
+     *
+     * @param string|null $refresh_token The refresh token issued by the authorization server.  ///
+     *
+     * @return self
+     */
+    public function setRefreshToken($refresh_token)
+    {
+        $this->container['refresh_token'] = $refresh_token;
 
         return $this;
     }

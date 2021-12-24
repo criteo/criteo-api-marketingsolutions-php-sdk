@@ -115,34 +115,46 @@ class OAuthApi
     }
 
     /**
-     * Operation clientCredentials
+     * Operation getToken
      *
-     * Creates a token when the supplied client credentials are valid
+     * Creates a token based either on supplied client credentials or on single use authorization code
      *
+     * @param  string $grant_type grant_type (optional)
+     * @param  string $client_id client_id (optional)
+     * @param  string $client_secret client_secret (optional)
+     * @param  string $redirect_uri redirect_uri (optional)
+     * @param  string $code code (optional)
+     * @param  string $refresh_token refresh_token (optional)
      *
      * @throws \criteo\api\marketingsolutions\v2021_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\v2021_10\Model\AccessTokenModel|\criteo\api\marketingsolutions\v2021_10\Model\OAuthErrorModel|\criteo\api\marketingsolutions\v2021_10\Model\OAuthErrorModel
      */
-    public function clientCredentials()
+    public function getToken($grant_type = null, $client_id = null, $client_secret = null, $redirect_uri = null, $code = null, $refresh_token = null)
     {
-        list($response) = $this->clientCredentialsWithHttpInfo();
+        list($response) = $this->getTokenWithHttpInfo($grant_type, $client_id, $client_secret, $redirect_uri, $code, $refresh_token);
         return $response;
     }
 
     /**
-     * Operation clientCredentialsWithHttpInfo
+     * Operation getTokenWithHttpInfo
      *
-     * Creates a token when the supplied client credentials are valid
+     * Creates a token based either on supplied client credentials or on single use authorization code
      *
+     * @param  string $grant_type (optional)
+     * @param  string $client_id (optional)
+     * @param  string $client_secret (optional)
+     * @param  string $redirect_uri (optional)
+     * @param  string $code (optional)
+     * @param  string $refresh_token (optional)
      *
      * @throws \criteo\api\marketingsolutions\v2021_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\v2021_10\Model\AccessTokenModel|\criteo\api\marketingsolutions\v2021_10\Model\OAuthErrorModel|\criteo\api\marketingsolutions\v2021_10\Model\OAuthErrorModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientCredentialsWithHttpInfo()
+    public function getTokenWithHttpInfo($grant_type = null, $client_id = null, $client_secret = null, $redirect_uri = null, $code = null, $refresh_token = null)
     {
-        $request = $this->clientCredentialsRequest();
+        $request = $this->getTokenRequest($grant_type, $client_id, $client_secret, $redirect_uri, $code, $refresh_token);
 
         try {
             $options = $this->createHttpClientOption();
@@ -256,17 +268,23 @@ class OAuthApi
     }
 
     /**
-     * Operation clientCredentialsAsync
+     * Operation getTokenAsync
      *
-     * Creates a token when the supplied client credentials are valid
+     * Creates a token based either on supplied client credentials or on single use authorization code
      *
+     * @param  string $grant_type (optional)
+     * @param  string $client_id (optional)
+     * @param  string $client_secret (optional)
+     * @param  string $redirect_uri (optional)
+     * @param  string $code (optional)
+     * @param  string $refresh_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientCredentialsAsync()
+    public function getTokenAsync($grant_type = null, $client_id = null, $client_secret = null, $redirect_uri = null, $code = null, $refresh_token = null)
     {
-        return $this->clientCredentialsAsyncWithHttpInfo()
+        return $this->getTokenAsyncWithHttpInfo($grant_type, $client_id, $client_secret, $redirect_uri, $code, $refresh_token)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -275,18 +293,24 @@ class OAuthApi
     }
 
     /**
-     * Operation clientCredentialsAsyncWithHttpInfo
+     * Operation getTokenAsyncWithHttpInfo
      *
-     * Creates a token when the supplied client credentials are valid
+     * Creates a token based either on supplied client credentials or on single use authorization code
      *
+     * @param  string $grant_type (optional)
+     * @param  string $client_id (optional)
+     * @param  string $client_secret (optional)
+     * @param  string $redirect_uri (optional)
+     * @param  string $code (optional)
+     * @param  string $refresh_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientCredentialsAsyncWithHttpInfo()
+    public function getTokenAsyncWithHttpInfo($grant_type = null, $client_id = null, $client_secret = null, $redirect_uri = null, $code = null, $refresh_token = null)
     {
         $returnType = '\criteo\api\marketingsolutions\v2021_10\Model\AccessTokenModel';
-        $request = $this->clientCredentialsRequest();
+        $request = $this->getTokenRequest($grant_type, $client_id, $client_secret, $redirect_uri, $code, $refresh_token);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -322,13 +346,19 @@ class OAuthApi
     }
 
     /**
-     * Create request for operation 'clientCredentials'
+     * Create request for operation 'getToken'
      *
+     * @param  string $grant_type (optional)
+     * @param  string $client_id (optional)
+     * @param  string $client_secret (optional)
+     * @param  string $redirect_uri (optional)
+     * @param  string $code (optional)
+     * @param  string $refresh_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function clientCredentialsRequest()
+    public function getTokenRequest($grant_type = null, $client_id = null, $client_secret = null, $redirect_uri = null, $code = null, $refresh_token = null)
     {
 
         $resourcePath = '/oauth2/token';
@@ -341,6 +371,30 @@ class OAuthApi
 
 
 
+        // form params
+        if ($grant_type !== null) {
+            $formParams['grant_type'] = ObjectSerializer::toFormValue($grant_type);
+        }
+        // form params
+        if ($client_id !== null) {
+            $formParams['client_id'] = ObjectSerializer::toFormValue($client_id);
+        }
+        // form params
+        if ($client_secret !== null) {
+            $formParams['client_secret'] = ObjectSerializer::toFormValue($client_secret);
+        }
+        // form params
+        if ($redirect_uri !== null) {
+            $formParams['redirect_uri'] = ObjectSerializer::toFormValue($redirect_uri);
+        }
+        // form params
+        if ($code !== null) {
+            $formParams['code'] = ObjectSerializer::toFormValue($code);
+        }
+        // form params
+        if ($refresh_token !== null) {
+            $formParams['refresh_token'] = ObjectSerializer::toFormValue($refresh_token);
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -349,7 +403,7 @@ class OAuthApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['text/plain', 'application/json', 'text/json'],
-                []
+                ['multipart/form-data']
             );
         }
 

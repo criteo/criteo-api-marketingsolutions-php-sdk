@@ -4,16 +4,16 @@ All URIs are relative to https://api.criteo.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**clientCredentials()**](OAuthApi.md#clientCredentials) | **POST** /oauth2/token | Creates a token when the supplied client credentials are valid
+[**getToken()**](OAuthApi.md#getToken) | **POST** /oauth2/token | Creates a token based either on supplied client credentials or on single use authorization code
 
 
-## `clientCredentials()`
+## `getToken()`
 
 ```php
-clientCredentials(): \criteo\api\marketingsolutions\v2021_10\Model\AccessTokenModel
+getToken($grant_type, $client_id, $client_secret, $redirect_uri, $code, $refresh_token): \criteo\api\marketingsolutions\v2021_10\Model\AccessTokenModel
 ```
 
-Creates a token when the supplied client credentials are valid
+Creates a token based either on supplied client credentials or on single use authorization code
 
 Creates a token when the supplied client credentials are valid
 
@@ -34,18 +34,31 @@ $apiInstance = new criteo\api\marketingsolutions\v2021_10\Api\OAuthApi(
     new GuzzleHttp\Client(),
     $config
 );
+$grant_type = 'grant_type_example'; // string
+$client_id = 'client_id_example'; // string
+$client_secret = 'client_secret_example'; // string
+$redirect_uri = 'redirect_uri_example'; // string
+$code = 'code_example'; // string
+$refresh_token = 'refresh_token_example'; // string
 
 try {
-    $result = $apiInstance->clientCredentials();
+    $result = $apiInstance->getToken($grant_type, $client_id, $client_secret, $redirect_uri, $code, $refresh_token);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OAuthApi->clientCredentials: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OAuthApi->getToken: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
 ### Parameters
 
-This endpoint does not need any parameter.
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **grant_type** | **string**|  | [optional]
+ **client_id** | **string**|  | [optional]
+ **client_secret** | **string**|  | [optional]
+ **redirect_uri** | **string**|  | [optional]
+ **code** | **string**|  | [optional]
+ **refresh_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -57,7 +70,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `multipart/form-data`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
