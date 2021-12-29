@@ -2,14 +2,13 @@
 
 use criteo\api\marketingsolutions\preview\Configuration;
 use criteo\api\marketingsolutions\preview\ObjectSerializer;
-use criteo\api\marketingsolutions\preview\ClientCredentialsClient;
-use criteo\api\marketingsolutions\preview\Model\AccessTokenModel;
+use criteo\api\marketingsolutions\preview\TokenAutoRefreshClient;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\Uri;
 use PHPUnit\Framework\TestCase;
 
-class ClientCredentialsClientTest extends TestCase
+class TokenAutoRefreshClientTest extends TestCase
 {
     private $server = 'api.criteo.com';
     private $userAgent = 'OpenAPI-Generator/1.0.0/PHP';
@@ -33,7 +32,7 @@ class ClientCredentialsClientTest extends TestCase
     {
         $token = "ValidNt6YdhrsgtwTasFWqO2gBr840";
 
-        $mockClient = Mockery::mock(ClientCredentialsClient::class);
+        $mockClient = Mockery::mock(TokenAutoRefreshClient::class);
         $mockClient->shouldReceive('send')
             ->once()
             ->with(Mockery::on(function ($req) {
@@ -51,9 +50,10 @@ class ClientCredentialsClientTest extends TestCase
 
         // Call Authentication endpoint which does not require Authorization header
         $response = (new criteo\api\marketingsolutions\preview\Api\OAuthApi($mockClient))
-            ->getToken('client_credentials', $this->clientId, $this->clientSecret, $this->grantType);
+            ->getToken($this->grantType, $this->clientId, $this->clientSecret);
 
-        $this->assertInstanceOf(AccessTokenModel::class, $response);
+
+        $this->assertInstanceOf('criteo\api\marketingsolutions\preview\Model\JwtModel', $response);
         $this->assertEquals($token, $response->getAccessToken());
     }
 
@@ -68,7 +68,9 @@ class ClientCredentialsClientTest extends TestCase
         $client = $this->setupMockClient($targetPath, $this->freshToken, $responseFromOAuthEndpoint);
         $request = $this->aRequest($expiredToken, $targetPath);
 
+
         $response = $client->send($request);
+
 
         $this->assertEquals(200, $response->getStatusCode());
     }
@@ -87,12 +89,14 @@ class ClientCredentialsClientTest extends TestCase
             ->withAnyArgs()
             ->andReturnUsing($responseFromTargetEndpoint);
 
-        $client = new ClientCredentialsClient($this->clientId, $this->clientSecret, $mockDelegateClient);
+        $client = new TokenAutoRefreshClient($this->clientId, $this->clientSecret, $mockDelegateClient);
         // set a valid token
-        $client->setToken(new ClientCredentialsClient\Token($this->freshToken, 299));
+        $client->setToken(new TokenAutoRefreshClient\Token($this->freshToken, 299));
         $request = $this->aRequest($this->freshToken, $targetPath);
 
+
         $response = $client->send($request);
+
 
         $this->assertEquals(200, $response->getStatusCode());
     }
@@ -107,10 +111,12 @@ class ClientCredentialsClientTest extends TestCase
         };
         $targetPath = 'v1/valid/endpoint';
         $client = $this->setupMockClient($targetPath, $this->freshToken, $responseFromOAuthEndpoint);
-        $client->setToken(new ClientCredentialsClient\Token($aboutToExpireToken, $expiresInSeconds));
+        $client->setToken(new TokenAutoRefreshClient\Token($aboutToExpireToken, $expiresInSeconds));
         $request = $this->aRequest($aboutToExpireToken, $targetPath);
 
+
         $response = $client->send($request);
+
 
         $this->assertEquals(200, $response->getStatusCode());
     }
@@ -125,11 +131,12 @@ class ClientCredentialsClientTest extends TestCase
         $client = $this->setupMockClient($targetPath, $this->freshToken, $responseFromOAuthEndpoint);
         $request = $this->aRequest($expiredToken, $targetPath);
 
+
         $this->expectException(Exception::class);
         $client->send($request);
     }
 
-    private function setupMockClient($targetPath, $freshToken, Closure $responseFromOAuthEndpoint): ClientCredentialsClient
+    private function setupMockClient($targetPath, $freshToken, Closure $responseFromOAuthEndpoint): TokenAutoRefreshClient
     {
         $responseFromTargetEndpoint = function ($req) use ($targetPath, $freshToken) {
             $this->assertStringContainsString($targetPath, $req->getUri()->getPath());
@@ -142,7 +149,7 @@ class ClientCredentialsClientTest extends TestCase
             ->withAnyArgs()
             ->andReturnUsing($responseFromOAuthEndpoint, $responseFromTargetEndpoint);
 
-        return new ClientCredentialsClient($this->clientId, $this->clientSecret, $mockDelegateClient);
+        return new TokenAutoRefreshClient($this->clientId, $this->clientSecret, $mockDelegateClient);
     }
 
     private function oAuthValidResponse($validToken = null): Response
@@ -196,4 +203,5 @@ class ClientCredentialsClientTest extends TestCase
         return $request;
     }
 }
+
 ?>

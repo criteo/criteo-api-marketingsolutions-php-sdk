@@ -13,12 +13,11 @@
     </testsuites>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./lib\/Api</directory>
-            <directory suffix=".php">./lib\/Model</directory>
+            <directory suffix=".php">./lib/Api</directory>
+            <directory suffix=".php">./lib/Model</directory>
         </whitelist>
     </filter>
     <php>
-        <ini name="error_reporting" value="E_ALL &amp; ~E_NOTICE &amp; ~E_DEPRECATED" />
-        <env name="SYMFONY_DEPRECATIONS_HELPER" value="disabled"/>
+        <ini name="error_reporting" value="E_ALL" />
     </php>
 </phpunit>
