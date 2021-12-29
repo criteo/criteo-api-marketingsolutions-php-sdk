@@ -104,6 +104,7 @@ lib/Api/CampaignApi.php
 lib/Api/GatewayApi.php
 lib/Api/OAuthApi.php
 lib/ApiException.php
+lib/ClientCredentialsClient.php
 lib/Configuration.php
 lib/HeaderSelector.php
 lib/Model/AccessTokenModel.php
@@ -194,6 +195,7 @@ lib/Model/TransparencyReportFile.php
 lib/Model/WriteModelAdSetId.php
 lib/Model/WriteModelPatchAdSet.php
 lib/ObjectSerializer.php
-lib/TokenAutoRefreshClient.php
 phpunit.xml.dist
-test/Api/TokenAutoRefreshClientTest.php
+test/Api/ClientCredentialsClientTest.php
+test/Api/GatewayApiTest.php
+test/Api/OAuthApiTest.php
