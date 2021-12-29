@@ -1,9 +1,9 @@
 <?php
+
 namespace criteo\api\marketingsolutions\v2021_10;
 
-use criteo\api\marketingsolutions\v2021_10\ApiException;
 use criteo\api\marketingsolutions\v2021_10\Api\OAuthApi;
-use criteo\api\marketingsolutions\v2021_10\ClientCredentialsClient\Token;
+use criteo\api\marketingsolutions\v2021_10\TokenAutoRefreshClient\Token;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\RequestInterface;
@@ -14,7 +14,7 @@ use Psr\Http\Message\UriInterface;
 define("AUTHORIZATION", 'Authorization');
 define("GRANT_TYPE", 'client_credentials');
 
-class ClientCredentialsClient implements \GuzzleHttp\ClientInterface
+class TokenAutoRefreshClient implements \GuzzleHttp\ClientInterface
 {
     /**
      * Delegate client that makes the call to the server
@@ -32,7 +32,7 @@ class ClientCredentialsClient implements \GuzzleHttp\ClientInterface
     private $clientSecret;
 
     /**
-     * ClientCredentialsClient constructor.
+     * TokenAutoRefreshClient constructor.
      * @param string $clientId used to get a token against Authentication API
      * @param string $clientSecret used to get a token against Authentication API
      * @param \GuzzleHttp\ClientInterface|null $client
@@ -165,7 +165,7 @@ class ClientCredentialsClient implements \GuzzleHttp\ClientInterface
             try {
                 $response = $this->oauthApi->getToken(GRANT_TYPE, $this->clientId, $this->clientSecret);
             } catch (ApiException $e) {
-                throw new ApiException('Cannot refresh token automatically.', $e->getCode(), $e->getResponseHeaders(), $e->getResponseBody());
+                throw new \Exception('Cannot refresh token automatically. Response from server: ' . $e->getCode() . ' - ' . $e->getResponseBody(), 0, $e);
             }
             $this->token = new Token($response->getAccessToken(), $response->getExpiresIn());
         }
@@ -175,7 +175,7 @@ class ClientCredentialsClient implements \GuzzleHttp\ClientInterface
     }
 }
 
-namespace criteo\api\marketingsolutions\v2021_10\ClientCredentialsClient;
+namespace criteo\api\marketingsolutions\v2021_10\TokenAutoRefreshClient;
 
 use DateTime;
 
