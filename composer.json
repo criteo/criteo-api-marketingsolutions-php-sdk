@@ -1,5 +1,5 @@
 {
-    "name": "criteo-api-marketingsolutions-sdk",
+    "name": "criteo/criteo-api-marketingsolutions-sdk",
     "description": "PHP SDK for Criteo API 0.0.211229 version",
     "keywords": [
         "criteo",
@@ -31,7 +31,8 @@
         "phpunit/phpunit": ">=7.4",
         "squizlabs/php_codesniffer": "~2.6",
         "friendsofphp/php-cs-fixer": "~2.12",
-        "mockery/mockery": "^1.3"
+        "mockery/mockery": "^1.3",
+        "jchook/phpunit-assert-throws": "^1.0"
     },
     "autoload": {
         "psr-4": { "criteo\\api\\marketingsolutions\\preview\\" : "lib/" }
