@@ -285,7 +285,7 @@ class AccessTokenModel implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets refresh_token
      *
-     * @param string|null $refresh_token The refresh token issued by the authorization server.  ///
+     * @param string|null $refresh_token The refresh token issued by the authorization server.
      *
      * @return self
      */
@@ -309,7 +309,7 @@ class AccessTokenModel implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets expires_in
      *
-     * @param int|null $expires_in The lifetime in seconds of the access token.For  example, the value \"3600\" denotes that the access token will  expire in one hour from the time the response was generated.  If omitted, the authorization server SHOULD provide the  expiration time via other means or document the default value.
+     * @param int|null $expires_in The lifetime in seconds of the access token.For example, the value \"3600\" denotes that the access token will expire in one hour from the time the response was generated. If omitted, the authorization server SHOULD provide the expiration time via other means or document the default value.
      *
      * @return self
      */

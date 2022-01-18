@@ -129,7 +129,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$create_campaign_request = new \criteo\api\marketingsolutions\preview\Model\CreateCampaignRequest(); // \criteo\api\marketingsolutions\preview\Model\CreateCampaignRequest
+$create_campaign_request = new \criteo\api\marketingsolutions\preview\Model\CreateCampaignRequest(); // \criteo\api\marketingsolutions\preview\Model\CreateCampaignRequest | the campaigns to create
 
 try {
     $result = $apiInstance->createCampaign($create_campaign_request);
@@ -143,7 +143,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_campaign_request** | [**\criteo\api\marketingsolutions\preview\Model\CreateCampaignRequest**](../Model/CreateCampaignRequest.md)|  | [optional]
+ **create_campaign_request** | [**\criteo\api\marketingsolutions\preview\Model\CreateCampaignRequest**](../Model/CreateCampaignRequest.md)| the campaigns to create | [optional]
 
 ### Return type
 

@@ -369,7 +369,7 @@ class CampaignApi
     /**
      * Operation createCampaign
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\CreateCampaignRequest $create_campaign_request create_campaign_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\CreateCampaignRequest $create_campaign_request the campaigns to create (optional)
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -384,7 +384,7 @@ class CampaignApi
     /**
      * Operation createCampaignWithHttpInfo
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\CreateCampaignRequest $create_campaign_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\CreateCampaignRequest $create_campaign_request the campaigns to create (optional)
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -468,7 +468,7 @@ class CampaignApi
     /**
      * Operation createCampaignAsync
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\CreateCampaignRequest $create_campaign_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\CreateCampaignRequest $create_campaign_request the campaigns to create (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -486,7 +486,7 @@ class CampaignApi
     /**
      * Operation createCampaignAsyncWithHttpInfo
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\CreateCampaignRequest $create_campaign_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\CreateCampaignRequest $create_campaign_request the campaigns to create (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -532,7 +532,7 @@ class CampaignApi
     /**
      * Create request for operation 'createCampaign'
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\CreateCampaignRequest $create_campaign_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\CreateCampaignRequest $create_campaign_request the campaigns to create (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

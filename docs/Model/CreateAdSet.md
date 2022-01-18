@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **budget** | [**\criteo\api\marketingsolutions\preview\Model\CreateAdSetBudget**](CreateAdSetBudget.md) |  | [optional]
 **audience_configuration** | [**\criteo\api\marketingsolutions\preview\Model\CreateAdSetAudienceConfiguration**](CreateAdSetAudienceConfiguration.md) |  | [optional]
 **tracking_code** | **string** | The click tracking code associated to this Ad Set. | [optional]
+**media_type** | **string** | Media type for the ad set | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

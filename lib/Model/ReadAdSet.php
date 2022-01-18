@@ -68,7 +68,8 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'schedule' => '\criteo\api\marketingsolutions\preview\Model\ReadAdSetSchedule',
         'bidding' => '\criteo\api\marketingsolutions\preview\Model\ReadAdSetBidding',
         'targeting' => '\criteo\api\marketingsolutions\preview\Model\AdSetTargeting',
-        'budget' => '\criteo\api\marketingsolutions\preview\Model\ReadAdSetBudget'
+        'budget' => '\criteo\api\marketingsolutions\preview\Model\ReadAdSetBudget',
+        'media_type' => 'string'
     ];
 
     /**
@@ -87,7 +88,8 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'schedule' => null,
         'bidding' => null,
         'targeting' => null,
-        'budget' => null
+        'budget' => null,
+        'media_type' => null
     ];
 
     /**
@@ -125,7 +127,8 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'schedule' => 'schedule',
         'bidding' => 'bidding',
         'targeting' => 'targeting',
-        'budget' => 'budget'
+        'budget' => 'budget',
+        'media_type' => 'mediaType'
     ];
 
     /**
@@ -142,7 +145,8 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'schedule' => 'setSchedule',
         'bidding' => 'setBidding',
         'targeting' => 'setTargeting',
-        'budget' => 'setBudget'
+        'budget' => 'setBudget',
+        'media_type' => 'setMediaType'
     ];
 
     /**
@@ -159,7 +163,8 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'schedule' => 'getSchedule',
         'bidding' => 'getBidding',
         'targeting' => 'getTargeting',
-        'budget' => 'getBudget'
+        'budget' => 'getBudget',
+        'media_type' => 'getMediaType'
     ];
 
     /**
@@ -206,6 +211,8 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     const DESTINATION_ENVIRONMENT_UNDEFINED = 'undefined';
     const DESTINATION_ENVIRONMENT_WEB = 'web';
     const DESTINATION_ENVIRONMENT_APP = 'app';
+    const MEDIA_TYPE_DISPLAY = 'display';
+    const MEDIA_TYPE_VIDEO = 'video';
 
     /**
      * Gets allowable values of the enum
@@ -218,6 +225,19 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
             self::DESTINATION_ENVIRONMENT_UNDEFINED,
             self::DESTINATION_ENVIRONMENT_WEB,
             self::DESTINATION_ENVIRONMENT_APP,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMediaTypeAllowableValues()
+    {
+        return [
+            self::MEDIA_TYPE_DISPLAY,
+            self::MEDIA_TYPE_VIDEO,
         ];
     }
 
@@ -245,6 +265,7 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['bidding'] = $data['bidding'] ?? null;
         $this->container['targeting'] = $data['targeting'] ?? null;
         $this->container['budget'] = $data['budget'] ?? null;
+        $this->container['media_type'] = $data['media_type'] ?? null;
     }
 
     /**
@@ -261,6 +282,15 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'destination_environment', must be one of '%s'",
                 $this->container['destination_environment'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getMediaTypeAllowableValues();
+        if (!is_null($this->container['media_type']) && !in_array($this->container['media_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'media_type', must be one of '%s'",
+                $this->container['media_type'],
                 implode("', '", $allowedValues)
             );
         }
@@ -502,6 +532,40 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setBudget($budget)
     {
         $this->container['budget'] = $budget;
+
+        return $this;
+    }
+
+    /**
+     * Gets media_type
+     *
+     * @return string|null
+     */
+    public function getMediaType()
+    {
+        return $this->container['media_type'];
+    }
+
+    /**
+     * Sets media_type
+     *
+     * @param string|null $media_type Media type for the ad set
+     *
+     * @return self
+     */
+    public function setMediaType($media_type)
+    {
+        $allowedValues = $this->getMediaTypeAllowableValues();
+        if (!is_null($media_type) && !in_array($media_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'media_type', must be one of '%s'",
+                    $media_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['media_type'] = $media_type;
 
         return $this;
     }

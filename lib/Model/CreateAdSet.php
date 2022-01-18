@@ -68,7 +68,8 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'targeting' => '\criteo\api\marketingsolutions\preview\Model\CreateAdSetTargeting',
         'budget' => '\criteo\api\marketingsolutions\preview\Model\CreateAdSetBudget',
         'audience_configuration' => '\criteo\api\marketingsolutions\preview\Model\CreateAdSetAudienceConfiguration',
-        'tracking_code' => 'string'
+        'tracking_code' => 'string',
+        'media_type' => 'string'
     ];
 
     /**
@@ -87,7 +88,8 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'targeting' => null,
         'budget' => null,
         'audience_configuration' => null,
-        'tracking_code' => null
+        'tracking_code' => null,
+        'media_type' => null
     ];
 
     /**
@@ -125,7 +127,8 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'targeting' => 'targeting',
         'budget' => 'budget',
         'audience_configuration' => 'audienceConfiguration',
-        'tracking_code' => 'trackingCode'
+        'tracking_code' => 'trackingCode',
+        'media_type' => 'mediaType'
     ];
 
     /**
@@ -142,7 +145,8 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'targeting' => 'setTargeting',
         'budget' => 'setBudget',
         'audience_configuration' => 'setAudienceConfiguration',
-        'tracking_code' => 'setTrackingCode'
+        'tracking_code' => 'setTrackingCode',
+        'media_type' => 'setMediaType'
     ];
 
     /**
@@ -159,7 +163,8 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'targeting' => 'getTargeting',
         'budget' => 'getBudget',
         'audience_configuration' => 'getAudienceConfiguration',
-        'tracking_code' => 'getTrackingCode'
+        'tracking_code' => 'getTrackingCode',
+        'media_type' => 'getMediaType'
     ];
 
     /**
@@ -203,6 +208,21 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    const MEDIA_TYPE_DISPLAY = 'display';
+    const MEDIA_TYPE_VIDEO = 'video';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMediaTypeAllowableValues()
+    {
+        return [
+            self::MEDIA_TYPE_DISPLAY,
+            self::MEDIA_TYPE_VIDEO,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -228,6 +248,7 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['budget'] = $data['budget'] ?? null;
         $this->container['audience_configuration'] = $data['audience_configuration'] ?? null;
         $this->container['tracking_code'] = $data['tracking_code'] ?? null;
+        $this->container['media_type'] = $data['media_type'] ?? null;
     }
 
     /**
@@ -238,6 +259,15 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getMediaTypeAllowableValues();
+        if (!is_null($this->container['media_type']) && !in_array($this->container['media_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'media_type', must be one of '%s'",
+                $this->container['media_type'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -466,6 +496,40 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTrackingCode($tracking_code)
     {
         $this->container['tracking_code'] = $tracking_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets media_type
+     *
+     * @return string|null
+     */
+    public function getMediaType()
+    {
+        return $this->container['media_type'];
+    }
+
+    /**
+     * Sets media_type
+     *
+     * @param string|null $media_type Media type for the ad set
+     *
+     * @return self
+     */
+    public function setMediaType($media_type)
+    {
+        $allowedValues = $this->getMediaTypeAllowableValues();
+        if (!is_null($media_type) && !in_array($media_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'media_type', must be one of '%s'",
+                    $media_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['media_type'] = $media_type;
 
         return $this;
     }

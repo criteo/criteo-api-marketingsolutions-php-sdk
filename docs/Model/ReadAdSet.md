@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **bidding** | [**\criteo\api\marketingsolutions\preview\Model\ReadAdSetBidding**](ReadAdSetBidding.md) |  | [optional]
 **targeting** | [**\criteo\api\marketingsolutions\preview\Model\AdSetTargeting**](AdSetTargeting.md) |  | [optional]
 **budget** | [**\criteo\api\marketingsolutions\preview\Model\ReadAdSetBudget**](ReadAdSetBudget.md) |  | [optional]
+**media_type** | **string** | Media type for the ad set | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
