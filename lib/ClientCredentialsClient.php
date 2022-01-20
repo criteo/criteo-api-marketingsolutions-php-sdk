@@ -1,9 +1,9 @@
 <?php
-namespace criteo\api\marketingsolutions\preview;
+namespace criteo\api\marketingsolutions\v2022_01;
 
-use criteo\api\marketingsolutions\preview\ApiException;
-use criteo\api\marketingsolutions\preview\Api\OAuthApi;
-use criteo\api\marketingsolutions\preview\ClientCredentialsClient\Token;
+use criteo\api\marketingsolutions\v2022_01\ApiException;
+use criteo\api\marketingsolutions\v2022_01\Api\OAuthApi;
+use criteo\api\marketingsolutions\v2022_01\ClientCredentialsClient\Token;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\RequestInterface;
@@ -175,7 +175,7 @@ class ClientCredentialsClient implements \GuzzleHttp\ClientInterface
     }
 }
 
-namespace criteo\api\marketingsolutions\preview\ClientCredentialsClient;
+namespace criteo\api\marketingsolutions\v2022_01\ClientCredentialsClient;
 
 use DateTime;
 

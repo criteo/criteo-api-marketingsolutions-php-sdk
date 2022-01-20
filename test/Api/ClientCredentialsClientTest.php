@@ -1,9 +1,9 @@
 <?php
 
-use criteo\api\marketingsolutions\preview\Configuration;
-use criteo\api\marketingsolutions\preview\ObjectSerializer;
-use criteo\api\marketingsolutions\preview\ClientCredentialsClient;
-use criteo\api\marketingsolutions\preview\Model\AccessTokenModel;
+use criteo\api\marketingsolutions\v2022_01\Configuration;
+use criteo\api\marketingsolutions\v2022_01\ObjectSerializer;
+use criteo\api\marketingsolutions\v2022_01\ClientCredentialsClient;
+use criteo\api\marketingsolutions\v2022_01\Model\AccessTokenModel;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\Uri;
@@ -50,7 +50,7 @@ class ClientCredentialsClientTest extends TestCase
 
 
         // Call Authentication endpoint which does not require Authorization header
-        $response = (new criteo\api\marketingsolutions\preview\Api\OAuthApi($mockClient))
+        $response = (new criteo\api\marketingsolutions\v2022_01\Api\OAuthApi($mockClient))
             ->getToken('client_credentials', $this->clientId, $this->clientSecret, $this->grantType);
 
         $this->assertInstanceOf(AccessTokenModel::class, $response);
