@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **trace_id** | **string** |  | [optional] [readonly]
+**trace_identifier** | **string** |  | [optional] [readonly]
 **type** | **string** |  | [optional] [readonly]
 **code** | **string** |  | [optional] [readonly]
 **instance** | **string** |  | [optional] [readonly]

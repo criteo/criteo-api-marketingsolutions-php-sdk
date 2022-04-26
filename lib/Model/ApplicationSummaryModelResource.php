@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\v2022_01\ObjectSerializer;
  * ApplicationSummaryModelResource Class Doc Comment
  *
  * @category Class
- * @description Resource of ApplicationSummaryModel
+ * @description A class that represents a ValueType in a guild compliant way
  * @package  criteo\api\marketingsolutions\v2022_01
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -60,9 +60,8 @@ class ApplicationSummaryModelResource implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'attributes' => '\criteo\api\marketingsolutions\v2022_01\Model\ApplicationSummaryModel',
-        'id' => 'string',
-        'type' => 'string'
+        'type' => 'string',
+        'attributes' => '\criteo\api\marketingsolutions\v2022_01\Model\ApplicationSummaryModel'
     ];
 
     /**
@@ -73,9 +72,8 @@ class ApplicationSummaryModelResource implements ModelInterface, ArrayAccess, \J
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'attributes' => null,
-        'id' => null,
-        'type' => null
+        'type' => null,
+        'attributes' => null
     ];
 
     /**
@@ -105,9 +103,8 @@ class ApplicationSummaryModelResource implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $attributeMap = [
-        'attributes' => 'attributes',
-        'id' => 'id',
-        'type' => 'type'
+        'type' => 'type',
+        'attributes' => 'attributes'
     ];
 
     /**
@@ -116,9 +113,8 @@ class ApplicationSummaryModelResource implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $setters = [
-        'attributes' => 'setAttributes',
-        'id' => 'setId',
-        'type' => 'setType'
+        'type' => 'setType',
+        'attributes' => 'setAttributes'
     ];
 
     /**
@@ -127,9 +123,8 @@ class ApplicationSummaryModelResource implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $getters = [
-        'attributes' => 'getAttributes',
-        'id' => 'getId',
-        'type' => 'getType'
+        'type' => 'getType',
+        'attributes' => 'getAttributes'
     ];
 
     /**
@@ -189,9 +184,8 @@ class ApplicationSummaryModelResource implements ModelInterface, ArrayAccess, \J
      */
     public function __construct(array $data = null)
     {
-        $this->container['attributes'] = $data['attributes'] ?? null;
-        $this->container['id'] = $data['id'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
+        $this->container['attributes'] = $data['attributes'] ?? null;
     }
 
     /**
@@ -219,54 +213,6 @@ class ApplicationSummaryModelResource implements ModelInterface, ArrayAccess, \J
 
 
     /**
-     * Gets attributes
-     *
-     * @return \criteo\api\marketingsolutions\v2022_01\Model\ApplicationSummaryModel|null
-     */
-    public function getAttributes()
-    {
-        return $this->container['attributes'];
-    }
-
-    /**
-     * Sets attributes
-     *
-     * @param \criteo\api\marketingsolutions\v2022_01\Model\ApplicationSummaryModel|null $attributes attributes
-     *
-     * @return self
-     */
-    public function setAttributes($attributes)
-    {
-        $this->container['attributes'] = $attributes;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
      * Gets type
      *
      * @return string|null
@@ -286,6 +232,30 @@ class ApplicationSummaryModelResource implements ModelInterface, ArrayAccess, \J
     public function setType($type)
     {
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets attributes
+     *
+     * @return \criteo\api\marketingsolutions\v2022_01\Model\ApplicationSummaryModel|null
+     */
+    public function getAttributes()
+    {
+        return $this->container['attributes'];
+    }
+
+    /**
+     * Sets attributes
+     *
+     * @param \criteo\api\marketingsolutions\v2022_01\Model\ApplicationSummaryModel|null $attributes attributes
+     *
+     * @return self
+     */
+    public function setAttributes($attributes)
+    {
+        $this->container['attributes'] = $attributes;
 
         return $this;
     }

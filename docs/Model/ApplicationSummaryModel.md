@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**application_id** | **int** |  | [optional]
 **name** | **string** |  | [optional]
 **organization_id** | **int** |  | [optional]
 **description** | **string** |  | [optional]

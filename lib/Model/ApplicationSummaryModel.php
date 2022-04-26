@@ -60,6 +60,7 @@ class ApplicationSummaryModel implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
+        'application_id' => 'int',
         'name' => 'string',
         'organization_id' => 'int',
         'description' => 'string',
@@ -74,6 +75,7 @@ class ApplicationSummaryModel implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'application_id' => 'int32',
         'name' => null,
         'organization_id' => 'int32',
         'description' => null,
@@ -107,6 +109,7 @@ class ApplicationSummaryModel implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
+        'application_id' => 'applicationId',
         'name' => 'name',
         'organization_id' => 'organizationId',
         'description' => 'description',
@@ -119,6 +122,7 @@ class ApplicationSummaryModel implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
+        'application_id' => 'setApplicationId',
         'name' => 'setName',
         'organization_id' => 'setOrganizationId',
         'description' => 'setDescription',
@@ -131,6 +135,7 @@ class ApplicationSummaryModel implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
+        'application_id' => 'getApplicationId',
         'name' => 'getName',
         'organization_id' => 'getOrganizationId',
         'description' => 'getDescription',
@@ -194,6 +199,7 @@ class ApplicationSummaryModel implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
+        $this->container['application_id'] = $data['application_id'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['organization_id'] = $data['organization_id'] ?? null;
         $this->container['description'] = $data['description'] ?? null;
@@ -223,6 +229,30 @@ class ApplicationSummaryModel implements ModelInterface, ArrayAccess, \JsonSeria
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets application_id
+     *
+     * @return int|null
+     */
+    public function getApplicationId()
+    {
+        return $this->container['application_id'];
+    }
+
+    /**
+     * Sets application_id
+     *
+     * @param int|null $application_id application_id
+     *
+     * @return self
+     */
+    public function setApplicationId($application_id)
+    {
+        $this->container['application_id'] = $application_id;
+
+        return $this;
+    }
 
     /**
      * Gets name
