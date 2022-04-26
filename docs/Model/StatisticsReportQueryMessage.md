@@ -5,6 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **advertiser_ids** | **string** | The comma-separated list of advertiser ids. If empty, all the advertisers in the portfolio will be used | [optional]
+**ad_set_ids** | **string[]** | list of adSets ids. If empty, all the adSets will be fetched | [optional]
+**ad_set_names** | **string[]** | list of adSets names. If empty, all the adSets will be fetched | [optional]
+**ad_set_status** | **string[]** | list of adSets status. If empty, all the adSets will be fetched | [optional]
 **dimensions** | **string[]** | The dimensions for the report. |
 **metrics** | **string[]** | The list of metrics to report. |
 **currency** | **string** | The currency used for the report. ISO 4217 code (three-letter capitals). |
