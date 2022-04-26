@@ -61,6 +61,7 @@ class ErrorMessage implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'trace_id' => 'string',
+        'trace_identifier' => 'string',
         'type' => 'string',
         'code' => 'string',
         'instance' => 'string',
@@ -77,6 +78,7 @@ class ErrorMessage implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'trace_id' => 'uuid',
+        'trace_identifier' => null,
         'type' => null,
         'code' => null,
         'instance' => null,
@@ -112,6 +114,7 @@ class ErrorMessage implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'trace_id' => 'traceId',
+        'trace_identifier' => 'traceIdentifier',
         'type' => 'type',
         'code' => 'code',
         'instance' => 'instance',
@@ -126,6 +129,7 @@ class ErrorMessage implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'trace_id' => 'setTraceId',
+        'trace_identifier' => 'setTraceIdentifier',
         'type' => 'setType',
         'code' => 'setCode',
         'instance' => 'setInstance',
@@ -140,6 +144,7 @@ class ErrorMessage implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'trace_id' => 'getTraceId',
+        'trace_identifier' => 'getTraceIdentifier',
         'type' => 'getType',
         'code' => 'getCode',
         'instance' => 'getInstance',
@@ -205,6 +210,7 @@ class ErrorMessage implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['trace_id'] = $data['trace_id'] ?? null;
+        $this->container['trace_identifier'] = $data['trace_identifier'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
         $this->container['code'] = $data['code'] ?? null;
         $this->container['instance'] = $data['instance'] ?? null;
@@ -256,6 +262,30 @@ class ErrorMessage implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTraceId($trace_id)
     {
         $this->container['trace_id'] = $trace_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets trace_identifier
+     *
+     * @return string|null
+     */
+    public function getTraceIdentifier()
+    {
+        return $this->container['trace_identifier'];
+    }
+
+    /**
+     * Sets trace_identifier
+     *
+     * @param string|null $trace_identifier trace_identifier
+     *
+     * @return self
+     */
+    public function setTraceIdentifier($trace_identifier)
+    {
+        $this->container['trace_identifier'] = $trace_identifier;
 
         return $this;
     }

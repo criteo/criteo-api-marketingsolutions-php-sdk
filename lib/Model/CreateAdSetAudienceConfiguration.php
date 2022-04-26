@@ -63,9 +63,7 @@ class CreateAdSetAudienceConfiguration implements ModelInterface, ArrayAccess, \
         'min_days_since_last_visit' => 'int',
         'max_days_since_last_visit' => 'int',
         'excluded_audience_ids' => 'string[]',
-        'audience_similar' => '\criteo\api\marketingsolutions\preview\Model\AudienceSimilar',
         'audience_website_visitor' => '\criteo\api\marketingsolutions\preview\Model\AudienceWebsiteVisitor',
-        'audience_contact_list' => '\criteo\api\marketingsolutions\preview\Model\AudienceContactList',
         'audience_custom' => '\criteo\api\marketingsolutions\preview\Model\AudienceCustom'
     ];
 
@@ -80,9 +78,7 @@ class CreateAdSetAudienceConfiguration implements ModelInterface, ArrayAccess, \
         'min_days_since_last_visit' => 'int32',
         'max_days_since_last_visit' => 'int32',
         'excluded_audience_ids' => null,
-        'audience_similar' => null,
         'audience_website_visitor' => null,
-        'audience_contact_list' => null,
         'audience_custom' => null
     ];
 
@@ -116,9 +112,7 @@ class CreateAdSetAudienceConfiguration implements ModelInterface, ArrayAccess, \
         'min_days_since_last_visit' => 'minDaysSinceLastVisit',
         'max_days_since_last_visit' => 'maxDaysSinceLastVisit',
         'excluded_audience_ids' => 'excludedAudienceIds',
-        'audience_similar' => 'audienceSimilar',
         'audience_website_visitor' => 'audienceWebsiteVisitor',
-        'audience_contact_list' => 'audienceContactList',
         'audience_custom' => 'audienceCustom'
     ];
 
@@ -131,9 +125,7 @@ class CreateAdSetAudienceConfiguration implements ModelInterface, ArrayAccess, \
         'min_days_since_last_visit' => 'setMinDaysSinceLastVisit',
         'max_days_since_last_visit' => 'setMaxDaysSinceLastVisit',
         'excluded_audience_ids' => 'setExcludedAudienceIds',
-        'audience_similar' => 'setAudienceSimilar',
         'audience_website_visitor' => 'setAudienceWebsiteVisitor',
-        'audience_contact_list' => 'setAudienceContactList',
         'audience_custom' => 'setAudienceCustom'
     ];
 
@@ -146,9 +138,7 @@ class CreateAdSetAudienceConfiguration implements ModelInterface, ArrayAccess, \
         'min_days_since_last_visit' => 'getMinDaysSinceLastVisit',
         'max_days_since_last_visit' => 'getMaxDaysSinceLastVisit',
         'excluded_audience_ids' => 'getExcludedAudienceIds',
-        'audience_similar' => 'getAudienceSimilar',
         'audience_website_visitor' => 'getAudienceWebsiteVisitor',
-        'audience_contact_list' => 'getAudienceContactList',
         'audience_custom' => 'getAudienceCustom'
     ];
 
@@ -212,9 +202,7 @@ class CreateAdSetAudienceConfiguration implements ModelInterface, ArrayAccess, \
         $this->container['min_days_since_last_visit'] = $data['min_days_since_last_visit'] ?? null;
         $this->container['max_days_since_last_visit'] = $data['max_days_since_last_visit'] ?? null;
         $this->container['excluded_audience_ids'] = $data['excluded_audience_ids'] ?? null;
-        $this->container['audience_similar'] = $data['audience_similar'] ?? null;
         $this->container['audience_website_visitor'] = $data['audience_website_visitor'] ?? null;
-        $this->container['audience_contact_list'] = $data['audience_contact_list'] ?? null;
         $this->container['audience_custom'] = $data['audience_custom'] ?? null;
     }
 
@@ -317,30 +305,6 @@ class CreateAdSetAudienceConfiguration implements ModelInterface, ArrayAccess, \
     }
 
     /**
-     * Gets audience_similar
-     *
-     * @return \criteo\api\marketingsolutions\preview\Model\AudienceSimilar|null
-     */
-    public function getAudienceSimilar()
-    {
-        return $this->container['audience_similar'];
-    }
-
-    /**
-     * Sets audience_similar
-     *
-     * @param \criteo\api\marketingsolutions\preview\Model\AudienceSimilar|null $audience_similar audience_similar
-     *
-     * @return self
-     */
-    public function setAudienceSimilar($audience_similar)
-    {
-        $this->container['audience_similar'] = $audience_similar;
-
-        return $this;
-    }
-
-    /**
      * Gets audience_website_visitor
      *
      * @return \criteo\api\marketingsolutions\preview\Model\AudienceWebsiteVisitor|null
@@ -360,30 +324,6 @@ class CreateAdSetAudienceConfiguration implements ModelInterface, ArrayAccess, \
     public function setAudienceWebsiteVisitor($audience_website_visitor)
     {
         $this->container['audience_website_visitor'] = $audience_website_visitor;
-
-        return $this;
-    }
-
-    /**
-     * Gets audience_contact_list
-     *
-     * @return \criteo\api\marketingsolutions\preview\Model\AudienceContactList|null
-     */
-    public function getAudienceContactList()
-    {
-        return $this->container['audience_contact_list'];
-    }
-
-    /**
-     * Sets audience_contact_list
-     *
-     * @param \criteo\api\marketingsolutions\preview\Model\AudienceContactList|null $audience_contact_list audience_contact_list
-     *
-     * @return self
-     */
-    public function setAudienceContactList($audience_contact_list)
-    {
-        $this->container['audience_contact_list'] = $audience_contact_list;
 
         return $this;
     }

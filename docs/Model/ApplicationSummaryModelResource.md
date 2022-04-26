@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** |  | [optional]
 **type** | **string** |  | [optional]
 **attributes** | [**\criteo\api\marketingsolutions\preview\Model\ApplicationSummaryModel**](ApplicationSummaryModel.md) |  | [optional]
 

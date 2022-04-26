@@ -6,7 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getAdsetReport()**](AnalyticsApi.md#getAdsetReport) | **POST** /preview/statistics/report | 
 [**getCategoriesReport()**](AnalyticsApi.md#getCategoriesReport) | **POST** /preview/categories/report | 
+[**getCreativesReport()**](AnalyticsApi.md#getCreativesReport) | **POST** /preview/reports/creatives | 
 [**getPlacementsReport()**](AnalyticsApi.md#getPlacementsReport) | **POST** /preview/placements/report | 
+[**getTopProductsReport()**](AnalyticsApi.md#getTopProductsReport) | **POST** /preview/reports/top-products | 
 [**getTransactionsReport()**](AnalyticsApi.md#getTransactionsReport) | **POST** /preview/transactions/report | 
 [**getTransparencyReport()**](AnalyticsApi.md#getTransparencyReport) | **POST** /preview/log-level/advertisers/{advertiser-id}/report | 
 
@@ -131,6 +133,66 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getCreativesReport()`
+
+```php
+getCreativesReport($generate_creatives_report_request): \criteo\api\marketingsolutions\preview\Model\ReportDataMessage
+```
+
+
+
+With Creatives endpoint, you can analyse the daily performances of your creatives on the main metrics: clicks, ctr, displays.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$generate_creatives_report_request = new \criteo\api\marketingsolutions\preview\Model\GenerateCreativesReportRequest(); // \criteo\api\marketingsolutions\preview\Model\GenerateCreativesReportRequest
+
+try {
+    $result = $apiInstance->getCreativesReport($generate_creatives_report_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AnalyticsApi->getCreativesReport: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **generate_creatives_report_request** | [**\criteo\api\marketingsolutions\preview\Model\GenerateCreativesReportRequest**](../Model/GenerateCreativesReportRequest.md)|  | [optional]
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\ReportDataMessage**](../Model/ReportDataMessage.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Accept**: `text/plain`, `application/json`, `text/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getPlacementsReport()`
 
 ```php
@@ -177,6 +239,66 @@ Name | Type | Description  | Notes
 ### Return type
 
 **string**
+
+### Authorization
+
+[oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Accept**: `text/plain`, `application/json`, `text/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getTopProductsReport()`
+
+```php
+getTopProductsReport($generate_top_products_report_request): \criteo\api\marketingsolutions\preview\Model\ReportDataMessage
+```
+
+
+
+With the topProducts endpoint, you can analyse the performances for each publisher, by top displays, top clicks or top sales.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$generate_top_products_report_request = new \criteo\api\marketingsolutions\preview\Model\GenerateTopProductsReportRequest(); // \criteo\api\marketingsolutions\preview\Model\GenerateTopProductsReportRequest
+
+try {
+    $result = $apiInstance->getTopProductsReport($generate_top_products_report_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AnalyticsApi->getTopProductsReport: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **generate_top_products_report_request** | [**\criteo\api\marketingsolutions\preview\Model\GenerateTopProductsReportRequest**](../Model/GenerateTopProductsReportRequest.md)|  | [optional]
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\ReportDataMessage**](../Model/ReportDataMessage.md)
 
 ### Authorization
 

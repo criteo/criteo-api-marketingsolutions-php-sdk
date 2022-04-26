@@ -121,7 +121,7 @@ class OnSiteRecommendationApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return |\criteo\api\marketingsolutions\preview\Model\OnSiteRecoResponse
+     * @return \criteo\api\marketingsolutions\preview\Model\OnSiteRecoResponse
      */
     public function apiV1RecoPost($on_site_reco_request = null)
     {
@@ -136,7 +136,7 @@ class OnSiteRecommendationApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of |\criteo\api\marketingsolutions\preview\Model\OnSiteRecoResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\OnSiteRecoResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function apiV1RecoPostWithHttpInfo($on_site_reco_request = null)
     {

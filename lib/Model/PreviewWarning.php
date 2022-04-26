@@ -1,6 +1,6 @@
 <?php
 /**
- * AudienceContactList
+ * PreviewWarning
  *
  * PHP version 7.3
  *
@@ -32,10 +32,10 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * AudienceContactList Class Doc Comment
+ * PreviewWarning Class Doc Comment
  *
  * @category Class
- * @description contact audience configuration of the ad set
+ * @description Warning descriptor.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +43,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AudienceContactList implements ModelInterface, ArrayAccess, \JsonSerializable
+class PreviewWarning implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class AudienceContactList implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'AudienceContactList';
+    protected static $openAPIModelName = 'PreviewWarning';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +60,12 @@ class AudienceContactList implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'audience_id' => 'string',
-        'visitor_types' => 'string[]'
+        'trace_id' => 'string',
+        'type' => 'string',
+        'code' => 'string',
+        'instance' => 'string',
+        'title' => 'string',
+        'detail' => 'string'
     ];
 
     /**
@@ -72,8 +76,12 @@ class AudienceContactList implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'audience_id' => null,
-        'visitor_types' => null
+        'trace_id' => null,
+        'type' => null,
+        'code' => null,
+        'instance' => null,
+        'title' => null,
+        'detail' => null
     ];
 
     /**
@@ -103,8 +111,12 @@ class AudienceContactList implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'audience_id' => 'audienceId',
-        'visitor_types' => 'visitorTypes'
+        'trace_id' => 'traceId',
+        'type' => 'type',
+        'code' => 'code',
+        'instance' => 'instance',
+        'title' => 'title',
+        'detail' => 'detail'
     ];
 
     /**
@@ -113,8 +125,12 @@ class AudienceContactList implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'audience_id' => 'setAudienceId',
-        'visitor_types' => 'setVisitorTypes'
+        'trace_id' => 'setTraceId',
+        'type' => 'setType',
+        'code' => 'setCode',
+        'instance' => 'setInstance',
+        'title' => 'setTitle',
+        'detail' => 'setDetail'
     ];
 
     /**
@@ -123,8 +139,12 @@ class AudienceContactList implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'audience_id' => 'getAudienceId',
-        'visitor_types' => 'getVisitorTypes'
+        'trace_id' => 'getTraceId',
+        'type' => 'getType',
+        'code' => 'getCode',
+        'instance' => 'getInstance',
+        'title' => 'getTitle',
+        'detail' => 'getDetail'
     ];
 
     /**
@@ -168,25 +188,6 @@ class AudienceContactList implements ModelInterface, ArrayAccess, \JsonSerializa
         return self::$openAPIModelName;
     }
 
-    const VISITOR_TYPES_NON_VISITOR = 'nonVisitor';
-    const VISITOR_TYPES_HOME_PAGE_VISITOR = 'homePageVisitor';
-    const VISITOR_TYPES_VISITOR = 'visitor';
-    const VISITOR_TYPES_CUSTOMER = 'customer';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getVisitorTypesAllowableValues()
-    {
-        return [
-            self::VISITOR_TYPES_NON_VISITOR,
-            self::VISITOR_TYPES_HOME_PAGE_VISITOR,
-            self::VISITOR_TYPES_VISITOR,
-            self::VISITOR_TYPES_CUSTOMER,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -203,8 +204,12 @@ class AudienceContactList implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['audience_id'] = $data['audience_id'] ?? null;
-        $this->container['visitor_types'] = $data['visitor_types'] ?? null;
+        $this->container['trace_id'] = $data['trace_id'] ?? null;
+        $this->container['type'] = $data['type'] ?? null;
+        $this->container['code'] = $data['code'] ?? null;
+        $this->container['instance'] = $data['instance'] ?? null;
+        $this->container['title'] = $data['title'] ?? null;
+        $this->container['detail'] = $data['detail'] ?? null;
     }
 
     /**
@@ -216,6 +221,24 @@ class AudienceContactList implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
+        if ($this->container['trace_id'] === null) {
+            $invalidProperties[] = "'trace_id' can't be null";
+        }
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        if ($this->container['code'] === null) {
+            $invalidProperties[] = "'code' can't be null";
+        }
+        if ($this->container['instance'] === null) {
+            $invalidProperties[] = "'instance' can't be null";
+        }
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
+        }
+        if ($this->container['detail'] === null) {
+            $invalidProperties[] = "'detail' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -232,60 +255,145 @@ class AudienceContactList implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets audience_id
+     * Gets trace_id
      *
-     * @return string|null
+     * @return string
      */
-    public function getAudienceId()
+    public function getTraceId()
     {
-        return $this->container['audience_id'];
+        return $this->container['trace_id'];
     }
 
     /**
-     * Sets audience_id
+     * Sets trace_id
      *
-     * @param string|null $audience_id the id of the existing contact list audience for this ad set
+     * @param string $trace_id The MACHINE-READABLE correlation ID provided by the gateway
      *
      * @return self
      */
-    public function setAudienceId($audience_id)
+    public function setTraceId($trace_id)
     {
-        $this->container['audience_id'] = $audience_id;
+        $this->container['trace_id'] = $trace_id;
 
         return $this;
     }
 
     /**
-     * Gets visitor_types
+     * Gets type
      *
-     * @return string[]|null
+     * @return string
      */
-    public function getVisitorTypes()
+    public function getType()
     {
-        return $this->container['visitor_types'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets visitor_types
+     * Sets type
      *
-     * @param string[]|null $visitor_types the interaction required on the advertiser web site during the interval defined by daysSinceLastVistXXX fields for being part of the audience
+     * @param string $type A MACHINE-READABLE code specifying error category. This information is used on client side to focus on certain type of error, to either retry some processing or display only certain type of errors.
      *
      * @return self
      */
-    public function setVisitorTypes($visitor_types)
+    public function setType($type)
     {
-        $allowedValues = $this->getVisitorTypesAllowableValues();
-        if (!is_null($visitor_types) && array_diff($visitor_types, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'visitor_types', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
+        $this->container['type'] = $type;
 
+        return $this;
+    }
 
-        $this->container['visitor_types'] = $visitor_types;
+    /**
+     * Gets code
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->container['code'];
+    }
+
+    /**
+     * Sets code
+     *
+     * @param string $code A MACHINE-READABLE error code string in kebab-case. Unique across Criteo
+     *
+     * @return self
+     */
+    public function setCode($code)
+    {
+        $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance
+     *
+     * @return string
+     */
+    public function getInstance()
+    {
+        return $this->container['instance'];
+    }
+
+    /**
+     * Sets instance
+     *
+     * @param string $instance A MACHINE-READABLE URI reference that identifies the specific occurrence of the problem. This could be useful when we want to the return the API Endpoint identifying the exact resource related to the error.
+     *
+     * @return self
+     */
+    public function setInstance($instance)
+    {
+        $this->container['instance'] = $instance;
+
+        return $this;
+    }
+
+    /**
+     * Gets title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string $title A short, HUMAN-READABLE summary of the problem type. It should not change from occurrence to occurrence of the problem, except for purposes of localization.
+     *
+     * @return self
+     */
+    public function setTitle($title)
+    {
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets detail
+     *
+     * @return string
+     */
+    public function getDetail()
+    {
+        return $this->container['detail'];
+    }
+
+    /**
+     * Sets detail
+     *
+     * @param string $detail A HUMAN-READABLE detailed explanation specific to this occurrence of the problem. This should not be more that 1 paragraph
+     *
+     * @return self
+     */
+    public function setDetail($detail)
+    {
+        $this->container['detail'] = $detail;
 
         return $this;
     }

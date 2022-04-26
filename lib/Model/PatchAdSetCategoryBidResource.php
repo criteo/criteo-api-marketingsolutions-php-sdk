@@ -60,9 +60,9 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
+        'attributes' => '\criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBid',
         'id' => 'string',
-        'type' => 'string',
-        'attributes' => '\criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBid'
+        'type' => 'string'
     ];
 
     /**
@@ -73,9 +73,9 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'attributes' => null,
         'id' => null,
-        'type' => null,
-        'attributes' => null
+        'type' => null
     ];
 
     /**
@@ -105,9 +105,9 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $attributeMap = [
+        'attributes' => 'attributes',
         'id' => 'id',
-        'type' => 'type',
-        'attributes' => 'attributes'
+        'type' => 'type'
     ];
 
     /**
@@ -116,9 +116,9 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $setters = [
+        'attributes' => 'setAttributes',
         'id' => 'setId',
-        'type' => 'setType',
-        'attributes' => 'setAttributes'
+        'type' => 'setType'
     ];
 
     /**
@@ -127,9 +127,9 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $getters = [
+        'attributes' => 'getAttributes',
         'id' => 'getId',
-        'type' => 'getType',
-        'attributes' => 'getAttributes'
+        'type' => 'getType'
     ];
 
     /**
@@ -189,9 +189,9 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
      */
     public function __construct(array $data = null)
     {
+        $this->container['attributes'] = $data['attributes'] ?? null;
         $this->container['id'] = $data['id'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
-        $this->container['attributes'] = $data['attributes'] ?? null;
     }
 
     /**
@@ -217,6 +217,30 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets attributes
+     *
+     * @return \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBid|null
+     */
+    public function getAttributes()
+    {
+        return $this->container['attributes'];
+    }
+
+    /**
+     * Sets attributes
+     *
+     * @param \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBid|null $attributes attributes
+     *
+     * @return self
+     */
+    public function setAttributes($attributes)
+    {
+        $this->container['attributes'] = $attributes;
+
+        return $this;
+    }
 
     /**
      * Gets id
@@ -262,30 +286,6 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
     public function setType($type)
     {
         $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets attributes
-     *
-     * @return \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBid|null
-     */
-    public function getAttributes()
-    {
-        return $this->container['attributes'];
-    }
-
-    /**
-     * Sets attributes
-     *
-     * @param \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBid|null $attributes attributes
-     *
-     * @return self
-     */
-    public function setAttributes($attributes)
-    {
-        $this->container['attributes'] = $attributes;
 
         return $this;
     }

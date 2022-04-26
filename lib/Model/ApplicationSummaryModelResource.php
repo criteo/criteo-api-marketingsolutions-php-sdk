@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * ApplicationSummaryModelResource Class Doc Comment
  *
  * @category Class
- * @description Resource of ApplicationSummaryModel
+ * @description A class that represents a ValueType in a guild compliant way
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -60,7 +60,6 @@ class ApplicationSummaryModelResource implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
         'type' => 'string',
         'attributes' => '\criteo\api\marketingsolutions\preview\Model\ApplicationSummaryModel'
     ];
@@ -73,7 +72,6 @@ class ApplicationSummaryModelResource implements ModelInterface, ArrayAccess, \J
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'type' => null,
         'attributes' => null
     ];
@@ -105,7 +103,6 @@ class ApplicationSummaryModelResource implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'type' => 'type',
         'attributes' => 'attributes'
     ];
@@ -116,7 +113,6 @@ class ApplicationSummaryModelResource implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'type' => 'setType',
         'attributes' => 'setAttributes'
     ];
@@ -127,7 +123,6 @@ class ApplicationSummaryModelResource implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'type' => 'getType',
         'attributes' => 'getAttributes'
     ];
@@ -189,7 +184,6 @@ class ApplicationSummaryModelResource implements ModelInterface, ArrayAccess, \J
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = $data['id'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
         $this->container['attributes'] = $data['attributes'] ?? null;
     }
@@ -217,30 +211,6 @@ class ApplicationSummaryModelResource implements ModelInterface, ArrayAccess, \J
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets type

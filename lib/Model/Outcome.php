@@ -1,6 +1,6 @@
 <?php
 /**
- * AudienceSimilar
+ * Outcome
  *
  * PHP version 7.3
  *
@@ -32,10 +32,10 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * AudienceSimilar Class Doc Comment
+ * Outcome Class Doc Comment
  *
  * @category Class
- * @description similar audience configuration of the ad set
+ * @description A class implementing the body of a response without data of the Criteo API as described in API Guild Guidelines
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +43,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AudienceSimilar implements ModelInterface, ArrayAccess, \JsonSerializable
+class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class AudienceSimilar implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'AudienceSimilar';
+    protected static $openAPIModelName = 'Outcome';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +60,8 @@ class AudienceSimilar implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'audience_name' => 'string',
-        'visitor_types' => 'string[]'
+        'warnings' => '\criteo\api\marketingsolutions\preview\Model\ProblemDetails[]',
+        'errors' => '\criteo\api\marketingsolutions\preview\Model\ProblemDetails[]'
     ];
 
     /**
@@ -72,8 +72,8 @@ class AudienceSimilar implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'audience_name' => null,
-        'visitor_types' => null
+        'warnings' => null,
+        'errors' => null
     ];
 
     /**
@@ -103,8 +103,8 @@ class AudienceSimilar implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'audience_name' => 'audienceName',
-        'visitor_types' => 'visitorTypes'
+        'warnings' => 'warnings',
+        'errors' => 'errors'
     ];
 
     /**
@@ -113,8 +113,8 @@ class AudienceSimilar implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'audience_name' => 'setAudienceName',
-        'visitor_types' => 'setVisitorTypes'
+        'warnings' => 'setWarnings',
+        'errors' => 'setErrors'
     ];
 
     /**
@@ -123,8 +123,8 @@ class AudienceSimilar implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'audience_name' => 'getAudienceName',
-        'visitor_types' => 'getVisitorTypes'
+        'warnings' => 'getWarnings',
+        'errors' => 'getErrors'
     ];
 
     /**
@@ -168,25 +168,6 @@ class AudienceSimilar implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    const VISITOR_TYPES_NON_VISITOR = 'nonVisitor';
-    const VISITOR_TYPES_HOME_PAGE_VISITOR = 'homePageVisitor';
-    const VISITOR_TYPES_VISITOR = 'visitor';
-    const VISITOR_TYPES_CUSTOMER = 'customer';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getVisitorTypesAllowableValues()
-    {
-        return [
-            self::VISITOR_TYPES_NON_VISITOR,
-            self::VISITOR_TYPES_HOME_PAGE_VISITOR,
-            self::VISITOR_TYPES_VISITOR,
-            self::VISITOR_TYPES_CUSTOMER,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -203,8 +184,8 @@ class AudienceSimilar implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['audience_name'] = $data['audience_name'] ?? null;
-        $this->container['visitor_types'] = $data['visitor_types'] ?? null;
+        $this->container['warnings'] = $data['warnings'] ?? null;
+        $this->container['errors'] = $data['errors'] ?? null;
     }
 
     /**
@@ -232,60 +213,53 @@ class AudienceSimilar implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets audience_name
+     * Gets warnings
      *
-     * @return string|null
+     * @return \criteo\api\marketingsolutions\preview\Model\ProblemDetails[]|null
      */
-    public function getAudienceName()
+    public function getWarnings()
     {
-        return $this->container['audience_name'];
+        return $this->container['warnings'];
     }
 
     /**
-     * Sets audience_name
+     * Sets warnings
      *
-     * @param string|null $audience_name the name of the similar audience that will be created for this ad set
+     * @param \criteo\api\marketingsolutions\preview\Model\ProblemDetails[]|null $warnings warnings
      *
      * @return self
      */
-    public function setAudienceName($audience_name)
+    public function setWarnings($warnings)
     {
-        $this->container['audience_name'] = $audience_name;
+
+
+        $this->container['warnings'] = $warnings;
 
         return $this;
     }
 
     /**
-     * Gets visitor_types
+     * Gets errors
      *
-     * @return string[]|null
+     * @return \criteo\api\marketingsolutions\preview\Model\ProblemDetails[]|null
      */
-    public function getVisitorTypes()
+    public function getErrors()
     {
-        return $this->container['visitor_types'];
+        return $this->container['errors'];
     }
 
     /**
-     * Sets visitor_types
+     * Sets errors
      *
-     * @param string[]|null $visitor_types the interaction required on the advertiser web site during the interval defined by daysSinceLastVistXXX fields for being part of the audience. AdSetVisitorType.NonVisitor is automatically included for this audience configuration
+     * @param \criteo\api\marketingsolutions\preview\Model\ProblemDetails[]|null $errors errors
      *
      * @return self
      */
-    public function setVisitorTypes($visitor_types)
+    public function setErrors($errors)
     {
-        $allowedValues = $this->getVisitorTypesAllowableValues();
-        if (!is_null($visitor_types) && array_diff($visitor_types, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'visitor_types', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
 
 
-        $this->container['visitor_types'] = $visitor_types;
+        $this->container['errors'] = $errors;
 
         return $this;
     }

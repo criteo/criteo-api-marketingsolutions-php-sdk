@@ -61,6 +61,9 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
       */
     protected static $openAPITypes = [
         'advertiser_ids' => 'string',
+        'ad_set_ids' => 'string[]',
+        'ad_set_names' => 'string[]',
+        'ad_set_status' => 'string[]',
         'dimensions' => 'string[]',
         'metrics' => 'string[]',
         'currency' => 'string',
@@ -79,6 +82,9 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
       */
     protected static $openAPIFormats = [
         'advertiser_ids' => null,
+        'ad_set_ids' => null,
+        'ad_set_names' => null,
+        'ad_set_status' => null,
         'dimensions' => null,
         'metrics' => null,
         'currency' => null,
@@ -116,6 +122,9 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
      */
     protected static $attributeMap = [
         'advertiser_ids' => 'advertiserIds',
+        'ad_set_ids' => 'adSetIds',
+        'ad_set_names' => 'adSetNames',
+        'ad_set_status' => 'adSetStatus',
         'dimensions' => 'dimensions',
         'metrics' => 'metrics',
         'currency' => 'currency',
@@ -132,6 +141,9 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
      */
     protected static $setters = [
         'advertiser_ids' => 'setAdvertiserIds',
+        'ad_set_ids' => 'setAdSetIds',
+        'ad_set_names' => 'setAdSetNames',
+        'ad_set_status' => 'setAdSetStatus',
         'dimensions' => 'setDimensions',
         'metrics' => 'setMetrics',
         'currency' => 'setCurrency',
@@ -148,6 +160,9 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
      */
     protected static $getters = [
         'advertiser_ids' => 'getAdvertiserIds',
+        'ad_set_ids' => 'getAdSetIds',
+        'ad_set_names' => 'getAdSetNames',
+        'ad_set_status' => 'getAdSetStatus',
         'dimensions' => 'getDimensions',
         'metrics' => 'getMetrics',
         'currency' => 'getCurrency',
@@ -213,6 +228,14 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     const DIMENSIONS_DEVICE = 'Device';
     const DIMENSIONS_CAMPAIGN_ID = 'CampaignId';
     const DIMENSIONS_CAMPAIGN = 'Campaign';
+    const DIMENSIONS_AD_ID = 'AdId';
+    const DIMENSIONS_AD = 'Ad';
+    const DIMENSIONS_COUPON_ID = 'CouponId';
+    const DIMENSIONS_COUPON = 'Coupon';
+    const DIMENSIONS_MARKETING_OBJECTIVE_ID = 'MarketingObjectiveId';
+    const DIMENSIONS_MARKETING_OBJECTIVE = 'MarketingObjective';
+    const DIMENSIONS_CHANNEL_ID = 'ChannelId';
+    const DIMENSIONS_CHANNEL = 'Channel';
 
     /**
      * Gets allowable values of the enum
@@ -237,6 +260,14 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
             self::DIMENSIONS_DEVICE,
             self::DIMENSIONS_CAMPAIGN_ID,
             self::DIMENSIONS_CAMPAIGN,
+            self::DIMENSIONS_AD_ID,
+            self::DIMENSIONS_AD,
+            self::DIMENSIONS_COUPON_ID,
+            self::DIMENSIONS_COUPON,
+            self::DIMENSIONS_MARKETING_OBJECTIVE_ID,
+            self::DIMENSIONS_MARKETING_OBJECTIVE,
+            self::DIMENSIONS_CHANNEL_ID,
+            self::DIMENSIONS_CHANNEL,
         ];
     }
 
@@ -256,6 +287,9 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     public function __construct(array $data = null)
     {
         $this->container['advertiser_ids'] = $data['advertiser_ids'] ?? null;
+        $this->container['ad_set_ids'] = $data['ad_set_ids'] ?? null;
+        $this->container['ad_set_names'] = $data['ad_set_names'] ?? null;
+        $this->container['ad_set_status'] = $data['ad_set_status'] ?? null;
         $this->container['dimensions'] = $data['dimensions'] ?? null;
         $this->container['metrics'] = $data['metrics'] ?? null;
         $this->container['currency'] = $data['currency'] ?? null;
@@ -327,6 +361,84 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     public function setAdvertiserIds($advertiser_ids)
     {
         $this->container['advertiser_ids'] = $advertiser_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets ad_set_ids
+     *
+     * @return string[]|null
+     */
+    public function getAdSetIds()
+    {
+        return $this->container['ad_set_ids'];
+    }
+
+    /**
+     * Sets ad_set_ids
+     *
+     * @param string[]|null $ad_set_ids list of adSets ids. If empty, all the adSets will be fetched
+     *
+     * @return self
+     */
+    public function setAdSetIds($ad_set_ids)
+    {
+
+
+        $this->container['ad_set_ids'] = $ad_set_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets ad_set_names
+     *
+     * @return string[]|null
+     */
+    public function getAdSetNames()
+    {
+        return $this->container['ad_set_names'];
+    }
+
+    /**
+     * Sets ad_set_names
+     *
+     * @param string[]|null $ad_set_names list of adSets names. If empty, all the adSets will be fetched
+     *
+     * @return self
+     */
+    public function setAdSetNames($ad_set_names)
+    {
+
+
+        $this->container['ad_set_names'] = $ad_set_names;
+
+        return $this;
+    }
+
+    /**
+     * Gets ad_set_status
+     *
+     * @return string[]|null
+     */
+    public function getAdSetStatus()
+    {
+        return $this->container['ad_set_status'];
+    }
+
+    /**
+     * Sets ad_set_status
+     *
+     * @param string[]|null $ad_set_status list of adSets status. If empty, all the adSets will be fetched
+     *
+     * @return self
+     */
+    public function setAdSetStatus($ad_set_status)
+    {
+
+
+        $this->container['ad_set_status'] = $ad_set_status;
 
         return $this;
     }
