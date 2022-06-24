@@ -191,6 +191,9 @@ class NillableDateTime implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['value'] === null) {
+            $invalidProperties[] = "'value' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -209,7 +212,7 @@ class NillableDateTime implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets value
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getValue()
     {
@@ -219,7 +222,7 @@ class NillableDateTime implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets value
      *
-     * @param \DateTime|null $value value
+     * @param \DateTime $value value
      *
      * @return self
      */
