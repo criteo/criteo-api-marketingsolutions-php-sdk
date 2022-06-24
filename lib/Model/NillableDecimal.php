@@ -191,6 +191,9 @@ class NillableDecimal implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['value'] === null) {
+            $invalidProperties[] = "'value' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -209,7 +212,7 @@ class NillableDecimal implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets value
      *
-     * @return double|null
+     * @return double
      */
     public function getValue()
     {
@@ -219,7 +222,7 @@ class NillableDecimal implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets value
      *
-     * @param double|null $value value
+     * @param double $value value
      *
      * @return self
      */
