@@ -73,7 +73,7 @@ class ImageWriteAttributes implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPIFormats = [
         'base64_strings' => null,
-        'landing_page_url' => null
+        'landing_page_url' => 'uri'
     ];
 
     /**

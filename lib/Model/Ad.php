@@ -195,6 +195,7 @@ class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
 
     const INVENTORY_TYPE_NATIVE = 'Native';
     const INVENTORY_TYPE_DISPLAY = 'Display';
+    const INVENTORY_TYPE_VIDEO = 'Video';
 
     /**
      * Gets allowable values of the enum
@@ -206,6 +207,7 @@ class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
         return [
             self::INVENTORY_TYPE_NATIVE,
             self::INVENTORY_TYPE_DISPLAY,
+            self::INVENTORY_TYPE_VIDEO,
         ];
     }
 

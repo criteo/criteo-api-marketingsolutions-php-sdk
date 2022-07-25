@@ -63,12 +63,12 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'ad_set_id' => 'string',
         'description' => 'string',
-        'type' => 'string',
-        'advertiser_id' => 'string',
-        'partner_id' => 'string',
+        'format' => 'string',
+        'dataset_id' => 'string',
         'image_write_attributes' => '\criteo\api\marketingsolutions\preview\Model\ImageWriteAttributes',
-        'third_party_html_write_attributes' => '\criteo\api\marketingsolutions\preview\Model\ThirdPartyHtmlWriteAttributes',
-        'dynamic_write_attributes' => '\criteo\api\marketingsolutions\preview\Model\DynamicWriteAttributes'
+        'html_tag_write_attributes' => '\criteo\api\marketingsolutions\preview\Model\HtmlTagWriteAttributes',
+        'dynamic_write_attributes' => '\criteo\api\marketingsolutions\preview\Model\DynamicWriteAttributes',
+        'adaptive_write_attributes' => '\criteo\api\marketingsolutions\preview\Model\AdaptiveWriteAttributes'
     ];
 
     /**
@@ -82,12 +82,12 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => null,
         'ad_set_id' => null,
         'description' => null,
-        'type' => null,
-        'advertiser_id' => null,
-        'partner_id' => null,
+        'format' => null,
+        'dataset_id' => null,
         'image_write_attributes' => null,
-        'third_party_html_write_attributes' => null,
-        'dynamic_write_attributes' => null
+        'html_tag_write_attributes' => null,
+        'dynamic_write_attributes' => null,
+        'adaptive_write_attributes' => null
     ];
 
     /**
@@ -120,12 +120,12 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'name',
         'ad_set_id' => 'adSetId',
         'description' => 'description',
-        'type' => 'type',
-        'advertiser_id' => 'advertiserId',
-        'partner_id' => 'partnerId',
+        'format' => 'format',
+        'dataset_id' => 'datasetId',
         'image_write_attributes' => 'imageWriteAttributes',
-        'third_party_html_write_attributes' => 'thirdPartyHtmlWriteAttributes',
-        'dynamic_write_attributes' => 'dynamicWriteAttributes'
+        'html_tag_write_attributes' => 'htmlTagWriteAttributes',
+        'dynamic_write_attributes' => 'dynamicWriteAttributes',
+        'adaptive_write_attributes' => 'adaptiveWriteAttributes'
     ];
 
     /**
@@ -137,12 +137,12 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'setName',
         'ad_set_id' => 'setAdSetId',
         'description' => 'setDescription',
-        'type' => 'setType',
-        'advertiser_id' => 'setAdvertiserId',
-        'partner_id' => 'setPartnerId',
+        'format' => 'setFormat',
+        'dataset_id' => 'setDatasetId',
         'image_write_attributes' => 'setImageWriteAttributes',
-        'third_party_html_write_attributes' => 'setThirdPartyHtmlWriteAttributes',
-        'dynamic_write_attributes' => 'setDynamicWriteAttributes'
+        'html_tag_write_attributes' => 'setHtmlTagWriteAttributes',
+        'dynamic_write_attributes' => 'setDynamicWriteAttributes',
+        'adaptive_write_attributes' => 'setAdaptiveWriteAttributes'
     ];
 
     /**
@@ -154,12 +154,12 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'getName',
         'ad_set_id' => 'getAdSetId',
         'description' => 'getDescription',
-        'type' => 'getType',
-        'advertiser_id' => 'getAdvertiserId',
-        'partner_id' => 'getPartnerId',
+        'format' => 'getFormat',
+        'dataset_id' => 'getDatasetId',
         'image_write_attributes' => 'getImageWriteAttributes',
-        'third_party_html_write_attributes' => 'getThirdPartyHtmlWriteAttributes',
-        'dynamic_write_attributes' => 'getDynamicWriteAttributes'
+        'html_tag_write_attributes' => 'getHtmlTagWriteAttributes',
+        'dynamic_write_attributes' => 'getDynamicWriteAttributes',
+        'adaptive_write_attributes' => 'getAdaptiveWriteAttributes'
     ];
 
     /**
@@ -222,12 +222,12 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['name'] = $data['name'] ?? null;
         $this->container['ad_set_id'] = $data['ad_set_id'] ?? null;
         $this->container['description'] = $data['description'] ?? null;
-        $this->container['type'] = $data['type'] ?? null;
-        $this->container['advertiser_id'] = $data['advertiser_id'] ?? null;
-        $this->container['partner_id'] = $data['partner_id'] ?? null;
+        $this->container['format'] = $data['format'] ?? null;
+        $this->container['dataset_id'] = $data['dataset_id'] ?? null;
         $this->container['image_write_attributes'] = $data['image_write_attributes'] ?? null;
-        $this->container['third_party_html_write_attributes'] = $data['third_party_html_write_attributes'] ?? null;
+        $this->container['html_tag_write_attributes'] = $data['html_tag_write_attributes'] ?? null;
         $this->container['dynamic_write_attributes'] = $data['dynamic_write_attributes'] ?? null;
+        $this->container['adaptive_write_attributes'] = $data['adaptive_write_attributes'] ?? null;
     }
 
     /**
@@ -242,14 +242,8 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
-        if ($this->container['advertiser_id'] === null) {
-            $invalidProperties[] = "'advertiser_id' can't be null";
-        }
-        if ($this->container['partner_id'] === null) {
-            $invalidProperties[] = "'partner_id' can't be null";
+        if ($this->container['ad_set_id'] === null) {
+            $invalidProperties[] = "'ad_set_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -293,7 +287,7 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets ad_set_id
      *
-     * @return string|null
+     * @return string
      */
     public function getAdSetId()
     {
@@ -303,7 +297,7 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets ad_set_id
      *
-     * @param string|null $ad_set_id Ad set on which Creative will be applied
+     * @param string $ad_set_id Ad set on which Creative will be applied
      *
      * @return self
      */
@@ -339,73 +333,49 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets type
+     * Gets format
      *
-     * @return string
+     * @return string|null
      */
-    public function getType()
+    public function getFormat()
     {
-        return $this->container['type'];
+        return $this->container['format'];
     }
 
     /**
-     * Sets type
+     * Sets format
      *
-     * @param string $type The type of the creative  You can use \"Image\", \" ThirdPartyHtml\" or \"Dynamic\"
+     * @param string|null $format The format of the creative  You can use \"Image\", \" HtmlTag\" or \"Dynamic\"
      *
      * @return self
      */
-    public function setType($type)
+    public function setFormat($format)
     {
-        $this->container['type'] = $type;
+        $this->container['format'] = $format;
 
         return $this;
     }
 
     /**
-     * Gets advertiser_id
+     * Gets dataset_id
      *
-     * @return string
+     * @return string|null
      */
-    public function getAdvertiserId()
+    public function getDatasetId()
     {
-        return $this->container['advertiser_id'];
+        return $this->container['dataset_id'];
     }
 
     /**
-     * Sets advertiser_id
+     * Sets dataset_id
      *
-     * @param string $advertiser_id Advertiser linked to the Creative
+     * @param string|null $dataset_id Dataset linked to the Creative
      *
      * @return self
      */
-    public function setAdvertiserId($advertiser_id)
+    public function setDatasetId($dataset_id)
     {
-        $this->container['advertiser_id'] = $advertiser_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets partner_id
-     *
-     * @return string
-     */
-    public function getPartnerId()
-    {
-        return $this->container['partner_id'];
-    }
-
-    /**
-     * Sets partner_id
-     *
-     * @param string $partner_id Partner linked to the Creative
-     *
-     * @return self
-     */
-    public function setPartnerId($partner_id)
-    {
-        $this->container['partner_id'] = $partner_id;
+        $this->container['dataset_id'] = $dataset_id;
 
         return $this;
     }
@@ -435,25 +405,25 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets third_party_html_write_attributes
+     * Gets html_tag_write_attributes
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\ThirdPartyHtmlWriteAttributes|null
+     * @return \criteo\api\marketingsolutions\preview\Model\HtmlTagWriteAttributes|null
      */
-    public function getThirdPartyHtmlWriteAttributes()
+    public function getHtmlTagWriteAttributes()
     {
-        return $this->container['third_party_html_write_attributes'];
+        return $this->container['html_tag_write_attributes'];
     }
 
     /**
-     * Sets third_party_html_write_attributes
+     * Sets html_tag_write_attributes
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\ThirdPartyHtmlWriteAttributes|null $third_party_html_write_attributes third_party_html_write_attributes
+     * @param \criteo\api\marketingsolutions\preview\Model\HtmlTagWriteAttributes|null $html_tag_write_attributes html_tag_write_attributes
      *
      * @return self
      */
-    public function setThirdPartyHtmlWriteAttributes($third_party_html_write_attributes)
+    public function setHtmlTagWriteAttributes($html_tag_write_attributes)
     {
-        $this->container['third_party_html_write_attributes'] = $third_party_html_write_attributes;
+        $this->container['html_tag_write_attributes'] = $html_tag_write_attributes;
 
         return $this;
     }
@@ -478,6 +448,30 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDynamicWriteAttributes($dynamic_write_attributes)
     {
         $this->container['dynamic_write_attributes'] = $dynamic_write_attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets adaptive_write_attributes
+     *
+     * @return \criteo\api\marketingsolutions\preview\Model\AdaptiveWriteAttributes|null
+     */
+    public function getAdaptiveWriteAttributes()
+    {
+        return $this->container['adaptive_write_attributes'];
+    }
+
+    /**
+     * Sets adaptive_write_attributes
+     *
+     * @param \criteo\api\marketingsolutions\preview\Model\AdaptiveWriteAttributes|null $adaptive_write_attributes adaptive_write_attributes
+     *
+     * @return self
+     */
+    public function setAdaptiveWriteAttributes($adaptive_write_attributes)
+    {
+        $this->container['adaptive_write_attributes'] = $adaptive_write_attributes;
 
         return $this;
     }

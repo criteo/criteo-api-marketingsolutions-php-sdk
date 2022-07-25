@@ -115,258 +115,6 @@ class CampaignApi
     }
 
     /**
-     * Operation createAdSet
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\CreateAdSetRequest $create_ad_set_request the ad sets to create (optional)
-     *
-     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\ResponseReadAdSet
-     */
-    public function createAdSet($create_ad_set_request = null)
-    {
-        list($response) = $this->createAdSetWithHttpInfo($create_ad_set_request);
-        return $response;
-    }
-
-    /**
-     * Operation createAdSetWithHttpInfo
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\CreateAdSetRequest $create_ad_set_request the ad sets to create (optional)
-     *
-     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\ResponseReadAdSet, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function createAdSetWithHttpInfo($create_ad_set_request = null)
-    {
-        $request = $this->createAdSetRequest($create_ad_set_request);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 201:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ResponseReadAdSet' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ResponseReadAdSet', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\criteo\api\marketingsolutions\preview\Model\ResponseReadAdSet';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ResponseReadAdSet',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation createAdSetAsync
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\CreateAdSetRequest $create_ad_set_request the ad sets to create (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function createAdSetAsync($create_ad_set_request = null)
-    {
-        return $this->createAdSetAsyncWithHttpInfo($create_ad_set_request)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation createAdSetAsyncWithHttpInfo
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\CreateAdSetRequest $create_ad_set_request the ad sets to create (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function createAdSetAsyncWithHttpInfo($create_ad_set_request = null)
-    {
-        $returnType = '\criteo\api\marketingsolutions\preview\Model\ResponseReadAdSet';
-        $request = $this->createAdSetRequest($create_ad_set_request);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'createAdSet'
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\CreateAdSetRequest $create_ad_set_request the ad sets to create (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function createAdSetRequest($create_ad_set_request = null)
-    {
-
-        $resourcePath = '/preview/marketing-solutions/ad-sets';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['text/plain', 'application/json', 'text/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['text/plain', 'application/json', 'text/json'],
-                ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($create_ad_set_request)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($create_ad_set_request));
-            } else {
-                $httpBody = $create_ad_set_request;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if ($this->config->getAccessToken() !== null) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation createCampaign
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\CreateCampaignRequest $create_campaign_request the campaigns to create (optional)
@@ -2495,6 +2243,526 @@ class CampaignApi
     }
 
     /**
+     * Operation disableAdSetTargetingDealIds
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsDisableResultResponse
+     */
+    public function disableAdSetTargetingDealIds($ad_set_id)
+    {
+        list($response) = $this->disableAdSetTargetingDealIdsWithHttpInfo($ad_set_id);
+        return $response;
+    }
+
+    /**
+     * Operation disableAdSetTargetingDealIdsWithHttpInfo
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsDisableResultResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function disableAdSetTargetingDealIdsWithHttpInfo($ad_set_id)
+    {
+        $request = $this->disableAdSetTargetingDealIdsRequest($ad_set_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsDisableResultResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsDisableResultResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsDisableResultResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsDisableResultResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation disableAdSetTargetingDealIdsAsync
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function disableAdSetTargetingDealIdsAsync($ad_set_id)
+    {
+        return $this->disableAdSetTargetingDealIdsAsyncWithHttpInfo($ad_set_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation disableAdSetTargetingDealIdsAsyncWithHttpInfo
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function disableAdSetTargetingDealIdsAsyncWithHttpInfo($ad_set_id)
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsDisableResultResponse';
+        $request = $this->disableAdSetTargetingDealIdsRequest($ad_set_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'disableAdSetTargetingDealIds'
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function disableAdSetTargetingDealIdsRequest($ad_set_id)
+    {
+        // verify the required parameter 'ad_set_id' is set
+        if ($ad_set_id === null || (is_array($ad_set_id) && count($ad_set_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ad_set_id when calling disableAdSetTargetingDealIds'
+            );
+        }
+
+        $resourcePath = '/preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids/disable';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($ad_set_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'ad-set-id' . '}',
+                ObjectSerializer::toPathValue($ad_set_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['text/plain', 'application/json', 'text/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['text/plain', 'application/json', 'text/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation disableAdSetTargetingVideoPositioning
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningDisableResultResponse
+     */
+    public function disableAdSetTargetingVideoPositioning($ad_set_id)
+    {
+        list($response) = $this->disableAdSetTargetingVideoPositioningWithHttpInfo($ad_set_id);
+        return $response;
+    }
+
+    /**
+     * Operation disableAdSetTargetingVideoPositioningWithHttpInfo
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningDisableResultResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function disableAdSetTargetingVideoPositioningWithHttpInfo($ad_set_id)
+    {
+        $request = $this->disableAdSetTargetingVideoPositioningRequest($ad_set_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningDisableResultResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningDisableResultResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningDisableResultResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningDisableResultResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation disableAdSetTargetingVideoPositioningAsync
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function disableAdSetTargetingVideoPositioningAsync($ad_set_id)
+    {
+        return $this->disableAdSetTargetingVideoPositioningAsyncWithHttpInfo($ad_set_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation disableAdSetTargetingVideoPositioningAsyncWithHttpInfo
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function disableAdSetTargetingVideoPositioningAsyncWithHttpInfo($ad_set_id)
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningDisableResultResponse';
+        $request = $this->disableAdSetTargetingVideoPositioningRequest($ad_set_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'disableAdSetTargetingVideoPositioning'
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function disableAdSetTargetingVideoPositioningRequest($ad_set_id)
+    {
+        // verify the required parameter 'ad_set_id' is set
+        if ($ad_set_id === null || (is_array($ad_set_id) && count($ad_set_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ad_set_id when calling disableAdSetTargetingVideoPositioning'
+            );
+        }
+
+        $resourcePath = '/preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positionings/disable';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($ad_set_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'ad-set-id' . '}',
+                ObjectSerializer::toPathValue($ad_set_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['text/plain', 'application/json', 'text/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['text/plain', 'application/json', 'text/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getAdSet
      *
      * @param  string $ad_set_id Id of the ad set (required)
@@ -2687,6 +2955,526 @@ class CampaignApi
         if ($ad_set_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'adSetId' . '}',
+                ObjectSerializer::toPathValue($ad_set_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['text/plain', 'application/json', 'text/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['text/plain', 'application/json', 'text/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getAdSetTargetingDealIds
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsResponse
+     */
+    public function getAdSetTargetingDealIds($ad_set_id)
+    {
+        list($response) = $this->getAdSetTargetingDealIdsWithHttpInfo($ad_set_id);
+        return $response;
+    }
+
+    /**
+     * Operation getAdSetTargetingDealIdsWithHttpInfo
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAdSetTargetingDealIdsWithHttpInfo($ad_set_id)
+    {
+        $request = $this->getAdSetTargetingDealIdsRequest($ad_set_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAdSetTargetingDealIdsAsync
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAdSetTargetingDealIdsAsync($ad_set_id)
+    {
+        return $this->getAdSetTargetingDealIdsAsyncWithHttpInfo($ad_set_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAdSetTargetingDealIdsAsyncWithHttpInfo
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAdSetTargetingDealIdsAsyncWithHttpInfo($ad_set_id)
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsResponse';
+        $request = $this->getAdSetTargetingDealIdsRequest($ad_set_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAdSetTargetingDealIds'
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getAdSetTargetingDealIdsRequest($ad_set_id)
+    {
+        // verify the required parameter 'ad_set_id' is set
+        if ($ad_set_id === null || (is_array($ad_set_id) && count($ad_set_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ad_set_id when calling getAdSetTargetingDealIds'
+            );
+        }
+
+        $resourcePath = '/preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($ad_set_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'ad-set-id' . '}',
+                ObjectSerializer::toPathValue($ad_set_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['text/plain', 'application/json', 'text/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['text/plain', 'application/json', 'text/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getAdSetTargetingVideoPositioning
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningResponse
+     */
+    public function getAdSetTargetingVideoPositioning($ad_set_id)
+    {
+        list($response) = $this->getAdSetTargetingVideoPositioningWithHttpInfo($ad_set_id);
+        return $response;
+    }
+
+    /**
+     * Operation getAdSetTargetingVideoPositioningWithHttpInfo
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAdSetTargetingVideoPositioningWithHttpInfo($ad_set_id)
+    {
+        $request = $this->getAdSetTargetingVideoPositioningRequest($ad_set_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAdSetTargetingVideoPositioningAsync
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAdSetTargetingVideoPositioningAsync($ad_set_id)
+    {
+        return $this->getAdSetTargetingVideoPositioningAsyncWithHttpInfo($ad_set_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAdSetTargetingVideoPositioningAsyncWithHttpInfo
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAdSetTargetingVideoPositioningAsyncWithHttpInfo($ad_set_id)
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningResponse';
+        $request = $this->getAdSetTargetingVideoPositioningRequest($ad_set_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAdSetTargetingVideoPositioning'
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getAdSetTargetingVideoPositioningRequest($ad_set_id)
+    {
+        // verify the required parameter 'ad_set_id' is set
+        if ($ad_set_id === null || (is_array($ad_set_id) && count($ad_set_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ad_set_id when calling getAdSetTargetingVideoPositioning'
+            );
+        }
+
+        $resourcePath = '/preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($ad_set_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'ad-set-id' . '}',
                 ObjectSerializer::toPathValue($ad_set_id),
                 $resourcePath
             );
@@ -5498,6 +6286,247 @@ class CampaignApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getSupplyVendorList
+     *
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\SupplyVendorListResponse
+     */
+    public function getSupplyVendorList()
+    {
+        list($response) = $this->getSupplyVendorListWithHttpInfo();
+        return $response;
+    }
+
+    /**
+     * Operation getSupplyVendorListWithHttpInfo
+     *
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\SupplyVendorListResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSupplyVendorListWithHttpInfo()
+    {
+        $request = $this->getSupplyVendorListRequest();
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\SupplyVendorListResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\SupplyVendorListResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\SupplyVendorListResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\SupplyVendorListResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getSupplyVendorListAsync
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSupplyVendorListAsync()
+    {
+        return $this->getSupplyVendorListAsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getSupplyVendorListAsyncWithHttpInfo
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSupplyVendorListAsyncWithHttpInfo()
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\SupplyVendorListResponse';
+        $request = $this->getSupplyVendorListRequest();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getSupplyVendorList'
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getSupplyVendorListRequest()
+    {
+
+        $resourcePath = '/preview/marketing-solutions/ad-sets/targeting/supply-vendors';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['text/plain', 'application/json', 'text/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['text/plain', 'application/json', 'text/json'],
                 []
             );
         }
@@ -9691,6 +10720,548 @@ class CampaignApi
     }
 
     /**
+     * Operation setAdSetTargetingDealIds
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingDealIdsRequest $set_ad_set_targeting_deal_ids_request the new Deal Id Targeting configuration (optional)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsSetResultResponse
+     */
+    public function setAdSetTargetingDealIds($ad_set_id, $set_ad_set_targeting_deal_ids_request = null)
+    {
+        list($response) = $this->setAdSetTargetingDealIdsWithHttpInfo($ad_set_id, $set_ad_set_targeting_deal_ids_request);
+        return $response;
+    }
+
+    /**
+     * Operation setAdSetTargetingDealIdsWithHttpInfo
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingDealIdsRequest $set_ad_set_targeting_deal_ids_request the new Deal Id Targeting configuration (optional)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsSetResultResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function setAdSetTargetingDealIdsWithHttpInfo($ad_set_id, $set_ad_set_targeting_deal_ids_request = null)
+    {
+        $request = $this->setAdSetTargetingDealIdsRequest($ad_set_id, $set_ad_set_targeting_deal_ids_request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsSetResultResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsSetResultResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsSetResultResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsSetResultResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation setAdSetTargetingDealIdsAsync
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingDealIdsRequest $set_ad_set_targeting_deal_ids_request the new Deal Id Targeting configuration (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function setAdSetTargetingDealIdsAsync($ad_set_id, $set_ad_set_targeting_deal_ids_request = null)
+    {
+        return $this->setAdSetTargetingDealIdsAsyncWithHttpInfo($ad_set_id, $set_ad_set_targeting_deal_ids_request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation setAdSetTargetingDealIdsAsyncWithHttpInfo
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingDealIdsRequest $set_ad_set_targeting_deal_ids_request the new Deal Id Targeting configuration (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function setAdSetTargetingDealIdsAsyncWithHttpInfo($ad_set_id, $set_ad_set_targeting_deal_ids_request = null)
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsSetResultResponse';
+        $request = $this->setAdSetTargetingDealIdsRequest($ad_set_id, $set_ad_set_targeting_deal_ids_request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'setAdSetTargetingDealIds'
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingDealIdsRequest $set_ad_set_targeting_deal_ids_request the new Deal Id Targeting configuration (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function setAdSetTargetingDealIdsRequest($ad_set_id, $set_ad_set_targeting_deal_ids_request = null)
+    {
+        // verify the required parameter 'ad_set_id' is set
+        if ($ad_set_id === null || (is_array($ad_set_id) && count($ad_set_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ad_set_id when calling setAdSetTargetingDealIds'
+            );
+        }
+
+        $resourcePath = '/preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($ad_set_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'ad-set-id' . '}',
+                ObjectSerializer::toPathValue($ad_set_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['text/plain', 'application/json', 'text/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['text/plain', 'application/json', 'text/json'],
+                ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($set_ad_set_targeting_deal_ids_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($set_ad_set_targeting_deal_ids_request));
+            } else {
+                $httpBody = $set_ad_set_targeting_deal_ids_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation setAdSetTargetingVideoPositioning
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingVideoPositioningRequest $set_ad_set_targeting_video_positioning_request the new Video Positioning Targeting configuration (optional)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningSetResultResponse
+     */
+    public function setAdSetTargetingVideoPositioning($ad_set_id, $set_ad_set_targeting_video_positioning_request = null)
+    {
+        list($response) = $this->setAdSetTargetingVideoPositioningWithHttpInfo($ad_set_id, $set_ad_set_targeting_video_positioning_request);
+        return $response;
+    }
+
+    /**
+     * Operation setAdSetTargetingVideoPositioningWithHttpInfo
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingVideoPositioningRequest $set_ad_set_targeting_video_positioning_request the new Video Positioning Targeting configuration (optional)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningSetResultResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function setAdSetTargetingVideoPositioningWithHttpInfo($ad_set_id, $set_ad_set_targeting_video_positioning_request = null)
+    {
+        $request = $this->setAdSetTargetingVideoPositioningRequest($ad_set_id, $set_ad_set_targeting_video_positioning_request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningSetResultResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningSetResultResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningSetResultResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningSetResultResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation setAdSetTargetingVideoPositioningAsync
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingVideoPositioningRequest $set_ad_set_targeting_video_positioning_request the new Video Positioning Targeting configuration (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function setAdSetTargetingVideoPositioningAsync($ad_set_id, $set_ad_set_targeting_video_positioning_request = null)
+    {
+        return $this->setAdSetTargetingVideoPositioningAsyncWithHttpInfo($ad_set_id, $set_ad_set_targeting_video_positioning_request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation setAdSetTargetingVideoPositioningAsyncWithHttpInfo
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingVideoPositioningRequest $set_ad_set_targeting_video_positioning_request the new Video Positioning Targeting configuration (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function setAdSetTargetingVideoPositioningAsyncWithHttpInfo($ad_set_id, $set_ad_set_targeting_video_positioning_request = null)
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningSetResultResponse';
+        $request = $this->setAdSetTargetingVideoPositioningRequest($ad_set_id, $set_ad_set_targeting_video_positioning_request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'setAdSetTargetingVideoPositioning'
+     *
+     * @param  string $ad_set_id Id of the Ad Set (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingVideoPositioningRequest $set_ad_set_targeting_video_positioning_request the new Video Positioning Targeting configuration (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function setAdSetTargetingVideoPositioningRequest($ad_set_id, $set_ad_set_targeting_video_positioning_request = null)
+    {
+        // verify the required parameter 'ad_set_id' is set
+        if ($ad_set_id === null || (is_array($ad_set_id) && count($ad_set_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ad_set_id when calling setAdSetTargetingVideoPositioning'
+            );
+        }
+
+        $resourcePath = '/preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($ad_set_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'ad-set-id' . '}',
+                ObjectSerializer::toPathValue($ad_set_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['text/plain', 'application/json', 'text/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['text/plain', 'application/json', 'text/json'],
+                ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($set_ad_set_targeting_video_positioning_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($set_ad_set_targeting_video_positioning_request));
+            } else {
+                $httpBody = $set_ad_set_targeting_video_positioning_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation startAdSets
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\RequestsAdSetId $requests_ad_set_id All the ad sets to start (optional)
@@ -10188,6 +11759,277 @@ class CampaignApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateAdSetAudience
+     *
+     * @param  string $ad_set_id Ad set id (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1 $ad_set_audience_link_input_entity_v1 Audience and ad set to link (optional)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkEntityV1Response
+     */
+    public function updateAdSetAudience($ad_set_id, $ad_set_audience_link_input_entity_v1 = null)
+    {
+        list($response) = $this->updateAdSetAudienceWithHttpInfo($ad_set_id, $ad_set_audience_link_input_entity_v1);
+        return $response;
+    }
+
+    /**
+     * Operation updateAdSetAudienceWithHttpInfo
+     *
+     * @param  string $ad_set_id Ad set id (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1 $ad_set_audience_link_input_entity_v1 Audience and ad set to link (optional)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkEntityV1Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateAdSetAudienceWithHttpInfo($ad_set_id, $ad_set_audience_link_input_entity_v1 = null)
+    {
+        $request = $this->updateAdSetAudienceRequest($ad_set_id, $ad_set_audience_link_input_entity_v1);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkEntityV1Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkEntityV1Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkEntityV1Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkEntityV1Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateAdSetAudienceAsync
+     *
+     * @param  string $ad_set_id Ad set id (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1 $ad_set_audience_link_input_entity_v1 Audience and ad set to link (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateAdSetAudienceAsync($ad_set_id, $ad_set_audience_link_input_entity_v1 = null)
+    {
+        return $this->updateAdSetAudienceAsyncWithHttpInfo($ad_set_id, $ad_set_audience_link_input_entity_v1)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateAdSetAudienceAsyncWithHttpInfo
+     *
+     * @param  string $ad_set_id Ad set id (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1 $ad_set_audience_link_input_entity_v1 Audience and ad set to link (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateAdSetAudienceAsyncWithHttpInfo($ad_set_id, $ad_set_audience_link_input_entity_v1 = null)
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkEntityV1Response';
+        $request = $this->updateAdSetAudienceRequest($ad_set_id, $ad_set_audience_link_input_entity_v1);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateAdSetAudience'
+     *
+     * @param  string $ad_set_id Ad set id (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1 $ad_set_audience_link_input_entity_v1 Audience and ad set to link (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateAdSetAudienceRequest($ad_set_id, $ad_set_audience_link_input_entity_v1 = null)
+    {
+        // verify the required parameter 'ad_set_id' is set
+        if ($ad_set_id === null || (is_array($ad_set_id) && count($ad_set_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ad_set_id when calling updateAdSetAudience'
+            );
+        }
+
+        $resourcePath = '/preview/marketing-solutions/ad-sets/{ad-set-id}/audience';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($ad_set_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'ad-set-id' . '}',
+                ObjectSerializer::toPathValue($ad_set_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['text/plain', 'application/json', 'text/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['text/plain', 'application/json', 'text/json'],
+                ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($ad_set_audience_link_input_entity_v1)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($ad_set_audience_link_input_entity_v1));
+            } else {
+                $httpBody = $ad_set_audience_link_input_entity_v1;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

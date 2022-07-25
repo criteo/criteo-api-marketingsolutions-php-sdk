@@ -769,30 +769,30 @@ class RecoApi
     /**
      * Operation fetchProductSets
      *
-     * @param  string $partner_id The ID of the partner that should be used for product set retrieval (required)
+     * @param  string $dataset_id The ID of the dataset that should be used for product set retrieval (required)
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\ResourceCollectionOutcomeOfProductSet|\criteo\api\marketingsolutions\preview\Model\Outcome|\criteo\api\marketingsolutions\preview\Model\Outcome|\criteo\api\marketingsolutions\preview\Model\Outcome
      */
-    public function fetchProductSets($partner_id)
+    public function fetchProductSets($dataset_id)
     {
-        list($response) = $this->fetchProductSetsWithHttpInfo($partner_id);
+        list($response) = $this->fetchProductSetsWithHttpInfo($dataset_id);
         return $response;
     }
 
     /**
      * Operation fetchProductSetsWithHttpInfo
      *
-     * @param  string $partner_id The ID of the partner that should be used for product set retrieval (required)
+     * @param  string $dataset_id The ID of the dataset that should be used for product set retrieval (required)
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\ResourceCollectionOutcomeOfProductSet|\criteo\api\marketingsolutions\preview\Model\Outcome|\criteo\api\marketingsolutions\preview\Model\Outcome|\criteo\api\marketingsolutions\preview\Model\Outcome, HTTP status code, HTTP response headers (array of strings)
      */
-    public function fetchProductSetsWithHttpInfo($partner_id)
+    public function fetchProductSetsWithHttpInfo($dataset_id)
     {
-        $request = $this->fetchProductSetsRequest($partner_id);
+        $request = $this->fetchProductSetsRequest($dataset_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -928,14 +928,14 @@ class RecoApi
     /**
      * Operation fetchProductSetsAsync
      *
-     * @param  string $partner_id The ID of the partner that should be used for product set retrieval (required)
+     * @param  string $dataset_id The ID of the dataset that should be used for product set retrieval (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function fetchProductSetsAsync($partner_id)
+    public function fetchProductSetsAsync($dataset_id)
     {
-        return $this->fetchProductSetsAsyncWithHttpInfo($partner_id)
+        return $this->fetchProductSetsAsyncWithHttpInfo($dataset_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -946,15 +946,15 @@ class RecoApi
     /**
      * Operation fetchProductSetsAsyncWithHttpInfo
      *
-     * @param  string $partner_id The ID of the partner that should be used for product set retrieval (required)
+     * @param  string $dataset_id The ID of the dataset that should be used for product set retrieval (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function fetchProductSetsAsyncWithHttpInfo($partner_id)
+    public function fetchProductSetsAsyncWithHttpInfo($dataset_id)
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\ResourceCollectionOutcomeOfProductSet';
-        $request = $this->fetchProductSetsRequest($partner_id);
+        $request = $this->fetchProductSetsRequest($dataset_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -992,21 +992,21 @@ class RecoApi
     /**
      * Create request for operation 'fetchProductSets'
      *
-     * @param  string $partner_id The ID of the partner that should be used for product set retrieval (required)
+     * @param  string $dataset_id The ID of the dataset that should be used for product set retrieval (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function fetchProductSetsRequest($partner_id)
+    public function fetchProductSetsRequest($dataset_id)
     {
-        // verify the required parameter 'partner_id' is set
-        if ($partner_id === null || (is_array($partner_id) && count($partner_id) === 0)) {
+        // verify the required parameter 'dataset_id' is set
+        if ($dataset_id === null || (is_array($dataset_id) && count($dataset_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $partner_id when calling fetchProductSets'
+                'Missing the required parameter $dataset_id when calling fetchProductSets'
             );
         }
 
-        $resourcePath = '/preview/product-sets/partner/{partner-id}';
+        $resourcePath = '/preview/product-sets/dataset/{dataset-id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1016,10 +1016,10 @@ class RecoApi
 
 
         // path params
-        if ($partner_id !== null) {
+        if ($dataset_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'partner-id' . '}',
-                ObjectSerializer::toPathValue($partner_id),
+                '{' . 'dataset-id' . '}',
+                ObjectSerializer::toPathValue($dataset_id),
                 $resourcePath
             );
         }

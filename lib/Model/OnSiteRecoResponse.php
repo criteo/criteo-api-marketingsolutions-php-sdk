@@ -225,7 +225,7 @@ class OnSiteRecoResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets products
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\RecommendedProduct[]|null $products Recommended products.
+     * @param \criteo\api\marketingsolutions\preview\Model\RecommendedProduct[]|null $products Recommended products
      *
      * @return self
      */
@@ -249,7 +249,7 @@ class OnSiteRecoResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets extra_infos
      *
-     * @param int[]|null $extra_infos Additional information in case of non blocking warnings or errors...
+     * @param int[]|null $extra_infos Additional information in case of warnings, errors...
      *
      * @return self
      */

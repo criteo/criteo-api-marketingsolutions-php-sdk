@@ -60,7 +60,7 @@ class DynamicAttributes implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'logos' => '\criteo\api\marketingsolutions\preview\Model\CreativeLogo[]',
+        'logos' => '\criteo\api\marketingsolutions\preview\Model\ImageShape[]',
         'creative_background_color' => 'string',
         'body_text_color' => 'string',
         'prices_color' => 'string',
@@ -269,7 +269,7 @@ class DynamicAttributes implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets logos
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\CreativeLogo[]|null
+     * @return \criteo\api\marketingsolutions\preview\Model\ImageShape[]|null
      */
     public function getLogos()
     {
@@ -279,7 +279,7 @@ class DynamicAttributes implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets logos
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\CreativeLogo[]|null $logos Logo images uploaded on demostatic.criteo.com when deploying and then static.criteo.net
+     * @param \criteo\api\marketingsolutions\preview\Model\ImageShape[]|null $logos Logo images uploaded on demostatic.criteo.com when deploying and then static.criteo.net
      *
      * @return self
      */

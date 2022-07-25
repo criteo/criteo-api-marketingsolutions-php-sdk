@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**partner_id** | **string** | The partner to which the product set belong | [optional]
+**dataset_id** | **string** | The dataset to which the product set belong | [optional]
 **name** | **string** | The name of the product set | [optional]
 **status** | **string** | The status of the product set | [optional]
 **is_enabled** | **bool** | True if the product set is active | [optional]

@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**getCoupons()**](CreativeApi.md#getCoupons) | **GET** /preview/advertisers/{advertiser-id}/coupons | 
 [**getCreative()**](CreativeApi.md#getCreative) | **GET** /preview/creatives/{id} | 
 [**getCreativePreview()**](CreativeApi.md#getCreativePreview) | **GET** /preview/creatives/{id}/preview | 
+[**getCreativePreviewPost()**](CreativeApi.md#getCreativePreviewPost) | **POST** /preview/creatives/{id}/preview | 
 [**getCreatives()**](CreativeApi.md#getCreatives) | **GET** /preview/advertisers/{advertiser-id}/creatives | 
 
 
@@ -88,7 +89,7 @@ Name | Type | Description  | Notes
 ## `createCoupon()`
 
 ```php
-createCoupon($advertiser_id, $create_coupon_request)
+createCoupon($advertiser_id, $create_coupon_request): \criteo\api\marketingsolutions\preview\Model\CouponResponse
 ```
 
 
@@ -116,7 +117,8 @@ $advertiser_id = 'advertiser_id_example'; // string | The advertiser identifier.
 $create_coupon_request = new \criteo\api\marketingsolutions\preview\Model\CreateCouponRequest(); // \criteo\api\marketingsolutions\preview\Model\CreateCouponRequest
 
 try {
-    $apiInstance->createCoupon($advertiser_id, $create_coupon_request);
+    $result = $apiInstance->createCoupon($advertiser_id, $create_coupon_request);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CreativeApi->createCoupon: ', $e->getMessage(), PHP_EOL;
 }
@@ -131,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\criteo\api\marketingsolutions\preview\Model\CouponResponse**](../Model/CouponResponse.md)
 
 ### Authorization
 
@@ -581,7 +583,7 @@ getAds($advertiser_id, $limit, $offset): \criteo\api\marketingsolutions\preview\
 
 
 
-Get the list of self-services Ads (50 by default, to get a different number of Ads, you can use the offset and limit parameters in the query string) for a given advertiser
+Get the list of self-services Ads for a given advertiser
 
 ### Example
 
@@ -835,7 +837,7 @@ getCoupons($advertiser_id, $limit, $offset): \criteo\api\marketingsolutions\prev
 
 
 
-Get the list of self-services Coupons (50 by default, to get a different number of Coupons, you can use the offset and limit parameters in the query string) for a given advertiser
+Get the list of self-services Coupons for a given advertiser
 
 ### Example
 
@@ -1015,6 +1017,70 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getCreativePreviewPost()`
+
+```php
+getCreativePreviewPost($id, $width, $height): string
+```
+
+
+
+Get the preview of a specific Creative
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\CreativeApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | The Creative identifier to preview.
+$width = 56; // int | The width of the Creative to preview.
+$height = 56; // int | The height of the Creative to preview.
+
+try {
+    $result = $apiInstance->getCreativePreviewPost($id, $width, $height);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CreativeApi->getCreativePreviewPost: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| The Creative identifier to preview. |
+ **width** | **int**| The width of the Creative to preview. | [optional]
+ **height** | **int**| The height of the Creative to preview. | [optional]
+
+### Return type
+
+**string**
+
+### Authorization
+
+[oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `text/html`, `application/json`, `text/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getCreatives()`
 
 ```php
@@ -1023,7 +1089,7 @@ getCreatives($advertiser_id, $limit, $offset): \criteo\api\marketingsolutions\pr
 
 
 
-Get the list of self-services Creatives (50 by default, to get a different number of Creatives, you can use the offset and limit parameters in the query string) for a given advertiser
+Get the list of self-services Creatives for a given advertiser
 
 ### Example
 

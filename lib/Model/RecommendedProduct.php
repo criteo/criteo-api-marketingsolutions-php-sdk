@@ -62,7 +62,11 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPITypes = [
         'product_external_id' => 'string',
         'click_url' => 'string',
-        'image_url' => 'string'
+        'image_url' => 'string',
+        'name' => 'string',
+        'description' => 'string',
+        'price' => 'double',
+        'google_category' => 'string'
     ];
 
     /**
@@ -75,7 +79,11 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPIFormats = [
         'product_external_id' => null,
         'click_url' => null,
-        'image_url' => null
+        'image_url' => null,
+        'name' => null,
+        'description' => null,
+        'price' => 'double',
+        'google_category' => null
     ];
 
     /**
@@ -107,7 +115,11 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $attributeMap = [
         'product_external_id' => 'productExternalId',
         'click_url' => 'clickUrl',
-        'image_url' => 'imageUrl'
+        'image_url' => 'imageUrl',
+        'name' => 'name',
+        'description' => 'description',
+        'price' => 'price',
+        'google_category' => 'googleCategory'
     ];
 
     /**
@@ -118,7 +130,11 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $setters = [
         'product_external_id' => 'setProductExternalId',
         'click_url' => 'setClickUrl',
-        'image_url' => 'setImageUrl'
+        'image_url' => 'setImageUrl',
+        'name' => 'setName',
+        'description' => 'setDescription',
+        'price' => 'setPrice',
+        'google_category' => 'setGoogleCategory'
     ];
 
     /**
@@ -129,7 +145,11 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $getters = [
         'product_external_id' => 'getProductExternalId',
         'click_url' => 'getClickUrl',
-        'image_url' => 'getImageUrl'
+        'image_url' => 'getImageUrl',
+        'name' => 'getName',
+        'description' => 'getDescription',
+        'price' => 'getPrice',
+        'google_category' => 'getGoogleCategory'
     ];
 
     /**
@@ -192,6 +212,10 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['product_external_id'] = $data['product_external_id'] ?? null;
         $this->container['click_url'] = $data['click_url'] ?? null;
         $this->container['image_url'] = $data['image_url'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['description'] = $data['description'] ?? null;
+        $this->container['price'] = $data['price'] ?? null;
+        $this->container['google_category'] = $data['google_category'] ?? null;
     }
 
     /**
@@ -279,13 +303,109 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets image_url
      *
-     * @param string|null $image_url Product image url.
+     * @param string|null $image_url Product image.
      *
      * @return self
      */
     public function setImageUrl($image_url)
     {
         $this->container['image_url'] = $image_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name Product name.
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description Product description.
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets price
+     *
+     * @return double|null
+     */
+    public function getPrice()
+    {
+        return $this->container['price'];
+    }
+
+    /**
+     * Sets price
+     *
+     * @param double|null $price Product price.
+     *
+     * @return self
+     */
+    public function setPrice($price)
+    {
+        $this->container['price'] = $price;
+
+        return $this;
+    }
+
+    /**
+     * Gets google_category
+     *
+     * @return string|null
+     */
+    public function getGoogleCategory()
+    {
+        return $this->container['google_category'];
+    }
+
+    /**
+     * Sets google_category
+     *
+     * @param string|null $google_category Product google category.
+     *
+     * @return self
+     */
+    public function setGoogleCategory($google_category)
+    {
+        $this->container['google_category'] = $google_category;
 
         return $this;
     }

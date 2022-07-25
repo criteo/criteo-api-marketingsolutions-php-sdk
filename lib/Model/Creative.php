@@ -64,12 +64,13 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'string',
         'author' => 'string',
         'status' => 'string',
-        'type' => 'string',
+        'format' => 'string',
         'advertiser_id' => 'string',
-        'partner_id' => 'string',
+        'dataset_id' => 'string',
         'image_attributes' => '\criteo\api\marketingsolutions\preview\Model\ImageAttributes',
-        'third_party_html_attributes' => '\criteo\api\marketingsolutions\preview\Model\ThirdPartyHtmlAttributes',
-        'dynamic_attributes' => '\criteo\api\marketingsolutions\preview\Model\DynamicAttributes'
+        'html_tag_attributes' => '\criteo\api\marketingsolutions\preview\Model\HtmlTagAttributes',
+        'dynamic_attributes' => '\criteo\api\marketingsolutions\preview\Model\DynamicAttributes',
+        'adaptive_attributes' => '\criteo\api\marketingsolutions\preview\Model\AdaptiveAttributes'
     ];
 
     /**
@@ -84,12 +85,13 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => null,
         'author' => null,
         'status' => null,
-        'type' => null,
+        'format' => null,
         'advertiser_id' => null,
-        'partner_id' => null,
+        'dataset_id' => null,
         'image_attributes' => null,
-        'third_party_html_attributes' => null,
-        'dynamic_attributes' => null
+        'html_tag_attributes' => null,
+        'dynamic_attributes' => null,
+        'adaptive_attributes' => null
     ];
 
     /**
@@ -123,12 +125,13 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'description',
         'author' => 'author',
         'status' => 'status',
-        'type' => 'type',
+        'format' => 'format',
         'advertiser_id' => 'advertiserId',
-        'partner_id' => 'partnerId',
+        'dataset_id' => 'datasetId',
         'image_attributes' => 'imageAttributes',
-        'third_party_html_attributes' => 'thirdPartyHtmlAttributes',
-        'dynamic_attributes' => 'dynamicAttributes'
+        'html_tag_attributes' => 'htmlTagAttributes',
+        'dynamic_attributes' => 'dynamicAttributes',
+        'adaptive_attributes' => 'adaptiveAttributes'
     ];
 
     /**
@@ -141,12 +144,13 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'setDescription',
         'author' => 'setAuthor',
         'status' => 'setStatus',
-        'type' => 'setType',
+        'format' => 'setFormat',
         'advertiser_id' => 'setAdvertiserId',
-        'partner_id' => 'setPartnerId',
+        'dataset_id' => 'setDatasetId',
         'image_attributes' => 'setImageAttributes',
-        'third_party_html_attributes' => 'setThirdPartyHtmlAttributes',
-        'dynamic_attributes' => 'setDynamicAttributes'
+        'html_tag_attributes' => 'setHtmlTagAttributes',
+        'dynamic_attributes' => 'setDynamicAttributes',
+        'adaptive_attributes' => 'setAdaptiveAttributes'
     ];
 
     /**
@@ -159,12 +163,13 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'getDescription',
         'author' => 'getAuthor',
         'status' => 'getStatus',
-        'type' => 'getType',
+        'format' => 'getFormat',
         'advertiser_id' => 'getAdvertiserId',
-        'partner_id' => 'getPartnerId',
+        'dataset_id' => 'getDatasetId',
         'image_attributes' => 'getImageAttributes',
-        'third_party_html_attributes' => 'getThirdPartyHtmlAttributes',
-        'dynamic_attributes' => 'getDynamicAttributes'
+        'html_tag_attributes' => 'getHtmlTagAttributes',
+        'dynamic_attributes' => 'getDynamicAttributes',
+        'adaptive_attributes' => 'getAdaptiveAttributes'
     ];
 
     /**
@@ -228,12 +233,13 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['description'] = $data['description'] ?? null;
         $this->container['author'] = $data['author'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
-        $this->container['type'] = $data['type'] ?? null;
+        $this->container['format'] = $data['format'] ?? null;
         $this->container['advertiser_id'] = $data['advertiser_id'] ?? null;
-        $this->container['partner_id'] = $data['partner_id'] ?? null;
+        $this->container['dataset_id'] = $data['dataset_id'] ?? null;
         $this->container['image_attributes'] = $data['image_attributes'] ?? null;
-        $this->container['third_party_html_attributes'] = $data['third_party_html_attributes'] ?? null;
+        $this->container['html_tag_attributes'] = $data['html_tag_attributes'] ?? null;
         $this->container['dynamic_attributes'] = $data['dynamic_attributes'] ?? null;
+        $this->container['adaptive_attributes'] = $data['adaptive_attributes'] ?? null;
     }
 
     /**
@@ -245,6 +251,18 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['author'] === null) {
+            $invalidProperties[] = "'author' can't be null";
+        }
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
+        }
+        if ($this->container['advertiser_id'] === null) {
+            $invalidProperties[] = "'advertiser_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -263,7 +281,7 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -273,7 +291,7 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name The name of the creative
+     * @param string $name The name of the creative
      *
      * @return self
      */
@@ -311,7 +329,7 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets author
      *
-     * @return string|null
+     * @return string
      */
     public function getAuthor()
     {
@@ -321,7 +339,7 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets author
      *
-     * @param string|null $author The login of the person who created this creative (
+     * @param string $author The login of the person who created this creative (
      *
      * @return self
      */
@@ -335,7 +353,7 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets status
      *
-     * @return string|null
+     * @return string
      */
     public function getStatus()
     {
@@ -345,7 +363,7 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param string|null $status The status of the creative
+     * @param string $status The status of the creative
      *
      * @return self
      */
@@ -357,25 +375,25 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets type
+     * Gets format
      *
      * @return string|null
      */
-    public function getType()
+    public function getFormat()
     {
-        return $this->container['type'];
+        return $this->container['format'];
     }
 
     /**
-     * Sets type
+     * Sets format
      *
-     * @param string|null $type The type of the creative
+     * @param string|null $format The format of the creative
      *
      * @return self
      */
-    public function setType($type)
+    public function setFormat($format)
     {
-        $this->container['type'] = $type;
+        $this->container['format'] = $format;
 
         return $this;
     }
@@ -383,7 +401,7 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets advertiser_id
      *
-     * @return string|null
+     * @return string
      */
     public function getAdvertiserId()
     {
@@ -393,7 +411,7 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets advertiser_id
      *
-     * @param string|null $advertiser_id Advertiser linked to the Creative
+     * @param string $advertiser_id Advertiser linked to the Creative
      *
      * @return self
      */
@@ -405,25 +423,25 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets partner_id
+     * Gets dataset_id
      *
      * @return string|null
      */
-    public function getPartnerId()
+    public function getDatasetId()
     {
-        return $this->container['partner_id'];
+        return $this->container['dataset_id'];
     }
 
     /**
-     * Sets partner_id
+     * Sets dataset_id
      *
-     * @param string|null $partner_id Partner linked to the Creative
+     * @param string|null $dataset_id Data set id linked to the Creative
      *
      * @return self
      */
-    public function setPartnerId($partner_id)
+    public function setDatasetId($dataset_id)
     {
-        $this->container['partner_id'] = $partner_id;
+        $this->container['dataset_id'] = $dataset_id;
 
         return $this;
     }
@@ -453,25 +471,25 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets third_party_html_attributes
+     * Gets html_tag_attributes
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\ThirdPartyHtmlAttributes|null
+     * @return \criteo\api\marketingsolutions\preview\Model\HtmlTagAttributes|null
      */
-    public function getThirdPartyHtmlAttributes()
+    public function getHtmlTagAttributes()
     {
-        return $this->container['third_party_html_attributes'];
+        return $this->container['html_tag_attributes'];
     }
 
     /**
-     * Sets third_party_html_attributes
+     * Sets html_tag_attributes
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\ThirdPartyHtmlAttributes|null $third_party_html_attributes third_party_html_attributes
+     * @param \criteo\api\marketingsolutions\preview\Model\HtmlTagAttributes|null $html_tag_attributes html_tag_attributes
      *
      * @return self
      */
-    public function setThirdPartyHtmlAttributes($third_party_html_attributes)
+    public function setHtmlTagAttributes($html_tag_attributes)
     {
-        $this->container['third_party_html_attributes'] = $third_party_html_attributes;
+        $this->container['html_tag_attributes'] = $html_tag_attributes;
 
         return $this;
     }
@@ -496,6 +514,30 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDynamicAttributes($dynamic_attributes)
     {
         $this->container['dynamic_attributes'] = $dynamic_attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets adaptive_attributes
+     *
+     * @return \criteo\api\marketingsolutions\preview\Model\AdaptiveAttributes|null
+     */
+    public function getAdaptiveAttributes()
+    {
+        return $this->container['adaptive_attributes'];
+    }
+
+    /**
+     * Sets adaptive_attributes
+     *
+     * @param \criteo\api\marketingsolutions\preview\Model\AdaptiveAttributes|null $adaptive_attributes adaptive_attributes
+     *
+     * @return self
+     */
+    public function setAdaptiveAttributes($adaptive_attributes)
+    {
+        $this->container['adaptive_attributes'] = $adaptive_attributes;
 
         return $this;
     }

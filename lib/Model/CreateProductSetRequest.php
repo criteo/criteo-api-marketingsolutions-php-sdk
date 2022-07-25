@@ -60,7 +60,7 @@ class CreateProductSetRequest implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'partner_id' => 'string',
+        'dataset_id' => 'string',
         'name' => 'string',
         'is_draft' => 'bool',
         'rules' => '\criteo\api\marketingsolutions\preview\Model\ProductSetRule[]'
@@ -74,7 +74,7 @@ class CreateProductSetRequest implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'partner_id' => null,
+        'dataset_id' => null,
         'name' => null,
         'is_draft' => null,
         'rules' => null
@@ -107,7 +107,7 @@ class CreateProductSetRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'partner_id' => 'partnerId',
+        'dataset_id' => 'datasetId',
         'name' => 'name',
         'is_draft' => 'isDraft',
         'rules' => 'rules'
@@ -119,7 +119,7 @@ class CreateProductSetRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'partner_id' => 'setPartnerId',
+        'dataset_id' => 'setDatasetId',
         'name' => 'setName',
         'is_draft' => 'setIsDraft',
         'rules' => 'setRules'
@@ -131,7 +131,7 @@ class CreateProductSetRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'partner_id' => 'getPartnerId',
+        'dataset_id' => 'getDatasetId',
         'name' => 'getName',
         'is_draft' => 'getIsDraft',
         'rules' => 'getRules'
@@ -194,7 +194,7 @@ class CreateProductSetRequest implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->container['partner_id'] = $data['partner_id'] ?? null;
+        $this->container['dataset_id'] = $data['dataset_id'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['is_draft'] = $data['is_draft'] ?? null;
         $this->container['rules'] = $data['rules'] ?? null;
@@ -225,25 +225,25 @@ class CreateProductSetRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets partner_id
+     * Gets dataset_id
      *
      * @return string|null
      */
-    public function getPartnerId()
+    public function getDatasetId()
     {
-        return $this->container['partner_id'];
+        return $this->container['dataset_id'];
     }
 
     /**
-     * Sets partner_id
+     * Sets dataset_id
      *
-     * @param string|null $partner_id partner_id
+     * @param string|null $dataset_id dataset_id
      *
      * @return self
      */
-    public function setPartnerId($partner_id)
+    public function setDatasetId($dataset_id)
     {
-        $this->container['partner_id'] = $partner_id;
+        $this->container['dataset_id'] = $dataset_id;
 
         return $this;
     }

@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createProductSet()**](RecoApi.md#createProductSet) | **POST** /preview/product-sets | 
 [**fetchProductSet()**](RecoApi.md#fetchProductSet) | **GET** /preview/product-sets/{product-set-id} | 
-[**fetchProductSets()**](RecoApi.md#fetchProductSets) | **GET** /preview/product-sets/partner/{partner-id} | 
+[**fetchProductSets()**](RecoApi.md#fetchProductSets) | **GET** /preview/product-sets/dataset/{dataset-id} | 
 [**previewProductSetsPreviewPost()**](RecoApi.md#previewProductSetsPreviewPost) | **POST** /preview/product-sets/preview | 
 [**removeProductSet()**](RecoApi.md#removeProductSet) | **DELETE** /preview/product-sets/{product-set-id} | 
 
@@ -134,12 +134,12 @@ Name | Type | Description  | Notes
 ## `fetchProductSets()`
 
 ```php
-fetchProductSets($partner_id): \criteo\api\marketingsolutions\preview\Model\ResourceCollectionOutcomeOfProductSet
+fetchProductSets($dataset_id): \criteo\api\marketingsolutions\preview\Model\ResourceCollectionOutcomeOfProductSet
 ```
 
 
 
-Fetch product sets of a given partner
+Fetch product sets of a given dataset
 
 ### Example
 
@@ -158,10 +158,10 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\RecoApi(
     new GuzzleHttp\Client(),
     $config
 );
-$partner_id = 'partner_id_example'; // string | The ID of the partner that should be used for product set retrieval
+$dataset_id = 'dataset_id_example'; // string | The ID of the dataset that should be used for product set retrieval
 
 try {
-    $result = $apiInstance->fetchProductSets($partner_id);
+    $result = $apiInstance->fetchProductSets($dataset_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RecoApi->fetchProductSets: ', $e->getMessage(), PHP_EOL;
@@ -172,7 +172,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **partner_id** | **string**| The ID of the partner that should be used for product set retrieval |
+ **dataset_id** | **string**| The ID of the dataset that should be used for product set retrieval |
 
 ### Return type
 

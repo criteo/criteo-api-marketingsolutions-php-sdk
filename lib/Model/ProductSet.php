@@ -60,7 +60,7 @@ class ProductSet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'partner_id' => 'string',
+        'dataset_id' => 'string',
         'name' => 'string',
         'status' => 'string',
         'is_enabled' => 'bool',
@@ -78,7 +78,7 @@ class ProductSet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'partner_id' => null,
+        'dataset_id' => null,
         'name' => null,
         'status' => null,
         'is_enabled' => null,
@@ -115,7 +115,7 @@ class ProductSet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'partner_id' => 'partnerId',
+        'dataset_id' => 'datasetId',
         'name' => 'name',
         'status' => 'status',
         'is_enabled' => 'isEnabled',
@@ -131,7 +131,7 @@ class ProductSet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'partner_id' => 'setPartnerId',
+        'dataset_id' => 'setDatasetId',
         'name' => 'setName',
         'status' => 'setStatus',
         'is_enabled' => 'setIsEnabled',
@@ -147,7 +147,7 @@ class ProductSet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'partner_id' => 'getPartnerId',
+        'dataset_id' => 'getDatasetId',
         'name' => 'getName',
         'status' => 'getStatus',
         'is_enabled' => 'getIsEnabled',
@@ -237,7 +237,7 @@ class ProductSet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['partner_id'] = $data['partner_id'] ?? null;
+        $this->container['dataset_id'] = $data['dataset_id'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
         $this->container['is_enabled'] = $data['is_enabled'] ?? null;
@@ -281,25 +281,25 @@ class ProductSet implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets partner_id
+     * Gets dataset_id
      *
      * @return string|null
      */
-    public function getPartnerId()
+    public function getDatasetId()
     {
-        return $this->container['partner_id'];
+        return $this->container['dataset_id'];
     }
 
     /**
-     * Sets partner_id
+     * Sets dataset_id
      *
-     * @param string|null $partner_id The partner to which the product set belong
+     * @param string|null $dataset_id The dataset to which the product set belong
      *
      * @return self
      */
-    public function setPartnerId($partner_id)
+    public function setDatasetId($dataset_id)
     {
-        $this->container['partner_id'] = $partner_id;
+        $this->container['dataset_id'] = $dataset_id;
 
         return $this;
     }

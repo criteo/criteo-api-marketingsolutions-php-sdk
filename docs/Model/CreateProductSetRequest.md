@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**partner_id** | **string** |  | [optional]
+**dataset_id** | **string** |  | [optional]
 **name** | **string** |  | [optional]
 **is_draft** | **bool** |  | [optional]
 **rules** | [**\criteo\api\marketingsolutions\preview\Model\ProductSetRule[]**](ProductSetRule.md) |  | [optional]

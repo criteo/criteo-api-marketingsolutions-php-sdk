@@ -225,7 +225,7 @@ class Tag implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets html_tag
      *
-     * @param string|null $html_tag Third party html tag
+     * @param string|null $html_tag Html tag
      *
      * @return self
      */
