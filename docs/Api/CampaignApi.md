@@ -1,27 +1,27 @@
-# criteo\api\marketingsolutions\v2022_04\CampaignApi
+# criteo\api\marketingsolutions\v2022_07\CampaignApi
 
 All URIs are relative to https://api.criteo.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAdSet()**](CampaignApi.md#getAdSet) | **GET** /2022-04/marketing-solutions/ad-sets/{adSetId} | 
-[**getCampaign()**](CampaignApi.md#getCampaign) | **GET** /2022-04/marketing-solutions/campaigns/{campaign-id} | 
-[**getCategoryBidList()**](CampaignApi.md#getCategoryBidList) | **GET** /2022-04/marketing-solutions/ad-sets/{ad-set-id}/category-bids | 
-[**getDisplayMultipliers()**](CampaignApi.md#getDisplayMultipliers) | **GET** /2022-04/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers | 
-[**patchAdSets()**](CampaignApi.md#patchAdSets) | **PATCH** /2022-04/marketing-solutions/ad-sets | 
-[**patchCampaigns()**](CampaignApi.md#patchCampaigns) | **PATCH** /2022-04/marketing-solutions/campaigns | 
-[**patchCategoryBidList()**](CampaignApi.md#patchCategoryBidList) | **PATCH** /2022-04/marketing-solutions/ad-sets/{ad-set-id}/category-bids | 
-[**patchDisplayMultipliers()**](CampaignApi.md#patchDisplayMultipliers) | **PATCH** /2022-04/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers | 
-[**searchAdSets()**](CampaignApi.md#searchAdSets) | **POST** /2022-04/marketing-solutions/ad-sets/search | 
-[**searchCampaigns()**](CampaignApi.md#searchCampaigns) | **POST** /2022-04/marketing-solutions/campaigns/search | 
-[**startAdSets()**](CampaignApi.md#startAdSets) | **POST** /2022-04/marketing-solutions/ad-sets/start | 
-[**stopAdSets()**](CampaignApi.md#stopAdSets) | **POST** /2022-04/marketing-solutions/ad-sets/stop | 
+[**getAdSet()**](CampaignApi.md#getAdSet) | **GET** /2022-07/marketing-solutions/ad-sets/{adSetId} | 
+[**getCampaign()**](CampaignApi.md#getCampaign) | **GET** /2022-07/marketing-solutions/campaigns/{campaign-id} | 
+[**getCategoryBidList()**](CampaignApi.md#getCategoryBidList) | **GET** /2022-07/marketing-solutions/ad-sets/{ad-set-id}/category-bids | 
+[**getDisplayMultipliers()**](CampaignApi.md#getDisplayMultipliers) | **GET** /2022-07/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers | 
+[**patchAdSets()**](CampaignApi.md#patchAdSets) | **PATCH** /2022-07/marketing-solutions/ad-sets | 
+[**patchCampaigns()**](CampaignApi.md#patchCampaigns) | **PATCH** /2022-07/marketing-solutions/campaigns | 
+[**patchCategoryBidList()**](CampaignApi.md#patchCategoryBidList) | **PATCH** /2022-07/marketing-solutions/ad-sets/{ad-set-id}/category-bids | 
+[**patchDisplayMultipliers()**](CampaignApi.md#patchDisplayMultipliers) | **PATCH** /2022-07/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers | 
+[**searchAdSets()**](CampaignApi.md#searchAdSets) | **POST** /2022-07/marketing-solutions/ad-sets/search | 
+[**searchCampaigns()**](CampaignApi.md#searchCampaigns) | **POST** /2022-07/marketing-solutions/campaigns/search | 
+[**startAdSets()**](CampaignApi.md#startAdSets) | **POST** /2022-07/marketing-solutions/ad-sets/start | 
+[**stopAdSets()**](CampaignApi.md#stopAdSets) | **POST** /2022-07/marketing-solutions/ad-sets/stop | 
 
 
 ## `getAdSet()`
 
 ```php
-getAdSet($ad_set_id): \criteo\api\marketingsolutions\v2022_04\Model\ResponseReadAdSet
+getAdSet($ad_set_id): \criteo\api\marketingsolutions\v2022_07\Model\ResponseReadAdSet
 ```
 
 
@@ -36,10 +36,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2022_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2022_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2022_04\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2022_07\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2022_04\Model\ResponseReadAdSet**](../Model/ResponseReadAdSet.md)
+[**\criteo\api\marketingsolutions\v2022_07\Model\ResponseReadAdSet**](../Model/ResponseReadAdSet.md)
 
 ### Authorization
 
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 ## `getCampaign()`
 
 ```php
-getCampaign($campaign_id): \criteo\api\marketingsolutions\v2022_04\Model\CampaignResponse
+getCampaign($campaign_id): \criteo\api\marketingsolutions\v2022_07\Model\CampaignResponse
 ```
 
 
@@ -96,10 +96,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2022_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2022_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2022_04\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2022_07\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2022_04\Model\CampaignResponse**](../Model/CampaignResponse.md)
+[**\criteo\api\marketingsolutions\v2022_07\Model\CampaignResponse**](../Model/CampaignResponse.md)
 
 ### Authorization
 
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 ## `getCategoryBidList()`
 
 ```php
-getCategoryBidList($ad_set_id): \criteo\api\marketingsolutions\v2022_04\Model\AdSetCategoryBidListResponse
+getCategoryBidList($ad_set_id): \criteo\api\marketingsolutions\v2022_07\Model\AdSetCategoryBidListResponse
 ```
 
 
@@ -156,10 +156,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2022_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2022_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2022_04\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2022_07\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2022_04\Model\AdSetCategoryBidListResponse**](../Model/AdSetCategoryBidListResponse.md)
+[**\criteo\api\marketingsolutions\v2022_07\Model\AdSetCategoryBidListResponse**](../Model/AdSetCategoryBidListResponse.md)
 
 ### Authorization
 
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 ## `getDisplayMultipliers()`
 
 ```php
-getDisplayMultipliers($ad_set_id): \criteo\api\marketingsolutions\v2022_04\Model\AdSetDisplayMultiplierListResponse
+getDisplayMultipliers($ad_set_id): \criteo\api\marketingsolutions\v2022_07\Model\AdSetDisplayMultiplierListResponse
 ```
 
 
@@ -216,10 +216,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2022_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2022_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2022_04\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2022_07\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2022_04\Model\AdSetDisplayMultiplierListResponse**](../Model/AdSetDisplayMultiplierListResponse.md)
+[**\criteo\api\marketingsolutions\v2022_07\Model\AdSetDisplayMultiplierListResponse**](../Model/AdSetDisplayMultiplierListResponse.md)
 
 ### Authorization
 
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 ## `patchAdSets()`
 
 ```php
-patchAdSets($requests_patch_ad_set): \criteo\api\marketingsolutions\v2022_04\Model\ResponseAdSetId
+patchAdSets($requests_patch_ad_set): \criteo\api\marketingsolutions\v2022_07\Model\ResponseAdSetId
 ```
 
 
@@ -276,16 +276,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2022_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2022_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2022_04\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2022_07\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$requests_patch_ad_set = new \criteo\api\marketingsolutions\v2022_04\Model\RequestsPatchAdSet(); // \criteo\api\marketingsolutions\v2022_04\Model\RequestsPatchAdSet | List of adsets to patch.
+$requests_patch_ad_set = new \criteo\api\marketingsolutions\v2022_07\Model\RequestsPatchAdSet(); // \criteo\api\marketingsolutions\v2022_07\Model\RequestsPatchAdSet | List of adsets to patch.
 
 try {
     $result = $apiInstance->patchAdSets($requests_patch_ad_set);
@@ -299,11 +299,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requests_patch_ad_set** | [**\criteo\api\marketingsolutions\v2022_04\Model\RequestsPatchAdSet**](../Model/RequestsPatchAdSet.md)| List of adsets to patch. | [optional]
+ **requests_patch_ad_set** | [**\criteo\api\marketingsolutions\v2022_07\Model\RequestsPatchAdSet**](../Model/RequestsPatchAdSet.md)| List of adsets to patch. | [optional]
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2022_04\Model\ResponseAdSetId**](../Model/ResponseAdSetId.md)
+[**\criteo\api\marketingsolutions\v2022_07\Model\ResponseAdSetId**](../Model/ResponseAdSetId.md)
 
 ### Authorization
 
@@ -321,7 +321,7 @@ Name | Type | Description  | Notes
 ## `patchCampaigns()`
 
 ```php
-patchCampaigns($patch_campaign_list_request): \criteo\api\marketingsolutions\v2022_04\Model\PatchResultCampaignListResponse
+patchCampaigns($patch_campaign_list_request): \criteo\api\marketingsolutions\v2022_07\Model\PatchResultCampaignListResponse
 ```
 
 
@@ -336,16 +336,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2022_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2022_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2022_04\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2022_07\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$patch_campaign_list_request = new \criteo\api\marketingsolutions\v2022_04\Model\PatchCampaignListRequest(); // \criteo\api\marketingsolutions\v2022_04\Model\PatchCampaignListRequest | List of campaigns to patch.
+$patch_campaign_list_request = new \criteo\api\marketingsolutions\v2022_07\Model\PatchCampaignListRequest(); // \criteo\api\marketingsolutions\v2022_07\Model\PatchCampaignListRequest | List of campaigns to patch.
 
 try {
     $result = $apiInstance->patchCampaigns($patch_campaign_list_request);
@@ -359,11 +359,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patch_campaign_list_request** | [**\criteo\api\marketingsolutions\v2022_04\Model\PatchCampaignListRequest**](../Model/PatchCampaignListRequest.md)| List of campaigns to patch. | [optional]
+ **patch_campaign_list_request** | [**\criteo\api\marketingsolutions\v2022_07\Model\PatchCampaignListRequest**](../Model/PatchCampaignListRequest.md)| List of campaigns to patch. | [optional]
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2022_04\Model\PatchResultCampaignListResponse**](../Model/PatchResultCampaignListResponse.md)
+[**\criteo\api\marketingsolutions\v2022_07\Model\PatchResultCampaignListResponse**](../Model/PatchResultCampaignListResponse.md)
 
 ### Authorization
 
@@ -381,7 +381,7 @@ Name | Type | Description  | Notes
 ## `patchCategoryBidList()`
 
 ```php
-patchCategoryBidList($ad_set_id, $patch_ad_set_category_bid_list_request): \criteo\api\marketingsolutions\v2022_04\Model\PatchAdSetCategoryBidResultListResponse
+patchCategoryBidList($ad_set_id, $patch_ad_set_category_bid_list_request): \criteo\api\marketingsolutions\v2022_07\Model\PatchAdSetCategoryBidResultListResponse
 ```
 
 
@@ -396,17 +396,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2022_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2022_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2022_04\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2022_07\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $ad_set_id = 'ad_set_id_example'; // string | Id of the Ad Set
-$patch_ad_set_category_bid_list_request = new \criteo\api\marketingsolutions\v2022_04\Model\PatchAdSetCategoryBidListRequest(); // \criteo\api\marketingsolutions\v2022_04\Model\PatchAdSetCategoryBidListRequest
+$patch_ad_set_category_bid_list_request = new \criteo\api\marketingsolutions\v2022_07\Model\PatchAdSetCategoryBidListRequest(); // \criteo\api\marketingsolutions\v2022_07\Model\PatchAdSetCategoryBidListRequest
 
 try {
     $result = $apiInstance->patchCategoryBidList($ad_set_id, $patch_ad_set_category_bid_list_request);
@@ -421,11 +421,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ad_set_id** | **string**| Id of the Ad Set |
- **patch_ad_set_category_bid_list_request** | [**\criteo\api\marketingsolutions\v2022_04\Model\PatchAdSetCategoryBidListRequest**](../Model/PatchAdSetCategoryBidListRequest.md)|  | [optional]
+ **patch_ad_set_category_bid_list_request** | [**\criteo\api\marketingsolutions\v2022_07\Model\PatchAdSetCategoryBidListRequest**](../Model/PatchAdSetCategoryBidListRequest.md)|  | [optional]
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2022_04\Model\PatchAdSetCategoryBidResultListResponse**](../Model/PatchAdSetCategoryBidResultListResponse.md)
+[**\criteo\api\marketingsolutions\v2022_07\Model\PatchAdSetCategoryBidResultListResponse**](../Model/PatchAdSetCategoryBidResultListResponse.md)
 
 ### Authorization
 
@@ -443,7 +443,7 @@ Name | Type | Description  | Notes
 ## `patchDisplayMultipliers()`
 
 ```php
-patchDisplayMultipliers($ad_set_id, $patch_ad_set_display_multiplier_list_request): \criteo\api\marketingsolutions\v2022_04\Model\PatchAdSetDisplayMultiplierResultListResponse
+patchDisplayMultipliers($ad_set_id, $patch_ad_set_display_multiplier_list_request): \criteo\api\marketingsolutions\v2022_07\Model\PatchAdSetDisplayMultiplierResultListResponse
 ```
 
 
@@ -458,17 +458,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2022_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2022_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2022_04\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2022_07\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $ad_set_id = 'ad_set_id_example'; // string | Id of the Ad Set
-$patch_ad_set_display_multiplier_list_request = new \criteo\api\marketingsolutions\v2022_04\Model\PatchAdSetDisplayMultiplierListRequest(); // \criteo\api\marketingsolutions\v2022_04\Model\PatchAdSetDisplayMultiplierListRequest
+$patch_ad_set_display_multiplier_list_request = new \criteo\api\marketingsolutions\v2022_07\Model\PatchAdSetDisplayMultiplierListRequest(); // \criteo\api\marketingsolutions\v2022_07\Model\PatchAdSetDisplayMultiplierListRequest
 
 try {
     $result = $apiInstance->patchDisplayMultipliers($ad_set_id, $patch_ad_set_display_multiplier_list_request);
@@ -483,11 +483,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ad_set_id** | **string**| Id of the Ad Set |
- **patch_ad_set_display_multiplier_list_request** | [**\criteo\api\marketingsolutions\v2022_04\Model\PatchAdSetDisplayMultiplierListRequest**](../Model/PatchAdSetDisplayMultiplierListRequest.md)|  | [optional]
+ **patch_ad_set_display_multiplier_list_request** | [**\criteo\api\marketingsolutions\v2022_07\Model\PatchAdSetDisplayMultiplierListRequest**](../Model/PatchAdSetDisplayMultiplierListRequest.md)|  | [optional]
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2022_04\Model\PatchAdSetDisplayMultiplierResultListResponse**](../Model/PatchAdSetDisplayMultiplierResultListResponse.md)
+[**\criteo\api\marketingsolutions\v2022_07\Model\PatchAdSetDisplayMultiplierResultListResponse**](../Model/PatchAdSetDisplayMultiplierResultListResponse.md)
 
 ### Authorization
 
@@ -505,7 +505,7 @@ Name | Type | Description  | Notes
 ## `searchAdSets()`
 
 ```php
-searchAdSets($request_ad_set_search): \criteo\api\marketingsolutions\v2022_04\Model\ResponsesReadAdSet
+searchAdSets($request_ad_set_search): \criteo\api\marketingsolutions\v2022_07\Model\ResponsesReadAdSet
 ```
 
 
@@ -520,16 +520,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2022_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2022_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2022_04\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2022_07\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$request_ad_set_search = new \criteo\api\marketingsolutions\v2022_04\Model\RequestAdSetSearch(); // \criteo\api\marketingsolutions\v2022_04\Model\RequestAdSetSearch
+$request_ad_set_search = new \criteo\api\marketingsolutions\v2022_07\Model\RequestAdSetSearch(); // \criteo\api\marketingsolutions\v2022_07\Model\RequestAdSetSearch
 
 try {
     $result = $apiInstance->searchAdSets($request_ad_set_search);
@@ -543,11 +543,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request_ad_set_search** | [**\criteo\api\marketingsolutions\v2022_04\Model\RequestAdSetSearch**](../Model/RequestAdSetSearch.md)|  | [optional]
+ **request_ad_set_search** | [**\criteo\api\marketingsolutions\v2022_07\Model\RequestAdSetSearch**](../Model/RequestAdSetSearch.md)|  | [optional]
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2022_04\Model\ResponsesReadAdSet**](../Model/ResponsesReadAdSet.md)
+[**\criteo\api\marketingsolutions\v2022_07\Model\ResponsesReadAdSet**](../Model/ResponsesReadAdSet.md)
 
 ### Authorization
 
@@ -565,7 +565,7 @@ Name | Type | Description  | Notes
 ## `searchCampaigns()`
 
 ```php
-searchCampaigns($campaign_search_request): \criteo\api\marketingsolutions\v2022_04\Model\CampaignListResponse
+searchCampaigns($campaign_search_request): \criteo\api\marketingsolutions\v2022_07\Model\CampaignListResponse
 ```
 
 
@@ -580,16 +580,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2022_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2022_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2022_04\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2022_07\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_search_request = new \criteo\api\marketingsolutions\v2022_04\Model\CampaignSearchRequest(); // \criteo\api\marketingsolutions\v2022_04\Model\CampaignSearchRequest | filters on campaigns
+$campaign_search_request = new \criteo\api\marketingsolutions\v2022_07\Model\CampaignSearchRequest(); // \criteo\api\marketingsolutions\v2022_07\Model\CampaignSearchRequest | filters on campaigns
 
 try {
     $result = $apiInstance->searchCampaigns($campaign_search_request);
@@ -603,11 +603,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaign_search_request** | [**\criteo\api\marketingsolutions\v2022_04\Model\CampaignSearchRequest**](../Model/CampaignSearchRequest.md)| filters on campaigns | [optional]
+ **campaign_search_request** | [**\criteo\api\marketingsolutions\v2022_07\Model\CampaignSearchRequest**](../Model/CampaignSearchRequest.md)| filters on campaigns | [optional]
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2022_04\Model\CampaignListResponse**](../Model/CampaignListResponse.md)
+[**\criteo\api\marketingsolutions\v2022_07\Model\CampaignListResponse**](../Model/CampaignListResponse.md)
 
 ### Authorization
 
@@ -625,7 +625,7 @@ Name | Type | Description  | Notes
 ## `startAdSets()`
 
 ```php
-startAdSets($requests_ad_set_id): \criteo\api\marketingsolutions\v2022_04\Model\ResponsesAdSetId
+startAdSets($requests_ad_set_id): \criteo\api\marketingsolutions\v2022_07\Model\ResponsesAdSetId
 ```
 
 
@@ -640,16 +640,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2022_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2022_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2022_04\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2022_07\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$requests_ad_set_id = new \criteo\api\marketingsolutions\v2022_04\Model\RequestsAdSetId(); // \criteo\api\marketingsolutions\v2022_04\Model\RequestsAdSetId | All the ad sets to start
+$requests_ad_set_id = new \criteo\api\marketingsolutions\v2022_07\Model\RequestsAdSetId(); // \criteo\api\marketingsolutions\v2022_07\Model\RequestsAdSetId | All the ad sets to start
 
 try {
     $result = $apiInstance->startAdSets($requests_ad_set_id);
@@ -663,11 +663,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requests_ad_set_id** | [**\criteo\api\marketingsolutions\v2022_04\Model\RequestsAdSetId**](../Model/RequestsAdSetId.md)| All the ad sets to start | [optional]
+ **requests_ad_set_id** | [**\criteo\api\marketingsolutions\v2022_07\Model\RequestsAdSetId**](../Model/RequestsAdSetId.md)| All the ad sets to start | [optional]
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2022_04\Model\ResponsesAdSetId**](../Model/ResponsesAdSetId.md)
+[**\criteo\api\marketingsolutions\v2022_07\Model\ResponsesAdSetId**](../Model/ResponsesAdSetId.md)
 
 ### Authorization
 
@@ -685,7 +685,7 @@ Name | Type | Description  | Notes
 ## `stopAdSets()`
 
 ```php
-stopAdSets($requests_ad_set_id): \criteo\api\marketingsolutions\v2022_04\Model\ResponsesAdSetId
+stopAdSets($requests_ad_set_id): \criteo\api\marketingsolutions\v2022_07\Model\ResponsesAdSetId
 ```
 
 
@@ -700,16 +700,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2022_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2022_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2022_04\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2022_07\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$requests_ad_set_id = new \criteo\api\marketingsolutions\v2022_04\Model\RequestsAdSetId(); // \criteo\api\marketingsolutions\v2022_04\Model\RequestsAdSetId | All the ad sets to stop
+$requests_ad_set_id = new \criteo\api\marketingsolutions\v2022_07\Model\RequestsAdSetId(); // \criteo\api\marketingsolutions\v2022_07\Model\RequestsAdSetId | All the ad sets to stop
 
 try {
     $result = $apiInstance->stopAdSets($requests_ad_set_id);
@@ -723,11 +723,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requests_ad_set_id** | [**\criteo\api\marketingsolutions\v2022_04\Model\RequestsAdSetId**](../Model/RequestsAdSetId.md)| All the ad sets to stop | [optional]
+ **requests_ad_set_id** | [**\criteo\api\marketingsolutions\v2022_07\Model\RequestsAdSetId**](../Model/RequestsAdSetId.md)| All the ad sets to stop | [optional]
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2022_04\Model\ResponsesAdSetId**](../Model/ResponsesAdSetId.md)
+[**\criteo\api\marketingsolutions\v2022_07\Model\ResponsesAdSetId**](../Model/ResponsesAdSetId.md)
 
 ### Authorization
 

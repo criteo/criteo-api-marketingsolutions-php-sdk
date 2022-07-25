@@ -1,16 +1,16 @@
-# criteo\api\marketingsolutions\v2022_04\AdvertiserApi
+# criteo\api\marketingsolutions\v2022_07\AdvertiserApi
 
 All URIs are relative to https://api.criteo.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**apiPortfolioGet()**](AdvertiserApi.md#apiPortfolioGet) | **GET** /2022-04/advertisers/me | 
+[**apiPortfolioGet()**](AdvertiserApi.md#apiPortfolioGet) | **GET** /2022-07/advertisers/me | 
 
 
 ## `apiPortfolioGet()`
 
 ```php
-apiPortfolioGet(): \criteo\api\marketingsolutions\v2022_04\Model\GetPortfolioResponse
+apiPortfolioGet(): \criteo\api\marketingsolutions\v2022_07\Model\GetPortfolioResponse
 ```
 
 
@@ -25,10 +25,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2022_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2022_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2022_04\Api\AdvertiserApi(
+$apiInstance = new criteo\api\marketingsolutions\v2022_07\Api\AdvertiserApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -49,7 +49,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2022_04\Model\GetPortfolioResponse**](../Model/GetPortfolioResponse.md)
+[**\criteo\api\marketingsolutions\v2022_07\Model\GetPortfolioResponse**](../Model/GetPortfolioResponse.md)
 
 ### Authorization
 

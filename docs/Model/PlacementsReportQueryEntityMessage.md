@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **string** |  |
-**attributes** | [**\criteo\api\marketingsolutions\v2022_04\Model\PlacementsReportQueryMessage**](PlacementsReportQueryMessage.md) |  |
+**attributes** | [**\criteo\api\marketingsolutions\v2022_07\Model\PlacementsReportQueryMessage**](PlacementsReportQueryMessage.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

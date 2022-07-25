@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**bid_amount** | [**\criteo\api\marketingsolutions\v2022_04\Model\NillableDecimal**](NillableDecimal.md) |  | [optional]
+**bid_amount** | [**\criteo\api\marketingsolutions\v2022_07\Model\NillableDecimal**](NillableDecimal.md) |  | [optional]
 **bid_strategy** | **string** | The intended optimization for the Ad Set | [optional]
 **cost_controller** | **string** | How is spend controlled | [optional]
 
