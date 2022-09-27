@@ -1,6 +1,6 @@
 <?php
 /**
- * DeleteAudienceResponse
+ * CreateAdSetTargeting
  *
  * PHP version 7.3
  *
@@ -32,10 +32,10 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * DeleteAudienceResponse Class Doc Comment
+ * CreateAdSetTargeting Class Doc Comment
  *
  * @category Class
- * @description Response of an audience deletion
+ * @description Targeting configuration of the ad set
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +43,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DeleteAudienceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateAdSetTargeting implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class DeleteAudienceResponse implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'DeleteAudienceResponse';
+    protected static $openAPIModelName = 'CreateAdSetTargeting';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,9 +60,9 @@ class DeleteAudienceResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\criteo\api\marketingsolutions\preview\Model\BasicAudienceDefinition',
-        'errors' => '\criteo\api\marketingsolutions\preview\Model\AudienceError[]',
-        'warnings' => '\criteo\api\marketingsolutions\preview\Model\AudienceWarning[]'
+        'delivery_limitations' => '\criteo\api\marketingsolutions\preview\Model\AdSetDeliveryLimitations',
+        'geo_location' => '\criteo\api\marketingsolutions\preview\Model\CreateAdSetGeoLocation',
+        'frequency_capping' => '\criteo\api\marketingsolutions\preview\Model\AdSetFrequencyCapping'
     ];
 
     /**
@@ -73,9 +73,9 @@ class DeleteAudienceResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null,
-        'errors' => null,
-        'warnings' => null
+        'delivery_limitations' => null,
+        'geo_location' => null,
+        'frequency_capping' => null
     ];
 
     /**
@@ -105,9 +105,9 @@ class DeleteAudienceResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data',
-        'errors' => 'errors',
-        'warnings' => 'warnings'
+        'delivery_limitations' => 'deliveryLimitations',
+        'geo_location' => 'geoLocation',
+        'frequency_capping' => 'frequencyCapping'
     ];
 
     /**
@@ -116,9 +116,9 @@ class DeleteAudienceResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData',
-        'errors' => 'setErrors',
-        'warnings' => 'setWarnings'
+        'delivery_limitations' => 'setDeliveryLimitations',
+        'geo_location' => 'setGeoLocation',
+        'frequency_capping' => 'setFrequencyCapping'
     ];
 
     /**
@@ -127,9 +127,9 @@ class DeleteAudienceResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData',
-        'errors' => 'getErrors',
-        'warnings' => 'getWarnings'
+        'delivery_limitations' => 'getDeliveryLimitations',
+        'geo_location' => 'getGeoLocation',
+        'frequency_capping' => 'getFrequencyCapping'
     ];
 
     /**
@@ -189,9 +189,9 @@ class DeleteAudienceResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = $data['data'] ?? null;
-        $this->container['errors'] = $data['errors'] ?? null;
-        $this->container['warnings'] = $data['warnings'] ?? null;
+        $this->container['delivery_limitations'] = $data['delivery_limitations'] ?? null;
+        $this->container['geo_location'] = $data['geo_location'] ?? null;
+        $this->container['frequency_capping'] = $data['frequency_capping'] ?? null;
     }
 
     /**
@@ -203,15 +203,6 @@ class DeleteAudienceResponse implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
-        if ($this->container['errors'] === null) {
-            $invalidProperties[] = "'errors' can't be null";
-        }
-        if ($this->container['warnings'] === null) {
-            $invalidProperties[] = "'warnings' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -228,73 +219,73 @@ class DeleteAudienceResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets data
+     * Gets delivery_limitations
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\BasicAudienceDefinition
+     * @return \criteo\api\marketingsolutions\preview\Model\AdSetDeliveryLimitations|null
      */
-    public function getData()
+    public function getDeliveryLimitations()
     {
-        return $this->container['data'];
+        return $this->container['delivery_limitations'];
     }
 
     /**
-     * Sets data
+     * Sets delivery_limitations
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\BasicAudienceDefinition $data data
+     * @param \criteo\api\marketingsolutions\preview\Model\AdSetDeliveryLimitations|null $delivery_limitations delivery_limitations
      *
      * @return self
      */
-    public function setData($data)
+    public function setDeliveryLimitations($delivery_limitations)
     {
-        $this->container['data'] = $data;
+        $this->container['delivery_limitations'] = $delivery_limitations;
 
         return $this;
     }
 
     /**
-     * Gets errors
+     * Gets geo_location
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\AudienceError[]
+     * @return \criteo\api\marketingsolutions\preview\Model\CreateAdSetGeoLocation|null
      */
-    public function getErrors()
+    public function getGeoLocation()
     {
-        return $this->container['errors'];
+        return $this->container['geo_location'];
     }
 
     /**
-     * Sets errors
+     * Sets geo_location
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\AudienceError[] $errors errors
+     * @param \criteo\api\marketingsolutions\preview\Model\CreateAdSetGeoLocation|null $geo_location geo_location
      *
      * @return self
      */
-    public function setErrors($errors)
+    public function setGeoLocation($geo_location)
     {
-        $this->container['errors'] = $errors;
+        $this->container['geo_location'] = $geo_location;
 
         return $this;
     }
 
     /**
-     * Gets warnings
+     * Gets frequency_capping
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\AudienceWarning[]
+     * @return \criteo\api\marketingsolutions\preview\Model\AdSetFrequencyCapping|null
      */
-    public function getWarnings()
+    public function getFrequencyCapping()
     {
-        return $this->container['warnings'];
+        return $this->container['frequency_capping'];
     }
 
     /**
-     * Sets warnings
+     * Sets frequency_capping
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\AudienceWarning[] $warnings warnings
+     * @param \criteo\api\marketingsolutions\preview\Model\AdSetFrequencyCapping|null $frequency_capping frequency_capping
      *
      * @return self
      */
-    public function setWarnings($warnings)
+    public function setFrequencyCapping($frequency_capping)
     {
-        $this->container['warnings'] = $warnings;
+        $this->container['frequency_capping'] = $frequency_capping;
 
         return $this;
     }

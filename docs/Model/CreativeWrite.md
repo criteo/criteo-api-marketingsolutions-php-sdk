@@ -5,9 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** | The name of the creative |
-**ad_set_id** | **string** | Ad set on which Creative will be applied |
 **description** | **string** | The description of the creative | [optional]
-**format** | **string** | The format of the creative  You can use \&quot;Image\&quot;, \&quot; HtmlTag\&quot; or \&quot;Dynamic\&quot; | [optional]
+**format** | **string** | The format of the creative  You can use \&quot;Image\&quot;, \&quot; HtmlTag\&quot;, \&quot;Dynamic\&quot; or \&quot;Adaptive\&quot; | [optional]
 **dataset_id** | **string** | Dataset linked to the Creative | [optional]
 **image_write_attributes** | [**\criteo\api\marketingsolutions\preview\Model\ImageWriteAttributes**](ImageWriteAttributes.md) |  | [optional]
 **html_tag_write_attributes** | [**\criteo\api\marketingsolutions\preview\Model\HtmlTagWriteAttributes**](HtmlTagWriteAttributes.md) |  | [optional]

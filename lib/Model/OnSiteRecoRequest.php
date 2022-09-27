@@ -62,7 +62,8 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $openAPITypes = [
         'nb_requested_products' => 'int',
         'user_id' => 'string',
-        'user_events' => '\criteo\api\marketingsolutions\preview\Model\UserEvent[]'
+        'user_events' => '\criteo\api\marketingsolutions\preview\Model\UserEvent[]',
+        'partner_id' => 'int'
     ];
 
     /**
@@ -75,7 +76,8 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $openAPIFormats = [
         'nb_requested_products' => 'int32',
         'user_id' => null,
-        'user_events' => null
+        'user_events' => null,
+        'partner_id' => 'int32'
     ];
 
     /**
@@ -107,7 +109,8 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $attributeMap = [
         'nb_requested_products' => 'nbRequestedProducts',
         'user_id' => 'userId',
-        'user_events' => 'userEvents'
+        'user_events' => 'userEvents',
+        'partner_id' => 'partnerId'
     ];
 
     /**
@@ -118,7 +121,8 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $setters = [
         'nb_requested_products' => 'setNbRequestedProducts',
         'user_id' => 'setUserId',
-        'user_events' => 'setUserEvents'
+        'user_events' => 'setUserEvents',
+        'partner_id' => 'setPartnerId'
     ];
 
     /**
@@ -129,7 +133,8 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $getters = [
         'nb_requested_products' => 'getNbRequestedProducts',
         'user_id' => 'getUserId',
-        'user_events' => 'getUserEvents'
+        'user_events' => 'getUserEvents',
+        'partner_id' => 'getPartnerId'
     ];
 
     /**
@@ -192,6 +197,7 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->container['nb_requested_products'] = $data['nb_requested_products'] ?? null;
         $this->container['user_id'] = $data['user_id'] ?? null;
         $this->container['user_events'] = $data['user_events'] ?? null;
+        $this->container['partner_id'] = $data['partner_id'] ?? null;
     }
 
     /**
@@ -205,6 +211,9 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
 
         if ($this->container['nb_requested_products'] === null) {
             $invalidProperties[] = "'nb_requested_products' can't be null";
+        }
+        if ($this->container['partner_id'] === null) {
+            $invalidProperties[] = "'partner_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -289,6 +298,30 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setUserEvents($user_events)
     {
         $this->container['user_events'] = $user_events;
+
+        return $this;
+    }
+
+    /**
+     * Gets partner_id
+     *
+     * @return int
+     */
+    public function getPartnerId()
+    {
+        return $this->container['partner_id'];
+    }
+
+    /**
+     * Sets partner_id
+     *
+     * @param int $partner_id Id of the partner.
+     *
+     * @return self
+     */
+    public function setPartnerId($partner_id)
+    {
+        $this->container['partner_id'] = $partner_id;
 
         return $this;
     }

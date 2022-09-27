@@ -67,8 +67,6 @@ docs/Model/ApplicationSummaryModel.md
 docs/Model/ApplicationSummaryModelResource.md
 docs/Model/ApplicationSummaryModelResponse.md
 docs/Model/Attribute.md
-docs/Model/Audience.md
-docs/Model/AudienceAttributes.md
 docs/Model/AudienceBulkCreateInputV1.md
 docs/Model/AudienceBulkDeleteInputV1.md
 docs/Model/AudienceBulkUpdateInputV1.md
@@ -169,6 +167,14 @@ docs/Model/CouponResponse.md
 docs/Model/CouponSupportedSizes.md
 docs/Model/CouponSupportedSizesResource.md
 docs/Model/CouponSupportedSizesResponse.md
+docs/Model/CreateAdSet.md
+docs/Model/CreateAdSetBidding.md
+docs/Model/CreateAdSetBudget.md
+docs/Model/CreateAdSetGeoLocation.md
+docs/Model/CreateAdSetRequest.md
+docs/Model/CreateAdSetResource.md
+docs/Model/CreateAdSetSchedule.md
+docs/Model/CreateAdSetTargeting.md
 docs/Model/CreateCampaign.md
 docs/Model/CreateCampaignRequest.md
 docs/Model/CreateCampaignResource.md
@@ -193,7 +199,6 @@ docs/Model/CustomAttribute.md
 docs/Model/Dataset.md
 docs/Model/DealId.md
 docs/Model/DeleteAudienceContactListResponse.md
-docs/Model/DeleteAudienceResponse.md
 docs/Model/DynamicAttributes.md
 docs/Model/DynamicWriteAttributes.md
 docs/Model/EntityFilter.md
@@ -215,7 +220,6 @@ docs/Model/GenerateTopProductsReportRequest.md
 docs/Model/GenerateTopProductsReportRequestAttributes.md
 docs/Model/GenerateTopProductsReportRequestData.md
 docs/Model/GeoDivisionV1.md
-docs/Model/GetAudiencesResponse.md
 docs/Model/GetPortfolioResponse.md
 docs/Model/HtmlTagAttributes.md
 docs/Model/HtmlTagWriteAttributes.md
@@ -234,10 +238,6 @@ docs/Model/LocationUpdateV1.md
 docs/Model/LocationV1.md
 docs/Model/LoyaltyPoints.md
 docs/Model/ModifyAudienceResponse.md
-docs/Model/NewAudience.md
-docs/Model/NewAudienceAttributes.md
-docs/Model/NewAudienceRequest.md
-docs/Model/NewAudienceResponse.md
 docs/Model/NillableAdSetTargetingRule.md
 docs/Model/NillableDateTime.md
 docs/Model/NillableDecimal.md
@@ -310,9 +310,6 @@ docs/Model/ReadAdSetSchedule.md
 docs/Model/ReadModelAdSetId.md
 docs/Model/ReadModelReadAdSet.md
 docs/Model/RecommendedProduct.md
-docs/Model/ReplaceAudience.md
-docs/Model/ReplaceAudienceRequest.md
-docs/Model/ReplaceAudienceResponse.md
 docs/Model/ReportDataMessage.md
 docs/Model/ReportDetailError.md
 docs/Model/ReportDetailErrors.md
@@ -436,8 +433,6 @@ lib/Model/ApplicationSummaryModel.php
 lib/Model/ApplicationSummaryModelResource.php
 lib/Model/ApplicationSummaryModelResponse.php
 lib/Model/Attribute.php
-lib/Model/Audience.php
-lib/Model/AudienceAttributes.php
 lib/Model/AudienceBulkCreateInputV1.php
 lib/Model/AudienceBulkDeleteInputV1.php
 lib/Model/AudienceBulkUpdateInputV1.php
@@ -538,6 +533,14 @@ lib/Model/CouponResponse.php
 lib/Model/CouponSupportedSizes.php
 lib/Model/CouponSupportedSizesResource.php
 lib/Model/CouponSupportedSizesResponse.php
+lib/Model/CreateAdSet.php
+lib/Model/CreateAdSetBidding.php
+lib/Model/CreateAdSetBudget.php
+lib/Model/CreateAdSetGeoLocation.php
+lib/Model/CreateAdSetRequest.php
+lib/Model/CreateAdSetResource.php
+lib/Model/CreateAdSetSchedule.php
+lib/Model/CreateAdSetTargeting.php
 lib/Model/CreateCampaign.php
 lib/Model/CreateCampaignRequest.php
 lib/Model/CreateCampaignResource.php
@@ -562,7 +565,6 @@ lib/Model/CustomAttribute.php
 lib/Model/Dataset.php
 lib/Model/DealId.php
 lib/Model/DeleteAudienceContactListResponse.php
-lib/Model/DeleteAudienceResponse.php
 lib/Model/DynamicAttributes.php
 lib/Model/DynamicWriteAttributes.php
 lib/Model/EntityFilter.php
@@ -584,7 +586,6 @@ lib/Model/GenerateTopProductsReportRequest.php
 lib/Model/GenerateTopProductsReportRequestAttributes.php
 lib/Model/GenerateTopProductsReportRequestData.php
 lib/Model/GeoDivisionV1.php
-lib/Model/GetAudiencesResponse.php
 lib/Model/GetPortfolioResponse.php
 lib/Model/HtmlTagAttributes.php
 lib/Model/HtmlTagWriteAttributes.php
@@ -604,10 +605,6 @@ lib/Model/LocationV1.php
 lib/Model/LoyaltyPoints.php
 lib/Model/ModelInterface.php
 lib/Model/ModifyAudienceResponse.php
-lib/Model/NewAudience.php
-lib/Model/NewAudienceAttributes.php
-lib/Model/NewAudienceRequest.php
-lib/Model/NewAudienceResponse.php
 lib/Model/NillableAdSetTargetingRule.php
 lib/Model/NillableDateTime.php
 lib/Model/NillableDecimal.php
@@ -680,9 +677,6 @@ lib/Model/ReadAdSetSchedule.php
 lib/Model/ReadModelAdSetId.php
 lib/Model/ReadModelReadAdSet.php
 lib/Model/RecommendedProduct.php
-lib/Model/ReplaceAudience.php
-lib/Model/ReplaceAudienceRequest.php
-lib/Model/ReplaceAudienceResponse.php
 lib/Model/ReportDataMessage.php
 lib/Model/ReportDetailError.php
 lib/Model/ReportDetailErrors.php

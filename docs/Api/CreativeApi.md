@@ -19,7 +19,6 @@ Method | HTTP request | Description
 [**getCouponSupportedSizes()**](CreativeApi.md#getCouponSupportedSizes) | **GET** /preview/advertisers/{advertiser-id}/coupons-supported-sizes | 
 [**getCoupons()**](CreativeApi.md#getCoupons) | **GET** /preview/advertisers/{advertiser-id}/coupons | 
 [**getCreative()**](CreativeApi.md#getCreative) | **GET** /preview/creatives/{id} | 
-[**getCreativePreview()**](CreativeApi.md#getCreativePreview) | **GET** /preview/creatives/{id}/preview | 
 [**getCreativePreviewPost()**](CreativeApi.md#getCreativePreviewPost) | **POST** /preview/creatives/{id}/preview | 
 [**getCreatives()**](CreativeApi.md#getCreatives) | **GET** /preview/advertisers/{advertiser-id}/creatives | 
 
@@ -948,70 +947,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: `text/plain`, `application/json`, `text/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getCreativePreview()`
-
-```php
-getCreativePreview($id, $width, $height): string
-```
-
-
-
-Get the preview of a specific Creative
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\preview\Api\CreativeApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string | The Creative identifier to preview.
-$width = 56; // int | The width of the Creative to preview.
-$height = 56; // int | The height of the Creative to preview.
-
-try {
-    $result = $apiInstance->getCreativePreview($id, $width, $height);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CreativeApi->getCreativePreview: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| The Creative identifier to preview. |
- **width** | **int**| The width of the Creative to preview. | [optional]
- **height** | **int**| The height of the Creative to preview. | [optional]
-
-### Return type
-
-**string**
-
-### Authorization
-
-[oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `text/html`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

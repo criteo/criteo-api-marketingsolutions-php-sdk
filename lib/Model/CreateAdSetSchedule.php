@@ -1,6 +1,6 @@
 <?php
 /**
- * ReplaceAudienceRequest
+ * CreateAdSetSchedule
  *
  * PHP version 7.3
  *
@@ -32,10 +32,10 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * ReplaceAudienceRequest Class Doc Comment
+ * CreateAdSetSchedule Class Doc Comment
  *
  * @category Class
- * @description Request to replace an audience
+ * @description ad set schedule create model
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +43,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ReplaceAudienceRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateAdSetSchedule implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class ReplaceAudienceRequest implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ReplaceAudienceRequest';
+    protected static $openAPIModelName = 'CreateAdSetSchedule';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +60,8 @@ class ReplaceAudienceRequest implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\criteo\api\marketingsolutions\preview\Model\ReplaceAudience'
+        'start_date' => '\DateTime',
+        'end_date' => '\DateTime'
     ];
 
     /**
@@ -71,7 +72,8 @@ class ReplaceAudienceRequest implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'start_date' => 'date-time',
+        'end_date' => 'date-time'
     ];
 
     /**
@@ -101,7 +103,8 @@ class ReplaceAudienceRequest implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'start_date' => 'startDate',
+        'end_date' => 'endDate'
     ];
 
     /**
@@ -110,7 +113,8 @@ class ReplaceAudienceRequest implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'start_date' => 'setStartDate',
+        'end_date' => 'setEndDate'
     ];
 
     /**
@@ -119,7 +123,8 @@ class ReplaceAudienceRequest implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'start_date' => 'getStartDate',
+        'end_date' => 'getEndDate'
     ];
 
     /**
@@ -179,7 +184,8 @@ class ReplaceAudienceRequest implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = $data['data'] ?? null;
+        $this->container['start_date'] = $data['start_date'] ?? null;
+        $this->container['end_date'] = $data['end_date'] ?? null;
     }
 
     /**
@@ -191,9 +197,6 @@ class ReplaceAudienceRequest implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -210,25 +213,49 @@ class ReplaceAudienceRequest implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets data
+     * Gets start_date
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\ReplaceAudience
+     * @return \DateTime|null
      */
-    public function getData()
+    public function getStartDate()
     {
-        return $this->container['data'];
+        return $this->container['start_date'];
     }
 
     /**
-     * Sets data
+     * Sets start_date
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\ReplaceAudience $data data
+     * @param \DateTime|null $start_date start_date
      *
      * @return self
      */
-    public function setData($data)
+    public function setStartDate($start_date)
     {
-        $this->container['data'] = $data;
+        $this->container['start_date'] = $start_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_date
+     *
+     * @return \DateTime|null
+     */
+    public function getEndDate()
+    {
+        return $this->container['end_date'];
+    }
+
+    /**
+     * Sets end_date
+     *
+     * @param \DateTime|null $end_date end_date
+     *
+     * @return self
+     */
+    public function setEndDate($end_date)
+    {
+        $this->container['end_date'] = $end_date;
 
         return $this;
     }

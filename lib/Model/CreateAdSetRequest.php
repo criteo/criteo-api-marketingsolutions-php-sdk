@@ -1,6 +1,6 @@
 <?php
 /**
- * NewAudienceResponse
+ * CreateAdSetRequest
  *
  * PHP version 7.3
  *
@@ -32,10 +32,10 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * NewAudienceResponse Class Doc Comment
+ * CreateAdSetRequest Class Doc Comment
  *
  * @category Class
- * @description Response of a newly created audience
+ * @description Data model for an input resources
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +43,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class NewAudienceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateAdSetRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class NewAudienceResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'NewAudienceResponse';
+    protected static $openAPIModelName = 'CreateAdSetRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,9 +60,7 @@ class NewAudienceResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\criteo\api\marketingsolutions\preview\Model\BasicAudienceDefinition',
-        'errors' => '\criteo\api\marketingsolutions\preview\Model\AudienceError[]',
-        'warnings' => '\criteo\api\marketingsolutions\preview\Model\AudienceWarning[]'
+        'data' => '\criteo\api\marketingsolutions\preview\Model\CreateAdSetResource'
     ];
 
     /**
@@ -73,9 +71,7 @@ class NewAudienceResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null,
-        'errors' => null,
-        'warnings' => null
+        'data' => null
     ];
 
     /**
@@ -105,9 +101,7 @@ class NewAudienceResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data',
-        'errors' => 'errors',
-        'warnings' => 'warnings'
+        'data' => 'data'
     ];
 
     /**
@@ -116,9 +110,7 @@ class NewAudienceResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData',
-        'errors' => 'setErrors',
-        'warnings' => 'setWarnings'
+        'data' => 'setData'
     ];
 
     /**
@@ -127,9 +119,7 @@ class NewAudienceResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData',
-        'errors' => 'getErrors',
-        'warnings' => 'getWarnings'
+        'data' => 'getData'
     ];
 
     /**
@@ -190,8 +180,6 @@ class NewAudienceResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     public function __construct(array $data = null)
     {
         $this->container['data'] = $data['data'] ?? null;
-        $this->container['errors'] = $data['errors'] ?? null;
-        $this->container['warnings'] = $data['warnings'] ?? null;
     }
 
     /**
@@ -203,15 +191,6 @@ class NewAudienceResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
-        if ($this->container['errors'] === null) {
-            $invalidProperties[] = "'errors' can't be null";
-        }
-        if ($this->container['warnings'] === null) {
-            $invalidProperties[] = "'warnings' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -230,7 +209,7 @@ class NewAudienceResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets data
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\BasicAudienceDefinition
+     * @return \criteo\api\marketingsolutions\preview\Model\CreateAdSetResource|null
      */
     public function getData()
     {
@@ -240,61 +219,13 @@ class NewAudienceResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets data
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\BasicAudienceDefinition $data data
+     * @param \criteo\api\marketingsolutions\preview\Model\CreateAdSetResource|null $data data
      *
      * @return self
      */
     public function setData($data)
     {
         $this->container['data'] = $data;
-
-        return $this;
-    }
-
-    /**
-     * Gets errors
-     *
-     * @return \criteo\api\marketingsolutions\preview\Model\AudienceError[]
-     */
-    public function getErrors()
-    {
-        return $this->container['errors'];
-    }
-
-    /**
-     * Sets errors
-     *
-     * @param \criteo\api\marketingsolutions\preview\Model\AudienceError[] $errors errors
-     *
-     * @return self
-     */
-    public function setErrors($errors)
-    {
-        $this->container['errors'] = $errors;
-
-        return $this;
-    }
-
-    /**
-     * Gets warnings
-     *
-     * @return \criteo\api\marketingsolutions\preview\Model\AudienceWarning[]
-     */
-    public function getWarnings()
-    {
-        return $this->container['warnings'];
-    }
-
-    /**
-     * Sets warnings
-     *
-     * @param \criteo\api\marketingsolutions\preview\Model\AudienceWarning[] $warnings warnings
-     *
-     * @return self
-     */
-    public function setWarnings($warnings)
-    {
-        $this->container['warnings'] = $warnings;
 
         return $this;
     }

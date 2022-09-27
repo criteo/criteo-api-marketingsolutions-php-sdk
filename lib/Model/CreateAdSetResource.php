@@ -1,6 +1,6 @@
 <?php
 /**
- * NewAudience
+ * CreateAdSetResource
  *
  * PHP version 7.3
  *
@@ -32,10 +32,10 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * NewAudience Class Doc Comment
+ * CreateAdSetResource Class Doc Comment
  *
  * @category Class
- * @description Body for the creation of a new audience (name, advertiserId, etc)
+ * @description Data model for a Resource
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +43,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class NewAudience implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateAdSetResource implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class NewAudience implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'NewAudience';
+    protected static $openAPIModelName = 'CreateAdSetResource';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +60,8 @@ class NewAudience implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
-        'attributes' => '\criteo\api\marketingsolutions\preview\Model\NewAudienceAttributes'
+        'attributes' => '\criteo\api\marketingsolutions\preview\Model\CreateAdSet',
+        'type' => 'string'
     ];
 
     /**
@@ -72,8 +72,8 @@ class NewAudience implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
-        'attributes' => null
+        'attributes' => null,
+        'type' => null
     ];
 
     /**
@@ -103,8 +103,8 @@ class NewAudience implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'attributes' => 'attributes'
+        'attributes' => 'attributes',
+        'type' => 'type'
     ];
 
     /**
@@ -113,8 +113,8 @@ class NewAudience implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'attributes' => 'setAttributes'
+        'attributes' => 'setAttributes',
+        'type' => 'setType'
     ];
 
     /**
@@ -123,8 +123,8 @@ class NewAudience implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'attributes' => 'getAttributes'
+        'attributes' => 'getAttributes',
+        'type' => 'getType'
     ];
 
     /**
@@ -184,8 +184,8 @@ class NewAudience implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = $data['type'] ?? null;
         $this->container['attributes'] = $data['attributes'] ?? null;
+        $this->container['type'] = $data['type'] ?? null;
     }
 
     /**
@@ -197,12 +197,6 @@ class NewAudience implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
-        if ($this->container['attributes'] === null) {
-            $invalidProperties[] = "'attributes' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -219,33 +213,9 @@ class NewAudience implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type the name of the entity type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
      * Gets attributes
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\NewAudienceAttributes
+     * @return \criteo\api\marketingsolutions\preview\Model\CreateAdSet|null
      */
     public function getAttributes()
     {
@@ -255,13 +225,37 @@ class NewAudience implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets attributes
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\NewAudienceAttributes $attributes attributes
+     * @param \criteo\api\marketingsolutions\preview\Model\CreateAdSet|null $attributes attributes
      *
      * @return self
      */
     public function setAttributes($attributes)
     {
         $this->container['attributes'] = $attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type Canonical type name of the entity
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

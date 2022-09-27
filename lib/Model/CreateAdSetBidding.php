@@ -1,6 +1,6 @@
 <?php
 /**
- * GetAudiencesResponse
+ * CreateAdSetBidding
  *
  * PHP version 7.3
  *
@@ -32,10 +32,10 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * GetAudiencesResponse Class Doc Comment
+ * CreateAdSetBidding Class Doc Comment
  *
  * @category Class
- * @description Body of the GET audience operation
+ * @description ad set bidding create model
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +43,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetAudiencesResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateAdSetBidding implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class GetAudiencesResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       *
       * @var string
       */
-    protected static $openAPIModelName = 'GetAudiencesResponse';
+    protected static $openAPIModelName = 'CreateAdSetBidding';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,9 +60,9 @@ class GetAudiencesResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\criteo\api\marketingsolutions\preview\Model\Audience[]',
-        'errors' => '\criteo\api\marketingsolutions\preview\Model\AudienceError[]',
-        'warnings' => '\criteo\api\marketingsolutions\preview\Model\AudienceWarning[]'
+        'bid_amount' => 'double',
+        'bid_strategy' => 'string',
+        'cost_controller' => 'string'
     ];
 
     /**
@@ -73,9 +73,9 @@ class GetAudiencesResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null,
-        'errors' => null,
-        'warnings' => null
+        'bid_amount' => 'double',
+        'bid_strategy' => null,
+        'cost_controller' => null
     ];
 
     /**
@@ -105,9 +105,9 @@ class GetAudiencesResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data',
-        'errors' => 'errors',
-        'warnings' => 'warnings'
+        'bid_amount' => 'bidAmount',
+        'bid_strategy' => 'bidStrategy',
+        'cost_controller' => 'costController'
     ];
 
     /**
@@ -116,9 +116,9 @@ class GetAudiencesResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData',
-        'errors' => 'setErrors',
-        'warnings' => 'setWarnings'
+        'bid_amount' => 'setBidAmount',
+        'bid_strategy' => 'setBidStrategy',
+        'cost_controller' => 'setCostController'
     ];
 
     /**
@@ -127,9 +127,9 @@ class GetAudiencesResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData',
-        'errors' => 'getErrors',
-        'warnings' => 'getWarnings'
+        'bid_amount' => 'getBidAmount',
+        'bid_strategy' => 'getBidStrategy',
+        'cost_controller' => 'getCostController'
     ];
 
     /**
@@ -173,6 +173,66 @@ class GetAudiencesResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         return self::$openAPIModelName;
     }
 
+    const BID_STRATEGY_ACTIONS = 'actions';
+    const BID_STRATEGY_CLICKS = 'clicks';
+    const BID_STRATEGY_CONVERSIONS = 'conversions';
+    const BID_STRATEGY_DISPLAYS = 'displays';
+    const BID_STRATEGY_INSTALLS = 'installs';
+    const BID_STRATEGY_REVENUE = 'revenue';
+    const BID_STRATEGY_STORE_CONVERSIONS = 'storeConversions';
+    const BID_STRATEGY_VALUE = 'value';
+    const BID_STRATEGY_VIEWED_IMPRESSIONS = 'viewedImpressions';
+    const BID_STRATEGY_VISITS = 'Visits';
+    const BID_STRATEGY_COMPLETED_VIDEO_VIEWS = 'completedVideoViews';
+    const COST_CONTROLLER_COS = 'COS';
+    const COST_CONTROLLER_CPC = 'CPC';
+    const COST_CONTROLLER_CPI = 'CPI';
+    const COST_CONTROLLER_CPM = 'CPM';
+    const COST_CONTROLLER_CPO = 'CPO';
+    const COST_CONTROLLER_CPSV = 'CPSV';
+    const COST_CONTROLLER_CPV = 'CPV';
+    const COST_CONTROLLER_DAILY_BUDGET = 'dailyBudget';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getBidStrategyAllowableValues()
+    {
+        return [
+            self::BID_STRATEGY_ACTIONS,
+            self::BID_STRATEGY_CLICKS,
+            self::BID_STRATEGY_CONVERSIONS,
+            self::BID_STRATEGY_DISPLAYS,
+            self::BID_STRATEGY_INSTALLS,
+            self::BID_STRATEGY_REVENUE,
+            self::BID_STRATEGY_STORE_CONVERSIONS,
+            self::BID_STRATEGY_VALUE,
+            self::BID_STRATEGY_VIEWED_IMPRESSIONS,
+            self::BID_STRATEGY_VISITS,
+            self::BID_STRATEGY_COMPLETED_VIDEO_VIEWS,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCostControllerAllowableValues()
+    {
+        return [
+            self::COST_CONTROLLER_COS,
+            self::COST_CONTROLLER_CPC,
+            self::COST_CONTROLLER_CPI,
+            self::COST_CONTROLLER_CPM,
+            self::COST_CONTROLLER_CPO,
+            self::COST_CONTROLLER_CPSV,
+            self::COST_CONTROLLER_CPV,
+            self::COST_CONTROLLER_DAILY_BUDGET,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -189,9 +249,9 @@ class GetAudiencesResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = $data['data'] ?? null;
-        $this->container['errors'] = $data['errors'] ?? null;
-        $this->container['warnings'] = $data['warnings'] ?? null;
+        $this->container['bid_amount'] = $data['bid_amount'] ?? null;
+        $this->container['bid_strategy'] = $data['bid_strategy'] ?? null;
+        $this->container['cost_controller'] = $data['cost_controller'] ?? null;
     }
 
     /**
@@ -203,15 +263,24 @@ class GetAudiencesResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
+        $allowedValues = $this->getBidStrategyAllowableValues();
+        if (!is_null($this->container['bid_strategy']) && !in_array($this->container['bid_strategy'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'bid_strategy', must be one of '%s'",
+                $this->container['bid_strategy'],
+                implode("', '", $allowedValues)
+            );
         }
-        if ($this->container['errors'] === null) {
-            $invalidProperties[] = "'errors' can't be null";
+
+        $allowedValues = $this->getCostControllerAllowableValues();
+        if (!is_null($this->container['cost_controller']) && !in_array($this->container['cost_controller'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'cost_controller', must be one of '%s'",
+                $this->container['cost_controller'],
+                implode("', '", $allowedValues)
+            );
         }
-        if ($this->container['warnings'] === null) {
-            $invalidProperties[] = "'warnings' can't be null";
-        }
+
         return $invalidProperties;
     }
 
@@ -228,73 +297,93 @@ class GetAudiencesResponse implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets data
+     * Gets bid_amount
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\Audience[]
+     * @return double|null
      */
-    public function getData()
+    public function getBidAmount()
     {
-        return $this->container['data'];
+        return $this->container['bid_amount'];
     }
 
     /**
-     * Sets data
+     * Sets bid_amount
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\Audience[] $data data
+     * @param double|null $bid_amount Decimal value target relating to the `bidStrategy` specified. May be `null` for strategies that do not require a target value. At most 4 decimals are supported. Additional decimals are rounded.
      *
      * @return self
      */
-    public function setData($data)
+    public function setBidAmount($bid_amount)
     {
-        $this->container['data'] = $data;
+        $this->container['bid_amount'] = $bid_amount;
 
         return $this;
     }
 
     /**
-     * Gets errors
+     * Gets bid_strategy
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\AudienceError[]
+     * @return string|null
      */
-    public function getErrors()
+    public function getBidStrategy()
     {
-        return $this->container['errors'];
+        return $this->container['bid_strategy'];
     }
 
     /**
-     * Sets errors
+     * Sets bid_strategy
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\AudienceError[] $errors errors
+     * @param string|null $bid_strategy bid_strategy
      *
      * @return self
      */
-    public function setErrors($errors)
+    public function setBidStrategy($bid_strategy)
     {
-        $this->container['errors'] = $errors;
+        $allowedValues = $this->getBidStrategyAllowableValues();
+        if (!is_null($bid_strategy) && !in_array($bid_strategy, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'bid_strategy', must be one of '%s'",
+                    $bid_strategy,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['bid_strategy'] = $bid_strategy;
 
         return $this;
     }
 
     /**
-     * Gets warnings
+     * Gets cost_controller
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\AudienceWarning[]
+     * @return string|null
      */
-    public function getWarnings()
+    public function getCostController()
     {
-        return $this->container['warnings'];
+        return $this->container['cost_controller'];
     }
 
     /**
-     * Sets warnings
+     * Sets cost_controller
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\AudienceWarning[] $warnings warnings
+     * @param string|null $cost_controller cost_controller
      *
      * @return self
      */
-    public function setWarnings($warnings)
+    public function setCostController($cost_controller)
     {
-        $this->container['warnings'] = $warnings;
+        $allowedValues = $this->getCostControllerAllowableValues();
+        if (!is_null($cost_controller) && !in_array($cost_controller, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'cost_controller', must be one of '%s'",
+                    $cost_controller,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['cost_controller'] = $cost_controller;
 
         return $this;
     }

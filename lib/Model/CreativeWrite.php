@@ -61,7 +61,6 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'ad_set_id' => 'string',
         'description' => 'string',
         'format' => 'string',
         'dataset_id' => 'string',
@@ -80,7 +79,6 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'ad_set_id' => null,
         'description' => null,
         'format' => null,
         'dataset_id' => null,
@@ -118,7 +116,6 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'ad_set_id' => 'adSetId',
         'description' => 'description',
         'format' => 'format',
         'dataset_id' => 'datasetId',
@@ -135,7 +132,6 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'name' => 'setName',
-        'ad_set_id' => 'setAdSetId',
         'description' => 'setDescription',
         'format' => 'setFormat',
         'dataset_id' => 'setDatasetId',
@@ -152,7 +148,6 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'name' => 'getName',
-        'ad_set_id' => 'getAdSetId',
         'description' => 'getDescription',
         'format' => 'getFormat',
         'dataset_id' => 'getDatasetId',
@@ -220,7 +215,6 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['name'] = $data['name'] ?? null;
-        $this->container['ad_set_id'] = $data['ad_set_id'] ?? null;
         $this->container['description'] = $data['description'] ?? null;
         $this->container['format'] = $data['format'] ?? null;
         $this->container['dataset_id'] = $data['dataset_id'] ?? null;
@@ -241,9 +235,6 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['ad_set_id'] === null) {
-            $invalidProperties[] = "'ad_set_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -285,30 +276,6 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets ad_set_id
-     *
-     * @return string
-     */
-    public function getAdSetId()
-    {
-        return $this->container['ad_set_id'];
-    }
-
-    /**
-     * Sets ad_set_id
-     *
-     * @param string $ad_set_id Ad set on which Creative will be applied
-     *
-     * @return self
-     */
-    public function setAdSetId($ad_set_id)
-    {
-        $this->container['ad_set_id'] = $ad_set_id;
-
-        return $this;
-    }
-
-    /**
      * Gets description
      *
      * @return string|null
@@ -345,7 +312,7 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets format
      *
-     * @param string|null $format The format of the creative  You can use \"Image\", \" HtmlTag\" or \"Dynamic\"
+     * @param string|null $format The format of the creative  You can use \"Image\", \" HtmlTag\", \"Dynamic\" or \"Adaptive\"
      *
      * @return self
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * ReplaceAudience
+ * CreateAdSetGeoLocation
  *
  * PHP version 7.3
  *
@@ -32,10 +32,10 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * ReplaceAudience Class Doc Comment
+ * CreateAdSetGeoLocation Class Doc Comment
  *
  * @category Class
- * @description Parameters required to replace an audience
+ * @description Geolocation configuration of the ad set
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +43,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ReplaceAudience implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateAdSetGeoLocation implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class ReplaceAudience implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ReplaceAudience';
+    protected static $openAPIModelName = 'CreateAdSetGeoLocation';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +60,9 @@ class ReplaceAudience implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
-        'attributes' => '\criteo\api\marketingsolutions\preview\Model\AudienceNameDescription'
+        'countries' => '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingRule',
+        'subdivisions' => '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingRule',
+        'zip_codes' => '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingRule'
     ];
 
     /**
@@ -72,8 +73,9 @@ class ReplaceAudience implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
-        'attributes' => null
+        'countries' => null,
+        'subdivisions' => null,
+        'zip_codes' => null
     ];
 
     /**
@@ -103,8 +105,9 @@ class ReplaceAudience implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'attributes' => 'attributes'
+        'countries' => 'countries',
+        'subdivisions' => 'subdivisions',
+        'zip_codes' => 'zipCodes'
     ];
 
     /**
@@ -113,8 +116,9 @@ class ReplaceAudience implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'attributes' => 'setAttributes'
+        'countries' => 'setCountries',
+        'subdivisions' => 'setSubdivisions',
+        'zip_codes' => 'setZipCodes'
     ];
 
     /**
@@ -123,8 +127,9 @@ class ReplaceAudience implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'attributes' => 'getAttributes'
+        'countries' => 'getCountries',
+        'subdivisions' => 'getSubdivisions',
+        'zip_codes' => 'getZipCodes'
     ];
 
     /**
@@ -184,8 +189,9 @@ class ReplaceAudience implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = $data['type'] ?? null;
-        $this->container['attributes'] = $data['attributes'] ?? null;
+        $this->container['countries'] = $data['countries'] ?? null;
+        $this->container['subdivisions'] = $data['subdivisions'] ?? null;
+        $this->container['zip_codes'] = $data['zip_codes'] ?? null;
     }
 
     /**
@@ -197,12 +203,6 @@ class ReplaceAudience implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
-        if ($this->container['attributes'] === null) {
-            $invalidProperties[] = "'attributes' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -219,49 +219,73 @@ class ReplaceAudience implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets type
+     * Gets countries
      *
-     * @return string
+     * @return \criteo\api\marketingsolutions\preview\Model\AdSetTargetingRule|null
      */
-    public function getType()
+    public function getCountries()
     {
-        return $this->container['type'];
+        return $this->container['countries'];
     }
 
     /**
-     * Sets type
+     * Sets countries
      *
-     * @param string $type the name of the entity type
+     * @param \criteo\api\marketingsolutions\preview\Model\AdSetTargetingRule|null $countries countries
      *
      * @return self
      */
-    public function setType($type)
+    public function setCountries($countries)
     {
-        $this->container['type'] = $type;
+        $this->container['countries'] = $countries;
 
         return $this;
     }
 
     /**
-     * Gets attributes
+     * Gets subdivisions
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\AudienceNameDescription
+     * @return \criteo\api\marketingsolutions\preview\Model\AdSetTargetingRule|null
      */
-    public function getAttributes()
+    public function getSubdivisions()
     {
-        return $this->container['attributes'];
+        return $this->container['subdivisions'];
     }
 
     /**
-     * Sets attributes
+     * Sets subdivisions
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\AudienceNameDescription $attributes attributes
+     * @param \criteo\api\marketingsolutions\preview\Model\AdSetTargetingRule|null $subdivisions subdivisions
      *
      * @return self
      */
-    public function setAttributes($attributes)
+    public function setSubdivisions($subdivisions)
     {
-        $this->container['attributes'] = $attributes;
+        $this->container['subdivisions'] = $subdivisions;
+
+        return $this;
+    }
+
+    /**
+     * Gets zip_codes
+     *
+     * @return \criteo\api\marketingsolutions\preview\Model\AdSetTargetingRule|null
+     */
+    public function getZipCodes()
+    {
+        return $this->container['zip_codes'];
+    }
+
+    /**
+     * Sets zip_codes
+     *
+     * @param \criteo\api\marketingsolutions\preview\Model\AdSetTargetingRule|null $zip_codes zip_codes
+     *
+     * @return self
+     */
+    public function setZipCodes($zip_codes)
+    {
+        $this->container['zip_codes'] = $zip_codes;
 
         return $this;
     }

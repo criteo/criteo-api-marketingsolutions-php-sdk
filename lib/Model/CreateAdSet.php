@@ -1,6 +1,6 @@
 <?php
 /**
- * AudienceAttributes
+ * CreateAdSet
  *
  * PHP version 7.3
  *
@@ -32,9 +32,10 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * AudienceAttributes Class Doc Comment
+ * CreateAdSet Class Doc Comment
  *
  * @category Class
+ * @description ad set create model
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -42,7 +43,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AudienceAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +52,7 @@ class AudienceAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Audience_attributes';
+    protected static $openAPIModelName = 'CreateAdSet';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,14 +60,15 @@ class AudienceAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'advertiser_id' => 'string',
         'name' => 'string',
-        'description' => 'string',
-        'created' => '\DateTime',
-        'updated' => '\DateTime',
-        'nb_lines' => 'int',
-        'nb_lines_email' => 'int',
-        'nb_matches_email' => 'int'
+        'dataset_id' => 'string',
+        'campaign_id' => 'string',
+        'schedule' => '\criteo\api\marketingsolutions\preview\Model\CreateAdSetSchedule',
+        'bidding' => '\criteo\api\marketingsolutions\preview\Model\CreateAdSetBidding',
+        'targeting' => '\criteo\api\marketingsolutions\preview\Model\CreateAdSetTargeting',
+        'budget' => '\criteo\api\marketingsolutions\preview\Model\CreateAdSetBudget',
+        'tracking_code' => 'string',
+        'media_type' => 'string'
     ];
 
     /**
@@ -77,14 +79,15 @@ class AudienceAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'advertiser_id' => 'int32',
         'name' => null,
-        'description' => null,
-        'created' => 'date-time',
-        'updated' => 'date-time',
-        'nb_lines' => null,
-        'nb_lines_email' => null,
-        'nb_matches_email' => null
+        'dataset_id' => null,
+        'campaign_id' => null,
+        'schedule' => null,
+        'bidding' => null,
+        'targeting' => null,
+        'budget' => null,
+        'tracking_code' => null,
+        'media_type' => null
     ];
 
     /**
@@ -114,14 +117,15 @@ class AudienceAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'advertiser_id' => 'advertiserId',
         'name' => 'name',
-        'description' => 'description',
-        'created' => 'created',
-        'updated' => 'updated',
-        'nb_lines' => 'nbLines',
-        'nb_lines_email' => 'nbLinesEmail',
-        'nb_matches_email' => 'nbMatchesEmail'
+        'dataset_id' => 'datasetId',
+        'campaign_id' => 'campaignId',
+        'schedule' => 'schedule',
+        'bidding' => 'bidding',
+        'targeting' => 'targeting',
+        'budget' => 'budget',
+        'tracking_code' => 'trackingCode',
+        'media_type' => 'mediaType'
     ];
 
     /**
@@ -130,14 +134,15 @@ class AudienceAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'advertiser_id' => 'setAdvertiserId',
         'name' => 'setName',
-        'description' => 'setDescription',
-        'created' => 'setCreated',
-        'updated' => 'setUpdated',
-        'nb_lines' => 'setNbLines',
-        'nb_lines_email' => 'setNbLinesEmail',
-        'nb_matches_email' => 'setNbMatchesEmail'
+        'dataset_id' => 'setDatasetId',
+        'campaign_id' => 'setCampaignId',
+        'schedule' => 'setSchedule',
+        'bidding' => 'setBidding',
+        'targeting' => 'setTargeting',
+        'budget' => 'setBudget',
+        'tracking_code' => 'setTrackingCode',
+        'media_type' => 'setMediaType'
     ];
 
     /**
@@ -146,14 +151,15 @@ class AudienceAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'advertiser_id' => 'getAdvertiserId',
         'name' => 'getName',
-        'description' => 'getDescription',
-        'created' => 'getCreated',
-        'updated' => 'getUpdated',
-        'nb_lines' => 'getNbLines',
-        'nb_lines_email' => 'getNbLinesEmail',
-        'nb_matches_email' => 'getNbMatchesEmail'
+        'dataset_id' => 'getDatasetId',
+        'campaign_id' => 'getCampaignId',
+        'schedule' => 'getSchedule',
+        'bidding' => 'getBidding',
+        'targeting' => 'getTargeting',
+        'budget' => 'getBudget',
+        'tracking_code' => 'getTrackingCode',
+        'media_type' => 'getMediaType'
     ];
 
     /**
@@ -197,6 +203,21 @@ class AudienceAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
         return self::$openAPIModelName;
     }
 
+    const MEDIA_TYPE_DISPLAY = 'display';
+    const MEDIA_TYPE_VIDEO = 'video';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMediaTypeAllowableValues()
+    {
+        return [
+            self::MEDIA_TYPE_DISPLAY,
+            self::MEDIA_TYPE_VIDEO,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -213,14 +234,15 @@ class AudienceAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->container['advertiser_id'] = $data['advertiser_id'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
-        $this->container['description'] = $data['description'] ?? null;
-        $this->container['created'] = $data['created'] ?? null;
-        $this->container['updated'] = $data['updated'] ?? null;
-        $this->container['nb_lines'] = $data['nb_lines'] ?? null;
-        $this->container['nb_lines_email'] = $data['nb_lines_email'] ?? null;
-        $this->container['nb_matches_email'] = $data['nb_matches_email'] ?? null;
+        $this->container['dataset_id'] = $data['dataset_id'] ?? null;
+        $this->container['campaign_id'] = $data['campaign_id'] ?? null;
+        $this->container['schedule'] = $data['schedule'] ?? null;
+        $this->container['bidding'] = $data['bidding'] ?? null;
+        $this->container['targeting'] = $data['targeting'] ?? null;
+        $this->container['budget'] = $data['budget'] ?? null;
+        $this->container['tracking_code'] = $data['tracking_code'] ?? null;
+        $this->container['media_type'] = $data['media_type'] ?? null;
     }
 
     /**
@@ -232,18 +254,15 @@ class AudienceAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        $allowedValues = $this->getMediaTypeAllowableValues();
+        if (!is_null($this->container['media_type']) && !in_array($this->container['media_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'media_type', must be one of '%s'",
+                $this->container['media_type'],
+                implode("', '", $allowedValues)
+            );
         }
-        if ($this->container['description'] === null) {
-            $invalidProperties[] = "'description' can't be null";
-        }
-        if ($this->container['created'] === null) {
-            $invalidProperties[] = "'created' can't be null";
-        }
-        if ($this->container['updated'] === null) {
-            $invalidProperties[] = "'updated' can't be null";
-        }
+
         return $invalidProperties;
     }
 
@@ -260,33 +279,9 @@ class AudienceAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets advertiser_id
-     *
-     * @return string|null
-     */
-    public function getAdvertiserId()
-    {
-        return $this->container['advertiser_id'];
-    }
-
-    /**
-     * Sets advertiser_id
-     *
-     * @param string|null $advertiser_id The advertiser id that owns this Audience
-     *
-     * @return self
-     */
-    public function setAdvertiserId($advertiser_id)
-    {
-        $this->container['advertiser_id'] = $advertiser_id;
-
-        return $this;
-    }
-
-    /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -296,7 +291,7 @@ class AudienceAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets name
      *
-     * @param string $name The name of the Audience
+     * @param string|null $name Name of the ad set
      *
      * @return self
      */
@@ -308,145 +303,203 @@ class AudienceAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets description
+     * Gets dataset_id
      *
-     * @return string
+     * @return string|null
      */
-    public function getDescription()
+    public function getDatasetId()
     {
-        return $this->container['description'];
+        return $this->container['dataset_id'];
     }
 
     /**
-     * Sets description
+     * Sets dataset_id
      *
-     * @param string $description The string description of the Audience
+     * @param string|null $dataset_id Dataset id of this ad set
      *
      * @return self
      */
-    public function setDescription($description)
+    public function setDatasetId($dataset_id)
     {
-        $this->container['description'] = $description;
+        $this->container['dataset_id'] = $dataset_id;
 
         return $this;
     }
 
     /**
-     * Gets created
+     * Gets campaign_id
      *
-     * @return \DateTime
+     * @return string|null
      */
-    public function getCreated()
+    public function getCampaignId()
     {
-        return $this->container['created'];
+        return $this->container['campaign_id'];
     }
 
     /**
-     * Sets created
+     * Sets campaign_id
      *
-     * @param \DateTime $created Date and time ISO 8601 formatted string
+     * @param string|null $campaign_id Campaign id this ad set belongs to
      *
      * @return self
      */
-    public function setCreated($created)
+    public function setCampaignId($campaign_id)
     {
-        $this->container['created'] = $created;
+        $this->container['campaign_id'] = $campaign_id;
 
         return $this;
     }
 
     /**
-     * Gets updated
+     * Gets schedule
      *
-     * @return \DateTime
+     * @return \criteo\api\marketingsolutions\preview\Model\CreateAdSetSchedule|null
      */
-    public function getUpdated()
+    public function getSchedule()
     {
-        return $this->container['updated'];
+        return $this->container['schedule'];
     }
 
     /**
-     * Sets updated
+     * Sets schedule
      *
-     * @param \DateTime $updated Date and time ISO 8601 formatted string
+     * @param \criteo\api\marketingsolutions\preview\Model\CreateAdSetSchedule|null $schedule schedule
      *
      * @return self
      */
-    public function setUpdated($updated)
+    public function setSchedule($schedule)
     {
-        $this->container['updated'] = $updated;
+        $this->container['schedule'] = $schedule;
 
         return $this;
     }
 
     /**
-     * Gets nb_lines
+     * Gets bidding
      *
-     * @return int|null
+     * @return \criteo\api\marketingsolutions\preview\Model\CreateAdSetBidding|null
      */
-    public function getNbLines()
+    public function getBidding()
     {
-        return $this->container['nb_lines'];
+        return $this->container['bidding'];
     }
 
     /**
-     * Sets nb_lines
+     * Sets bidding
      *
-     * @param int|null $nb_lines The number of line in the audience available once processed
+     * @param \criteo\api\marketingsolutions\preview\Model\CreateAdSetBidding|null $bidding bidding
      *
      * @return self
      */
-    public function setNbLines($nb_lines)
+    public function setBidding($bidding)
     {
-        $this->container['nb_lines'] = $nb_lines;
+        $this->container['bidding'] = $bidding;
 
         return $this;
     }
 
     /**
-     * Gets nb_lines_email
+     * Gets targeting
      *
-     * @return int|null
+     * @return \criteo\api\marketingsolutions\preview\Model\CreateAdSetTargeting|null
      */
-    public function getNbLinesEmail()
+    public function getTargeting()
     {
-        return $this->container['nb_lines_email'];
+        return $this->container['targeting'];
     }
 
     /**
-     * Sets nb_lines_email
+     * Sets targeting
      *
-     * @param int|null $nb_lines_email The number of email line in the audience available once processed
+     * @param \criteo\api\marketingsolutions\preview\Model\CreateAdSetTargeting|null $targeting targeting
      *
      * @return self
      */
-    public function setNbLinesEmail($nb_lines_email)
+    public function setTargeting($targeting)
     {
-        $this->container['nb_lines_email'] = $nb_lines_email;
+        $this->container['targeting'] = $targeting;
 
         return $this;
     }
 
     /**
-     * Gets nb_matches_email
+     * Gets budget
      *
-     * @return int|null
+     * @return \criteo\api\marketingsolutions\preview\Model\CreateAdSetBudget|null
      */
-    public function getNbMatchesEmail()
+    public function getBudget()
     {
-        return $this->container['nb_matches_email'];
+        return $this->container['budget'];
     }
 
     /**
-     * Sets nb_matches_email
+     * Sets budget
      *
-     * @param int|null $nb_matches_email The number of email matches in the audience available once processed
+     * @param \criteo\api\marketingsolutions\preview\Model\CreateAdSetBudget|null $budget budget
      *
      * @return self
      */
-    public function setNbMatchesEmail($nb_matches_email)
+    public function setBudget($budget)
     {
-        $this->container['nb_matches_email'] = $nb_matches_email;
+        $this->container['budget'] = $budget;
+
+        return $this;
+    }
+
+    /**
+     * Gets tracking_code
+     *
+     * @return string|null
+     */
+    public function getTrackingCode()
+    {
+        return $this->container['tracking_code'];
+    }
+
+    /**
+     * Sets tracking_code
+     *
+     * @param string|null $tracking_code The click tracking code associated to this Ad Set.
+     *
+     * @return self
+     */
+    public function setTrackingCode($tracking_code)
+    {
+        $this->container['tracking_code'] = $tracking_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets media_type
+     *
+     * @return string|null
+     */
+    public function getMediaType()
+    {
+        return $this->container['media_type'];
+    }
+
+    /**
+     * Sets media_type
+     *
+     * @param string|null $media_type Media type for the ad set
+     *
+     * @return self
+     */
+    public function setMediaType($media_type)
+    {
+        $allowedValues = $this->getMediaTypeAllowableValues();
+        if (!is_null($media_type) && !in_array($media_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'media_type', must be one of '%s'",
+                    $media_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['media_type'] = $media_type;
 
         return $this;
     }
