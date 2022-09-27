@@ -219,7 +219,7 @@ class PatchAdSetDisplayMultiplier implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets display_multiplier
      *
-     * @param double|null $display_multiplier Any positive decimal value. To remove the impact of the Display Multiplier set it to 1.
+     * @param double|null $display_multiplier Any positive decimal value. To remove the impact of the Display Multiplier set it to 1. At most 4 decimals are supported. Additional decimals are rounded.
      *
      * @return self
      */
