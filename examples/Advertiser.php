@@ -2,10 +2,10 @@
 
 // Install Criteo Marketing sdk, via composer for example: `composer require criteo/criteo-php-marketing-sdk`
 // Then import it as follow:
-// require_once(__DIR__ . '/vendor/autoload.php');
+require_once(__DIR__ . '/vendor/autoload.php');
 
-use Criteo\SDK\Api\AdvertiserApi;
-use Criteo\SDK\TokenAutoRefreshClient;
+use criteo\api\marketingsolutions\v2022_04\Api\AdvertiserApi;
+use criteo\api\marketingsolutions\v2022_04\ClientCredentialsClient;
 
 /*
  * Although the OpenAPI specification, then this generated client, you can't simply use the API key feature.
@@ -21,7 +21,7 @@ use Criteo\SDK\TokenAutoRefreshClient;
 $clientId = 'YOUR_CLIENT_ID';
 $clientSecret = 'YOUR_CLIENT_SECRET';
 
-$client = new TokenAutoRefreshClient($clientId, $clientSecret);
+$client = new ClientCredentialsClient($clientId, $clientSecret);
 
 $apiInstance = new AdvertiserApi(client: $client);
 
