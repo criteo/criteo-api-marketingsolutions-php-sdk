@@ -115,6 +115,8 @@ docs/Model/TransparencyReportEntityMessage.md
 docs/Model/TransparencyReportFile.md
 docs/Model/WriteModelAdSetId.md
 docs/Model/WriteModelPatchAdSet.md
+examples/Advertiser.php
+examples/Analytics.php
 git_push.sh
 lib/Api/AdvertiserApi.php
 lib/Api/AnalyticsApi.php
