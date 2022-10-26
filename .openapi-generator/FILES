@@ -365,6 +365,8 @@ docs/Model/ValueResourceOfCreateProductSetRequest.md
 docs/Model/VideoDetail.md
 docs/Model/WriteModelAdSetId.md
 docs/Model/WriteModelPatchAdSet.md
+examples/Advertiser.php
+examples/Analytics.php
 git_push.sh
 lib/Api/AdvertiserApi.php
 lib/Api/AnalyticsApi.php

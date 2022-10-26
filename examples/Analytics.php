@@ -2,11 +2,11 @@
 
 // Install Criteo API SDK, via composer for example: `composer require criteo/criteo-api-php-sdk`
 // Then import it as follow:
-// require_once(__DIR__ . '/vendor/autoload.php');
+require_once(__DIR__ . '/vendor/autoload.php');
 
-use Criteo\SDK\Api\AnalyticsApi;
-use Criteo\SDK\Model\StatisticsReportQueryMessage;
-use Criteo\SDK\TokenAutoRefreshClient;
+use criteo\api\marketingsolutions\preview\Api\AnalyticsApi;
+use criteo\api\marketingsolutions\preview\Model\StatisticsReportQueryMessage;
+use criteo\api\marketingsolutions\preview\ClientCredentialsClient;
 
 /*
  * Although the OpenAPI specification, then this generated client, you can't simply use the API key feature.
@@ -22,7 +22,7 @@ use Criteo\SDK\TokenAutoRefreshClient;
 $clientId = 'YOUR_CLIENT_ID';
 $clientSecret = 'YOUR_CLIENT_SECRET';
 
-$apiInstance = new AnalyticsApi(new TokenAutoRefreshClient($clientId, $clientSecret));
+$apiInstance = new AnalyticsApi(new ClientCredentialsClient($clientId, $clientSecret));
         
 $stats_query = new StatisticsReportQueryMessage(array(
     'advertiser_ids'=>"11", # Supposing you have the rights to report on this advertiser
