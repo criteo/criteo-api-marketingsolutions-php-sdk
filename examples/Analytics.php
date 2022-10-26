@@ -4,9 +4,9 @@
 // Then import it as follow:
 require_once(__DIR__ . '/vendor/autoload.php');
 
-use criteo\api\marketingsolutions\v2022_07\Api\AnalyticsApi;
-use criteo\api\marketingsolutions\v2022_07\Model\StatisticsReportQueryMessage;
-use criteo\api\marketingsolutions\v2022_07\ClientCredentialsClient;
+use criteo\api\marketingsolutions\v2022_10\Api\AnalyticsApi;
+use criteo\api\marketingsolutions\v2022_10\Model\StatisticsReportQueryMessage;
+use criteo\api\marketingsolutions\v2022_10\ClientCredentialsClient;
 
 /*
  * Although the OpenAPI specification, then this generated client, you can't simply use the API key feature.

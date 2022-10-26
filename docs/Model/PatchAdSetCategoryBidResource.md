@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | [**\criteo\api\marketingsolutions\v2022_07\Model\PatchAdSetCategoryBid**](PatchAdSetCategoryBid.md) |  | [optional]
+**attributes** | [**\criteo\api\marketingsolutions\v2022_10\Model\PatchAdSetCategoryBid**](PatchAdSetCategoryBid.md) |  | [optional]
 **id** | **string** | Id of the entity | [optional]
 **type** | **string** | Canonical type name of the entity | [optional]
 

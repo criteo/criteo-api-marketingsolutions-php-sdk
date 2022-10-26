@@ -1,21 +1,21 @@
-# criteo\api\marketingsolutions\v2022_07\AudienceApi
+# criteo\api\marketingsolutions\v2022_10\AudienceApi
 
 All URIs are relative to https://api.criteo.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createAudience()**](AudienceApi.md#createAudience) | **POST** /2022-07/audiences | 
-[**deleteIdentifiers()**](AudienceApi.md#deleteIdentifiers) | **DELETE** /2022-07/audiences/{audience-id}/contactlist | 
-[**getAudiences()**](AudienceApi.md#getAudiences) | **GET** /2022-07/audiences | 
-[**modifyAudience()**](AudienceApi.md#modifyAudience) | **PATCH** /2022-07/audiences/{audience-id} | 
-[**modifyAudienceUsers()**](AudienceApi.md#modifyAudienceUsers) | **PATCH** /2022-07/audiences/{audience-id}/contactlist | 
-[**removeAudience()**](AudienceApi.md#removeAudience) | **DELETE** /2022-07/audiences/{audience-id} | 
+[**createAudience()**](AudienceApi.md#createAudience) | **POST** /2022-10/audiences | 
+[**deleteIdentifiers()**](AudienceApi.md#deleteIdentifiers) | **DELETE** /2022-10/audiences/{audience-id}/contactlist | 
+[**getAudiences()**](AudienceApi.md#getAudiences) | **GET** /2022-10/audiences | 
+[**modifyAudience()**](AudienceApi.md#modifyAudience) | **PATCH** /2022-10/audiences/{audience-id} | 
+[**modifyAudienceUsers()**](AudienceApi.md#modifyAudienceUsers) | **PATCH** /2022-10/audiences/{audience-id}/contactlist | 
+[**removeAudience()**](AudienceApi.md#removeAudience) | **DELETE** /2022-10/audiences/{audience-id} | 
 
 
 ## `createAudience()`
 
 ```php
-createAudience($new_audience_request): \criteo\api\marketingsolutions\v2022_07\Model\NewAudienceResponse
+createAudience($new_audience_request): \criteo\api\marketingsolutions\v2022_10\Model\NewAudienceResponse
 ```
 
 
@@ -30,16 +30,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2022_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2022_07\Api\AudienceApi(
+$apiInstance = new criteo\api\marketingsolutions\v2022_10\Api\AudienceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$new_audience_request = new \criteo\api\marketingsolutions\v2022_07\Model\NewAudienceRequest(); // \criteo\api\marketingsolutions\v2022_07\Model\NewAudienceRequest
+$new_audience_request = new \criteo\api\marketingsolutions\v2022_10\Model\NewAudienceRequest(); // \criteo\api\marketingsolutions\v2022_10\Model\NewAudienceRequest
 
 try {
     $result = $apiInstance->createAudience($new_audience_request);
@@ -53,11 +53,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **new_audience_request** | [**\criteo\api\marketingsolutions\v2022_07\Model\NewAudienceRequest**](../Model/NewAudienceRequest.md)|  |
+ **new_audience_request** | [**\criteo\api\marketingsolutions\v2022_10\Model\NewAudienceRequest**](../Model/NewAudienceRequest.md)|  |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2022_07\Model\NewAudienceResponse**](../Model/NewAudienceResponse.md)
+[**\criteo\api\marketingsolutions\v2022_10\Model\NewAudienceResponse**](../Model/NewAudienceResponse.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 ## `deleteIdentifiers()`
 
 ```php
-deleteIdentifiers($audience_id): \criteo\api\marketingsolutions\v2022_07\Model\DeleteAudienceContactListResponse
+deleteIdentifiers($audience_id): \criteo\api\marketingsolutions\v2022_10\Model\DeleteAudienceContactListResponse
 ```
 
 
@@ -90,10 +90,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2022_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2022_07\Api\AudienceApi(
+$apiInstance = new criteo\api\marketingsolutions\v2022_10\Api\AudienceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2022_07\Model\DeleteAudienceContactListResponse**](../Model/DeleteAudienceContactListResponse.md)
+[**\criteo\api\marketingsolutions\v2022_10\Model\DeleteAudienceContactListResponse**](../Model/DeleteAudienceContactListResponse.md)
 
 ### Authorization
 
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 ## `getAudiences()`
 
 ```php
-getAudiences($advertiser_id): \criteo\api\marketingsolutions\v2022_07\Model\GetAudiencesResponse
+getAudiences($advertiser_id): \criteo\api\marketingsolutions\v2022_10\Model\GetAudiencesResponse
 ```
 
 
@@ -150,10 +150,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2022_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2022_07\Api\AudienceApi(
+$apiInstance = new criteo\api\marketingsolutions\v2022_10\Api\AudienceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2022_07\Model\GetAudiencesResponse**](../Model/GetAudiencesResponse.md)
+[**\criteo\api\marketingsolutions\v2022_10\Model\GetAudiencesResponse**](../Model/GetAudiencesResponse.md)
 
 ### Authorization
 
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 ## `modifyAudience()`
 
 ```php
-modifyAudience($audience_id, $replace_audience_request): \criteo\api\marketingsolutions\v2022_07\Model\ReplaceAudienceResponse
+modifyAudience($audience_id, $replace_audience_request): \criteo\api\marketingsolutions\v2022_10\Model\ReplaceAudienceResponse
 ```
 
 
@@ -210,17 +210,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2022_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2022_07\Api\AudienceApi(
+$apiInstance = new criteo\api\marketingsolutions\v2022_10\Api\AudienceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $audience_id = 'audience_id_example'; // string | The id of the audience to amend
-$replace_audience_request = new \criteo\api\marketingsolutions\v2022_07\Model\ReplaceAudienceRequest(); // \criteo\api\marketingsolutions\v2022_07\Model\ReplaceAudienceRequest
+$replace_audience_request = new \criteo\api\marketingsolutions\v2022_10\Model\ReplaceAudienceRequest(); // \criteo\api\marketingsolutions\v2022_10\Model\ReplaceAudienceRequest
 
 try {
     $result = $apiInstance->modifyAudience($audience_id, $replace_audience_request);
@@ -235,11 +235,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **audience_id** | **string**| The id of the audience to amend |
- **replace_audience_request** | [**\criteo\api\marketingsolutions\v2022_07\Model\ReplaceAudienceRequest**](../Model/ReplaceAudienceRequest.md)|  |
+ **replace_audience_request** | [**\criteo\api\marketingsolutions\v2022_10\Model\ReplaceAudienceRequest**](../Model/ReplaceAudienceRequest.md)|  |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2022_07\Model\ReplaceAudienceResponse**](../Model/ReplaceAudienceResponse.md)
+[**\criteo\api\marketingsolutions\v2022_10\Model\ReplaceAudienceResponse**](../Model/ReplaceAudienceResponse.md)
 
 ### Authorization
 
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 ## `modifyAudienceUsers()`
 
 ```php
-modifyAudienceUsers($audience_id, $contactlist_amendment_request): \criteo\api\marketingsolutions\v2022_07\Model\ModifyAudienceResponse
+modifyAudienceUsers($audience_id, $contactlist_amendment_request): \criteo\api\marketingsolutions\v2022_10\Model\ModifyAudienceResponse
 ```
 
 
@@ -272,17 +272,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2022_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2022_07\Api\AudienceApi(
+$apiInstance = new criteo\api\marketingsolutions\v2022_10\Api\AudienceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $audience_id = 'audience_id_example'; // string | The id of the audience to amend
-$contactlist_amendment_request = new \criteo\api\marketingsolutions\v2022_07\Model\ContactlistAmendmentRequest(); // \criteo\api\marketingsolutions\v2022_07\Model\ContactlistAmendmentRequest
+$contactlist_amendment_request = new \criteo\api\marketingsolutions\v2022_10\Model\ContactlistAmendmentRequest(); // \criteo\api\marketingsolutions\v2022_10\Model\ContactlistAmendmentRequest
 
 try {
     $result = $apiInstance->modifyAudienceUsers($audience_id, $contactlist_amendment_request);
@@ -297,11 +297,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **audience_id** | **string**| The id of the audience to amend |
- **contactlist_amendment_request** | [**\criteo\api\marketingsolutions\v2022_07\Model\ContactlistAmendmentRequest**](../Model/ContactlistAmendmentRequest.md)|  |
+ **contactlist_amendment_request** | [**\criteo\api\marketingsolutions\v2022_10\Model\ContactlistAmendmentRequest**](../Model/ContactlistAmendmentRequest.md)|  |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2022_07\Model\ModifyAudienceResponse**](../Model/ModifyAudienceResponse.md)
+[**\criteo\api\marketingsolutions\v2022_10\Model\ModifyAudienceResponse**](../Model/ModifyAudienceResponse.md)
 
 ### Authorization
 
@@ -319,7 +319,7 @@ Name | Type | Description  | Notes
 ## `removeAudience()`
 
 ```php
-removeAudience($audience_id): \criteo\api\marketingsolutions\v2022_07\Model\DeleteAudienceResponse
+removeAudience($audience_id): \criteo\api\marketingsolutions\v2022_10\Model\DeleteAudienceResponse
 ```
 
 
@@ -334,10 +334,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2022_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2022_07\Api\AudienceApi(
+$apiInstance = new criteo\api\marketingsolutions\v2022_10\Api\AudienceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2022_07\Model\DeleteAudienceResponse**](../Model/DeleteAudienceResponse.md)
+[**\criteo\api\marketingsolutions\v2022_10\Model\DeleteAudienceResponse**](../Model/DeleteAudienceResponse.md)
 
 ### Authorization
 

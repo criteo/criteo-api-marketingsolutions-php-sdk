@@ -1,4 +1,4 @@
-# criteo\api\marketingsolutions\v2022_07\OAuthApi
+# criteo\api\marketingsolutions\v2022_10\OAuthApi
 
 All URIs are relative to https://api.criteo.com.
 
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 ## `getToken()`
 
 ```php
-getToken($grant_type, $client_id, $client_secret, $redirect_uri, $code, $refresh_token): \criteo\api\marketingsolutions\v2022_07\Model\AccessTokenModel
+getToken($grant_type, $client_id, $client_secret, $redirect_uri, $code, $refresh_token): \criteo\api\marketingsolutions\v2022_10\Model\AccessTokenModel
 ```
 
 Creates a token based either on supplied client credentials or on single use authorization code
@@ -25,10 +25,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2022_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2022_07\Api\OAuthApi(
+$apiInstance = new criteo\api\marketingsolutions\v2022_10\Api\OAuthApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2022_07\Model\AccessTokenModel**](../Model/AccessTokenModel.md)
+[**\criteo\api\marketingsolutions\v2022_10\Model\AccessTokenModel**](../Model/AccessTokenModel.md)
 
 ### Authorization
 
