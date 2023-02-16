@@ -174,10 +174,7 @@ class LocationV1 implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     const REGISTRY_TYPE_UNKNOWN = 'Unknown';
-    const REGISTRY_TYPE_CATALOG = 'Catalog';
-    const REGISTRY_TYPE_STORE = 'Store';
     const REGISTRY_TYPE_POINT_OF_INTEREST = 'PointOfInterest';
-    const REGISTRY_TYPE_GEO_DIVISION = 'GeoDivision';
 
     /**
      * Gets allowable values of the enum
@@ -188,10 +185,7 @@ class LocationV1 implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return [
             self::REGISTRY_TYPE_UNKNOWN,
-            self::REGISTRY_TYPE_CATALOG,
-            self::REGISTRY_TYPE_STORE,
             self::REGISTRY_TYPE_POINT_OF_INTEREST,
-            self::REGISTRY_TYPE_GEO_DIVISION,
         ];
     }
 

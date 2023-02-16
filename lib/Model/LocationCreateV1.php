@@ -60,9 +60,7 @@ class LocationCreateV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'registry_type' => 'string',
         'points_of_interest' => '\criteo\api\marketingsolutions\preview\Model\PointOfInterestV1[]',
-        'geo_divisions' => '\criteo\api\marketingsolutions\preview\Model\GeoDivisionV1[]',
         'radius_in_km' => 'int'
     ];
 
@@ -74,9 +72,7 @@ class LocationCreateV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'registry_type' => null,
         'points_of_interest' => null,
-        'geo_divisions' => null,
         'radius_in_km' => 'int32'
     ];
 
@@ -107,9 +103,7 @@ class LocationCreateV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'registry_type' => 'registryType',
         'points_of_interest' => 'pointsOfInterest',
-        'geo_divisions' => 'geoDivisions',
         'radius_in_km' => 'radiusInKm'
     ];
 
@@ -119,9 +113,7 @@ class LocationCreateV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'registry_type' => 'setRegistryType',
         'points_of_interest' => 'setPointsOfInterest',
-        'geo_divisions' => 'setGeoDivisions',
         'radius_in_km' => 'setRadiusInKm'
     ];
 
@@ -131,9 +123,7 @@ class LocationCreateV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'registry_type' => 'getRegistryType',
         'points_of_interest' => 'getPointsOfInterest',
-        'geo_divisions' => 'getGeoDivisions',
         'radius_in_km' => 'getRadiusInKm'
     ];
 
@@ -178,25 +168,6 @@ class LocationCreateV1 implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    const REGISTRY_TYPE_CATALOG = 'Catalog';
-    const REGISTRY_TYPE_STORE = 'Store';
-    const REGISTRY_TYPE_POINT_OF_INTEREST = 'PointOfInterest';
-    const REGISTRY_TYPE_GEO_DIVISION = 'GeoDivision';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getRegistryTypeAllowableValues()
-    {
-        return [
-            self::REGISTRY_TYPE_CATALOG,
-            self::REGISTRY_TYPE_STORE,
-            self::REGISTRY_TYPE_POINT_OF_INTEREST,
-            self::REGISTRY_TYPE_GEO_DIVISION,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -213,9 +184,7 @@ class LocationCreateV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['registry_type'] = $data['registry_type'] ?? null;
         $this->container['points_of_interest'] = $data['points_of_interest'] ?? null;
-        $this->container['geo_divisions'] = $data['geo_divisions'] ?? null;
         $this->container['radius_in_km'] = $data['radius_in_km'] ?? null;
     }
 
@@ -227,15 +196,6 @@ class LocationCreateV1 implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getRegistryTypeAllowableValues();
-        if (!is_null($this->container['registry_type']) && !in_array($this->container['registry_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'registry_type', must be one of '%s'",
-                $this->container['registry_type'],
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -251,40 +211,6 @@ class LocationCreateV1 implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets registry_type
-     *
-     * @return string|null
-     */
-    public function getRegistryType()
-    {
-        return $this->container['registry_type'];
-    }
-
-    /**
-     * Sets registry_type
-     *
-     * @param string|null $registry_type registry_type
-     *
-     * @return self
-     */
-    public function setRegistryType($registry_type)
-    {
-        $allowedValues = $this->getRegistryTypeAllowableValues();
-        if (!is_null($registry_type) && !in_array($registry_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'registry_type', must be one of '%s'",
-                    $registry_type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['registry_type'] = $registry_type;
-
-        return $this;
-    }
 
     /**
      * Gets points_of_interest
@@ -308,32 +234,6 @@ class LocationCreateV1 implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
         $this->container['points_of_interest'] = $points_of_interest;
-
-        return $this;
-    }
-
-    /**
-     * Gets geo_divisions
-     *
-     * @return \criteo\api\marketingsolutions\preview\Model\GeoDivisionV1[]|null
-     */
-    public function getGeoDivisions()
-    {
-        return $this->container['geo_divisions'];
-    }
-
-    /**
-     * Sets geo_divisions
-     *
-     * @param \criteo\api\marketingsolutions\preview\Model\GeoDivisionV1[]|null $geo_divisions geo_divisions
-     *
-     * @return self
-     */
-    public function setGeoDivisions($geo_divisions)
-    {
-
-
-        $this->container['geo_divisions'] = $geo_divisions;
 
         return $this;
     }

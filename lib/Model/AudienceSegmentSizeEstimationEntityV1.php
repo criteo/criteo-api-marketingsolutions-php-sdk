@@ -61,7 +61,7 @@ class AudienceSegmentSizeEstimationEntityV1 implements ModelInterface, ArrayAcce
       */
     protected static $openAPITypes = [
         'advertiser_id' => 'string',
-        'commerce' => '\criteo\api\marketingsolutions\preview\Model\CommerceSizeEstimationV1',
+        'in_market' => '\criteo\api\marketingsolutions\preview\Model\InMarketSizeEstimationV1',
         'location' => '\criteo\api\marketingsolutions\preview\Model\LocationSizeEstimationV1'
     ];
 
@@ -74,7 +74,7 @@ class AudienceSegmentSizeEstimationEntityV1 implements ModelInterface, ArrayAcce
       */
     protected static $openAPIFormats = [
         'advertiser_id' => null,
-        'commerce' => null,
+        'in_market' => null,
         'location' => null
     ];
 
@@ -106,7 +106,7 @@ class AudienceSegmentSizeEstimationEntityV1 implements ModelInterface, ArrayAcce
      */
     protected static $attributeMap = [
         'advertiser_id' => 'advertiserId',
-        'commerce' => 'commerce',
+        'in_market' => 'inMarket',
         'location' => 'location'
     ];
 
@@ -117,7 +117,7 @@ class AudienceSegmentSizeEstimationEntityV1 implements ModelInterface, ArrayAcce
      */
     protected static $setters = [
         'advertiser_id' => 'setAdvertiserId',
-        'commerce' => 'setCommerce',
+        'in_market' => 'setInMarket',
         'location' => 'setLocation'
     ];
 
@@ -128,7 +128,7 @@ class AudienceSegmentSizeEstimationEntityV1 implements ModelInterface, ArrayAcce
      */
     protected static $getters = [
         'advertiser_id' => 'getAdvertiserId',
-        'commerce' => 'getCommerce',
+        'in_market' => 'getInMarket',
         'location' => 'getLocation'
     ];
 
@@ -190,7 +190,7 @@ class AudienceSegmentSizeEstimationEntityV1 implements ModelInterface, ArrayAcce
     public function __construct(array $data = null)
     {
         $this->container['advertiser_id'] = $data['advertiser_id'] ?? null;
-        $this->container['commerce'] = $data['commerce'] ?? null;
+        $this->container['in_market'] = $data['in_market'] ?? null;
         $this->container['location'] = $data['location'] ?? null;
     }
 
@@ -243,25 +243,25 @@ class AudienceSegmentSizeEstimationEntityV1 implements ModelInterface, ArrayAcce
     }
 
     /**
-     * Gets commerce
+     * Gets in_market
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\CommerceSizeEstimationV1|null
+     * @return \criteo\api\marketingsolutions\preview\Model\InMarketSizeEstimationV1|null
      */
-    public function getCommerce()
+    public function getInMarket()
     {
-        return $this->container['commerce'];
+        return $this->container['in_market'];
     }
 
     /**
-     * Sets commerce
+     * Sets in_market
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\CommerceSizeEstimationV1|null $commerce commerce
+     * @param \criteo\api\marketingsolutions\preview\Model\InMarketSizeEstimationV1|null $in_market in_market
      *
      * @return self
      */
-    public function setCommerce($commerce)
+    public function setInMarket($in_market)
     {
-        $this->container['commerce'] = $commerce;
+        $this->container['in_market'] = $in_market;
 
         return $this;
     }

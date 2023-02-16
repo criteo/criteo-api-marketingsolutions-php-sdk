@@ -62,10 +62,10 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
     protected static $openAPITypes = [
         'name' => 'string',
         'description' => '\criteo\api\marketingsolutions\preview\Model\NillableString',
-        'commerce' => '\criteo\api\marketingsolutions\preview\Model\CommerceUpdateV1',
-        'contact_list' => 'object',
+        'in_market' => '\criteo\api\marketingsolutions\preview\Model\InMarketUpdateV1',
         'location' => '\criteo\api\marketingsolutions\preview\Model\LocationUpdateV1',
-        'retargeting' => '\criteo\api\marketingsolutions\preview\Model\RetargetingUpdateV1'
+        'retargeting' => '\criteo\api\marketingsolutions\preview\Model\RetargetingUpdateV1',
+        'lookalike' => '\criteo\api\marketingsolutions\preview\Model\LookalikeUpdateV1'
     ];
 
     /**
@@ -78,10 +78,10 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
     protected static $openAPIFormats = [
         'name' => null,
         'description' => null,
-        'commerce' => null,
-        'contact_list' => null,
+        'in_market' => null,
         'location' => null,
-        'retargeting' => null
+        'retargeting' => null,
+        'lookalike' => null
     ];
 
     /**
@@ -113,10 +113,10 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
     protected static $attributeMap = [
         'name' => 'name',
         'description' => 'description',
-        'commerce' => 'commerce',
-        'contact_list' => 'contactList',
+        'in_market' => 'inMarket',
         'location' => 'location',
-        'retargeting' => 'retargeting'
+        'retargeting' => 'retargeting',
+        'lookalike' => 'lookalike'
     ];
 
     /**
@@ -127,10 +127,10 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
     protected static $setters = [
         'name' => 'setName',
         'description' => 'setDescription',
-        'commerce' => 'setCommerce',
-        'contact_list' => 'setContactList',
+        'in_market' => 'setInMarket',
         'location' => 'setLocation',
-        'retargeting' => 'setRetargeting'
+        'retargeting' => 'setRetargeting',
+        'lookalike' => 'setLookalike'
     ];
 
     /**
@@ -141,10 +141,10 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
     protected static $getters = [
         'name' => 'getName',
         'description' => 'getDescription',
-        'commerce' => 'getCommerce',
-        'contact_list' => 'getContactList',
+        'in_market' => 'getInMarket',
         'location' => 'getLocation',
-        'retargeting' => 'getRetargeting'
+        'retargeting' => 'getRetargeting',
+        'lookalike' => 'getLookalike'
     ];
 
     /**
@@ -206,10 +206,10 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
     {
         $this->container['name'] = $data['name'] ?? null;
         $this->container['description'] = $data['description'] ?? null;
-        $this->container['commerce'] = $data['commerce'] ?? null;
-        $this->container['contact_list'] = $data['contact_list'] ?? null;
+        $this->container['in_market'] = $data['in_market'] ?? null;
         $this->container['location'] = $data['location'] ?? null;
         $this->container['retargeting'] = $data['retargeting'] ?? null;
+        $this->container['lookalike'] = $data['lookalike'] ?? null;
     }
 
     /**
@@ -285,49 +285,25 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
     }
 
     /**
-     * Gets commerce
+     * Gets in_market
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\CommerceUpdateV1|null
+     * @return \criteo\api\marketingsolutions\preview\Model\InMarketUpdateV1|null
      */
-    public function getCommerce()
+    public function getInMarket()
     {
-        return $this->container['commerce'];
+        return $this->container['in_market'];
     }
 
     /**
-     * Sets commerce
+     * Sets in_market
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\CommerceUpdateV1|null $commerce commerce
+     * @param \criteo\api\marketingsolutions\preview\Model\InMarketUpdateV1|null $in_market in_market
      *
      * @return self
      */
-    public function setCommerce($commerce)
+    public function setInMarket($in_market)
     {
-        $this->container['commerce'] = $commerce;
-
-        return $this;
-    }
-
-    /**
-     * Gets contact_list
-     *
-     * @return object|null
-     */
-    public function getContactList()
-    {
-        return $this->container['contact_list'];
-    }
-
-    /**
-     * Sets contact_list
-     *
-     * @param object|null $contact_list Settings to target users with your contact lists.
-     *
-     * @return self
-     */
-    public function setContactList($contact_list)
-    {
-        $this->container['contact_list'] = $contact_list;
+        $this->container['in_market'] = $in_market;
 
         return $this;
     }
@@ -376,6 +352,30 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
     public function setRetargeting($retargeting)
     {
         $this->container['retargeting'] = $retargeting;
+
+        return $this;
+    }
+
+    /**
+     * Gets lookalike
+     *
+     * @return \criteo\api\marketingsolutions\preview\Model\LookalikeUpdateV1|null
+     */
+    public function getLookalike()
+    {
+        return $this->container['lookalike'];
+    }
+
+    /**
+     * Sets lookalike
+     *
+     * @param \criteo\api\marketingsolutions\preview\Model\LookalikeUpdateV1|null $lookalike lookalike
+     *
+     * @return self
+     */
+    public function setLookalike($lookalike)
+    {
+        $this->container['lookalike'] = $lookalike;
 
         return $this;
     }

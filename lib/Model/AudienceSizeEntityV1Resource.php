@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * AudienceSizeEntityV1Resource Class Doc Comment
  *
  * @category Class
- * @description A class that represents an entity in a guild compliant way
+ * @description A class that represents a domain entity exposed by an API
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

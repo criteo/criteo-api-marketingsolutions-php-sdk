@@ -174,12 +174,13 @@ class AudienceSegmentSearchEntityV1 implements ModelInterface, ArrayAccess, \Jso
     }
 
     const AUDIENCE_SEGMENT_TYPES_UNKNOWN = 'Unknown';
-    const AUDIENCE_SEGMENT_TYPES_COMMERCE = 'Commerce';
-    const AUDIENCE_SEGMENT_TYPES_SIMILAR = 'Similar';
+    const AUDIENCE_SEGMENT_TYPES_IN_MARKET = 'InMarket';
+    const AUDIENCE_SEGMENT_TYPES_PROSPECTING = 'Prospecting';
     const AUDIENCE_SEGMENT_TYPES_CONTACT_LIST = 'ContactList';
     const AUDIENCE_SEGMENT_TYPES_LOCATION = 'Location';
-    const AUDIENCE_SEGMENT_TYPES_PREBUILT = 'Prebuilt';
+    const AUDIENCE_SEGMENT_TYPES_BEHAVIORAL = 'Behavioral';
     const AUDIENCE_SEGMENT_TYPES_RETARGETING = 'Retargeting';
+    const AUDIENCE_SEGMENT_TYPES_LOOKALIKE = 'Lookalike';
 
     /**
      * Gets allowable values of the enum
@@ -190,12 +191,13 @@ class AudienceSegmentSearchEntityV1 implements ModelInterface, ArrayAccess, \Jso
     {
         return [
             self::AUDIENCE_SEGMENT_TYPES_UNKNOWN,
-            self::AUDIENCE_SEGMENT_TYPES_COMMERCE,
-            self::AUDIENCE_SEGMENT_TYPES_SIMILAR,
+            self::AUDIENCE_SEGMENT_TYPES_IN_MARKET,
+            self::AUDIENCE_SEGMENT_TYPES_PROSPECTING,
             self::AUDIENCE_SEGMENT_TYPES_CONTACT_LIST,
             self::AUDIENCE_SEGMENT_TYPES_LOCATION,
-            self::AUDIENCE_SEGMENT_TYPES_PREBUILT,
+            self::AUDIENCE_SEGMENT_TYPES_BEHAVIORAL,
             self::AUDIENCE_SEGMENT_TYPES_RETARGETING,
+            self::AUDIENCE_SEGMENT_TYPES_LOOKALIKE,
         ];
     }
 

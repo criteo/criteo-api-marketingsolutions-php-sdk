@@ -2411,6 +2411,232 @@ class AudienceApi
     }
 
     /**
+     * Operation deleteUserProfiles
+     *
+     * @param  int $advertiser_id Criteo Advertiser ID of user profiles&#39; owner (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\DeleteUserProfileModelListRequest $delete_user_profile_model_list_request delete_user_profile_model_list_request (optional)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteUserProfiles($advertiser_id, $delete_user_profile_model_list_request = null)
+    {
+        $this->deleteUserProfilesWithHttpInfo($advertiser_id, $delete_user_profile_model_list_request);
+    }
+
+    /**
+     * Operation deleteUserProfilesWithHttpInfo
+     *
+     * @param  int $advertiser_id Criteo Advertiser ID of user profiles&#39; owner (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\DeleteUserProfileModelListRequest $delete_user_profile_model_list_request (optional)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteUserProfilesWithHttpInfo($advertiser_id, $delete_user_profile_model_list_request = null)
+    {
+        $request = $this->deleteUserProfilesRequest($advertiser_id, $delete_user_profile_model_list_request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteUserProfilesAsync
+     *
+     * @param  int $advertiser_id Criteo Advertiser ID of user profiles&#39; owner (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\DeleteUserProfileModelListRequest $delete_user_profile_model_list_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteUserProfilesAsync($advertiser_id, $delete_user_profile_model_list_request = null)
+    {
+        return $this->deleteUserProfilesAsyncWithHttpInfo($advertiser_id, $delete_user_profile_model_list_request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteUserProfilesAsyncWithHttpInfo
+     *
+     * @param  int $advertiser_id Criteo Advertiser ID of user profiles&#39; owner (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\DeleteUserProfileModelListRequest $delete_user_profile_model_list_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteUserProfilesAsyncWithHttpInfo($advertiser_id, $delete_user_profile_model_list_request = null)
+    {
+        $returnType = '';
+        $request = $this->deleteUserProfilesRequest($advertiser_id, $delete_user_profile_model_list_request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteUserProfiles'
+     *
+     * @param  int $advertiser_id Criteo Advertiser ID of user profiles&#39; owner (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\DeleteUserProfileModelListRequest $delete_user_profile_model_list_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteUserProfilesRequest($advertiser_id, $delete_user_profile_model_list_request = null)
+    {
+        // verify the required parameter 'advertiser_id' is set
+        if ($advertiser_id === null || (is_array($advertiser_id) && count($advertiser_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $advertiser_id when calling deleteUserProfiles'
+            );
+        }
+
+        $resourcePath = '/preview/marketing-solutions/advertisers/{advertiserId}/user-profiles/delete';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($advertiser_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'advertiserId' . '}',
+                ObjectSerializer::toPathValue($advertiser_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($delete_user_profile_model_list_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($delete_user_profile_model_list_request));
+            } else {
+                $httpBody = $delete_user_profile_model_list_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation estimateAudienceSegmentSize
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEstimateSizeInputV1 $audience_segment_estimate_size_input_v1 audience_segment_estimate_size_input_v1 (optional)
@@ -2915,576 +3141,6 @@ class AudienceApi
     }
 
     /**
-     * Operation getCommerceBrands
-     *
-     * @param  string $advertiser_id The advertiser ID. (required)
-     * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
-     *
-     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\CommerceAudienceSegmentBrandEntityV1ListResponse
-     */
-    public function getCommerceBrands($advertiser_id, $country)
-    {
-        list($response) = $this->getCommerceBrandsWithHttpInfo($advertiser_id, $country);
-        return $response;
-    }
-
-    /**
-     * Operation getCommerceBrandsWithHttpInfo
-     *
-     * @param  string $advertiser_id The advertiser ID. (required)
-     * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
-     *
-     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\CommerceAudienceSegmentBrandEntityV1ListResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getCommerceBrandsWithHttpInfo($advertiser_id, $country)
-    {
-        $request = $this->getCommerceBrandsRequest($advertiser_id, $country);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\criteo\api\marketingsolutions\preview\Model\CommerceAudienceSegmentBrandEntityV1ListResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\CommerceAudienceSegmentBrandEntityV1ListResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\criteo\api\marketingsolutions\preview\Model\CommerceAudienceSegmentBrandEntityV1ListResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\CommerceAudienceSegmentBrandEntityV1ListResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getCommerceBrandsAsync
-     *
-     * @param  string $advertiser_id The advertiser ID. (required)
-     * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getCommerceBrandsAsync($advertiser_id, $country)
-    {
-        return $this->getCommerceBrandsAsyncWithHttpInfo($advertiser_id, $country)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getCommerceBrandsAsyncWithHttpInfo
-     *
-     * @param  string $advertiser_id The advertiser ID. (required)
-     * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getCommerceBrandsAsyncWithHttpInfo($advertiser_id, $country)
-    {
-        $returnType = '\criteo\api\marketingsolutions\preview\Model\CommerceAudienceSegmentBrandEntityV1ListResponse';
-        $request = $this->getCommerceBrandsRequest($advertiser_id, $country);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getCommerceBrands'
-     *
-     * @param  string $advertiser_id The advertiser ID. (required)
-     * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getCommerceBrandsRequest($advertiser_id, $country)
-    {
-        // verify the required parameter 'advertiser_id' is set
-        if ($advertiser_id === null || (is_array($advertiser_id) && count($advertiser_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $advertiser_id when calling getCommerceBrands'
-            );
-        }
-        // verify the required parameter 'country' is set
-        if ($country === null || (is_array($country) && count($country) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $country when calling getCommerceBrands'
-            );
-        }
-
-        $resourcePath = '/preview/marketing-solutions/audience-segments/commerce-brands';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($advertiser_id !== null) {
-            if('form' === 'form' && is_array($advertiser_id)) {
-                foreach($advertiser_id as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['advertiser-id'] = $advertiser_id;
-            }
-        }
-        // query params
-        if ($country !== null) {
-            if('form' === 'form' && is_array($country)) {
-                foreach($country as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['country'] = $country;
-            }
-        }
-
-
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['text/plain', 'application/json', 'text/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['text/plain', 'application/json', 'text/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if ($this->config->getAccessToken() !== null) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getCommerceInterests
-     *
-     * @param  string $advertiser_id The advertiser ID. (required)
-     * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
-     *
-     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\CommerceAudienceSegmentInterestEntityV1ListResponse
-     */
-    public function getCommerceInterests($advertiser_id, $country)
-    {
-        list($response) = $this->getCommerceInterestsWithHttpInfo($advertiser_id, $country);
-        return $response;
-    }
-
-    /**
-     * Operation getCommerceInterestsWithHttpInfo
-     *
-     * @param  string $advertiser_id The advertiser ID. (required)
-     * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
-     *
-     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\CommerceAudienceSegmentInterestEntityV1ListResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getCommerceInterestsWithHttpInfo($advertiser_id, $country)
-    {
-        $request = $this->getCommerceInterestsRequest($advertiser_id, $country);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\criteo\api\marketingsolutions\preview\Model\CommerceAudienceSegmentInterestEntityV1ListResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\CommerceAudienceSegmentInterestEntityV1ListResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\criteo\api\marketingsolutions\preview\Model\CommerceAudienceSegmentInterestEntityV1ListResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\CommerceAudienceSegmentInterestEntityV1ListResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getCommerceInterestsAsync
-     *
-     * @param  string $advertiser_id The advertiser ID. (required)
-     * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getCommerceInterestsAsync($advertiser_id, $country)
-    {
-        return $this->getCommerceInterestsAsyncWithHttpInfo($advertiser_id, $country)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getCommerceInterestsAsyncWithHttpInfo
-     *
-     * @param  string $advertiser_id The advertiser ID. (required)
-     * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getCommerceInterestsAsyncWithHttpInfo($advertiser_id, $country)
-    {
-        $returnType = '\criteo\api\marketingsolutions\preview\Model\CommerceAudienceSegmentInterestEntityV1ListResponse';
-        $request = $this->getCommerceInterestsRequest($advertiser_id, $country);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getCommerceInterests'
-     *
-     * @param  string $advertiser_id The advertiser ID. (required)
-     * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getCommerceInterestsRequest($advertiser_id, $country)
-    {
-        // verify the required parameter 'advertiser_id' is set
-        if ($advertiser_id === null || (is_array($advertiser_id) && count($advertiser_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $advertiser_id when calling getCommerceInterests'
-            );
-        }
-        // verify the required parameter 'country' is set
-        if ($country === null || (is_array($country) && count($country) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $country when calling getCommerceInterests'
-            );
-        }
-
-        $resourcePath = '/preview/marketing-solutions/audience-segments/commerce-interests';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($advertiser_id !== null) {
-            if('form' === 'form' && is_array($advertiser_id)) {
-                foreach($advertiser_id as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['advertiser-id'] = $advertiser_id;
-            }
-        }
-        // query params
-        if ($country !== null) {
-            if('form' === 'form' && is_array($country)) {
-                foreach($country as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['country'] = $country;
-            }
-        }
-
-
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['text/plain', 'application/json', 'text/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['text/plain', 'application/json', 'text/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if ($this->config->getAccessToken() !== null) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation getContactListStatistics
      *
      * @param  int $audience_segment_id The segment ID. (required)
@@ -3681,6 +3337,576 @@ class AudienceApi
                 $resourcePath
             );
         }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['text/plain', 'application/json', 'text/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['text/plain', 'application/json', 'text/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getInMarketBrands
+     *
+     * @param  string $advertiser_id The advertiser ID. (required)
+     * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\InMarketAudienceSegmentBrandEntityV1ListResponse
+     */
+    public function getInMarketBrands($advertiser_id, $country)
+    {
+        list($response) = $this->getInMarketBrandsWithHttpInfo($advertiser_id, $country);
+        return $response;
+    }
+
+    /**
+     * Operation getInMarketBrandsWithHttpInfo
+     *
+     * @param  string $advertiser_id The advertiser ID. (required)
+     * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\InMarketAudienceSegmentBrandEntityV1ListResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getInMarketBrandsWithHttpInfo($advertiser_id, $country)
+    {
+        $request = $this->getInMarketBrandsRequest($advertiser_id, $country);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\InMarketAudienceSegmentBrandEntityV1ListResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\InMarketAudienceSegmentBrandEntityV1ListResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\InMarketAudienceSegmentBrandEntityV1ListResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\InMarketAudienceSegmentBrandEntityV1ListResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getInMarketBrandsAsync
+     *
+     * @param  string $advertiser_id The advertiser ID. (required)
+     * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getInMarketBrandsAsync($advertiser_id, $country)
+    {
+        return $this->getInMarketBrandsAsyncWithHttpInfo($advertiser_id, $country)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getInMarketBrandsAsyncWithHttpInfo
+     *
+     * @param  string $advertiser_id The advertiser ID. (required)
+     * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getInMarketBrandsAsyncWithHttpInfo($advertiser_id, $country)
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\InMarketAudienceSegmentBrandEntityV1ListResponse';
+        $request = $this->getInMarketBrandsRequest($advertiser_id, $country);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getInMarketBrands'
+     *
+     * @param  string $advertiser_id The advertiser ID. (required)
+     * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getInMarketBrandsRequest($advertiser_id, $country)
+    {
+        // verify the required parameter 'advertiser_id' is set
+        if ($advertiser_id === null || (is_array($advertiser_id) && count($advertiser_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $advertiser_id when calling getInMarketBrands'
+            );
+        }
+        // verify the required parameter 'country' is set
+        if ($country === null || (is_array($country) && count($country) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $country when calling getInMarketBrands'
+            );
+        }
+
+        $resourcePath = '/preview/marketing-solutions/audience-segments/in-market-brands';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($advertiser_id !== null) {
+            if('form' === 'form' && is_array($advertiser_id)) {
+                foreach($advertiser_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['advertiser-id'] = $advertiser_id;
+            }
+        }
+        // query params
+        if ($country !== null) {
+            if('form' === 'form' && is_array($country)) {
+                foreach($country as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['country'] = $country;
+            }
+        }
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['text/plain', 'application/json', 'text/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['text/plain', 'application/json', 'text/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getInMarketInterests
+     *
+     * @param  string $advertiser_id The advertiser ID. (required)
+     * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\InMarketAudienceSegmentInterestEntityV1ListResponse
+     */
+    public function getInMarketInterests($advertiser_id, $country)
+    {
+        list($response) = $this->getInMarketInterestsWithHttpInfo($advertiser_id, $country);
+        return $response;
+    }
+
+    /**
+     * Operation getInMarketInterestsWithHttpInfo
+     *
+     * @param  string $advertiser_id The advertiser ID. (required)
+     * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\InMarketAudienceSegmentInterestEntityV1ListResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getInMarketInterestsWithHttpInfo($advertiser_id, $country)
+    {
+        $request = $this->getInMarketInterestsRequest($advertiser_id, $country);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\InMarketAudienceSegmentInterestEntityV1ListResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\InMarketAudienceSegmentInterestEntityV1ListResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\InMarketAudienceSegmentInterestEntityV1ListResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\InMarketAudienceSegmentInterestEntityV1ListResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getInMarketInterestsAsync
+     *
+     * @param  string $advertiser_id The advertiser ID. (required)
+     * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getInMarketInterestsAsync($advertiser_id, $country)
+    {
+        return $this->getInMarketInterestsAsyncWithHttpInfo($advertiser_id, $country)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getInMarketInterestsAsyncWithHttpInfo
+     *
+     * @param  string $advertiser_id The advertiser ID. (required)
+     * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getInMarketInterestsAsyncWithHttpInfo($advertiser_id, $country)
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\InMarketAudienceSegmentInterestEntityV1ListResponse';
+        $request = $this->getInMarketInterestsRequest($advertiser_id, $country);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getInMarketInterests'
+     *
+     * @param  string $advertiser_id The advertiser ID. (required)
+     * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getInMarketInterestsRequest($advertiser_id, $country)
+    {
+        // verify the required parameter 'advertiser_id' is set
+        if ($advertiser_id === null || (is_array($advertiser_id) && count($advertiser_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $advertiser_id when calling getInMarketInterests'
+            );
+        }
+        // verify the required parameter 'country' is set
+        if ($country === null || (is_array($country) && count($country) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $country when calling getInMarketInterests'
+            );
+        }
+
+        $resourcePath = '/preview/marketing-solutions/audience-segments/in-market-interests';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($advertiser_id !== null) {
+            if('form' === 'form' && is_array($advertiser_id)) {
+                foreach($advertiser_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['advertiser-id'] = $advertiser_id;
+            }
+        }
+        // query params
+        if ($country !== null) {
+            if('form' === 'form' && is_array($country)) {
+                foreach($country as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['country'] = $country;
+            }
+        }
+
+
 
 
         if ($multipart) {
@@ -4539,6 +4765,232 @@ class AudienceApi
                 $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($audience_search_input_v1));
             } else {
                 $httpBody = $audience_search_input_v1;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation setUserProfiles
+     *
+     * @param  int $advertiser_id Criteo Advertiser ID of user profiles&#39; owner (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\SetUserProfileModelListRequest $set_user_profile_model_list_request set_user_profile_model_list_request (optional)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function setUserProfiles($advertiser_id, $set_user_profile_model_list_request = null)
+    {
+        $this->setUserProfilesWithHttpInfo($advertiser_id, $set_user_profile_model_list_request);
+    }
+
+    /**
+     * Operation setUserProfilesWithHttpInfo
+     *
+     * @param  int $advertiser_id Criteo Advertiser ID of user profiles&#39; owner (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\SetUserProfileModelListRequest $set_user_profile_model_list_request (optional)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function setUserProfilesWithHttpInfo($advertiser_id, $set_user_profile_model_list_request = null)
+    {
+        $request = $this->setUserProfilesRequest($advertiser_id, $set_user_profile_model_list_request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation setUserProfilesAsync
+     *
+     * @param  int $advertiser_id Criteo Advertiser ID of user profiles&#39; owner (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\SetUserProfileModelListRequest $set_user_profile_model_list_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function setUserProfilesAsync($advertiser_id, $set_user_profile_model_list_request = null)
+    {
+        return $this->setUserProfilesAsyncWithHttpInfo($advertiser_id, $set_user_profile_model_list_request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation setUserProfilesAsyncWithHttpInfo
+     *
+     * @param  int $advertiser_id Criteo Advertiser ID of user profiles&#39; owner (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\SetUserProfileModelListRequest $set_user_profile_model_list_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function setUserProfilesAsyncWithHttpInfo($advertiser_id, $set_user_profile_model_list_request = null)
+    {
+        $returnType = '';
+        $request = $this->setUserProfilesRequest($advertiser_id, $set_user_profile_model_list_request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'setUserProfiles'
+     *
+     * @param  int $advertiser_id Criteo Advertiser ID of user profiles&#39; owner (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\SetUserProfileModelListRequest $set_user_profile_model_list_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function setUserProfilesRequest($advertiser_id, $set_user_profile_model_list_request = null)
+    {
+        // verify the required parameter 'advertiser_id' is set
+        if ($advertiser_id === null || (is_array($advertiser_id) && count($advertiser_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $advertiser_id when calling setUserProfiles'
+            );
+        }
+
+        $resourcePath = '/preview/marketing-solutions/advertisers/{advertiserId}/user-profiles/set';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($advertiser_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'advertiserId' . '}',
+                ObjectSerializer::toPathValue($advertiser_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($set_user_profile_model_list_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($set_user_profile_model_list_request));
+            } else {
+                $httpBody = $set_user_profile_model_list_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * ContactListStatisticsEntityV1Response Class Doc Comment
  *
  * @category Class
- * @description A class implementing the response of the Criteo API as described in API Guild Guidelines with a single entity as body
+ * @description A top-level object that encapsulates a Criteo API response for a single entity
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

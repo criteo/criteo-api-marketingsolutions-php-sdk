@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**registry_type** | **string** |  | [optional]
 **points_of_interest** | [**\criteo\api\marketingsolutions\preview\Model\PointOfInterestV1[]**](PointOfInterestV1.md) |  | [optional]
 **radius_in_km** | **int** |  | [optional]
 

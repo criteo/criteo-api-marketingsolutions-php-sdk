@@ -12020,8 +12020,8 @@ class CampaignApi
     /**
      * Operation updateAdSetAudience
      *
-     * @param  string $ad_set_id Ad set id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1 $ad_set_audience_link_input_entity_v1 Audience and ad set to link (optional)
+     * @param  string $ad_set_id The ad set ID. (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1 $ad_set_audience_link_input_entity_v1 Ad set-Audience update request. (optional)
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -12036,8 +12036,8 @@ class CampaignApi
     /**
      * Operation updateAdSetAudienceWithHttpInfo
      *
-     * @param  string $ad_set_id Ad set id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1 $ad_set_audience_link_input_entity_v1 Audience and ad set to link (optional)
+     * @param  string $ad_set_id The ad set ID. (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1 $ad_set_audience_link_input_entity_v1 Ad set-Audience update request. (optional)
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -12121,8 +12121,8 @@ class CampaignApi
     /**
      * Operation updateAdSetAudienceAsync
      *
-     * @param  string $ad_set_id Ad set id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1 $ad_set_audience_link_input_entity_v1 Audience and ad set to link (optional)
+     * @param  string $ad_set_id The ad set ID. (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1 $ad_set_audience_link_input_entity_v1 Ad set-Audience update request. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -12140,8 +12140,8 @@ class CampaignApi
     /**
      * Operation updateAdSetAudienceAsyncWithHttpInfo
      *
-     * @param  string $ad_set_id Ad set id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1 $ad_set_audience_link_input_entity_v1 Audience and ad set to link (optional)
+     * @param  string $ad_set_id The ad set ID. (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1 $ad_set_audience_link_input_entity_v1 Ad set-Audience update request. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -12187,8 +12187,8 @@ class CampaignApi
     /**
      * Create request for operation 'updateAdSetAudience'
      *
-     * @param  string $ad_set_id Ad set id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1 $ad_set_audience_link_input_entity_v1 Audience and ad set to link (optional)
+     * @param  string $ad_set_id The ad set ID. (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1 $ad_set_audience_link_input_entity_v1 Ad set-Audience update request. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

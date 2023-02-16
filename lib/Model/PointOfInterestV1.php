@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * PointOfInterestV1 Class Doc Comment
  *
  * @category Class
- * @description Named coordinate defined by its latitude and longitude.
+ * @description Named coordinate defined by its latitude and longitude.  Latitude and Longitude are rounded at 5 decimals.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -255,7 +255,7 @@ class PointOfInterestV1 implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets latitude
      *
-     * @param double|null $latitude ISO-6709 latitude
+     * @param double|null $latitude ISO-6709 latitude (rounded at 5 decimals)
      *
      * @return self
      */
@@ -279,7 +279,7 @@ class PointOfInterestV1 implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets longitude
      *
-     * @param double|null $longitude ISO-6709 longitude
+     * @param double|null $longitude ISO-6709 longitude (rounded at 5 decimals)
      *
      * @return self
      */

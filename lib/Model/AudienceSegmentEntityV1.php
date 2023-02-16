@@ -66,12 +66,13 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
         'advertiser_id' => 'string',
-        'commerce' => '\criteo\api\marketingsolutions\preview\Model\CommerceV1',
-        'similar' => 'object',
+        'in_market' => '\criteo\api\marketingsolutions\preview\Model\InMarketV1',
+        'prospecting' => 'object',
         'contact_list' => '\criteo\api\marketingsolutions\preview\Model\ContactListV1',
         'location' => '\criteo\api\marketingsolutions\preview\Model\LocationV1',
-        'prebuilt' => '\criteo\api\marketingsolutions\preview\Model\PrebuiltV1',
-        'retargeting' => '\criteo\api\marketingsolutions\preview\Model\RetargetingV1'
+        'behavioral' => '\criteo\api\marketingsolutions\preview\Model\BehavioralV1',
+        'retargeting' => '\criteo\api\marketingsolutions\preview\Model\RetargetingV1',
+        'lookalike' => '\criteo\api\marketingsolutions\preview\Model\LookalikeV1'
     ];
 
     /**
@@ -88,12 +89,13 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
         'advertiser_id' => null,
-        'commerce' => null,
-        'similar' => null,
+        'in_market' => null,
+        'prospecting' => null,
         'contact_list' => null,
         'location' => null,
-        'prebuilt' => null,
-        'retargeting' => null
+        'behavioral' => null,
+        'retargeting' => null,
+        'lookalike' => null
     ];
 
     /**
@@ -129,12 +131,13 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
         'created_at' => 'createdAt',
         'updated_at' => 'updatedAt',
         'advertiser_id' => 'advertiserId',
-        'commerce' => 'commerce',
-        'similar' => 'similar',
+        'in_market' => 'inMarket',
+        'prospecting' => 'prospecting',
         'contact_list' => 'contactList',
         'location' => 'location',
-        'prebuilt' => 'prebuilt',
-        'retargeting' => 'retargeting'
+        'behavioral' => 'behavioral',
+        'retargeting' => 'retargeting',
+        'lookalike' => 'lookalike'
     ];
 
     /**
@@ -149,12 +152,13 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
         'advertiser_id' => 'setAdvertiserId',
-        'commerce' => 'setCommerce',
-        'similar' => 'setSimilar',
+        'in_market' => 'setInMarket',
+        'prospecting' => 'setProspecting',
         'contact_list' => 'setContactList',
         'location' => 'setLocation',
-        'prebuilt' => 'setPrebuilt',
-        'retargeting' => 'setRetargeting'
+        'behavioral' => 'setBehavioral',
+        'retargeting' => 'setRetargeting',
+        'lookalike' => 'setLookalike'
     ];
 
     /**
@@ -169,12 +173,13 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
         'advertiser_id' => 'getAdvertiserId',
-        'commerce' => 'getCommerce',
-        'similar' => 'getSimilar',
+        'in_market' => 'getInMarket',
+        'prospecting' => 'getProspecting',
         'contact_list' => 'getContactList',
         'location' => 'getLocation',
-        'prebuilt' => 'getPrebuilt',
-        'retargeting' => 'getRetargeting'
+        'behavioral' => 'getBehavioral',
+        'retargeting' => 'getRetargeting',
+        'lookalike' => 'getLookalike'
     ];
 
     /**
@@ -219,12 +224,13 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     const TYPE_UNKNOWN = 'Unknown';
-    const TYPE_COMMERCE = 'Commerce';
-    const TYPE_SIMILAR = 'Similar';
+    const TYPE_IN_MARKET = 'InMarket';
+    const TYPE_PROSPECTING = 'Prospecting';
     const TYPE_CONTACT_LIST = 'ContactList';
     const TYPE_LOCATION = 'Location';
-    const TYPE_PREBUILT = 'Prebuilt';
+    const TYPE_BEHAVIORAL = 'Behavioral';
     const TYPE_RETARGETING = 'Retargeting';
+    const TYPE_LOOKALIKE = 'Lookalike';
 
     /**
      * Gets allowable values of the enum
@@ -235,12 +241,13 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
     {
         return [
             self::TYPE_UNKNOWN,
-            self::TYPE_COMMERCE,
-            self::TYPE_SIMILAR,
+            self::TYPE_IN_MARKET,
+            self::TYPE_PROSPECTING,
             self::TYPE_CONTACT_LIST,
             self::TYPE_LOCATION,
-            self::TYPE_PREBUILT,
+            self::TYPE_BEHAVIORAL,
             self::TYPE_RETARGETING,
+            self::TYPE_LOOKALIKE,
         ];
     }
 
@@ -265,12 +272,13 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
         $this->container['created_at'] = $data['created_at'] ?? null;
         $this->container['updated_at'] = $data['updated_at'] ?? null;
         $this->container['advertiser_id'] = $data['advertiser_id'] ?? null;
-        $this->container['commerce'] = $data['commerce'] ?? null;
-        $this->container['similar'] = $data['similar'] ?? null;
+        $this->container['in_market'] = $data['in_market'] ?? null;
+        $this->container['prospecting'] = $data['prospecting'] ?? null;
         $this->container['contact_list'] = $data['contact_list'] ?? null;
         $this->container['location'] = $data['location'] ?? null;
-        $this->container['prebuilt'] = $data['prebuilt'] ?? null;
+        $this->container['behavioral'] = $data['behavioral'] ?? null;
         $this->container['retargeting'] = $data['retargeting'] ?? null;
+        $this->container['lookalike'] = $data['lookalike'] ?? null;
     }
 
     /**
@@ -461,49 +469,49 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets commerce
+     * Gets in_market
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\CommerceV1|null
+     * @return \criteo\api\marketingsolutions\preview\Model\InMarketV1|null
      */
-    public function getCommerce()
+    public function getInMarket()
     {
-        return $this->container['commerce'];
+        return $this->container['in_market'];
     }
 
     /**
-     * Sets commerce
+     * Sets in_market
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\CommerceV1|null $commerce commerce
+     * @param \criteo\api\marketingsolutions\preview\Model\InMarketV1|null $in_market in_market
      *
      * @return self
      */
-    public function setCommerce($commerce)
+    public function setInMarket($in_market)
     {
-        $this->container['commerce'] = $commerce;
+        $this->container['in_market'] = $in_market;
 
         return $this;
     }
 
     /**
-     * Gets similar
+     * Gets prospecting
      *
      * @return object|null
      */
-    public function getSimilar()
+    public function getProspecting()
     {
-        return $this->container['similar'];
+        return $this->container['prospecting'];
     }
 
     /**
-     * Sets similar
+     * Sets prospecting
      *
-     * @param object|null $similar Settings to target similar users to website visitors.
+     * @param object|null $prospecting Settings to target prospecting users to website visitors.
      *
      * @return self
      */
-    public function setSimilar($similar)
+    public function setProspecting($prospecting)
     {
-        $this->container['similar'] = $similar;
+        $this->container['prospecting'] = $prospecting;
 
         return $this;
     }
@@ -557,25 +565,25 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets prebuilt
+     * Gets behavioral
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\PrebuiltV1|null
+     * @return \criteo\api\marketingsolutions\preview\Model\BehavioralV1|null
      */
-    public function getPrebuilt()
+    public function getBehavioral()
     {
-        return $this->container['prebuilt'];
+        return $this->container['behavioral'];
     }
 
     /**
-     * Sets prebuilt
+     * Sets behavioral
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\PrebuiltV1|null $prebuilt prebuilt
+     * @param \criteo\api\marketingsolutions\preview\Model\BehavioralV1|null $behavioral behavioral
      *
      * @return self
      */
-    public function setPrebuilt($prebuilt)
+    public function setBehavioral($behavioral)
     {
-        $this->container['prebuilt'] = $prebuilt;
+        $this->container['behavioral'] = $behavioral;
 
         return $this;
     }
@@ -600,6 +608,30 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
     public function setRetargeting($retargeting)
     {
         $this->container['retargeting'] = $retargeting;
+
+        return $this;
+    }
+
+    /**
+     * Gets lookalike
+     *
+     * @return \criteo\api\marketingsolutions\preview\Model\LookalikeV1|null
+     */
+    public function getLookalike()
+    {
+        return $this->container['lookalike'];
+    }
+
+    /**
+     * Sets lookalike
+     *
+     * @param \criteo\api\marketingsolutions\preview\Model\LookalikeV1|null $lookalike lookalike
+     *
+     * @return self
+     */
+    public function setLookalike($lookalike)
+    {
+        $this->container['lookalike'] = $lookalike;
 
         return $this;
     }

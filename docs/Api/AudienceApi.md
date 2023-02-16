@@ -13,14 +13,16 @@ Method | HTTP request | Description
 [**computeAudienceSegmentsSizes()**](AudienceApi.md#computeAudienceSegmentsSizes) | **POST** /preview/marketing-solutions/audience-segments/compute-sizes | 
 [**computeAudiencesSizes()**](AudienceApi.md#computeAudiencesSizes) | **POST** /preview/marketing-solutions/audiences/compute-sizes | 
 [**deleteContactListIdentifiers()**](AudienceApi.md#deleteContactListIdentifiers) | **DELETE** /preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list | 
+[**deleteUserProfiles()**](AudienceApi.md#deleteUserProfiles) | **POST** /preview/marketing-solutions/advertisers/{advertiserId}/user-profiles/delete | 
 [**estimateAudienceSegmentSize()**](AudienceApi.md#estimateAudienceSegmentSize) | **POST** /preview/marketing-solutions/audience-segments/estimate-size | 
 [**estimateAudienceSize()**](AudienceApi.md#estimateAudienceSize) | **POST** /preview/marketing-solutions/audiences/estimate-size | 
-[**getCommerceBrands()**](AudienceApi.md#getCommerceBrands) | **GET** /preview/marketing-solutions/audience-segments/commerce-brands | 
-[**getCommerceInterests()**](AudienceApi.md#getCommerceInterests) | **GET** /preview/marketing-solutions/audience-segments/commerce-interests | 
 [**getContactListStatistics()**](AudienceApi.md#getContactListStatistics) | **GET** /preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list | 
+[**getInMarketBrands()**](AudienceApi.md#getInMarketBrands) | **GET** /preview/marketing-solutions/audience-segments/in-market-brands | 
+[**getInMarketInterests()**](AudienceApi.md#getInMarketInterests) | **GET** /preview/marketing-solutions/audience-segments/in-market-interests | 
 [**modifyAudienceUsersWithAttributes()**](AudienceApi.md#modifyAudienceUsersWithAttributes) | **PATCH** /preview/audiences/{audience-id}/contactlist-attributes | 
 [**searchAudienceSegments()**](AudienceApi.md#searchAudienceSegments) | **POST** /preview/marketing-solutions/audience-segments/search | 
 [**searchAudiences()**](AudienceApi.md#searchAudiences) | **POST** /preview/marketing-solutions/audiences/search | 
+[**setUserProfiles()**](AudienceApi.md#setUserProfiles) | **POST** /preview/marketing-solutions/advertisers/{advertiserId}/user-profiles/set | 
 [**updateContactListIdentifiers()**](AudienceApi.md#updateContactListIdentifiers) | **PATCH** /preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list | 
 
 
@@ -564,6 +566,67 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deleteUserProfiles()`
+
+```php
+deleteUserProfiles($advertiser_id, $delete_user_profile_model_list_request)
+```
+
+
+
+This endpoint will Delete User Profiles for a given Advertiser.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$advertiser_id = 56; // int | Criteo Advertiser ID of user profiles' owner
+$delete_user_profile_model_list_request = new \criteo\api\marketingsolutions\preview\Model\DeleteUserProfileModelListRequest(); // \criteo\api\marketingsolutions\preview\Model\DeleteUserProfileModelListRequest
+
+try {
+    $apiInstance->deleteUserProfiles($advertiser_id, $delete_user_profile_model_list_request);
+} catch (Exception $e) {
+    echo 'Exception when calling AudienceApi->deleteUserProfiles: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **advertiser_id** | **int**| Criteo Advertiser ID of user profiles&#39; owner |
+ **delete_user_profile_model_list_request** | [**\criteo\api\marketingsolutions\preview\Model\DeleteUserProfileModelListRequest**](../Model/DeleteUserProfileModelListRequest.md)|  | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `estimateAudienceSegmentSize()`
 
 ```php
@@ -572,7 +635,7 @@ estimateAudienceSegmentSize($audience_segment_estimate_size_input_v1): \criteo\a
 
 
 
-Gets the size estimation of a non existent segment . An error is returned when size calculation is not supported.
+Gets the size estimation of a non existent segment. An error is returned when size calculation is not supported.
 
 ### Example
 
@@ -684,130 +747,6 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getCommerceBrands()`
-
-```php
-getCommerceBrands($advertiser_id, $country): \criteo\api\marketingsolutions\preview\Model\CommerceAudienceSegmentBrandEntityV1ListResponse
-```
-
-
-
-Returns a list with all available commerce brands that can be used to define a commerce segment.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$advertiser_id = 'advertiser_id_example'; // string | The advertiser ID.
-$country = 'country_example'; // string | The ISO 3166-1 alpha-2 country code.
-
-try {
-    $result = $apiInstance->getCommerceBrands($advertiser_id, $country);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AudienceApi->getCommerceBrands: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **advertiser_id** | **string**| The advertiser ID. |
- **country** | **string**| The ISO 3166-1 alpha-2 country code. |
-
-### Return type
-
-[**\criteo\api\marketingsolutions\preview\Model\CommerceAudienceSegmentBrandEntityV1ListResponse**](../Model/CommerceAudienceSegmentBrandEntityV1ListResponse.md)
-
-### Authorization
-
-[oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `text/plain`, `application/json`, `text/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getCommerceInterests()`
-
-```php
-getCommerceInterests($advertiser_id, $country): \criteo\api\marketingsolutions\preview\Model\CommerceAudienceSegmentInterestEntityV1ListResponse
-```
-
-
-
-Returns a list with all available commerce interests that can be used to define a commerce segment. These commerce interests correspond to the Google product taxonomy.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$advertiser_id = 'advertiser_id_example'; // string | The advertiser ID.
-$country = 'country_example'; // string | The ISO 3166-1 alpha-2 country code.
-
-try {
-    $result = $apiInstance->getCommerceInterests($advertiser_id, $country);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AudienceApi->getCommerceInterests: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **advertiser_id** | **string**| The advertiser ID. |
- **country** | **string**| The ISO 3166-1 alpha-2 country code. |
-
-### Return type
-
-[**\criteo\api\marketingsolutions\preview\Model\CommerceAudienceSegmentInterestEntityV1ListResponse**](../Model/CommerceAudienceSegmentInterestEntityV1ListResponse.md)
-
-### Authorization
-
-[oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `text/plain`, `application/json`, `text/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `getContactListStatistics()`
 
 ```php
@@ -854,6 +793,130 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\criteo\api\marketingsolutions\preview\Model\ContactListStatisticsEntityV1Response**](../Model/ContactListStatisticsEntityV1Response.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `text/plain`, `application/json`, `text/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getInMarketBrands()`
+
+```php
+getInMarketBrands($advertiser_id, $country): \criteo\api\marketingsolutions\preview\Model\InMarketAudienceSegmentBrandEntityV1ListResponse
+```
+
+
+
+Returns a list with all available in-market brands that can be used to define an in-market segment.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$advertiser_id = 'advertiser_id_example'; // string | The advertiser ID.
+$country = 'country_example'; // string | The ISO 3166-1 alpha-2 country code.
+
+try {
+    $result = $apiInstance->getInMarketBrands($advertiser_id, $country);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AudienceApi->getInMarketBrands: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **advertiser_id** | **string**| The advertiser ID. |
+ **country** | **string**| The ISO 3166-1 alpha-2 country code. |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\InMarketAudienceSegmentBrandEntityV1ListResponse**](../Model/InMarketAudienceSegmentBrandEntityV1ListResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `text/plain`, `application/json`, `text/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getInMarketInterests()`
+
+```php
+getInMarketInterests($advertiser_id, $country): \criteo\api\marketingsolutions\preview\Model\InMarketAudienceSegmentInterestEntityV1ListResponse
+```
+
+
+
+Returns a list with all available in-market interests that can be used to define an in-market segment. These in-market interests correspond to the Google product taxonomy.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$advertiser_id = 'advertiser_id_example'; // string | The advertiser ID.
+$country = 'country_example'; // string | The ISO 3166-1 alpha-2 country code.
+
+try {
+    $result = $apiInstance->getInMarketInterests($advertiser_id, $country);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AudienceApi->getInMarketInterests: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **advertiser_id** | **string**| The advertiser ID. |
+ **country** | **string**| The ISO 3166-1 alpha-2 country code. |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\InMarketAudienceSegmentInterestEntityV1ListResponse**](../Model/InMarketAudienceSegmentInterestEntityV1ListResponse.md)
 
 ### Authorization
 
@@ -1053,6 +1116,67 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `setUserProfiles()`
+
+```php
+setUserProfiles($advertiser_id, $set_user_profile_model_list_request)
+```
+
+
+
+This endpoint will Set User Profiles for a given Advertiser. If a User Profile does not exist, a new one will be created. If a User Profile exists, it will be replaced.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$advertiser_id = 56; // int | Criteo Advertiser ID of user profiles' owner
+$set_user_profile_model_list_request = new \criteo\api\marketingsolutions\preview\Model\SetUserProfileModelListRequest(); // \criteo\api\marketingsolutions\preview\Model\SetUserProfileModelListRequest
+
+try {
+    $apiInstance->setUserProfiles($advertiser_id, $set_user_profile_model_list_request);
+} catch (Exception $e) {
+    echo 'Exception when calling AudienceApi->setUserProfiles: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **advertiser_id** | **int**| Criteo Advertiser ID of user profiles&#39; owner |
+ **set_user_profile_model_list_request** | [**\criteo\api\marketingsolutions\preview\Model\SetUserProfileModelListRequest**](../Model/SetUserProfileModelListRequest.md)|  | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

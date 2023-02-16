@@ -60,7 +60,6 @@ class LocationSizeEstimationV1 implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'registry_type' => 'string',
         'points_of_interest' => '\criteo\api\marketingsolutions\preview\Model\PointOfInterestV1[]',
         'radius_in_km' => 'int'
     ];
@@ -73,7 +72,6 @@ class LocationSizeEstimationV1 implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'registry_type' => null,
         'points_of_interest' => null,
         'radius_in_km' => 'int32'
     ];
@@ -105,7 +103,6 @@ class LocationSizeEstimationV1 implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'registry_type' => 'registryType',
         'points_of_interest' => 'pointsOfInterest',
         'radius_in_km' => 'radiusInKm'
     ];
@@ -116,7 +113,6 @@ class LocationSizeEstimationV1 implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'registry_type' => 'setRegistryType',
         'points_of_interest' => 'setPointsOfInterest',
         'radius_in_km' => 'setRadiusInKm'
     ];
@@ -127,7 +123,6 @@ class LocationSizeEstimationV1 implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'registry_type' => 'getRegistryType',
         'points_of_interest' => 'getPointsOfInterest',
         'radius_in_km' => 'getRadiusInKm'
     ];
@@ -173,21 +168,6 @@ class LocationSizeEstimationV1 implements ModelInterface, ArrayAccess, \JsonSeri
         return self::$openAPIModelName;
     }
 
-    const REGISTRY_TYPE_STORE = 'Store';
-    const REGISTRY_TYPE_POINT_OF_INTEREST = 'PointOfInterest';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getRegistryTypeAllowableValues()
-    {
-        return [
-            self::REGISTRY_TYPE_STORE,
-            self::REGISTRY_TYPE_POINT_OF_INTEREST,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -204,7 +184,6 @@ class LocationSizeEstimationV1 implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(array $data = null)
     {
-        $this->container['registry_type'] = $data['registry_type'] ?? null;
         $this->container['points_of_interest'] = $data['points_of_interest'] ?? null;
         $this->container['radius_in_km'] = $data['radius_in_km'] ?? null;
     }
@@ -217,15 +196,6 @@ class LocationSizeEstimationV1 implements ModelInterface, ArrayAccess, \JsonSeri
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getRegistryTypeAllowableValues();
-        if (!is_null($this->container['registry_type']) && !in_array($this->container['registry_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'registry_type', must be one of '%s'",
-                $this->container['registry_type'],
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -241,40 +211,6 @@ class LocationSizeEstimationV1 implements ModelInterface, ArrayAccess, \JsonSeri
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets registry_type
-     *
-     * @return string|null
-     */
-    public function getRegistryType()
-    {
-        return $this->container['registry_type'];
-    }
-
-    /**
-     * Sets registry_type
-     *
-     * @param string|null $registry_type registry_type
-     *
-     * @return self
-     */
-    public function setRegistryType($registry_type)
-    {
-        $allowedValues = $this->getRegistryTypeAllowableValues();
-        if (!is_null($registry_type) && !in_array($registry_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'registry_type', must be one of '%s'",
-                    $registry_type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['registry_type'] = $registry_type;
-
-        return $this;
-    }
 
     /**
      * Gets points_of_interest

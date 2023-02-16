@@ -2572,8 +2572,8 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ad_set_id = 'ad_set_id_example'; // string | Ad set id
-$ad_set_audience_link_input_entity_v1 = new \criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1(); // \criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1 | Audience and ad set to link
+$ad_set_id = 'ad_set_id_example'; // string | The ad set ID.
+$ad_set_audience_link_input_entity_v1 = new \criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1(); // \criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1 | Ad set-Audience update request.
 
 try {
     $result = $apiInstance->updateAdSetAudience($ad_set_id, $ad_set_audience_link_input_entity_v1);
@@ -2587,8 +2587,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ad_set_id** | **string**| Ad set id |
- **ad_set_audience_link_input_entity_v1** | [**\criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1**](../Model/AdSetAudienceLinkInputEntityV1.md)| Audience and ad set to link | [optional]
+ **ad_set_id** | **string**| The ad set ID. |
+ **ad_set_audience_link_input_entity_v1** | [**\criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1**](../Model/AdSetAudienceLinkInputEntityV1.md)| Ad set-Audience update request. | [optional]
 
 ### Return type
 

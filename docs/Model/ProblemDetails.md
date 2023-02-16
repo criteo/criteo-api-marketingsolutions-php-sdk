@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**trace_identifier** | **string** |  | [optional]
+**trace_id** | **string** | The request correlation ID this problem comes from. | [optional]
+**trace_identifier** | **string** | The request correlation ID this problem comes from. (deprecated, use traceId instead) | [optional]
 **type** | **string** |  | [optional]
 **code** | **string** |  | [optional]
 **instance** | **string** |  | [optional]

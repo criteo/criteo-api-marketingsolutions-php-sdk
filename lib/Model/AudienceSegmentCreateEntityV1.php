@@ -63,11 +63,12 @@ class AudienceSegmentCreateEntityV1 implements ModelInterface, ArrayAccess, \Jso
         'name' => 'string',
         'description' => 'string',
         'advertiser_id' => 'string',
-        'commerce' => '\criteo\api\marketingsolutions\preview\Model\CommerceCreateV1',
-        'similar' => 'object',
+        'in_market' => '\criteo\api\marketingsolutions\preview\Model\InMarketCreateV1',
+        'prospecting' => 'object',
         'contact_list' => 'object',
         'location' => '\criteo\api\marketingsolutions\preview\Model\LocationCreateV1',
-        'retargeting' => '\criteo\api\marketingsolutions\preview\Model\RetargetingCreateV1'
+        'retargeting' => '\criteo\api\marketingsolutions\preview\Model\RetargetingCreateV1',
+        'lookalike' => '\criteo\api\marketingsolutions\preview\Model\LookalikeCreateV1'
     ];
 
     /**
@@ -81,11 +82,12 @@ class AudienceSegmentCreateEntityV1 implements ModelInterface, ArrayAccess, \Jso
         'name' => null,
         'description' => null,
         'advertiser_id' => null,
-        'commerce' => null,
-        'similar' => null,
+        'in_market' => null,
+        'prospecting' => null,
         'contact_list' => null,
         'location' => null,
-        'retargeting' => null
+        'retargeting' => null,
+        'lookalike' => null
     ];
 
     /**
@@ -118,11 +120,12 @@ class AudienceSegmentCreateEntityV1 implements ModelInterface, ArrayAccess, \Jso
         'name' => 'name',
         'description' => 'description',
         'advertiser_id' => 'advertiserId',
-        'commerce' => 'commerce',
-        'similar' => 'similar',
+        'in_market' => 'inMarket',
+        'prospecting' => 'prospecting',
         'contact_list' => 'contactList',
         'location' => 'location',
-        'retargeting' => 'retargeting'
+        'retargeting' => 'retargeting',
+        'lookalike' => 'lookalike'
     ];
 
     /**
@@ -134,11 +137,12 @@ class AudienceSegmentCreateEntityV1 implements ModelInterface, ArrayAccess, \Jso
         'name' => 'setName',
         'description' => 'setDescription',
         'advertiser_id' => 'setAdvertiserId',
-        'commerce' => 'setCommerce',
-        'similar' => 'setSimilar',
+        'in_market' => 'setInMarket',
+        'prospecting' => 'setProspecting',
         'contact_list' => 'setContactList',
         'location' => 'setLocation',
-        'retargeting' => 'setRetargeting'
+        'retargeting' => 'setRetargeting',
+        'lookalike' => 'setLookalike'
     ];
 
     /**
@@ -150,11 +154,12 @@ class AudienceSegmentCreateEntityV1 implements ModelInterface, ArrayAccess, \Jso
         'name' => 'getName',
         'description' => 'getDescription',
         'advertiser_id' => 'getAdvertiserId',
-        'commerce' => 'getCommerce',
-        'similar' => 'getSimilar',
+        'in_market' => 'getInMarket',
+        'prospecting' => 'getProspecting',
         'contact_list' => 'getContactList',
         'location' => 'getLocation',
-        'retargeting' => 'getRetargeting'
+        'retargeting' => 'getRetargeting',
+        'lookalike' => 'getLookalike'
     ];
 
     /**
@@ -217,11 +222,12 @@ class AudienceSegmentCreateEntityV1 implements ModelInterface, ArrayAccess, \Jso
         $this->container['name'] = $data['name'] ?? null;
         $this->container['description'] = $data['description'] ?? null;
         $this->container['advertiser_id'] = $data['advertiser_id'] ?? null;
-        $this->container['commerce'] = $data['commerce'] ?? null;
-        $this->container['similar'] = $data['similar'] ?? null;
+        $this->container['in_market'] = $data['in_market'] ?? null;
+        $this->container['prospecting'] = $data['prospecting'] ?? null;
         $this->container['contact_list'] = $data['contact_list'] ?? null;
         $this->container['location'] = $data['location'] ?? null;
         $this->container['retargeting'] = $data['retargeting'] ?? null;
+        $this->container['lookalike'] = $data['lookalike'] ?? null;
     }
 
     /**
@@ -321,49 +327,49 @@ class AudienceSegmentCreateEntityV1 implements ModelInterface, ArrayAccess, \Jso
     }
 
     /**
-     * Gets commerce
+     * Gets in_market
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\CommerceCreateV1|null
+     * @return \criteo\api\marketingsolutions\preview\Model\InMarketCreateV1|null
      */
-    public function getCommerce()
+    public function getInMarket()
     {
-        return $this->container['commerce'];
+        return $this->container['in_market'];
     }
 
     /**
-     * Sets commerce
+     * Sets in_market
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\CommerceCreateV1|null $commerce commerce
+     * @param \criteo\api\marketingsolutions\preview\Model\InMarketCreateV1|null $in_market in_market
      *
      * @return self
      */
-    public function setCommerce($commerce)
+    public function setInMarket($in_market)
     {
-        $this->container['commerce'] = $commerce;
+        $this->container['in_market'] = $in_market;
 
         return $this;
     }
 
     /**
-     * Gets similar
+     * Gets prospecting
      *
      * @return object|null
      */
-    public function getSimilar()
+    public function getProspecting()
     {
-        return $this->container['similar'];
+        return $this->container['prospecting'];
     }
 
     /**
-     * Sets similar
+     * Sets prospecting
      *
-     * @param object|null $similar Settings to target similar users to website visitors.
+     * @param object|null $prospecting Settings to target prospecting users to website visitors.
      *
      * @return self
      */
-    public function setSimilar($similar)
+    public function setProspecting($prospecting)
     {
-        $this->container['similar'] = $similar;
+        $this->container['prospecting'] = $prospecting;
 
         return $this;
     }
@@ -436,6 +442,30 @@ class AudienceSegmentCreateEntityV1 implements ModelInterface, ArrayAccess, \Jso
     public function setRetargeting($retargeting)
     {
         $this->container['retargeting'] = $retargeting;
+
+        return $this;
+    }
+
+    /**
+     * Gets lookalike
+     *
+     * @return \criteo\api\marketingsolutions\preview\Model\LookalikeCreateV1|null
+     */
+    public function getLookalike()
+    {
+        return $this->container['lookalike'];
+    }
+
+    /**
+     * Sets lookalike
+     *
+     * @param \criteo\api\marketingsolutions\preview\Model\LookalikeCreateV1|null $lookalike lookalike
+     *
+     * @return self
+     */
+    public function setLookalike($lookalike)
+    {
+        $this->container['lookalike'] = $lookalike;
 
         return $this;
     }

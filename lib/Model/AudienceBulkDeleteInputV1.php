@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * AudienceBulkDeleteInputV1 Class Doc Comment
  *
  * @category Class
- * @description Input to delete one or more segments.
+ * @description Input to delete one or more audiences.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

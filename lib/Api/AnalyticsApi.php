@@ -407,13 +407,1137 @@ class AnalyticsApi
     }
 
     /**
+     * Operation getAsyncAdsetReport
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportRequest $generate_statistics_report_request generate_statistics_report_request (optional)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails
+     */
+    public function getAsyncAdsetReport($generate_statistics_report_request = null)
+    {
+        list($response) = $this->getAsyncAdsetReportWithHttpInfo($generate_statistics_report_request);
+        return $response;
+    }
+
+    /**
+     * Operation getAsyncAdsetReportWithHttpInfo
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportRequest $generate_statistics_report_request (optional)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAsyncAdsetReportWithHttpInfo($generate_statistics_report_request = null)
+    {
+        $request = $this->getAsyncAdsetReportRequest($generate_statistics_report_request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 202:
+                    if ('\criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\criteo\api\marketingsolutions\preview\Model\ProblemsDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\criteo\api\marketingsolutions\preview\Model\ProblemsDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAsyncAdsetReportAsync
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportRequest $generate_statistics_report_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAsyncAdsetReportAsync($generate_statistics_report_request = null)
+    {
+        return $this->getAsyncAdsetReportAsyncWithHttpInfo($generate_statistics_report_request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAsyncAdsetReportAsyncWithHttpInfo
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportRequest $generate_statistics_report_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAsyncAdsetReportAsyncWithHttpInfo($generate_statistics_report_request = null)
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse';
+        $request = $this->getAsyncAdsetReportRequest($generate_statistics_report_request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAsyncAdsetReport'
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportRequest $generate_statistics_report_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getAsyncAdsetReportRequest($generate_statistics_report_request = null)
+    {
+
+        $resourcePath = '/preview/reports/async-statistics';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['text/plain', 'application/json', 'text/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['text/plain', 'application/json', 'text/json'],
+                ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($generate_statistics_report_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($generate_statistics_report_request));
+            } else {
+                $httpBody = $generate_statistics_report_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getAsyncAudienceReport
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateAudiencePerformanceReportRequest $generate_audience_performance_report_request generate_audience_performance_report_request (optional)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails
+     */
+    public function getAsyncAudienceReport($generate_audience_performance_report_request = null)
+    {
+        list($response) = $this->getAsyncAudienceReportWithHttpInfo($generate_audience_performance_report_request);
+        return $response;
+    }
+
+    /**
+     * Operation getAsyncAudienceReportWithHttpInfo
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateAudiencePerformanceReportRequest $generate_audience_performance_report_request (optional)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAsyncAudienceReportWithHttpInfo($generate_audience_performance_report_request = null)
+    {
+        $request = $this->getAsyncAudienceReportRequest($generate_audience_performance_report_request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 202:
+                    if ('\criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\criteo\api\marketingsolutions\preview\Model\ProblemsDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\criteo\api\marketingsolutions\preview\Model\ProblemsDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAsyncAudienceReportAsync
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateAudiencePerformanceReportRequest $generate_audience_performance_report_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAsyncAudienceReportAsync($generate_audience_performance_report_request = null)
+    {
+        return $this->getAsyncAudienceReportAsyncWithHttpInfo($generate_audience_performance_report_request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAsyncAudienceReportAsyncWithHttpInfo
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateAudiencePerformanceReportRequest $generate_audience_performance_report_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAsyncAudienceReportAsyncWithHttpInfo($generate_audience_performance_report_request = null)
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse';
+        $request = $this->getAsyncAudienceReportRequest($generate_audience_performance_report_request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAsyncAudienceReport'
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateAudiencePerformanceReportRequest $generate_audience_performance_report_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getAsyncAudienceReportRequest($generate_audience_performance_report_request = null)
+    {
+
+        $resourcePath = '/preview/reports/async-audience-performance';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['text/plain', 'application/json', 'text/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['text/plain', 'application/json', 'text/json'],
+                ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($generate_audience_performance_report_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($generate_audience_performance_report_request));
+            } else {
+                $httpBody = $generate_audience_performance_report_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getAsyncExportOutput
+     *
+     * @param  string $report_id Id of the report (required)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\ExportResult
+     */
+    public function getAsyncExportOutput($report_id)
+    {
+        list($response) = $this->getAsyncExportOutputWithHttpInfo($report_id);
+        return $response;
+    }
+
+    /**
+     * Operation getAsyncExportOutputWithHttpInfo
+     *
+     * @param  string $report_id Id of the report (required)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ExportResult, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAsyncExportOutputWithHttpInfo($report_id)
+    {
+        $request = $this->getAsyncExportOutputRequest($report_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\ExportResult' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ExportResult', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\ExportResult';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\ExportResult',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAsyncExportOutputAsync
+     *
+     * @param  string $report_id Id of the report (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAsyncExportOutputAsync($report_id)
+    {
+        return $this->getAsyncExportOutputAsyncWithHttpInfo($report_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAsyncExportOutputAsyncWithHttpInfo
+     *
+     * @param  string $report_id Id of the report (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAsyncExportOutputAsyncWithHttpInfo($report_id)
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\ExportResult';
+        $request = $this->getAsyncExportOutputRequest($report_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAsyncExportOutput'
+     *
+     * @param  string $report_id Id of the report (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getAsyncExportOutputRequest($report_id)
+    {
+        // verify the required parameter 'report_id' is set
+        if ($report_id === null || (is_array($report_id) && count($report_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $report_id when calling getAsyncExportOutput'
+            );
+        }
+
+        $resourcePath = '/preview/reports/{report-id}/output';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($report_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'report-id' . '}',
+                ObjectSerializer::toPathValue($report_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['text/plain', 'application/json', 'text/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['text/plain', 'application/json', 'text/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getAsyncExportStatus
+     *
+     * @param  string $report_id Id of the report (required)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse|\criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse
+     */
+    public function getAsyncExportStatus($report_id)
+    {
+        list($response) = $this->getAsyncExportStatusWithHttpInfo($report_id);
+        return $response;
+    }
+
+    /**
+     * Operation getAsyncExportStatusWithHttpInfo
+     *
+     * @param  string $report_id Id of the report (required)
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse|\criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAsyncExportStatusWithHttpInfo($report_id)
+    {
+        $request = $this->getAsyncExportStatusRequest($report_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 303:
+                    if ('\criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 303:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAsyncExportStatusAsync
+     *
+     * @param  string $report_id Id of the report (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAsyncExportStatusAsync($report_id)
+    {
+        return $this->getAsyncExportStatusAsyncWithHttpInfo($report_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAsyncExportStatusAsyncWithHttpInfo
+     *
+     * @param  string $report_id Id of the report (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAsyncExportStatusAsyncWithHttpInfo($report_id)
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse';
+        $request = $this->getAsyncExportStatusRequest($report_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAsyncExportStatus'
+     *
+     * @param  string $report_id Id of the report (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getAsyncExportStatusRequest($report_id)
+    {
+        // verify the required parameter 'report_id' is set
+        if ($report_id === null || (is_array($report_id) && count($report_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $report_id when calling getAsyncExportStatus'
+            );
+        }
+
+        $resourcePath = '/preview/reports/{report-id}/status';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($report_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'report-id' . '}',
+                ObjectSerializer::toPathValue($report_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['text/plain', 'application/json', 'text/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['text/plain', 'application/json', 'text/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getCategoriesReport
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\GenerateCategoriesReportRequest $generate_categories_report_request generate_categories_report_request (optional)
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return string|\criteo\api\marketingsolutions\preview\Model\ProblemDetails|\criteo\api\marketingsolutions\preview\Model\ProblemDetails
+     * @return string|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails
      */
     public function getCategoriesReport($generate_categories_report_request = null)
     {
@@ -428,7 +1552,7 @@ class AnalyticsApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of string|\criteo\api\marketingsolutions\preview\Model\ProblemDetails|\criteo\api\marketingsolutions\preview\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCategoriesReportWithHttpInfo($generate_categories_report_request = null)
     {
@@ -476,26 +1600,26 @@ class AnalyticsApi
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ProblemDetails' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\preview\Model\ProblemsDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ProblemDetails' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\preview\Model\ProblemsDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -527,7 +1651,7 @@ class AnalyticsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ProblemDetails',
+                        '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -535,7 +1659,7 @@ class AnalyticsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ProblemDetails',
+                        '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -705,7 +1829,7 @@ class AnalyticsApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\ReportDataMessage|\criteo\api\marketingsolutions\preview\Model\ProblemDetails|\criteo\api\marketingsolutions\preview\Model\ProblemDetails
+     * @return \criteo\api\marketingsolutions\preview\Model\ReportDataMessage|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails
      */
     public function getCreativesReport($generate_creatives_report_request = null)
     {
@@ -720,7 +1844,7 @@ class AnalyticsApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\ReportDataMessage|\criteo\api\marketingsolutions\preview\Model\ProblemDetails|\criteo\api\marketingsolutions\preview\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ReportDataMessage|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCreativesReportWithHttpInfo($generate_creatives_report_request = null)
     {
@@ -768,26 +1892,26 @@ class AnalyticsApi
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ProblemDetails' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\preview\Model\ProblemsDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ProblemDetails' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\preview\Model\ProblemsDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -819,7 +1943,7 @@ class AnalyticsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ProblemDetails',
+                        '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -827,7 +1951,7 @@ class AnalyticsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ProblemDetails',
+                        '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1289,7 +2413,7 @@ class AnalyticsApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\ReportDataMessage|\criteo\api\marketingsolutions\preview\Model\ProblemDetails|\criteo\api\marketingsolutions\preview\Model\ProblemDetails
+     * @return \criteo\api\marketingsolutions\preview\Model\ReportDataMessage|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails
      */
     public function getTopProductsReport($generate_top_products_report_request = null)
     {
@@ -1304,7 +2428,7 @@ class AnalyticsApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\ReportDataMessage|\criteo\api\marketingsolutions\preview\Model\ProblemDetails|\criteo\api\marketingsolutions\preview\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ReportDataMessage|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTopProductsReportWithHttpInfo($generate_top_products_report_request = null)
     {
@@ -1352,26 +2476,26 @@ class AnalyticsApi
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ProblemDetails' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\preview\Model\ProblemsDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ProblemDetails' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\preview\Model\ProblemsDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1403,7 +2527,7 @@ class AnalyticsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ProblemDetails',
+                        '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1411,7 +2535,7 @@ class AnalyticsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ProblemDetails',
+                        '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

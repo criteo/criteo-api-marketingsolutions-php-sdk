@@ -225,7 +225,7 @@ class Price implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets currency
      *
-     * @param string|null $currency The price represented as a number.
+     * @param string|null $currency The currency of the price.
      *
      * @return self
      */
@@ -249,7 +249,7 @@ class Price implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets value
      *
-     * @param string|null $value The currency of the price.
+     * @param string|null $value The price represented as a number. See JSON's number specification for more details.
      *
      * @return self
      */

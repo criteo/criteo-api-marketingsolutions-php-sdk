@@ -258,6 +258,9 @@ class ReportDetailError implements ModelInterface, ArrayAccess, \JsonSerializabl
             );
         }
 
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
+        }
         if ($this->container['is_server_related'] === null) {
             $invalidProperties[] = "'is_server_related' can't be null";
         }
@@ -313,7 +316,7 @@ class ReportDetailError implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets message
      *
-     * @return string|null
+     * @return string
      */
     public function getMessage()
     {
@@ -323,7 +326,7 @@ class ReportDetailError implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets message
      *
-     * @param string|null $message message
+     * @param string $message message
      *
      * @return self
      */

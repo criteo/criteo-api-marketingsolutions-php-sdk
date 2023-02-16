@@ -2516,7 +2516,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets seller_id
      *
-     * @param string|null $seller_id The ID of the seller (case sensitive and 50 UTF8 characters max). This information is required by the Criteo Resellers Program.
+     * @param string|null $seller_id The ID of the seller (case sensitive and 50 UTF8 characters max). This information is required by the Criteo Offsite Ads.
      *
      * @return self
      */

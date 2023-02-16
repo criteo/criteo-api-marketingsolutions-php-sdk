@@ -5,6 +5,10 @@ All URIs are relative to https://api.criteo.com.
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getAdsetReport()**](AnalyticsApi.md#getAdsetReport) | **POST** /preview/statistics/report | 
+[**getAsyncAdsetReport()**](AnalyticsApi.md#getAsyncAdsetReport) | **POST** /preview/reports/async-statistics | 
+[**getAsyncAudienceReport()**](AnalyticsApi.md#getAsyncAudienceReport) | **POST** /preview/reports/async-audience-performance | 
+[**getAsyncExportOutput()**](AnalyticsApi.md#getAsyncExportOutput) | **GET** /preview/reports/{report-id}/output | 
+[**getAsyncExportStatus()**](AnalyticsApi.md#getAsyncExportStatus) | **GET** /preview/reports/{report-id}/status | 
 [**getCategoriesReport()**](AnalyticsApi.md#getCategoriesReport) | **POST** /preview/categories/report | 
 [**getCreativesReport()**](AnalyticsApi.md#getCreativesReport) | **POST** /preview/reports/creatives | 
 [**getPlacementsReport()**](AnalyticsApi.md#getPlacementsReport) | **POST** /preview/placements/report | 
@@ -67,6 +71,246 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Accept**: `text/plain`, `application/json`, `text/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getAsyncAdsetReport()`
+
+```php
+getAsyncAdsetReport($generate_statistics_report_request): \criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse
+```
+
+
+
+This Statistics endpoint provides an export Id that let you retrieve data.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$generate_statistics_report_request = new \criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportRequest(); // \criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportRequest
+
+try {
+    $result = $apiInstance->getAsyncAdsetReport($generate_statistics_report_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AnalyticsApi->getAsyncAdsetReport: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **generate_statistics_report_request** | [**\criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportRequest**](../Model/GenerateStatisticsReportRequest.md)|  | [optional]
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse**](../Model/MarketingSolutionsReportStatusResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Accept**: `text/plain`, `application/json`, `text/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getAsyncAudienceReport()`
+
+```php
+getAsyncAudienceReport($generate_audience_performance_report_request): \criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse
+```
+
+
+
+This Statistics endpoint provides an export Id that lets you retrieve data.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$generate_audience_performance_report_request = new \criteo\api\marketingsolutions\preview\Model\GenerateAudiencePerformanceReportRequest(); // \criteo\api\marketingsolutions\preview\Model\GenerateAudiencePerformanceReportRequest
+
+try {
+    $result = $apiInstance->getAsyncAudienceReport($generate_audience_performance_report_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AnalyticsApi->getAsyncAudienceReport: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **generate_audience_performance_report_request** | [**\criteo\api\marketingsolutions\preview\Model\GenerateAudiencePerformanceReportRequest**](../Model/GenerateAudiencePerformanceReportRequest.md)|  | [optional]
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse**](../Model/MarketingSolutionsReportStatusResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Accept**: `text/plain`, `application/json`, `text/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getAsyncExportOutput()`
+
+```php
+getAsyncExportOutput($report_id): \criteo\api\marketingsolutions\preview\Model\ExportResult
+```
+
+
+
+This endpoint gives you the output of the report.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$report_id = 'report_id_example'; // string | Id of the report
+
+try {
+    $result = $apiInstance->getAsyncExportOutput($report_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AnalyticsApi->getAsyncExportOutput: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **report_id** | **string**| Id of the report |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\ExportResult**](../Model/ExportResult.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `text/plain`, `application/json`, `text/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getAsyncExportStatus()`
+
+```php
+getAsyncExportStatus($report_id): \criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse
+```
+
+
+
+This endpoint gives you the status of the report.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$report_id = 'report_id_example'; // string | Id of the report
+
+try {
+    $result = $apiInstance->getAsyncExportStatus($report_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AnalyticsApi->getAsyncExportStatus: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **report_id** | **string**| Id of the report |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse**](../Model/MarketingSolutionsReportStatusResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

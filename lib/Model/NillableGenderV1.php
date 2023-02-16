@@ -163,7 +163,6 @@ class NillableGenderV1 implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    const VALUE_UNKNOWN = 'Unknown';
     const VALUE_MALE = 'Male';
     const VALUE_FEMALE = 'Female';
 
@@ -175,7 +174,6 @@ class NillableGenderV1 implements ModelInterface, ArrayAccess, \JsonSerializable
     public function getValueAllowableValues()
     {
         return [
-            self::VALUE_UNKNOWN,
             self::VALUE_MALE,
             self::VALUE_FEMALE,
         ];

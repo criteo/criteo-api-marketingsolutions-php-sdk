@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | **object** | Audience of people of interest for a marketer. | [optional]
+**attributes** | **object** | Audience to delete | [optional]
 **id** | **string** | Id of the entity | [optional]
 **type** | **string** |  | [optional]
 

@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * AudienceSegmentIdEntityV1ListResponse Class Doc Comment
  *
  * @category Class
- * @description A class implementing the response  of the Criteo API as described in API Guild Guidelines with collection of entities as body
+ * @description A top-level object that encapsulates a Criteo API response for several entities
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

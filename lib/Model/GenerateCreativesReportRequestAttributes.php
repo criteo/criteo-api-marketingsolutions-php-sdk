@@ -66,7 +66,6 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
         'metrics' => 'string[]',
         'dimensions' => 'string[]',
         'timezone' => 'string',
-        'ad_types' => 'string[]',
         'ad_formats' => 'string[]',
         'display_sizes' => 'string[]',
         'coupon_names' => 'string[]',
@@ -92,7 +91,6 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
         'metrics' => null,
         'dimensions' => null,
         'timezone' => null,
-        'ad_types' => null,
         'ad_formats' => null,
         'display_sizes' => null,
         'coupon_names' => null,
@@ -137,7 +135,6 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
         'metrics' => 'metrics',
         'dimensions' => 'dimensions',
         'timezone' => 'timezone',
-        'ad_types' => 'adTypes',
         'ad_formats' => 'adFormats',
         'display_sizes' => 'displaySizes',
         'coupon_names' => 'couponNames',
@@ -161,7 +158,6 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
         'metrics' => 'setMetrics',
         'dimensions' => 'setDimensions',
         'timezone' => 'setTimezone',
-        'ad_types' => 'setAdTypes',
         'ad_formats' => 'setAdFormats',
         'display_sizes' => 'setDisplaySizes',
         'coupon_names' => 'setCouponNames',
@@ -185,7 +181,6 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
         'metrics' => 'getMetrics',
         'dimensions' => 'getDimensions',
         'timezone' => 'getTimezone',
-        'ad_types' => 'getAdTypes',
         'ad_formats' => 'getAdFormats',
         'display_sizes' => 'getDisplaySizes',
         'coupon_names' => 'getCouponNames',
@@ -242,7 +237,6 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
     const METRICS_CTR = 'Ctr';
     const METRICS_DISPLAYS = 'Displays';
     const DIMENSIONS_AD_FORMAT = 'AdFormat';
-    const DIMENSIONS_AD_TYPE = 'AdType';
     const DIMENSIONS_COUPON = 'Coupon';
     const DIMENSIONS_COUPON_ID = 'CouponId';
     const DIMENSIONS_DISPLAY_SIZE = 'DisplaySize';
@@ -275,7 +269,6 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
     {
         return [
             self::DIMENSIONS_AD_FORMAT,
-            self::DIMENSIONS_AD_TYPE,
             self::DIMENSIONS_COUPON,
             self::DIMENSIONS_COUPON_ID,
             self::DIMENSIONS_DISPLAY_SIZE,
@@ -308,7 +301,6 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
         $this->container['metrics'] = $data['metrics'] ?? null;
         $this->container['dimensions'] = $data['dimensions'] ?? null;
         $this->container['timezone'] = $data['timezone'] ?? null;
-        $this->container['ad_types'] = $data['ad_types'] ?? null;
         $this->container['ad_formats'] = $data['ad_formats'] ?? null;
         $this->container['display_sizes'] = $data['display_sizes'] ?? null;
         $this->container['coupon_names'] = $data['coupon_names'] ?? null;
@@ -523,32 +515,6 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
     public function setTimezone($timezone)
     {
         $this->container['timezone'] = $timezone;
-
-        return $this;
-    }
-
-    /**
-     * Gets ad_types
-     *
-     * @return string[]|null
-     */
-    public function getAdTypes()
-    {
-        return $this->container['ad_types'];
-    }
-
-    /**
-     * Sets ad_types
-     *
-     * @param string[]|null $ad_types The list of adTypes.
-     *
-     * @return self
-     */
-    public function setAdTypes($ad_types)
-    {
-
-
-        $this->container['ad_types'] = $ad_types;
 
         return $this;
     }

@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **points_of_interest** | [**\criteo\api\marketingsolutions\preview\Model\PointOfInterestV1[]**](PointOfInterestV1.md) |  | [optional]
-**geo_divisions** | [**\criteo\api\marketingsolutions\preview\Model\GeoDivisionV1[]**](GeoDivisionV1.md) |  | [optional]
 **radius_in_km** | **int** | Radius in kilometers | [optional]
 **registry_type** | **string** |  | [optional]
 

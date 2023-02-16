@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * AudienceSegmentSizeEstimationV1Response Class Doc Comment
  *
  * @category Class
- * @description Represents an API response message containing the usual outcome fields (warnings+errors), and a valueResource data,  i.e. data is not an entity (no id). This can be used for association objects.
+ * @description A top-level object that encapsulates a Criteo API response for a single value
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

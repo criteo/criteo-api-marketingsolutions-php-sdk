@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * ProductsCustomBatchRequestEntry Class Doc Comment
  *
  * @category Class
- * @description A batch entry encoding a single non-batch products request.
+ * @description A product event for a batch request.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

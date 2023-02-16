@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**advertiser_ids** | **string** | The comma-separated list of advertiser ids. | [optional]
+**advertiser_ids** | **string** | The comma-separated list of advertiser ids. |
 **campaign_ids** | **string** | The comma-separated list of campaign ids. | [optional]
 **adset_ids** | **string** | The comma-separated list of adSet ids. | [optional]
 **environment** | **string** | Type of environment: Web, Android or iOS. | [optional]

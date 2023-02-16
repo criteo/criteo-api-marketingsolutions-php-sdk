@@ -195,7 +195,7 @@ class RecoApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 403:
+                case 422:
                     if ('\criteo\api\marketingsolutions\preview\Model\Outcome' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -207,7 +207,7 @@ class RecoApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 422:
+                case 403:
                     if ('\criteo\api\marketingsolutions\preview\Model\Outcome' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -264,7 +264,7 @@ class RecoApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 403:
+                case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\criteo\api\marketingsolutions\preview\Model\Outcome',
@@ -272,7 +272,7 @@ class RecoApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 422:
+                case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\criteo\api\marketingsolutions\preview\Model\Outcome',
