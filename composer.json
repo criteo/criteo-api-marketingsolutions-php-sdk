@@ -1,6 +1,6 @@
 {
     "name": "criteo/criteo-api-marketingsolutions-sdk",
-    "description": "PHP SDK for Criteo API 2022.07.0.221102 version",
+    "description": "PHP SDK for Criteo API 2022.07.0.230216 version",
     "keywords": [
         "criteo",
         "openapi generator",
@@ -28,7 +28,7 @@
         "guzzlehttp/guzzle": "^6.2"
     },
     "require-dev": {
-        "phpunit/phpunit": ">=7.4",
+        "phpunit/phpunit": ">=7.4 <10.0",
         "squizlabs/php_codesniffer": "~2.6",
         "friendsofphp/php-cs-fixer": "~2.12",
         "mockery/mockery": "^1.3",
