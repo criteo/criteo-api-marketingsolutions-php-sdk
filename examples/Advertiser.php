@@ -4,8 +4,8 @@
 // Then import it as follow:
 require_once(__DIR__ . '/vendor/autoload.php');
 
-use criteo\api\marketingsolutions\preview\Api\AdvertiserApi;
-use criteo\api\marketingsolutions\preview\ClientCredentialsClient;
+use criteo\api\marketingsolutions\v2023_01\Api\AdvertiserApi;
+use criteo\api\marketingsolutions\v2023_01\ClientCredentialsClient;
 
 /*
  * Although the OpenAPI specification, then this generated client, you can't simply use the API key feature.
