@@ -60,6 +60,7 @@ class CommonProblem implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'trace_id' => 'string',
         'trace_identifier' => 'string',
         'type' => 'string',
         'code' => 'string',
@@ -78,6 +79,7 @@ class CommonProblem implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'trace_id' => null,
         'trace_identifier' => null,
         'type' => null,
         'code' => null,
@@ -115,6 +117,7 @@ class CommonProblem implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'trace_id' => 'traceId',
         'trace_identifier' => 'traceIdentifier',
         'type' => 'type',
         'code' => 'code',
@@ -131,6 +134,7 @@ class CommonProblem implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'trace_id' => 'setTraceId',
         'trace_identifier' => 'setTraceIdentifier',
         'type' => 'setType',
         'code' => 'setCode',
@@ -147,6 +151,7 @@ class CommonProblem implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'trace_id' => 'getTraceId',
         'trace_identifier' => 'getTraceIdentifier',
         'type' => 'getType',
         'code' => 'getCode',
@@ -241,6 +246,7 @@ class CommonProblem implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['trace_id'] = $data['trace_id'] ?? null;
         $this->container['trace_identifier'] = $data['trace_identifier'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
         $this->container['code'] = $data['code'] ?? null;
@@ -285,6 +291,30 @@ class CommonProblem implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
+     * Gets trace_id
+     *
+     * @return string|null
+     */
+    public function getTraceId()
+    {
+        return $this->container['trace_id'];
+    }
+
+    /**
+     * Sets trace_id
+     *
+     * @param string|null $trace_id The request correlation ID this problem comes from.
+     *
+     * @return self
+     */
+    public function setTraceId($trace_id)
+    {
+        $this->container['trace_id'] = $trace_id;
+
+        return $this;
+    }
+
+    /**
      * Gets trace_identifier
      *
      * @return string|null
@@ -297,7 +327,7 @@ class CommonProblem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets trace_identifier
      *
-     * @param string|null $trace_identifier The request correlation ID this problem comes from.
+     * @param string|null $trace_identifier The request correlation ID this problem comes from. (deprecated, use traceId instead)
      *
      * @return self
      */

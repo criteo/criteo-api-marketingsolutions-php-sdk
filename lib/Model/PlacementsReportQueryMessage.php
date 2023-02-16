@@ -290,6 +290,9 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     {
         $invalidProperties = [];
 
+        if ($this->container['advertiser_ids'] === null) {
+            $invalidProperties[] = "'advertiser_ids' can't be null";
+        }
         if ($this->container['dimensions'] === null) {
             $invalidProperties[] = "'dimensions' can't be null";
         }
@@ -326,7 +329,7 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets advertiser_ids
      *
-     * @return string|null
+     * @return string
      */
     public function getAdvertiserIds()
     {
@@ -336,7 +339,7 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets advertiser_ids
      *
-     * @param string|null $advertiser_ids The comma-separated list of advertiser ids.
+     * @param string $advertiser_ids The comma-separated list of advertiser ids.
      *
      * @return self
      */

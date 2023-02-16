@@ -236,6 +236,7 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     const DIMENSIONS_MARKETING_OBJECTIVE = 'MarketingObjective';
     const DIMENSIONS_CHANNEL_ID = 'ChannelId';
     const DIMENSIONS_CHANNEL = 'Channel';
+    const DIMENSIONS_GOAL = 'Goal';
 
     /**
      * Gets allowable values of the enum
@@ -268,6 +269,7 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
             self::DIMENSIONS_MARKETING_OBJECTIVE,
             self::DIMENSIONS_CHANNEL_ID,
             self::DIMENSIONS_CHANNEL,
+            self::DIMENSIONS_GOAL,
         ];
     }
 
