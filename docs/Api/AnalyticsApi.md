@@ -1,13 +1,13 @@
 # criteo\api\marketingsolutions\v2023_01\AnalyticsApi
 
-All URIs are relative to https://api.criteo.com.
+All URIs are relative to https://api.criteo.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getAdsetReport()**](AnalyticsApi.md#getAdsetReport) | **POST** /2023-01/statistics/report | 
-[**getPlacementsReport()**](AnalyticsApi.md#getPlacementsReport) | **POST** /2023-01/placements/report | 
-[**getTransactionsReport()**](AnalyticsApi.md#getTransactionsReport) | **POST** /2023-01/transactions/report | 
-[**getTransparencyReport()**](AnalyticsApi.md#getTransparencyReport) | **POST** /2023-01/log-level/advertisers/{advertiser-id}/report | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getAdsetReport()**](AnalyticsApi.md#getAdsetReport) | **POST** /2023-01/statistics/report |  |
+| [**getPlacementsReport()**](AnalyticsApi.md#getPlacementsReport) | **POST** /2023-01/placements/report |  |
+| [**getTransactionsReport()**](AnalyticsApi.md#getTransactionsReport) | **POST** /2023-01/transactions/report |  |
+| [**getTransparencyReport()**](AnalyticsApi.md#getTransparencyReport) | **POST** /2023-01/log-level/advertisers/{advertiser-id}/report |  |
 
 
 ## `getAdsetReport()`
@@ -49,9 +49,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **statistics_report_query_message** | [**\criteo\api\marketingsolutions\v2023_01\Model\StatisticsReportQueryMessage**](../Model/StatisticsReportQueryMessage.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **statistics_report_query_message** | [**\criteo\api\marketingsolutions\v2023_01\Model\StatisticsReportQueryMessage**](../Model/StatisticsReportQueryMessage.md)|  | [optional] |
 
 ### Return type
 
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -109,9 +109,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **placements_report_query_data_message** | [**\criteo\api\marketingsolutions\v2023_01\Model\PlacementsReportQueryDataMessage**](../Model/PlacementsReportQueryDataMessage.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **placements_report_query_data_message** | [**\criteo\api\marketingsolutions\v2023_01\Model\PlacementsReportQueryDataMessage**](../Model/PlacementsReportQueryDataMessage.md)|  | [optional] |
 
 ### Return type
 
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -169,9 +169,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **transactions_report_query_data_message** | [**\criteo\api\marketingsolutions\v2023_01\Model\TransactionsReportQueryDataMessage**](../Model/TransactionsReportQueryDataMessage.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **transactions_report_query_data_message** | [**\criteo\api\marketingsolutions\v2023_01\Model\TransactionsReportQueryDataMessage**](../Model/TransactionsReportQueryDataMessage.md)|  | [optional] |
 
 ### Return type
 
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -230,10 +230,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **advertiser_id** | **int**| The advertiser id to fetch the transparency data. |
- **transparency_query_message** | [**\criteo\api\marketingsolutions\v2023_01\Model\TransparencyQueryMessage**](../Model/TransparencyQueryMessage.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **int**| The advertiser id to fetch the transparency data. | |
+| **transparency_query_message** | [**\criteo\api\marketingsolutions\v2023_01\Model\TransparencyQueryMessage**](../Model/TransparencyQueryMessage.md)|  | [optional] |
 
 ### Return type
 
@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`, `text/plain`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

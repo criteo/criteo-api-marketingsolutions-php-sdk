@@ -1,10 +1,10 @@
 # criteo\api\marketingsolutions\v2023_01\AdvertiserApi
 
-All URIs are relative to https://api.criteo.com.
+All URIs are relative to https://api.criteo.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**apiPortfolioGet()**](AdvertiserApi.md#apiPortfolioGet) | **GET** /2023-01/advertisers/me | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**apiPortfolioGet()**](AdvertiserApi.md#apiPortfolioGet) | **GET** /2023-01/advertisers/me |  |
 
 
 ## `apiPortfolioGet()`

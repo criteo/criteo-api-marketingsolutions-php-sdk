@@ -1,6 +1,6 @@
 .gitignore
 .openapi-generator-ignore
-.php_cs
+.php-cs-fixer.dist.php
 .travis.yml
 README.md
 composer.json
@@ -60,6 +60,7 @@ docs/Model/NewAudienceAttributes.md
 docs/Model/NewAudienceRequest.md
 docs/Model/NewAudienceResponse.md
 docs/Model/NillableAdSetTargetingRule.md
+docs/Model/NillableAdSetTargetingRuleValue.md
 docs/Model/NillableDateTime.md
 docs/Model/NillableDecimal.md
 docs/Model/OAuthErrorModel.md
@@ -179,6 +180,7 @@ lib/Model/NewAudienceAttributes.php
 lib/Model/NewAudienceRequest.php
 lib/Model/NewAudienceResponse.php
 lib/Model/NillableAdSetTargetingRule.php
+lib/Model/NillableAdSetTargetingRuleValue.php
 lib/Model/NillableDateTime.php
 lib/Model/NillableDecimal.php
 lib/Model/OAuthErrorModel.php
