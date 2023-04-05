@@ -1,10 +1,10 @@
 # criteo\api\marketingsolutions\preview\OnSiteRecommendationApi
 
-All URIs are relative to https://api.criteo.com.
+All URIs are relative to https://api.criteo.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**apiV1RecoPost()**](OnSiteRecommendationApi.md#apiV1RecoPost) | **POST** /preview/recommendation/search | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**apiV1RecoPost()**](OnSiteRecommendationApi.md#apiV1RecoPost) | **POST** /preview/recommendation/search |  |
 
 
 ## `apiV1RecoPost()`
@@ -46,9 +46,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **on_site_reco_request** | [**\criteo\api\marketingsolutions\preview\Model\OnSiteRecoRequest**](../Model/OnSiteRecoRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **on_site_reco_request** | [**\criteo\api\marketingsolutions\preview\Model\OnSiteRecoRequest**](../Model/OnSiteRecoRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

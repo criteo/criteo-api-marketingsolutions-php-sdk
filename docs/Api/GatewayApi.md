@@ -1,10 +1,10 @@
 # criteo\api\marketingsolutions\preview\GatewayApi
 
-All URIs are relative to https://api.criteo.com.
+All URIs are relative to https://api.criteo.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getCurrentApplication()**](GatewayApi.md#getCurrentApplication) | **GET** /me | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getCurrentApplication()**](GatewayApi.md#getCurrentApplication) | **GET** /me |  |
 
 
 ## `getCurrentApplication()`

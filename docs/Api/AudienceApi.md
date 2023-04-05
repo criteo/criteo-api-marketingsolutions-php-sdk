@@ -1,29 +1,29 @@
 # criteo\api\marketingsolutions\preview\AudienceApi
 
-All URIs are relative to https://api.criteo.com.
+All URIs are relative to https://api.criteo.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**bulkCreateAudienceSegments()**](AudienceApi.md#bulkCreateAudienceSegments) | **POST** /preview/marketing-solutions/audience-segments/create | 
-[**bulkCreateAudiences()**](AudienceApi.md#bulkCreateAudiences) | **POST** /preview/marketing-solutions/audiences/create | 
-[**bulkDeleteAudienceSegment()**](AudienceApi.md#bulkDeleteAudienceSegment) | **POST** /preview/marketing-solutions/audience-segments/delete | 
-[**bulkDeleteAudiences()**](AudienceApi.md#bulkDeleteAudiences) | **POST** /preview/marketing-solutions/audiences/delete | 
-[**bulkUpdateAudienceSegments()**](AudienceApi.md#bulkUpdateAudienceSegments) | **PATCH** /preview/marketing-solutions/audience-segments | 
-[**bulkUpdateAudiences()**](AudienceApi.md#bulkUpdateAudiences) | **PATCH** /preview/marketing-solutions/audiences | 
-[**computeAudienceSegmentsSizes()**](AudienceApi.md#computeAudienceSegmentsSizes) | **POST** /preview/marketing-solutions/audience-segments/compute-sizes | 
-[**computeAudiencesSizes()**](AudienceApi.md#computeAudiencesSizes) | **POST** /preview/marketing-solutions/audiences/compute-sizes | 
-[**deleteContactListIdentifiers()**](AudienceApi.md#deleteContactListIdentifiers) | **DELETE** /preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list | 
-[**deleteUserProfiles()**](AudienceApi.md#deleteUserProfiles) | **POST** /preview/marketing-solutions/advertisers/{advertiserId}/user-profiles/delete | 
-[**estimateAudienceSegmentSize()**](AudienceApi.md#estimateAudienceSegmentSize) | **POST** /preview/marketing-solutions/audience-segments/estimate-size | 
-[**estimateAudienceSize()**](AudienceApi.md#estimateAudienceSize) | **POST** /preview/marketing-solutions/audiences/estimate-size | 
-[**getContactListStatistics()**](AudienceApi.md#getContactListStatistics) | **GET** /preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list | 
-[**getInMarketBrands()**](AudienceApi.md#getInMarketBrands) | **GET** /preview/marketing-solutions/audience-segments/in-market-brands | 
-[**getInMarketInterests()**](AudienceApi.md#getInMarketInterests) | **GET** /preview/marketing-solutions/audience-segments/in-market-interests | 
-[**modifyAudienceUsersWithAttributes()**](AudienceApi.md#modifyAudienceUsersWithAttributes) | **PATCH** /preview/audiences/{audience-id}/contactlist-attributes | 
-[**searchAudienceSegments()**](AudienceApi.md#searchAudienceSegments) | **POST** /preview/marketing-solutions/audience-segments/search | 
-[**searchAudiences()**](AudienceApi.md#searchAudiences) | **POST** /preview/marketing-solutions/audiences/search | 
-[**setUserProfiles()**](AudienceApi.md#setUserProfiles) | **POST** /preview/marketing-solutions/advertisers/{advertiserId}/user-profiles/set | 
-[**updateContactListIdentifiers()**](AudienceApi.md#updateContactListIdentifiers) | **PATCH** /preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**bulkCreateAudienceSegments()**](AudienceApi.md#bulkCreateAudienceSegments) | **POST** /preview/marketing-solutions/audience-segments/create |  |
+| [**bulkCreateAudiences()**](AudienceApi.md#bulkCreateAudiences) | **POST** /preview/marketing-solutions/audiences/create |  |
+| [**bulkDeleteAudienceSegment()**](AudienceApi.md#bulkDeleteAudienceSegment) | **POST** /preview/marketing-solutions/audience-segments/delete |  |
+| [**bulkDeleteAudiences()**](AudienceApi.md#bulkDeleteAudiences) | **POST** /preview/marketing-solutions/audiences/delete |  |
+| [**bulkUpdateAudienceSegments()**](AudienceApi.md#bulkUpdateAudienceSegments) | **PATCH** /preview/marketing-solutions/audience-segments |  |
+| [**bulkUpdateAudiences()**](AudienceApi.md#bulkUpdateAudiences) | **PATCH** /preview/marketing-solutions/audiences |  |
+| [**computeAudienceSegmentsSizes()**](AudienceApi.md#computeAudienceSegmentsSizes) | **POST** /preview/marketing-solutions/audience-segments/compute-sizes |  |
+| [**computeAudiencesSizes()**](AudienceApi.md#computeAudiencesSizes) | **POST** /preview/marketing-solutions/audiences/compute-sizes |  |
+| [**deleteContactListIdentifiers()**](AudienceApi.md#deleteContactListIdentifiers) | **DELETE** /preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list |  |
+| [**deleteUserProfiles()**](AudienceApi.md#deleteUserProfiles) | **POST** /preview/marketing-solutions/advertisers/{advertiserId}/user-profiles/delete |  |
+| [**estimateAudienceSegmentSize()**](AudienceApi.md#estimateAudienceSegmentSize) | **POST** /preview/marketing-solutions/audience-segments/estimate-size |  |
+| [**estimateAudienceSize()**](AudienceApi.md#estimateAudienceSize) | **POST** /preview/marketing-solutions/audiences/estimate-size |  |
+| [**getContactListStatistics()**](AudienceApi.md#getContactListStatistics) | **GET** /preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list |  |
+| [**getInMarketBrands()**](AudienceApi.md#getInMarketBrands) | **GET** /preview/marketing-solutions/audience-segments/in-market-brands |  |
+| [**getInMarketInterests()**](AudienceApi.md#getInMarketInterests) | **GET** /preview/marketing-solutions/audience-segments/in-market-interests |  |
+| [**modifyAudienceUsersWithAttributes()**](AudienceApi.md#modifyAudienceUsersWithAttributes) | **PATCH** /preview/audiences/{audience-id}/contactlist-attributes |  |
+| [**searchAudienceSegments()**](AudienceApi.md#searchAudienceSegments) | **POST** /preview/marketing-solutions/audience-segments/search |  |
+| [**searchAudiences()**](AudienceApi.md#searchAudiences) | **POST** /preview/marketing-solutions/audiences/search |  |
+| [**setUserProfiles()**](AudienceApi.md#setUserProfiles) | **POST** /preview/marketing-solutions/advertisers/{advertiserId}/user-profiles/set |  |
+| [**updateContactListIdentifiers()**](AudienceApi.md#updateContactListIdentifiers) | **PATCH** /preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list |  |
 
 
 ## `bulkCreateAudienceSegments()`
@@ -65,9 +65,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **audience_segment_bulk_create_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkCreateInputV1**](../Model/AudienceSegmentBulkCreateInputV1.md)| Segment creation parameter | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **audience_segment_bulk_create_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkCreateInputV1**](../Model/AudienceSegmentBulkCreateInputV1.md)| Segment creation parameter | [optional] |
 
 ### Return type
 
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -113,7 +113,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$audience_bulk_create_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceBulkCreateInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceBulkCreateInputV1
+$audience_bulk_create_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceBulkCreateInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceBulkCreateInputV1 | 
 
 try {
     $result = $apiInstance->bulkCreateAudiences($audience_bulk_create_input_v1);
@@ -125,9 +125,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **audience_bulk_create_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceBulkCreateInputV1**](../Model/AudienceBulkCreateInputV1.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **audience_bulk_create_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceBulkCreateInputV1**](../Model/AudienceBulkCreateInputV1.md)|  | [optional] |
 
 ### Return type
 
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -185,9 +185,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **audience_segment_bulk_delete_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkDeleteInputV1**](../Model/AudienceSegmentBulkDeleteInputV1.md)| Segment delete request. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **audience_segment_bulk_delete_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkDeleteInputV1**](../Model/AudienceSegmentBulkDeleteInputV1.md)| Segment delete request. | [optional] |
 
 ### Return type
 
@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -233,7 +233,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$audience_bulk_delete_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceBulkDeleteInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceBulkDeleteInputV1
+$audience_bulk_delete_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceBulkDeleteInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceBulkDeleteInputV1 | 
 
 try {
     $result = $apiInstance->bulkDeleteAudiences($audience_bulk_delete_input_v1);
@@ -245,9 +245,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **audience_bulk_delete_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceBulkDeleteInputV1**](../Model/AudienceBulkDeleteInputV1.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **audience_bulk_delete_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceBulkDeleteInputV1**](../Model/AudienceBulkDeleteInputV1.md)|  | [optional] |
 
 ### Return type
 
@@ -259,7 +259,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -305,9 +305,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **audience_segment_bulk_update_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkUpdateInputV1**](../Model/AudienceSegmentBulkUpdateInputV1.md)| Segment Update request | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **audience_segment_bulk_update_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkUpdateInputV1**](../Model/AudienceSegmentBulkUpdateInputV1.md)| Segment Update request | [optional] |
 
 ### Return type
 
@@ -319,7 +319,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -353,7 +353,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$audience_bulk_update_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceBulkUpdateInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceBulkUpdateInputV1
+$audience_bulk_update_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceBulkUpdateInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceBulkUpdateInputV1 | 
 
 try {
     $result = $apiInstance->bulkUpdateAudiences($audience_bulk_update_input_v1);
@@ -365,9 +365,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **audience_bulk_update_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceBulkUpdateInputV1**](../Model/AudienceBulkUpdateInputV1.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **audience_bulk_update_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceBulkUpdateInputV1**](../Model/AudienceBulkUpdateInputV1.md)|  | [optional] |
 
 ### Return type
 
@@ -379,7 +379,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -413,7 +413,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$audience_segment_compute_sizes_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceSegmentComputeSizesInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceSegmentComputeSizesInputV1
+$audience_segment_compute_sizes_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceSegmentComputeSizesInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceSegmentComputeSizesInputV1 | 
 
 try {
     $result = $apiInstance->computeAudienceSegmentsSizes($audience_segment_compute_sizes_input_v1);
@@ -425,9 +425,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **audience_segment_compute_sizes_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentComputeSizesInputV1**](../Model/AudienceSegmentComputeSizesInputV1.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **audience_segment_compute_sizes_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentComputeSizesInputV1**](../Model/AudienceSegmentComputeSizesInputV1.md)|  | [optional] |
 
 ### Return type
 
@@ -439,7 +439,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -473,7 +473,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$audience_compute_sizes_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceComputeSizesInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceComputeSizesInputV1
+$audience_compute_sizes_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceComputeSizesInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceComputeSizesInputV1 | 
 
 try {
     $result = $apiInstance->computeAudiencesSizes($audience_compute_sizes_input_v1);
@@ -485,9 +485,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **audience_compute_sizes_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceComputeSizesInputV1**](../Model/AudienceComputeSizesInputV1.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **audience_compute_sizes_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceComputeSizesInputV1**](../Model/AudienceComputeSizesInputV1.md)|  | [optional] |
 
 ### Return type
 
@@ -499,7 +499,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -545,9 +545,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **audience_segment_id** | **string**| The ID of the Audience Segment to amend |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **audience_segment_id** | **string**| The ID of the Audience Segment to amend | |
 
 ### Return type
 
@@ -605,10 +605,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **advertiser_id** | **int**| Criteo Advertiser ID of user profiles&#39; owner |
- **delete_user_profile_model_list_request** | [**\criteo\api\marketingsolutions\preview\Model\DeleteUserProfileModelListRequest**](../Model/DeleteUserProfileModelListRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **int**| Criteo Advertiser ID of user profiles&#39; owner | |
+| **delete_user_profile_model_list_request** | [**\criteo\api\marketingsolutions\preview\Model\DeleteUserProfileModelListRequest**](../Model/DeleteUserProfileModelListRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -620,7 +620,7 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -654,7 +654,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$audience_segment_estimate_size_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEstimateSizeInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEstimateSizeInputV1
+$audience_segment_estimate_size_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEstimateSizeInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEstimateSizeInputV1 | 
 
 try {
     $result = $apiInstance->estimateAudienceSegmentSize($audience_segment_estimate_size_input_v1);
@@ -666,9 +666,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **audience_segment_estimate_size_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEstimateSizeInputV1**](../Model/AudienceSegmentEstimateSizeInputV1.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **audience_segment_estimate_size_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEstimateSizeInputV1**](../Model/AudienceSegmentEstimateSizeInputV1.md)|  | [optional] |
 
 ### Return type
 
@@ -680,7 +680,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -714,7 +714,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$audience_estimate_size_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceEstimateSizeInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceEstimateSizeInputV1
+$audience_estimate_size_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceEstimateSizeInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceEstimateSizeInputV1 | 
 
 try {
     $result = $apiInstance->estimateAudienceSize($audience_estimate_size_input_v1);
@@ -726,9 +726,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **audience_estimate_size_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceEstimateSizeInputV1**](../Model/AudienceEstimateSizeInputV1.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **audience_estimate_size_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceEstimateSizeInputV1**](../Model/AudienceEstimateSizeInputV1.md)|  | [optional] |
 
 ### Return type
 
@@ -740,7 +740,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -786,9 +786,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **audience_segment_id** | **int**| The segment ID. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **audience_segment_id** | **int**| The segment ID. | |
 
 ### Return type
 
@@ -847,10 +847,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **advertiser_id** | **string**| The advertiser ID. |
- **country** | **string**| The ISO 3166-1 alpha-2 country code. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **string**| The advertiser ID. | |
+| **country** | **string**| The ISO 3166-1 alpha-2 country code. | |
 
 ### Return type
 
@@ -909,10 +909,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **advertiser_id** | **string**| The advertiser ID. |
- **country** | **string**| The ISO 3166-1 alpha-2 country code. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **string**| The advertiser ID. | |
+| **country** | **string**| The ISO 3166-1 alpha-2 country code. | |
 
 ### Return type
 
@@ -971,10 +971,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **audience_id** | **int**| The id of the audience to amend |
- **contactlist_with_attributes_amendment_request** | [**\criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest**](../Model/ContactlistWithAttributesAmendmentRequest.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **audience_id** | **int**| The id of the audience to amend | |
+| **contactlist_with_attributes_amendment_request** | [**\criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest**](../Model/ContactlistWithAttributesAmendmentRequest.md)|  | |
 
 ### Return type
 
@@ -1034,11 +1034,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int**| The number of elements to be returned. The default is 50 and the maximum is 100. | [optional]
- **offset** | **int**| The (zero-based) offset into the collection. The default is 0. | [optional]
- **audience_segment_search_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentSearchInputV1**](../Model/AudienceSegmentSearchInputV1.md)| Segment search filters. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **limit** | **int**| The number of elements to be returned. The default is 50 and the maximum is 100. | [optional] |
+| **offset** | **int**| The (zero-based) offset into the collection. The default is 0. | [optional] |
+| **audience_segment_search_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentSearchInputV1**](../Model/AudienceSegmentSearchInputV1.md)| Segment search filters. | [optional] |
 
 ### Return type
 
@@ -1050,7 +1050,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1098,11 +1098,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int**| The number of elements to be returned. The default is 50 and the maximum is 100. | [optional]
- **offset** | **int**| The (zero-based) offset into the collection. The default is 0. | [optional]
- **audience_search_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSearchInputV1**](../Model/AudienceSearchInputV1.md)| Audience search filters. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **limit** | **int**| The number of elements to be returned. The default is 50 and the maximum is 100. | [optional] |
+| **offset** | **int**| The (zero-based) offset into the collection. The default is 0. | [optional] |
+| **audience_search_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSearchInputV1**](../Model/AudienceSearchInputV1.md)| Audience search filters. | [optional] |
 
 ### Return type
 
@@ -1114,7 +1114,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1160,10 +1160,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **advertiser_id** | **int**| Criteo Advertiser ID of user profiles&#39; owner |
- **set_user_profile_model_list_request** | [**\criteo\api\marketingsolutions\preview\Model\SetUserProfileModelListRequest**](../Model/SetUserProfileModelListRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **int**| Criteo Advertiser ID of user profiles&#39; owner | |
+| **set_user_profile_model_list_request** | [**\criteo\api\marketingsolutions\preview\Model\SetUserProfileModelListRequest**](../Model/SetUserProfileModelListRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1175,7 +1175,7 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1222,10 +1222,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **audience_segment_id** | **string**| The ID of the Audience Segment to amend |
- **contactlist_amendment_request** | [**\criteo\api\marketingsolutions\preview\Model\ContactlistAmendmentRequest**](../Model/ContactlistAmendmentRequest.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **audience_segment_id** | **string**| The ID of the Audience Segment to amend | |
+| **contactlist_amendment_request** | [**\criteo\api\marketingsolutions\preview\Model\ContactlistAmendmentRequest**](../Model/ContactlistAmendmentRequest.md)|  | |
 
 ### Return type
 

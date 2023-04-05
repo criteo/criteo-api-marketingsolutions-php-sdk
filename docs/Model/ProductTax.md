@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**rate** | **double** | The percentage of tax rate that applies to the item price. | [optional]
+**rate** | **float** | The percentage of tax rate that applies to the item price. | [optional]
 **country** | **string** | The country within which the item is taxed, specified as a CLDR territory code. | [optional]
 **region** | **string** | The geographic region to which the tax rate applies. | [optional]
 **tax_ship** | **bool** | Set to true if tax is charged on shipping. | [optional]

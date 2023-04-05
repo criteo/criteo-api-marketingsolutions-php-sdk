@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**start_date** | [**\DateTime**](\DateTime.md) | Start date of the report. Date component of ISO 8061 format, any time or timezone component is ignored. |
-**end_date** | [**\DateTime**](\DateTime.md) | End date of the report. Date component of ISO 8061 format, any time or timezone component is ignored. |
+**start_date** | **\DateTime** | Start date of the report. Date component of ISO 8061 format, any time or timezone component is ignored. |
+**end_date** | **\DateTime** | End date of the report. Date component of ISO 8061 format, any time or timezone component is ignored. |
 **advertiser_id** | **string** | The advertiser id |
 **timezone** | **string** | The timezone used for the report. Timezone Database format (Tz). | [optional]
 **dimension** | **string** | The dimension for the report. |

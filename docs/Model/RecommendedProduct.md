@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **image_url** | **string** | Product image. | [optional]
 **name** | **string** | Product name. | [optional]
 **description** | **string** | Product description. | [optional]
-**price** | **double** | Product price. | [optional]
+**price** | **float** | Product price. | [optional]
 **google_category** | **string** | Product google category. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

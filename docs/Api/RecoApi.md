@@ -1,14 +1,14 @@
 # criteo\api\marketingsolutions\preview\RecoApi
 
-All URIs are relative to https://api.criteo.com.
+All URIs are relative to https://api.criteo.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createProductSet()**](RecoApi.md#createProductSet) | **POST** /preview/product-sets | 
-[**fetchProductSet()**](RecoApi.md#fetchProductSet) | **GET** /preview/product-sets/{product-set-id} | 
-[**fetchProductSets()**](RecoApi.md#fetchProductSets) | **GET** /preview/product-sets/dataset/{dataset-id} | 
-[**previewProductSetsPreviewPost()**](RecoApi.md#previewProductSetsPreviewPost) | **POST** /preview/product-sets/preview | 
-[**removeProductSet()**](RecoApi.md#removeProductSet) | **DELETE** /preview/product-sets/{product-set-id} | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**createProductSet()**](RecoApi.md#createProductSet) | **POST** /preview/product-sets |  |
+| [**fetchProductSet()**](RecoApi.md#fetchProductSet) | **GET** /preview/product-sets/{product-set-id} |  |
+| [**fetchProductSets()**](RecoApi.md#fetchProductSets) | **GET** /preview/product-sets/dataset/{dataset-id} |  |
+| [**previewProductSetsPreviewPost()**](RecoApi.md#previewProductSetsPreviewPost) | **POST** /preview/product-sets/preview |  |
+| [**removeProductSet()**](RecoApi.md#removeProductSet) | **DELETE** /preview/product-sets/{product-set-id} |  |
 
 
 ## `createProductSet()`
@@ -50,9 +50,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **value_resource_input_of_create_product_set_request** | [**\criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfCreateProductSetRequest**](../Model/ValueResourceInputOfCreateProductSetRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **value_resource_input_of_create_product_set_request** | [**\criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfCreateProductSetRequest**](../Model/ValueResourceInputOfCreateProductSetRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -110,9 +110,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **product_set_id** | **string**| ID of the product set |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **product_set_id** | **string**| ID of the product set | |
 
 ### Return type
 
@@ -170,9 +170,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **dataset_id** | **string**| The ID of the dataset that should be used for product set retrieval |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **dataset_id** | **string**| The ID of the dataset that should be used for product set retrieval | |
 
 ### Return type
 
@@ -230,9 +230,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **product_set_statistics_query** | [**\criteo\api\marketingsolutions\preview\Model\ProductSetStatisticsQuery**](../Model/ProductSetStatisticsQuery.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **product_set_statistics_query** | [**\criteo\api\marketingsolutions\preview\Model\ProductSetStatisticsQuery**](../Model/ProductSetStatisticsQuery.md)|  | |
 
 ### Return type
 
@@ -290,9 +290,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **product_set_id** | **string**| ID of the product set to remove |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **product_set_id** | **string**| ID of the product set to remove | |
 
 ### Return type
 

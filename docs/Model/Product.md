@@ -55,7 +55,7 @@ Name | Type | Description | Notes
 **display_ads_similar_ids** | **string[]** | Advertiser-specified recommendations. | [optional]
 **display_ads_title** | **string** | Title of an item for dynamic remarketing campaigns. | [optional]
 **display_ads_link** | **string** | URL directly to your item&#39;s landing page for dynamic remarketing campaigns. | [optional]
-**display_ads_value** | **double** | Offer margin for dynamic remarketing campaigns. | [optional]
+**display_ads_value** | **float** | Offer margin for dynamic remarketing campaigns. | [optional]
 **sell_on_google_quantity** | **int** | The quantity of the product that is available for selling on Google. Supported only for online products. | [optional]
 **promotion_ids** | **string[]** | The unique ID of a promotion. | [optional]
 **max_handling_time** | **int** | Maximal product handling time (in business days). | [optional]

@@ -1,11 +1,11 @@
 # criteo\api\marketingsolutions\preview\CatalogApi
 
-All URIs are relative to https://api.criteo.com.
+All URIs are relative to https://api.criteo.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**previewCatalogProductsBatchPost()**](CatalogApi.md#previewCatalogProductsBatchPost) | **POST** /preview/catalog/products/batch | 
-[**previewCatalogProductsBatchReportOperationTokenGet()**](CatalogApi.md#previewCatalogProductsBatchReportOperationTokenGet) | **GET** /preview/catalog/products/batch/report/{operation-token} | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**previewCatalogProductsBatchPost()**](CatalogApi.md#previewCatalogProductsBatchPost) | **POST** /preview/catalog/products/batch |  |
+| [**previewCatalogProductsBatchReportOperationTokenGet()**](CatalogApi.md#previewCatalogProductsBatchReportOperationTokenGet) | **GET** /preview/catalog/products/batch/report/{operation-token} |  |
 
 
 ## `previewCatalogProductsBatchPost()`
@@ -47,9 +47,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **products_custom_batch_request** | [**\criteo\api\marketingsolutions\preview\Model\ProductsCustomBatchRequest**](../Model/ProductsCustomBatchRequest.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **products_custom_batch_request** | [**\criteo\api\marketingsolutions\preview\Model\ProductsCustomBatchRequest**](../Model/ProductsCustomBatchRequest.md)|  | |
 
 ### Return type
 
@@ -107,9 +107,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **operation_token** | **string**| The token returned by the batch endpoint. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation_token** | **string**| The token returned by the batch endpoint. | |
 
 ### Return type
 

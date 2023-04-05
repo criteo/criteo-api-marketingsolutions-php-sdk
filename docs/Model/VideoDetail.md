@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**duration** | **double** | The duration of the video in milliseconds, the video could be trimmed if it is longer than 30000 ms. |
+**duration** | **float** | The duration of the video in milliseconds, the video could be trimmed if it is longer than 30000 ms. |
 **shape** | **string** | Shape of the video |
 **url** | **string** | URL of the video uploaded on demostatic.criteo.com when deploying and then static.criteo.net |
 

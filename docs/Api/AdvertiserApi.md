@@ -1,13 +1,13 @@
 # criteo\api\marketingsolutions\preview\AdvertiserApi
 
-All URIs are relative to https://api.criteo.com.
+All URIs are relative to https://api.criteo.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**apiPortfolioGet()**](AdvertiserApi.md#apiPortfolioGet) | **GET** /preview/advertisers/me | 
-[**createAdvertiser()**](AdvertiserApi.md#createAdvertiser) | **POST** /preview/advertisers | 
-[**getDatasetList()**](AdvertiserApi.md#getDatasetList) | **GET** /preview/advertisers/{advertiser-id}/datasets | 
-[**listIndustries()**](AdvertiserApi.md#listIndustries) | **GET** /preview/industries | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**apiPortfolioGet()**](AdvertiserApi.md#apiPortfolioGet) | **GET** /preview/advertisers/me |  |
+| [**createAdvertiser()**](AdvertiserApi.md#createAdvertiser) | **POST** /preview/advertisers |  |
+| [**getDatasetList()**](AdvertiserApi.md#getDatasetList) | **GET** /preview/advertisers/{advertiser-id}/datasets |  |
+| [**listIndustries()**](AdvertiserApi.md#listIndustries) | **GET** /preview/industries |  |
 
 
 ## `apiPortfolioGet()`
@@ -94,7 +94,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AdvertiserApi(
     new GuzzleHttp\Client(),
     $config
 );
-$advertiser_creation_request = new \criteo\api\marketingsolutions\preview\Model\AdvertiserCreationRequest(); // \criteo\api\marketingsolutions\preview\Model\AdvertiserCreationRequest
+$advertiser_creation_request = new \criteo\api\marketingsolutions\preview\Model\AdvertiserCreationRequest(); // \criteo\api\marketingsolutions\preview\Model\AdvertiserCreationRequest | 
 
 try {
     $result = $apiInstance->createAdvertiser($advertiser_creation_request);
@@ -106,9 +106,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **advertiser_creation_request** | [**\criteo\api\marketingsolutions\preview\Model\AdvertiserCreationRequest**](../Model/AdvertiserCreationRequest.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_creation_request** | [**\criteo\api\marketingsolutions\preview\Model\AdvertiserCreationRequest**](../Model/AdvertiserCreationRequest.md)|  | |
 
 ### Return type
 
@@ -120,7 +120,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`, `text/plain`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -166,9 +166,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **advertiser_id** | **string**| The id of the Advertiser for which Datasets are being retrieved. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **string**| The id of the Advertiser for which Datasets are being retrieved. | |
 
 ### Return type
 

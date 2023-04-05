@@ -1,6 +1,6 @@
 .gitignore
 .openapi-generator-ignore
-.php_cs
+.php-cs-fixer.dist.php
 .travis.yml
 README.md
 composer.json
@@ -258,6 +258,7 @@ docs/Model/MarketingSolutionsReportStatusResource.md
 docs/Model/MarketingSolutionsReportStatusResponse.md
 docs/Model/ModifyAudienceResponse.md
 docs/Model/NillableAdSetTargetingRule.md
+docs/Model/NillableAdSetTargetingRuleValue.md
 docs/Model/NillableDateTime.md
 docs/Model/NillableDecimal.md
 docs/Model/NillableGenderV1.md
@@ -651,6 +652,7 @@ lib/Model/MarketingSolutionsReportStatusResponse.php
 lib/Model/ModelInterface.php
 lib/Model/ModifyAudienceResponse.php
 lib/Model/NillableAdSetTargetingRule.php
+lib/Model/NillableAdSetTargetingRuleValue.php
 lib/Model/NillableDateTime.php
 lib/Model/NillableDecimal.php
 lib/Model/NillableGenderV1.php

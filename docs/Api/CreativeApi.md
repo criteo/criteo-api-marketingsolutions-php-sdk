@@ -1,26 +1,26 @@
 # criteo\api\marketingsolutions\preview\CreativeApi
 
-All URIs are relative to https://api.criteo.com.
+All URIs are relative to https://api.criteo.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createAd()**](CreativeApi.md#createAd) | **POST** /preview/advertisers/{advertiser-id}/ads | 
-[**createCoupon()**](CreativeApi.md#createCoupon) | **POST** /preview/advertisers/{advertiser-id}/coupons | 
-[**createCreative()**](CreativeApi.md#createCreative) | **POST** /preview/advertisers/{advertiser-id}/creatives | 
-[**deleteAd()**](CreativeApi.md#deleteAd) | **DELETE** /preview/ads/{id} | 
-[**deleteCoupon()**](CreativeApi.md#deleteCoupon) | **DELETE** /preview/advertisers/{advertiser-id}/coupons/{id} | 
-[**deleteCreative()**](CreativeApi.md#deleteCreative) | **DELETE** /preview/creatives/{id} | 
-[**editCoupon()**](CreativeApi.md#editCoupon) | **PUT** /preview/advertisers/{advertiser-id}/coupons/{id} | 
-[**editCreative()**](CreativeApi.md#editCreative) | **PUT** /preview/creatives/{id} | 
-[**getAd()**](CreativeApi.md#getAd) | **GET** /preview/ads/{id} | 
-[**getAds()**](CreativeApi.md#getAds) | **GET** /preview/advertisers/{advertiser-id}/ads | 
-[**getCoupon()**](CreativeApi.md#getCoupon) | **GET** /preview/advertisers/{advertiser-id}/coupons/{id} | 
-[**getCouponPreview()**](CreativeApi.md#getCouponPreview) | **GET** /preview/advertisers/{advertiser-id}/coupons/{id}/preview | 
-[**getCouponSupportedSizes()**](CreativeApi.md#getCouponSupportedSizes) | **GET** /preview/advertisers/{advertiser-id}/coupons-supported-sizes | 
-[**getCoupons()**](CreativeApi.md#getCoupons) | **GET** /preview/advertisers/{advertiser-id}/coupons | 
-[**getCreative()**](CreativeApi.md#getCreative) | **GET** /preview/creatives/{id} | 
-[**getCreativePreviewPost()**](CreativeApi.md#getCreativePreviewPost) | **POST** /preview/creatives/{id}/preview | 
-[**getCreatives()**](CreativeApi.md#getCreatives) | **GET** /preview/advertisers/{advertiser-id}/creatives | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**createAd()**](CreativeApi.md#createAd) | **POST** /preview/advertisers/{advertiser-id}/ads |  |
+| [**createCoupon()**](CreativeApi.md#createCoupon) | **POST** /preview/advertisers/{advertiser-id}/coupons |  |
+| [**createCreative()**](CreativeApi.md#createCreative) | **POST** /preview/advertisers/{advertiser-id}/creatives |  |
+| [**deleteAd()**](CreativeApi.md#deleteAd) | **DELETE** /preview/ads/{id} |  |
+| [**deleteCoupon()**](CreativeApi.md#deleteCoupon) | **DELETE** /preview/advertisers/{advertiser-id}/coupons/{id} |  |
+| [**deleteCreative()**](CreativeApi.md#deleteCreative) | **DELETE** /preview/creatives/{id} |  |
+| [**editCoupon()**](CreativeApi.md#editCoupon) | **PUT** /preview/advertisers/{advertiser-id}/coupons/{id} |  |
+| [**editCreative()**](CreativeApi.md#editCreative) | **PUT** /preview/creatives/{id} |  |
+| [**getAd()**](CreativeApi.md#getAd) | **GET** /preview/ads/{id} |  |
+| [**getAds()**](CreativeApi.md#getAds) | **GET** /preview/advertisers/{advertiser-id}/ads |  |
+| [**getCoupon()**](CreativeApi.md#getCoupon) | **GET** /preview/advertisers/{advertiser-id}/coupons/{id} |  |
+| [**getCouponPreview()**](CreativeApi.md#getCouponPreview) | **GET** /preview/advertisers/{advertiser-id}/coupons/{id}/preview |  |
+| [**getCouponSupportedSizes()**](CreativeApi.md#getCouponSupportedSizes) | **GET** /preview/advertisers/{advertiser-id}/coupons-supported-sizes |  |
+| [**getCoupons()**](CreativeApi.md#getCoupons) | **GET** /preview/advertisers/{advertiser-id}/coupons |  |
+| [**getCreative()**](CreativeApi.md#getCreative) | **GET** /preview/creatives/{id} |  |
+| [**getCreativePreviewPost()**](CreativeApi.md#getCreativePreviewPost) | **POST** /preview/creatives/{id}/preview |  |
+| [**getCreatives()**](CreativeApi.md#getCreatives) | **GET** /preview/advertisers/{advertiser-id}/creatives |  |
 
 
 ## `createAd()`
@@ -63,10 +63,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **advertiser_id** | **string**| The advertiser identifier. |
- **ad_write_request** | [**\criteo\api\marketingsolutions\preview\Model\AdWriteRequest**](../Model/AdWriteRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **string**| The advertiser identifier. | |
+| **ad_write_request** | [**\criteo\api\marketingsolutions\preview\Model\AdWriteRequest**](../Model/AdWriteRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -125,10 +125,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **advertiser_id** | **string**| The advertiser identifier. |
- **create_coupon_request** | [**\criteo\api\marketingsolutions\preview\Model\CreateCouponRequest**](../Model/CreateCouponRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **string**| The advertiser identifier. | |
+| **create_coupon_request** | [**\criteo\api\marketingsolutions\preview\Model\CreateCouponRequest**](../Model/CreateCouponRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -187,10 +187,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **advertiser_id** | **string**| The advertiser identifier. |
- **creative_write_request** | [**\criteo\api\marketingsolutions\preview\Model\CreativeWriteRequest**](../Model/CreativeWriteRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **string**| The advertiser identifier. | |
+| **creative_write_request** | [**\criteo\api\marketingsolutions\preview\Model\CreativeWriteRequest**](../Model/CreativeWriteRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -247,9 +247,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| The ad identifier to delete. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The ad identifier to delete. | |
 
 ### Return type
 
@@ -307,10 +307,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **advertiser_id** | **string**| The advertiser identifier. |
- **id** | **string**| The Coupon identifier to delete. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **string**| The advertiser identifier. | |
+| **id** | **string**| The Coupon identifier to delete. | |
 
 ### Return type
 
@@ -367,9 +367,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| The creative identifier to delete. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| The creative identifier to delete. | |
 
 ### Return type
 
@@ -429,11 +429,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **advertiser_id** | **string**| The advertiser identifier. |
- **id** | **string**| The Coupon identifier to edit. |
- **update_coupon_request** | [**\criteo\api\marketingsolutions\preview\Model\UpdateCouponRequest**](../Model/UpdateCouponRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **string**| The advertiser identifier. | |
+| **id** | **string**| The Coupon identifier to edit. | |
+| **update_coupon_request** | [**\criteo\api\marketingsolutions\preview\Model\UpdateCouponRequest**](../Model/UpdateCouponRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -445,7 +445,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -492,10 +492,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| The creative identifier to edit. |
- **creative_write_request** | [**\criteo\api\marketingsolutions\preview\Model\CreativeWriteRequest**](../Model/CreativeWriteRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| The creative identifier to edit. | |
+| **creative_write_request** | [**\criteo\api\marketingsolutions\preview\Model\CreativeWriteRequest**](../Model/CreativeWriteRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -507,7 +507,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -553,9 +553,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| The ad identifier to retrieve. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The ad identifier to retrieve. | |
 
 ### Return type
 
@@ -615,11 +615,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **advertiser_id** | **string**| The advertiser identifier. |
- **limit** | **int**| The number of ads to be returned. The default is 50. | [optional]
- **offset** | **int**| The (zero-based) offset into the collection of ads. The default is 0. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **string**| The advertiser identifier. | |
+| **limit** | **int**| The number of ads to be returned. The default is 50. | [optional] |
+| **offset** | **int**| The (zero-based) offset into the collection of ads. The default is 0. | [optional] |
 
 ### Return type
 
@@ -678,10 +678,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **advertiser_id** | **string**| The advertiser identifier. |
- **id** | **string**| The Coupon identifier to retrieve. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **string**| The advertiser identifier. | |
+| **id** | **string**| The Coupon identifier to retrieve. | |
 
 ### Return type
 
@@ -742,12 +742,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **advertiser_id** | **string**| The advertiser identifier. |
- **id** | **string**| The Coupon identifier to preview. |
- **width** | **int**| The width of the coupon to preview. | [optional]
- **height** | **int**| The height of the coupon to preview. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **string**| The advertiser identifier. | |
+| **id** | **string**| The Coupon identifier to preview. | |
+| **width** | **int**| The width of the coupon to preview. | [optional] |
+| **height** | **int**| The height of the coupon to preview. | [optional] |
 
 ### Return type
 
@@ -806,10 +806,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **advertiser_id** | **string**| The advertiser identifier. |
- **ad_set_id** | **string**| The ad set id on which you want to check the Coupon supported sizes. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **string**| The advertiser identifier. | |
+| **ad_set_id** | **string**| The ad set id on which you want to check the Coupon supported sizes. | [optional] |
 
 ### Return type
 
@@ -869,11 +869,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **advertiser_id** | **string**| The advertiser identifier. |
- **limit** | **int**| The number of coupons to be returned. The default is 50. | [optional]
- **offset** | **int**| The (zero-based) offset into the collection of coupons. The default is 0. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **string**| The advertiser identifier. | |
+| **limit** | **int**| The number of coupons to be returned. The default is 50. | [optional] |
+| **offset** | **int**| The (zero-based) offset into the collection of coupons. The default is 0. | [optional] |
 
 ### Return type
 
@@ -931,9 +931,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| The creative identifier to retrieve. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| The creative identifier to retrieve. | |
 
 ### Return type
 
@@ -993,11 +993,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| The Creative identifier to preview. |
- **width** | **int**| The width of the Creative to preview. | [optional]
- **height** | **int**| The height of the Creative to preview. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| The Creative identifier to preview. | |
+| **width** | **int**| The width of the Creative to preview. | [optional] |
+| **height** | **int**| The height of the Creative to preview. | [optional] |
 
 ### Return type
 
@@ -1057,11 +1057,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **advertiser_id** | **string**| The advertiser identifier. |
- **limit** | **int**| The number of creatives to be returned. The default is 50. | [optional]
- **offset** | **int**| The (zero-based) offset into the collection of creatives. The default is 0. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **string**| The advertiser identifier. | |
+| **limit** | **int**| The number of creatives to be returned. The default is 50. | [optional] |
+| **offset** | **int**| The (zero-based) offset into the collection of creatives. The default is 0. | [optional] |
 
 ### Return type
 

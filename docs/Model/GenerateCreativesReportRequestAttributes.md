@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**start_date** | [**\DateTime**](\DateTime.md) | Start date of the report. Date component of ISO 8061 format, any time or timezone component is ignored. |
-**end_date** | [**\DateTime**](\DateTime.md) | End date of the report. Date component of ISO 8061 format, any time or timezone component is ignored. |
+**start_date** | **\DateTime** | Start date of the report. Date component of ISO 8061 format, any time or timezone component is ignored. |
+**end_date** | **\DateTime** | End date of the report. Date component of ISO 8061 format, any time or timezone component is ignored. |
 **advertiser_ids** | **string[]** | The list of client ids. |
 **metrics** | **string[]** | The list of metrics to report. |
 **dimensions** | **string[]** | The list of dimensions to report. |
