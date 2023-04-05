@@ -1,15 +1,15 @@
 # criteo\api\marketingsolutions\v2022_07\AudienceApi
 
-All URIs are relative to https://api.criteo.com.
+All URIs are relative to https://api.criteo.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createAudience()**](AudienceApi.md#createAudience) | **POST** /2022-07/audiences | 
-[**deleteIdentifiers()**](AudienceApi.md#deleteIdentifiers) | **DELETE** /2022-07/audiences/{audience-id}/contactlist | 
-[**getAudiences()**](AudienceApi.md#getAudiences) | **GET** /2022-07/audiences | 
-[**modifyAudience()**](AudienceApi.md#modifyAudience) | **PATCH** /2022-07/audiences/{audience-id} | 
-[**modifyAudienceUsers()**](AudienceApi.md#modifyAudienceUsers) | **PATCH** /2022-07/audiences/{audience-id}/contactlist | 
-[**removeAudience()**](AudienceApi.md#removeAudience) | **DELETE** /2022-07/audiences/{audience-id} | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**createAudience()**](AudienceApi.md#createAudience) | **POST** /2022-07/audiences |  |
+| [**deleteIdentifiers()**](AudienceApi.md#deleteIdentifiers) | **DELETE** /2022-07/audiences/{audience-id}/contactlist |  |
+| [**getAudiences()**](AudienceApi.md#getAudiences) | **GET** /2022-07/audiences |  |
+| [**modifyAudience()**](AudienceApi.md#modifyAudience) | **PATCH** /2022-07/audiences/{audience-id} |  |
+| [**modifyAudienceUsers()**](AudienceApi.md#modifyAudienceUsers) | **PATCH** /2022-07/audiences/{audience-id}/contactlist |  |
+| [**removeAudience()**](AudienceApi.md#removeAudience) | **DELETE** /2022-07/audiences/{audience-id} |  |
 
 
 ## `createAudience()`
@@ -51,9 +51,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **new_audience_request** | [**\criteo\api\marketingsolutions\v2022_07\Model\NewAudienceRequest**](../Model/NewAudienceRequest.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **new_audience_request** | [**\criteo\api\marketingsolutions\v2022_07\Model\NewAudienceRequest**](../Model/NewAudienceRequest.md)|  | |
 
 ### Return type
 
@@ -111,9 +111,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **audience_id** | **string**| The id of the audience to amend |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **audience_id** | **string**| The id of the audience to amend | |
 
 ### Return type
 
@@ -171,9 +171,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **advertiser_id** | **string**| The advertiser id to get all the audiences for. Mandatory for internal users. For external users,            if you don&#39;t provide it, we will take into account the advertisers from your portfolio | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **string**| The advertiser id to get all the audiences for. Mandatory for internal users. For external users,            if you don&#39;t provide it, we will take into account the advertisers from your portfolio | [optional] |
 
 ### Return type
 
@@ -232,10 +232,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **audience_id** | **string**| The id of the audience to amend |
- **replace_audience_request** | [**\criteo\api\marketingsolutions\v2022_07\Model\ReplaceAudienceRequest**](../Model/ReplaceAudienceRequest.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **audience_id** | **string**| The id of the audience to amend | |
+| **replace_audience_request** | [**\criteo\api\marketingsolutions\v2022_07\Model\ReplaceAudienceRequest**](../Model/ReplaceAudienceRequest.md)|  | |
 
 ### Return type
 
@@ -294,10 +294,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **audience_id** | **string**| The id of the audience to amend |
- **contactlist_amendment_request** | [**\criteo\api\marketingsolutions\v2022_07\Model\ContactlistAmendmentRequest**](../Model/ContactlistAmendmentRequest.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **audience_id** | **string**| The id of the audience to amend | |
+| **contactlist_amendment_request** | [**\criteo\api\marketingsolutions\v2022_07\Model\ContactlistAmendmentRequest**](../Model/ContactlistAmendmentRequest.md)|  | |
 
 ### Return type
 
@@ -355,9 +355,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **audience_id** | **string**| The id of the audience to amend |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **audience_id** | **string**| The id of the audience to amend | |
 
 ### Return type
 

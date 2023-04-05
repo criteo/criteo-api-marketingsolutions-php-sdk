@@ -1,21 +1,21 @@
 # criteo\api\marketingsolutions\v2022_07\CampaignApi
 
-All URIs are relative to https://api.criteo.com.
+All URIs are relative to https://api.criteo.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getAdSet()**](CampaignApi.md#getAdSet) | **GET** /2022-07/marketing-solutions/ad-sets/{adSetId} | 
-[**getCampaign()**](CampaignApi.md#getCampaign) | **GET** /2022-07/marketing-solutions/campaigns/{campaign-id} | 
-[**getCategoryBidList()**](CampaignApi.md#getCategoryBidList) | **GET** /2022-07/marketing-solutions/ad-sets/{ad-set-id}/category-bids | 
-[**getDisplayMultipliers()**](CampaignApi.md#getDisplayMultipliers) | **GET** /2022-07/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers | 
-[**patchAdSets()**](CampaignApi.md#patchAdSets) | **PATCH** /2022-07/marketing-solutions/ad-sets | 
-[**patchCampaigns()**](CampaignApi.md#patchCampaigns) | **PATCH** /2022-07/marketing-solutions/campaigns | 
-[**patchCategoryBidList()**](CampaignApi.md#patchCategoryBidList) | **PATCH** /2022-07/marketing-solutions/ad-sets/{ad-set-id}/category-bids | 
-[**patchDisplayMultipliers()**](CampaignApi.md#patchDisplayMultipliers) | **PATCH** /2022-07/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers | 
-[**searchAdSets()**](CampaignApi.md#searchAdSets) | **POST** /2022-07/marketing-solutions/ad-sets/search | 
-[**searchCampaigns()**](CampaignApi.md#searchCampaigns) | **POST** /2022-07/marketing-solutions/campaigns/search | 
-[**startAdSets()**](CampaignApi.md#startAdSets) | **POST** /2022-07/marketing-solutions/ad-sets/start | 
-[**stopAdSets()**](CampaignApi.md#stopAdSets) | **POST** /2022-07/marketing-solutions/ad-sets/stop | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getAdSet()**](CampaignApi.md#getAdSet) | **GET** /2022-07/marketing-solutions/ad-sets/{adSetId} |  |
+| [**getCampaign()**](CampaignApi.md#getCampaign) | **GET** /2022-07/marketing-solutions/campaigns/{campaign-id} |  |
+| [**getCategoryBidList()**](CampaignApi.md#getCategoryBidList) | **GET** /2022-07/marketing-solutions/ad-sets/{ad-set-id}/category-bids |  |
+| [**getDisplayMultipliers()**](CampaignApi.md#getDisplayMultipliers) | **GET** /2022-07/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers |  |
+| [**patchAdSets()**](CampaignApi.md#patchAdSets) | **PATCH** /2022-07/marketing-solutions/ad-sets |  |
+| [**patchCampaigns()**](CampaignApi.md#patchCampaigns) | **PATCH** /2022-07/marketing-solutions/campaigns |  |
+| [**patchCategoryBidList()**](CampaignApi.md#patchCategoryBidList) | **PATCH** /2022-07/marketing-solutions/ad-sets/{ad-set-id}/category-bids |  |
+| [**patchDisplayMultipliers()**](CampaignApi.md#patchDisplayMultipliers) | **PATCH** /2022-07/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers |  |
+| [**searchAdSets()**](CampaignApi.md#searchAdSets) | **POST** /2022-07/marketing-solutions/ad-sets/search |  |
+| [**searchCampaigns()**](CampaignApi.md#searchCampaigns) | **POST** /2022-07/marketing-solutions/campaigns/search |  |
+| [**startAdSets()**](CampaignApi.md#startAdSets) | **POST** /2022-07/marketing-solutions/ad-sets/start |  |
+| [**stopAdSets()**](CampaignApi.md#stopAdSets) | **POST** /2022-07/marketing-solutions/ad-sets/stop |  |
 
 
 ## `getAdSet()`
@@ -57,9 +57,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ad_set_id** | **string**| Id of the ad set |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ad_set_id** | **string**| Id of the ad set | |
 
 ### Return type
 
@@ -117,9 +117,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **campaign_id** | **string**| Id of the campaign |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **campaign_id** | **string**| Id of the campaign | |
 
 ### Return type
 
@@ -177,9 +177,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ad_set_id** | **string**| Id of the Ad Set |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ad_set_id** | **string**| Id of the Ad Set | |
 
 ### Return type
 
@@ -237,9 +237,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ad_set_id** | **string**| Id of the Ad Set |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ad_set_id** | **string**| Id of the Ad Set | |
 
 ### Return type
 
@@ -297,9 +297,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **requests_patch_ad_set** | [**\criteo\api\marketingsolutions\v2022_07\Model\RequestsPatchAdSet**](../Model/RequestsPatchAdSet.md)| List of adsets to patch. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **requests_patch_ad_set** | [**\criteo\api\marketingsolutions\v2022_07\Model\RequestsPatchAdSet**](../Model/RequestsPatchAdSet.md)| List of adsets to patch. | [optional] |
 
 ### Return type
 
@@ -311,7 +311,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -357,9 +357,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **patch_campaign_list_request** | [**\criteo\api\marketingsolutions\v2022_07\Model\PatchCampaignListRequest**](../Model/PatchCampaignListRequest.md)| List of campaigns to patch. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **patch_campaign_list_request** | [**\criteo\api\marketingsolutions\v2022_07\Model\PatchCampaignListRequest**](../Model/PatchCampaignListRequest.md)| List of campaigns to patch. | [optional] |
 
 ### Return type
 
@@ -371,7 +371,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -418,10 +418,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ad_set_id** | **string**| Id of the Ad Set |
- **patch_ad_set_category_bid_list_request** | [**\criteo\api\marketingsolutions\v2022_07\Model\PatchAdSetCategoryBidListRequest**](../Model/PatchAdSetCategoryBidListRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ad_set_id** | **string**| Id of the Ad Set | |
+| **patch_ad_set_category_bid_list_request** | [**\criteo\api\marketingsolutions\v2022_07\Model\PatchAdSetCategoryBidListRequest**](../Model/PatchAdSetCategoryBidListRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -433,7 +433,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -480,10 +480,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ad_set_id** | **string**| Id of the Ad Set |
- **patch_ad_set_display_multiplier_list_request** | [**\criteo\api\marketingsolutions\v2022_07\Model\PatchAdSetDisplayMultiplierListRequest**](../Model/PatchAdSetDisplayMultiplierListRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ad_set_id** | **string**| Id of the Ad Set | |
+| **patch_ad_set_display_multiplier_list_request** | [**\criteo\api\marketingsolutions\v2022_07\Model\PatchAdSetDisplayMultiplierListRequest**](../Model/PatchAdSetDisplayMultiplierListRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -495,7 +495,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -541,9 +541,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **request_ad_set_search** | [**\criteo\api\marketingsolutions\v2022_07\Model\RequestAdSetSearch**](../Model/RequestAdSetSearch.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **request_ad_set_search** | [**\criteo\api\marketingsolutions\v2022_07\Model\RequestAdSetSearch**](../Model/RequestAdSetSearch.md)|  | [optional] |
 
 ### Return type
 
@@ -555,7 +555,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -601,9 +601,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **campaign_search_request** | [**\criteo\api\marketingsolutions\v2022_07\Model\CampaignSearchRequest**](../Model/CampaignSearchRequest.md)| filters on campaigns | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **campaign_search_request** | [**\criteo\api\marketingsolutions\v2022_07\Model\CampaignSearchRequest**](../Model/CampaignSearchRequest.md)| filters on campaigns | [optional] |
 
 ### Return type
 
@@ -615,7 +615,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -661,9 +661,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **requests_ad_set_id** | [**\criteo\api\marketingsolutions\v2022_07\Model\RequestsAdSetId**](../Model/RequestsAdSetId.md)| All the ad sets to start | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **requests_ad_set_id** | [**\criteo\api\marketingsolutions\v2022_07\Model\RequestsAdSetId**](../Model/RequestsAdSetId.md)| All the ad sets to start | [optional] |
 
 ### Return type
 
@@ -675,7 +675,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -721,9 +721,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **requests_ad_set_id** | [**\criteo\api\marketingsolutions\v2022_07\Model\RequestsAdSetId**](../Model/RequestsAdSetId.md)| All the ad sets to stop | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **requests_ad_set_id** | [**\criteo\api\marketingsolutions\v2022_07\Model\RequestsAdSetId**](../Model/RequestsAdSetId.md)| All the ad sets to stop | [optional] |
 
 ### Return type
 
@@ -735,7 +735,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `text/plain`, `application/json`, `text/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
