@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **contact_list_id** | **string** | the affected user list id | [optional]
 **operation** | **string** | The action recorded |
-**request_date** | [**\DateTime**](\DateTime.md) | When the action was recorded | [optional]
+**request_date** | **\DateTime** | When the action was recorded | [optional]
 **identifier_type** | **string** | The schema specified for of the identifiers | [optional]
 **nb_valid_identifiers** | **int** | How many identifiers were valid for the specified schema | [optional]
 **nb_invalid_identifiers** | **int** | How many identifiers were invalid for the specified schema | [optional]

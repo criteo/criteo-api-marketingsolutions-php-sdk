@@ -1,9 +1,10 @@
-# # PatchAdSetCategoryBid
+# # NillableAdSetTargetingRuleValue
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**bid_amount** | **float** | positive decimal value match bid constraints. At most 4 decimals are supported. Additional decimals are rounded. | [optional]
+**operand** | **string** | Operand which states how the values should be applied | [optional]
+**values** | **string[]** | List of values to apply | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -1,6 +1,6 @@
 <?php
 /**
- * CampaignSearchRequest
+ * NillableAdSetTargetingRuleValue
  *
  * PHP version 7.4
  *
@@ -32,16 +32,15 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2022_10\ObjectSerializer;
 
 /**
- * CampaignSearchRequest Class Doc Comment
+ * NillableAdSetTargetingRuleValue Class Doc Comment
  *
  * @category Class
- * @description request payload of the search endpoint
  * @package  criteo\api\marketingsolutions\v2022_10
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CampaignSearchRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class NillableAdSetTargetingRuleValue implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class CampaignSearchRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CampaignSearchRequest';
+    protected static $openAPIModelName = 'NillableAdSetTargetingRule_value';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +57,8 @@ class CampaignSearchRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'filters' => '\criteo\api\marketingsolutions\v2022_10\Model\CampaignSearchFilters'
+        'operand' => 'string',
+        'values' => 'string[]'
     ];
 
     /**
@@ -69,7 +69,8 @@ class CampaignSearchRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'filters' => null
+        'operand' => null,
+        'values' => null
     ];
 
     /**
@@ -78,7 +79,8 @@ class CampaignSearchRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'filters' => false
+        'operand' => false,
+		'values' => false
     ];
 
     /**
@@ -167,7 +169,8 @@ class CampaignSearchRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'filters' => 'filters'
+        'operand' => 'operand',
+        'values' => 'values'
     ];
 
     /**
@@ -176,7 +179,8 @@ class CampaignSearchRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'filters' => 'setFilters'
+        'operand' => 'setOperand',
+        'values' => 'setValues'
     ];
 
     /**
@@ -185,7 +189,8 @@ class CampaignSearchRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'filters' => 'getFilters'
+        'operand' => 'getOperand',
+        'values' => 'getValues'
     ];
 
     /**
@@ -229,6 +234,23 @@ class CampaignSearchRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
+    public const OPERAND_UNDEFINED = 'undefined';
+    public const OPERAND_IN = 'in';
+    public const OPERAND_NOT_IN = 'notIn';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOperandAllowableValues()
+    {
+        return [
+            self::OPERAND_UNDEFINED,
+            self::OPERAND_IN,
+            self::OPERAND_NOT_IN,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -245,7 +267,8 @@ class CampaignSearchRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('filters', $data ?? [], null);
+        $this->setIfExists('operand', $data ?? [], null);
+        $this->setIfExists('values', $data ?? [], null);
     }
 
     /**
@@ -275,6 +298,15 @@ class CampaignSearchRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getOperandAllowableValues();
+        if (!is_null($this->container['operand']) && !in_array($this->container['operand'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'operand', must be one of '%s'",
+                $this->container['operand'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -291,28 +323,67 @@ class CampaignSearchRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets filters
+     * Gets operand
      *
-     * @return \criteo\api\marketingsolutions\v2022_10\Model\CampaignSearchFilters|null
+     * @return string|null
      */
-    public function getFilters()
+    public function getOperand()
     {
-        return $this->container['filters'];
+        return $this->container['operand'];
     }
 
     /**
-     * Sets filters
+     * Sets operand
      *
-     * @param \criteo\api\marketingsolutions\v2022_10\Model\CampaignSearchFilters|null $filters filters
+     * @param string|null $operand Operand which states how the values should be applied
      *
      * @return self
      */
-    public function setFilters($filters)
+    public function setOperand($operand)
     {
-        if (is_null($filters)) {
-            throw new \InvalidArgumentException('non-nullable filters cannot be null');
+        if (is_null($operand)) {
+            throw new \InvalidArgumentException('non-nullable operand cannot be null');
         }
-        $this->container['filters'] = $filters;
+        $allowedValues = $this->getOperandAllowableValues();
+        if (!in_array($operand, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'operand', must be one of '%s'",
+                    $operand,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['operand'] = $operand;
+
+        return $this;
+    }
+
+    /**
+     * Gets values
+     *
+     * @return string[]|null
+     */
+    public function getValues()
+    {
+        return $this->container['values'];
+    }
+
+    /**
+     * Sets values
+     *
+     * @param string[]|null $values List of values to apply
+     *
+     * @return self
+     */
+    public function setValues($values)
+    {
+        if (is_null($values)) {
+            throw new \InvalidArgumentException('non-nullable values cannot be null');
+        }
+
+
+        $this->container['values'] = $values;
 
         return $this;
     }
