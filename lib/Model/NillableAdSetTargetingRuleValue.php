@@ -1,6 +1,6 @@
 <?php
 /**
- * PatchAdSetDisplayMultiplierListRequest
+ * NillableAdSetTargetingRuleValue
  *
  * PHP version 7.4
  *
@@ -32,16 +32,15 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2022_04\ObjectSerializer;
 
 /**
- * PatchAdSetDisplayMultiplierListRequest Class Doc Comment
+ * NillableAdSetTargetingRuleValue Class Doc Comment
  *
  * @category Class
- * @description Data model for a list of input resources
  * @package  criteo\api\marketingsolutions\v2022_04
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PatchAdSetDisplayMultiplierListRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class NillableAdSetTargetingRuleValue implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class PatchAdSetDisplayMultiplierListRequest implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PatchAdSetDisplayMultiplierListRequest';
+    protected static $openAPIModelName = 'NillableAdSetTargetingRule_value';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +57,8 @@ class PatchAdSetDisplayMultiplierListRequest implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\criteo\api\marketingsolutions\v2022_04\Model\PatchAdSetDisplayMultiplierResource[]'
+        'operand' => 'string',
+        'values' => 'string[]'
     ];
 
     /**
@@ -69,7 +69,8 @@ class PatchAdSetDisplayMultiplierListRequest implements ModelInterface, ArrayAcc
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'operand' => null,
+        'values' => null
     ];
 
     /**
@@ -78,7 +79,8 @@ class PatchAdSetDisplayMultiplierListRequest implements ModelInterface, ArrayAcc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'data' => false
+        'operand' => false,
+		'values' => false
     ];
 
     /**
@@ -167,7 +169,8 @@ class PatchAdSetDisplayMultiplierListRequest implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'operand' => 'operand',
+        'values' => 'values'
     ];
 
     /**
@@ -176,7 +179,8 @@ class PatchAdSetDisplayMultiplierListRequest implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'operand' => 'setOperand',
+        'values' => 'setValues'
     ];
 
     /**
@@ -185,7 +189,8 @@ class PatchAdSetDisplayMultiplierListRequest implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'operand' => 'getOperand',
+        'values' => 'getValues'
     ];
 
     /**
@@ -229,6 +234,23 @@ class PatchAdSetDisplayMultiplierListRequest implements ModelInterface, ArrayAcc
         return self::$openAPIModelName;
     }
 
+    public const OPERAND_UNDEFINED = 'undefined';
+    public const OPERAND_IN = 'in';
+    public const OPERAND_NOT_IN = 'notIn';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOperandAllowableValues()
+    {
+        return [
+            self::OPERAND_UNDEFINED,
+            self::OPERAND_IN,
+            self::OPERAND_NOT_IN,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -245,7 +267,8 @@ class PatchAdSetDisplayMultiplierListRequest implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('operand', $data ?? [], null);
+        $this->setIfExists('values', $data ?? [], null);
     }
 
     /**
@@ -275,6 +298,15 @@ class PatchAdSetDisplayMultiplierListRequest implements ModelInterface, ArrayAcc
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getOperandAllowableValues();
+        if (!is_null($this->container['operand']) && !in_array($this->container['operand'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'operand', must be one of '%s'",
+                $this->container['operand'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -291,30 +323,67 @@ class PatchAdSetDisplayMultiplierListRequest implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets data
+     * Gets operand
      *
-     * @return \criteo\api\marketingsolutions\v2022_04\Model\PatchAdSetDisplayMultiplierResource[]|null
+     * @return string|null
      */
-    public function getData()
+    public function getOperand()
     {
-        return $this->container['data'];
+        return $this->container['operand'];
     }
 
     /**
-     * Sets data
+     * Sets operand
      *
-     * @param \criteo\api\marketingsolutions\v2022_04\Model\PatchAdSetDisplayMultiplierResource[]|null $data data
+     * @param string|null $operand Operand which states how the values should be applied
      *
      * @return self
      */
-    public function setData($data)
+    public function setOperand($operand)
     {
-        if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
+        if (is_null($operand)) {
+            throw new \InvalidArgumentException('non-nullable operand cannot be null');
+        }
+        $allowedValues = $this->getOperandAllowableValues();
+        if (!in_array($operand, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'operand', must be one of '%s'",
+                    $operand,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['operand'] = $operand;
+
+        return $this;
+    }
+
+    /**
+     * Gets values
+     *
+     * @return string[]|null
+     */
+    public function getValues()
+    {
+        return $this->container['values'];
+    }
+
+    /**
+     * Sets values
+     *
+     * @param string[]|null $values List of values to apply
+     *
+     * @return self
+     */
+    public function setValues($values)
+    {
+        if (is_null($values)) {
+            throw new \InvalidArgumentException('non-nullable values cannot be null');
         }
 
 
-        $this->container['data'] = $data;
+        $this->container['values'] = $values;
 
         return $this;
     }

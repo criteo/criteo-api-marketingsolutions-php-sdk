@@ -1,10 +1,10 @@
 # criteo\api\marketingsolutions\v2022_04\OAuthApi
 
-All URIs are relative to https://api.criteo.com.
+All URIs are relative to https://api.criteo.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getToken()**](OAuthApi.md#getToken) | **POST** /oauth2/token | Creates a token based either on supplied client credentials or on single use authorization code
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getToken()**](OAuthApi.md#getToken) | **POST** /oauth2/token | Creates a token based either on supplied client credentials or on single use authorization code |
 
 
 ## `getToken()`
@@ -51,14 +51,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **grant_type** | **string**|  |
- **client_id** | **string**|  |
- **client_secret** | **string**|  |
- **redirect_uri** | **string**|  | [optional]
- **code** | **string**|  | [optional]
- **refresh_token** | **string**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **grant_type** | **string**|  | |
+| **client_id** | **string**|  | |
+| **client_secret** | **string**|  | |
+| **redirect_uri** | **string**|  | [optional] |
+| **code** | **string**|  | [optional] |
+| **refresh_token** | **string**|  | [optional] |
 
 ### Return type
 
