@@ -1,9 +1,9 @@
 <?php
 
 use criteo\api\marketingsolutions\v2022_07\Configuration;
+use criteo\api\marketingsolutions\v2022_07\OAuthClient;
 use criteo\api\marketingsolutions\v2022_07\ObjectSerializer;
 use criteo\api\marketingsolutions\v2022_07\ClientCredentialsClient;
-use criteo\api\marketingsolutions\v2022_07\Model\AccessTokenModel;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\Uri;
@@ -32,7 +32,6 @@ class ClientCredentialsClientTest extends TestCase
     public function testDoesNotInterceptRequestWhenNoAuthorizationHeader()
     {
         $token = "ValidNt6YdhrsgtwTasFWqO2gBr840";
-
         $mockClient = Mockery::mock(ClientCredentialsClient::class);
         $mockClient->shouldReceive('send')
             ->once()
@@ -47,14 +46,10 @@ class ClientCredentialsClientTest extends TestCase
                     return true;
                 }))
             ->andReturns($this->oAuthValidResponse($token));
-
-
+        
         // Call Authentication endpoint which does not require Authorization header
-        $response = (new criteo\api\marketingsolutions\v2022_07\Api\OAuthApi($mockClient))
-            ->getToken('client_credentials', $this->clientId, $this->clientSecret, $this->grantType);
-
-        $this->assertInstanceOf(AccessTokenModel::class, $response);
-        $this->assertEquals($token, $response->getAccessToken());
+        $response = (new OAuthClient($mockClient))->getToken('client_credentials', $this->clientId, $this->clientSecret);        
+        $this->assertEquals($token, $response->access_token);
     }
 
     public function testAlwaysSendValidBearerToken()
