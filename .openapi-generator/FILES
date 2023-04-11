@@ -11,10 +11,8 @@ docs/Api/CampaignApi.md
 docs/Api/CatalogApi.md
 docs/Api/CreativeApi.md
 docs/Api/GatewayApi.md
-docs/Api/OAuthApi.md
 docs/Api/OnSiteRecommendationApi.md
 docs/Api/RecoApi.md
-docs/Model/AccessTokenModel.md
 docs/Model/Ad.md
 docs/Model/AdListResponse.md
 docs/Model/AdResource.md
@@ -263,7 +261,6 @@ docs/Model/NillableDateTime.md
 docs/Model/NillableDecimal.md
 docs/Model/NillableGenderV1.md
 docs/Model/NillableString.md
-docs/Model/OAuthErrorModel.md
 docs/Model/OciBrandSafetyResponse.md
 docs/Model/OciBrandSafetyResponseData.md
 docs/Model/OciBrandSafetyRule.md
@@ -400,14 +397,12 @@ lib/Api/CampaignApi.php
 lib/Api/CatalogApi.php
 lib/Api/CreativeApi.php
 lib/Api/GatewayApi.php
-lib/Api/OAuthApi.php
 lib/Api/OnSiteRecommendationApi.php
 lib/Api/RecoApi.php
 lib/ApiException.php
 lib/ClientCredentialsClient.php
 lib/Configuration.php
 lib/HeaderSelector.php
-lib/Model/AccessTokenModel.php
 lib/Model/Ad.php
 lib/Model/AdListResponse.php
 lib/Model/AdResource.php
@@ -657,7 +652,6 @@ lib/Model/NillableDateTime.php
 lib/Model/NillableDecimal.php
 lib/Model/NillableGenderV1.php
 lib/Model/NillableString.php
-lib/Model/OAuthErrorModel.php
 lib/Model/OciBrandSafetyResponse.php
 lib/Model/OciBrandSafetyResponseData.php
 lib/Model/OciBrandSafetyRule.php
@@ -788,4 +782,3 @@ lib/ObjectSerializer.php
 phpunit.xml.dist
 test/Api/ClientCredentialsClientTest.php
 test/Api/GatewayApiTest.php
-test/Api/OAuthApiTest.php
