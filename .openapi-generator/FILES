@@ -9,8 +9,6 @@ docs/Api/AnalyticsApi.md
 docs/Api/AudienceApi.md
 docs/Api/CampaignApi.md
 docs/Api/GatewayApi.md
-docs/Api/OAuthApi.md
-docs/Model/AccessTokenModel.md
 docs/Model/AdSetCategoryBid.md
 docs/Model/AdSetCategoryBidListResponse.md
 docs/Model/AdSetCategoryBidResource.md
@@ -63,7 +61,6 @@ docs/Model/NillableAdSetTargetingRule.md
 docs/Model/NillableAdSetTargetingRuleValue.md
 docs/Model/NillableDateTime.md
 docs/Model/NillableDecimal.md
-docs/Model/OAuthErrorModel.md
 docs/Model/PatchAdSet.md
 docs/Model/PatchAdSetBidding.md
 docs/Model/PatchAdSetBudget.md
@@ -124,12 +121,10 @@ lib/Api/AnalyticsApi.php
 lib/Api/AudienceApi.php
 lib/Api/CampaignApi.php
 lib/Api/GatewayApi.php
-lib/Api/OAuthApi.php
 lib/ApiException.php
 lib/ClientCredentialsClient.php
 lib/Configuration.php
 lib/HeaderSelector.php
-lib/Model/AccessTokenModel.php
 lib/Model/AdSetCategoryBid.php
 lib/Model/AdSetCategoryBidListResponse.php
 lib/Model/AdSetCategoryBidResource.php
@@ -183,7 +178,6 @@ lib/Model/NillableAdSetTargetingRule.php
 lib/Model/NillableAdSetTargetingRuleValue.php
 lib/Model/NillableDateTime.php
 lib/Model/NillableDecimal.php
-lib/Model/OAuthErrorModel.php
 lib/Model/PatchAdSet.php
 lib/Model/PatchAdSetBidding.php
 lib/Model/PatchAdSetBudget.php
@@ -240,4 +234,3 @@ lib/ObjectSerializer.php
 phpunit.xml.dist
 test/Api/ClientCredentialsClientTest.php
 test/Api/GatewayApiTest.php
-test/Api/OAuthApiTest.php
