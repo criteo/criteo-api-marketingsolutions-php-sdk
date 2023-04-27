@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorMessage
+ * ProblemsDetails
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2023_01\ObjectSerializer;
 
 /**
- * ErrorMessage Class Doc Comment
+ * ProblemsDetails Class Doc Comment
  *
  * @category Class
- * @description This is the message defining an error
+ * @description Common problems object
  * @package  criteo\api\marketingsolutions\v2023_01
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ErrorMessage implements ModelInterface, ArrayAccess, \JsonSerializable
+class ProblemsDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ErrorMessage implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ErrorMessage';
+    protected static $openAPIModelName = 'ProblemsDetails';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +58,7 @@ class ErrorMessage implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'trace_id' => 'string',
-        'trace_identifier' => 'string',
-        'type' => 'string',
-        'code' => 'string',
-        'instance' => 'string',
-        'title' => 'string',
-        'detail' => 'string'
+        'errors' => '\criteo\api\marketingsolutions\v2023_01\Model\ProblemDetails[]'
     ];
 
     /**
@@ -75,13 +69,7 @@ class ErrorMessage implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'trace_id' => 'uuid',
-        'trace_identifier' => null,
-        'type' => null,
-        'code' => null,
-        'instance' => null,
-        'title' => null,
-        'detail' => null
+        'errors' => null
     ];
 
     /**
@@ -90,13 +78,7 @@ class ErrorMessage implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'trace_id' => false,
-		'trace_identifier' => false,
-		'type' => false,
-		'code' => false,
-		'instance' => false,
-		'title' => false,
-		'detail' => false
+        'errors' => false
     ];
 
     /**
@@ -185,13 +167,7 @@ class ErrorMessage implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'trace_id' => 'traceId',
-        'trace_identifier' => 'traceIdentifier',
-        'type' => 'type',
-        'code' => 'code',
-        'instance' => 'instance',
-        'title' => 'title',
-        'detail' => 'detail'
+        'errors' => 'errors'
     ];
 
     /**
@@ -200,13 +176,7 @@ class ErrorMessage implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'trace_id' => 'setTraceId',
-        'trace_identifier' => 'setTraceIdentifier',
-        'type' => 'setType',
-        'code' => 'setCode',
-        'instance' => 'setInstance',
-        'title' => 'setTitle',
-        'detail' => 'setDetail'
+        'errors' => 'setErrors'
     ];
 
     /**
@@ -215,13 +185,7 @@ class ErrorMessage implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'trace_id' => 'getTraceId',
-        'trace_identifier' => 'getTraceIdentifier',
-        'type' => 'getType',
-        'code' => 'getCode',
-        'instance' => 'getInstance',
-        'title' => 'getTitle',
-        'detail' => 'getDetail'
+        'errors' => 'getErrors'
     ];
 
     /**
@@ -281,13 +245,7 @@ class ErrorMessage implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('trace_id', $data ?? [], null);
-        $this->setIfExists('trace_identifier', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('code', $data ?? [], null);
-        $this->setIfExists('instance', $data ?? [], null);
-        $this->setIfExists('title', $data ?? [], null);
-        $this->setIfExists('detail', $data ?? [], null);
+        $this->setIfExists('errors', $data ?? [], null);
     }
 
     /**
@@ -333,190 +291,30 @@ class ErrorMessage implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets trace_id
+     * Gets errors
      *
-     * @return string|null
+     * @return \criteo\api\marketingsolutions\v2023_01\Model\ProblemDetails[]|null
      */
-    public function getTraceId()
+    public function getErrors()
     {
-        return $this->container['trace_id'];
+        return $this->container['errors'];
     }
 
     /**
-     * Sets trace_id
+     * Sets errors
      *
-     * @param string|null $trace_id trace_id
+     * @param \criteo\api\marketingsolutions\v2023_01\Model\ProblemDetails[]|null $errors errors
      *
      * @return self
      */
-    public function setTraceId($trace_id)
+    public function setErrors($errors)
     {
-        if (is_null($trace_id)) {
-            throw new \InvalidArgumentException('non-nullable trace_id cannot be null');
+        if (is_null($errors)) {
+            throw new \InvalidArgumentException('non-nullable errors cannot be null');
         }
-        $this->container['trace_id'] = $trace_id;
 
-        return $this;
-    }
 
-    /**
-     * Gets trace_identifier
-     *
-     * @return string|null
-     */
-    public function getTraceIdentifier()
-    {
-        return $this->container['trace_identifier'];
-    }
-
-    /**
-     * Sets trace_identifier
-     *
-     * @param string|null $trace_identifier trace_identifier
-     *
-     * @return self
-     */
-    public function setTraceIdentifier($trace_identifier)
-    {
-        if (is_null($trace_identifier)) {
-            throw new \InvalidArgumentException('non-nullable trace_identifier cannot be null');
-        }
-        $this->container['trace_identifier'] = $trace_identifier;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets code
-     *
-     * @return string|null
-     */
-    public function getCode()
-    {
-        return $this->container['code'];
-    }
-
-    /**
-     * Sets code
-     *
-     * @param string|null $code code
-     *
-     * @return self
-     */
-    public function setCode($code)
-    {
-        if (is_null($code)) {
-            throw new \InvalidArgumentException('non-nullable code cannot be null');
-        }
-        $this->container['code'] = $code;
-
-        return $this;
-    }
-
-    /**
-     * Gets instance
-     *
-     * @return string|null
-     */
-    public function getInstance()
-    {
-        return $this->container['instance'];
-    }
-
-    /**
-     * Sets instance
-     *
-     * @param string|null $instance instance
-     *
-     * @return self
-     */
-    public function setInstance($instance)
-    {
-        if (is_null($instance)) {
-            throw new \InvalidArgumentException('non-nullable instance cannot be null');
-        }
-        $this->container['instance'] = $instance;
-
-        return $this;
-    }
-
-    /**
-     * Gets title
-     *
-     * @return string|null
-     */
-    public function getTitle()
-    {
-        return $this->container['title'];
-    }
-
-    /**
-     * Sets title
-     *
-     * @param string|null $title title
-     *
-     * @return self
-     */
-    public function setTitle($title)
-    {
-        if (is_null($title)) {
-            throw new \InvalidArgumentException('non-nullable title cannot be null');
-        }
-        $this->container['title'] = $title;
-
-        return $this;
-    }
-
-    /**
-     * Gets detail
-     *
-     * @return string|null
-     */
-    public function getDetail()
-    {
-        return $this->container['detail'];
-    }
-
-    /**
-     * Sets detail
-     *
-     * @param string|null $detail detail
-     *
-     * @return self
-     */
-    public function setDetail($detail)
-    {
-        if (is_null($detail)) {
-            throw new \InvalidArgumentException('non-nullable detail cannot be null');
-        }
-        $this->container['detail'] = $detail;
+        $this->container['errors'] = $errors;
 
         return $this;
     }

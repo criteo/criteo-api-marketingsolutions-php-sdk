@@ -459,7 +459,7 @@ class ReadAdSetBidding implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cost_controller
      *
-     * @param string|null $cost_controller How is spend controlled
+     * @param string|null $cost_controller How spend is controlled
      *
      * @return self
      */
