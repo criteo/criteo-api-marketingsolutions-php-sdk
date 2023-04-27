@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\criteo\api\marketingsolutions\v2023_01\Model\ReplaceAudience**](ReplaceAudience.md) |  |
+**data** | [**\criteo\api\marketingsolutions\v2023_04\Model\ReplaceAudience**](ReplaceAudience.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -6,6 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | Id of the entity | [optional] [readonly]
 **type** | **string** |  | [optional] [readonly]
-**attributes** | [**\criteo\api\marketingsolutions\v2023_01\Model\ReadAdSet**](ReadAdSet.md) |  | [optional]
+**attributes** | [**\criteo\api\marketingsolutions\v2023_04\Model\ReadAdSet**](ReadAdSet.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
