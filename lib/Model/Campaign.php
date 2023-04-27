@@ -61,7 +61,8 @@ class Campaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'advertiser_id' => 'string',
         'objective' => 'string',
-        'spend_limit' => '\criteo\api\marketingsolutions\v2022_07\Model\CampaignSpendLimit'
+        'spend_limit' => '\criteo\api\marketingsolutions\v2022_07\Model\CampaignSpendLimit',
+        'goal' => 'string'
     ];
 
     /**
@@ -75,7 +76,8 @@ class Campaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => null,
         'advertiser_id' => null,
         'objective' => null,
-        'spend_limit' => null
+        'spend_limit' => null,
+        'goal' => null
     ];
 
     /**
@@ -87,7 +89,8 @@ class Campaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => false,
 		'advertiser_id' => false,
 		'objective' => false,
-		'spend_limit' => false
+		'spend_limit' => false,
+		'goal' => false
     ];
 
     /**
@@ -179,7 +182,8 @@ class Campaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'name',
         'advertiser_id' => 'advertiserId',
         'objective' => 'objective',
-        'spend_limit' => 'spendLimit'
+        'spend_limit' => 'spendLimit',
+        'goal' => 'goal'
     ];
 
     /**
@@ -191,7 +195,8 @@ class Campaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'setName',
         'advertiser_id' => 'setAdvertiserId',
         'objective' => 'setObjective',
-        'spend_limit' => 'setSpendLimit'
+        'spend_limit' => 'setSpendLimit',
+        'goal' => 'setGoal'
     ];
 
     /**
@@ -203,7 +208,8 @@ class Campaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'getName',
         'advertiser_id' => 'getAdvertiserId',
         'objective' => 'getObjective',
-        'spend_limit' => 'getSpendLimit'
+        'spend_limit' => 'getSpendLimit',
+        'goal' => 'getGoal'
     ];
 
     /**
@@ -247,6 +253,23 @@ class Campaign implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const GOAL_UNSPECIFIED = 'Unspecified';
+    public const GOAL_ACQUISITION = 'Acquisition';
+    public const GOAL_RETENTION = 'Retention';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getGoalAllowableValues()
+    {
+        return [
+            self::GOAL_UNSPECIFIED,
+            self::GOAL_ACQUISITION,
+            self::GOAL_RETENTION,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -267,6 +290,7 @@ class Campaign implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('advertiser_id', $data ?? [], null);
         $this->setIfExists('objective', $data ?? [], null);
         $this->setIfExists('spend_limit', $data ?? [], null);
+        $this->setIfExists('goal', $data ?? [], null);
     }
 
     /**
@@ -295,6 +319,15 @@ class Campaign implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getGoalAllowableValues();
+        if (!is_null($this->container['goal']) && !in_array($this->container['goal'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'goal', must be one of '%s'",
+                $this->container['goal'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -415,6 +448,43 @@ class Campaign implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable spend_limit cannot be null');
         }
         $this->container['spend_limit'] = $spend_limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets goal
+     *
+     * @return string|null
+     */
+    public function getGoal()
+    {
+        return $this->container['goal'];
+    }
+
+    /**
+     * Sets goal
+     *
+     * @param string|null $goal Goal of the campaign
+     *
+     * @return self
+     */
+    public function setGoal($goal)
+    {
+        if (is_null($goal)) {
+            throw new \InvalidArgumentException('non-nullable goal cannot be null');
+        }
+        $allowedValues = $this->getGoalAllowableValues();
+        if (!in_array($goal, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'goal', must be one of '%s'",
+                    $goal,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['goal'] = $goal;
 
         return $this;
     }
