@@ -6,6 +6,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 | ------------- | ------------- | ------------- |
 | [**previewCatalogProductsBatchPost()**](CatalogApi.md#previewCatalogProductsBatchPost) | **POST** /preview/catalog/products/batch |  |
 | [**previewCatalogProductsBatchReportOperationTokenGet()**](CatalogApi.md#previewCatalogProductsBatchReportOperationTokenGet) | **GET** /preview/catalog/products/batch/report/{operation-token} |  |
+| [**previewCatalogStatsMerchantsMerchantIdGet()**](CatalogApi.md#previewCatalogStatsMerchantsMerchantIdGet) | **GET** /preview/catalog/stats/merchants/{merchant-id} |  |
 
 
 ## `previewCatalogProductsBatchPost()`
@@ -24,6 +25,9 @@ Used to publish a batch of operations to insert, update and deletes products.  T
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
 $config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -57,7 +61,7 @@ try {
 
 ### Authorization
 
-[oauth](../../README.md#oauth)
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -84,6 +88,9 @@ Get the report of an asynchronous batch operation previously requested
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
 $config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -117,7 +124,72 @@ try {
 
 ### Authorization
 
-[oauth](../../README.md#oauth)
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `previewCatalogStatsMerchantsMerchantIdGet()`
+
+```php
+previewCatalogStatsMerchantsMerchantIdGet($merchant_id, $last_num_hours): \criteo\api\marketingsolutions\preview\Model\StatisticsOkResponse
+```
+
+
+
+get an stats request
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\CatalogApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$merchant_id = 56; // int | merchant-id to get
+$last_num_hours = 56; // int | the last number of hours
+
+try {
+    $result = $apiInstance->previewCatalogStatsMerchantsMerchantIdGet($merchant_id, $last_num_hours);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CatalogApi->previewCatalogStatsMerchantsMerchantIdGet: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **merchant_id** | **int**| merchant-id to get | |
+| **last_num_hours** | **int**| the last number of hours | [optional] |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\StatisticsOkResponse**](../Model/StatisticsOkResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 

@@ -60,7 +60,6 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'name' => 'string',
         'advertiser_id' => 'string',
-        'objective' => 'string',
         'goal' => 'string',
         'spend_limit' => '\criteo\api\marketingsolutions\preview\Model\CreateCampaignSpendLimit'
     ];
@@ -75,7 +74,6 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'name' => null,
         'advertiser_id' => null,
-        'objective' => null,
         'goal' => null,
         'spend_limit' => null
     ];
@@ -88,7 +86,6 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'name' => false,
 		'advertiser_id' => false,
-		'objective' => false,
 		'goal' => false,
 		'spend_limit' => false
     ];
@@ -181,7 +178,6 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'name' => 'name',
         'advertiser_id' => 'advertiserId',
-        'objective' => 'objective',
         'goal' => 'goal',
         'spend_limit' => 'spendLimit'
     ];
@@ -194,7 +190,6 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'name' => 'setName',
         'advertiser_id' => 'setAdvertiserId',
-        'objective' => 'setObjective',
         'goal' => 'setGoal',
         'spend_limit' => 'setSpendLimit'
     ];
@@ -207,7 +202,6 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'name' => 'getName',
         'advertiser_id' => 'getAdvertiserId',
-        'objective' => 'getObjective',
         'goal' => 'getGoal',
         'spend_limit' => 'getSpendLimit'
     ];
@@ -288,7 +282,6 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('advertiser_id', $data ?? [], null);
-        $this->setIfExists('objective', $data ?? [], null);
         $this->setIfExists('goal', $data ?? [], null);
         $this->setIfExists('spend_limit', $data ?? [], null);
     }
@@ -394,33 +387,6 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable advertiser_id cannot be null');
         }
         $this->container['advertiser_id'] = $advertiser_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets objective
-     *
-     * @return string|null
-     */
-    public function getObjective()
-    {
-        return $this->container['objective'];
-    }
-
-    /**
-     * Sets objective
-     *
-     * @param string|null $objective Campaign's marketing objective
-     *
-     * @return self
-     */
-    public function setObjective($objective)
-    {
-        if (is_null($objective)) {
-            throw new \InvalidArgumentException('non-nullable objective cannot be null');
-        }
-        $this->container['objective'] = $objective;
 
         return $this;
     }

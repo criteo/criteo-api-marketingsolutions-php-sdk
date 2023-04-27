@@ -59,7 +59,6 @@ class CreateAdSetBidding implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPITypes = [
         'bid_amount' => 'float',
-        'bid_strategy' => 'string',
         'cost_controller' => 'string'
     ];
 
@@ -72,7 +71,6 @@ class CreateAdSetBidding implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPIFormats = [
         'bid_amount' => 'double',
-        'bid_strategy' => null,
         'cost_controller' => null
     ];
 
@@ -83,7 +81,6 @@ class CreateAdSetBidding implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static array $openAPINullables = [
         'bid_amount' => false,
-		'bid_strategy' => false,
 		'cost_controller' => false
     ];
 
@@ -174,7 +171,6 @@ class CreateAdSetBidding implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $attributeMap = [
         'bid_amount' => 'bidAmount',
-        'bid_strategy' => 'bidStrategy',
         'cost_controller' => 'costController'
     ];
 
@@ -185,7 +181,6 @@ class CreateAdSetBidding implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $setters = [
         'bid_amount' => 'setBidAmount',
-        'bid_strategy' => 'setBidStrategy',
         'cost_controller' => 'setCostController'
     ];
 
@@ -196,7 +191,6 @@ class CreateAdSetBidding implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $getters = [
         'bid_amount' => 'getBidAmount',
-        'bid_strategy' => 'getBidStrategy',
         'cost_controller' => 'getCostController'
     ];
 
@@ -241,17 +235,6 @@ class CreateAdSetBidding implements ModelInterface, ArrayAccess, \JsonSerializab
         return self::$openAPIModelName;
     }
 
-    public const BID_STRATEGY_ACTIONS = 'actions';
-    public const BID_STRATEGY_CLICKS = 'clicks';
-    public const BID_STRATEGY_CONVERSIONS = 'conversions';
-    public const BID_STRATEGY_DISPLAYS = 'displays';
-    public const BID_STRATEGY_INSTALLS = 'installs';
-    public const BID_STRATEGY_REVENUE = 'revenue';
-    public const BID_STRATEGY_STORE_CONVERSIONS = 'storeConversions';
-    public const BID_STRATEGY_VALUE = 'value';
-    public const BID_STRATEGY_VIEWED_IMPRESSIONS = 'viewedImpressions';
-    public const BID_STRATEGY_VISITS = 'Visits';
-    public const BID_STRATEGY_COMPLETED_VIDEO_VIEWS = 'completedVideoViews';
     public const COST_CONTROLLER_COS = 'COS';
     public const COST_CONTROLLER_CPC = 'CPC';
     public const COST_CONTROLLER_CPI = 'CPI';
@@ -260,28 +243,6 @@ class CreateAdSetBidding implements ModelInterface, ArrayAccess, \JsonSerializab
     public const COST_CONTROLLER_CPSV = 'CPSV';
     public const COST_CONTROLLER_CPV = 'CPV';
     public const COST_CONTROLLER_DAILY_BUDGET = 'dailyBudget';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getBidStrategyAllowableValues()
-    {
-        return [
-            self::BID_STRATEGY_ACTIONS,
-            self::BID_STRATEGY_CLICKS,
-            self::BID_STRATEGY_CONVERSIONS,
-            self::BID_STRATEGY_DISPLAYS,
-            self::BID_STRATEGY_INSTALLS,
-            self::BID_STRATEGY_REVENUE,
-            self::BID_STRATEGY_STORE_CONVERSIONS,
-            self::BID_STRATEGY_VALUE,
-            self::BID_STRATEGY_VIEWED_IMPRESSIONS,
-            self::BID_STRATEGY_VISITS,
-            self::BID_STRATEGY_COMPLETED_VIDEO_VIEWS,
-        ];
-    }
 
     /**
      * Gets allowable values of the enum
@@ -318,7 +279,6 @@ class CreateAdSetBidding implements ModelInterface, ArrayAccess, \JsonSerializab
     public function __construct(array $data = null)
     {
         $this->setIfExists('bid_amount', $data ?? [], null);
-        $this->setIfExists('bid_strategy', $data ?? [], null);
         $this->setIfExists('cost_controller', $data ?? [], null);
     }
 
@@ -348,15 +308,6 @@ class CreateAdSetBidding implements ModelInterface, ArrayAccess, \JsonSerializab
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getBidStrategyAllowableValues();
-        if (!is_null($this->container['bid_strategy']) && !in_array($this->container['bid_strategy'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'bid_strategy', must be one of '%s'",
-                $this->container['bid_strategy'],
-                implode("', '", $allowedValues)
-            );
-        }
 
         $allowedValues = $this->getCostControllerAllowableValues();
         if (!is_null($this->container['cost_controller']) && !in_array($this->container['cost_controller'], $allowedValues, true)) {
@@ -410,43 +361,6 @@ class CreateAdSetBidding implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets bid_strategy
-     *
-     * @return string|null
-     */
-    public function getBidStrategy()
-    {
-        return $this->container['bid_strategy'];
-    }
-
-    /**
-     * Sets bid_strategy
-     *
-     * @param string|null $bid_strategy bid_strategy
-     *
-     * @return self
-     */
-    public function setBidStrategy($bid_strategy)
-    {
-        if (is_null($bid_strategy)) {
-            throw new \InvalidArgumentException('non-nullable bid_strategy cannot be null');
-        }
-        $allowedValues = $this->getBidStrategyAllowableValues();
-        if (!in_array($bid_strategy, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'bid_strategy', must be one of '%s'",
-                    $bid_strategy,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['bid_strategy'] = $bid_strategy;
-
-        return $this;
-    }
-
-    /**
      * Gets cost_controller
      *
      * @return string|null
@@ -459,7 +373,7 @@ class CreateAdSetBidding implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets cost_controller
      *
-     * @param string|null $cost_controller cost_controller
+     * @param string|null $cost_controller How spend is controlled
      *
      * @return self
      */

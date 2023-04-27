@@ -303,7 +303,7 @@ class PatchAdSetCategoryBid implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets bid_amount
      *
-     * @param float|null $bid_amount positive decimal value match bid constraints. At most 4 decimals are supported. Additional decimals are rounded.
+     * @param float|null $bid_amount The Bid amount applied to the given Category associated to an Ad Set. At most 4 decimals are supported. Additional decimals are rounded.
      *
      * @return self
      */

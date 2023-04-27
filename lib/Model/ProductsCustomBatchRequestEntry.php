@@ -62,6 +62,7 @@ class ProductsCustomBatchRequestEntry implements ModelInterface, ArrayAccess, \J
         'merchant_id' => 'int',
         'method' => 'string',
         'product_id' => 'string',
+        'item_group_id' => 'string',
         'product' => '\criteo\api\marketingsolutions\preview\Model\Product',
         'feed_id' => 'string'
     ];
@@ -78,6 +79,7 @@ class ProductsCustomBatchRequestEntry implements ModelInterface, ArrayAccess, \J
         'merchant_id' => 'int32',
         'method' => null,
         'product_id' => null,
+        'item_group_id' => null,
         'product' => null,
         'feed_id' => null
     ];
@@ -92,6 +94,7 @@ class ProductsCustomBatchRequestEntry implements ModelInterface, ArrayAccess, \J
 		'merchant_id' => false,
 		'method' => false,
 		'product_id' => false,
+		'item_group_id' => false,
 		'product' => false,
 		'feed_id' => false
     ];
@@ -186,6 +189,7 @@ class ProductsCustomBatchRequestEntry implements ModelInterface, ArrayAccess, \J
         'merchant_id' => 'merchantId',
         'method' => 'method',
         'product_id' => 'productId',
+        'item_group_id' => 'itemGroupId',
         'product' => 'product',
         'feed_id' => 'feedId'
     ];
@@ -200,6 +204,7 @@ class ProductsCustomBatchRequestEntry implements ModelInterface, ArrayAccess, \J
         'merchant_id' => 'setMerchantId',
         'method' => 'setMethod',
         'product_id' => 'setProductId',
+        'item_group_id' => 'setItemGroupId',
         'product' => 'setProduct',
         'feed_id' => 'setFeedId'
     ];
@@ -214,6 +219,7 @@ class ProductsCustomBatchRequestEntry implements ModelInterface, ArrayAccess, \J
         'merchant_id' => 'getMerchantId',
         'method' => 'getMethod',
         'product_id' => 'getProductId',
+        'item_group_id' => 'getItemGroupId',
         'product' => 'getProduct',
         'feed_id' => 'getFeedId'
     ];
@@ -294,6 +300,7 @@ class ProductsCustomBatchRequestEntry implements ModelInterface, ArrayAccess, \J
         $this->setIfExists('merchant_id', $data ?? [], null);
         $this->setIfExists('method', $data ?? [], null);
         $this->setIfExists('product_id', $data ?? [], null);
+        $this->setIfExists('item_group_id', $data ?? [], null);
         $this->setIfExists('product', $data ?? [], null);
         $this->setIfExists('feed_id', $data ?? [], null);
     }
@@ -469,6 +476,33 @@ class ProductsCustomBatchRequestEntry implements ModelInterface, ArrayAccess, \J
             throw new \InvalidArgumentException('non-nullable product_id cannot be null');
         }
         $this->container['product_id'] = $product_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_group_id
+     *
+     * @return string|null
+     */
+    public function getItemGroupId()
+    {
+        return $this->container['item_group_id'];
+    }
+
+    /**
+     * Sets item_group_id
+     *
+     * @param string|null $item_group_id The itemGroupId of the product to delete. To be defined when the method is delete and the product is a variant.
+     *
+     * @return self
+     */
+    public function setItemGroupId($item_group_id)
+    {
+        if (is_null($item_group_id)) {
+            throw new \InvalidArgumentException('non-nullable item_group_id cannot be null');
+        }
+        $this->container['item_group_id'] = $item_group_id;
 
         return $this;
     }

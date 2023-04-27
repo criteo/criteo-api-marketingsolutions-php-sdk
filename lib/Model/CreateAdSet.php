@@ -61,6 +61,7 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'dataset_id' => 'string',
         'campaign_id' => 'string',
+        'objective' => 'string',
         'schedule' => '\criteo\api\marketingsolutions\preview\Model\CreateAdSetSchedule',
         'bidding' => '\criteo\api\marketingsolutions\preview\Model\CreateAdSetBidding',
         'targeting' => '\criteo\api\marketingsolutions\preview\Model\CreateAdSetTargeting',
@@ -80,6 +81,7 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => null,
         'dataset_id' => null,
         'campaign_id' => null,
+        'objective' => null,
         'schedule' => null,
         'bidding' => null,
         'targeting' => null,
@@ -97,6 +99,7 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => false,
 		'dataset_id' => false,
 		'campaign_id' => false,
+		'objective' => false,
 		'schedule' => false,
 		'bidding' => false,
 		'targeting' => false,
@@ -194,6 +197,7 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'name',
         'dataset_id' => 'datasetId',
         'campaign_id' => 'campaignId',
+        'objective' => 'objective',
         'schedule' => 'schedule',
         'bidding' => 'bidding',
         'targeting' => 'targeting',
@@ -211,6 +215,7 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'setName',
         'dataset_id' => 'setDatasetId',
         'campaign_id' => 'setCampaignId',
+        'objective' => 'setObjective',
         'schedule' => 'setSchedule',
         'bidding' => 'setBidding',
         'targeting' => 'setTargeting',
@@ -228,6 +233,7 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'getName',
         'dataset_id' => 'getDatasetId',
         'campaign_id' => 'getCampaignId',
+        'objective' => 'getObjective',
         'schedule' => 'getSchedule',
         'bidding' => 'getBidding',
         'targeting' => 'getTargeting',
@@ -277,8 +283,41 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const OBJECTIVE_CUSTOM_ACTION = 'customAction';
+    public const OBJECTIVE_CLICKS = 'clicks';
+    public const OBJECTIVE_CONVERSIONS = 'conversions';
+    public const OBJECTIVE_DISPLAYS = 'displays';
+    public const OBJECTIVE_APP_PROMOTION = 'appPromotion';
+    public const OBJECTIVE_REVENUE = 'revenue';
+    public const OBJECTIVE_STORE_CONVERSIONS = 'storeConversions';
+    public const OBJECTIVE_VALUE = 'value';
+    public const OBJECTIVE_REACH = 'reach';
+    public const OBJECTIVE_VISITS = 'visits';
+    public const OBJECTIVE_VIDEO_VIEWS = 'videoViews';
     public const MEDIA_TYPE_DISPLAY = 'display';
     public const MEDIA_TYPE_VIDEO = 'video';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getObjectiveAllowableValues()
+    {
+        return [
+            self::OBJECTIVE_CUSTOM_ACTION,
+            self::OBJECTIVE_CLICKS,
+            self::OBJECTIVE_CONVERSIONS,
+            self::OBJECTIVE_DISPLAYS,
+            self::OBJECTIVE_APP_PROMOTION,
+            self::OBJECTIVE_REVENUE,
+            self::OBJECTIVE_STORE_CONVERSIONS,
+            self::OBJECTIVE_VALUE,
+            self::OBJECTIVE_REACH,
+            self::OBJECTIVE_VISITS,
+            self::OBJECTIVE_VIDEO_VIEWS,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -311,6 +350,7 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('dataset_id', $data ?? [], null);
         $this->setIfExists('campaign_id', $data ?? [], null);
+        $this->setIfExists('objective', $data ?? [], null);
         $this->setIfExists('schedule', $data ?? [], null);
         $this->setIfExists('bidding', $data ?? [], null);
         $this->setIfExists('targeting', $data ?? [], null);
@@ -345,6 +385,15 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getObjectiveAllowableValues();
+        if (!is_null($this->container['objective']) && !in_array($this->container['objective'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'objective', must be one of '%s'",
+                $this->container['objective'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         $allowedValues = $this->getMediaTypeAllowableValues();
         if (!is_null($this->container['media_type']) && !in_array($this->container['media_type'], $allowedValues, true)) {
@@ -447,6 +496,43 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable campaign_id cannot be null');
         }
         $this->container['campaign_id'] = $campaign_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets objective
+     *
+     * @return string|null
+     */
+    public function getObjective()
+    {
+        return $this->container['objective'];
+    }
+
+    /**
+     * Sets objective
+     *
+     * @param string|null $objective Objective of the ad set
+     *
+     * @return self
+     */
+    public function setObjective($objective)
+    {
+        if (is_null($objective)) {
+            throw new \InvalidArgumentException('non-nullable objective cannot be null');
+        }
+        $allowedValues = $this->getObjectiveAllowableValues();
+        if (!in_array($objective, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'objective', must be one of '%s'",
+                    $objective,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['objective'] = $objective;
 
         return $this;
     }

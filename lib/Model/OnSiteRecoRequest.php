@@ -61,6 +61,7 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'nb_requested_products' => 'int',
         'user_id' => 'string',
         'user_events' => '\criteo\api\marketingsolutions\preview\Model\UserEvent[]',
+        'ad_set_id' => 'int',
         'partner_id' => 'int'
     ];
 
@@ -75,6 +76,7 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'nb_requested_products' => 'int32',
         'user_id' => null,
         'user_events' => null,
+        'ad_set_id' => 'int32',
         'partner_id' => 'int32'
     ];
 
@@ -87,6 +89,7 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'nb_requested_products' => false,
 		'user_id' => false,
 		'user_events' => false,
+		'ad_set_id' => false,
 		'partner_id' => false
     ];
 
@@ -179,6 +182,7 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'nb_requested_products' => 'nbRequestedProducts',
         'user_id' => 'userId',
         'user_events' => 'userEvents',
+        'ad_set_id' => 'adSetId',
         'partner_id' => 'partnerId'
     ];
 
@@ -191,6 +195,7 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'nb_requested_products' => 'setNbRequestedProducts',
         'user_id' => 'setUserId',
         'user_events' => 'setUserEvents',
+        'ad_set_id' => 'setAdSetId',
         'partner_id' => 'setPartnerId'
     ];
 
@@ -203,6 +208,7 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'nb_requested_products' => 'getNbRequestedProducts',
         'user_id' => 'getUserId',
         'user_events' => 'getUserEvents',
+        'ad_set_id' => 'getAdSetId',
         'partner_id' => 'getPartnerId'
     ];
 
@@ -266,6 +272,7 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('nb_requested_products', $data ?? [], null);
         $this->setIfExists('user_id', $data ?? [], null);
         $this->setIfExists('user_events', $data ?? [], null);
+        $this->setIfExists('ad_set_id', $data ?? [], null);
         $this->setIfExists('partner_id', $data ?? [], null);
     }
 
@@ -394,6 +401,33 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
             throw new \InvalidArgumentException('non-nullable user_events cannot be null');
         }
         $this->container['user_events'] = $user_events;
+
+        return $this;
+    }
+
+    /**
+     * Gets ad_set_id
+     *
+     * @return int|null
+     */
+    public function getAdSetId()
+    {
+        return $this->container['ad_set_id'];
+    }
+
+    /**
+     * Sets ad_set_id
+     *
+     * @param int|null $ad_set_id Id of the AdSet. This field is optional and is resolved automatically for adsets previously configured.
+     *
+     * @return self
+     */
+    public function setAdSetId($ad_set_id)
+    {
+        if (is_null($ad_set_id)) {
+            throw new \InvalidArgumentException('non-nullable ad_set_id cannot be null');
+        }
+        $this->container['ad_set_id'] = $ad_set_id;
 
         return $this;
     }

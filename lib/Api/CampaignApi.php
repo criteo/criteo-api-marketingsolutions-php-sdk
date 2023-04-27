@@ -119,13 +119,13 @@ class CampaignApi
         'disableAdSetTargetingVideoPositioning' => [
             'application/json',
         ],
-        'getAdSet' => [
-            'application/json',
-        ],
         'getAdSetTargetingDealIds' => [
             'application/json',
         ],
         'getAdSetTargetingVideoPositioning' => [
+            'application/json',
+        ],
+        'getAdSetV23Q1' => [
             'application/json',
         ],
         'getAdvertiserBundleRules' => [
@@ -134,13 +134,13 @@ class CampaignApi
         'getAdvertiserDomainRules' => [
             'application/json',
         ],
-        'getCampaign' => [
-            'application/json',
-        ],
         'getCampaignBundleRules' => [
             'application/json',
         ],
         'getCampaignDomainRules' => [
+            'application/json',
+        ],
+        'getCampaignV23Q1' => [
             'application/json',
         ],
         'getCategoryBidList' => [
@@ -230,13 +230,13 @@ class CampaignApi
             'text/json',
             'application/*+json',
         ],
-        'searchAdSets' => [
+        'searchAdSetsV23Q1' => [
             'application/json-patch+json',
             'application/json',
             'text/json',
             'application/*+json',
         ],
-        'searchCampaigns' => [
+        'searchCampaignsV23Q1' => [
             'application/json-patch+json',
             'application/json',
             'text/json',
@@ -576,6 +576,10 @@ class CampaignApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -606,7 +610,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\CampaignResponse
+     * @return \criteo\api\marketingsolutions\preview\Model\CampaignV23Q1Response
      */
     public function createCampaign($create_campaign_request = null, string $contentType = self::contentTypes['createCampaign'][0])
     {
@@ -622,7 +626,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\CampaignResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\CampaignV23Q1Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function createCampaignWithHttpInfo($create_campaign_request = null, string $contentType = self::contentTypes['createCampaign'][0])
     {
@@ -665,23 +669,23 @@ class CampaignApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\criteo\api\marketingsolutions\preview\Model\CampaignResponse' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\preview\Model\CampaignV23Q1Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\CampaignResponse' !== 'string') {
+                        if ('\criteo\api\marketingsolutions\preview\Model\CampaignV23Q1Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\CampaignResponse', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\CampaignV23Q1Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\criteo\api\marketingsolutions\preview\Model\CampaignResponse';
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\CampaignV23Q1Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -702,7 +706,7 @@ class CampaignApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\CampaignResponse',
+                        '\criteo\api\marketingsolutions\preview\Model\CampaignV23Q1Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -742,7 +746,7 @@ class CampaignApi
      */
     public function createCampaignAsyncWithHttpInfo($create_campaign_request = null, string $contentType = self::contentTypes['createCampaign'][0])
     {
-        $returnType = '\criteo\api\marketingsolutions\preview\Model\CampaignResponse';
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\CampaignV23Q1Response';
         $request = $this->createCampaignRequest($create_campaign_request, $contentType);
 
         return $this->client
@@ -844,6 +848,10 @@ class CampaignApi
             }
         }
 
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -1209,6 +1217,10 @@ class CampaignApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1566,6 +1578,10 @@ class CampaignApi
             }
         }
 
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -1931,6 +1947,10 @@ class CampaignApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2292,6 +2312,10 @@ class CampaignApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2570,6 +2594,10 @@ class CampaignApi
             }
         }
 
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -2856,6 +2884,10 @@ class CampaignApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -3131,6 +3163,10 @@ class CampaignApi
             }
         }
 
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -3414,281 +3450,6 @@ class CampaignApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getAdSet
-     *
-     * @param  string $ad_set_id Id of the ad set (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSet'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\ResponseReadAdSet
-     */
-    public function getAdSet($ad_set_id, string $contentType = self::contentTypes['getAdSet'][0])
-    {
-        list($response) = $this->getAdSetWithHttpInfo($ad_set_id, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation getAdSetWithHttpInfo
-     *
-     * @param  string $ad_set_id Id of the ad set (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSet'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\ResponseReadAdSet, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getAdSetWithHttpInfo($ad_set_id, string $contentType = self::contentTypes['getAdSet'][0])
-    {
-        $request = $this->getAdSetRequest($ad_set_id, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ResponseReadAdSet' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ResponseReadAdSet' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ResponseReadAdSet', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\criteo\api\marketingsolutions\preview\Model\ResponseReadAdSet';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ResponseReadAdSet',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getAdSetAsync
-     *
-     * @param  string $ad_set_id Id of the ad set (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSet'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getAdSetAsync($ad_set_id, string $contentType = self::contentTypes['getAdSet'][0])
-    {
-        return $this->getAdSetAsyncWithHttpInfo($ad_set_id, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getAdSetAsyncWithHttpInfo
-     *
-     * @param  string $ad_set_id Id of the ad set (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSet'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getAdSetAsyncWithHttpInfo($ad_set_id, string $contentType = self::contentTypes['getAdSet'][0])
-    {
-        $returnType = '\criteo\api\marketingsolutions\preview\Model\ResponseReadAdSet';
-        $request = $this->getAdSetRequest($ad_set_id, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getAdSet'
-     *
-     * @param  string $ad_set_id Id of the ad set (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSet'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getAdSetRequest($ad_set_id, string $contentType = self::contentTypes['getAdSet'][0])
-    {
-
-        // verify the required parameter 'ad_set_id' is set
-        if ($ad_set_id === null || (is_array($ad_set_id) && count($ad_set_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $ad_set_id when calling getAdSet'
-            );
-        }
-
-
-        $resourcePath = '/preview/marketing-solutions/ad-sets/{adSetId}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($ad_set_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'adSetId' . '}',
-                ObjectSerializer::toPathValue($ad_set_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -3708,7 +3469,7 @@ class CampaignApi
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
-            'GET',
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -3968,6 +3729,10 @@ class CampaignApi
             }
         }
 
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -4247,6 +4012,293 @@ class CampaignApi
             }
         }
 
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getAdSetV23Q1
+     *
+     * @param  string $ad_set_id Id of the ad set (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSetV23Q1'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\ResponseReadAdSetV23Q1
+     */
+    public function getAdSetV23Q1($ad_set_id, string $contentType = self::contentTypes['getAdSetV23Q1'][0])
+    {
+        list($response) = $this->getAdSetV23Q1WithHttpInfo($ad_set_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getAdSetV23Q1WithHttpInfo
+     *
+     * @param  string $ad_set_id Id of the ad set (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSetV23Q1'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ResponseReadAdSetV23Q1, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAdSetV23Q1WithHttpInfo($ad_set_id, string $contentType = self::contentTypes['getAdSetV23Q1'][0])
+    {
+        $request = $this->getAdSetV23Q1Request($ad_set_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\ResponseReadAdSetV23Q1' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\preview\Model\ResponseReadAdSetV23Q1' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ResponseReadAdSetV23Q1', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\ResponseReadAdSetV23Q1';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\ResponseReadAdSetV23Q1',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAdSetV23Q1Async
+     *
+     * @param  string $ad_set_id Id of the ad set (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSetV23Q1'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAdSetV23Q1Async($ad_set_id, string $contentType = self::contentTypes['getAdSetV23Q1'][0])
+    {
+        return $this->getAdSetV23Q1AsyncWithHttpInfo($ad_set_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAdSetV23Q1AsyncWithHttpInfo
+     *
+     * @param  string $ad_set_id Id of the ad set (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSetV23Q1'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAdSetV23Q1AsyncWithHttpInfo($ad_set_id, string $contentType = self::contentTypes['getAdSetV23Q1'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\ResponseReadAdSetV23Q1';
+        $request = $this->getAdSetV23Q1Request($ad_set_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAdSetV23Q1'
+     *
+     * @param  string $ad_set_id Id of the ad set (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSetV23Q1'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getAdSetV23Q1Request($ad_set_id, string $contentType = self::contentTypes['getAdSetV23Q1'][0])
+    {
+
+        // verify the required parameter 'ad_set_id' is set
+        if ($ad_set_id === null || (is_array($ad_set_id) && count($ad_set_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ad_set_id when calling getAdSetV23Q1'
+            );
+        }
+
+
+        $resourcePath = '/preview/marketing-solutions/ad-sets/{ad-set-id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($ad_set_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'ad-set-id' . '}',
+                ObjectSerializer::toPathValue($ad_set_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['text/plain', 'application/json', 'text/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -4599,6 +4651,10 @@ class CampaignApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -4947,281 +5003,6 @@ class CampaignApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getCampaign
-     *
-     * @param  string $campaign_id Id of the campaign (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\CampaignResponse
-     */
-    public function getCampaign($campaign_id, string $contentType = self::contentTypes['getCampaign'][0])
-    {
-        list($response) = $this->getCampaignWithHttpInfo($campaign_id, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation getCampaignWithHttpInfo
-     *
-     * @param  string $campaign_id Id of the campaign (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\CampaignResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getCampaignWithHttpInfo($campaign_id, string $contentType = self::contentTypes['getCampaign'][0])
-    {
-        $request = $this->getCampaignRequest($campaign_id, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\criteo\api\marketingsolutions\preview\Model\CampaignResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\CampaignResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\CampaignResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\criteo\api\marketingsolutions\preview\Model\CampaignResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\CampaignResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getCampaignAsync
-     *
-     * @param  string $campaign_id Id of the campaign (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getCampaignAsync($campaign_id, string $contentType = self::contentTypes['getCampaign'][0])
-    {
-        return $this->getCampaignAsyncWithHttpInfo($campaign_id, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getCampaignAsyncWithHttpInfo
-     *
-     * @param  string $campaign_id Id of the campaign (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getCampaignAsyncWithHttpInfo($campaign_id, string $contentType = self::contentTypes['getCampaign'][0])
-    {
-        $returnType = '\criteo\api\marketingsolutions\preview\Model\CampaignResponse';
-        $request = $this->getCampaignRequest($campaign_id, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getCampaign'
-     *
-     * @param  string $campaign_id Id of the campaign (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getCampaignRequest($campaign_id, string $contentType = self::contentTypes['getCampaign'][0])
-    {
-
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $campaign_id when calling getCampaign'
-            );
-        }
-
-
-        $resourcePath = '/preview/marketing-solutions/campaigns/{campaign-id}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($campaign_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'campaign-id' . '}',
-                ObjectSerializer::toPathValue($campaign_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -5574,6 +5355,10 @@ class CampaignApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -5922,6 +5707,293 @@ class CampaignApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getCampaignV23Q1
+     *
+     * @param  string $campaign_id Id of the campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignV23Q1'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\CampaignV23Q1Response
+     */
+    public function getCampaignV23Q1($campaign_id, string $contentType = self::contentTypes['getCampaignV23Q1'][0])
+    {
+        list($response) = $this->getCampaignV23Q1WithHttpInfo($campaign_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getCampaignV23Q1WithHttpInfo
+     *
+     * @param  string $campaign_id Id of the campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignV23Q1'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\CampaignV23Q1Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCampaignV23Q1WithHttpInfo($campaign_id, string $contentType = self::contentTypes['getCampaignV23Q1'][0])
+    {
+        $request = $this->getCampaignV23Q1Request($campaign_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\CampaignV23Q1Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\preview\Model\CampaignV23Q1Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\CampaignV23Q1Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\CampaignV23Q1Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\CampaignV23Q1Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getCampaignV23Q1Async
+     *
+     * @param  string $campaign_id Id of the campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignV23Q1'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCampaignV23Q1Async($campaign_id, string $contentType = self::contentTypes['getCampaignV23Q1'][0])
+    {
+        return $this->getCampaignV23Q1AsyncWithHttpInfo($campaign_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getCampaignV23Q1AsyncWithHttpInfo
+     *
+     * @param  string $campaign_id Id of the campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignV23Q1'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCampaignV23Q1AsyncWithHttpInfo($campaign_id, string $contentType = self::contentTypes['getCampaignV23Q1'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\CampaignV23Q1Response';
+        $request = $this->getCampaignV23Q1Request($campaign_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getCampaignV23Q1'
+     *
+     * @param  string $campaign_id Id of the campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignV23Q1'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getCampaignV23Q1Request($campaign_id, string $contentType = self::contentTypes['getCampaignV23Q1'][0])
+    {
+
+        // verify the required parameter 'campaign_id' is set
+        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $campaign_id when calling getCampaignV23Q1'
+            );
+        }
+
+
+        $resourcePath = '/preview/marketing-solutions/campaigns/{campaign-id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($campaign_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'campaign-id' . '}',
+                ObjectSerializer::toPathValue($campaign_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['text/plain', 'application/json', 'text/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -6201,6 +6273,10 @@ class CampaignApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -6476,6 +6552,10 @@ class CampaignApi
             }
         }
 
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -6876,6 +6956,10 @@ class CampaignApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -7272,6 +7356,10 @@ class CampaignApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -7527,6 +7615,10 @@ class CampaignApi
             }
         }
 
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -7803,6 +7895,10 @@ class CampaignApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -8071,6 +8167,10 @@ class CampaignApi
             }
         }
 
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -8367,6 +8467,10 @@ class CampaignApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -8655,6 +8759,10 @@ class CampaignApi
             }
         }
 
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -9020,6 +9128,10 @@ class CampaignApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -9308,6 +9420,10 @@ class CampaignApi
             }
         }
 
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -9673,6 +9789,10 @@ class CampaignApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -10030,6 +10150,10 @@ class CampaignApi
             }
         }
 
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -10395,6 +10519,10 @@ class CampaignApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -10752,6 +10880,10 @@ class CampaignApi
             }
         }
 
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -11117,6 +11249,10 @@ class CampaignApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -11478,6 +11614,10 @@ class CampaignApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -11501,34 +11641,34 @@ class CampaignApi
     }
 
     /**
-     * Operation searchAdSets
+     * Operation searchAdSetsV23Q1
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\RequestAdSetSearch $request_ad_set_search request_ad_set_search (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchAdSets'] to see the possible values for this operation
+     * @param  \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestV23Q1 $ad_set_search_request_v23_q1 ad_set_search_request_v23_q1 (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchAdSetsV23Q1'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\ResponsesReadAdSet
+     * @return \criteo\api\marketingsolutions\preview\Model\ResponsesReadAdSetV23Q1
      */
-    public function searchAdSets($request_ad_set_search = null, string $contentType = self::contentTypes['searchAdSets'][0])
+    public function searchAdSetsV23Q1($ad_set_search_request_v23_q1 = null, string $contentType = self::contentTypes['searchAdSetsV23Q1'][0])
     {
-        list($response) = $this->searchAdSetsWithHttpInfo($request_ad_set_search, $contentType);
+        list($response) = $this->searchAdSetsV23Q1WithHttpInfo($ad_set_search_request_v23_q1, $contentType);
         return $response;
     }
 
     /**
-     * Operation searchAdSetsWithHttpInfo
+     * Operation searchAdSetsV23Q1WithHttpInfo
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\RequestAdSetSearch $request_ad_set_search (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchAdSets'] to see the possible values for this operation
+     * @param  \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestV23Q1 $ad_set_search_request_v23_q1 (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchAdSetsV23Q1'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\ResponsesReadAdSet, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ResponsesReadAdSetV23Q1, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchAdSetsWithHttpInfo($request_ad_set_search = null, string $contentType = self::contentTypes['searchAdSets'][0])
+    public function searchAdSetsV23Q1WithHttpInfo($ad_set_search_request_v23_q1 = null, string $contentType = self::contentTypes['searchAdSetsV23Q1'][0])
     {
-        $request = $this->searchAdSetsRequest($request_ad_set_search, $contentType);
+        $request = $this->searchAdSetsV23Q1Request($ad_set_search_request_v23_q1, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11567,23 +11707,23 @@ class CampaignApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ResponsesReadAdSet' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\preview\Model\ResponsesReadAdSetV23Q1' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ResponsesReadAdSet' !== 'string') {
+                        if ('\criteo\api\marketingsolutions\preview\Model\ResponsesReadAdSetV23Q1' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ResponsesReadAdSet', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ResponsesReadAdSetV23Q1', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\criteo\api\marketingsolutions\preview\Model\ResponsesReadAdSet';
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\ResponsesReadAdSetV23Q1';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -11604,7 +11744,7 @@ class CampaignApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ResponsesReadAdSet',
+                        '\criteo\api\marketingsolutions\preview\Model\ResponsesReadAdSetV23Q1',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11615,17 +11755,17 @@ class CampaignApi
     }
 
     /**
-     * Operation searchAdSetsAsync
+     * Operation searchAdSetsV23Q1Async
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\RequestAdSetSearch $request_ad_set_search (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchAdSets'] to see the possible values for this operation
+     * @param  \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestV23Q1 $ad_set_search_request_v23_q1 (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchAdSetsV23Q1'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchAdSetsAsync($request_ad_set_search = null, string $contentType = self::contentTypes['searchAdSets'][0])
+    public function searchAdSetsV23Q1Async($ad_set_search_request_v23_q1 = null, string $contentType = self::contentTypes['searchAdSetsV23Q1'][0])
     {
-        return $this->searchAdSetsAsyncWithHttpInfo($request_ad_set_search, $contentType)
+        return $this->searchAdSetsV23Q1AsyncWithHttpInfo($ad_set_search_request_v23_q1, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11634,18 +11774,18 @@ class CampaignApi
     }
 
     /**
-     * Operation searchAdSetsAsyncWithHttpInfo
+     * Operation searchAdSetsV23Q1AsyncWithHttpInfo
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\RequestAdSetSearch $request_ad_set_search (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchAdSets'] to see the possible values for this operation
+     * @param  \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestV23Q1 $ad_set_search_request_v23_q1 (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchAdSetsV23Q1'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchAdSetsAsyncWithHttpInfo($request_ad_set_search = null, string $contentType = self::contentTypes['searchAdSets'][0])
+    public function searchAdSetsV23Q1AsyncWithHttpInfo($ad_set_search_request_v23_q1 = null, string $contentType = self::contentTypes['searchAdSetsV23Q1'][0])
     {
-        $returnType = '\criteo\api\marketingsolutions\preview\Model\ResponsesReadAdSet';
-        $request = $this->searchAdSetsRequest($request_ad_set_search, $contentType);
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\ResponsesReadAdSetV23Q1';
+        $request = $this->searchAdSetsV23Q1Request($ad_set_search_request_v23_q1, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11684,15 +11824,15 @@ class CampaignApi
     }
 
     /**
-     * Create request for operation 'searchAdSets'
+     * Create request for operation 'searchAdSetsV23Q1'
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\RequestAdSetSearch $request_ad_set_search (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchAdSets'] to see the possible values for this operation
+     * @param  \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestV23Q1 $ad_set_search_request_v23_q1 (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchAdSetsV23Q1'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchAdSetsRequest($request_ad_set_search = null, string $contentType = self::contentTypes['searchAdSets'][0])
+    public function searchAdSetsV23Q1Request($ad_set_search_request_v23_q1 = null, string $contentType = self::contentTypes['searchAdSetsV23Q1'][0])
     {
 
 
@@ -11715,12 +11855,12 @@ class CampaignApi
         );
 
         // for model (json/xml)
-        if (isset($request_ad_set_search)) {
+        if (isset($ad_set_search_request_v23_q1)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($request_ad_set_search));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($ad_set_search_request_v23_q1));
             } else {
-                $httpBody = $request_ad_set_search;
+                $httpBody = $ad_set_search_request_v23_q1;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -11750,6 +11890,10 @@ class CampaignApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -11773,34 +11917,34 @@ class CampaignApi
     }
 
     /**
-     * Operation searchCampaigns
+     * Operation searchCampaignsV23Q1
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\CampaignSearchRequest $campaign_search_request filters on campaigns (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaigns'] to see the possible values for this operation
+     * @param  \criteo\api\marketingsolutions\preview\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 filters on campaigns (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaignsV23Q1'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\CampaignListResponse
+     * @return \criteo\api\marketingsolutions\preview\Model\CampaignV23Q1ListResponse
      */
-    public function searchCampaigns($campaign_search_request = null, string $contentType = self::contentTypes['searchCampaigns'][0])
+    public function searchCampaignsV23Q1($campaign_search_request_v23_q1 = null, string $contentType = self::contentTypes['searchCampaignsV23Q1'][0])
     {
-        list($response) = $this->searchCampaignsWithHttpInfo($campaign_search_request, $contentType);
+        list($response) = $this->searchCampaignsV23Q1WithHttpInfo($campaign_search_request_v23_q1, $contentType);
         return $response;
     }
 
     /**
-     * Operation searchCampaignsWithHttpInfo
+     * Operation searchCampaignsV23Q1WithHttpInfo
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\CampaignSearchRequest $campaign_search_request filters on campaigns (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaigns'] to see the possible values for this operation
+     * @param  \criteo\api\marketingsolutions\preview\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 filters on campaigns (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaignsV23Q1'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\CampaignListResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\CampaignV23Q1ListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchCampaignsWithHttpInfo($campaign_search_request = null, string $contentType = self::contentTypes['searchCampaigns'][0])
+    public function searchCampaignsV23Q1WithHttpInfo($campaign_search_request_v23_q1 = null, string $contentType = self::contentTypes['searchCampaignsV23Q1'][0])
     {
-        $request = $this->searchCampaignsRequest($campaign_search_request, $contentType);
+        $request = $this->searchCampaignsV23Q1Request($campaign_search_request_v23_q1, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11839,23 +11983,23 @@ class CampaignApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\criteo\api\marketingsolutions\preview\Model\CampaignListResponse' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\preview\Model\CampaignV23Q1ListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\CampaignListResponse' !== 'string') {
+                        if ('\criteo\api\marketingsolutions\preview\Model\CampaignV23Q1ListResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\CampaignListResponse', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\CampaignV23Q1ListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\criteo\api\marketingsolutions\preview\Model\CampaignListResponse';
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\CampaignV23Q1ListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -11876,7 +12020,7 @@ class CampaignApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\CampaignListResponse',
+                        '\criteo\api\marketingsolutions\preview\Model\CampaignV23Q1ListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11887,17 +12031,17 @@ class CampaignApi
     }
 
     /**
-     * Operation searchCampaignsAsync
+     * Operation searchCampaignsV23Q1Async
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\CampaignSearchRequest $campaign_search_request filters on campaigns (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaigns'] to see the possible values for this operation
+     * @param  \criteo\api\marketingsolutions\preview\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 filters on campaigns (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaignsV23Q1'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchCampaignsAsync($campaign_search_request = null, string $contentType = self::contentTypes['searchCampaigns'][0])
+    public function searchCampaignsV23Q1Async($campaign_search_request_v23_q1 = null, string $contentType = self::contentTypes['searchCampaignsV23Q1'][0])
     {
-        return $this->searchCampaignsAsyncWithHttpInfo($campaign_search_request, $contentType)
+        return $this->searchCampaignsV23Q1AsyncWithHttpInfo($campaign_search_request_v23_q1, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11906,18 +12050,18 @@ class CampaignApi
     }
 
     /**
-     * Operation searchCampaignsAsyncWithHttpInfo
+     * Operation searchCampaignsV23Q1AsyncWithHttpInfo
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\CampaignSearchRequest $campaign_search_request filters on campaigns (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaigns'] to see the possible values for this operation
+     * @param  \criteo\api\marketingsolutions\preview\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 filters on campaigns (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaignsV23Q1'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchCampaignsAsyncWithHttpInfo($campaign_search_request = null, string $contentType = self::contentTypes['searchCampaigns'][0])
+    public function searchCampaignsV23Q1AsyncWithHttpInfo($campaign_search_request_v23_q1 = null, string $contentType = self::contentTypes['searchCampaignsV23Q1'][0])
     {
-        $returnType = '\criteo\api\marketingsolutions\preview\Model\CampaignListResponse';
-        $request = $this->searchCampaignsRequest($campaign_search_request, $contentType);
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\CampaignV23Q1ListResponse';
+        $request = $this->searchCampaignsV23Q1Request($campaign_search_request_v23_q1, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11956,15 +12100,15 @@ class CampaignApi
     }
 
     /**
-     * Create request for operation 'searchCampaigns'
+     * Create request for operation 'searchCampaignsV23Q1'
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\CampaignSearchRequest $campaign_search_request filters on campaigns (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaigns'] to see the possible values for this operation
+     * @param  \criteo\api\marketingsolutions\preview\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 filters on campaigns (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaignsV23Q1'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchCampaignsRequest($campaign_search_request = null, string $contentType = self::contentTypes['searchCampaigns'][0])
+    public function searchCampaignsV23Q1Request($campaign_search_request_v23_q1 = null, string $contentType = self::contentTypes['searchCampaignsV23Q1'][0])
     {
 
 
@@ -11987,12 +12131,12 @@ class CampaignApi
         );
 
         // for model (json/xml)
-        if (isset($campaign_search_request)) {
+        if (isset($campaign_search_request_v23_q1)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($campaign_search_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($campaign_search_request_v23_q1));
             } else {
-                $httpBody = $campaign_search_request;
+                $httpBody = $campaign_search_request_v23_q1;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -12018,6 +12162,10 @@ class CampaignApi
             }
         }
 
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -12314,6 +12462,10 @@ class CampaignApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -12606,6 +12758,10 @@ class CampaignApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -12878,6 +13034,10 @@ class CampaignApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -13146,6 +13306,10 @@ class CampaignApi
             }
         }
 
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -13438,6 +13602,10 @@ class CampaignApi
             }
         }
 
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -13812,6 +13980,10 @@ class CampaignApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -14178,6 +14350,10 @@ class CampaignApi
             }
         }
 
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();

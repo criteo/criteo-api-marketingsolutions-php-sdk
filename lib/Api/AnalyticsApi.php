@@ -187,7 +187,7 @@ class AnalyticsApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return string|\criteo\api\marketingsolutions\preview\Model\ErrorMessage|\criteo\api\marketingsolutions\preview\Model\ErrorMessage
+     * @return string|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails
      */
     public function getAdsetReport($statistics_report_query_message = null, string $contentType = self::contentTypes['getAdsetReport'][0])
     {
@@ -203,7 +203,7 @@ class AnalyticsApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of string|\criteo\api\marketingsolutions\preview\Model\ErrorMessage|\criteo\api\marketingsolutions\preview\Model\ErrorMessage, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAdsetReportWithHttpInfo($statistics_report_query_message = null, string $contentType = self::contentTypes['getAdsetReport'][0])
     {
@@ -261,32 +261,32 @@ class AnalyticsApi
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ErrorMessage' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\preview\Model\ProblemsDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ErrorMessage' !== 'string') {
+                        if ('\criteo\api\marketingsolutions\preview\Model\ProblemsDetails' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ErrorMessage', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ErrorMessage' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\preview\Model\ProblemsDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ErrorMessage' !== 'string') {
+                        if ('\criteo\api\marketingsolutions\preview\Model\ProblemsDetails' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ErrorMessage', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -321,7 +321,7 @@ class AnalyticsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ErrorMessage',
+                        '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -329,7 +329,7 @@ class AnalyticsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ErrorMessage',
+                        '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -434,7 +434,7 @@ class AnalyticsApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['text/plain', 'application/json', 'text/json', 'text/csv', 'text/xml', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', ],
             $contentType,
             $multipart
         );
@@ -471,6 +471,10 @@ class AnalyticsApi
             }
         }
 
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -793,6 +797,10 @@ class AnalyticsApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1111,6 +1119,10 @@ class AnalyticsApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1386,6 +1398,10 @@ class AnalyticsApi
             }
         }
 
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -1692,6 +1708,10 @@ class AnalyticsApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1969,7 +1989,7 @@ class AnalyticsApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['text/plain', 'application/json', 'text/json', 'text/csv', 'text/xml', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', ],
             $contentType,
             $multipart
         );
@@ -2006,6 +2026,10 @@ class AnalyticsApi
             }
         }
 
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -2328,6 +2352,10 @@ class AnalyticsApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2358,7 +2386,7 @@ class AnalyticsApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return string|\criteo\api\marketingsolutions\preview\Model\ErrorMessage|\criteo\api\marketingsolutions\preview\Model\ErrorMessage
+     * @return string|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails
      */
     public function getPlacementsReport($placements_report_query_data_message = null, string $contentType = self::contentTypes['getPlacementsReport'][0])
     {
@@ -2374,7 +2402,7 @@ class AnalyticsApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of string|\criteo\api\marketingsolutions\preview\Model\ErrorMessage|\criteo\api\marketingsolutions\preview\Model\ErrorMessage, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPlacementsReportWithHttpInfo($placements_report_query_data_message = null, string $contentType = self::contentTypes['getPlacementsReport'][0])
     {
@@ -2432,32 +2460,32 @@ class AnalyticsApi
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ErrorMessage' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\preview\Model\ProblemsDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ErrorMessage' !== 'string') {
+                        if ('\criteo\api\marketingsolutions\preview\Model\ProblemsDetails' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ErrorMessage', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ErrorMessage' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\preview\Model\ProblemsDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ErrorMessage' !== 'string') {
+                        if ('\criteo\api\marketingsolutions\preview\Model\ProblemsDetails' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ErrorMessage', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2492,7 +2520,7 @@ class AnalyticsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ErrorMessage',
+                        '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2500,7 +2528,7 @@ class AnalyticsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ErrorMessage',
+                        '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2642,6 +2670,10 @@ class AnalyticsApi
             }
         }
 
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -2964,6 +2996,10 @@ class AnalyticsApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2994,7 +3030,7 @@ class AnalyticsApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return string|\criteo\api\marketingsolutions\preview\Model\ErrorMessage|\criteo\api\marketingsolutions\preview\Model\ErrorMessage
+     * @return string|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails
      */
     public function getTransactionsReport($transactions_report_query_data_message = null, string $contentType = self::contentTypes['getTransactionsReport'][0])
     {
@@ -3010,7 +3046,7 @@ class AnalyticsApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of string|\criteo\api\marketingsolutions\preview\Model\ErrorMessage|\criteo\api\marketingsolutions\preview\Model\ErrorMessage, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTransactionsReportWithHttpInfo($transactions_report_query_data_message = null, string $contentType = self::contentTypes['getTransactionsReport'][0])
     {
@@ -3068,32 +3104,32 @@ class AnalyticsApi
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ErrorMessage' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\preview\Model\ProblemsDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ErrorMessage' !== 'string') {
+                        if ('\criteo\api\marketingsolutions\preview\Model\ProblemsDetails' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ErrorMessage', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ErrorMessage' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\preview\Model\ProblemsDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ErrorMessage' !== 'string') {
+                        if ('\criteo\api\marketingsolutions\preview\Model\ProblemsDetails' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ErrorMessage', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3128,7 +3164,7 @@ class AnalyticsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ErrorMessage',
+                        '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3136,7 +3172,7 @@ class AnalyticsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ErrorMessage',
+                        '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3241,7 +3277,7 @@ class AnalyticsApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['text/plain', 'application/json', 'text/json', 'text/csv', 'text/xml', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', ],
             $contentType,
             $multipart
         );
@@ -3282,6 +3318,10 @@ class AnalyticsApi
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -3313,7 +3353,7 @@ class AnalyticsApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\TransparencyReportDataMessage|\criteo\api\marketingsolutions\preview\Model\ErrorMessage|\criteo\api\marketingsolutions\preview\Model\ErrorMessage
+     * @return \criteo\api\marketingsolutions\preview\Model\TransparencyReportDataMessage|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails
      */
     public function getTransparencyReport($advertiser_id, $transparency_query_message = null, string $contentType = self::contentTypes['getTransparencyReport'][0])
     {
@@ -3330,7 +3370,7 @@ class AnalyticsApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\TransparencyReportDataMessage|\criteo\api\marketingsolutions\preview\Model\ErrorMessage|\criteo\api\marketingsolutions\preview\Model\ErrorMessage, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\TransparencyReportDataMessage|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails|\criteo\api\marketingsolutions\preview\Model\ProblemsDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTransparencyReportWithHttpInfo($advertiser_id, $transparency_query_message = null, string $contentType = self::contentTypes['getTransparencyReport'][0])
     {
@@ -3388,32 +3428,32 @@ class AnalyticsApi
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ErrorMessage' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\preview\Model\ProblemsDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ErrorMessage' !== 'string') {
+                        if ('\criteo\api\marketingsolutions\preview\Model\ProblemsDetails' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ErrorMessage', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ErrorMessage' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\preview\Model\ProblemsDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ErrorMessage' !== 'string') {
+                        if ('\criteo\api\marketingsolutions\preview\Model\ProblemsDetails' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ErrorMessage', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3448,7 +3488,7 @@ class AnalyticsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ErrorMessage',
+                        '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3456,7 +3496,7 @@ class AnalyticsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ErrorMessage',
+                        '\criteo\api\marketingsolutions\preview\Model\ProblemsDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3616,6 +3656,10 @@ class AnalyticsApi
             }
         }
 
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
