@@ -313,7 +313,7 @@ class GatewayApi
     {
 
 
-        $resourcePath = '/me';
+        $resourcePath = '/2022-10/marketing-solutions/me';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -355,6 +355,10 @@ class GatewayApi
             }
         }
 
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();

@@ -317,7 +317,7 @@ class AdSetSearchFilter implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets ad_set_ids
      *
-     * @param string[]|null $ad_set_ids ad_set_ids
+     * @param string[]|null $ad_set_ids Ad set ids to filter on
      *
      * @return self
      */
@@ -346,7 +346,7 @@ class AdSetSearchFilter implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets advertiser_ids
      *
-     * @param string[]|null $advertiser_ids advertiser_ids
+     * @param string[]|null $advertiser_ids Advertiser ids which ad sets belongs to (indirectly via their marketing campaign)
      *
      * @return self
      */
@@ -375,7 +375,7 @@ class AdSetSearchFilter implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets campaign_ids
      *
-     * @param string[]|null $campaign_ids campaign_ids
+     * @param string[]|null $campaign_ids Campaign ids to filter on
      *
      * @return self
      */

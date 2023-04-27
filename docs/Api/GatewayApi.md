@@ -4,7 +4,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getCurrentApplication()**](GatewayApi.md#getCurrentApplication) | **GET** /me |  |
+| [**getCurrentApplication()**](GatewayApi.md#getCurrentApplication) | **GET** /2022-10/marketing-solutions/me |  |
 
 
 ## `getCurrentApplication()`
@@ -23,6 +23,9 @@ Get information about the currently logged application
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
 $config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -53,7 +56,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[oauth](../../README.md#oauth)
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 

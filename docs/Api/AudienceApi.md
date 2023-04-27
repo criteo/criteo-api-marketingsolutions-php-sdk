@@ -32,6 +32,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: oauth
 $config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new criteo\api\marketingsolutions\v2022_10\Api\AudienceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -61,7 +64,7 @@ try {
 
 ### Authorization
 
-[oauth](../../README.md#oauth)
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -88,6 +91,9 @@ delete all identifiers from an Audience
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
 $config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -121,7 +127,7 @@ try {
 
 ### Authorization
 
-[oauth](../../README.md#oauth)
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -148,6 +154,9 @@ Get a list of all the audiences for the user or for the given advertiser_id
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
 $config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -181,7 +190,7 @@ try {
 
 ### Authorization
 
-[oauth](../../README.md#oauth)
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -208,6 +217,9 @@ Update user audience specified by the audience id
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
 $config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -243,7 +255,7 @@ try {
 
 ### Authorization
 
-[oauth](../../README.md#oauth)
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -270,6 +282,9 @@ Add/remove users to or from an audience
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
 $config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -305,7 +320,7 @@ try {
 
 ### Authorization
 
-[oauth](../../README.md#oauth)
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -332,6 +347,9 @@ Delete an audience by id
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
 $config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -365,7 +383,7 @@ try {
 
 ### Authorization
 
-[oauth](../../README.md#oauth)
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 

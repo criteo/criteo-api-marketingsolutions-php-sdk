@@ -30,6 +30,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: oauth
 $config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new criteo\api\marketingsolutions\v2022_10\Api\AnalyticsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -59,12 +62,12 @@ try {
 
 ### Authorization
 
-[oauth](../../README.md#oauth)
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
 - **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
-- **Accept**: `text/plain`, `application/json`, `text/json`
+- **Accept**: `text/plain`, `application/json`, `text/json`, `text/csv`, `text/xml`, `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -86,6 +89,9 @@ Your ads are placed in different domains (publishers) and environments (websites
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
 $config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -119,7 +125,7 @@ try {
 
 ### Authorization
 
-[oauth](../../README.md#oauth)
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -146,6 +152,9 @@ This Transactions endpoint provides transactions id related data.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
 $config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -179,12 +188,12 @@ try {
 
 ### Authorization
 
-[oauth](../../README.md#oauth)
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
 - **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
-- **Accept**: `text/plain`, `application/json`, `text/json`
+- **Accept**: `text/plain`, `application/json`, `text/json`, `text/csv`, `text/xml`, `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -206,6 +215,9 @@ This Statistics endpoint provides publisher data.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
 $config = criteo\api\marketingsolutions\v2022_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -241,7 +253,7 @@ try {
 
 ### Authorization
 
-[oauth](../../README.md#oauth)
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
