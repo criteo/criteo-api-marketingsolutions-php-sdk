@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** | The name of the creative |
 **description** | **string** | The description of the creative | [optional]
-**format** | **string** | The format of the creative  You can use \&quot;Image\&quot;, \&quot; HtmlTag\&quot;, \&quot;Dynamic\&quot; or \&quot;Adaptive\&quot; | [optional]
-**dataset_id** | **string** | Dataset linked to the Creative | [optional]
+**format** | **string** | The format of the creative  You can use \&quot;Image\&quot;, \&quot; HtmlTag\&quot;, \&quot;Dynamic\&quot; or \&quot;Adaptive\&quot; |
+**dataset_id** | **string** | Dataset linked to the Creative |
 **image_write_attributes** | [**\criteo\api\marketingsolutions\preview\Model\ImageWriteAttributes**](ImageWriteAttributes.md) |  | [optional]
 **html_tag_write_attributes** | [**\criteo\api\marketingsolutions\preview\Model\HtmlTagWriteAttributes**](HtmlTagWriteAttributes.md) |  | [optional]
 **dynamic_write_attributes** | [**\criteo\api\marketingsolutions\preview\Model\DynamicWriteAttributes**](DynamicWriteAttributes.md) |  | [optional]

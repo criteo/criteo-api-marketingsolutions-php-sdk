@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **nb_requested_products** | **int** | Amount of products to recommend. |
 **user_id** | **string** | Used to retrieve user events from Criteo trackers. Optional if UserEvents are passed. | [optional]
+**identity_type** | **string** | Type of the user identifier (cto_bundle, Idfa, Gaid...)  Optional if UserId is not set or if its type is cto_bundle | [optional]
 **user_events** | [**\criteo\api\marketingsolutions\preview\Model\UserEvent[]**](UserEvent.md) | Used to perform a recommendation without relying on events stored for a UserId. Optional if UserId is passed. | [optional]
 **ad_set_id** | **int** | Id of the AdSet. This field is optional and is resolved automatically for adsets previously configured. | [optional]
 **partner_id** | **int** | Id of the partner. |

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **updated_at** | **\DateTime** | ISO-8601 timestamp in UTC of segment update (read-only) | [optional]
 **advertiser_id** | **string** | Advertiser associated to the segment | [optional]
 **in_market** | [**\criteo\api\marketingsolutions\preview\Model\InMarketV1**](InMarketV1.md) |  | [optional]
-**prospecting** | **object** | Settings to target prospecting users to website visitors. | [optional]
+**prospecting** | [**\criteo\api\marketingsolutions\preview\Model\ProspectingV1**](ProspectingV1.md) |  | [optional]
 **contact_list** | [**\criteo\api\marketingsolutions\preview\Model\ContactListV1**](ContactListV1.md) |  | [optional]
 **location** | [**\criteo\api\marketingsolutions\preview\Model\LocationV1**](LocationV1.md) |  | [optional]
 **behavioral** | [**\criteo\api\marketingsolutions\preview\Model\BehavioralV1**](BehavioralV1.md) |  | [optional]

@@ -6,7 +6,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 | ------------- | ------------- | ------------- |
 | [**bulkCreateAudienceSegments()**](AudienceApi.md#bulkCreateAudienceSegments) | **POST** /preview/marketing-solutions/audience-segments/create |  |
 | [**bulkCreateAudiences()**](AudienceApi.md#bulkCreateAudiences) | **POST** /preview/marketing-solutions/audiences/create |  |
-| [**bulkDeleteAudienceSegment()**](AudienceApi.md#bulkDeleteAudienceSegment) | **POST** /preview/marketing-solutions/audience-segments/delete |  |
+| [**bulkDeleteAudienceSegments()**](AudienceApi.md#bulkDeleteAudienceSegments) | **POST** /preview/marketing-solutions/audience-segments/delete |  |
 | [**bulkDeleteAudiences()**](AudienceApi.md#bulkDeleteAudiences) | **POST** /preview/marketing-solutions/audiences/delete |  |
 | [**bulkUpdateAudienceSegments()**](AudienceApi.md#bulkUpdateAudienceSegments) | **PATCH** /preview/marketing-solutions/audience-segments |  |
 | [**bulkUpdateAudiences()**](AudienceApi.md#bulkUpdateAudiences) | **PATCH** /preview/marketing-solutions/audiences |  |
@@ -16,9 +16,9 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 | [**deleteUserProfiles()**](AudienceApi.md#deleteUserProfiles) | **POST** /preview/marketing-solutions/advertisers/{advertiserId}/user-profiles/delete |  |
 | [**estimateAudienceSegmentSize()**](AudienceApi.md#estimateAudienceSegmentSize) | **POST** /preview/marketing-solutions/audience-segments/estimate-size |  |
 | [**estimateAudienceSize()**](AudienceApi.md#estimateAudienceSize) | **POST** /preview/marketing-solutions/audiences/estimate-size |  |
-| [**getContactListStatistics()**](AudienceApi.md#getContactListStatistics) | **GET** /preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list |  |
-| [**getInMarketBrands()**](AudienceApi.md#getInMarketBrands) | **GET** /preview/marketing-solutions/audience-segments/in-market-brands |  |
-| [**getInMarketInterests()**](AudienceApi.md#getInMarketInterests) | **GET** /preview/marketing-solutions/audience-segments/in-market-interests |  |
+| [**getAudienceSegmentContactListStatistics()**](AudienceApi.md#getAudienceSegmentContactListStatistics) | **GET** /preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list |  |
+| [**getAudienceSegmentsInMarketBrands()**](AudienceApi.md#getAudienceSegmentsInMarketBrands) | **GET** /preview/marketing-solutions/audience-segments/in-market-brands |  |
+| [**getAudienceSegmentsInMarketInterests()**](AudienceApi.md#getAudienceSegmentsInMarketInterests) | **GET** /preview/marketing-solutions/audience-segments/in-market-interests |  |
 | [**modifyAudienceUsersWithAttributes()**](AudienceApi.md#modifyAudienceUsersWithAttributes) | **PATCH** /preview/audiences/{audience-id}/contactlist-attributes |  |
 | [**searchAudienceSegments()**](AudienceApi.md#searchAudienceSegments) | **POST** /preview/marketing-solutions/audience-segments/search |  |
 | [**searchAudiences()**](AudienceApi.md#searchAudiences) | **POST** /preview/marketing-solutions/audiences/search |  |
@@ -70,7 +70,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_segment_bulk_create_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkCreateInputV1**](../Model/AudienceSegmentBulkCreateInputV1.md)| Segment creation parameter | [optional] |
+| **audience_segment_bulk_create_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkCreateInputV1**](../Model/AudienceSegmentBulkCreateInputV1.md)| Segment creation parameter | |
 
 ### Return type
 
@@ -133,7 +133,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_bulk_create_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceBulkCreateInputV1**](../Model/AudienceBulkCreateInputV1.md)|  | [optional] |
+| **audience_bulk_create_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceBulkCreateInputV1**](../Model/AudienceBulkCreateInputV1.md)|  | |
 
 ### Return type
 
@@ -152,10 +152,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `bulkDeleteAudienceSegment()`
+## `bulkDeleteAudienceSegments()`
 
 ```php
-bulkDeleteAudienceSegment($audience_segment_bulk_delete_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceSegmentIdEntityV1ListResponse
+bulkDeleteAudienceSegments($audience_segment_bulk_delete_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceSegmentIdEntityV1ListResponse
 ```
 
 
@@ -185,10 +185,10 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
 $audience_segment_bulk_delete_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkDeleteInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkDeleteInputV1 | Segment delete request.
 
 try {
-    $result = $apiInstance->bulkDeleteAudienceSegment($audience_segment_bulk_delete_input_v1);
+    $result = $apiInstance->bulkDeleteAudienceSegments($audience_segment_bulk_delete_input_v1);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AudienceApi->bulkDeleteAudienceSegment: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AudienceApi->bulkDeleteAudienceSegments: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -196,7 +196,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_segment_bulk_delete_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkDeleteInputV1**](../Model/AudienceSegmentBulkDeleteInputV1.md)| Segment delete request. | [optional] |
+| **audience_segment_bulk_delete_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkDeleteInputV1**](../Model/AudienceSegmentBulkDeleteInputV1.md)| Segment delete request. | |
 
 ### Return type
 
@@ -259,7 +259,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_bulk_delete_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceBulkDeleteInputV1**](../Model/AudienceBulkDeleteInputV1.md)|  | [optional] |
+| **audience_bulk_delete_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceBulkDeleteInputV1**](../Model/AudienceBulkDeleteInputV1.md)|  | |
 
 ### Return type
 
@@ -322,7 +322,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_segment_bulk_update_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkUpdateInputV1**](../Model/AudienceSegmentBulkUpdateInputV1.md)| Segment Update request | [optional] |
+| **audience_segment_bulk_update_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkUpdateInputV1**](../Model/AudienceSegmentBulkUpdateInputV1.md)| Segment Update request | |
 
 ### Return type
 
@@ -385,7 +385,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_bulk_update_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceBulkUpdateInputV1**](../Model/AudienceBulkUpdateInputV1.md)|  | [optional] |
+| **audience_bulk_update_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceBulkUpdateInputV1**](../Model/AudienceBulkUpdateInputV1.md)|  | |
 
 ### Return type
 
@@ -448,7 +448,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_segment_compute_sizes_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentComputeSizesInputV1**](../Model/AudienceSegmentComputeSizesInputV1.md)|  | [optional] |
+| **audience_segment_compute_sizes_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentComputeSizesInputV1**](../Model/AudienceSegmentComputeSizesInputV1.md)|  | |
 
 ### Return type
 
@@ -511,7 +511,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_compute_sizes_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceComputeSizesInputV1**](../Model/AudienceComputeSizesInputV1.md)|  | [optional] |
+| **audience_compute_sizes_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceComputeSizesInputV1**](../Model/AudienceComputeSizesInputV1.md)|  | |
 
 ### Return type
 
@@ -701,7 +701,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_segment_estimate_size_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEstimateSizeInputV1**](../Model/AudienceSegmentEstimateSizeInputV1.md)|  | [optional] |
+| **audience_segment_estimate_size_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEstimateSizeInputV1**](../Model/AudienceSegmentEstimateSizeInputV1.md)|  | |
 
 ### Return type
 
@@ -764,7 +764,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_estimate_size_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceEstimateSizeInputV1**](../Model/AudienceEstimateSizeInputV1.md)|  | [optional] |
+| **audience_estimate_size_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceEstimateSizeInputV1**](../Model/AudienceEstimateSizeInputV1.md)|  | |
 
 ### Return type
 
@@ -783,10 +783,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getContactListStatistics()`
+## `getAudienceSegmentContactListStatistics()`
 
 ```php
-getContactListStatistics($audience_segment_id): \criteo\api\marketingsolutions\preview\Model\ContactListStatisticsEntityV1Response
+getAudienceSegmentContactListStatistics($audience_segment_id): \criteo\api\marketingsolutions\preview\Model\ContactListStatisticsEntityV1Response
 ```
 
 
@@ -816,10 +816,10 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
 $audience_segment_id = 56; // int | The segment ID.
 
 try {
-    $result = $apiInstance->getContactListStatistics($audience_segment_id);
+    $result = $apiInstance->getAudienceSegmentContactListStatistics($audience_segment_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AudienceApi->getContactListStatistics: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AudienceApi->getAudienceSegmentContactListStatistics: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -846,10 +846,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getInMarketBrands()`
+## `getAudienceSegmentsInMarketBrands()`
 
 ```php
-getInMarketBrands($advertiser_id, $country): \criteo\api\marketingsolutions\preview\Model\InMarketAudienceSegmentBrandEntityV1ListResponse
+getAudienceSegmentsInMarketBrands($advertiser_id, $country): \criteo\api\marketingsolutions\preview\Model\InMarketAudienceSegmentBrandEntityV1ListResponse
 ```
 
 
@@ -880,10 +880,10 @@ $advertiser_id = 'advertiser_id_example'; // string | The advertiser ID.
 $country = 'country_example'; // string | The ISO 3166-1 alpha-2 country code.
 
 try {
-    $result = $apiInstance->getInMarketBrands($advertiser_id, $country);
+    $result = $apiInstance->getAudienceSegmentsInMarketBrands($advertiser_id, $country);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AudienceApi->getInMarketBrands: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AudienceApi->getAudienceSegmentsInMarketBrands: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -911,10 +911,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getInMarketInterests()`
+## `getAudienceSegmentsInMarketInterests()`
 
 ```php
-getInMarketInterests($advertiser_id, $country): \criteo\api\marketingsolutions\preview\Model\InMarketAudienceSegmentInterestEntityV1ListResponse
+getAudienceSegmentsInMarketInterests($advertiser_id, $country): \criteo\api\marketingsolutions\preview\Model\InMarketAudienceSegmentInterestEntityV1ListResponse
 ```
 
 
@@ -945,10 +945,10 @@ $advertiser_id = 'advertiser_id_example'; // string | The advertiser ID.
 $country = 'country_example'; // string | The ISO 3166-1 alpha-2 country code.
 
 try {
-    $result = $apiInstance->getInMarketInterests($advertiser_id, $country);
+    $result = $apiInstance->getAudienceSegmentsInMarketInterests($advertiser_id, $country);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AudienceApi->getInMarketInterests: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AudienceApi->getAudienceSegmentsInMarketInterests: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -1006,7 +1006,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$audience_id = 56; // int | The id of the audience to amend
+$audience_id = 'audience_id_example'; // string | The id of the audience to amend
 $contactlist_with_attributes_amendment_request = new \criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest(); // \criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest
 
 try {
@@ -1021,7 +1021,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_id** | **int**| The id of the audience to amend | |
+| **audience_id** | **string**| The id of the audience to amend | |
 | **contactlist_with_attributes_amendment_request** | [**\criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest**](../Model/ContactlistWithAttributesAmendmentRequest.md)|  | |
 
 ### Return type
@@ -1044,7 +1044,7 @@ try {
 ## `searchAudienceSegments()`
 
 ```php
-searchAudienceSegments($limit, $offset, $audience_segment_search_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1AudienceSegmentSearchMetadataV1ListResponse
+searchAudienceSegments($audience_segment_search_input_v1, $limit, $offset): \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1AudienceSegmentSearchMetadataV1ListResponse
 ```
 
 
@@ -1071,12 +1071,12 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$limit = 56; // int | The number of elements to be returned. The default is 50 and the maximum is 100.
-$offset = 56; // int | The (zero-based) offset into the collection. The default is 0.
 $audience_segment_search_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceSegmentSearchInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceSegmentSearchInputV1 | Segment search filters.
+$limit = 50; // int | The number of elements to be returned. The default is 50 and the maximum is 100.
+$offset = 0; // int | The (zero-based) offset into the collection. The default is 0.
 
 try {
-    $result = $apiInstance->searchAudienceSegments($limit, $offset, $audience_segment_search_input_v1);
+    $result = $apiInstance->searchAudienceSegments($audience_segment_search_input_v1, $limit, $offset);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AudienceApi->searchAudienceSegments: ', $e->getMessage(), PHP_EOL;
@@ -1087,9 +1087,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **limit** | **int**| The number of elements to be returned. The default is 50 and the maximum is 100. | [optional] |
-| **offset** | **int**| The (zero-based) offset into the collection. The default is 0. | [optional] |
-| **audience_segment_search_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentSearchInputV1**](../Model/AudienceSegmentSearchInputV1.md)| Segment search filters. | [optional] |
+| **audience_segment_search_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentSearchInputV1**](../Model/AudienceSegmentSearchInputV1.md)| Segment search filters. | |
+| **limit** | **int**| The number of elements to be returned. The default is 50 and the maximum is 100. | [optional] [default to 50] |
+| **offset** | **int**| The (zero-based) offset into the collection. The default is 0. | [optional] [default to 0] |
 
 ### Return type
 
@@ -1111,7 +1111,7 @@ try {
 ## `searchAudiences()`
 
 ```php
-searchAudiences($limit, $offset, $audience_search_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceEntityV1AudienceSearchMetadataV1ListResponse
+searchAudiences($audience_search_input_v1, $limit, $offset): \criteo\api\marketingsolutions\preview\Model\AudienceEntityV1AudienceSearchMetadataV1ListResponse
 ```
 
 
@@ -1138,12 +1138,12 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$limit = 56; // int | The number of elements to be returned. The default is 50 and the maximum is 100.
-$offset = 56; // int | The (zero-based) offset into the collection. The default is 0.
 $audience_search_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceSearchInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceSearchInputV1 | Audience search filters.
+$limit = 50; // int | The number of elements to be returned. The default is 50 and the maximum is 100.
+$offset = 0; // int | The (zero-based) offset into the collection. The default is 0.
 
 try {
-    $result = $apiInstance->searchAudiences($limit, $offset, $audience_search_input_v1);
+    $result = $apiInstance->searchAudiences($audience_search_input_v1, $limit, $offset);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AudienceApi->searchAudiences: ', $e->getMessage(), PHP_EOL;
@@ -1154,9 +1154,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **limit** | **int**| The number of elements to be returned. The default is 50 and the maximum is 100. | [optional] |
-| **offset** | **int**| The (zero-based) offset into the collection. The default is 0. | [optional] |
-| **audience_search_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSearchInputV1**](../Model/AudienceSearchInputV1.md)| Audience search filters. | [optional] |
+| **audience_search_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSearchInputV1**](../Model/AudienceSearchInputV1.md)| Audience search filters. | |
+| **limit** | **int**| The number of elements to be returned. The default is 50 and the maximum is 100. | [optional] [default to 50] |
+| **offset** | **int**| The (zero-based) offset into the collection. The default is 0. | [optional] [default to 0] |
 
 ### Return type
 

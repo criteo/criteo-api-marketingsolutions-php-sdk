@@ -94,7 +94,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_ad_set_request** | [**\criteo\api\marketingsolutions\preview\Model\CreateAdSetRequest**](../Model/CreateAdSetRequest.md)| the ad sets to create | [optional] |
+| **create_ad_set_request** | [**\criteo\api\marketingsolutions\preview\Model\CreateAdSetRequest**](../Model/CreateAdSetRequest.md)| the ad sets to create | |
 
 ### Return type
 
@@ -157,7 +157,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_campaign_request** | [**\criteo\api\marketingsolutions\preview\Model\CreateCampaignRequest**](../Model/CreateCampaignRequest.md)| the campaigns to create | [optional] |
+| **create_campaign_request** | [**\criteo\api\marketingsolutions\preview\Model\CreateCampaignRequest**](../Model/CreateCampaignRequest.md)| the campaigns to create | |
 
 ### Return type
 
@@ -2714,7 +2714,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **ad_set_id** | **string**| The ad set ID. | |
-| **ad_set_audience_link_input_entity_v1** | [**\criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1**](../Model/AdSetAudienceLinkInputEntityV1.md)| Ad set-Audience update request. | [optional] |
+| **ad_set_audience_link_input_entity_v1** | [**\criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1**](../Model/AdSetAudienceLinkInputEntityV1.md)| Ad set-Audience update request. | |
 
 ### Return type
 

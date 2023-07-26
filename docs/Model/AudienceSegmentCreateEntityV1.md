@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** | Name of the segment | [optional]
+**name** | **string** | Name of the segment |
 **description** | **string** | Description of the segment | [optional]
-**advertiser_id** | **string** | Advertiser associated to the segment | [optional]
+**advertiser_id** | **string** | Advertiser associated to the segment |
 **in_market** | [**\criteo\api\marketingsolutions\preview\Model\InMarketCreateV1**](InMarketCreateV1.md) |  | [optional]
-**prospecting** | **object** | Settings to target prospecting users to website visitors. | [optional]
+**prospecting** | [**\criteo\api\marketingsolutions\preview\Model\ProspectingCreateV1**](ProspectingCreateV1.md) |  | [optional]
 **contact_list** | **object** | Settings to target users with your contact lists. | [optional]
 **location** | [**\criteo\api\marketingsolutions\preview\Model\LocationCreateV1**](LocationCreateV1.md) |  | [optional]
 **retargeting** | [**\criteo\api\marketingsolutions\preview\Model\RetargetingCreateV1**](RetargetingCreateV1.md) |  | [optional]

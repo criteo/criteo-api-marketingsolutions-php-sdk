@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**country** | **string** |  | [optional]
+**country** | **string** |  |
 **buying_power** | **string[]** |  | [optional]
 **gender** | **string** |  | [optional]
 **interest_ids** | **string[]** |  | [optional]

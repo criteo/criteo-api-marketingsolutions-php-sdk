@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | **object** | Audience entity only with its ID | [optional]
+**attributes** | **object** | Audience entity with only its ID | [optional]
 **id** | **string** | Id of the entity | [optional]
 **type** | **string** |  | [optional]
 

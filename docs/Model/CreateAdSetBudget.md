@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**budget_strategy** | **string** |  | [optional]
+**budget_strategy** | **string** |  |
 **budget_renewal** | **string** |  | [optional]
 **budget_delivery_smoothing** | **string** |  | [optional]
 **budget_delivery_week** | **string** |  | [optional]

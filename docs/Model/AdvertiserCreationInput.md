@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**agency_id** | **string** | ID of the agency requesting the advertiser creation |
 **account_name** | **string** | The Account Name; This will not be in fact the Advertiser name |
 **website_url** | **string** | Website url |
 **country_iso_code** | **string** | Country ISO code |

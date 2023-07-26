@@ -187,7 +187,6 @@ docs/Model/CreativeWrite.md
 docs/Model/CreativeWriteRequest.md
 docs/Model/CreativeWriteResource.md
 docs/Model/CriteoApiError.md
-docs/Model/CriteoApiErrorV2.md
 docs/Model/CriteoApiWarning.md
 docs/Model/CriteoApiWarningV2.md
 docs/Model/CustomAttribute.md
@@ -266,6 +265,7 @@ docs/Model/NillableAdSetTargetingRuleValue.md
 docs/Model/NillableDateTime.md
 docs/Model/NillableDecimal.md
 docs/Model/NillableGenderV1.md
+docs/Model/NillableInt32.md
 docs/Model/NillableString.md
 docs/Model/OciBrandSafetyResponse.md
 docs/Model/OciBrandSafetyResponseData.md
@@ -326,6 +326,9 @@ docs/Model/ProductUnitPricingBaseMeasure.md
 docs/Model/ProductUnitPricingMeasure.md
 docs/Model/ProductsCustomBatchRequest.md
 docs/Model/ProductsCustomBatchRequestEntry.md
+docs/Model/ProspectingCreateV1.md
+docs/Model/ProspectingUpdateV1.md
+docs/Model/ProspectingV1.md
 docs/Model/ReadAdSet.md
 docs/Model/ReadAdSetBidding.md
 docs/Model/ReadAdSetBiddingV23Q1.md
@@ -397,6 +400,7 @@ docs/Model/UserEvent.md
 docs/Model/UserProfileAttributeModel.md
 docs/Model/UserProfileIdentifierModel.md
 docs/Model/ValueResourceInputOfCreateProductSetRequest.md
+docs/Model/ValueResourceOfAdvertiserCreationInput.md
 docs/Model/ValueResourceOfCreateProductSetRequest.md
 docs/Model/VideoDetail.md
 docs/Model/WriteModelAdSetId.md
@@ -590,7 +594,6 @@ lib/Model/CreativeWrite.php
 lib/Model/CreativeWriteRequest.php
 lib/Model/CreativeWriteResource.php
 lib/Model/CriteoApiError.php
-lib/Model/CriteoApiErrorV2.php
 lib/Model/CriteoApiWarning.php
 lib/Model/CriteoApiWarningV2.php
 lib/Model/CustomAttribute.php
@@ -670,6 +673,7 @@ lib/Model/NillableAdSetTargetingRuleValue.php
 lib/Model/NillableDateTime.php
 lib/Model/NillableDecimal.php
 lib/Model/NillableGenderV1.php
+lib/Model/NillableInt32.php
 lib/Model/NillableString.php
 lib/Model/OciBrandSafetyResponse.php
 lib/Model/OciBrandSafetyResponseData.php
@@ -730,6 +734,9 @@ lib/Model/ProductUnitPricingBaseMeasure.php
 lib/Model/ProductUnitPricingMeasure.php
 lib/Model/ProductsCustomBatchRequest.php
 lib/Model/ProductsCustomBatchRequestEntry.php
+lib/Model/ProspectingCreateV1.php
+lib/Model/ProspectingUpdateV1.php
+lib/Model/ProspectingV1.php
 lib/Model/ReadAdSet.php
 lib/Model/ReadAdSetBidding.php
 lib/Model/ReadAdSetBiddingV23Q1.php
@@ -801,6 +808,7 @@ lib/Model/UserEvent.php
 lib/Model/UserProfileAttributeModel.php
 lib/Model/UserProfileIdentifierModel.php
 lib/Model/ValueResourceInputOfCreateProductSetRequest.php
+lib/Model/ValueResourceOfAdvertiserCreationInput.php
 lib/Model/ValueResourceOfCreateProductSetRequest.php
 lib/Model/VideoDetail.php
 lib/Model/WriteModelAdSetId.php

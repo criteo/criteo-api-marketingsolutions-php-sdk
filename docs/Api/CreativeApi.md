@@ -4,29 +4,29 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createAd()**](CreativeApi.md#createAd) | **POST** /preview/advertisers/{advertiser-id}/ads |  |
-| [**createCoupon()**](CreativeApi.md#createCoupon) | **POST** /preview/advertisers/{advertiser-id}/coupons |  |
-| [**createCreative()**](CreativeApi.md#createCreative) | **POST** /preview/advertisers/{advertiser-id}/creatives |  |
+| [**createAdvertiserAd()**](CreativeApi.md#createAdvertiserAd) | **POST** /preview/advertisers/{advertiser-id}/ads |  |
+| [**createAdvertiserCoupon()**](CreativeApi.md#createAdvertiserCoupon) | **POST** /preview/advertisers/{advertiser-id}/coupons |  |
+| [**createAdvertiserCreative()**](CreativeApi.md#createAdvertiserCreative) | **POST** /preview/advertisers/{advertiser-id}/creatives |  |
 | [**deleteAd()**](CreativeApi.md#deleteAd) | **DELETE** /preview/ads/{id} |  |
-| [**deleteCoupon()**](CreativeApi.md#deleteCoupon) | **DELETE** /preview/advertisers/{advertiser-id}/coupons/{id} |  |
+| [**deleteAdvertiserCoupon()**](CreativeApi.md#deleteAdvertiserCoupon) | **DELETE** /preview/advertisers/{advertiser-id}/coupons/{id} |  |
 | [**deleteCreative()**](CreativeApi.md#deleteCreative) | **DELETE** /preview/creatives/{id} |  |
-| [**editCoupon()**](CreativeApi.md#editCoupon) | **PUT** /preview/advertisers/{advertiser-id}/coupons/{id} |  |
+| [**editAdvertiserCoupon()**](CreativeApi.md#editAdvertiserCoupon) | **PUT** /preview/advertisers/{advertiser-id}/coupons/{id} |  |
 | [**editCreative()**](CreativeApi.md#editCreative) | **PUT** /preview/creatives/{id} |  |
+| [**generateCreativePreview()**](CreativeApi.md#generateCreativePreview) | **POST** /preview/creatives/{id}/preview |  |
 | [**getAd()**](CreativeApi.md#getAd) | **GET** /preview/ads/{id} |  |
-| [**getAds()**](CreativeApi.md#getAds) | **GET** /preview/advertisers/{advertiser-id}/ads |  |
-| [**getCoupon()**](CreativeApi.md#getCoupon) | **GET** /preview/advertisers/{advertiser-id}/coupons/{id} |  |
-| [**getCouponPreview()**](CreativeApi.md#getCouponPreview) | **GET** /preview/advertisers/{advertiser-id}/coupons/{id}/preview |  |
-| [**getCouponSupportedSizes()**](CreativeApi.md#getCouponSupportedSizes) | **GET** /preview/advertisers/{advertiser-id}/coupons-supported-sizes |  |
-| [**getCoupons()**](CreativeApi.md#getCoupons) | **GET** /preview/advertisers/{advertiser-id}/coupons |  |
+| [**getAdvertiserAds()**](CreativeApi.md#getAdvertiserAds) | **GET** /preview/advertisers/{advertiser-id}/ads |  |
+| [**getAdvertiserCoupon()**](CreativeApi.md#getAdvertiserCoupon) | **GET** /preview/advertisers/{advertiser-id}/coupons/{id} |  |
+| [**getAdvertiserCouponPreview()**](CreativeApi.md#getAdvertiserCouponPreview) | **GET** /preview/advertisers/{advertiser-id}/coupons/{id}/preview |  |
+| [**getAdvertiserCouponSupportedSizes()**](CreativeApi.md#getAdvertiserCouponSupportedSizes) | **GET** /preview/advertisers/{advertiser-id}/coupons-supported-sizes |  |
+| [**getAdvertiserCoupons()**](CreativeApi.md#getAdvertiserCoupons) | **GET** /preview/advertisers/{advertiser-id}/coupons |  |
+| [**getAdvertiserCreatives()**](CreativeApi.md#getAdvertiserCreatives) | **GET** /preview/advertisers/{advertiser-id}/creatives |  |
 | [**getCreative()**](CreativeApi.md#getCreative) | **GET** /preview/creatives/{id} |  |
-| [**getCreativePreviewPost()**](CreativeApi.md#getCreativePreviewPost) | **POST** /preview/creatives/{id}/preview |  |
-| [**getCreatives()**](CreativeApi.md#getCreatives) | **GET** /preview/advertisers/{advertiser-id}/creatives |  |
 
 
-## `createAd()`
+## `createAdvertiserAd()`
 
 ```php
-createAd($advertiser_id, $ad_write_request): \criteo\api\marketingsolutions\preview\Model\AdResponse
+createAdvertiserAd($advertiser_id, $ad_write_request): \criteo\api\marketingsolutions\preview\Model\AdResponse
 ```
 
 
@@ -57,10 +57,10 @@ $advertiser_id = 'advertiser_id_example'; // string | The advertiser identifier.
 $ad_write_request = new \criteo\api\marketingsolutions\preview\Model\AdWriteRequest(); // \criteo\api\marketingsolutions\preview\Model\AdWriteRequest
 
 try {
-    $result = $apiInstance->createAd($advertiser_id, $ad_write_request);
+    $result = $apiInstance->createAdvertiserAd($advertiser_id, $ad_write_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CreativeApi->createAd: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CreativeApi->createAdvertiserAd: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -69,7 +69,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **advertiser_id** | **string**| The advertiser identifier. | |
-| **ad_write_request** | [**\criteo\api\marketingsolutions\preview\Model\AdWriteRequest**](../Model/AdWriteRequest.md)|  | [optional] |
+| **ad_write_request** | [**\criteo\api\marketingsolutions\preview\Model\AdWriteRequest**](../Model/AdWriteRequest.md)|  | |
 
 ### Return type
 
@@ -88,10 +88,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `createCoupon()`
+## `createAdvertiserCoupon()`
 
 ```php
-createCoupon($advertiser_id, $create_coupon_request): \criteo\api\marketingsolutions\preview\Model\CouponResponse
+createAdvertiserCoupon($advertiser_id, $create_coupon_request): \criteo\api\marketingsolutions\preview\Model\CouponResponse
 ```
 
 
@@ -122,10 +122,10 @@ $advertiser_id = 'advertiser_id_example'; // string | The advertiser identifier.
 $create_coupon_request = new \criteo\api\marketingsolutions\preview\Model\CreateCouponRequest(); // \criteo\api\marketingsolutions\preview\Model\CreateCouponRequest
 
 try {
-    $result = $apiInstance->createCoupon($advertiser_id, $create_coupon_request);
+    $result = $apiInstance->createAdvertiserCoupon($advertiser_id, $create_coupon_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CreativeApi->createCoupon: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CreativeApi->createAdvertiserCoupon: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -134,7 +134,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **advertiser_id** | **string**| The advertiser identifier. | |
-| **create_coupon_request** | [**\criteo\api\marketingsolutions\preview\Model\CreateCouponRequest**](../Model/CreateCouponRequest.md)|  | [optional] |
+| **create_coupon_request** | [**\criteo\api\marketingsolutions\preview\Model\CreateCouponRequest**](../Model/CreateCouponRequest.md)|  | |
 
 ### Return type
 
@@ -153,10 +153,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `createCreative()`
+## `createAdvertiserCreative()`
 
 ```php
-createCreative($advertiser_id, $creative_write_request): \criteo\api\marketingsolutions\preview\Model\CreativeResponse
+createAdvertiserCreative($advertiser_id, $creative_write_request): \criteo\api\marketingsolutions\preview\Model\CreativeResponse
 ```
 
 
@@ -187,10 +187,10 @@ $advertiser_id = 'advertiser_id_example'; // string | The advertiser identifier.
 $creative_write_request = new \criteo\api\marketingsolutions\preview\Model\CreativeWriteRequest(); // \criteo\api\marketingsolutions\preview\Model\CreativeWriteRequest
 
 try {
-    $result = $apiInstance->createCreative($advertiser_id, $creative_write_request);
+    $result = $apiInstance->createAdvertiserCreative($advertiser_id, $creative_write_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CreativeApi->createCreative: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CreativeApi->createAdvertiserCreative: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -199,7 +199,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **advertiser_id** | **string**| The advertiser identifier. | |
-| **creative_write_request** | [**\criteo\api\marketingsolutions\preview\Model\CreativeWriteRequest**](../Model/CreativeWriteRequest.md)|  | [optional] |
+| **creative_write_request** | [**\criteo\api\marketingsolutions\preview\Model\CreativeWriteRequest**](../Model/CreativeWriteRequest.md)|  | |
 
 ### Return type
 
@@ -280,10 +280,10 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deleteCoupon()`
+## `deleteAdvertiserCoupon()`
 
 ```php
-deleteCoupon($advertiser_id, $id)
+deleteAdvertiserCoupon($advertiser_id, $id)
 ```
 
 
@@ -314,9 +314,9 @@ $advertiser_id = 'advertiser_id_example'; // string | The advertiser identifier.
 $id = 'id_example'; // string | The Coupon identifier to delete.
 
 try {
-    $apiInstance->deleteCoupon($advertiser_id, $id);
+    $apiInstance->deleteAdvertiserCoupon($advertiser_id, $id);
 } catch (Exception $e) {
-    echo 'Exception when calling CreativeApi->deleteCoupon: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CreativeApi->deleteAdvertiserCoupon: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -406,10 +406,10 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `editCoupon()`
+## `editAdvertiserCoupon()`
 
 ```php
-editCoupon($advertiser_id, $id, $update_coupon_request): \criteo\api\marketingsolutions\preview\Model\CouponResponse
+editAdvertiserCoupon($advertiser_id, $id, $update_coupon_request): \criteo\api\marketingsolutions\preview\Model\CouponResponse
 ```
 
 
@@ -441,10 +441,10 @@ $id = 'id_example'; // string | The Coupon identifier to edit.
 $update_coupon_request = new \criteo\api\marketingsolutions\preview\Model\UpdateCouponRequest(); // \criteo\api\marketingsolutions\preview\Model\UpdateCouponRequest
 
 try {
-    $result = $apiInstance->editCoupon($advertiser_id, $id, $update_coupon_request);
+    $result = $apiInstance->editAdvertiserCoupon($advertiser_id, $id, $update_coupon_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CreativeApi->editCoupon: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CreativeApi->editAdvertiserCoupon: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -454,7 +454,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **advertiser_id** | **string**| The advertiser identifier. | |
 | **id** | **string**| The Coupon identifier to edit. | |
-| **update_coupon_request** | [**\criteo\api\marketingsolutions\preview\Model\UpdateCouponRequest**](../Model/UpdateCouponRequest.md)|  | [optional] |
+| **update_coupon_request** | [**\criteo\api\marketingsolutions\preview\Model\UpdateCouponRequest**](../Model/UpdateCouponRequest.md)|  | |
 
 ### Return type
 
@@ -519,7 +519,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| The creative identifier to edit. | |
-| **creative_write_request** | [**\criteo\api\marketingsolutions\preview\Model\CreativeWriteRequest**](../Model/CreativeWriteRequest.md)|  | [optional] |
+| **creative_write_request** | [**\criteo\api\marketingsolutions\preview\Model\CreativeWriteRequest**](../Model/CreativeWriteRequest.md)|  | |
 
 ### Return type
 
@@ -538,6 +538,73 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `generateCreativePreview()`
+
+```php
+generateCreativePreview($id, $width, $height): string
+```
+
+
+
+Generate a preview of a specific Creative
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\CreativeApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | The Creative identifier to preview.
+$width = 56; // int | The width of the Creative to preview.
+$height = 56; // int | The height of the Creative to preview.
+
+try {
+    $result = $apiInstance->generateCreativePreview($id, $width, $height);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CreativeApi->generateCreativePreview: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| The Creative identifier to preview. | |
+| **width** | **int**| The width of the Creative to preview. | [optional] |
+| **height** | **int**| The height of the Creative to preview. | [optional] |
+
+### Return type
+
+**string**
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `text/html`, `application/json`, `text/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getAd()`
 
 ```php
@@ -546,7 +613,7 @@ getAd($id): \criteo\api\marketingsolutions\preview\Model\AdResponse
 
 
 
-Get an Ad with its id
+Get an Ad from its id
 
 ### Example
 
@@ -601,10 +668,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getAds()`
+## `getAdvertiserAds()`
 
 ```php
-getAds($advertiser_id, $limit, $offset): \criteo\api\marketingsolutions\preview\Model\AdListResponse
+getAdvertiserAds($advertiser_id, $limit, $offset): \criteo\api\marketingsolutions\preview\Model\AdListResponse
 ```
 
 
@@ -636,10 +703,10 @@ $limit = 56; // int | The number of ads to be returned. The default is 50.
 $offset = 56; // int | The (zero-based) offset into the collection of ads. The default is 0.
 
 try {
-    $result = $apiInstance->getAds($advertiser_id, $limit, $offset);
+    $result = $apiInstance->getAdvertiserAds($advertiser_id, $limit, $offset);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CreativeApi->getAds: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CreativeApi->getAdvertiserAds: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -668,15 +735,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getCoupon()`
+## `getAdvertiserCoupon()`
 
 ```php
-getCoupon($advertiser_id, $id): \criteo\api\marketingsolutions\preview\Model\CouponResponse
+getAdvertiserCoupon($advertiser_id, $id): \criteo\api\marketingsolutions\preview\Model\CouponResponse
 ```
 
 
 
-Get a Coupon with its id
+Get a Coupon from its id
 
 ### Example
 
@@ -702,10 +769,10 @@ $advertiser_id = 'advertiser_id_example'; // string | The advertiser identifier.
 $id = 'id_example'; // string | The Coupon identifier to retrieve.
 
 try {
-    $result = $apiInstance->getCoupon($advertiser_id, $id);
+    $result = $apiInstance->getAdvertiserCoupon($advertiser_id, $id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CreativeApi->getCoupon: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CreativeApi->getAdvertiserCoupon: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -733,10 +800,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getCouponPreview()`
+## `getAdvertiserCouponPreview()`
 
 ```php
-getCouponPreview($advertiser_id, $id, $width, $height): string
+getAdvertiserCouponPreview($advertiser_id, $id, $width, $height): string
 ```
 
 
@@ -769,10 +836,10 @@ $width = 56; // int | The width of the coupon to preview.
 $height = 56; // int | The height of the coupon to preview.
 
 try {
-    $result = $apiInstance->getCouponPreview($advertiser_id, $id, $width, $height);
+    $result = $apiInstance->getAdvertiserCouponPreview($advertiser_id, $id, $width, $height);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CreativeApi->getCouponPreview: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CreativeApi->getAdvertiserCouponPreview: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -802,10 +869,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getCouponSupportedSizes()`
+## `getAdvertiserCouponSupportedSizes()`
 
 ```php
-getCouponSupportedSizes($advertiser_id, $ad_set_id): \criteo\api\marketingsolutions\preview\Model\CouponSupportedSizesResponse
+getAdvertiserCouponSupportedSizes($advertiser_id, $ad_set_id): \criteo\api\marketingsolutions\preview\Model\CouponSupportedSizesResponse
 ```
 
 
@@ -836,10 +903,10 @@ $advertiser_id = 'advertiser_id_example'; // string | The advertiser identifier.
 $ad_set_id = 'ad_set_id_example'; // string | The ad set id on which you want to check the Coupon supported sizes.
 
 try {
-    $result = $apiInstance->getCouponSupportedSizes($advertiser_id, $ad_set_id);
+    $result = $apiInstance->getAdvertiserCouponSupportedSizes($advertiser_id, $ad_set_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CreativeApi->getCouponSupportedSizes: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CreativeApi->getAdvertiserCouponSupportedSizes: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -867,10 +934,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getCoupons()`
+## `getAdvertiserCoupons()`
 
 ```php
-getCoupons($advertiser_id, $limit, $offset): \criteo\api\marketingsolutions\preview\Model\CouponListResponse
+getAdvertiserCoupons($advertiser_id, $limit, $offset): \criteo\api\marketingsolutions\preview\Model\CouponListResponse
 ```
 
 
@@ -902,10 +969,10 @@ $limit = 56; // int | The number of coupons to be returned. The default is 50.
 $offset = 56; // int | The (zero-based) offset into the collection of coupons. The default is 0.
 
 try {
-    $result = $apiInstance->getCoupons($advertiser_id, $limit, $offset);
+    $result = $apiInstance->getAdvertiserCoupons($advertiser_id, $limit, $offset);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CreativeApi->getCoupons: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CreativeApi->getAdvertiserCoupons: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -934,6 +1001,73 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getAdvertiserCreatives()`
+
+```php
+getAdvertiserCreatives($advertiser_id, $limit, $offset): \criteo\api\marketingsolutions\preview\Model\CreativeListResponse
+```
+
+
+
+Get the list of self-services Creatives for a given advertiser
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\CreativeApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$advertiser_id = 'advertiser_id_example'; // string | The advertiser identifier.
+$limit = 56; // int | The number of creatives to be returned. The default is 50.
+$offset = 56; // int | The (zero-based) offset into the collection of creatives. The default is 0.
+
+try {
+    $result = $apiInstance->getAdvertiserCreatives($advertiser_id, $limit, $offset);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CreativeApi->getAdvertiserCreatives: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **string**| The advertiser identifier. | |
+| **limit** | **int**| The number of creatives to be returned. The default is 50. | [optional] |
+| **offset** | **int**| The (zero-based) offset into the collection of creatives. The default is 0. | [optional] |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\CreativeListResponse**](../Model/CreativeListResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `text/plain`, `application/json`, `text/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getCreative()`
 
 ```php
@@ -942,7 +1076,7 @@ getCreative($id): \criteo\api\marketingsolutions\preview\Model\CreativeResponse
 
 
 
-Get a Creative with its id
+Get a Creative from its id
 
 ### Example
 
@@ -983,140 +1117,6 @@ try {
 ### Return type
 
 [**\criteo\api\marketingsolutions\preview\Model\CreativeResponse**](../Model/CreativeResponse.md)
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `text/plain`, `application/json`, `text/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getCreativePreviewPost()`
-
-```php
-getCreativePreviewPost($id, $width, $height): string
-```
-
-
-
-Get the preview of a specific Creative
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\preview\Api\CreativeApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string | The Creative identifier to preview.
-$width = 56; // int | The width of the Creative to preview.
-$height = 56; // int | The height of the Creative to preview.
-
-try {
-    $result = $apiInstance->getCreativePreviewPost($id, $width, $height);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CreativeApi->getCreativePreviewPost: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| The Creative identifier to preview. | |
-| **width** | **int**| The width of the Creative to preview. | [optional] |
-| **height** | **int**| The height of the Creative to preview. | [optional] |
-
-### Return type
-
-**string**
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `text/html`, `application/json`, `text/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getCreatives()`
-
-```php
-getCreatives($advertiser_id, $limit, $offset): \criteo\api\marketingsolutions\preview\Model\CreativeListResponse
-```
-
-
-
-Get the list of self-services Creatives for a given advertiser
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\preview\Api\CreativeApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$advertiser_id = 'advertiser_id_example'; // string | The advertiser identifier.
-$limit = 56; // int | The number of creatives to be returned. The default is 50.
-$offset = 56; // int | The (zero-based) offset into the collection of creatives. The default is 0.
-
-try {
-    $result = $apiInstance->getCreatives($advertiser_id, $limit, $offset);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CreativeApi->getCreatives: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **string**| The advertiser identifier. | |
-| **limit** | **int**| The number of creatives to be returned. The default is 50. | [optional] |
-| **offset** | **int**| The (zero-based) offset into the collection of creatives. The default is 0. | [optional] |
-
-### Return type
-
-[**\criteo\api\marketingsolutions\preview\Model\CreativeListResponse**](../Model/CreativeListResponse.md)
 
 ### Authorization
 

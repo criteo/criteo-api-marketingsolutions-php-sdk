@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**spend_limit_type** | **string** | Whether your spend limit is capped or not | [optional]
+**spend_limit_type** | **string** | Whether your spend limit is capped or not |
 **spend_limit_renewal** | **string** | The pace of the spend limit renewal | [optional]
 **spend_limit_amount** | **float** | The amount of the spend limit. null if spendLimitType is uncapped. | [optional]
 
