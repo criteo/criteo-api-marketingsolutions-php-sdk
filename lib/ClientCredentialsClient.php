@@ -1,10 +1,10 @@
 <?php
-namespace criteo\api\marketingsolutions\v2023_01;
+namespace criteo\api\marketingsolutions\v2023_07;
 
-use criteo\api\marketingsolutions\v2023_01\ApiException;
-use criteo\api\marketingsolutions\v2023_01\Configuration;
-use criteo\api\marketingsolutions\v2023_01\ObjectSerializer;
-use criteo\api\marketingsolutions\v2023_01\ClientCredentialsClient\Token;
+use criteo\api\marketingsolutions\v2023_07\ApiException;
+use criteo\api\marketingsolutions\v2023_07\Configuration;
+use criteo\api\marketingsolutions\v2023_07\ObjectSerializer;
+use criteo\api\marketingsolutions\v2023_07\ClientCredentialsClient\Token;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\Request;
@@ -260,7 +260,7 @@ class OAuthClient{
     }
 }
 
-namespace criteo\api\marketingsolutions\v2023_01\ClientCredentialsClient;
+namespace criteo\api\marketingsolutions\v2023_07\ClientCredentialsClient;
 
 use DateTime;
 
