@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**contact_list_id** | **string** | the affected user list id | [optional]
+**contact_list_id** | **int** | the affected user list id | [optional]
 **operation** | **string** | The action recorded |
 **request_date** | **\DateTime** | When the action was recorded | [optional]
 **identifier_type** | **string** | The schema specified for of the identifiers | [optional]
