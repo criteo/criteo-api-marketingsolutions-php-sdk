@@ -278,8 +278,8 @@ lib/Api/CreativeApi.php
 lib/Api/GatewayApi.php
 lib/ApiException.php
 lib/ClientCredentialsClient.php
+lib/ClientCredentialsClient/Token.php
 lib/Configuration.php
-lib/ExampleApplication.php
 lib/HeaderSelector.php
 lib/Model/Ad.php
 lib/Model/AdListResponse.php
@@ -541,7 +541,9 @@ lib/Model/UpdateCouponResource.php
 lib/Model/VideoDetail.php
 lib/Model/WriteModelAdSetId.php
 lib/Model/WriteModelPatchAdSet.php
+lib/OAuthClient.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
 test/Api/ClientCredentialsClientTest.php
-test/GatewayApiTest.php
+test/Api/GatewayApiTest.php
+test/ExampleApplication.php
