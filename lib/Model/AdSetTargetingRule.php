@@ -80,8 +80,8 @@ class AdSetTargetingRule implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'operand' => false,
-		'values' => false
+        'operand' => true,
+		'values' => true
     ];
 
     /**
@@ -343,10 +343,17 @@ class AdSetTargetingRule implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setOperand($operand)
     {
         if (is_null($operand)) {
-            throw new \InvalidArgumentException('non-nullable operand cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'operand');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('operand', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getOperandAllowableValues();
-        if (!in_array($operand, $allowedValues, true)) {
+        if (!is_null($operand) && !in_array($operand, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'operand', must be one of '%s'",
@@ -380,7 +387,14 @@ class AdSetTargetingRule implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setValues($values)
     {
         if (is_null($values)) {
-            throw new \InvalidArgumentException('non-nullable values cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'values');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('values', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
 
