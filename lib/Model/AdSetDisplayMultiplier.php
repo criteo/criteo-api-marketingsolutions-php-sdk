@@ -80,8 +80,8 @@ class AdSetDisplayMultiplier implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'category_name' => false,
-		'display_multiplier' => false
+        'category_name' => true,
+		'display_multiplier' => true
     ];
 
     /**
@@ -317,7 +317,14 @@ class AdSetDisplayMultiplier implements ModelInterface, ArrayAccess, \JsonSerial
     public function setCategoryName($category_name)
     {
         if (is_null($category_name)) {
-            throw new \InvalidArgumentException('non-nullable category_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'category_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('category_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['category_name'] = $category_name;
 
@@ -344,7 +351,14 @@ class AdSetDisplayMultiplier implements ModelInterface, ArrayAccess, \JsonSerial
     public function setDisplayMultiplier($display_multiplier)
     {
         if (is_null($display_multiplier)) {
-            throw new \InvalidArgumentException('non-nullable display_multiplier cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'display_multiplier');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('display_multiplier', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['display_multiplier'] = $display_multiplier;
 

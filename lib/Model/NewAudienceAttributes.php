@@ -81,9 +81,9 @@ class NewAudienceAttributes implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'advertiser_id' => false,
+        'advertiser_id' => true,
 		'name' => false,
-		'description' => false
+		'description' => true
     ];
 
     /**
@@ -326,7 +326,14 @@ class NewAudienceAttributes implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setAdvertiserId($advertiser_id)
     {
         if (is_null($advertiser_id)) {
-            throw new \InvalidArgumentException('non-nullable advertiser_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'advertiser_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('advertiser_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['advertiser_id'] = $advertiser_id;
 
@@ -380,7 +387,14 @@ class NewAudienceAttributes implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setDescription($description)
     {
         if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['description'] = $description;
 

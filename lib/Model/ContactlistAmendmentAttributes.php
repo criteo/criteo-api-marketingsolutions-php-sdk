@@ -85,9 +85,9 @@ class ContactlistAmendmentAttributes implements ModelInterface, ArrayAccess, \Js
       */
     protected static array $openAPINullables = [
         'operation' => false,
-		'identifier_type' => false,
+		'identifier_type' => true,
 		'identifiers' => false,
-		'gum_caller_id' => false
+		'gum_caller_id' => true
     ];
 
     /**
@@ -428,10 +428,17 @@ class ContactlistAmendmentAttributes implements ModelInterface, ArrayAccess, \Js
     public function setIdentifierType($identifier_type)
     {
         if (is_null($identifier_type)) {
-            throw new \InvalidArgumentException('non-nullable identifier_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'identifier_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('identifier_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getIdentifierTypeAllowableValues();
-        if (!in_array($identifier_type, $allowedValues, true)) {
+        if (!is_null($identifier_type) && !in_array($identifier_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'identifier_type', must be one of '%s'",
@@ -492,7 +499,14 @@ class ContactlistAmendmentAttributes implements ModelInterface, ArrayAccess, \Js
     public function setGumCallerId($gum_caller_id)
     {
         if (is_null($gum_caller_id)) {
-            throw new \InvalidArgumentException('non-nullable gum_caller_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'gum_caller_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('gum_caller_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['gum_caller_id'] = $gum_caller_id;
 

@@ -81,7 +81,7 @@ class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static array $openAPINullables = [
         'errors' => false,
-		'warnings' => false
+		'warnings' => true
     ];
 
     /**
@@ -347,7 +347,14 @@ class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setWarnings($warnings)
     {
         if (is_null($warnings)) {
-            throw new \InvalidArgumentException('non-nullable warnings cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'warnings');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('warnings', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['warnings'] = $warnings;
 

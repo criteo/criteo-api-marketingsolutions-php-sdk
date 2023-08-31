@@ -92,14 +92,14 @@ class AudienceWarning implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'trace_id' => false,
+        'trace_id' => true,
 		'type' => false,
 		'code' => false,
 		'instance' => false,
-		'title' => false,
+		'title' => true,
 		'detail' => false,
-		'source' => false,
-		'stack_trace' => false
+		'source' => true,
+		'stack_trace' => true
     ];
 
     /**
@@ -405,7 +405,14 @@ class AudienceWarning implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTraceId($trace_id)
     {
         if (is_null($trace_id)) {
-            throw new \InvalidArgumentException('non-nullable trace_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'trace_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('trace_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['trace_id'] = $trace_id;
 
@@ -523,7 +530,14 @@ class AudienceWarning implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTitle($title)
     {
         if (is_null($title)) {
-            throw new \InvalidArgumentException('non-nullable title cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'title');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('title', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['title'] = $title;
 
@@ -577,7 +591,14 @@ class AudienceWarning implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSource($source)
     {
         if (is_null($source)) {
-            throw new \InvalidArgumentException('non-nullable source cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'source');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['source'] = $source;
 
@@ -604,7 +625,14 @@ class AudienceWarning implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setStackTrace($stack_trace)
     {
         if (is_null($stack_trace)) {
-            throw new \InvalidArgumentException('non-nullable stack_trace cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'stack_trace');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('stack_trace', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['stack_trace'] = $stack_trace;
 
