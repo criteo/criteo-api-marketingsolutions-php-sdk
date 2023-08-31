@@ -80,8 +80,8 @@ class AdSetFrequencyCapping implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'frequency' => false,
-		'maximum_impressions' => false
+        'frequency' => true,
+		'maximum_impressions' => true
     ];
 
     /**
@@ -345,10 +345,17 @@ class AdSetFrequencyCapping implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setFrequency($frequency)
     {
         if (is_null($frequency)) {
-            throw new \InvalidArgumentException('non-nullable frequency cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'frequency');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('frequency', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getFrequencyAllowableValues();
-        if (!in_array($frequency, $allowedValues, true)) {
+        if (!is_null($frequency) && !in_array($frequency, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'frequency', must be one of '%s'",
@@ -382,7 +389,14 @@ class AdSetFrequencyCapping implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setMaximumImpressions($maximum_impressions)
     {
         if (is_null($maximum_impressions)) {
-            throw new \InvalidArgumentException('non-nullable maximum_impressions cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'maximum_impressions');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('maximum_impressions', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['maximum_impressions'] = $maximum_impressions;
 

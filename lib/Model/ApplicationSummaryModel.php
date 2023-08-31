@@ -86,11 +86,11 @@ class ApplicationSummaryModel implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'application_id' => false,
-		'name' => false,
-		'organization_id' => false,
-		'description' => false,
-		'criteo_service' => false
+        'application_id' => true,
+		'name' => true,
+		'organization_id' => true,
+		'description' => true,
+		'criteo_service' => true
     ];
 
     /**
@@ -338,7 +338,14 @@ class ApplicationSummaryModel implements ModelInterface, ArrayAccess, \JsonSeria
     public function setApplicationId($application_id)
     {
         if (is_null($application_id)) {
-            throw new \InvalidArgumentException('non-nullable application_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'application_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('application_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['application_id'] = $application_id;
 
@@ -365,7 +372,14 @@ class ApplicationSummaryModel implements ModelInterface, ArrayAccess, \JsonSeria
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -392,7 +406,14 @@ class ApplicationSummaryModel implements ModelInterface, ArrayAccess, \JsonSeria
     public function setOrganizationId($organization_id)
     {
         if (is_null($organization_id)) {
-            throw new \InvalidArgumentException('non-nullable organization_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'organization_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('organization_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['organization_id'] = $organization_id;
 
@@ -419,7 +440,14 @@ class ApplicationSummaryModel implements ModelInterface, ArrayAccess, \JsonSeria
     public function setDescription($description)
     {
         if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['description'] = $description;
 
@@ -446,7 +474,14 @@ class ApplicationSummaryModel implements ModelInterface, ArrayAccess, \JsonSeria
     public function setCriteoService($criteo_service)
     {
         if (is_null($criteo_service)) {
-            throw new \InvalidArgumentException('non-nullable criteo_service cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'criteo_service');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('criteo_service', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['criteo_service'] = $criteo_service;
 

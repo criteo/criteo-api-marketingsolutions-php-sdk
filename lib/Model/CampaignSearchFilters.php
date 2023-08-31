@@ -80,8 +80,8 @@ class CampaignSearchFilters implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'campaign_ids' => false,
-		'advertiser_ids' => false
+        'campaign_ids' => true,
+		'advertiser_ids' => true
     ];
 
     /**
@@ -317,7 +317,14 @@ class CampaignSearchFilters implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setCampaignIds($campaign_ids)
     {
         if (is_null($campaign_ids)) {
-            throw new \InvalidArgumentException('non-nullable campaign_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
 
@@ -346,7 +353,14 @@ class CampaignSearchFilters implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setAdvertiserIds($advertiser_ids)
     {
         if (is_null($advertiser_ids)) {
-            throw new \InvalidArgumentException('non-nullable advertiser_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'advertiser_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('advertiser_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
 

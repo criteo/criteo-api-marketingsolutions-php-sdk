@@ -83,8 +83,8 @@ class ApplicationSummaryModelResponse implements ModelInterface, ArrayAccess, \J
       */
     protected static array $openAPINullables = [
         'data' => false,
-		'warnings' => false,
-		'errors' => false
+		'warnings' => true,
+		'errors' => true
     ];
 
     /**
@@ -351,7 +351,14 @@ class ApplicationSummaryModelResponse implements ModelInterface, ArrayAccess, \J
     public function setWarnings($warnings)
     {
         if (is_null($warnings)) {
-            throw new \InvalidArgumentException('non-nullable warnings cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'warnings');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('warnings', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
 
@@ -380,7 +387,14 @@ class ApplicationSummaryModelResponse implements ModelInterface, ArrayAccess, \J
     public function setErrors($errors)
     {
         if (is_null($errors)) {
-            throw new \InvalidArgumentException('non-nullable errors cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'errors');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('errors', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
 

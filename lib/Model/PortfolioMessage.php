@@ -78,7 +78,7 @@ class PortfolioMessage implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'advertiser_name' => false
+        'advertiser_name' => true
     ];
 
     /**
@@ -310,7 +310,14 @@ class PortfolioMessage implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAdvertiserName($advertiser_name)
     {
         if (is_null($advertiser_name)) {
-            throw new \InvalidArgumentException('non-nullable advertiser_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'advertiser_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('advertiser_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['advertiser_name'] = $advertiser_name;
 
