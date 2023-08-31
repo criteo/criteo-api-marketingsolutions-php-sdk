@@ -86,8 +86,8 @@ class ReadAdSetSchedule implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static array $openAPINullables = [
         'start_date' => false,
 		'end_date' => false,
-		'activation_status' => false,
-		'delivery_status' => false
+		'activation_status' => true,
+		'delivery_status' => true
     ];
 
     /**
@@ -449,10 +449,17 @@ class ReadAdSetSchedule implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setActivationStatus($activation_status)
     {
         if (is_null($activation_status)) {
-            throw new \InvalidArgumentException('non-nullable activation_status cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'activation_status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('activation_status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getActivationStatusAllowableValues();
-        if (!in_array($activation_status, $allowedValues, true)) {
+        if (!is_null($activation_status) && !in_array($activation_status, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'activation_status', must be one of '%s'",
@@ -486,10 +493,17 @@ class ReadAdSetSchedule implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setDeliveryStatus($delivery_status)
     {
         if (is_null($delivery_status)) {
-            throw new \InvalidArgumentException('non-nullable delivery_status cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'delivery_status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('delivery_status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getDeliveryStatusAllowableValues();
-        if (!in_array($delivery_status, $allowedValues, true)) {
+        if (!is_null($delivery_status) && !in_array($delivery_status, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'delivery_status', must be one of '%s'",

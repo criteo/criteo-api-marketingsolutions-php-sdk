@@ -86,11 +86,11 @@ class Campaign implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'advertiser_id' => false,
-		'objective' => false,
+        'name' => true,
+		'advertiser_id' => true,
+		'objective' => true,
 		'spend_limit' => false,
-		'goal' => false
+		'goal' => true
     ];
 
     /**
@@ -364,7 +364,14 @@ class Campaign implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -391,7 +398,14 @@ class Campaign implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAdvertiserId($advertiser_id)
     {
         if (is_null($advertiser_id)) {
-            throw new \InvalidArgumentException('non-nullable advertiser_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'advertiser_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('advertiser_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['advertiser_id'] = $advertiser_id;
 
@@ -418,7 +432,14 @@ class Campaign implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setObjective($objective)
     {
         if (is_null($objective)) {
-            throw new \InvalidArgumentException('non-nullable objective cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'objective');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('objective', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['objective'] = $objective;
 
@@ -472,10 +493,17 @@ class Campaign implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setGoal($goal)
     {
         if (is_null($goal)) {
-            throw new \InvalidArgumentException('non-nullable goal cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'goal');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('goal', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getGoalAllowableValues();
-        if (!in_array($goal, $allowedValues, true)) {
+        if (!is_null($goal) && !in_array($goal, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'goal', must be one of '%s'",
