@@ -80,8 +80,8 @@ class CouponSupportedSizes implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'logo_zone' => false,
-		'full_frame' => false
+        'logo_zone' => true,
+		'full_frame' => true
     ];
 
     /**
@@ -317,7 +317,14 @@ class CouponSupportedSizes implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setLogoZone($logo_zone)
     {
         if (is_null($logo_zone)) {
-            throw new \InvalidArgumentException('non-nullable logo_zone cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'logo_zone');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('logo_zone', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
 
@@ -346,7 +353,14 @@ class CouponSupportedSizes implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setFullFrame($full_frame)
     {
         if (is_null($full_frame)) {
-            throw new \InvalidArgumentException('non-nullable full_frame cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'full_frame');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('full_frame', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
 

@@ -78,7 +78,7 @@ class ContactListV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'is_read_only' => false
+        'is_read_only' => true
     ];
 
     /**
@@ -310,7 +310,14 @@ class ContactListV1 implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setIsReadOnly($is_read_only)
     {
         if (is_null($is_read_only)) {
-            throw new \InvalidArgumentException('non-nullable is_read_only cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'is_read_only');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('is_read_only', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['is_read_only'] = $is_read_only;
 

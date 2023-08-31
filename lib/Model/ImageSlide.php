@@ -82,9 +82,9 @@ class ImageSlide implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'width' => false,
-		'height' => false,
-		'slide_urls' => false
+        'width' => true,
+		'height' => true,
+		'slide_urls' => true
     ];
 
     /**
@@ -324,7 +324,14 @@ class ImageSlide implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setWidth($width)
     {
         if (is_null($width)) {
-            throw new \InvalidArgumentException('non-nullable width cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'width');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('width', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['width'] = $width;
 
@@ -351,7 +358,14 @@ class ImageSlide implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setHeight($height)
     {
         if (is_null($height)) {
-            throw new \InvalidArgumentException('non-nullable height cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'height');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('height', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['height'] = $height;
 
@@ -378,7 +392,14 @@ class ImageSlide implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSlideUrls($slide_urls)
     {
         if (is_null($slide_urls)) {
-            throw new \InvalidArgumentException('non-nullable slide_urls cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'slide_urls');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('slide_urls', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
 

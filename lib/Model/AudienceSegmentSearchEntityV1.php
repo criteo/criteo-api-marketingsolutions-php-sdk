@@ -82,9 +82,9 @@ class AudienceSegmentSearchEntityV1 implements ModelInterface, ArrayAccess, \Jso
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'audience_segment_ids' => false,
-		'advertiser_ids' => false,
-		'audience_segment_types' => false
+        'audience_segment_ids' => true,
+		'advertiser_ids' => true,
+		'audience_segment_types' => true
     ];
 
     /**
@@ -351,7 +351,14 @@ class AudienceSegmentSearchEntityV1 implements ModelInterface, ArrayAccess, \Jso
     public function setAudienceSegmentIds($audience_segment_ids)
     {
         if (is_null($audience_segment_ids)) {
-            throw new \InvalidArgumentException('non-nullable audience_segment_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'audience_segment_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('audience_segment_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['audience_segment_ids'] = $audience_segment_ids;
 
@@ -378,7 +385,14 @@ class AudienceSegmentSearchEntityV1 implements ModelInterface, ArrayAccess, \Jso
     public function setAdvertiserIds($advertiser_ids)
     {
         if (is_null($advertiser_ids)) {
-            throw new \InvalidArgumentException('non-nullable advertiser_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'advertiser_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('advertiser_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['advertiser_ids'] = $advertiser_ids;
 
@@ -405,10 +419,17 @@ class AudienceSegmentSearchEntityV1 implements ModelInterface, ArrayAccess, \Jso
     public function setAudienceSegmentTypes($audience_segment_types)
     {
         if (is_null($audience_segment_types)) {
-            throw new \InvalidArgumentException('non-nullable audience_segment_types cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'audience_segment_types');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('audience_segment_types', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getAudienceSegmentTypesAllowableValues();
-        if (array_diff($audience_segment_types, $allowedValues)) {
+        if (!is_null($audience_segment_types) && array_diff($audience_segment_types, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'audience_segment_types', must be one of '%s'",

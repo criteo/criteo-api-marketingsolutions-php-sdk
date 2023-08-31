@@ -84,10 +84,10 @@ class AudienceSearchEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'audience_ids' => false,
-		'advertiser_ids' => false,
-		'audience_segment_ids' => false,
-		'ad_set_ids' => false
+        'audience_ids' => true,
+		'advertiser_ids' => true,
+		'audience_segment_ids' => true,
+		'ad_set_ids' => true
     ];
 
     /**
@@ -331,7 +331,14 @@ class AudienceSearchEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
     public function setAudienceIds($audience_ids)
     {
         if (is_null($audience_ids)) {
-            throw new \InvalidArgumentException('non-nullable audience_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'audience_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('audience_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['audience_ids'] = $audience_ids;
 
@@ -358,7 +365,14 @@ class AudienceSearchEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
     public function setAdvertiserIds($advertiser_ids)
     {
         if (is_null($advertiser_ids)) {
-            throw new \InvalidArgumentException('non-nullable advertiser_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'advertiser_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('advertiser_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['advertiser_ids'] = $advertiser_ids;
 
@@ -385,7 +399,14 @@ class AudienceSearchEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
     public function setAudienceSegmentIds($audience_segment_ids)
     {
         if (is_null($audience_segment_ids)) {
-            throw new \InvalidArgumentException('non-nullable audience_segment_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'audience_segment_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('audience_segment_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['audience_segment_ids'] = $audience_segment_ids;
 
@@ -412,7 +433,14 @@ class AudienceSearchEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
     public function setAdSetIds($ad_set_ids)
     {
         if (is_null($ad_set_ids)) {
-            throw new \InvalidArgumentException('non-nullable ad_set_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'ad_set_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ad_set_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['ad_set_ids'] = $ad_set_ids;
 

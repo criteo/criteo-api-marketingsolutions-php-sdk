@@ -108,9 +108,9 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
 		'description_font' => false,
 		'calls_to_action' => false,
 		'colors' => false,
-		'image_sets_base64' => false,
-		'image_display' => false,
-		'video_base64_strings' => false,
+		'image_sets_base64' => true,
+		'image_display' => true,
+		'video_base64_strings' => true,
 		'landing_page_url' => false
     ];
 
@@ -698,7 +698,14 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
     public function setImageSetsBase64($image_sets_base64)
     {
         if (is_null($image_sets_base64)) {
-            throw new \InvalidArgumentException('non-nullable image_sets_base64 cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'image_sets_base64');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('image_sets_base64', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
 
@@ -727,10 +734,17 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
     public function setImageDisplay($image_display)
     {
         if (is_null($image_display)) {
-            throw new \InvalidArgumentException('non-nullable image_display cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'image_display');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('image_display', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getImageDisplayAllowableValues();
-        if (!in_array($image_display, $allowedValues, true)) {
+        if (!is_null($image_display) && !in_array($image_display, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'image_display', must be one of '%s'",
@@ -764,7 +778,14 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
     public function setVideoBase64Strings($video_base64_strings)
     {
         if (is_null($video_base64_strings)) {
-            throw new \InvalidArgumentException('non-nullable video_base64_strings cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'video_base64_strings');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('video_base64_strings', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
 

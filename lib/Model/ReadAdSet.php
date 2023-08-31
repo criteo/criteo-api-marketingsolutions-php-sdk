@@ -96,16 +96,16 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'advertiser_id' => false,
-		'dataset_id' => false,
-		'campaign_id' => false,
-		'destination_environment' => false,
+        'name' => true,
+		'advertiser_id' => true,
+		'dataset_id' => true,
+		'campaign_id' => true,
+		'destination_environment' => true,
 		'schedule' => false,
 		'bidding' => false,
 		'targeting' => false,
 		'budget' => false,
-		'media_type' => false
+		'media_type' => true
     ];
 
     /**
@@ -423,7 +423,14 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -450,7 +457,14 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAdvertiserId($advertiser_id)
     {
         if (is_null($advertiser_id)) {
-            throw new \InvalidArgumentException('non-nullable advertiser_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'advertiser_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('advertiser_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['advertiser_id'] = $advertiser_id;
 
@@ -477,7 +491,14 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDatasetId($dataset_id)
     {
         if (is_null($dataset_id)) {
-            throw new \InvalidArgumentException('non-nullable dataset_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'dataset_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('dataset_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['dataset_id'] = $dataset_id;
 
@@ -504,7 +525,14 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCampaignId($campaign_id)
     {
         if (is_null($campaign_id)) {
-            throw new \InvalidArgumentException('non-nullable campaign_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaign_id'] = $campaign_id;
 
@@ -531,10 +559,17 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDestinationEnvironment($destination_environment)
     {
         if (is_null($destination_environment)) {
-            throw new \InvalidArgumentException('non-nullable destination_environment cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'destination_environment');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('destination_environment', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getDestinationEnvironmentAllowableValues();
-        if (!in_array($destination_environment, $allowedValues, true)) {
+        if (!is_null($destination_environment) && !in_array($destination_environment, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'destination_environment', must be one of '%s'",
@@ -676,10 +711,17 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setMediaType($media_type)
     {
         if (is_null($media_type)) {
-            throw new \InvalidArgumentException('non-nullable media_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'media_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('media_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getMediaTypeAllowableValues();
-        if (!in_array($media_type, $allowedValues, true)) {
+        if (!is_null($media_type) && !in_array($media_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'media_type', must be one of '%s'",

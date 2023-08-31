@@ -81,7 +81,7 @@ class ImageSet implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'images' => false,
-		'headline_text' => false
+		'headline_text' => true
     ];
 
     /**
@@ -349,7 +349,14 @@ class ImageSet implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setHeadlineText($headline_text)
     {
         if (is_null($headline_text)) {
-            throw new \InvalidArgumentException('non-nullable headline_text cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'headline_text');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('headline_text', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['headline_text'] = $headline_text;
 

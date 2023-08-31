@@ -90,13 +90,13 @@ class DynamicAttributes implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'logos' => false,
-		'creative_background_color' => false,
-		'body_text_color' => false,
-		'prices_color' => false,
-		'primary_font' => false,
-		'calls_to_action' => false,
-		'product_image_display' => false
+        'logos' => true,
+		'creative_background_color' => true,
+		'body_text_color' => true,
+		'prices_color' => true,
+		'primary_font' => true,
+		'calls_to_action' => true,
+		'product_image_display' => true
     ];
 
     /**
@@ -376,7 +376,14 @@ class DynamicAttributes implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setLogos($logos)
     {
         if (is_null($logos)) {
-            throw new \InvalidArgumentException('non-nullable logos cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'logos');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('logos', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
 
@@ -405,7 +412,14 @@ class DynamicAttributes implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setCreativeBackgroundColor($creative_background_color)
     {
         if (is_null($creative_background_color)) {
-            throw new \InvalidArgumentException('non-nullable creative_background_color cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'creative_background_color');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('creative_background_color', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['creative_background_color'] = $creative_background_color;
 
@@ -432,7 +446,14 @@ class DynamicAttributes implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setBodyTextColor($body_text_color)
     {
         if (is_null($body_text_color)) {
-            throw new \InvalidArgumentException('non-nullable body_text_color cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'body_text_color');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('body_text_color', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['body_text_color'] = $body_text_color;
 
@@ -459,7 +480,14 @@ class DynamicAttributes implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setPricesColor($prices_color)
     {
         if (is_null($prices_color)) {
-            throw new \InvalidArgumentException('non-nullable prices_color cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'prices_color');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('prices_color', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['prices_color'] = $prices_color;
 
@@ -486,7 +514,14 @@ class DynamicAttributes implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setPrimaryFont($primary_font)
     {
         if (is_null($primary_font)) {
-            throw new \InvalidArgumentException('non-nullable primary_font cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'primary_font');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('primary_font', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['primary_font'] = $primary_font;
 
@@ -513,7 +548,14 @@ class DynamicAttributes implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setCallsToAction($calls_to_action)
     {
         if (is_null($calls_to_action)) {
-            throw new \InvalidArgumentException('non-nullable calls_to_action cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'calls_to_action');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('calls_to_action', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
 
@@ -542,10 +584,17 @@ class DynamicAttributes implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setProductImageDisplay($product_image_display)
     {
         if (is_null($product_image_display)) {
-            throw new \InvalidArgumentException('non-nullable product_image_display cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'product_image_display');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('product_image_display', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getProductImageDisplayAllowableValues();
-        if (!in_array($product_image_display, $allowedValues, true)) {
+        if (!is_null($product_image_display) && !in_array($product_image_display, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'product_image_display', must be one of '%s'",

@@ -82,9 +82,9 @@ class AudienceSearchMetadataV1 implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'total_items' => false,
-		'limit' => false,
-		'offset' => false
+        'total_items' => true,
+		'limit' => true,
+		'offset' => true
     ];
 
     /**
@@ -324,7 +324,14 @@ class AudienceSearchMetadataV1 implements ModelInterface, ArrayAccess, \JsonSeri
     public function setTotalItems($total_items)
     {
         if (is_null($total_items)) {
-            throw new \InvalidArgumentException('non-nullable total_items cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total_items');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_items', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total_items'] = $total_items;
 
@@ -351,7 +358,14 @@ class AudienceSearchMetadataV1 implements ModelInterface, ArrayAccess, \JsonSeri
     public function setLimit($limit)
     {
         if (is_null($limit)) {
-            throw new \InvalidArgumentException('non-nullable limit cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'limit');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('limit', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['limit'] = $limit;
 
@@ -378,7 +392,14 @@ class AudienceSearchMetadataV1 implements ModelInterface, ArrayAccess, \JsonSeri
     public function setOffset($offset)
     {
         if (is_null($offset)) {
-            throw new \InvalidArgumentException('non-nullable offset cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'offset');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('offset', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['offset'] = $offset;
 

@@ -78,7 +78,7 @@ class AdSetAudienceLinkEntityV1 implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'audience_id' => false
+        'audience_id' => true
     ];
 
     /**
@@ -310,7 +310,14 @@ class AdSetAudienceLinkEntityV1 implements ModelInterface, ArrayAccess, \JsonSer
     public function setAudienceId($audience_id)
     {
         if (is_null($audience_id)) {
-            throw new \InvalidArgumentException('non-nullable audience_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'audience_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('audience_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['audience_id'] = $audience_id;
 

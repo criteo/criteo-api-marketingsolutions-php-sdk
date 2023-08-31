@@ -91,12 +91,12 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'name' => false,
-		'description' => false,
+		'description' => true,
 		'creative_id' => false,
 		'ad_set_id' => false,
-		'inventory_type' => false,
+		'inventory_type' => true,
 		'start_date' => false,
-		'end_date' => false
+		'end_date' => true
     ];
 
     /**
@@ -415,7 +415,14 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDescription($description)
     {
         if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['description'] = $description;
 
@@ -496,10 +503,17 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setInventoryType($inventory_type)
     {
         if (is_null($inventory_type)) {
-            throw new \InvalidArgumentException('non-nullable inventory_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'inventory_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('inventory_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getInventoryTypeAllowableValues();
-        if (!in_array($inventory_type, $allowedValues, true)) {
+        if (!is_null($inventory_type) && !in_array($inventory_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'inventory_type', must be one of '%s'",
@@ -560,7 +574,14 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setEndDate($end_date)
     {
         if (is_null($end_date)) {
-            throw new \InvalidArgumentException('non-nullable end_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'end_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('end_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['end_date'] = $end_date;
 

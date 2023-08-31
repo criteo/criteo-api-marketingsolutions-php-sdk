@@ -80,7 +80,7 @@ class AudienceSegmentSizeEstimationEntityV1Resource implements ModelInterface, A
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'type' => false,
+        'type' => true,
 		'attributes' => false
     ];
 
@@ -317,7 +317,14 @@ class AudienceSegmentSizeEstimationEntityV1Resource implements ModelInterface, A
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['type'] = $type;
 

@@ -82,9 +82,9 @@ class LocationV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'points_of_interest' => false,
-		'radius_in_km' => false,
-		'registry_type' => false
+        'points_of_interest' => true,
+		'radius_in_km' => true,
+		'registry_type' => true
     ];
 
     /**
@@ -348,7 +348,14 @@ class LocationV1 implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPointsOfInterest($points_of_interest)
     {
         if (is_null($points_of_interest)) {
-            throw new \InvalidArgumentException('non-nullable points_of_interest cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points_of_interest');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points_of_interest', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points_of_interest'] = $points_of_interest;
 
@@ -375,7 +382,14 @@ class LocationV1 implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRadiusInKm($radius_in_km)
     {
         if (is_null($radius_in_km)) {
-            throw new \InvalidArgumentException('non-nullable radius_in_km cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'radius_in_km');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('radius_in_km', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['radius_in_km'] = $radius_in_km;
 
@@ -402,10 +416,17 @@ class LocationV1 implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRegistryType($registry_type)
     {
         if (is_null($registry_type)) {
-            throw new \InvalidArgumentException('non-nullable registry_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'registry_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('registry_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getRegistryTypeAllowableValues();
-        if (!in_array($registry_type, $allowedValues, true)) {
+        if (!is_null($registry_type) && !in_array($registry_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'registry_type', must be one of '%s'",

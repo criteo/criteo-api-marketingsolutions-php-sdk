@@ -91,14 +91,14 @@ class AudienceAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'advertiser_id' => false,
+        'advertiser_id' => true,
 		'name' => false,
 		'description' => false,
 		'created' => false,
 		'updated' => false,
-		'nb_lines' => false,
-		'nb_lines_email' => false,
-		'nb_matches_email' => false
+		'nb_lines' => true,
+		'nb_lines_email' => true,
+		'nb_matches_email' => true
     ];
 
     /**
@@ -370,7 +370,14 @@ class AudienceAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setAdvertiserId($advertiser_id)
     {
         if (is_null($advertiser_id)) {
-            throw new \InvalidArgumentException('non-nullable advertiser_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'advertiser_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('advertiser_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['advertiser_id'] = $advertiser_id;
 
@@ -505,7 +512,14 @@ class AudienceAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setNbLines($nb_lines)
     {
         if (is_null($nb_lines)) {
-            throw new \InvalidArgumentException('non-nullable nb_lines cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'nb_lines');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('nb_lines', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['nb_lines'] = $nb_lines;
 
@@ -532,7 +546,14 @@ class AudienceAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setNbLinesEmail($nb_lines_email)
     {
         if (is_null($nb_lines_email)) {
-            throw new \InvalidArgumentException('non-nullable nb_lines_email cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'nb_lines_email');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('nb_lines_email', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['nb_lines_email'] = $nb_lines_email;
 
@@ -559,7 +580,14 @@ class AudienceAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setNbMatchesEmail($nb_matches_email)
     {
         if (is_null($nb_matches_email)) {
-            throw new \InvalidArgumentException('non-nullable nb_matches_email cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'nb_matches_email');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('nb_matches_email', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['nb_matches_email'] = $nb_matches_email;
 
