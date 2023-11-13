@@ -40,8 +40,6 @@ docs/Model/AlgebraNodeV1.md
 docs/Model/ApplicationSummaryModel.md
 docs/Model/ApplicationSummaryModelResource.md
 docs/Model/ApplicationSummaryModelResponse.md
-docs/Model/Audience.md
-docs/Model/AudienceAttributes.md
 docs/Model/AudienceBulkCreateInputV1.md
 docs/Model/AudienceBulkDeleteInputV1.md
 docs/Model/AudienceBulkUpdateInputV1.md
@@ -159,12 +157,10 @@ docs/Model/CreativeWriteResource.md
 docs/Model/CriteoApiError.md
 docs/Model/CriteoApiWarning.md
 docs/Model/DeleteAudienceContactListResponse.md
-docs/Model/DeleteAudienceResponse.md
 docs/Model/DynamicAttributes.md
 docs/Model/DynamicWriteAttributes.md
 docs/Model/EntityOfPortfolioMessage.md
 docs/Model/ErrorCodeResponse.md
-docs/Model/GetAudiencesResponse.md
 docs/Model/GetPortfolioResponse.md
 docs/Model/HtmlTagAttributes.md
 docs/Model/HtmlTagWriteAttributes.md
@@ -192,10 +188,6 @@ docs/Model/LookalikeCreateV1.md
 docs/Model/LookalikeUpdateV1.md
 docs/Model/LookalikeV1.md
 docs/Model/ModifyAudienceResponse.md
-docs/Model/NewAudience.md
-docs/Model/NewAudienceAttributes.md
-docs/Model/NewAudienceRequest.md
-docs/Model/NewAudienceResponse.md
 docs/Model/NillableAdSetTargetingRule.md
 docs/Model/NillableAdSetTargetingRuleValue.md
 docs/Model/NillableDateTime.md
@@ -239,9 +231,6 @@ docs/Model/ReadAdSetBudget.md
 docs/Model/ReadAdSetSchedule.md
 docs/Model/ReadModelAdSetId.md
 docs/Model/ReadModelReadAdSet.md
-docs/Model/ReplaceAudience.md
-docs/Model/ReplaceAudienceRequest.md
-docs/Model/ReplaceAudienceResponse.md
 docs/Model/RequestAdSetSearch.md
 docs/Model/RequestsAdSetId.md
 docs/Model/RequestsPatchAdSet.md
@@ -311,8 +300,6 @@ lib/Model/AlgebraNodeV1.php
 lib/Model/ApplicationSummaryModel.php
 lib/Model/ApplicationSummaryModelResource.php
 lib/Model/ApplicationSummaryModelResponse.php
-lib/Model/Audience.php
-lib/Model/AudienceAttributes.php
 lib/Model/AudienceBulkCreateInputV1.php
 lib/Model/AudienceBulkDeleteInputV1.php
 lib/Model/AudienceBulkUpdateInputV1.php
@@ -430,12 +417,10 @@ lib/Model/CreativeWriteResource.php
 lib/Model/CriteoApiError.php
 lib/Model/CriteoApiWarning.php
 lib/Model/DeleteAudienceContactListResponse.php
-lib/Model/DeleteAudienceResponse.php
 lib/Model/DynamicAttributes.php
 lib/Model/DynamicWriteAttributes.php
 lib/Model/EntityOfPortfolioMessage.php
 lib/Model/ErrorCodeResponse.php
-lib/Model/GetAudiencesResponse.php
 lib/Model/GetPortfolioResponse.php
 lib/Model/HtmlTagAttributes.php
 lib/Model/HtmlTagWriteAttributes.php
@@ -464,10 +449,6 @@ lib/Model/LookalikeUpdateV1.php
 lib/Model/LookalikeV1.php
 lib/Model/ModelInterface.php
 lib/Model/ModifyAudienceResponse.php
-lib/Model/NewAudience.php
-lib/Model/NewAudienceAttributes.php
-lib/Model/NewAudienceRequest.php
-lib/Model/NewAudienceResponse.php
 lib/Model/NillableAdSetTargetingRule.php
 lib/Model/NillableAdSetTargetingRuleValue.php
 lib/Model/NillableDateTime.php
@@ -511,9 +492,6 @@ lib/Model/ReadAdSetBudget.php
 lib/Model/ReadAdSetSchedule.php
 lib/Model/ReadModelAdSetId.php
 lib/Model/ReadModelReadAdSet.php
-lib/Model/ReplaceAudience.php
-lib/Model/ReplaceAudienceRequest.php
-lib/Model/ReplaceAudienceResponse.php
 lib/Model/RequestAdSetSearch.php
 lib/Model/RequestsAdSetId.php
 lib/Model/RequestsPatchAdSet.php
