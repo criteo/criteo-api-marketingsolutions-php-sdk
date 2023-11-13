@@ -64,6 +64,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         'name' => 'string',
         'description' => 'string',
         'price' => 'float',
+        'retailprice' => 'float',
         'google_category' => 'string'
     ];
 
@@ -81,6 +82,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         'name' => null,
         'description' => null,
         'price' => 'double',
+        'retailprice' => 'double',
         'google_category' => null
     ];
 
@@ -96,6 +98,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
 		'name' => true,
 		'description' => true,
 		'price' => true,
+		'retailprice' => true,
 		'google_category' => true
     ];
 
@@ -191,6 +194,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         'name' => 'name',
         'description' => 'description',
         'price' => 'price',
+        'retailprice' => 'retailprice',
         'google_category' => 'googleCategory'
     ];
 
@@ -206,6 +210,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         'name' => 'setName',
         'description' => 'setDescription',
         'price' => 'setPrice',
+        'retailprice' => 'setRetailprice',
         'google_category' => 'setGoogleCategory'
     ];
 
@@ -221,6 +226,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         'name' => 'getName',
         'description' => 'getDescription',
         'price' => 'getPrice',
+        'retailprice' => 'getRetailprice',
         'google_category' => 'getGoogleCategory'
     ];
 
@@ -287,6 +293,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('price', $data ?? [], null);
+        $this->setIfExists('retailprice', $data ?? [], null);
         $this->setIfExists('google_category', $data ?? [], null);
     }
 
@@ -532,6 +539,40 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
             }
         }
         $this->container['price'] = $price;
+
+        return $this;
+    }
+
+    /**
+     * Gets retailprice
+     *
+     * @return float|null
+     */
+    public function getRetailprice()
+    {
+        return $this->container['retailprice'];
+    }
+
+    /**
+     * Sets retailprice
+     *
+     * @param float|null $retailprice Product retail price.
+     *
+     * @return self
+     */
+    public function setRetailprice($retailprice)
+    {
+        if (is_null($retailprice)) {
+            array_push($this->openAPINullablesSetToNull, 'retailprice');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('retailprice', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['retailprice'] = $retailprice;
 
         return $this;
     }

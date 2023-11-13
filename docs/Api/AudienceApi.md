@@ -538,7 +538,7 @@ deleteContactListIdentifiers($audience_segment_id): \criteo\api\marketingsolutio
 
 
 
-Delete all identifiers from a Contact List Audience Segment
+Delete all identifiers from a contact list audience-segment.
 
 ### Example
 
@@ -560,7 +560,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$audience_segment_id = 'audience_segment_id_example'; // string | The ID of the Audience Segment to amend
+$audience_segment_id = 'audience_segment_id_example'; // string | The id of the contact list audience-segment to amend
 
 try {
     $result = $apiInstance->deleteContactListIdentifiers($audience_segment_id);
@@ -574,7 +574,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_segment_id** | **string**| The ID of the Audience Segment to amend | |
+| **audience_segment_id** | **string**| The id of the contact list audience-segment to amend | |
 
 ### Return type
 
@@ -984,7 +984,7 @@ modifyAudienceUsersWithAttributes($audience_id, $contactlist_with_attributes_ame
 
 
 
-Add/remove users to or from an audience
+Add/remove identifiers to or from a contact list.
 
 ### Example
 
@@ -1006,7 +1006,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$audience_id = 'audience_id_example'; // string | The id of the audience to amend
+$audience_id = 'audience_id_example'; // string | The id of the contact list audience-segment to amend
 $contactlist_with_attributes_amendment_request = new \criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest(); // \criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest
 
 try {
@@ -1021,7 +1021,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_id** | **string**| The id of the audience to amend | |
+| **audience_id** | **string**| The id of the contact list audience-segment to amend | |
 | **contactlist_with_attributes_amendment_request** | [**\criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest**](../Model/ContactlistWithAttributesAmendmentRequest.md)|  | |
 
 ### Return type
@@ -1247,7 +1247,7 @@ updateContactListIdentifiers($audience_segment_id, $contactlist_amendment_reques
 
 
 
-Add/remove identifiers to or from an Contact List Audience Segment
+Add/remove identifiers to or from a contact list audience-segment.
 
 ### Example
 
@@ -1269,7 +1269,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$audience_segment_id = 'audience_segment_id_example'; // string | The ID of the Audience Segment to amend
+$audience_segment_id = 'audience_segment_id_example'; // string | The id of the contact list audience-segment to amend
 $contactlist_amendment_request = new \criteo\api\marketingsolutions\preview\Model\ContactlistAmendmentRequest(); // \criteo\api\marketingsolutions\preview\Model\ContactlistAmendmentRequest
 
 try {
@@ -1284,7 +1284,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_segment_id** | **string**| The ID of the Audience Segment to amend | |
+| **audience_segment_id** | **string**| The id of the contact list audience-segment to amend | |
 | **contactlist_amendment_request** | [**\criteo\api\marketingsolutions\preview\Model\ContactlistAmendmentRequest**](../Model/ContactlistAmendmentRequest.md)|  | |
 
 ### Return type

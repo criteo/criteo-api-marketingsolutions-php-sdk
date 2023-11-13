@@ -2480,7 +2480,7 @@ class AudienceApi
     /**
      * Operation deleteContactListIdentifiers
      *
-     * @param  string $audience_segment_id The ID of the Audience Segment to amend (required)
+     * @param  string $audience_segment_id The id of the contact list audience-segment to amend (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteContactListIdentifiers'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -2496,7 +2496,7 @@ class AudienceApi
     /**
      * Operation deleteContactListIdentifiersWithHttpInfo
      *
-     * @param  string $audience_segment_id The ID of the Audience Segment to amend (required)
+     * @param  string $audience_segment_id The id of the contact list audience-segment to amend (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteContactListIdentifiers'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -2617,7 +2617,7 @@ class AudienceApi
     /**
      * Operation deleteContactListIdentifiersAsync
      *
-     * @param  string $audience_segment_id The ID of the Audience Segment to amend (required)
+     * @param  string $audience_segment_id The id of the contact list audience-segment to amend (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteContactListIdentifiers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2636,7 +2636,7 @@ class AudienceApi
     /**
      * Operation deleteContactListIdentifiersAsyncWithHttpInfo
      *
-     * @param  string $audience_segment_id The ID of the Audience Segment to amend (required)
+     * @param  string $audience_segment_id The id of the contact list audience-segment to amend (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteContactListIdentifiers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2686,7 +2686,7 @@ class AudienceApi
     /**
      * Create request for operation 'deleteContactListIdentifiers'
      *
-     * @param  string $audience_segment_id The ID of the Audience Segment to amend (required)
+     * @param  string $audience_segment_id The id of the contact list audience-segment to amend (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteContactListIdentifiers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4485,7 +4485,7 @@ class AudienceApi
     /**
      * Operation modifyAudienceUsersWithAttributes
      *
-     * @param  string $audience_id The id of the audience to amend (required)
+     * @param  string $audience_id The id of the contact list audience-segment to amend (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest $contactlist_with_attributes_amendment_request contactlist_with_attributes_amendment_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['modifyAudienceUsersWithAttributes'] to see the possible values for this operation
      *
@@ -4502,7 +4502,7 @@ class AudienceApi
     /**
      * Operation modifyAudienceUsersWithAttributesWithHttpInfo
      *
-     * @param  string $audience_id The id of the audience to amend (required)
+     * @param  string $audience_id The id of the contact list audience-segment to amend (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest $contactlist_with_attributes_amendment_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['modifyAudienceUsersWithAttributes'] to see the possible values for this operation
      *
@@ -4601,7 +4601,7 @@ class AudienceApi
     /**
      * Operation modifyAudienceUsersWithAttributesAsync
      *
-     * @param  string $audience_id The id of the audience to amend (required)
+     * @param  string $audience_id The id of the contact list audience-segment to amend (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest $contactlist_with_attributes_amendment_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['modifyAudienceUsersWithAttributes'] to see the possible values for this operation
      *
@@ -4621,7 +4621,7 @@ class AudienceApi
     /**
      * Operation modifyAudienceUsersWithAttributesAsyncWithHttpInfo
      *
-     * @param  string $audience_id The id of the audience to amend (required)
+     * @param  string $audience_id The id of the contact list audience-segment to amend (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest $contactlist_with_attributes_amendment_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['modifyAudienceUsersWithAttributes'] to see the possible values for this operation
      *
@@ -4672,7 +4672,7 @@ class AudienceApi
     /**
      * Create request for operation 'modifyAudienceUsersWithAttributes'
      *
-     * @param  string $audience_id The id of the audience to amend (required)
+     * @param  string $audience_id The id of the contact list audience-segment to amend (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest $contactlist_with_attributes_amendment_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['modifyAudienceUsersWithAttributes'] to see the possible values for this operation
      *
@@ -5665,7 +5665,7 @@ class AudienceApi
     /**
      * Operation updateContactListIdentifiers
      *
-     * @param  string $audience_segment_id The ID of the Audience Segment to amend (required)
+     * @param  string $audience_segment_id The id of the contact list audience-segment to amend (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ContactlistAmendmentRequest $contactlist_amendment_request contactlist_amendment_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateContactListIdentifiers'] to see the possible values for this operation
      *
@@ -5682,7 +5682,7 @@ class AudienceApi
     /**
      * Operation updateContactListIdentifiersWithHttpInfo
      *
-     * @param  string $audience_segment_id The ID of the Audience Segment to amend (required)
+     * @param  string $audience_segment_id The id of the contact list audience-segment to amend (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ContactlistAmendmentRequest $contactlist_amendment_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateContactListIdentifiers'] to see the possible values for this operation
      *
@@ -5827,7 +5827,7 @@ class AudienceApi
     /**
      * Operation updateContactListIdentifiersAsync
      *
-     * @param  string $audience_segment_id The ID of the Audience Segment to amend (required)
+     * @param  string $audience_segment_id The id of the contact list audience-segment to amend (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ContactlistAmendmentRequest $contactlist_amendment_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateContactListIdentifiers'] to see the possible values for this operation
      *
@@ -5847,7 +5847,7 @@ class AudienceApi
     /**
      * Operation updateContactListIdentifiersAsyncWithHttpInfo
      *
-     * @param  string $audience_segment_id The ID of the Audience Segment to amend (required)
+     * @param  string $audience_segment_id The id of the contact list audience-segment to amend (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ContactlistAmendmentRequest $contactlist_amendment_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateContactListIdentifiers'] to see the possible values for this operation
      *
@@ -5898,7 +5898,7 @@ class AudienceApi
     /**
      * Create request for operation 'updateContactListIdentifiers'
      *
-     * @param  string $audience_segment_id The ID of the Audience Segment to amend (required)
+     * @param  string $audience_segment_id The id of the contact list audience-segment to amend (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ContactlistAmendmentRequest $contactlist_amendment_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateContactListIdentifiers'] to see the possible values for this operation
      *

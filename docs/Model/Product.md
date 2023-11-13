@@ -79,6 +79,10 @@ Name | Type | Description | Notes
 **max_energy_efficiency_class** | **string** | The energy efficiency class as defined in EU directive 2010/30/EU. | [optional]
 **tax_category** | **string** | The tax category of the product, used to configure detailed tax nexus in account-level tax settings. | [optional]
 **transit_time_label** | **string** | The transit time label of the product, used to group product in account-level transit time tables. | [optional]
-**seller_id** | **string** | The ID of the seller (case sensitive and 50 UTF8 characters max). This information is required by the Criteo Offsite Ads. | [optional]
+**seller_id** | **string** | Deprecated field. It should be replaced by externalSellerId. The external ID of the seller (case sensitive and 50 UTF8 characters max). This information is required by the Criteo Offsite Ads. | [optional]
+**external_seller_id** | **string** | The external id of the seller (case sensitive and 50 UTF8 characters max). This information is required by the Criteo Offsite Ads. | [optional]
+**external_seller_name** | **string** | The external name of the seller (case sensitive and 750 UTF8 characters max). This information is required by the Criteo Offsite Ads. | [optional]
+**number_of_reviews** | **int** | The number of reviews for the product. This information is required by the Criteo Offsite Ads. | [optional]
+**product_rating** | **string** | The rating of the product. This information is required by the Criteo Offsite Ads. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

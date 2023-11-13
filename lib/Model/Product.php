@@ -133,7 +133,11 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'max_energy_efficiency_class' => 'string',
         'tax_category' => 'string',
         'transit_time_label' => 'string',
-        'seller_id' => 'string'
+        'seller_id' => 'string',
+        'external_seller_id' => 'string',
+        'external_seller_name' => 'string',
+        'number_of_reviews' => 'int',
+        'product_rating' => 'string'
     ];
 
     /**
@@ -219,7 +223,11 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'max_energy_efficiency_class' => null,
         'tax_category' => null,
         'transit_time_label' => null,
-        'seller_id' => null
+        'seller_id' => null,
+        'external_seller_id' => null,
+        'external_seller_name' => null,
+        'number_of_reviews' => 'int32',
+        'product_rating' => null
     ];
 
     /**
@@ -303,7 +311,11 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
 		'max_energy_efficiency_class' => true,
 		'tax_category' => true,
 		'transit_time_label' => true,
-		'seller_id' => true
+		'seller_id' => true,
+		'external_seller_id' => true,
+		'external_seller_name' => true,
+		'number_of_reviews' => true,
+		'product_rating' => true
     ];
 
     /**
@@ -467,7 +479,11 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'max_energy_efficiency_class' => 'maxEnergyEfficiencyClass',
         'tax_category' => 'taxCategory',
         'transit_time_label' => 'transitTimeLabel',
-        'seller_id' => 'sellerId'
+        'seller_id' => 'sellerId',
+        'external_seller_id' => 'externalSellerId',
+        'external_seller_name' => 'externalSellerName',
+        'number_of_reviews' => 'numberOfReviews',
+        'product_rating' => 'productRating'
     ];
 
     /**
@@ -551,7 +567,11 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'max_energy_efficiency_class' => 'setMaxEnergyEfficiencyClass',
         'tax_category' => 'setTaxCategory',
         'transit_time_label' => 'setTransitTimeLabel',
-        'seller_id' => 'setSellerId'
+        'seller_id' => 'setSellerId',
+        'external_seller_id' => 'setExternalSellerId',
+        'external_seller_name' => 'setExternalSellerName',
+        'number_of_reviews' => 'setNumberOfReviews',
+        'product_rating' => 'setProductRating'
     ];
 
     /**
@@ -635,7 +655,11 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'max_energy_efficiency_class' => 'getMaxEnergyEfficiencyClass',
         'tax_category' => 'getTaxCategory',
         'transit_time_label' => 'getTransitTimeLabel',
-        'seller_id' => 'getSellerId'
+        'seller_id' => 'getSellerId',
+        'external_seller_id' => 'getExternalSellerId',
+        'external_seller_name' => 'getExternalSellerName',
+        'number_of_reviews' => 'getNumberOfReviews',
+        'product_rating' => 'getProductRating'
     ];
 
     /**
@@ -784,6 +808,10 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('tax_category', $data ?? [], null);
         $this->setIfExists('transit_time_label', $data ?? [], null);
         $this->setIfExists('seller_id', $data ?? [], null);
+        $this->setIfExists('external_seller_id', $data ?? [], null);
+        $this->setIfExists('external_seller_name', $data ?? [], null);
+        $this->setIfExists('number_of_reviews', $data ?? [], null);
+        $this->setIfExists('product_rating', $data ?? [], null);
     }
 
     /**
@@ -3313,7 +3341,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets seller_id
      *
-     * @param string|null $seller_id The ID of the seller (case sensitive and 50 UTF8 characters max). This information is required by the Criteo Offsite Ads.
+     * @param string|null $seller_id Deprecated field. It should be replaced by externalSellerId. The external ID of the seller (case sensitive and 50 UTF8 characters max). This information is required by the Criteo Offsite Ads.
      *
      * @return self
      */
@@ -3330,6 +3358,142 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['seller_id'] = $seller_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets external_seller_id
+     *
+     * @return string|null
+     */
+    public function getExternalSellerId()
+    {
+        return $this->container['external_seller_id'];
+    }
+
+    /**
+     * Sets external_seller_id
+     *
+     * @param string|null $external_seller_id The external id of the seller (case sensitive and 50 UTF8 characters max). This information is required by the Criteo Offsite Ads.
+     *
+     * @return self
+     */
+    public function setExternalSellerId($external_seller_id)
+    {
+        if (is_null($external_seller_id)) {
+            array_push($this->openAPINullablesSetToNull, 'external_seller_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('external_seller_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['external_seller_id'] = $external_seller_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets external_seller_name
+     *
+     * @return string|null
+     */
+    public function getExternalSellerName()
+    {
+        return $this->container['external_seller_name'];
+    }
+
+    /**
+     * Sets external_seller_name
+     *
+     * @param string|null $external_seller_name The external name of the seller (case sensitive and 750 UTF8 characters max). This information is required by the Criteo Offsite Ads.
+     *
+     * @return self
+     */
+    public function setExternalSellerName($external_seller_name)
+    {
+        if (is_null($external_seller_name)) {
+            array_push($this->openAPINullablesSetToNull, 'external_seller_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('external_seller_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['external_seller_name'] = $external_seller_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets number_of_reviews
+     *
+     * @return int|null
+     */
+    public function getNumberOfReviews()
+    {
+        return $this->container['number_of_reviews'];
+    }
+
+    /**
+     * Sets number_of_reviews
+     *
+     * @param int|null $number_of_reviews The number of reviews for the product. This information is required by the Criteo Offsite Ads.
+     *
+     * @return self
+     */
+    public function setNumberOfReviews($number_of_reviews)
+    {
+        if (is_null($number_of_reviews)) {
+            array_push($this->openAPINullablesSetToNull, 'number_of_reviews');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('number_of_reviews', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['number_of_reviews'] = $number_of_reviews;
+
+        return $this;
+    }
+
+    /**
+     * Gets product_rating
+     *
+     * @return string|null
+     */
+    public function getProductRating()
+    {
+        return $this->container['product_rating'];
+    }
+
+    /**
+     * Sets product_rating
+     *
+     * @param string|null $product_rating The rating of the product. This information is required by the Criteo Offsite Ads.
+     *
+     * @return self
+     */
+    public function setProductRating($product_rating)
+    {
+        if (is_null($product_rating)) {
+            array_push($this->openAPINullablesSetToNull, 'product_rating');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('product_rating', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['product_rating'] = $product_rating;
 
         return $this;
     }

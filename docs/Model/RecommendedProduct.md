@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **name** | **string** | Product name. | [optional]
 **description** | **string** | Product description. | [optional]
 **price** | **float** | Product price. | [optional]
+**retailprice** | **float** | Product retail price. | [optional]
 **google_category** | **string** | Product google category. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

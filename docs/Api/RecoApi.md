@@ -7,7 +7,6 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 | [**createProductSet()**](RecoApi.md#createProductSet) | **POST** /preview/product-sets |  |
 | [**fetchProductSet()**](RecoApi.md#fetchProductSet) | **GET** /preview/product-sets/{product-set-id} |  |
 | [**fetchProductSets()**](RecoApi.md#fetchProductSets) | **GET** /preview/product-sets/dataset/{dataset-id} |  |
-| [**previewProductSetsPreviewPost()**](RecoApi.md#previewProductSetsPreviewPost) | **POST** /preview/product-sets/preview |  |
 | [**removeProductSet()**](RecoApi.md#removeProductSet) | **DELETE** /preview/product-sets/{product-set-id} |  |
 
 
@@ -195,69 +194,6 @@ try {
 
 - **Content-Type**: Not defined
 - **Accept**: `text/plain`, `application/json`, `text/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `previewProductSetsPreviewPost()`
-
-```php
-previewProductSetsPreviewPost($product_set_statistics_query): \criteo\api\marketingsolutions\preview\Model\OkResponse
-```
-
-
-
-Display a preview of product set rules
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\preview\Api\RecoApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$product_set_statistics_query = new \criteo\api\marketingsolutions\preview\Model\ProductSetStatisticsQuery(); // \criteo\api\marketingsolutions\preview\Model\ProductSetStatisticsQuery
-
-try {
-    $result = $apiInstance->previewProductSetsPreviewPost($product_set_statistics_query);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling RecoApi->previewProductSetsPreviewPost: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **product_set_statistics_query** | [**\criteo\api\marketingsolutions\preview\Model\ProductSetStatisticsQuery**](../Model/ProductSetStatisticsQuery.md)|  | |
-
-### Return type
-
-[**\criteo\api\marketingsolutions\preview\Model\OkResponse**](../Model/OkResponse.md)
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

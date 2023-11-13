@@ -61,7 +61,6 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'nb_requested_products' => 'int',
         'user_id' => 'string',
         'identity_type' => 'string',
-        'user_events' => '\criteo\api\marketingsolutions\preview\Model\UserEvent[]',
         'ad_set_id' => 'int',
         'ad_id' => 'int',
         'partner_id' => 'int'
@@ -78,7 +77,6 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'nb_requested_products' => 'int32',
         'user_id' => null,
         'identity_type' => null,
-        'user_events' => null,
         'ad_set_id' => 'int32',
         'ad_id' => 'int32',
         'partner_id' => 'int32'
@@ -93,7 +91,6 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'nb_requested_products' => false,
 		'user_id' => true,
 		'identity_type' => true,
-		'user_events' => true,
 		'ad_set_id' => true,
 		'ad_id' => true,
 		'partner_id' => false
@@ -188,7 +185,6 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'nb_requested_products' => 'nbRequestedProducts',
         'user_id' => 'userId',
         'identity_type' => 'identityType',
-        'user_events' => 'userEvents',
         'ad_set_id' => 'adSetId',
         'ad_id' => 'adId',
         'partner_id' => 'partnerId'
@@ -203,7 +199,6 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'nb_requested_products' => 'setNbRequestedProducts',
         'user_id' => 'setUserId',
         'identity_type' => 'setIdentityType',
-        'user_events' => 'setUserEvents',
         'ad_set_id' => 'setAdSetId',
         'ad_id' => 'setAdId',
         'partner_id' => 'setPartnerId'
@@ -218,7 +213,6 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'nb_requested_products' => 'getNbRequestedProducts',
         'user_id' => 'getUserId',
         'identity_type' => 'getIdentityType',
-        'user_events' => 'getUserEvents',
         'ad_set_id' => 'getAdSetId',
         'ad_id' => 'getAdId',
         'partner_id' => 'getPartnerId'
@@ -301,7 +295,6 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('nb_requested_products', $data ?? [], null);
         $this->setIfExists('user_id', $data ?? [], null);
         $this->setIfExists('identity_type', $data ?? [], null);
-        $this->setIfExists('user_events', $data ?? [], null);
         $this->setIfExists('ad_set_id', $data ?? [], null);
         $this->setIfExists('ad_id', $data ?? [], null);
         $this->setIfExists('partner_id', $data ?? [], null);
@@ -404,7 +397,7 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets user_id
      *
-     * @param string|null $user_id Used to retrieve user events from Criteo trackers. Optional if UserEvents are passed.
+     * @param string|null $user_id Used to retrieve user events from Criteo trackers.
      *
      * @return self
      */
@@ -438,7 +431,7 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets identity_type
      *
-     * @param string|null $identity_type Type of the user identifier (cto_bundle, Idfa, Gaid...)  Optional if UserId is not set or if its type is cto_bundle
+     * @param string|null $identity_type Type of the user identifier (CtoBundle, Idfa, Gaid...)  Optional if its type is CtoBundle
      *
      * @return self
      */
@@ -465,40 +458,6 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
             );
         }
         $this->container['identity_type'] = $identity_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_events
-     *
-     * @return \criteo\api\marketingsolutions\preview\Model\UserEvent[]|null
-     */
-    public function getUserEvents()
-    {
-        return $this->container['user_events'];
-    }
-
-    /**
-     * Sets user_events
-     *
-     * @param \criteo\api\marketingsolutions\preview\Model\UserEvent[]|null $user_events Used to perform a recommendation without relying on events stored for a UserId. Optional if UserId is passed.
-     *
-     * @return self
-     */
-    public function setUserEvents($user_events)
-    {
-        if (is_null($user_events)) {
-            array_push($this->openAPINullablesSetToNull, 'user_events');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('user_events', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['user_events'] = $user_events;
 
         return $this;
     }

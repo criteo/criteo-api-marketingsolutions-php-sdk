@@ -275,7 +275,6 @@ docs/Model/OciTargetingNode.md
 docs/Model/OciTargetingResponse.md
 docs/Model/OciTargetingResponseData.md
 docs/Model/OciTargetingRule.md
-docs/Model/OkResponse.md
 docs/Model/OnSiteRecoRequest.md
 docs/Model/OnSiteRecoResponse.md
 docs/Model/Outcome.md
@@ -304,9 +303,6 @@ docs/Model/PlacementsReportQueryEntityMessage.md
 docs/Model/PlacementsReportQueryMessage.md
 docs/Model/PointOfInterestV1.md
 docs/Model/PortfolioMessage.md
-docs/Model/PreviewError.md
-docs/Model/PreviewFailResponse.md
-docs/Model/PreviewWarning.md
 docs/Model/Price.md
 docs/Model/ProblemDetails.md
 docs/Model/ProblemsDetails.md
@@ -314,10 +310,7 @@ docs/Model/Product.md
 docs/Model/ProductImporterError.md
 docs/Model/ProductImporterWarning.md
 docs/Model/ProductSet.md
-docs/Model/ProductSetPreview.md
 docs/Model/ProductSetRule.md
-docs/Model/ProductSetStatistics.md
-docs/Model/ProductSetStatisticsQuery.md
 docs/Model/ProductShipping.md
 docs/Model/ProductShippingDimension.md
 docs/Model/ProductShippingWeight.md
@@ -359,7 +352,6 @@ docs/Model/ResponsesReadAdSetV23Q1.md
 docs/Model/RetargetingCreateV1.md
 docs/Model/RetargetingUpdateV1.md
 docs/Model/RetargetingV1.md
-docs/Model/Rules.md
 docs/Model/SetAdSetTargetingDealIds.md
 docs/Model/SetAdSetTargetingDealIdsRequest.md
 docs/Model/SetAdSetTargetingDealIdsResource.md
@@ -396,7 +388,6 @@ docs/Model/UpdateCoupon.md
 docs/Model/UpdateCouponRequest.md
 docs/Model/UpdateCouponResource.md
 docs/Model/UserDef.md
-docs/Model/UserEvent.md
 docs/Model/UserProfileAttributeModel.md
 docs/Model/UserProfileIdentifierModel.md
 docs/Model/ValueResourceInputOfCreateProductSetRequest.md
@@ -683,7 +674,6 @@ lib/Model/OciTargetingNode.php
 lib/Model/OciTargetingResponse.php
 lib/Model/OciTargetingResponseData.php
 lib/Model/OciTargetingRule.php
-lib/Model/OkResponse.php
 lib/Model/OnSiteRecoRequest.php
 lib/Model/OnSiteRecoResponse.php
 lib/Model/Outcome.php
@@ -712,9 +702,6 @@ lib/Model/PlacementsReportQueryEntityMessage.php
 lib/Model/PlacementsReportQueryMessage.php
 lib/Model/PointOfInterestV1.php
 lib/Model/PortfolioMessage.php
-lib/Model/PreviewError.php
-lib/Model/PreviewFailResponse.php
-lib/Model/PreviewWarning.php
 lib/Model/Price.php
 lib/Model/ProblemDetails.php
 lib/Model/ProblemsDetails.php
@@ -722,10 +709,7 @@ lib/Model/Product.php
 lib/Model/ProductImporterError.php
 lib/Model/ProductImporterWarning.php
 lib/Model/ProductSet.php
-lib/Model/ProductSetPreview.php
 lib/Model/ProductSetRule.php
-lib/Model/ProductSetStatistics.php
-lib/Model/ProductSetStatisticsQuery.php
 lib/Model/ProductShipping.php
 lib/Model/ProductShippingDimension.php
 lib/Model/ProductShippingWeight.php
@@ -767,7 +751,6 @@ lib/Model/ResponsesReadAdSetV23Q1.php
 lib/Model/RetargetingCreateV1.php
 lib/Model/RetargetingUpdateV1.php
 lib/Model/RetargetingV1.php
-lib/Model/Rules.php
 lib/Model/SetAdSetTargetingDealIds.php
 lib/Model/SetAdSetTargetingDealIdsRequest.php
 lib/Model/SetAdSetTargetingDealIdsResource.php
@@ -804,7 +787,6 @@ lib/Model/UpdateCoupon.php
 lib/Model/UpdateCouponRequest.php
 lib/Model/UpdateCouponResource.php
 lib/Model/UserDef.php
-lib/Model/UserEvent.php
 lib/Model/UserProfileAttributeModel.php
 lib/Model/UserProfileIdentifierModel.php
 lib/Model/ValueResourceInputOfCreateProductSetRequest.php
