@@ -83,7 +83,7 @@ deleteIdentifiers($audience_id): \criteo\api\marketingsolutions\v2023_01\Model\D
 
 
 
-delete all identifiers from an Audience
+Delete all identifiers from a contact list audience-segment.
 
 ### Example
 
@@ -274,7 +274,7 @@ modifyAudienceUsers($audience_id, $contactlist_amendment_request): \criteo\api\m
 
 
 
-Add/remove users to or from an audience
+Add/remove users to or from a contact list audience-segment.
 
 ### Example
 
