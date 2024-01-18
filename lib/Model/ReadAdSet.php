@@ -416,7 +416,7 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name Name of the ad set
+     * @param string|null $name name
      *
      * @return self
      */
@@ -450,7 +450,7 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets advertiser_id
      *
-     * @param string|null $advertiser_id Advertiser id of the campaign this ad set belongs to
+     * @param string|null $advertiser_id advertiser_id
      *
      * @return self
      */
@@ -484,7 +484,7 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets dataset_id
      *
-     * @param string|null $dataset_id Dataset id of this ad set
+     * @param string|null $dataset_id dataset_id
      *
      * @return self
      */
@@ -518,7 +518,7 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets campaign_id
      *
-     * @param string|null $campaign_id Campaign id this ad set belongs to
+     * @param string|null $campaign_id campaign_id
      *
      * @return self
      */
@@ -552,7 +552,7 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets destination_environment
      *
-     * @param string|null $destination_environment The environment that an ad click will lead a user to
+     * @param string|null $destination_environment destination_environment
      *
      * @return self
      */
@@ -704,7 +704,7 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets media_type
      *
-     * @param string|null $media_type Media type for the ad set
+     * @param string|null $media_type media_type
      *
      * @return self
      */

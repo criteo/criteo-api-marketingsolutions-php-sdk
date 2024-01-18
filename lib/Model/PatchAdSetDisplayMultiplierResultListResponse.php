@@ -59,8 +59,8 @@ class PatchAdSetDisplayMultiplierResultListResponse implements ModelInterface, A
       */
     protected static $openAPITypes = [
         'data' => '\criteo\api\marketingsolutions\v2023_01\Model\PatchAdSetDisplayMultiplierResultResource[]',
-        'warnings' => '\criteo\api\marketingsolutions\v2023_01\Model\ProblemDetails[]',
-        'errors' => '\criteo\api\marketingsolutions\v2023_01\Model\ProblemDetails[]'
+        'warnings' => '\criteo\api\marketingsolutions\v2023_01\Model\CommonProblem[]',
+        'errors' => '\criteo\api\marketingsolutions\v2023_01\Model\CommonProblem[]'
     ];
 
     /**
@@ -333,8 +333,6 @@ class PatchAdSetDisplayMultiplierResultListResponse implements ModelInterface, A
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-
-
         $this->container['data'] = $data;
 
         return $this;
@@ -343,7 +341,7 @@ class PatchAdSetDisplayMultiplierResultListResponse implements ModelInterface, A
     /**
      * Gets warnings
      *
-     * @return \criteo\api\marketingsolutions\v2023_01\Model\ProblemDetails[]|null
+     * @return \criteo\api\marketingsolutions\v2023_01\Model\CommonProblem[]|null
      */
     public function getWarnings()
     {
@@ -353,7 +351,7 @@ class PatchAdSetDisplayMultiplierResultListResponse implements ModelInterface, A
     /**
      * Sets warnings
      *
-     * @param \criteo\api\marketingsolutions\v2023_01\Model\ProblemDetails[]|null $warnings warnings
+     * @param \criteo\api\marketingsolutions\v2023_01\Model\CommonProblem[]|null $warnings warnings
      *
      * @return self
      */
@@ -369,8 +367,6 @@ class PatchAdSetDisplayMultiplierResultListResponse implements ModelInterface, A
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-
-
         $this->container['warnings'] = $warnings;
 
         return $this;
@@ -379,7 +375,7 @@ class PatchAdSetDisplayMultiplierResultListResponse implements ModelInterface, A
     /**
      * Gets errors
      *
-     * @return \criteo\api\marketingsolutions\v2023_01\Model\ProblemDetails[]|null
+     * @return \criteo\api\marketingsolutions\v2023_01\Model\CommonProblem[]|null
      */
     public function getErrors()
     {
@@ -389,7 +385,7 @@ class PatchAdSetDisplayMultiplierResultListResponse implements ModelInterface, A
     /**
      * Sets errors
      *
-     * @param \criteo\api\marketingsolutions\v2023_01\Model\ProblemDetails[]|null $errors errors
+     * @param \criteo\api\marketingsolutions\v2023_01\Model\CommonProblem[]|null $errors errors
      *
      * @return self
      */
@@ -405,8 +401,6 @@ class PatchAdSetDisplayMultiplierResultListResponse implements ModelInterface, A
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-
-
         $this->container['errors'] = $errors;
 
         return $this;

@@ -84,7 +84,7 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
     protected static array $openAPINullables = [
         'spend_limit_type' => true,
 		'spend_limit_renewal' => true,
-		'spend_limit_amount' => false
+		'spend_limit_amount' => true
     ];
 
     /**
@@ -369,7 +369,7 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets spend_limit_type
      *
-     * @param string|null $spend_limit_type Whether your spend limit is capped or not
+     * @param string|null $spend_limit_type spend_limit_type
      *
      * @return self
      */
@@ -413,7 +413,7 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets spend_limit_renewal
      *
-     * @param string|null $spend_limit_renewal The pace of the spend limit renewal
+     * @param string|null $spend_limit_renewal spend_limit_renewal
      *
      * @return self
      */
@@ -464,7 +464,14 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
     public function setSpendLimitAmount($spend_limit_amount)
     {
         if (is_null($spend_limit_amount)) {
-            throw new \InvalidArgumentException('non-nullable spend_limit_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'spend_limit_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('spend_limit_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['spend_limit_amount'] = $spend_limit_amount;
 

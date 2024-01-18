@@ -319,8 +319,6 @@ class PatchCampaignListRequest implements ModelInterface, ArrayAccess, \JsonSeri
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-
-
         $this->container['data'] = $data;
 
         return $this;
