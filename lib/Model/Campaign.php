@@ -357,7 +357,7 @@ class Campaign implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name Name of the campaign
+     * @param string|null $name name
      *
      * @return self
      */
@@ -391,7 +391,7 @@ class Campaign implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets advertiser_id
      *
-     * @param string|null $advertiser_id Advertiser id of the campaign
+     * @param string|null $advertiser_id advertiser_id
      *
      * @return self
      */
@@ -425,7 +425,7 @@ class Campaign implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets objective
      *
-     * @param string|null $objective Campaign's marketing objective
+     * @param string|null $objective objective
      *
      * @return self
      */
@@ -486,7 +486,7 @@ class Campaign implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets goal
      *
-     * @param string|null $goal Goal of the campaign
+     * @param string|null $goal goal
      *
      * @return self
      */

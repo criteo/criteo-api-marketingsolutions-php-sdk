@@ -338,7 +338,7 @@ class AdSetFrequencyCapping implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets frequency
      *
-     * @param string|null $frequency Period on which impression limitation is calculated
+     * @param string|null $frequency frequency
      *
      * @return self
      */
@@ -382,7 +382,7 @@ class AdSetFrequencyCapping implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets maximum_impressions
      *
-     * @param int|null $maximum_impressions Maximum impressions for the specified period
+     * @param int|null $maximum_impressions maximum_impressions
      *
      * @return self
      */

@@ -336,7 +336,7 @@ class AdSetTargetingRule implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets operand
      *
-     * @param string|null $operand Operand which states how the values should be applied
+     * @param string|null $operand operand
      *
      * @return self
      */
@@ -380,7 +380,7 @@ class AdSetTargetingRule implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets values
      *
-     * @param string[]|null $values List of values to apply
+     * @param string[]|null $values values
      *
      * @return self
      */
@@ -396,8 +396,6 @@ class AdSetTargetingRule implements ModelInterface, ArrayAccess, \JsonSerializab
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-
-
         $this->container['values'] = $values;
 
         return $this;

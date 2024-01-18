@@ -96,15 +96,15 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'dataset_id' => false,
-		'campaign_id' => false,
+        'name' => true,
+		'dataset_id' => true,
+		'campaign_id' => true,
 		'objective' => false,
 		'schedule' => false,
 		'bidding' => false,
 		'targeting' => false,
 		'budget' => false,
-		'tracking_code' => false,
+		'tracking_code' => true,
 		'media_type' => false
     ];
 
@@ -469,7 +469,14 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -496,7 +503,14 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDatasetId($dataset_id)
     {
         if (is_null($dataset_id)) {
-            throw new \InvalidArgumentException('non-nullable dataset_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'dataset_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('dataset_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['dataset_id'] = $dataset_id;
 
@@ -523,7 +537,14 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCampaignId($campaign_id)
     {
         if (is_null($campaign_id)) {
-            throw new \InvalidArgumentException('non-nullable campaign_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaign_id'] = $campaign_id;
 
@@ -695,7 +716,14 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTrackingCode($tracking_code)
     {
         if (is_null($tracking_code)) {
-            throw new \InvalidArgumentException('non-nullable tracking_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'tracking_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tracking_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['tracking_code'] = $tracking_code;
 

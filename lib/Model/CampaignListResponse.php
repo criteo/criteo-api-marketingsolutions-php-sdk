@@ -59,8 +59,8 @@ class CampaignListResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'data' => '\criteo\api\marketingsolutions\v2023_10\Model\CampaignReadResource[]',
-        'warnings' => '\criteo\api\marketingsolutions\v2023_10\Model\ProblemDetails[]',
-        'errors' => '\criteo\api\marketingsolutions\v2023_10\Model\ProblemDetails[]'
+        'warnings' => '\criteo\api\marketingsolutions\v2023_10\Model\CommonProblem[]',
+        'errors' => '\criteo\api\marketingsolutions\v2023_10\Model\CommonProblem[]'
     ];
 
     /**
@@ -333,8 +333,6 @@ class CampaignListResponse implements ModelInterface, ArrayAccess, \JsonSerializ
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-
-
         $this->container['data'] = $data;
 
         return $this;
@@ -343,7 +341,7 @@ class CampaignListResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets warnings
      *
-     * @return \criteo\api\marketingsolutions\v2023_10\Model\ProblemDetails[]|null
+     * @return \criteo\api\marketingsolutions\v2023_10\Model\CommonProblem[]|null
      */
     public function getWarnings()
     {
@@ -353,7 +351,7 @@ class CampaignListResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets warnings
      *
-     * @param \criteo\api\marketingsolutions\v2023_10\Model\ProblemDetails[]|null $warnings warnings
+     * @param \criteo\api\marketingsolutions\v2023_10\Model\CommonProblem[]|null $warnings warnings
      *
      * @return self
      */
@@ -369,8 +367,6 @@ class CampaignListResponse implements ModelInterface, ArrayAccess, \JsonSerializ
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-
-
         $this->container['warnings'] = $warnings;
 
         return $this;
@@ -379,7 +375,7 @@ class CampaignListResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets errors
      *
-     * @return \criteo\api\marketingsolutions\v2023_10\Model\ProblemDetails[]|null
+     * @return \criteo\api\marketingsolutions\v2023_10\Model\CommonProblem[]|null
      */
     public function getErrors()
     {
@@ -389,7 +385,7 @@ class CampaignListResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets errors
      *
-     * @param \criteo\api\marketingsolutions\v2023_10\Model\ProblemDetails[]|null $errors errors
+     * @param \criteo\api\marketingsolutions\v2023_10\Model\CommonProblem[]|null $errors errors
      *
      * @return self
      */
@@ -405,8 +401,6 @@ class CampaignListResponse implements ModelInterface, ArrayAccess, \JsonSerializ
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-
-
         $this->container['errors'] = $errors;
 
         return $this;
