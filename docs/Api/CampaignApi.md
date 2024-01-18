@@ -402,7 +402,7 @@ try {
 ## `patchAdSets()`
 
 ```php
-patchAdSets($requests_patch_ad_set): \criteo\api\marketingsolutions\v2023_07\Model\ResponseAdSetId
+patchAdSets($requests_patch_ad_set): \criteo\api\marketingsolutions\v2023_07\Model\ResponsesAdSetId
 ```
 
 
@@ -447,7 +447,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2023_07\Model\ResponseAdSetId**](../Model/ResponseAdSetId.md)
+[**\criteo\api\marketingsolutions\v2023_07\Model\ResponsesAdSetId**](../Model/ResponsesAdSetId.md)
 
 ### Authorization
 

@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\v2023_07\ObjectSerializer;
  * ProblemDetails Class Doc Comment
  *
  * @category Class
- * @description Data model for common error or warning
+ * @description Common problem object.
  * @package  criteo\api\marketingsolutions\v2023_07
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -463,7 +463,7 @@ class ProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string|null $type type
+     * @param string|null $type The problem's category.
      *
      * @return self
      */
@@ -507,7 +507,7 @@ class ProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets code
      *
-     * @param string|null $code code
+     * @param string|null $code A machine-readable error code, expressed as a string value.
      *
      * @return self
      */
@@ -541,7 +541,7 @@ class ProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets instance
      *
-     * @param string|null $instance instance
+     * @param string|null $instance A URI that identifies the specific occurrence of the problem.
      *
      * @return self
      */
@@ -575,7 +575,7 @@ class ProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets title
      *
-     * @param string|null $title title
+     * @param string|null $title A short human-readable description of the problem type
      *
      * @return self
      */
@@ -609,7 +609,7 @@ class ProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets detail
      *
-     * @param string|null $detail detail
+     * @param string|null $detail A human-readable explanation specific to this occurrence of the problem
      *
      * @return self
      */
@@ -643,7 +643,7 @@ class ProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets source
      *
-     * @param array<string,string>|null $source source
+     * @param array<string,string>|null $source A machine-readable structure to reference to the exact location(s) causing the error(s)
      *
      * @return self
      */

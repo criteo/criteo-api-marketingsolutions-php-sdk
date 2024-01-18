@@ -82,7 +82,7 @@ class ReadAdSetBidding implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'bid_amount' => false,
+        'bid_amount' => true,
 		'bid_strategy' => true,
 		'cost_controller' => true
     ];
@@ -402,7 +402,14 @@ class ReadAdSetBidding implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setBidAmount($bid_amount)
     {
         if (is_null($bid_amount)) {
-            throw new \InvalidArgumentException('non-nullable bid_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'bid_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('bid_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['bid_amount'] = $bid_amount;
 
