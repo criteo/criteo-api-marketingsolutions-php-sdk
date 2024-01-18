@@ -319,8 +319,6 @@ class PatchAdSetDisplayMultiplierListRequest implements ModelInterface, ArrayAcc
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-
-
         $this->container['data'] = $data;
 
         return $this;

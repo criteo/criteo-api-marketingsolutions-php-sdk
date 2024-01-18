@@ -98,7 +98,6 @@ docs/Model/ReplaceAudienceResponse.md
 docs/Model/RequestAdSetSearch.md
 docs/Model/RequestsAdSetId.md
 docs/Model/RequestsPatchAdSet.md
-docs/Model/ResponseAdSetId.md
 docs/Model/ResponseReadAdSet.md
 docs/Model/ResponsesAdSetId.md
 docs/Model/ResponsesReadAdSet.md
@@ -214,7 +213,6 @@ lib/Model/ReplaceAudienceResponse.php
 lib/Model/RequestAdSetSearch.php
 lib/Model/RequestsAdSetId.php
 lib/Model/RequestsPatchAdSet.php
-lib/Model/ResponseAdSetId.php
 lib/Model/ResponseReadAdSet.php
 lib/Model/ResponsesAdSetId.php
 lib/Model/ResponsesReadAdSet.php

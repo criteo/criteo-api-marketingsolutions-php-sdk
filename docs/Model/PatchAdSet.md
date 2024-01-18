@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** | Name of the ad set | [optional]
+**name** | **string** |  | [optional]
 **scheduling** | [**\criteo\api\marketingsolutions\v2023_04\Model\PatchAdSetScheduling**](PatchAdSetScheduling.md) |  | [optional]
 **bidding** | [**\criteo\api\marketingsolutions\v2023_04\Model\PatchAdSetBidding**](PatchAdSetBidding.md) |  | [optional]
 **targeting** | [**\criteo\api\marketingsolutions\v2023_04\Model\AdSetTargeting**](AdSetTargeting.md) |  | [optional]

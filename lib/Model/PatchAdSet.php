@@ -331,7 +331,7 @@ class PatchAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name Name of the ad set
+     * @param string|null $name name
      *
      * @return self
      */

@@ -310,7 +310,7 @@ class CampaignSearchFilters implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets campaign_ids
      *
-     * @param string[]|null $campaign_ids Campaign ids to filter on
+     * @param string[]|null $campaign_ids campaign_ids
      *
      * @return self
      */
@@ -326,8 +326,6 @@ class CampaignSearchFilters implements ModelInterface, ArrayAccess, \JsonSeriali
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-
-
         $this->container['campaign_ids'] = $campaign_ids;
 
         return $this;
@@ -346,7 +344,7 @@ class CampaignSearchFilters implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets advertiser_ids
      *
-     * @param string[]|null $advertiser_ids Advertiser ids to which campaigns are linked to
+     * @param string[]|null $advertiser_ids advertiser_ids
      *
      * @return self
      */
@@ -362,8 +360,6 @@ class CampaignSearchFilters implements ModelInterface, ArrayAccess, \JsonSeriali
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-
-
         $this->container['advertiser_ids'] = $advertiser_ids;
 
         return $this;

@@ -90,7 +90,7 @@ class PatchAdSetBudget implements ModelInterface, ArrayAccess, \JsonSerializable
 		'budget_renewal' => true,
 		'budget_delivery_smoothing' => true,
 		'budget_delivery_week' => true,
-		'budget_amount' => false
+		'budget_amount' => true
     ];
 
     /**
@@ -443,7 +443,7 @@ class PatchAdSetBudget implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets budget_strategy
      *
-     * @param string|null $budget_strategy Whether your budget is capped or not
+     * @param string|null $budget_strategy budget_strategy
      *
      * @return self
      */
@@ -487,7 +487,7 @@ class PatchAdSetBudget implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets budget_renewal
      *
-     * @param string|null $budget_renewal The pace of the budget renewal
+     * @param string|null $budget_renewal budget_renewal
      *
      * @return self
      */
@@ -531,7 +531,7 @@ class PatchAdSetBudget implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets budget_delivery_smoothing
      *
-     * @param string|null $budget_delivery_smoothing The pace at which the budget can be spent
+     * @param string|null $budget_delivery_smoothing budget_delivery_smoothing
      *
      * @return self
      */
@@ -575,7 +575,7 @@ class PatchAdSetBudget implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets budget_delivery_week
      *
-     * @param string|null $budget_delivery_week The delivery week for the budget
+     * @param string|null $budget_delivery_week budget_delivery_week
      *
      * @return self
      */
@@ -626,7 +626,14 @@ class PatchAdSetBudget implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setBudgetAmount($budget_amount)
     {
         if (is_null($budget_amount)) {
-            throw new \InvalidArgumentException('non-nullable budget_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'budget_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('budget_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['budget_amount'] = $budget_amount;
 
