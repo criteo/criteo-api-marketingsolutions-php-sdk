@@ -1,6 +1,6 @@
 <?php
 /**
- * ResponseAdSetId
+ * NillableAdSetTargetingRuleV23Q1Value
  *
  * PHP version 7.4
  *
@@ -32,16 +32,15 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * ResponseAdSetId Class Doc Comment
+ * NillableAdSetTargetingRuleV23Q1Value Class Doc Comment
  *
  * @category Class
- * @description output resource
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ResponseAdSetId implements ModelInterface, ArrayAccess, \JsonSerializable
+class NillableAdSetTargetingRuleV23Q1Value implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class ResponseAdSetId implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ResponseAdSetId';
+    protected static $openAPIModelName = 'NillableAdSetTargetingRuleV23Q1_value';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +57,8 @@ class ResponseAdSetId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\criteo\api\marketingsolutions\preview\Model\ReadModelAdSetId',
-        'warnings' => '\criteo\api\marketingsolutions\preview\Model\ProblemDetails[]',
-        'errors' => '\criteo\api\marketingsolutions\preview\Model\ProblemDetails[]'
+        'operand' => 'string',
+        'values' => 'string[]'
     ];
 
     /**
@@ -71,9 +69,8 @@ class ResponseAdSetId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null,
-        'warnings' => null,
-        'errors' => null
+        'operand' => null,
+        'values' => null
     ];
 
     /**
@@ -82,9 +79,8 @@ class ResponseAdSetId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'data' => false,
-		'warnings' => true,
-		'errors' => true
+        'operand' => true,
+		'values' => true
     ];
 
     /**
@@ -173,9 +169,8 @@ class ResponseAdSetId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data',
-        'warnings' => 'warnings',
-        'errors' => 'errors'
+        'operand' => 'operand',
+        'values' => 'values'
     ];
 
     /**
@@ -184,9 +179,8 @@ class ResponseAdSetId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData',
-        'warnings' => 'setWarnings',
-        'errors' => 'setErrors'
+        'operand' => 'setOperand',
+        'values' => 'setValues'
     ];
 
     /**
@@ -195,9 +189,8 @@ class ResponseAdSetId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData',
-        'warnings' => 'getWarnings',
-        'errors' => 'getErrors'
+        'operand' => 'getOperand',
+        'values' => 'getValues'
     ];
 
     /**
@@ -241,6 +234,23 @@ class ResponseAdSetId implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const OPERAND_UNDEFINED = 'undefined';
+    public const OPERAND_IN = 'in';
+    public const OPERAND_NOT_IN = 'notIn';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOperandAllowableValues()
+    {
+        return [
+            self::OPERAND_UNDEFINED,
+            self::OPERAND_IN,
+            self::OPERAND_NOT_IN,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -257,9 +267,8 @@ class ResponseAdSetId implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('data', $data ?? [], null);
-        $this->setIfExists('warnings', $data ?? [], null);
-        $this->setIfExists('errors', $data ?? [], null);
+        $this->setIfExists('operand', $data ?? [], null);
+        $this->setIfExists('values', $data ?? [], null);
     }
 
     /**
@@ -289,6 +298,15 @@ class ResponseAdSetId implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getOperandAllowableValues();
+        if (!is_null($this->container['operand']) && !in_array($this->container['operand'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'operand', must be one of '%s'",
+                $this->container['operand'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -305,100 +323,79 @@ class ResponseAdSetId implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets data
+     * Gets operand
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\ReadModelAdSetId|null
+     * @return string|null
      */
-    public function getData()
+    public function getOperand()
     {
-        return $this->container['data'];
+        return $this->container['operand'];
     }
 
     /**
-     * Sets data
+     * Sets operand
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\ReadModelAdSetId|null $data data
+     * @param string|null $operand operand
      *
      * @return self
      */
-    public function setData($data)
+    public function setOperand($operand)
     {
-        if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
-        }
-        $this->container['data'] = $data;
-
-        return $this;
-    }
-
-    /**
-     * Gets warnings
-     *
-     * @return \criteo\api\marketingsolutions\preview\Model\ProblemDetails[]|null
-     */
-    public function getWarnings()
-    {
-        return $this->container['warnings'];
-    }
-
-    /**
-     * Sets warnings
-     *
-     * @param \criteo\api\marketingsolutions\preview\Model\ProblemDetails[]|null $warnings warnings
-     *
-     * @return self
-     */
-    public function setWarnings($warnings)
-    {
-        if (is_null($warnings)) {
-            array_push($this->openAPINullablesSetToNull, 'warnings');
+        if (is_null($operand)) {
+            array_push($this->openAPINullablesSetToNull, 'operand');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('warnings', $nullablesSetToNull);
+            $index = array_search('operand', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-
-
-        $this->container['warnings'] = $warnings;
+        $allowedValues = $this->getOperandAllowableValues();
+        if (!is_null($operand) && !in_array($operand, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'operand', must be one of '%s'",
+                    $operand,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['operand'] = $operand;
 
         return $this;
     }
 
     /**
-     * Gets errors
+     * Gets values
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\ProblemDetails[]|null
+     * @return string[]|null
      */
-    public function getErrors()
+    public function getValues()
     {
-        return $this->container['errors'];
+        return $this->container['values'];
     }
 
     /**
-     * Sets errors
+     * Sets values
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\ProblemDetails[]|null $errors errors
+     * @param string[]|null $values values
      *
      * @return self
      */
-    public function setErrors($errors)
+    public function setValues($values)
     {
-        if (is_null($errors)) {
-            array_push($this->openAPINullablesSetToNull, 'errors');
+        if (is_null($values)) {
+            array_push($this->openAPINullablesSetToNull, 'values');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('errors', $nullablesSetToNull);
+            $index = array_search('values', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-
-
-        $this->container['errors'] = $errors;
+        $this->container['values'] = $values;
 
         return $this;
     }

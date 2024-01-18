@@ -1513,7 +1513,7 @@ This endpoint does not need any parameter.
 ## `patchAdSets()`
 
 ```php
-patchAdSets($requests_patch_ad_set): \criteo\api\marketingsolutions\preview\Model\ResponseAdSetId
+patchAdSets($requests_patch_ad_set): \criteo\api\marketingsolutions\preview\Model\ResponsesAdSetId
 ```
 
 
@@ -1558,7 +1558,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\preview\Model\ResponseAdSetId**](../Model/ResponseAdSetId.md)
+[**\criteo\api\marketingsolutions\preview\Model\ResponsesAdSetId**](../Model/ResponsesAdSetId.md)
 
 ### Authorization
 

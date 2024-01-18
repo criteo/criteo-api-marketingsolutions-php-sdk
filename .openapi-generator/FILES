@@ -261,6 +261,7 @@ docs/Model/MarketingSolutionsReportStatusResponse.md
 docs/Model/ModifyAudienceResponse.md
 docs/Model/NillableAdSetTargetingRule.md
 docs/Model/NillableAdSetTargetingRuleV23Q1.md
+docs/Model/NillableAdSetTargetingRuleV23Q1Value.md
 docs/Model/NillableAdSetTargetingRuleValue.md
 docs/Model/NillableDateTime.md
 docs/Model/NillableDecimal.md
@@ -344,7 +345,6 @@ docs/Model/RequestsPatchAdSet.md
 docs/Model/ResourceCollectionOutcomeOfProductSet.md
 docs/Model/ResourceOfProductSet.md
 docs/Model/ResourceOutcomeOfProductSet.md
-docs/Model/ResponseAdSetId.md
 docs/Model/ResponseReadAdSet.md
 docs/Model/ResponseReadAdSetV23Q1.md
 docs/Model/ResponsesAdSetId.md
@@ -660,6 +660,7 @@ lib/Model/ModelInterface.php
 lib/Model/ModifyAudienceResponse.php
 lib/Model/NillableAdSetTargetingRule.php
 lib/Model/NillableAdSetTargetingRuleV23Q1.php
+lib/Model/NillableAdSetTargetingRuleV23Q1Value.php
 lib/Model/NillableAdSetTargetingRuleValue.php
 lib/Model/NillableDateTime.php
 lib/Model/NillableDecimal.php
@@ -743,7 +744,6 @@ lib/Model/RequestsPatchAdSet.php
 lib/Model/ResourceCollectionOutcomeOfProductSet.php
 lib/Model/ResourceOfProductSet.php
 lib/Model/ResourceOutcomeOfProductSet.php
-lib/Model/ResponseAdSetId.php
 lib/Model/ResponseReadAdSet.php
 lib/Model/ResponseReadAdSetV23Q1.php
 lib/Model/ResponsesAdSetId.php

@@ -442,7 +442,7 @@ class ReadAdSetScheduleV23Q1 implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets activation_status
      *
-     * @param string|null $activation_status Activation status of the ad set, i.e. whether the consumer wants it to deliver
+     * @param string|null $activation_status activation_status
      *
      * @return self
      */
@@ -486,7 +486,7 @@ class ReadAdSetScheduleV23Q1 implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets delivery_status
      *
-     * @param string|null $delivery_status Delivery status of the delivery of the ad set, i.e. whether the ad set is delivering
+     * @param string|null $delivery_status delivery_status
      *
      * @return self
      */

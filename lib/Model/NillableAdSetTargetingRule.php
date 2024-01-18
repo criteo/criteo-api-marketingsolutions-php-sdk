@@ -275,9 +275,6 @@ class NillableAdSetTargetingRule implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
-        if ($this->container['value'] === null) {
-            $invalidProperties[] = "'value' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -296,7 +293,7 @@ class NillableAdSetTargetingRule implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets value
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\NillableAdSetTargetingRuleValue
+     * @return \criteo\api\marketingsolutions\preview\Model\NillableAdSetTargetingRuleValue|null
      */
     public function getValue()
     {
@@ -306,7 +303,7 @@ class NillableAdSetTargetingRule implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets value
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\NillableAdSetTargetingRuleValue $value value
+     * @param \criteo\api\marketingsolutions\preview\Model\NillableAdSetTargetingRuleValue|null $value value
      *
      * @return self
      */

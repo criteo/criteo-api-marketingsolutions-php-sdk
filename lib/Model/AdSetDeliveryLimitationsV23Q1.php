@@ -368,7 +368,7 @@ class AdSetDeliveryLimitationsV23Q1 implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets environments
      *
-     * @param string[]|null $environments List of environments which the ad set should target
+     * @param string[]|null $environments environments
      *
      * @return self
      */
@@ -393,8 +393,6 @@ class AdSetDeliveryLimitationsV23Q1 implements ModelInterface, ArrayAccess, \Jso
                 )
             );
         }
-
-
         $this->container['environments'] = $environments;
 
         return $this;
@@ -413,7 +411,7 @@ class AdSetDeliveryLimitationsV23Q1 implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets devices
      *
-     * @param string[]|null $devices List of devices which the ad set should target
+     * @param string[]|null $devices devices
      *
      * @return self
      */
@@ -438,8 +436,6 @@ class AdSetDeliveryLimitationsV23Q1 implements ModelInterface, ArrayAccess, \Jso
                 )
             );
         }
-
-
         $this->container['devices'] = $devices;
 
         return $this;
@@ -458,7 +454,7 @@ class AdSetDeliveryLimitationsV23Q1 implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets operating_systems
      *
-     * @param string[]|null $operating_systems List of operating systems which the ad set should target
+     * @param string[]|null $operating_systems operating_systems
      *
      * @return self
      */
@@ -483,8 +479,6 @@ class AdSetDeliveryLimitationsV23Q1 implements ModelInterface, ArrayAccess, \Jso
                 )
             );
         }
-
-
         $this->container['operating_systems'] = $operating_systems;
 
         return $this;

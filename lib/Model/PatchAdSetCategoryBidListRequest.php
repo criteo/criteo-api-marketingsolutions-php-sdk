@@ -319,8 +319,6 @@ class PatchAdSetCategoryBidListRequest implements ModelInterface, ArrayAccess, \
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-
-
         $this->container['data'] = $data;
 
         return $this;

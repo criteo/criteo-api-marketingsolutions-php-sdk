@@ -58,7 +58,7 @@ class NillableAdSetTargetingRuleV23Q1 implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'value' => '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingRuleV23Q1'
+        'value' => '\criteo\api\marketingsolutions\preview\Model\NillableAdSetTargetingRuleV23Q1Value'
     ];
 
     /**
@@ -78,7 +78,7 @@ class NillableAdSetTargetingRuleV23Q1 implements ModelInterface, ArrayAccess, \J
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'value' => false
+        'value' => true
     ];
 
     /**
@@ -293,7 +293,7 @@ class NillableAdSetTargetingRuleV23Q1 implements ModelInterface, ArrayAccess, \J
     /**
      * Gets value
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\AdSetTargetingRuleV23Q1|null
+     * @return \criteo\api\marketingsolutions\preview\Model\NillableAdSetTargetingRuleV23Q1Value|null
      */
     public function getValue()
     {
@@ -303,14 +303,21 @@ class NillableAdSetTargetingRuleV23Q1 implements ModelInterface, ArrayAccess, \J
     /**
      * Sets value
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\AdSetTargetingRuleV23Q1|null $value value
+     * @param \criteo\api\marketingsolutions\preview\Model\NillableAdSetTargetingRuleV23Q1Value|null $value value
      *
      * @return self
      */
     public function setValue($value)
     {
         if (is_null($value)) {
-            throw new \InvalidArgumentException('non-nullable value cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'value');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('value', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['value'] = $value;
 

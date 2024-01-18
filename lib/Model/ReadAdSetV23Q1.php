@@ -68,7 +68,8 @@ class ReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'bidding' => '\criteo\api\marketingsolutions\preview\Model\ReadAdSetBiddingV23Q1',
         'targeting' => '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingV23Q1',
         'budget' => '\criteo\api\marketingsolutions\preview\Model\ReadAdSetBudgetV23Q1',
-        'media_type' => 'string'
+        'media_type' => 'string',
+        'video_channel' => 'string'
     ];
 
     /**
@@ -89,7 +90,8 @@ class ReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'bidding' => null,
         'targeting' => null,
         'budget' => null,
-        'media_type' => null
+        'media_type' => null,
+        'video_channel' => null
     ];
 
     /**
@@ -108,7 +110,8 @@ class ReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
 		'bidding' => false,
 		'targeting' => false,
 		'budget' => false,
-		'media_type' => true
+		'media_type' => true,
+		'video_channel' => true
     ];
 
     /**
@@ -207,7 +210,8 @@ class ReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'bidding' => 'bidding',
         'targeting' => 'targeting',
         'budget' => 'budget',
-        'media_type' => 'mediaType'
+        'media_type' => 'mediaType',
+        'video_channel' => 'videoChannel'
     ];
 
     /**
@@ -226,7 +230,8 @@ class ReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'bidding' => 'setBidding',
         'targeting' => 'setTargeting',
         'budget' => 'setBudget',
-        'media_type' => 'setMediaType'
+        'media_type' => 'setMediaType',
+        'video_channel' => 'setVideoChannel'
     ];
 
     /**
@@ -245,7 +250,8 @@ class ReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'bidding' => 'getBidding',
         'targeting' => 'getTargeting',
         'budget' => 'getBudget',
-        'media_type' => 'getMediaType'
+        'media_type' => 'getMediaType',
+        'video_channel' => 'getVideoChannel'
     ];
 
     /**
@@ -305,6 +311,8 @@ class ReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     public const OBJECTIVE_VIDEO_VIEWS = 'videoViews';
     public const MEDIA_TYPE_DISPLAY = 'display';
     public const MEDIA_TYPE_VIDEO = 'video';
+    public const VIDEO_CHANNEL_OLV = 'olv';
+    public const VIDEO_CHANNEL_CTV = 'ctv';
 
     /**
      * Gets allowable values of the enum
@@ -356,6 +364,19 @@ class ReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getVideoChannelAllowableValues()
+    {
+        return [
+            self::VIDEO_CHANNEL_OLV,
+            self::VIDEO_CHANNEL_CTV,
+        ];
+    }
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -381,6 +402,7 @@ class ReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('targeting', $data ?? [], null);
         $this->setIfExists('budget', $data ?? [], null);
         $this->setIfExists('media_type', $data ?? [], null);
+        $this->setIfExists('video_channel', $data ?? [], null);
     }
 
     /**
@@ -437,6 +459,15 @@ class ReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        $allowedValues = $this->getVideoChannelAllowableValues();
+        if (!is_null($this->container['video_channel']) && !in_array($this->container['video_channel'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'video_channel', must be one of '%s'",
+                $this->container['video_channel'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -465,7 +496,7 @@ class ReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name Name of the ad set
+     * @param string|null $name name
      *
      * @return self
      */
@@ -499,7 +530,7 @@ class ReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets advertiser_id
      *
-     * @param string|null $advertiser_id Advertiser id of the campaign this ad set belongs to
+     * @param string|null $advertiser_id advertiser_id
      *
      * @return self
      */
@@ -533,7 +564,7 @@ class ReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets dataset_id
      *
-     * @param string|null $dataset_id Dataset id of this ad set
+     * @param string|null $dataset_id dataset_id
      *
      * @return self
      */
@@ -567,7 +598,7 @@ class ReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets campaign_id
      *
-     * @param string|null $campaign_id Campaign id this ad set belongs to
+     * @param string|null $campaign_id campaign_id
      *
      * @return self
      */
@@ -601,7 +632,7 @@ class ReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets destination_environment
      *
-     * @param string|null $destination_environment The environment that an ad click will lead a user to
+     * @param string|null $destination_environment destination_environment
      *
      * @return self
      */
@@ -645,7 +676,7 @@ class ReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets objective
      *
-     * @param string|null $objective Objective of the ad set
+     * @param string|null $objective objective
      *
      * @return self
      */
@@ -797,7 +828,7 @@ class ReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets media_type
      *
-     * @param string|null $media_type Media type of the ad set
+     * @param string|null $media_type media_type
      *
      * @return self
      */
@@ -824,6 +855,50 @@ class ReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['media_type'] = $media_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets video_channel
+     *
+     * @return string|null
+     */
+    public function getVideoChannel()
+    {
+        return $this->container['video_channel'];
+    }
+
+    /**
+     * Sets video_channel
+     *
+     * @param string|null $video_channel video_channel
+     *
+     * @return self
+     */
+    public function setVideoChannel($video_channel)
+    {
+        if (is_null($video_channel)) {
+            array_push($this->openAPINullablesSetToNull, 'video_channel');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('video_channel', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getVideoChannelAllowableValues();
+        if (!is_null($video_channel) && !in_array($video_channel, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'video_channel', must be one of '%s'",
+                    $video_channel,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['video_channel'] = $video_channel;
 
         return $this;
     }

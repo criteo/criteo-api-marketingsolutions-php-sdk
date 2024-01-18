@@ -7665,7 +7665,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\ResponseAdSetId
+     * @return \criteo\api\marketingsolutions\preview\Model\ResponsesAdSetId
      */
     public function patchAdSets($requests_patch_ad_set = null, string $contentType = self::contentTypes['patchAdSets'][0])
     {
@@ -7681,7 +7681,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\ResponseAdSetId, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ResponsesAdSetId, HTTP status code, HTTP response headers (array of strings)
      */
     public function patchAdSetsWithHttpInfo($requests_patch_ad_set = null, string $contentType = self::contentTypes['patchAdSets'][0])
     {
@@ -7724,23 +7724,23 @@ class CampaignApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ResponseAdSetId' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\preview\Model\ResponsesAdSetId' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ResponseAdSetId' !== 'string') {
+                        if ('\criteo\api\marketingsolutions\preview\Model\ResponsesAdSetId' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ResponseAdSetId', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ResponsesAdSetId', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\criteo\api\marketingsolutions\preview\Model\ResponseAdSetId';
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\ResponsesAdSetId';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -7761,7 +7761,7 @@ class CampaignApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ResponseAdSetId',
+                        '\criteo\api\marketingsolutions\preview\Model\ResponsesAdSetId',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7801,7 +7801,7 @@ class CampaignApi
      */
     public function patchAdSetsAsyncWithHttpInfo($requests_patch_ad_set = null, string $contentType = self::contentTypes['patchAdSets'][0])
     {
-        $returnType = '\criteo\api\marketingsolutions\preview\Model\ResponseAdSetId';
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\ResponsesAdSetId';
         $request = $this->patchAdSetsRequest($requests_patch_ad_set, $contentType);
 
         return $this->client

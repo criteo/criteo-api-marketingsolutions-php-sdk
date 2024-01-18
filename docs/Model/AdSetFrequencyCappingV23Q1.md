@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**frequency** | **string** | Period on which impression limitation is calculated | [optional]
-**maximum_impressions** | **int** | Maximum impressions for the specified period | [optional]
+**frequency** | **string** |  | [optional]
+**maximum_impressions** | **int** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

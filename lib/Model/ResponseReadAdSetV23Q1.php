@@ -59,8 +59,8 @@ class ResponseReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPITypes = [
         'data' => '\criteo\api\marketingsolutions\preview\Model\ReadModelReadAdSetV23Q1',
-        'warnings' => '\criteo\api\marketingsolutions\preview\Model\ProblemDetails[]',
-        'errors' => '\criteo\api\marketingsolutions\preview\Model\ProblemDetails[]'
+        'warnings' => '\criteo\api\marketingsolutions\preview\Model\CommonProblem[]',
+        'errors' => '\criteo\api\marketingsolutions\preview\Model\CommonProblem[]'
     ];
 
     /**
@@ -334,7 +334,7 @@ class ResponseReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets warnings
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\ProblemDetails[]|null
+     * @return \criteo\api\marketingsolutions\preview\Model\CommonProblem[]|null
      */
     public function getWarnings()
     {
@@ -344,7 +344,7 @@ class ResponseReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets warnings
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\ProblemDetails[]|null $warnings warnings
+     * @param \criteo\api\marketingsolutions\preview\Model\CommonProblem[]|null $warnings warnings
      *
      * @return self
      */
@@ -360,8 +360,6 @@ class ResponseReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerial
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-
-
         $this->container['warnings'] = $warnings;
 
         return $this;
@@ -370,7 +368,7 @@ class ResponseReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets errors
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\ProblemDetails[]|null
+     * @return \criteo\api\marketingsolutions\preview\Model\CommonProblem[]|null
      */
     public function getErrors()
     {
@@ -380,7 +378,7 @@ class ResponseReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets errors
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\ProblemDetails[]|null $errors errors
+     * @param \criteo\api\marketingsolutions\preview\Model\CommonProblem[]|null $errors errors
      *
      * @return self
      */
@@ -396,8 +394,6 @@ class ResponseReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerial
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-
-
         $this->container['errors'] = $errors;
 
         return $this;
