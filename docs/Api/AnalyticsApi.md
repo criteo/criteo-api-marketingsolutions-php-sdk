@@ -13,7 +13,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 ## `getAdsetReport()`
 
 ```php
-getAdsetReport($statistics_report_query_message): string
+getAdsetReport($statistics_report_query_message): \SplFileObject
 ```
 
 
@@ -58,7 +58,7 @@ try {
 
 ### Return type
 
-**string**
+**\SplFileObject**
 
 ### Authorization
 
@@ -76,7 +76,7 @@ try {
 ## `getPlacementsReport()`
 
 ```php
-getPlacementsReport($placements_report_query_data_message): string
+getPlacementsReport($placements_report_query_data_message): \SplFileObject
 ```
 
 
@@ -121,7 +121,7 @@ try {
 
 ### Return type
 
-**string**
+**\SplFileObject**
 
 ### Authorization
 
@@ -130,7 +130,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
-- **Accept**: `text/plain`, `application/json`, `text/json`
+- **Accept**: `text/plain`, `application/json`, `text/json`, `text/csv`, `text/xml`, `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -139,7 +139,7 @@ try {
 ## `getTransactionsReport()`
 
 ```php
-getTransactionsReport($transactions_report_query_data_message): string
+getTransactionsReport($transactions_report_query_data_message): \SplFileObject
 ```
 
 
@@ -184,7 +184,7 @@ try {
 
 ### Return type
 
-**string**
+**\SplFileObject**
 
 ### Authorization
 
