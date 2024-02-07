@@ -4,7 +4,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createAdSet()**](CampaignApi.md#createAdSet) | **POST** /preview/marketing-solutions/ad-sets |  |
+| [**createAdSetV24Q1()**](CampaignApi.md#createAdSetV24Q1) | **POST** /preview/marketing-solutions/ad-sets |  |
 | [**createCampaign()**](CampaignApi.md#createCampaign) | **POST** /preview/marketing-solutions/campaigns |  |
 | [**deleteAdvertiserBundleRules()**](CampaignApi.md#deleteAdvertiserBundleRules) | **DELETE** /preview/advertisers/{advertiserId}/targeting/bundle-rules |  |
 | [**deleteAdvertiserDomainRules()**](CampaignApi.md#deleteAdvertiserDomainRules) | **DELETE** /preview/advertisers/{advertiserId}/targeting/domain-rules |  |
@@ -16,7 +16,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 | [**disableAdSetTargetingVideoPositioning()**](CampaignApi.md#disableAdSetTargetingVideoPositioning) | **POST** /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positionings/disable |  |
 | [**getAdSetTargetingDealIds()**](CampaignApi.md#getAdSetTargetingDealIds) | **GET** /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids |  |
 | [**getAdSetTargetingVideoPositioning()**](CampaignApi.md#getAdSetTargetingVideoPositioning) | **GET** /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning |  |
-| [**getAdSetV23Q1()**](CampaignApi.md#getAdSetV23Q1) | **GET** /preview/marketing-solutions/ad-sets/{ad-set-id} |  |
+| [**getAdSetV24Q1()**](CampaignApi.md#getAdSetV24Q1) | **GET** /preview/marketing-solutions/ad-sets/{ad-set-id} |  |
 | [**getAdvertiserBundleRules()**](CampaignApi.md#getAdvertiserBundleRules) | **GET** /preview/advertisers/{advertiserId}/targeting/bundle-rules |  |
 | [**getAdvertiserDomainRules()**](CampaignApi.md#getAdvertiserDomainRules) | **GET** /preview/advertisers/{advertiserId}/targeting/domain-rules |  |
 | [**getCampaignBundleRules()**](CampaignApi.md#getCampaignBundleRules) | **GET** /preview/campaigns/{campaignId}/targeting/bundle-rules |  |
@@ -27,7 +27,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 | [**getOCIbrandSafetyRule()**](CampaignApi.md#getOCIbrandSafetyRule) | **GET** /preview/brand-safety/oci |  |
 | [**getOCItargetingRule()**](CampaignApi.md#getOCItargetingRule) | **GET** /preview/targeting/oci |  |
 | [**getSupplyVendorList()**](CampaignApi.md#getSupplyVendorList) | **GET** /preview/marketing-solutions/ad-sets/targeting/supply-vendors |  |
-| [**patchAdSets()**](CampaignApi.md#patchAdSets) | **PATCH** /preview/marketing-solutions/ad-sets |  |
+| [**patchAdSetsV24Q1()**](CampaignApi.md#patchAdSetsV24Q1) | **PATCH** /preview/marketing-solutions/ad-sets |  |
 | [**patchCampaigns()**](CampaignApi.md#patchCampaigns) | **PATCH** /preview/marketing-solutions/campaigns |  |
 | [**patchCategoryBidList()**](CampaignApi.md#patchCategoryBidList) | **PATCH** /preview/marketing-solutions/ad-sets/{ad-set-id}/category-bids |  |
 | [**patchDisplayMultipliers()**](CampaignApi.md#patchDisplayMultipliers) | **PATCH** /preview/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers |  |
@@ -39,7 +39,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 | [**putAdvertiserDomainRules()**](CampaignApi.md#putAdvertiserDomainRules) | **PUT** /preview/advertisers/{advertiserId}/targeting/domain-rules |  |
 | [**putCampaignBundleRules()**](CampaignApi.md#putCampaignBundleRules) | **PUT** /preview/campaigns/{campaignId}/targeting/bundle-rules |  |
 | [**putCampaignDomainRules()**](CampaignApi.md#putCampaignDomainRules) | **PUT** /preview/campaigns/{campaignId}/targeting/domain-rules |  |
-| [**searchAdSetsV23Q1()**](CampaignApi.md#searchAdSetsV23Q1) | **POST** /preview/marketing-solutions/ad-sets/search |  |
+| [**searchAdSetsV24Q1()**](CampaignApi.md#searchAdSetsV24Q1) | **POST** /preview/marketing-solutions/ad-sets/search |  |
 | [**searchCampaignsV23Q1()**](CampaignApi.md#searchCampaignsV23Q1) | **POST** /preview/marketing-solutions/campaigns/search |  |
 | [**setAdSetTargetingDealIds()**](CampaignApi.md#setAdSetTargetingDealIds) | **PUT** /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids |  |
 | [**setAdSetTargetingVideoPositioning()**](CampaignApi.md#setAdSetTargetingVideoPositioning) | **PUT** /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning |  |
@@ -50,10 +50,10 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 | [**upsertOCItargetingRule()**](CampaignApi.md#upsertOCItargetingRule) | **POST** /preview/targeting/oci |  |
 
 
-## `createAdSet()`
+## `createAdSetV24Q1()`
 
 ```php
-createAdSet($create_ad_set_request): \criteo\api\marketingsolutions\preview\Model\ResponseReadAdSet
+createAdSetV24Q1($create_ad_set_v24_q1_request): \criteo\api\marketingsolutions\preview\Model\ResponseReadAdSetV24Q1
 ```
 
 
@@ -80,13 +80,13 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$create_ad_set_request = new \criteo\api\marketingsolutions\preview\Model\CreateAdSetRequest(); // \criteo\api\marketingsolutions\preview\Model\CreateAdSetRequest | the ad sets to create
+$create_ad_set_v24_q1_request = new \criteo\api\marketingsolutions\preview\Model\CreateAdSetV24Q1Request(); // \criteo\api\marketingsolutions\preview\Model\CreateAdSetV24Q1Request | the ad sets to create
 
 try {
-    $result = $apiInstance->createAdSet($create_ad_set_request);
+    $result = $apiInstance->createAdSetV24Q1($create_ad_set_v24_q1_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->createAdSet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CampaignApi->createAdSetV24Q1: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -94,11 +94,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_ad_set_request** | [**\criteo\api\marketingsolutions\preview\Model\CreateAdSetRequest**](../Model/CreateAdSetRequest.md)| the ad sets to create | |
+| **create_ad_set_v24_q1_request** | [**\criteo\api\marketingsolutions\preview\Model\CreateAdSetV24Q1Request**](../Model/CreateAdSetV24Q1Request.md)| the ad sets to create | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\preview\Model\ResponseReadAdSet**](../Model/ResponseReadAdSet.md)
+[**\criteo\api\marketingsolutions\preview\Model\ResponseReadAdSetV24Q1**](../Model/ResponseReadAdSetV24Q1.md)
 
 ### Authorization
 
@@ -816,10 +816,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getAdSetV23Q1()`
+## `getAdSetV24Q1()`
 
 ```php
-getAdSetV23Q1($ad_set_id): \criteo\api\marketingsolutions\preview\Model\ResponseReadAdSetV23Q1
+getAdSetV24Q1($ad_set_id): \criteo\api\marketingsolutions\preview\Model\ResponseReadAdSetV24Q1
 ```
 
 
@@ -849,10 +849,10 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CampaignApi(
 $ad_set_id = 'ad_set_id_example'; // string | Id of the ad set
 
 try {
-    $result = $apiInstance->getAdSetV23Q1($ad_set_id);
+    $result = $apiInstance->getAdSetV24Q1($ad_set_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->getAdSetV23Q1: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CampaignApi->getAdSetV24Q1: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -864,7 +864,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\preview\Model\ResponseReadAdSetV23Q1**](../Model/ResponseReadAdSetV23Q1.md)
+[**\criteo\api\marketingsolutions\preview\Model\ResponseReadAdSetV24Q1**](../Model/ResponseReadAdSetV24Q1.md)
 
 ### Authorization
 
@@ -1510,10 +1510,10 @@ This endpoint does not need any parameter.
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `patchAdSets()`
+## `patchAdSetsV24Q1()`
 
 ```php
-patchAdSets($requests_patch_ad_set): \criteo\api\marketingsolutions\preview\Model\ResponsesAdSetId
+patchAdSetsV24Q1($requests_patch_ad_set_v24_q1): \criteo\api\marketingsolutions\preview\Model\ResponsesAdSetIdV24Q1
 ```
 
 
@@ -1540,13 +1540,13 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$requests_patch_ad_set = new \criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSet(); // \criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSet | List of adsets to patch.
+$requests_patch_ad_set_v24_q1 = new \criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSetV24Q1(); // \criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSetV24Q1 | List of adsets to patch.
 
 try {
-    $result = $apiInstance->patchAdSets($requests_patch_ad_set);
+    $result = $apiInstance->patchAdSetsV24Q1($requests_patch_ad_set_v24_q1);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->patchAdSets: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CampaignApi->patchAdSetsV24Q1: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -1554,11 +1554,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **requests_patch_ad_set** | [**\criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSet**](../Model/RequestsPatchAdSet.md)| List of adsets to patch. | [optional] |
+| **requests_patch_ad_set_v24_q1** | [**\criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSetV24Q1**](../Model/RequestsPatchAdSetV24Q1.md)| List of adsets to patch. | [optional] |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\preview\Model\ResponsesAdSetId**](../Model/ResponsesAdSetId.md)
+[**\criteo\api\marketingsolutions\preview\Model\ResponsesAdSetIdV24Q1**](../Model/ResponsesAdSetIdV24Q1.md)
 
 ### Authorization
 
@@ -2286,10 +2286,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `searchAdSetsV23Q1()`
+## `searchAdSetsV24Q1()`
 
 ```php
-searchAdSetsV23Q1($ad_set_search_request_v23_q1): \criteo\api\marketingsolutions\preview\Model\ResponsesReadAdSetV23Q1
+searchAdSetsV24Q1($ad_set_search_request_v24_q1): \criteo\api\marketingsolutions\preview\Model\ResponsesReadAdSetV24Q1
 ```
 
 
@@ -2316,13 +2316,13 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ad_set_search_request_v23_q1 = new \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestV23Q1(); // \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestV23Q1
+$ad_set_search_request_v24_q1 = new \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestV24Q1(); // \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestV24Q1
 
 try {
-    $result = $apiInstance->searchAdSetsV23Q1($ad_set_search_request_v23_q1);
+    $result = $apiInstance->searchAdSetsV24Q1($ad_set_search_request_v24_q1);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->searchAdSetsV23Q1: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CampaignApi->searchAdSetsV24Q1: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -2330,11 +2330,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **ad_set_search_request_v23_q1** | [**\criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestV23Q1**](../Model/AdSetSearchRequestV23Q1.md)|  | [optional] |
+| **ad_set_search_request_v24_q1** | [**\criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestV24Q1**](../Model/AdSetSearchRequestV24Q1.md)|  | [optional] |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\preview\Model\ResponsesReadAdSetV23Q1**](../Model/ResponsesReadAdSetV23Q1.md)
+[**\criteo\api\marketingsolutions\preview\Model\ResponsesReadAdSetV24Q1**](../Model/ResponsesReadAdSetV24Q1.md)
 
 ### Authorization
 
