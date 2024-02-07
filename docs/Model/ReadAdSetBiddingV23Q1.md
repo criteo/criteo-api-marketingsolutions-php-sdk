@@ -1,10 +1,10 @@
-# # CampaignSearchFilters
+# # ReadAdSetBiddingV23Q1
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**campaign_ids** | **string[]** |  | [optional]
-**advertiser_ids** | **string[]** |  | [optional]
+**bid_amount** | [**\criteo\api\marketingsolutions\v2024_01\Model\NillableDecimal**](NillableDecimal.md) |  | [optional]
+**cost_controller** | **string** | How spend is controlled | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

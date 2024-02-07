@@ -9,10 +9,10 @@ Name | Type | Description | Notes
 **dataset_id** | **string** |  | [optional]
 **campaign_id** | **string** |  | [optional]
 **destination_environment** | **string** |  | [optional]
-**schedule** | [**\criteo\api\marketingsolutions\v2023_10\Model\ReadAdSetSchedule**](ReadAdSetSchedule.md) |  | [optional]
-**bidding** | [**\criteo\api\marketingsolutions\v2023_10\Model\ReadAdSetBidding**](ReadAdSetBidding.md) |  | [optional]
-**targeting** | [**\criteo\api\marketingsolutions\v2023_10\Model\AdSetTargeting**](AdSetTargeting.md) |  | [optional]
-**budget** | [**\criteo\api\marketingsolutions\v2023_10\Model\ReadAdSetBudget**](ReadAdSetBudget.md) |  | [optional]
+**schedule** | [**\criteo\api\marketingsolutions\v2024_01\Model\ReadAdSetSchedule**](ReadAdSetSchedule.md) |  | [optional]
+**bidding** | [**\criteo\api\marketingsolutions\v2024_01\Model\ReadAdSetBidding**](ReadAdSetBidding.md) |  | [optional]
+**targeting** | [**\criteo\api\marketingsolutions\v2024_01\Model\AdSetTargeting**](AdSetTargeting.md) |  | [optional]
+**budget** | [**\criteo\api\marketingsolutions\v2024_01\Model\ReadAdSetBudget**](ReadAdSetBudget.md) |  | [optional]
 **media_type** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

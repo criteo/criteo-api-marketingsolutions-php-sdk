@@ -8,10 +8,10 @@ Name | Type | Description | Notes
 **dataset_id** | **string** | Dataset id of this ad set |
 **campaign_id** | **string** | Campaign id this ad set belongs to |
 **objective** | **string** | Objective of the ad set |
-**schedule** | [**\criteo\api\marketingsolutions\v2023_10\Model\CreateAdSetSchedule**](CreateAdSetSchedule.md) |  |
-**bidding** | [**\criteo\api\marketingsolutions\v2023_10\Model\CreateAdSetBidding**](CreateAdSetBidding.md) |  |
-**targeting** | [**\criteo\api\marketingsolutions\v2023_10\Model\CreateAdSetTargeting**](CreateAdSetTargeting.md) |  |
-**budget** | [**\criteo\api\marketingsolutions\v2023_10\Model\CreateAdSetBudget**](CreateAdSetBudget.md) |  |
+**schedule** | [**\criteo\api\marketingsolutions\v2024_01\Model\CreateAdSetSchedule**](CreateAdSetSchedule.md) |  |
+**bidding** | [**\criteo\api\marketingsolutions\v2024_01\Model\CreateAdSetBidding**](CreateAdSetBidding.md) |  |
+**targeting** | [**\criteo\api\marketingsolutions\v2024_01\Model\CreateAdSetTargeting**](CreateAdSetTargeting.md) |  |
+**budget** | [**\criteo\api\marketingsolutions\v2024_01\Model\CreateAdSetBudget**](CreateAdSetBudget.md) |  |
 **tracking_code** | **string** | The click tracking code associated to this Ad Set. |
 **media_type** | **string** | Media type for the ad set |
 
