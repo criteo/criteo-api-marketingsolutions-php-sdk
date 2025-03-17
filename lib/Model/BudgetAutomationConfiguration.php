@@ -1,6 +1,6 @@
 <?php
 /**
- * ContactlistAmendmentAttributes
+ * BudgetAutomationConfiguration
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2024_07\ObjectSerializer;
 
 /**
- * ContactlistAmendmentAttributes Class Doc Comment
+ * BudgetAutomationConfiguration Class Doc Comment
  *
  * @category Class
- * @description the name of the entity type
+ * @description The budget automation configuration model
  * @package  criteo\api\marketingsolutions\v2024_07
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ContactlistAmendmentAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
+class BudgetAutomationConfiguration implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ContactlistAmendmentAttributes implements ModelInterface, ArrayAccess, \Js
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ContactlistAmendment_attributes';
+    protected static $openAPIModelName = 'BudgetAutomationConfiguration';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,7 @@ class ContactlistAmendmentAttributes implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
-        'operation' => 'string',
-        'identifier_type' => 'string',
-        'identifiers' => 'string[]',
-        'gum_caller_id' => 'int'
+        'ad_set_objectives' => 'string'
     ];
 
     /**
@@ -72,10 +69,7 @@ class ContactlistAmendmentAttributes implements ModelInterface, ArrayAccess, \Js
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'operation' => null,
-        'identifier_type' => null,
-        'identifiers' => null,
-        'gum_caller_id' => null
+        'ad_set_objectives' => null
     ];
 
     /**
@@ -84,10 +78,7 @@ class ContactlistAmendmentAttributes implements ModelInterface, ArrayAccess, \Js
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'operation' => false,
-		'identifier_type' => false,
-		'identifiers' => false,
-		'gum_caller_id' => false
+        'ad_set_objectives' => false
     ];
 
     /**
@@ -176,10 +167,7 @@ class ContactlistAmendmentAttributes implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $attributeMap = [
-        'operation' => 'operation',
-        'identifier_type' => 'identifierType',
-        'identifiers' => 'identifiers',
-        'gum_caller_id' => 'gumCallerId'
+        'ad_set_objectives' => 'adSetObjectives'
     ];
 
     /**
@@ -188,10 +176,7 @@ class ContactlistAmendmentAttributes implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $setters = [
-        'operation' => 'setOperation',
-        'identifier_type' => 'setIdentifierType',
-        'identifiers' => 'setIdentifiers',
-        'gum_caller_id' => 'setGumCallerId'
+        'ad_set_objectives' => 'setAdSetObjectives'
     ];
 
     /**
@@ -200,10 +185,7 @@ class ContactlistAmendmentAttributes implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $getters = [
-        'operation' => 'getOperation',
-        'identifier_type' => 'getIdentifierType',
-        'identifiers' => 'getIdentifiers',
-        'gum_caller_id' => 'getGumCallerId'
+        'ad_set_objectives' => 'getAdSetObjectives'
     ];
 
     /**
@@ -247,40 +229,37 @@ class ContactlistAmendmentAttributes implements ModelInterface, ArrayAccess, \Js
         return self::$openAPIModelName;
     }
 
-    public const OPERATION_ADD = 'add';
-    public const OPERATION_REMOVE = 'remove';
-    public const IDENTIFIER_TYPE_EMAIL = 'email';
-    public const IDENTIFIER_TYPE_MADID = 'madid';
-    public const IDENTIFIER_TYPE_IDENTITY_LINK = 'identityLink';
-    public const IDENTIFIER_TYPE_GUM = 'gum';
-    public const IDENTIFIER_TYPE_PHONE_NUMBER = 'phoneNumber';
+    public const AD_SET_OBJECTIVES_CUSTOM_ACTION = 'customAction';
+    public const AD_SET_OBJECTIVES_CLICKS = 'clicks';
+    public const AD_SET_OBJECTIVES_CONVERSIONS = 'conversions';
+    public const AD_SET_OBJECTIVES_DISPLAYS = 'displays';
+    public const AD_SET_OBJECTIVES_APP_PROMOTION = 'appPromotion';
+    public const AD_SET_OBJECTIVES_REVENUE = 'revenue';
+    public const AD_SET_OBJECTIVES_STORE_CONVERSIONS = 'storeConversions';
+    public const AD_SET_OBJECTIVES_VALUE = 'value';
+    public const AD_SET_OBJECTIVES_REACH = 'reach';
+    public const AD_SET_OBJECTIVES_VISITS = 'visits';
+    public const AD_SET_OBJECTIVES_VIDEO_VIEWS = 'videoViews';
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getOperationAllowableValues()
+    public function getAdSetObjectivesAllowableValues()
     {
         return [
-            self::OPERATION_ADD,
-            self::OPERATION_REMOVE,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getIdentifierTypeAllowableValues()
-    {
-        return [
-            self::IDENTIFIER_TYPE_EMAIL,
-            self::IDENTIFIER_TYPE_MADID,
-            self::IDENTIFIER_TYPE_IDENTITY_LINK,
-            self::IDENTIFIER_TYPE_GUM,
-            self::IDENTIFIER_TYPE_PHONE_NUMBER,
+            self::AD_SET_OBJECTIVES_CUSTOM_ACTION,
+            self::AD_SET_OBJECTIVES_CLICKS,
+            self::AD_SET_OBJECTIVES_CONVERSIONS,
+            self::AD_SET_OBJECTIVES_DISPLAYS,
+            self::AD_SET_OBJECTIVES_APP_PROMOTION,
+            self::AD_SET_OBJECTIVES_REVENUE,
+            self::AD_SET_OBJECTIVES_STORE_CONVERSIONS,
+            self::AD_SET_OBJECTIVES_VALUE,
+            self::AD_SET_OBJECTIVES_REACH,
+            self::AD_SET_OBJECTIVES_VISITS,
+            self::AD_SET_OBJECTIVES_VIDEO_VIEWS,
         ];
     }
 
@@ -299,10 +278,7 @@ class ContactlistAmendmentAttributes implements ModelInterface, ArrayAccess, \Js
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('operation', $data ?? [], null);
-        $this->setIfExists('identifier_type', $data ?? [], null);
-        $this->setIfExists('identifiers', $data ?? [], null);
-        $this->setIfExists('gum_caller_id', $data ?? [], null);
+        $this->setIfExists('ad_set_objectives', $data ?? [], null);
     }
 
     /**
@@ -332,30 +308,15 @@ class ContactlistAmendmentAttributes implements ModelInterface, ArrayAccess, \Js
     {
         $invalidProperties = [];
 
-        if ($this->container['operation'] === null) {
-            $invalidProperties[] = "'operation' can't be null";
-        }
-        $allowedValues = $this->getOperationAllowableValues();
-        if (!is_null($this->container['operation']) && !in_array($this->container['operation'], $allowedValues, true)) {
+        $allowedValues = $this->getAdSetObjectivesAllowableValues();
+        if (!is_null($this->container['ad_set_objectives']) && !in_array($this->container['ad_set_objectives'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'operation', must be one of '%s'",
-                $this->container['operation'],
+                "invalid value '%s' for 'ad_set_objectives', must be one of '%s'",
+                $this->container['ad_set_objectives'],
                 implode("', '", $allowedValues)
             );
         }
 
-        $allowedValues = $this->getIdentifierTypeAllowableValues();
-        if (!is_null($this->container['identifier_type']) && !in_array($this->container['identifier_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'identifier_type', must be one of '%s'",
-                $this->container['identifier_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['identifiers'] === null) {
-            $invalidProperties[] = "'identifiers' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -372,129 +333,38 @@ class ContactlistAmendmentAttributes implements ModelInterface, ArrayAccess, \Js
 
 
     /**
-     * Gets operation
-     *
-     * @return string
-     */
-    public function getOperation()
-    {
-        return $this->container['operation'];
-    }
-
-    /**
-     * Sets operation
-     *
-     * @param string $operation Operation to add or remove users
-     *
-     * @return self
-     */
-    public function setOperation($operation)
-    {
-        if (is_null($operation)) {
-            throw new \InvalidArgumentException('non-nullable operation cannot be null');
-        }
-        $allowedValues = $this->getOperationAllowableValues();
-        if (!in_array($operation, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'operation', must be one of '%s'",
-                    $operation,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['operation'] = $operation;
-
-        return $this;
-    }
-
-    /**
-     * Gets identifier_type
+     * Gets ad_set_objectives
      *
      * @return string|null
      */
-    public function getIdentifierType()
+    public function getAdSetObjectives()
     {
-        return $this->container['identifier_type'];
+        return $this->container['ad_set_objectives'];
     }
 
     /**
-     * Sets identifier_type
+     * Sets ad_set_objectives
      *
-     * @param string|null $identifier_type What type of identifiers are used
+     * @param string|null $ad_set_objectives ad_set_objectives
      *
      * @return self
      */
-    public function setIdentifierType($identifier_type)
+    public function setAdSetObjectives($ad_set_objectives)
     {
-        if (is_null($identifier_type)) {
-            throw new \InvalidArgumentException('non-nullable identifier_type cannot be null');
+        if (is_null($ad_set_objectives)) {
+            throw new \InvalidArgumentException('non-nullable ad_set_objectives cannot be null');
         }
-        $allowedValues = $this->getIdentifierTypeAllowableValues();
-        if (!in_array($identifier_type, $allowedValues, true)) {
+        $allowedValues = $this->getAdSetObjectivesAllowableValues();
+        if (!in_array($ad_set_objectives, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'identifier_type', must be one of '%s'",
-                    $identifier_type,
+                    "Invalid value '%s' for 'ad_set_objectives', must be one of '%s'",
+                    $ad_set_objectives,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['identifier_type'] = $identifier_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets identifiers
-     *
-     * @return string[]
-     */
-    public function getIdentifiers()
-    {
-        return $this->container['identifiers'];
-    }
-
-    /**
-     * Sets identifiers
-     *
-     * @param string[] $identifiers The users to add or remove, each in the schema specified
-     *
-     * @return self
-     */
-    public function setIdentifiers($identifiers)
-    {
-        if (is_null($identifiers)) {
-            throw new \InvalidArgumentException('non-nullable identifiers cannot be null');
-        }
-        $this->container['identifiers'] = $identifiers;
-
-        return $this;
-    }
-
-    /**
-     * Gets gum_caller_id
-     *
-     * @return int|null
-     */
-    public function getGumCallerId()
-    {
-        return $this->container['gum_caller_id'];
-    }
-
-    /**
-     * Sets gum_caller_id
-     *
-     * @param int|null $gum_caller_id The Gum caller id of the advertiser patching identifiers of type Gum
-     *
-     * @return self
-     */
-    public function setGumCallerId($gum_caller_id)
-    {
-        if (is_null($gum_caller_id)) {
-            throw new \InvalidArgumentException('non-nullable gum_caller_id cannot be null');
-        }
-        $this->container['gum_caller_id'] = $gum_caller_id;
+        $this->container['ad_set_objectives'] = $ad_set_objectives;
 
         return $this;
     }

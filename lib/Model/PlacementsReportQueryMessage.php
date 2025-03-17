@@ -110,7 +110,7 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
 		'dimensions' => false,
 		'metrics' => false,
 		'currency' => false,
-		'disclosed' => true,
+		'disclosed' => false,
 		'format' => false,
 		'timezone' => true,
 		'start_date' => false,
@@ -703,14 +703,7 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     public function setDisclosed($disclosed)
     {
         if (is_null($disclosed)) {
-            array_push($this->openAPINullablesSetToNull, 'disclosed');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('disclosed', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable disclosed cannot be null');
         }
         $this->container['disclosed'] = $disclosed;
 

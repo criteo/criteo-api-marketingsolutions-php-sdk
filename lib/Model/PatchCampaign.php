@@ -58,7 +58,8 @@ class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'spend_limit' => '\criteo\api\marketingsolutions\v2024_07\Model\PatchCampaignSpendLimit'
+        'spend_limit' => '\criteo\api\marketingsolutions\v2024_07\Model\PatchCampaignSpendLimit',
+        'budget_automation' => '\criteo\api\marketingsolutions\v2024_07\Model\PatchMarketingCampaignBudgetAutomation'
     ];
 
     /**
@@ -69,7 +70,8 @@ class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'spend_limit' => null
+        'spend_limit' => null,
+        'budget_automation' => null
     ];
 
     /**
@@ -78,7 +80,8 @@ class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'spend_limit' => false
+        'spend_limit' => false,
+		'budget_automation' => false
     ];
 
     /**
@@ -167,7 +170,8 @@ class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'spend_limit' => 'spendLimit'
+        'spend_limit' => 'spendLimit',
+        'budget_automation' => 'budgetAutomation'
     ];
 
     /**
@@ -176,7 +180,8 @@ class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'spend_limit' => 'setSpendLimit'
+        'spend_limit' => 'setSpendLimit',
+        'budget_automation' => 'setBudgetAutomation'
     ];
 
     /**
@@ -185,7 +190,8 @@ class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'spend_limit' => 'getSpendLimit'
+        'spend_limit' => 'getSpendLimit',
+        'budget_automation' => 'getBudgetAutomation'
     ];
 
     /**
@@ -246,6 +252,7 @@ class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('spend_limit', $data ?? [], null);
+        $this->setIfExists('budget_automation', $data ?? [], null);
     }
 
     /**
@@ -313,6 +320,33 @@ class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable spend_limit cannot be null');
         }
         $this->container['spend_limit'] = $spend_limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets budget_automation
+     *
+     * @return \criteo\api\marketingsolutions\v2024_07\Model\PatchMarketingCampaignBudgetAutomation|null
+     */
+    public function getBudgetAutomation()
+    {
+        return $this->container['budget_automation'];
+    }
+
+    /**
+     * Sets budget_automation
+     *
+     * @param \criteo\api\marketingsolutions\v2024_07\Model\PatchMarketingCampaignBudgetAutomation|null $budget_automation budget_automation
+     *
+     * @return self
+     */
+    public function setBudgetAutomation($budget_automation)
+    {
+        if (is_null($budget_automation)) {
+            throw new \InvalidArgumentException('non-nullable budget_automation cannot be null');
+        }
+        $this->container['budget_automation'] = $budget_automation;
 
         return $this;
     }

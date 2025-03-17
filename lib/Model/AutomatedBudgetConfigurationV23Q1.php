@@ -1,6 +1,6 @@
 <?php
 /**
- * CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration
+ * AutomatedBudgetConfigurationV23Q1
  *
  * PHP version 7.4
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2024_07\ObjectSerializer;
 
 /**
- * CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration Class Doc Comment
+ * AutomatedBudgetConfigurationV23Q1 Class Doc Comment
  *
  * @category Class
+ * @description The automated budget configuration model
  * @package  criteo\api\marketingsolutions\v2024_07
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration implements ModelInterface, ArrayAccess, \JsonSerializable
+class AutomatedBudgetConfigurationV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration implements Model
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CampaignBudgetAutomationV23Q1_automatedBudgetConfiguration';
+    protected static $openAPIModelName = 'AutomatedBudgetConfigurationV23Q1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
