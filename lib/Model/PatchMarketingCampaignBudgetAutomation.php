@@ -1,6 +1,6 @@
 <?php
 /**
- * PatchAdSetScheduling
+ * PatchMarketingCampaignBudgetAutomation
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2024_01\ObjectSerializer;
 
 /**
- * PatchAdSetScheduling Class Doc Comment
+ * PatchMarketingCampaignBudgetAutomation Class Doc Comment
  *
  * @category Class
- * @description ad set schedule patch model
+ * @description patch marketing campaign budet automation model
  * @package  criteo\api\marketingsolutions\v2024_01
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PatchAdSetScheduling implements ModelInterface, ArrayAccess, \JsonSerializable
+class PatchMarketingCampaignBudgetAutomation implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PatchAdSetScheduling implements ModelInterface, ArrayAccess, \JsonSerializ
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PatchAdSetScheduling';
+    protected static $openAPIModelName = 'PatchMarketingCampaignBudgetAutomation';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,8 @@ class PatchAdSetScheduling implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'start_date' => '\criteo\api\marketingsolutions\v2024_01\Model\NillableDateTime',
-        'end_date' => '\criteo\api\marketingsolutions\v2024_01\Model\NillableDateTime'
+        'enable' => 'bool',
+        'budget_configuration' => '\criteo\api\marketingsolutions\v2024_01\Model\BudgetAutomationConfiguration'
     ];
 
     /**
@@ -70,8 +70,8 @@ class PatchAdSetScheduling implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'start_date' => null,
-        'end_date' => null
+        'enable' => null,
+        'budget_configuration' => null
     ];
 
     /**
@@ -80,8 +80,8 @@ class PatchAdSetScheduling implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'start_date' => true,
-		'end_date' => true
+        'enable' => false,
+		'budget_configuration' => false
     ];
 
     /**
@@ -170,8 +170,8 @@ class PatchAdSetScheduling implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'start_date' => 'startDate',
-        'end_date' => 'endDate'
+        'enable' => 'enable',
+        'budget_configuration' => 'budgetConfiguration'
     ];
 
     /**
@@ -180,8 +180,8 @@ class PatchAdSetScheduling implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'start_date' => 'setStartDate',
-        'end_date' => 'setEndDate'
+        'enable' => 'setEnable',
+        'budget_configuration' => 'setBudgetConfiguration'
     ];
 
     /**
@@ -190,8 +190,8 @@ class PatchAdSetScheduling implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'start_date' => 'getStartDate',
-        'end_date' => 'getEndDate'
+        'enable' => 'getEnable',
+        'budget_configuration' => 'getBudgetConfiguration'
     ];
 
     /**
@@ -251,8 +251,8 @@ class PatchAdSetScheduling implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('start_date', $data ?? [], null);
-        $this->setIfExists('end_date', $data ?? [], null);
+        $this->setIfExists('enable', $data ?? [], null);
+        $this->setIfExists('budget_configuration', $data ?? [], null);
     }
 
     /**
@@ -298,69 +298,55 @@ class PatchAdSetScheduling implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets start_date
+     * Gets enable
      *
-     * @return \criteo\api\marketingsolutions\v2024_01\Model\NillableDateTime|null
+     * @return bool|null
      */
-    public function getStartDate()
+    public function getEnable()
     {
-        return $this->container['start_date'];
+        return $this->container['enable'];
     }
 
     /**
-     * Sets start_date
+     * Sets enable
      *
-     * @param \criteo\api\marketingsolutions\v2024_01\Model\NillableDateTime|null $start_date start_date
+     * @param bool|null $enable Budget automation for the marketing campaign enable
      *
      * @return self
      */
-    public function setStartDate($start_date)
+    public function setEnable($enable)
     {
-        if (is_null($start_date)) {
-            array_push($this->openAPINullablesSetToNull, 'start_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('start_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($enable)) {
+            throw new \InvalidArgumentException('non-nullable enable cannot be null');
         }
-        $this->container['start_date'] = $start_date;
+        $this->container['enable'] = $enable;
 
         return $this;
     }
 
     /**
-     * Gets end_date
+     * Gets budget_configuration
      *
-     * @return \criteo\api\marketingsolutions\v2024_01\Model\NillableDateTime|null
+     * @return \criteo\api\marketingsolutions\v2024_01\Model\BudgetAutomationConfiguration|null
      */
-    public function getEndDate()
+    public function getBudgetConfiguration()
     {
-        return $this->container['end_date'];
+        return $this->container['budget_configuration'];
     }
 
     /**
-     * Sets end_date
+     * Sets budget_configuration
      *
-     * @param \criteo\api\marketingsolutions\v2024_01\Model\NillableDateTime|null $end_date end_date
+     * @param \criteo\api\marketingsolutions\v2024_01\Model\BudgetAutomationConfiguration|null $budget_configuration budget_configuration
      *
      * @return self
      */
-    public function setEndDate($end_date)
+    public function setBudgetConfiguration($budget_configuration)
     {
-        if (is_null($end_date)) {
-            array_push($this->openAPINullablesSetToNull, 'end_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('end_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($budget_configuration)) {
+            throw new \InvalidArgumentException('non-nullable budget_configuration cannot be null');
         }
-        $this->container['end_date'] = $end_date;
+        $this->container['budget_configuration'] = $budget_configuration;
 
         return $this;
     }

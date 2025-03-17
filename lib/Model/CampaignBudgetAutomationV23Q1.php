@@ -59,7 +59,7 @@ class CampaignBudgetAutomationV23Q1 implements ModelInterface, ArrayAccess, \Jso
       */
     protected static $openAPITypes = [
         'enabled' => 'bool',
-        'automated_budget_configuration' => '\criteo\api\marketingsolutions\v2024_01\Model\CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration'
+        'automated_budget_configuration' => '\criteo\api\marketingsolutions\v2024_01\Model\AutomatedBudgetConfigurationV23Q1'
     ];
 
     /**
@@ -334,7 +334,7 @@ class CampaignBudgetAutomationV23Q1 implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets automated_budget_configuration
      *
-     * @return \criteo\api\marketingsolutions\v2024_01\Model\CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration|null
+     * @return \criteo\api\marketingsolutions\v2024_01\Model\AutomatedBudgetConfigurationV23Q1|null
      */
     public function getAutomatedBudgetConfiguration()
     {
@@ -344,7 +344,7 @@ class CampaignBudgetAutomationV23Q1 implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets automated_budget_configuration
      *
-     * @param \criteo\api\marketingsolutions\v2024_01\Model\CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration|null $automated_budget_configuration automated_budget_configuration
+     * @param \criteo\api\marketingsolutions\v2024_01\Model\AutomatedBudgetConfigurationV23Q1|null $automated_budget_configuration automated_budget_configuration
      *
      * @return self
      */

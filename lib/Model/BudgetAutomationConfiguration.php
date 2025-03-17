@@ -1,6 +1,6 @@
 <?php
 /**
- * PatchAdSetScheduling
+ * BudgetAutomationConfiguration
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2024_01\ObjectSerializer;
 
 /**
- * PatchAdSetScheduling Class Doc Comment
+ * BudgetAutomationConfiguration Class Doc Comment
  *
  * @category Class
- * @description ad set schedule patch model
+ * @description The budget automation configuration model
  * @package  criteo\api\marketingsolutions\v2024_01
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PatchAdSetScheduling implements ModelInterface, ArrayAccess, \JsonSerializable
+class BudgetAutomationConfiguration implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PatchAdSetScheduling implements ModelInterface, ArrayAccess, \JsonSerializ
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PatchAdSetScheduling';
+    protected static $openAPIModelName = 'BudgetAutomationConfiguration';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,7 @@ class PatchAdSetScheduling implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'start_date' => '\criteo\api\marketingsolutions\v2024_01\Model\NillableDateTime',
-        'end_date' => '\criteo\api\marketingsolutions\v2024_01\Model\NillableDateTime'
+        'ad_set_objectives' => 'string'
     ];
 
     /**
@@ -70,8 +69,7 @@ class PatchAdSetScheduling implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'start_date' => null,
-        'end_date' => null
+        'ad_set_objectives' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class PatchAdSetScheduling implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'start_date' => true,
-		'end_date' => true
+        'ad_set_objectives' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class PatchAdSetScheduling implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'start_date' => 'startDate',
-        'end_date' => 'endDate'
+        'ad_set_objectives' => 'adSetObjectives'
     ];
 
     /**
@@ -180,8 +176,7 @@ class PatchAdSetScheduling implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'start_date' => 'setStartDate',
-        'end_date' => 'setEndDate'
+        'ad_set_objectives' => 'setAdSetObjectives'
     ];
 
     /**
@@ -190,8 +185,7 @@ class PatchAdSetScheduling implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'start_date' => 'getStartDate',
-        'end_date' => 'getEndDate'
+        'ad_set_objectives' => 'getAdSetObjectives'
     ];
 
     /**
@@ -235,6 +229,39 @@ class PatchAdSetScheduling implements ModelInterface, ArrayAccess, \JsonSerializ
         return self::$openAPIModelName;
     }
 
+    public const AD_SET_OBJECTIVES_CUSTOM_ACTION = 'customAction';
+    public const AD_SET_OBJECTIVES_CLICKS = 'clicks';
+    public const AD_SET_OBJECTIVES_CONVERSIONS = 'conversions';
+    public const AD_SET_OBJECTIVES_DISPLAYS = 'displays';
+    public const AD_SET_OBJECTIVES_APP_PROMOTION = 'appPromotion';
+    public const AD_SET_OBJECTIVES_REVENUE = 'revenue';
+    public const AD_SET_OBJECTIVES_STORE_CONVERSIONS = 'storeConversions';
+    public const AD_SET_OBJECTIVES_VALUE = 'value';
+    public const AD_SET_OBJECTIVES_REACH = 'reach';
+    public const AD_SET_OBJECTIVES_VISITS = 'visits';
+    public const AD_SET_OBJECTIVES_VIDEO_VIEWS = 'videoViews';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAdSetObjectivesAllowableValues()
+    {
+        return [
+            self::AD_SET_OBJECTIVES_CUSTOM_ACTION,
+            self::AD_SET_OBJECTIVES_CLICKS,
+            self::AD_SET_OBJECTIVES_CONVERSIONS,
+            self::AD_SET_OBJECTIVES_DISPLAYS,
+            self::AD_SET_OBJECTIVES_APP_PROMOTION,
+            self::AD_SET_OBJECTIVES_REVENUE,
+            self::AD_SET_OBJECTIVES_STORE_CONVERSIONS,
+            self::AD_SET_OBJECTIVES_VALUE,
+            self::AD_SET_OBJECTIVES_REACH,
+            self::AD_SET_OBJECTIVES_VISITS,
+            self::AD_SET_OBJECTIVES_VIDEO_VIEWS,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -251,8 +278,7 @@ class PatchAdSetScheduling implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('start_date', $data ?? [], null);
-        $this->setIfExists('end_date', $data ?? [], null);
+        $this->setIfExists('ad_set_objectives', $data ?? [], null);
     }
 
     /**
@@ -282,6 +308,15 @@ class PatchAdSetScheduling implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getAdSetObjectivesAllowableValues();
+        if (!is_null($this->container['ad_set_objectives']) && !in_array($this->container['ad_set_objectives'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'ad_set_objectives', must be one of '%s'",
+                $this->container['ad_set_objectives'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -298,69 +333,38 @@ class PatchAdSetScheduling implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets start_date
+     * Gets ad_set_objectives
      *
-     * @return \criteo\api\marketingsolutions\v2024_01\Model\NillableDateTime|null
+     * @return string|null
      */
-    public function getStartDate()
+    public function getAdSetObjectives()
     {
-        return $this->container['start_date'];
+        return $this->container['ad_set_objectives'];
     }
 
     /**
-     * Sets start_date
+     * Sets ad_set_objectives
      *
-     * @param \criteo\api\marketingsolutions\v2024_01\Model\NillableDateTime|null $start_date start_date
+     * @param string|null $ad_set_objectives ad_set_objectives
      *
      * @return self
      */
-    public function setStartDate($start_date)
+    public function setAdSetObjectives($ad_set_objectives)
     {
-        if (is_null($start_date)) {
-            array_push($this->openAPINullablesSetToNull, 'start_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('start_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($ad_set_objectives)) {
+            throw new \InvalidArgumentException('non-nullable ad_set_objectives cannot be null');
         }
-        $this->container['start_date'] = $start_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets end_date
-     *
-     * @return \criteo\api\marketingsolutions\v2024_01\Model\NillableDateTime|null
-     */
-    public function getEndDate()
-    {
-        return $this->container['end_date'];
-    }
-
-    /**
-     * Sets end_date
-     *
-     * @param \criteo\api\marketingsolutions\v2024_01\Model\NillableDateTime|null $end_date end_date
-     *
-     * @return self
-     */
-    public function setEndDate($end_date)
-    {
-        if (is_null($end_date)) {
-            array_push($this->openAPINullablesSetToNull, 'end_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('end_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        $allowedValues = $this->getAdSetObjectivesAllowableValues();
+        if (!in_array($ad_set_objectives, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'ad_set_objectives', must be one of '%s'",
+                    $ad_set_objectives,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
-        $this->container['end_date'] = $end_date;
+        $this->container['ad_set_objectives'] = $ad_set_objectives;
 
         return $this;
     }

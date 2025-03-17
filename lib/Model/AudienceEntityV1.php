@@ -96,7 +96,7 @@ class AudienceEntityV1 implements ModelInterface, ArrayAccess, \JsonSerializable
 		'updated_at' => true,
 		'advertiser_id' => true,
 		'ad_set_ids' => true,
-		'algebra' => false
+		'algebra' => true
     ];
 
     /**
@@ -558,7 +558,14 @@ class AudienceEntityV1 implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAlgebra($algebra)
     {
         if (is_null($algebra)) {
-            throw new \InvalidArgumentException('non-nullable algebra cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'algebra');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('algebra', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['algebra'] = $algebra;
 

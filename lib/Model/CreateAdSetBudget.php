@@ -87,9 +87,9 @@ class CreateAdSetBudget implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static array $openAPINullables = [
         'budget_strategy' => false,
-		'budget_renewal' => true,
-		'budget_delivery_smoothing' => true,
-		'budget_delivery_week' => true,
+		'budget_renewal' => false,
+		'budget_delivery_smoothing' => false,
+		'budget_delivery_week' => false,
 		'budget_amount' => true
     ];
 
@@ -490,17 +490,10 @@ class CreateAdSetBudget implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setBudgetRenewal($budget_renewal)
     {
         if (is_null($budget_renewal)) {
-            array_push($this->openAPINullablesSetToNull, 'budget_renewal');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('budget_renewal', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable budget_renewal cannot be null');
         }
         $allowedValues = $this->getBudgetRenewalAllowableValues();
-        if (!is_null($budget_renewal) && !in_array($budget_renewal, $allowedValues, true)) {
+        if (!in_array($budget_renewal, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'budget_renewal', must be one of '%s'",
@@ -534,17 +527,10 @@ class CreateAdSetBudget implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setBudgetDeliverySmoothing($budget_delivery_smoothing)
     {
         if (is_null($budget_delivery_smoothing)) {
-            array_push($this->openAPINullablesSetToNull, 'budget_delivery_smoothing');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('budget_delivery_smoothing', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable budget_delivery_smoothing cannot be null');
         }
         $allowedValues = $this->getBudgetDeliverySmoothingAllowableValues();
-        if (!is_null($budget_delivery_smoothing) && !in_array($budget_delivery_smoothing, $allowedValues, true)) {
+        if (!in_array($budget_delivery_smoothing, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'budget_delivery_smoothing', must be one of '%s'",
@@ -578,17 +564,10 @@ class CreateAdSetBudget implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setBudgetDeliveryWeek($budget_delivery_week)
     {
         if (is_null($budget_delivery_week)) {
-            array_push($this->openAPINullablesSetToNull, 'budget_delivery_week');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('budget_delivery_week', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable budget_delivery_week cannot be null');
         }
         $allowedValues = $this->getBudgetDeliveryWeekAllowableValues();
-        if (!is_null($budget_delivery_week) && !in_array($budget_delivery_week, $allowedValues, true)) {
+        if (!in_array($budget_delivery_week, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'budget_delivery_week', must be one of '%s'",

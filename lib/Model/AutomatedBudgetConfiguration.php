@@ -1,6 +1,6 @@
 <?php
 /**
- * CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration
+ * AutomatedBudgetConfiguration
  *
  * PHP version 7.4
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2024_01\ObjectSerializer;
 
 /**
- * CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration Class Doc Comment
+ * AutomatedBudgetConfiguration Class Doc Comment
  *
  * @category Class
+ * @description The campaign automated budget configuration model
  * @package  criteo\api\marketingsolutions\v2024_01
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration implements ModelInterface, ArrayAccess, \JsonSerializable
+class AutomatedBudgetConfiguration implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration implements Model
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CampaignBudgetAutomationV23Q1_automatedBudgetConfiguration';
+    protected static $openAPIModelName = 'AutomatedBudgetConfiguration';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,7 @@ class CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration implements Model
       * @var string[]
       */
     protected static $openAPITypes = [
-        'ad_set_optimization_objective' => 'string'
+        'objective' => 'string'
     ];
 
     /**
@@ -68,7 +69,7 @@ class CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration implements Model
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'ad_set_optimization_objective' => null
+        'objective' => null
     ];
 
     /**
@@ -77,7 +78,7 @@ class CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration implements Model
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'ad_set_optimization_objective' => true
+        'objective' => false
     ];
 
     /**
@@ -166,7 +167,7 @@ class CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration implements Model
      * @var string[]
      */
     protected static $attributeMap = [
-        'ad_set_optimization_objective' => 'adSetOptimizationObjective'
+        'objective' => 'objective'
     ];
 
     /**
@@ -175,7 +176,7 @@ class CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration implements Model
      * @var string[]
      */
     protected static $setters = [
-        'ad_set_optimization_objective' => 'setAdSetOptimizationObjective'
+        'objective' => 'setObjective'
     ];
 
     /**
@@ -184,7 +185,7 @@ class CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration implements Model
      * @var string[]
      */
     protected static $getters = [
-        'ad_set_optimization_objective' => 'getAdSetOptimizationObjective'
+        'objective' => 'getObjective'
     ];
 
     /**
@@ -228,37 +229,37 @@ class CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration implements Model
         return self::$openAPIModelName;
     }
 
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_CUSTOM_ACTION = 'customAction';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_CLICKS = 'clicks';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_CONVERSIONS = 'conversions';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_DISPLAYS = 'displays';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_APP_PROMOTION = 'appPromotion';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_REVENUE = 'revenue';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_STORE_CONVERSIONS = 'storeConversions';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_VALUE = 'value';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_REACH = 'reach';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_VISITS = 'visits';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_VIDEO_VIEWS = 'videoViews';
+    public const OBJECTIVE_CUSTOM_ACTION = 'customAction';
+    public const OBJECTIVE_CLICKS = 'clicks';
+    public const OBJECTIVE_CONVERSIONS = 'conversions';
+    public const OBJECTIVE_DISPLAYS = 'displays';
+    public const OBJECTIVE_APP_PROMOTION = 'appPromotion';
+    public const OBJECTIVE_REVENUE = 'revenue';
+    public const OBJECTIVE_STORE_CONVERSIONS = 'storeConversions';
+    public const OBJECTIVE_VALUE = 'value';
+    public const OBJECTIVE_REACH = 'reach';
+    public const OBJECTIVE_VISITS = 'visits';
+    public const OBJECTIVE_VIDEO_VIEWS = 'videoViews';
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getAdSetOptimizationObjectiveAllowableValues()
+    public function getObjectiveAllowableValues()
     {
         return [
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_CUSTOM_ACTION,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_CLICKS,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_CONVERSIONS,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_DISPLAYS,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_APP_PROMOTION,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_REVENUE,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_STORE_CONVERSIONS,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_VALUE,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_REACH,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_VISITS,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_VIDEO_VIEWS,
+            self::OBJECTIVE_CUSTOM_ACTION,
+            self::OBJECTIVE_CLICKS,
+            self::OBJECTIVE_CONVERSIONS,
+            self::OBJECTIVE_DISPLAYS,
+            self::OBJECTIVE_APP_PROMOTION,
+            self::OBJECTIVE_REVENUE,
+            self::OBJECTIVE_STORE_CONVERSIONS,
+            self::OBJECTIVE_VALUE,
+            self::OBJECTIVE_REACH,
+            self::OBJECTIVE_VISITS,
+            self::OBJECTIVE_VIDEO_VIEWS,
         ];
     }
 
@@ -277,7 +278,7 @@ class CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration implements Model
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('ad_set_optimization_objective', $data ?? [], null);
+        $this->setIfExists('objective', $data ?? [], null);
     }
 
     /**
@@ -307,11 +308,11 @@ class CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration implements Model
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getAdSetOptimizationObjectiveAllowableValues();
-        if (!is_null($this->container['ad_set_optimization_objective']) && !in_array($this->container['ad_set_optimization_objective'], $allowedValues, true)) {
+        $allowedValues = $this->getObjectiveAllowableValues();
+        if (!is_null($this->container['objective']) && !in_array($this->container['objective'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'ad_set_optimization_objective', must be one of '%s'",
-                $this->container['ad_set_optimization_objective'],
+                "invalid value '%s' for 'objective', must be one of '%s'",
+                $this->container['objective'],
                 implode("', '", $allowedValues)
             );
         }
@@ -332,45 +333,38 @@ class CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration implements Model
 
 
     /**
-     * Gets ad_set_optimization_objective
+     * Gets objective
      *
      * @return string|null
      */
-    public function getAdSetOptimizationObjective()
+    public function getObjective()
     {
-        return $this->container['ad_set_optimization_objective'];
+        return $this->container['objective'];
     }
 
     /**
-     * Sets ad_set_optimization_objective
+     * Sets objective
      *
-     * @param string|null $ad_set_optimization_objective ad_set_optimization_objective
+     * @param string|null $objective Objective of the ad set
      *
      * @return self
      */
-    public function setAdSetOptimizationObjective($ad_set_optimization_objective)
+    public function setObjective($objective)
     {
-        if (is_null($ad_set_optimization_objective)) {
-            array_push($this->openAPINullablesSetToNull, 'ad_set_optimization_objective');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('ad_set_optimization_objective', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($objective)) {
+            throw new \InvalidArgumentException('non-nullable objective cannot be null');
         }
-        $allowedValues = $this->getAdSetOptimizationObjectiveAllowableValues();
-        if (!is_null($ad_set_optimization_objective) && !in_array($ad_set_optimization_objective, $allowedValues, true)) {
+        $allowedValues = $this->getObjectiveAllowableValues();
+        if (!in_array($objective, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'ad_set_optimization_objective', must be one of '%s'",
-                    $ad_set_optimization_objective,
+                    "Invalid value '%s' for 'objective', must be one of '%s'",
+                    $objective,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['ad_set_optimization_objective'] = $ad_set_optimization_objective;
+        $this->container['objective'] = $objective;
 
         return $this;
     }
