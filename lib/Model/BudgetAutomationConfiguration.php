@@ -1,6 +1,6 @@
 <?php
 /**
- * TransparencyReportResource
+ * BudgetAutomationConfiguration
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2025_01\ObjectSerializer;
 
 /**
- * TransparencyReportResource Class Doc Comment
+ * BudgetAutomationConfiguration Class Doc Comment
  *
  * @category Class
- * @description A value resource exposed by the API.
+ * @description The budget automation configuration model
  * @package  criteo\api\marketingsolutions\v2025_01
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TransparencyReportResource implements ModelInterface, ArrayAccess, \JsonSerializable
+class BudgetAutomationConfiguration implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class TransparencyReportResource implements ModelInterface, ArrayAccess, \JsonSe
       *
       * @var string
       */
-    protected static $openAPIModelName = 'TransparencyReportResource';
+    protected static $openAPIModelName = 'BudgetAutomationConfiguration';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,7 @@ class TransparencyReportResource implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
-        'attributes' => '\criteo\api\marketingsolutions\v2025_01\Model\TransparencyReport'
+        'ad_set_objectives' => 'string'
     ];
 
     /**
@@ -70,8 +69,7 @@ class TransparencyReportResource implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
-        'attributes' => null
+        'ad_set_objectives' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class TransparencyReportResource implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'type' => true,
-		'attributes' => true
+        'ad_set_objectives' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class TransparencyReportResource implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'attributes' => 'attributes'
+        'ad_set_objectives' => 'adSetObjectives'
     ];
 
     /**
@@ -180,8 +176,7 @@ class TransparencyReportResource implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'attributes' => 'setAttributes'
+        'ad_set_objectives' => 'setAdSetObjectives'
     ];
 
     /**
@@ -190,8 +185,7 @@ class TransparencyReportResource implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'attributes' => 'getAttributes'
+        'ad_set_objectives' => 'getAdSetObjectives'
     ];
 
     /**
@@ -235,6 +229,39 @@ class TransparencyReportResource implements ModelInterface, ArrayAccess, \JsonSe
         return self::$openAPIModelName;
     }
 
+    public const AD_SET_OBJECTIVES_CUSTOM_ACTION = 'customAction';
+    public const AD_SET_OBJECTIVES_CLICKS = 'clicks';
+    public const AD_SET_OBJECTIVES_CONVERSIONS = 'conversions';
+    public const AD_SET_OBJECTIVES_DISPLAYS = 'displays';
+    public const AD_SET_OBJECTIVES_APP_PROMOTION = 'appPromotion';
+    public const AD_SET_OBJECTIVES_REVENUE = 'revenue';
+    public const AD_SET_OBJECTIVES_STORE_CONVERSIONS = 'storeConversions';
+    public const AD_SET_OBJECTIVES_VALUE = 'value';
+    public const AD_SET_OBJECTIVES_REACH = 'reach';
+    public const AD_SET_OBJECTIVES_VISITS = 'visits';
+    public const AD_SET_OBJECTIVES_VIDEO_VIEWS = 'videoViews';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAdSetObjectivesAllowableValues()
+    {
+        return [
+            self::AD_SET_OBJECTIVES_CUSTOM_ACTION,
+            self::AD_SET_OBJECTIVES_CLICKS,
+            self::AD_SET_OBJECTIVES_CONVERSIONS,
+            self::AD_SET_OBJECTIVES_DISPLAYS,
+            self::AD_SET_OBJECTIVES_APP_PROMOTION,
+            self::AD_SET_OBJECTIVES_REVENUE,
+            self::AD_SET_OBJECTIVES_STORE_CONVERSIONS,
+            self::AD_SET_OBJECTIVES_VALUE,
+            self::AD_SET_OBJECTIVES_REACH,
+            self::AD_SET_OBJECTIVES_VISITS,
+            self::AD_SET_OBJECTIVES_VIDEO_VIEWS,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -251,8 +278,7 @@ class TransparencyReportResource implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('attributes', $data ?? [], null);
+        $this->setIfExists('ad_set_objectives', $data ?? [], null);
     }
 
     /**
@@ -282,6 +308,15 @@ class TransparencyReportResource implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getAdSetObjectivesAllowableValues();
+        if (!is_null($this->container['ad_set_objectives']) && !in_array($this->container['ad_set_objectives'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'ad_set_objectives', must be one of '%s'",
+                $this->container['ad_set_objectives'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -298,69 +333,38 @@ class TransparencyReportResource implements ModelInterface, ArrayAccess, \JsonSe
 
 
     /**
-     * Gets type
+     * Gets ad_set_objectives
      *
      * @return string|null
      */
-    public function getType()
+    public function getAdSetObjectives()
     {
-        return $this->container['type'];
+        return $this->container['ad_set_objectives'];
     }
 
     /**
-     * Sets type
+     * Sets ad_set_objectives
      *
-     * @param string|null $type Type of the resource.
+     * @param string|null $ad_set_objectives ad_set_objectives
      *
      * @return self
      */
-    public function setType($type)
+    public function setAdSetObjectives($ad_set_objectives)
     {
-        if (is_null($type)) {
-            array_push($this->openAPINullablesSetToNull, 'type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($ad_set_objectives)) {
+            throw new \InvalidArgumentException('non-nullable ad_set_objectives cannot be null');
         }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets attributes
-     *
-     * @return \criteo\api\marketingsolutions\v2025_01\Model\TransparencyReport|null
-     */
-    public function getAttributes()
-    {
-        return $this->container['attributes'];
-    }
-
-    /**
-     * Sets attributes
-     *
-     * @param \criteo\api\marketingsolutions\v2025_01\Model\TransparencyReport|null $attributes attributes
-     *
-     * @return self
-     */
-    public function setAttributes($attributes)
-    {
-        if (is_null($attributes)) {
-            array_push($this->openAPINullablesSetToNull, 'attributes');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('attributes', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        $allowedValues = $this->getAdSetObjectivesAllowableValues();
+        if (!in_array($ad_set_objectives, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'ad_set_objectives', must be one of '%s'",
+                    $ad_set_objectives,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
-        $this->container['attributes'] = $attributes;
+        $this->container['ad_set_objectives'] = $ad_set_objectives;
 
         return $this;
     }

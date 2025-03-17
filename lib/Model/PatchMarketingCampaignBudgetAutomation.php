@@ -1,6 +1,6 @@
 <?php
 /**
- * TransparencyReportResource
+ * PatchMarketingCampaignBudgetAutomation
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2025_01\ObjectSerializer;
 
 /**
- * TransparencyReportResource Class Doc Comment
+ * PatchMarketingCampaignBudgetAutomation Class Doc Comment
  *
  * @category Class
- * @description A value resource exposed by the API.
+ * @description patch marketing campaign budet automation model
  * @package  criteo\api\marketingsolutions\v2025_01
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TransparencyReportResource implements ModelInterface, ArrayAccess, \JsonSerializable
+class PatchMarketingCampaignBudgetAutomation implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class TransparencyReportResource implements ModelInterface, ArrayAccess, \JsonSe
       *
       * @var string
       */
-    protected static $openAPIModelName = 'TransparencyReportResource';
+    protected static $openAPIModelName = 'PatchMarketingCampaignBudgetAutomation';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,8 @@ class TransparencyReportResource implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
-        'attributes' => '\criteo\api\marketingsolutions\v2025_01\Model\TransparencyReport'
+        'enable' => 'bool',
+        'budget_configuration' => '\criteo\api\marketingsolutions\v2025_01\Model\BudgetAutomationConfiguration'
     ];
 
     /**
@@ -70,8 +70,8 @@ class TransparencyReportResource implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
-        'attributes' => null
+        'enable' => null,
+        'budget_configuration' => null
     ];
 
     /**
@@ -80,8 +80,8 @@ class TransparencyReportResource implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'type' => true,
-		'attributes' => true
+        'enable' => false,
+		'budget_configuration' => false
     ];
 
     /**
@@ -170,8 +170,8 @@ class TransparencyReportResource implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'attributes' => 'attributes'
+        'enable' => 'enable',
+        'budget_configuration' => 'budgetConfiguration'
     ];
 
     /**
@@ -180,8 +180,8 @@ class TransparencyReportResource implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'attributes' => 'setAttributes'
+        'enable' => 'setEnable',
+        'budget_configuration' => 'setBudgetConfiguration'
     ];
 
     /**
@@ -190,8 +190,8 @@ class TransparencyReportResource implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'attributes' => 'getAttributes'
+        'enable' => 'getEnable',
+        'budget_configuration' => 'getBudgetConfiguration'
     ];
 
     /**
@@ -251,8 +251,8 @@ class TransparencyReportResource implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('attributes', $data ?? [], null);
+        $this->setIfExists('enable', $data ?? [], null);
+        $this->setIfExists('budget_configuration', $data ?? [], null);
     }
 
     /**
@@ -298,69 +298,55 @@ class TransparencyReportResource implements ModelInterface, ArrayAccess, \JsonSe
 
 
     /**
-     * Gets type
+     * Gets enable
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getType()
+    public function getEnable()
     {
-        return $this->container['type'];
+        return $this->container['enable'];
     }
 
     /**
-     * Sets type
+     * Sets enable
      *
-     * @param string|null $type Type of the resource.
+     * @param bool|null $enable Budget automation for the marketing campaign enable
      *
      * @return self
      */
-    public function setType($type)
+    public function setEnable($enable)
     {
-        if (is_null($type)) {
-            array_push($this->openAPINullablesSetToNull, 'type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($enable)) {
+            throw new \InvalidArgumentException('non-nullable enable cannot be null');
         }
-        $this->container['type'] = $type;
+        $this->container['enable'] = $enable;
 
         return $this;
     }
 
     /**
-     * Gets attributes
+     * Gets budget_configuration
      *
-     * @return \criteo\api\marketingsolutions\v2025_01\Model\TransparencyReport|null
+     * @return \criteo\api\marketingsolutions\v2025_01\Model\BudgetAutomationConfiguration|null
      */
-    public function getAttributes()
+    public function getBudgetConfiguration()
     {
-        return $this->container['attributes'];
+        return $this->container['budget_configuration'];
     }
 
     /**
-     * Sets attributes
+     * Sets budget_configuration
      *
-     * @param \criteo\api\marketingsolutions\v2025_01\Model\TransparencyReport|null $attributes attributes
+     * @param \criteo\api\marketingsolutions\v2025_01\Model\BudgetAutomationConfiguration|null $budget_configuration budget_configuration
      *
      * @return self
      */
-    public function setAttributes($attributes)
+    public function setBudgetConfiguration($budget_configuration)
     {
-        if (is_null($attributes)) {
-            array_push($this->openAPINullablesSetToNull, 'attributes');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('attributes', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($budget_configuration)) {
+            throw new \InvalidArgumentException('non-nullable budget_configuration cannot be null');
         }
-        $this->container['attributes'] = $attributes;
+        $this->container['budget_configuration'] = $budget_configuration;
 
         return $this;
     }

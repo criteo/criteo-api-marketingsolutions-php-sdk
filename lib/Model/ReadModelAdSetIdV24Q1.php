@@ -84,7 +84,7 @@ class ReadModelAdSetIdV24Q1 implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static array $openAPINullables = [
         'id' => true,
 		'type' => true,
-		'attributes' => false
+		'attributes' => true
     ];
 
     /**
@@ -392,7 +392,14 @@ class ReadModelAdSetIdV24Q1 implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setAttributes($attributes)
     {
         if (is_null($attributes)) {
-            throw new \InvalidArgumentException('non-nullable attributes cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'attributes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('attributes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['attributes'] = $attributes;
 

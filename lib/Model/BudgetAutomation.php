@@ -1,6 +1,6 @@
 <?php
 /**
- * CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration
+ * BudgetAutomation
  *
  * PHP version 7.4
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2025_01\ObjectSerializer;
 
 /**
- * CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration Class Doc Comment
+ * BudgetAutomation Class Doc Comment
  *
  * @category Class
+ * @description The campaign budget automation model
  * @package  criteo\api\marketingsolutions\v2025_01
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration implements ModelInterface, ArrayAccess, \JsonSerializable
+class BudgetAutomation implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration implements Model
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CampaignBudgetAutomationV23Q1_automatedBudgetConfiguration';
+    protected static $openAPIModelName = 'BudgetAutomation';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,8 @@ class CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration implements Model
       * @var string[]
       */
     protected static $openAPITypes = [
-        'ad_set_optimization_objective' => 'string'
+        'enabled' => 'bool',
+        'automated_budget_configuration' => '\criteo\api\marketingsolutions\v2025_01\Model\AutomatedBudgetConfiguration'
     ];
 
     /**
@@ -68,7 +70,8 @@ class CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration implements Model
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'ad_set_optimization_objective' => null
+        'enabled' => null,
+        'automated_budget_configuration' => null
     ];
 
     /**
@@ -77,7 +80,8 @@ class CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration implements Model
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'ad_set_optimization_objective' => true
+        'enabled' => false,
+		'automated_budget_configuration' => true
     ];
 
     /**
@@ -166,7 +170,8 @@ class CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration implements Model
      * @var string[]
      */
     protected static $attributeMap = [
-        'ad_set_optimization_objective' => 'adSetOptimizationObjective'
+        'enabled' => 'enabled',
+        'automated_budget_configuration' => 'automatedBudgetConfiguration'
     ];
 
     /**
@@ -175,7 +180,8 @@ class CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration implements Model
      * @var string[]
      */
     protected static $setters = [
-        'ad_set_optimization_objective' => 'setAdSetOptimizationObjective'
+        'enabled' => 'setEnabled',
+        'automated_budget_configuration' => 'setAutomatedBudgetConfiguration'
     ];
 
     /**
@@ -184,7 +190,8 @@ class CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration implements Model
      * @var string[]
      */
     protected static $getters = [
-        'ad_set_optimization_objective' => 'getAdSetOptimizationObjective'
+        'enabled' => 'getEnabled',
+        'automated_budget_configuration' => 'getAutomatedBudgetConfiguration'
     ];
 
     /**
@@ -228,39 +235,6 @@ class CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration implements Model
         return self::$openAPIModelName;
     }
 
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_CUSTOM_ACTION = 'customAction';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_CLICKS = 'clicks';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_CONVERSIONS = 'conversions';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_DISPLAYS = 'displays';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_APP_PROMOTION = 'appPromotion';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_REVENUE = 'revenue';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_STORE_CONVERSIONS = 'storeConversions';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_VALUE = 'value';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_REACH = 'reach';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_VISITS = 'visits';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_VIDEO_VIEWS = 'videoViews';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getAdSetOptimizationObjectiveAllowableValues()
-    {
-        return [
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_CUSTOM_ACTION,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_CLICKS,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_CONVERSIONS,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_DISPLAYS,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_APP_PROMOTION,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_REVENUE,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_STORE_CONVERSIONS,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_VALUE,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_REACH,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_VISITS,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_VIDEO_VIEWS,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -277,7 +251,8 @@ class CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration implements Model
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('ad_set_optimization_objective', $data ?? [], null);
+        $this->setIfExists('enabled', $data ?? [], null);
+        $this->setIfExists('automated_budget_configuration', $data ?? [], null);
     }
 
     /**
@@ -307,15 +282,6 @@ class CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration implements Model
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getAdSetOptimizationObjectiveAllowableValues();
-        if (!is_null($this->container['ad_set_optimization_objective']) && !in_array($this->container['ad_set_optimization_objective'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'ad_set_optimization_objective', must be one of '%s'",
-                $this->container['ad_set_optimization_objective'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -332,45 +298,62 @@ class CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration implements Model
 
 
     /**
-     * Gets ad_set_optimization_objective
+     * Gets enabled
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getAdSetOptimizationObjective()
+    public function getEnabled()
     {
-        return $this->container['ad_set_optimization_objective'];
+        return $this->container['enabled'];
     }
 
     /**
-     * Sets ad_set_optimization_objective
+     * Sets enabled
      *
-     * @param string|null $ad_set_optimization_objective ad_set_optimization_objective
+     * @param bool|null $enabled enabled
      *
      * @return self
      */
-    public function setAdSetOptimizationObjective($ad_set_optimization_objective)
+    public function setEnabled($enabled)
     {
-        if (is_null($ad_set_optimization_objective)) {
-            array_push($this->openAPINullablesSetToNull, 'ad_set_optimization_objective');
+        if (is_null($enabled)) {
+            throw new \InvalidArgumentException('non-nullable enabled cannot be null');
+        }
+        $this->container['enabled'] = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets automated_budget_configuration
+     *
+     * @return \criteo\api\marketingsolutions\v2025_01\Model\AutomatedBudgetConfiguration|null
+     */
+    public function getAutomatedBudgetConfiguration()
+    {
+        return $this->container['automated_budget_configuration'];
+    }
+
+    /**
+     * Sets automated_budget_configuration
+     *
+     * @param \criteo\api\marketingsolutions\v2025_01\Model\AutomatedBudgetConfiguration|null $automated_budget_configuration automated_budget_configuration
+     *
+     * @return self
+     */
+    public function setAutomatedBudgetConfiguration($automated_budget_configuration)
+    {
+        if (is_null($automated_budget_configuration)) {
+            array_push($this->openAPINullablesSetToNull, 'automated_budget_configuration');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('ad_set_optimization_objective', $nullablesSetToNull);
+            $index = array_search('automated_budget_configuration', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $allowedValues = $this->getAdSetOptimizationObjectiveAllowableValues();
-        if (!is_null($ad_set_optimization_objective) && !in_array($ad_set_optimization_objective, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'ad_set_optimization_objective', must be one of '%s'",
-                    $ad_set_optimization_objective,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['ad_set_optimization_objective'] = $ad_set_optimization_objective;
+        $this->container['automated_budget_configuration'] = $automated_budget_configuration;
 
         return $this;
     }

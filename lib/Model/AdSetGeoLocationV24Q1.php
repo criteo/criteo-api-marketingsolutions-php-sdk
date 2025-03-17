@@ -82,9 +82,9 @@ class AdSetGeoLocationV24Q1 implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'countries' => false,
-		'subdivisions' => false,
-		'zip_codes' => false
+        'countries' => true,
+		'subdivisions' => true,
+		'zip_codes' => true
     ];
 
     /**
@@ -324,7 +324,14 @@ class AdSetGeoLocationV24Q1 implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setCountries($countries)
     {
         if (is_null($countries)) {
-            throw new \InvalidArgumentException('non-nullable countries cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'countries');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('countries', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['countries'] = $countries;
 
@@ -351,7 +358,14 @@ class AdSetGeoLocationV24Q1 implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setSubdivisions($subdivisions)
     {
         if (is_null($subdivisions)) {
-            throw new \InvalidArgumentException('non-nullable subdivisions cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'subdivisions');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subdivisions', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['subdivisions'] = $subdivisions;
 
@@ -378,7 +392,14 @@ class AdSetGeoLocationV24Q1 implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setZipCodes($zip_codes)
     {
         if (is_null($zip_codes)) {
-            throw new \InvalidArgumentException('non-nullable zip_codes cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'zip_codes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('zip_codes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['zip_codes'] = $zip_codes;
 

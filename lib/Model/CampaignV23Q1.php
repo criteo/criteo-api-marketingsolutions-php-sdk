@@ -90,9 +90,9 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'name' => true,
 		'advertiser_id' => true,
-		'spend_limit' => false,
+		'spend_limit' => true,
 		'goal' => true,
-		'budget_automation' => false,
+		'budget_automation' => true,
 		'id' => true
     ];
 
@@ -439,7 +439,14 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSpendLimit($spend_limit)
     {
         if (is_null($spend_limit)) {
-            throw new \InvalidArgumentException('non-nullable spend_limit cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'spend_limit');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('spend_limit', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['spend_limit'] = $spend_limit;
 
@@ -510,7 +517,14 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setBudgetAutomation($budget_automation)
     {
         if (is_null($budget_automation)) {
-            throw new \InvalidArgumentException('non-nullable budget_automation cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'budget_automation');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('budget_automation', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['budget_automation'] = $budget_automation;
 

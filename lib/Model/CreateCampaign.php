@@ -61,7 +61,8 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'advertiser_id' => 'string',
         'goal' => 'string',
-        'spend_limit' => '\criteo\api\marketingsolutions\v2025_01\Model\CreateCampaignSpendLimit'
+        'spend_limit' => '\criteo\api\marketingsolutions\v2025_01\Model\CreateCampaignSpendLimit',
+        'budget_automation' => '\criteo\api\marketingsolutions\v2025_01\Model\BudgetAutomation'
     ];
 
     /**
@@ -75,7 +76,8 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => null,
         'advertiser_id' => null,
         'goal' => null,
-        'spend_limit' => null
+        'spend_limit' => null,
+        'budget_automation' => null
     ];
 
     /**
@@ -87,7 +89,8 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => true,
 		'advertiser_id' => true,
 		'goal' => false,
-		'spend_limit' => false
+		'spend_limit' => false,
+		'budget_automation' => false
     ];
 
     /**
@@ -179,7 +182,8 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'name',
         'advertiser_id' => 'advertiserId',
         'goal' => 'goal',
-        'spend_limit' => 'spendLimit'
+        'spend_limit' => 'spendLimit',
+        'budget_automation' => 'budgetAutomation'
     ];
 
     /**
@@ -191,7 +195,8 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'setName',
         'advertiser_id' => 'setAdvertiserId',
         'goal' => 'setGoal',
-        'spend_limit' => 'setSpendLimit'
+        'spend_limit' => 'setSpendLimit',
+        'budget_automation' => 'setBudgetAutomation'
     ];
 
     /**
@@ -203,7 +208,8 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'getName',
         'advertiser_id' => 'getAdvertiserId',
         'goal' => 'getGoal',
-        'spend_limit' => 'getSpendLimit'
+        'spend_limit' => 'getSpendLimit',
+        'budget_automation' => 'getBudgetAutomation'
     ];
 
     /**
@@ -284,6 +290,7 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('advertiser_id', $data ?? [], null);
         $this->setIfExists('goal', $data ?? [], null);
         $this->setIfExists('spend_limit', $data ?? [], null);
+        $this->setIfExists('budget_automation', $data ?? [], null);
     }
 
     /**
@@ -477,6 +484,33 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable spend_limit cannot be null');
         }
         $this->container['spend_limit'] = $spend_limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets budget_automation
+     *
+     * @return \criteo\api\marketingsolutions\v2025_01\Model\BudgetAutomation|null
+     */
+    public function getBudgetAutomation()
+    {
+        return $this->container['budget_automation'];
+    }
+
+    /**
+     * Sets budget_automation
+     *
+     * @param \criteo\api\marketingsolutions\v2025_01\Model\BudgetAutomation|null $budget_automation budget_automation
+     *
+     * @return self
+     */
+    public function setBudgetAutomation($budget_automation)
+    {
+        if (is_null($budget_automation)) {
+            throw new \InvalidArgumentException('non-nullable budget_automation cannot be null');
+        }
+        $this->container['budget_automation'] = $budget_automation;
 
         return $this;
     }

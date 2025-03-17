@@ -82,9 +82,9 @@ class RetargetingUpdateV1 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'visitors_type' => true,
-		'days_since_last_visit_min' => true,
-		'days_since_last_visit_max' => true
+        'visitors_type' => false,
+		'days_since_last_visit_min' => false,
+		'days_since_last_visit_max' => false
     ];
 
     /**
@@ -350,17 +350,10 @@ class RetargetingUpdateV1 implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setVisitorsType($visitors_type)
     {
         if (is_null($visitors_type)) {
-            array_push($this->openAPINullablesSetToNull, 'visitors_type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('visitors_type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable visitors_type cannot be null');
         }
         $allowedValues = $this->getVisitorsTypeAllowableValues();
-        if (!is_null($visitors_type) && !in_array($visitors_type, $allowedValues, true)) {
+        if (!in_array($visitors_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'visitors_type', must be one of '%s'",
@@ -394,14 +387,7 @@ class RetargetingUpdateV1 implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setDaysSinceLastVisitMin($days_since_last_visit_min)
     {
         if (is_null($days_since_last_visit_min)) {
-            array_push($this->openAPINullablesSetToNull, 'days_since_last_visit_min');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('days_since_last_visit_min', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable days_since_last_visit_min cannot be null');
         }
         $this->container['days_since_last_visit_min'] = $days_since_last_visit_min;
 
@@ -428,14 +414,7 @@ class RetargetingUpdateV1 implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setDaysSinceLastVisitMax($days_since_last_visit_max)
     {
         if (is_null($days_since_last_visit_max)) {
-            array_push($this->openAPINullablesSetToNull, 'days_since_last_visit_max');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('days_since_last_visit_max', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable days_since_last_visit_max cannot be null');
         }
         $this->container['days_since_last_visit_max'] = $days_since_last_visit_max;
 
