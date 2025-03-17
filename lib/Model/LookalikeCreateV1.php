@@ -81,7 +81,7 @@ class LookalikeCreateV1 implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static array $openAPINullables = [
         'seed_segment_id' => false,
-		'target_size' => true
+		'target_size' => false
     ];
 
     /**
@@ -347,14 +347,7 @@ class LookalikeCreateV1 implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setTargetSize($target_size)
     {
         if (is_null($target_size)) {
-            array_push($this->openAPINullablesSetToNull, 'target_size');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('target_size', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable target_size cannot be null');
         }
         $this->container['target_size'] = $target_size;
 

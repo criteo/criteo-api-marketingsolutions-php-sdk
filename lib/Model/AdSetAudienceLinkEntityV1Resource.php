@@ -82,7 +82,7 @@ class AdSetAudienceLinkEntityV1Resource implements ModelInterface, ArrayAccess, 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'attributes' => false,
+        'attributes' => true,
 		'id' => true,
 		'type' => true
     ];
@@ -324,7 +324,14 @@ class AdSetAudienceLinkEntityV1Resource implements ModelInterface, ArrayAccess, 
     public function setAttributes($attributes)
     {
         if (is_null($attributes)) {
-            throw new \InvalidArgumentException('non-nullable attributes cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'attributes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('attributes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['attributes'] = $attributes;
 

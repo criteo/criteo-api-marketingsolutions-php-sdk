@@ -88,12 +88,12 @@ class InMarketUpdateV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'country' => true,
-		'buying_power' => true,
-		'gender' => false,
-		'interest_ids' => true,
-		'brand_ids' => true,
-		'price_range' => true
+        'country' => false,
+		'buying_power' => false,
+		'gender' => true,
+		'interest_ids' => false,
+		'brand_ids' => false,
+		'price_range' => false
     ];
 
     /**
@@ -381,14 +381,7 @@ class InMarketUpdateV1 implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCountry($country)
     {
         if (is_null($country)) {
-            array_push($this->openAPINullablesSetToNull, 'country');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('country', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable country cannot be null');
         }
         $this->container['country'] = $country;
 
@@ -415,17 +408,10 @@ class InMarketUpdateV1 implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setBuyingPower($buying_power)
     {
         if (is_null($buying_power)) {
-            array_push($this->openAPINullablesSetToNull, 'buying_power');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('buying_power', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable buying_power cannot be null');
         }
         $allowedValues = $this->getBuyingPowerAllowableValues();
-        if (!is_null($buying_power) && array_diff($buying_power, $allowedValues)) {
+        if (array_diff($buying_power, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'buying_power', must be one of '%s'",
@@ -460,7 +446,14 @@ class InMarketUpdateV1 implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setGender($gender)
     {
         if (is_null($gender)) {
-            throw new \InvalidArgumentException('non-nullable gender cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'gender');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('gender', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['gender'] = $gender;
 
@@ -487,14 +480,7 @@ class InMarketUpdateV1 implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setInterestIds($interest_ids)
     {
         if (is_null($interest_ids)) {
-            array_push($this->openAPINullablesSetToNull, 'interest_ids');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('interest_ids', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable interest_ids cannot be null');
         }
 
 
@@ -523,14 +509,7 @@ class InMarketUpdateV1 implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setBrandIds($brand_ids)
     {
         if (is_null($brand_ids)) {
-            array_push($this->openAPINullablesSetToNull, 'brand_ids');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('brand_ids', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable brand_ids cannot be null');
         }
 
 
@@ -559,17 +538,10 @@ class InMarketUpdateV1 implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPriceRange($price_range)
     {
         if (is_null($price_range)) {
-            array_push($this->openAPINullablesSetToNull, 'price_range');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('price_range', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable price_range cannot be null');
         }
         $allowedValues = $this->getPriceRangeAllowableValues();
-        if (!is_null($price_range) && array_diff($price_range, $allowedValues)) {
+        if (array_diff($price_range, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'price_range', must be one of '%s'",

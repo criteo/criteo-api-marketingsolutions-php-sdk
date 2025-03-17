@@ -1,6 +1,6 @@
 <?php
 /**
- * PatchAdSetCategoryBidResource
+ * BudgetAutomation
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2024_10\ObjectSerializer;
 
 /**
- * PatchAdSetCategoryBidResource Class Doc Comment
+ * BudgetAutomation Class Doc Comment
  *
  * @category Class
- * @description Data model for a Resource
+ * @description The campaign budget automation model
  * @package  criteo\api\marketingsolutions\v2024_10
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \JsonSerializable
+class BudgetAutomation implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PatchAdSetCategoryBidResource';
+    protected static $openAPIModelName = 'BudgetAutomation';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,8 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'attributes' => '\criteo\api\marketingsolutions\v2024_10\Model\PatchAdSetCategoryBid',
-        'id' => 'string',
-        'type' => 'string'
+        'enabled' => 'bool',
+        'automated_budget_configuration' => '\criteo\api\marketingsolutions\v2024_10\Model\AutomatedBudgetConfiguration'
     ];
 
     /**
@@ -71,9 +70,8 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'attributes' => null,
-        'id' => null,
-        'type' => null
+        'enabled' => null,
+        'automated_budget_configuration' => null
     ];
 
     /**
@@ -82,9 +80,8 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'attributes' => false,
-		'id' => false,
-		'type' => false
+        'enabled' => false,
+		'automated_budget_configuration' => true
     ];
 
     /**
@@ -173,9 +170,8 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $attributeMap = [
-        'attributes' => 'attributes',
-        'id' => 'id',
-        'type' => 'type'
+        'enabled' => 'enabled',
+        'automated_budget_configuration' => 'automatedBudgetConfiguration'
     ];
 
     /**
@@ -184,9 +180,8 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $setters = [
-        'attributes' => 'setAttributes',
-        'id' => 'setId',
-        'type' => 'setType'
+        'enabled' => 'setEnabled',
+        'automated_budget_configuration' => 'setAutomatedBudgetConfiguration'
     ];
 
     /**
@@ -195,9 +190,8 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $getters = [
-        'attributes' => 'getAttributes',
-        'id' => 'getId',
-        'type' => 'getType'
+        'enabled' => 'getEnabled',
+        'automated_budget_configuration' => 'getAutomatedBudgetConfiguration'
     ];
 
     /**
@@ -257,9 +251,8 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('attributes', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('enabled', $data ?? [], null);
+        $this->setIfExists('automated_budget_configuration', $data ?? [], null);
     }
 
     /**
@@ -305,82 +298,62 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
 
 
     /**
-     * Gets attributes
+     * Gets enabled
      *
-     * @return \criteo\api\marketingsolutions\v2024_10\Model\PatchAdSetCategoryBid|null
+     * @return bool|null
      */
-    public function getAttributes()
+    public function getEnabled()
     {
-        return $this->container['attributes'];
+        return $this->container['enabled'];
     }
 
     /**
-     * Sets attributes
+     * Sets enabled
      *
-     * @param \criteo\api\marketingsolutions\v2024_10\Model\PatchAdSetCategoryBid|null $attributes attributes
+     * @param bool|null $enabled enabled
      *
      * @return self
      */
-    public function setAttributes($attributes)
+    public function setEnabled($enabled)
     {
-        if (is_null($attributes)) {
-            throw new \InvalidArgumentException('non-nullable attributes cannot be null');
+        if (is_null($enabled)) {
+            throw new \InvalidArgumentException('non-nullable enabled cannot be null');
         }
-        $this->container['attributes'] = $attributes;
+        $this->container['enabled'] = $enabled;
 
         return $this;
     }
 
     /**
-     * Gets id
+     * Gets automated_budget_configuration
      *
-     * @return string|null
+     * @return \criteo\api\marketingsolutions\v2024_10\Model\AutomatedBudgetConfiguration|null
      */
-    public function getId()
+    public function getAutomatedBudgetConfiguration()
     {
-        return $this->container['id'];
+        return $this->container['automated_budget_configuration'];
     }
 
     /**
-     * Sets id
+     * Sets automated_budget_configuration
      *
-     * @param string|null $id Id of the entity
+     * @param \criteo\api\marketingsolutions\v2024_10\Model\AutomatedBudgetConfiguration|null $automated_budget_configuration automated_budget_configuration
      *
      * @return self
      */
-    public function setId($id)
+    public function setAutomatedBudgetConfiguration($automated_budget_configuration)
     {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        if (is_null($automated_budget_configuration)) {
+            array_push($this->openAPINullablesSetToNull, 'automated_budget_configuration');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('automated_budget_configuration', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type Canonical type name of the entity
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $this->container['type'] = $type;
+        $this->container['automated_budget_configuration'] = $automated_budget_configuration;
 
         return $this;
     }

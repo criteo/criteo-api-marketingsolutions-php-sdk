@@ -84,7 +84,7 @@ class AudienceSegmentEntityV1AudienceSegmentSearchMetadataV1ListResponse impleme
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'meta' => false,
+        'meta' => true,
 		'data' => true,
 		'warnings' => true,
 		'errors' => true
@@ -331,7 +331,14 @@ class AudienceSegmentEntityV1AudienceSegmentSearchMetadataV1ListResponse impleme
     public function setMeta($meta)
     {
         if (is_null($meta)) {
-            throw new \InvalidArgumentException('non-nullable meta cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'meta');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('meta', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['meta'] = $meta;
 

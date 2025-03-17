@@ -1,6 +1,6 @@
 <?php
 /**
- * PatchAdSetCategoryBidResource
+ * AutomatedBudgetConfiguration
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2024_10\ObjectSerializer;
 
 /**
- * PatchAdSetCategoryBidResource Class Doc Comment
+ * AutomatedBudgetConfiguration Class Doc Comment
  *
  * @category Class
- * @description Data model for a Resource
+ * @description The campaign automated budget configuration model
  * @package  criteo\api\marketingsolutions\v2024_10
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \JsonSerializable
+class AutomatedBudgetConfiguration implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PatchAdSetCategoryBidResource';
+    protected static $openAPIModelName = 'AutomatedBudgetConfiguration';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,7 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'attributes' => '\criteo\api\marketingsolutions\v2024_10\Model\PatchAdSetCategoryBid',
-        'id' => 'string',
-        'type' => 'string'
+        'objective' => 'string'
     ];
 
     /**
@@ -71,9 +69,7 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'attributes' => null,
-        'id' => null,
-        'type' => null
+        'objective' => null
     ];
 
     /**
@@ -82,9 +78,7 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'attributes' => false,
-		'id' => false,
-		'type' => false
+        'objective' => false
     ];
 
     /**
@@ -173,9 +167,7 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $attributeMap = [
-        'attributes' => 'attributes',
-        'id' => 'id',
-        'type' => 'type'
+        'objective' => 'objective'
     ];
 
     /**
@@ -184,9 +176,7 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $setters = [
-        'attributes' => 'setAttributes',
-        'id' => 'setId',
-        'type' => 'setType'
+        'objective' => 'setObjective'
     ];
 
     /**
@@ -195,9 +185,7 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $getters = [
-        'attributes' => 'getAttributes',
-        'id' => 'getId',
-        'type' => 'getType'
+        'objective' => 'getObjective'
     ];
 
     /**
@@ -241,6 +229,39 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
         return self::$openAPIModelName;
     }
 
+    public const OBJECTIVE_CUSTOM_ACTION = 'customAction';
+    public const OBJECTIVE_CLICKS = 'clicks';
+    public const OBJECTIVE_CONVERSIONS = 'conversions';
+    public const OBJECTIVE_DISPLAYS = 'displays';
+    public const OBJECTIVE_APP_PROMOTION = 'appPromotion';
+    public const OBJECTIVE_REVENUE = 'revenue';
+    public const OBJECTIVE_STORE_CONVERSIONS = 'storeConversions';
+    public const OBJECTIVE_VALUE = 'value';
+    public const OBJECTIVE_REACH = 'reach';
+    public const OBJECTIVE_VISITS = 'visits';
+    public const OBJECTIVE_VIDEO_VIEWS = 'videoViews';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getObjectiveAllowableValues()
+    {
+        return [
+            self::OBJECTIVE_CUSTOM_ACTION,
+            self::OBJECTIVE_CLICKS,
+            self::OBJECTIVE_CONVERSIONS,
+            self::OBJECTIVE_DISPLAYS,
+            self::OBJECTIVE_APP_PROMOTION,
+            self::OBJECTIVE_REVENUE,
+            self::OBJECTIVE_STORE_CONVERSIONS,
+            self::OBJECTIVE_VALUE,
+            self::OBJECTIVE_REACH,
+            self::OBJECTIVE_VISITS,
+            self::OBJECTIVE_VIDEO_VIEWS,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -257,9 +278,7 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('attributes', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('objective', $data ?? [], null);
     }
 
     /**
@@ -289,6 +308,15 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getObjectiveAllowableValues();
+        if (!is_null($this->container['objective']) && !in_array($this->container['objective'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'objective', must be one of '%s'",
+                $this->container['objective'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -305,82 +333,38 @@ class PatchAdSetCategoryBidResource implements ModelInterface, ArrayAccess, \Jso
 
 
     /**
-     * Gets attributes
-     *
-     * @return \criteo\api\marketingsolutions\v2024_10\Model\PatchAdSetCategoryBid|null
-     */
-    public function getAttributes()
-    {
-        return $this->container['attributes'];
-    }
-
-    /**
-     * Sets attributes
-     *
-     * @param \criteo\api\marketingsolutions\v2024_10\Model\PatchAdSetCategoryBid|null $attributes attributes
-     *
-     * @return self
-     */
-    public function setAttributes($attributes)
-    {
-        if (is_null($attributes)) {
-            throw new \InvalidArgumentException('non-nullable attributes cannot be null');
-        }
-        $this->container['attributes'] = $attributes;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
+     * Gets objective
      *
      * @return string|null
      */
-    public function getId()
+    public function getObjective()
     {
-        return $this->container['id'];
+        return $this->container['objective'];
     }
 
     /**
-     * Sets id
+     * Sets objective
      *
-     * @param string|null $id Id of the entity
+     * @param string|null $objective Objective of the ad set
      *
      * @return self
      */
-    public function setId($id)
+    public function setObjective($objective)
     {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        if (is_null($objective)) {
+            throw new \InvalidArgumentException('non-nullable objective cannot be null');
         }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type Canonical type name of the entity
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        $allowedValues = $this->getObjectiveAllowableValues();
+        if (!in_array($objective, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'objective', must be one of '%s'",
+                    $objective,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
-        $this->container['type'] = $type;
+        $this->container['objective'] = $objective;
 
         return $this;
     }

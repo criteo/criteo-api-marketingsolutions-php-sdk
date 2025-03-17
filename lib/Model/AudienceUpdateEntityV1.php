@@ -82,9 +82,9 @@ class AudienceUpdateEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => true,
-		'description' => false,
-		'algebra' => false
+        'name' => false,
+		'description' => true,
+		'algebra' => true
     ];
 
     /**
@@ -324,14 +324,7 @@ class AudienceUpdateEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
     public function setName($name)
     {
         if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
 
@@ -358,7 +351,14 @@ class AudienceUpdateEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
     public function setDescription($description)
     {
         if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['description'] = $description;
 
@@ -385,7 +385,14 @@ class AudienceUpdateEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
     public function setAlgebra($algebra)
     {
         if (is_null($algebra)) {
-            throw new \InvalidArgumentException('non-nullable algebra cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'algebra');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('algebra', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['algebra'] = $algebra;
 
