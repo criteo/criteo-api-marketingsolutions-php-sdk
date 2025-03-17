@@ -38,6 +38,7 @@ docs/Model/AdSetTargetingDealIdsSetResultResource.md
 docs/Model/AdSetTargetingDealIdsSetResultResponse.md
 docs/Model/AdSetTargetingRuleV24Q3.md
 docs/Model/AdSetTargetingV24Q3.md
+docs/Model/AdSetTargetingV24Q3FrequencyCapping.md
 docs/Model/AdSetTargetingVideoPositioning.md
 docs/Model/AdSetTargetingVideoPositioningDisableResultResource.md
 docs/Model/AdSetTargetingVideoPositioningDisableResultResponse.md
@@ -122,11 +123,14 @@ docs/Model/AudienceSizeEstimationV1Response.md
 docs/Model/AudienceUpdateEntityV1.md
 docs/Model/AudienceUpdateEntityV1Resource.md
 docs/Model/AudienceWarning.md
+docs/Model/AutomatedBudgetConfiguration.md
+docs/Model/AutomatedBudgetConfigurationV23Q1.md
 docs/Model/BasicAudienceDefinition.md
 docs/Model/BatchAcceptedResponse.md
 docs/Model/BehavioralV1.md
+docs/Model/BudgetAutomation.md
+docs/Model/BudgetAutomationConfiguration.md
 docs/Model/CampaignBudgetAutomationV23Q1.md
-docs/Model/CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration.md
 docs/Model/CampaignSearchFiltersV23Q1.md
 docs/Model/CampaignSearchRequestV23Q1.md
 docs/Model/CampaignSpendLimitV23Q1.md
@@ -246,7 +250,6 @@ docs/Model/NillableDateTime.md
 docs/Model/NillableDecimal.md
 docs/Model/NillableGenderV1.md
 docs/Model/NillableInt32.md
-docs/Model/NillableLookbackWindowV24Q3.md
 docs/Model/NillableString.md
 docs/Model/OnSiteRecoRequest.md
 docs/Model/OnSiteRecoResponse.md
@@ -270,6 +273,7 @@ docs/Model/PatchCampaign.md
 docs/Model/PatchCampaignListRequest.md
 docs/Model/PatchCampaignSpendLimit.md
 docs/Model/PatchCampaignWriteResource.md
+docs/Model/PatchMarketingCampaignBudgetAutomation.md
 docs/Model/PatchResultCampaignListResponse.md
 docs/Model/PatchResultCampaignReadResource.md
 docs/Model/PlacementsReportQueryMessage.md
@@ -418,6 +422,7 @@ lib/Model/AdSetTargetingDealIdsSetResultResource.php
 lib/Model/AdSetTargetingDealIdsSetResultResponse.php
 lib/Model/AdSetTargetingRuleV24Q3.php
 lib/Model/AdSetTargetingV24Q3.php
+lib/Model/AdSetTargetingV24Q3FrequencyCapping.php
 lib/Model/AdSetTargetingVideoPositioning.php
 lib/Model/AdSetTargetingVideoPositioningDisableResultResource.php
 lib/Model/AdSetTargetingVideoPositioningDisableResultResponse.php
@@ -502,11 +507,14 @@ lib/Model/AudienceSizeEstimationV1Response.php
 lib/Model/AudienceUpdateEntityV1.php
 lib/Model/AudienceUpdateEntityV1Resource.php
 lib/Model/AudienceWarning.php
+lib/Model/AutomatedBudgetConfiguration.php
+lib/Model/AutomatedBudgetConfigurationV23Q1.php
 lib/Model/BasicAudienceDefinition.php
 lib/Model/BatchAcceptedResponse.php
 lib/Model/BehavioralV1.php
+lib/Model/BudgetAutomation.php
+lib/Model/BudgetAutomationConfiguration.php
 lib/Model/CampaignBudgetAutomationV23Q1.php
-lib/Model/CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration.php
 lib/Model/CampaignSearchFiltersV23Q1.php
 lib/Model/CampaignSearchRequestV23Q1.php
 lib/Model/CampaignSpendLimitV23Q1.php
@@ -627,7 +635,6 @@ lib/Model/NillableDateTime.php
 lib/Model/NillableDecimal.php
 lib/Model/NillableGenderV1.php
 lib/Model/NillableInt32.php
-lib/Model/NillableLookbackWindowV24Q3.php
 lib/Model/NillableString.php
 lib/Model/OnSiteRecoRequest.php
 lib/Model/OnSiteRecoResponse.php
@@ -651,6 +658,7 @@ lib/Model/PatchCampaign.php
 lib/Model/PatchCampaignListRequest.php
 lib/Model/PatchCampaignSpendLimit.php
 lib/Model/PatchCampaignWriteResource.php
+lib/Model/PatchMarketingCampaignBudgetAutomation.php
 lib/Model/PatchResultCampaignListResponse.php
 lib/Model/PatchResultCampaignReadResource.php
 lib/Model/PlacementsReportQueryMessage.php
