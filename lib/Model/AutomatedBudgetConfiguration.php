@@ -1,6 +1,6 @@
 <?php
 /**
- * AudienceSizeEstimationV1Resource
+ * AutomatedBudgetConfiguration
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2024_04\ObjectSerializer;
 
 /**
- * AudienceSizeEstimationV1Resource Class Doc Comment
+ * AutomatedBudgetConfiguration Class Doc Comment
  *
  * @category Class
- * @description A top-level object that encapsulates a Criteo API response for a single value
+ * @description The campaign automated budget configuration model
  * @package  criteo\api\marketingsolutions\v2024_04
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class AudienceSizeEstimationV1Resource implements ModelInterface, ArrayAccess, \JsonSerializable
+class AutomatedBudgetConfiguration implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class AudienceSizeEstimationV1Resource implements ModelInterface, ArrayAccess, \
       *
       * @var string
       */
-    protected static $openAPIModelName = 'AudienceSizeEstimationV1Resource';
+    protected static $openAPIModelName = 'AutomatedBudgetConfiguration';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,7 @@ class AudienceSizeEstimationV1Resource implements ModelInterface, ArrayAccess, \
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
-        'attributes' => '\criteo\api\marketingsolutions\v2024_04\Model\AudienceSizeEstimationV1'
+        'objective' => 'string'
     ];
 
     /**
@@ -70,8 +69,7 @@ class AudienceSizeEstimationV1Resource implements ModelInterface, ArrayAccess, \
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
-        'attributes' => null
+        'objective' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class AudienceSizeEstimationV1Resource implements ModelInterface, ArrayAccess, \
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'type' => true,
-		'attributes' => true
+        'objective' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class AudienceSizeEstimationV1Resource implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'attributes' => 'attributes'
+        'objective' => 'objective'
     ];
 
     /**
@@ -180,8 +176,7 @@ class AudienceSizeEstimationV1Resource implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'attributes' => 'setAttributes'
+        'objective' => 'setObjective'
     ];
 
     /**
@@ -190,8 +185,7 @@ class AudienceSizeEstimationV1Resource implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'attributes' => 'getAttributes'
+        'objective' => 'getObjective'
     ];
 
     /**
@@ -235,6 +229,39 @@ class AudienceSizeEstimationV1Resource implements ModelInterface, ArrayAccess, \
         return self::$openAPIModelName;
     }
 
+    public const OBJECTIVE_CUSTOM_ACTION = 'customAction';
+    public const OBJECTIVE_CLICKS = 'clicks';
+    public const OBJECTIVE_CONVERSIONS = 'conversions';
+    public const OBJECTIVE_DISPLAYS = 'displays';
+    public const OBJECTIVE_APP_PROMOTION = 'appPromotion';
+    public const OBJECTIVE_REVENUE = 'revenue';
+    public const OBJECTIVE_STORE_CONVERSIONS = 'storeConversions';
+    public const OBJECTIVE_VALUE = 'value';
+    public const OBJECTIVE_REACH = 'reach';
+    public const OBJECTIVE_VISITS = 'visits';
+    public const OBJECTIVE_VIDEO_VIEWS = 'videoViews';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getObjectiveAllowableValues()
+    {
+        return [
+            self::OBJECTIVE_CUSTOM_ACTION,
+            self::OBJECTIVE_CLICKS,
+            self::OBJECTIVE_CONVERSIONS,
+            self::OBJECTIVE_DISPLAYS,
+            self::OBJECTIVE_APP_PROMOTION,
+            self::OBJECTIVE_REVENUE,
+            self::OBJECTIVE_STORE_CONVERSIONS,
+            self::OBJECTIVE_VALUE,
+            self::OBJECTIVE_REACH,
+            self::OBJECTIVE_VISITS,
+            self::OBJECTIVE_VIDEO_VIEWS,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -251,8 +278,7 @@ class AudienceSizeEstimationV1Resource implements ModelInterface, ArrayAccess, \
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('attributes', $data ?? [], null);
+        $this->setIfExists('objective', $data ?? [], null);
     }
 
     /**
@@ -282,6 +308,15 @@ class AudienceSizeEstimationV1Resource implements ModelInterface, ArrayAccess, \
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getObjectiveAllowableValues();
+        if (!is_null($this->container['objective']) && !in_array($this->container['objective'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'objective', must be one of '%s'",
+                $this->container['objective'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -298,69 +333,38 @@ class AudienceSizeEstimationV1Resource implements ModelInterface, ArrayAccess, \
 
 
     /**
-     * Gets type
+     * Gets objective
      *
      * @return string|null
      */
-    public function getType()
+    public function getObjective()
     {
-        return $this->container['type'];
+        return $this->container['objective'];
     }
 
     /**
-     * Sets type
+     * Sets objective
      *
-     * @param string|null $type type
+     * @param string|null $objective Objective of the ad set
      *
      * @return self
      */
-    public function setType($type)
+    public function setObjective($objective)
     {
-        if (is_null($type)) {
-            array_push($this->openAPINullablesSetToNull, 'type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($objective)) {
+            throw new \InvalidArgumentException('non-nullable objective cannot be null');
         }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets attributes
-     *
-     * @return \criteo\api\marketingsolutions\v2024_04\Model\AudienceSizeEstimationV1|null
-     */
-    public function getAttributes()
-    {
-        return $this->container['attributes'];
-    }
-
-    /**
-     * Sets attributes
-     *
-     * @param \criteo\api\marketingsolutions\v2024_04\Model\AudienceSizeEstimationV1|null $attributes attributes
-     *
-     * @return self
-     */
-    public function setAttributes($attributes)
-    {
-        if (is_null($attributes)) {
-            array_push($this->openAPINullablesSetToNull, 'attributes');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('attributes', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        $allowedValues = $this->getObjectiveAllowableValues();
+        if (!in_array($objective, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'objective', must be one of '%s'",
+                    $objective,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
-        $this->container['attributes'] = $attributes;
+        $this->container['objective'] = $objective;
 
         return $this;
     }

@@ -78,7 +78,7 @@ class PatchAdSetDisplayMultiplier implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'display_multiplier' => true
+        'display_multiplier' => false
     ];
 
     /**
@@ -310,14 +310,7 @@ class PatchAdSetDisplayMultiplier implements ModelInterface, ArrayAccess, \JsonS
     public function setDisplayMultiplier($display_multiplier)
     {
         if (is_null($display_multiplier)) {
-            array_push($this->openAPINullablesSetToNull, 'display_multiplier');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('display_multiplier', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable display_multiplier cannot be null');
         }
         $this->container['display_multiplier'] = $display_multiplier;
 

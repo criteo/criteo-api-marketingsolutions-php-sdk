@@ -106,10 +106,10 @@ class ReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
 		'campaign_id' => true,
 		'destination_environment' => true,
 		'objective' => true,
-		'schedule' => false,
-		'bidding' => false,
-		'targeting' => false,
-		'budget' => false,
+		'schedule' => true,
+		'bidding' => true,
+		'targeting' => true,
+		'budget' => true,
 		'media_type' => true,
 		'video_channel' => true
     ];
@@ -727,7 +727,14 @@ class ReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSchedule($schedule)
     {
         if (is_null($schedule)) {
-            throw new \InvalidArgumentException('non-nullable schedule cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'schedule');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('schedule', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['schedule'] = $schedule;
 
@@ -754,7 +761,14 @@ class ReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setBidding($bidding)
     {
         if (is_null($bidding)) {
-            throw new \InvalidArgumentException('non-nullable bidding cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'bidding');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('bidding', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['bidding'] = $bidding;
 
@@ -781,7 +795,14 @@ class ReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTargeting($targeting)
     {
         if (is_null($targeting)) {
-            throw new \InvalidArgumentException('non-nullable targeting cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'targeting');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('targeting', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['targeting'] = $targeting;
 
@@ -808,7 +829,14 @@ class ReadAdSetV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setBudget($budget)
     {
         if (is_null($budget)) {
-            throw new \InvalidArgumentException('non-nullable budget cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'budget');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('budget', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['budget'] = $budget;
 

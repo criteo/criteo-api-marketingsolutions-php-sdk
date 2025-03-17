@@ -1,6 +1,6 @@
 <?php
 /**
- * AudienceSizeEstimationV1Resource
+ * AutomatedBudgetConfigurationV23Q1
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2024_04\ObjectSerializer;
 
 /**
- * AudienceSizeEstimationV1Resource Class Doc Comment
+ * AutomatedBudgetConfigurationV23Q1 Class Doc Comment
  *
  * @category Class
- * @description A top-level object that encapsulates a Criteo API response for a single value
+ * @description The automated budget configuration model
  * @package  criteo\api\marketingsolutions\v2024_04
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class AudienceSizeEstimationV1Resource implements ModelInterface, ArrayAccess, \JsonSerializable
+class AutomatedBudgetConfigurationV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class AudienceSizeEstimationV1Resource implements ModelInterface, ArrayAccess, \
       *
       * @var string
       */
-    protected static $openAPIModelName = 'AudienceSizeEstimationV1Resource';
+    protected static $openAPIModelName = 'AutomatedBudgetConfigurationV23Q1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,7 @@ class AudienceSizeEstimationV1Resource implements ModelInterface, ArrayAccess, \
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
-        'attributes' => '\criteo\api\marketingsolutions\v2024_04\Model\AudienceSizeEstimationV1'
+        'ad_set_optimization_objective' => 'string'
     ];
 
     /**
@@ -70,8 +69,7 @@ class AudienceSizeEstimationV1Resource implements ModelInterface, ArrayAccess, \
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
-        'attributes' => null
+        'ad_set_optimization_objective' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class AudienceSizeEstimationV1Resource implements ModelInterface, ArrayAccess, \
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'type' => true,
-		'attributes' => true
+        'ad_set_optimization_objective' => true
     ];
 
     /**
@@ -170,8 +167,7 @@ class AudienceSizeEstimationV1Resource implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'attributes' => 'attributes'
+        'ad_set_optimization_objective' => 'adSetOptimizationObjective'
     ];
 
     /**
@@ -180,8 +176,7 @@ class AudienceSizeEstimationV1Resource implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'attributes' => 'setAttributes'
+        'ad_set_optimization_objective' => 'setAdSetOptimizationObjective'
     ];
 
     /**
@@ -190,8 +185,7 @@ class AudienceSizeEstimationV1Resource implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'attributes' => 'getAttributes'
+        'ad_set_optimization_objective' => 'getAdSetOptimizationObjective'
     ];
 
     /**
@@ -235,6 +229,39 @@ class AudienceSizeEstimationV1Resource implements ModelInterface, ArrayAccess, \
         return self::$openAPIModelName;
     }
 
+    public const AD_SET_OPTIMIZATION_OBJECTIVE_CUSTOM_ACTION = 'customAction';
+    public const AD_SET_OPTIMIZATION_OBJECTIVE_CLICKS = 'clicks';
+    public const AD_SET_OPTIMIZATION_OBJECTIVE_CONVERSIONS = 'conversions';
+    public const AD_SET_OPTIMIZATION_OBJECTIVE_DISPLAYS = 'displays';
+    public const AD_SET_OPTIMIZATION_OBJECTIVE_APP_PROMOTION = 'appPromotion';
+    public const AD_SET_OPTIMIZATION_OBJECTIVE_REVENUE = 'revenue';
+    public const AD_SET_OPTIMIZATION_OBJECTIVE_STORE_CONVERSIONS = 'storeConversions';
+    public const AD_SET_OPTIMIZATION_OBJECTIVE_VALUE = 'value';
+    public const AD_SET_OPTIMIZATION_OBJECTIVE_REACH = 'reach';
+    public const AD_SET_OPTIMIZATION_OBJECTIVE_VISITS = 'visits';
+    public const AD_SET_OPTIMIZATION_OBJECTIVE_VIDEO_VIEWS = 'videoViews';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAdSetOptimizationObjectiveAllowableValues()
+    {
+        return [
+            self::AD_SET_OPTIMIZATION_OBJECTIVE_CUSTOM_ACTION,
+            self::AD_SET_OPTIMIZATION_OBJECTIVE_CLICKS,
+            self::AD_SET_OPTIMIZATION_OBJECTIVE_CONVERSIONS,
+            self::AD_SET_OPTIMIZATION_OBJECTIVE_DISPLAYS,
+            self::AD_SET_OPTIMIZATION_OBJECTIVE_APP_PROMOTION,
+            self::AD_SET_OPTIMIZATION_OBJECTIVE_REVENUE,
+            self::AD_SET_OPTIMIZATION_OBJECTIVE_STORE_CONVERSIONS,
+            self::AD_SET_OPTIMIZATION_OBJECTIVE_VALUE,
+            self::AD_SET_OPTIMIZATION_OBJECTIVE_REACH,
+            self::AD_SET_OPTIMIZATION_OBJECTIVE_VISITS,
+            self::AD_SET_OPTIMIZATION_OBJECTIVE_VIDEO_VIEWS,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -251,8 +278,7 @@ class AudienceSizeEstimationV1Resource implements ModelInterface, ArrayAccess, \
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('attributes', $data ?? [], null);
+        $this->setIfExists('ad_set_optimization_objective', $data ?? [], null);
     }
 
     /**
@@ -282,6 +308,15 @@ class AudienceSizeEstimationV1Resource implements ModelInterface, ArrayAccess, \
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getAdSetOptimizationObjectiveAllowableValues();
+        if (!is_null($this->container['ad_set_optimization_objective']) && !in_array($this->container['ad_set_optimization_objective'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'ad_set_optimization_objective', must be one of '%s'",
+                $this->container['ad_set_optimization_objective'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -298,69 +333,45 @@ class AudienceSizeEstimationV1Resource implements ModelInterface, ArrayAccess, \
 
 
     /**
-     * Gets type
+     * Gets ad_set_optimization_objective
      *
      * @return string|null
      */
-    public function getType()
+    public function getAdSetOptimizationObjective()
     {
-        return $this->container['type'];
+        return $this->container['ad_set_optimization_objective'];
     }
 
     /**
-     * Sets type
+     * Sets ad_set_optimization_objective
      *
-     * @param string|null $type type
+     * @param string|null $ad_set_optimization_objective ad_set_optimization_objective
      *
      * @return self
      */
-    public function setType($type)
+    public function setAdSetOptimizationObjective($ad_set_optimization_objective)
     {
-        if (is_null($type)) {
-            array_push($this->openAPINullablesSetToNull, 'type');
+        if (is_null($ad_set_optimization_objective)) {
+            array_push($this->openAPINullablesSetToNull, 'ad_set_optimization_objective');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('type', $nullablesSetToNull);
+            $index = array_search('ad_set_optimization_objective', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets attributes
-     *
-     * @return \criteo\api\marketingsolutions\v2024_04\Model\AudienceSizeEstimationV1|null
-     */
-    public function getAttributes()
-    {
-        return $this->container['attributes'];
-    }
-
-    /**
-     * Sets attributes
-     *
-     * @param \criteo\api\marketingsolutions\v2024_04\Model\AudienceSizeEstimationV1|null $attributes attributes
-     *
-     * @return self
-     */
-    public function setAttributes($attributes)
-    {
-        if (is_null($attributes)) {
-            array_push($this->openAPINullablesSetToNull, 'attributes');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('attributes', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        $allowedValues = $this->getAdSetOptimizationObjectiveAllowableValues();
+        if (!is_null($ad_set_optimization_objective) && !in_array($ad_set_optimization_objective, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'ad_set_optimization_objective', must be one of '%s'",
+                    $ad_set_optimization_objective,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
-        $this->container['attributes'] = $attributes;
+        $this->container['ad_set_optimization_objective'] = $ad_set_optimization_objective;
 
         return $this;
     }

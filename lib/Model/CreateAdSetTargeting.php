@@ -82,9 +82,9 @@ class CreateAdSetTargeting implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'delivery_limitations' => false,
+        'delivery_limitations' => true,
 		'geo_location' => false,
-		'frequency_capping' => false
+		'frequency_capping' => true
     ];
 
     /**
@@ -327,7 +327,14 @@ class CreateAdSetTargeting implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setDeliveryLimitations($delivery_limitations)
     {
         if (is_null($delivery_limitations)) {
-            throw new \InvalidArgumentException('non-nullable delivery_limitations cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'delivery_limitations');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('delivery_limitations', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['delivery_limitations'] = $delivery_limitations;
 
@@ -381,7 +388,14 @@ class CreateAdSetTargeting implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setFrequencyCapping($frequency_capping)
     {
         if (is_null($frequency_capping)) {
-            throw new \InvalidArgumentException('non-nullable frequency_capping cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'frequency_capping');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('frequency_capping', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['frequency_capping'] = $frequency_capping;
 

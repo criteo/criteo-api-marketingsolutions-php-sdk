@@ -102,10 +102,13 @@ docs/Model/AudienceSizeEstimationV1Response.md
 docs/Model/AudienceUpdateEntityV1.md
 docs/Model/AudienceUpdateEntityV1Resource.md
 docs/Model/AudienceWarning.md
+docs/Model/AutomatedBudgetConfiguration.md
+docs/Model/AutomatedBudgetConfigurationV23Q1.md
 docs/Model/BasicAudienceDefinition.md
 docs/Model/BehavioralV1.md
+docs/Model/BudgetAutomation.md
+docs/Model/BudgetAutomationConfiguration.md
 docs/Model/CampaignBudgetAutomationV23Q1.md
-docs/Model/CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration.md
 docs/Model/CampaignSearchFiltersV23Q1.md
 docs/Model/CampaignSearchRequestV23Q1.md
 docs/Model/CampaignSpendLimitV23Q1.md
@@ -203,6 +206,7 @@ docs/Model/PatchCampaign.md
 docs/Model/PatchCampaignListRequest.md
 docs/Model/PatchCampaignSpendLimit.md
 docs/Model/PatchCampaignWriteResource.md
+docs/Model/PatchMarketingCampaignBudgetAutomation.md
 docs/Model/PatchResultCampaignListResponse.md
 docs/Model/PatchResultCampaignReadResource.md
 docs/Model/PlacementsReportQueryMessage.md
@@ -371,10 +375,13 @@ lib/Model/AudienceSizeEstimationV1Response.php
 lib/Model/AudienceUpdateEntityV1.php
 lib/Model/AudienceUpdateEntityV1Resource.php
 lib/Model/AudienceWarning.php
+lib/Model/AutomatedBudgetConfiguration.php
+lib/Model/AutomatedBudgetConfigurationV23Q1.php
 lib/Model/BasicAudienceDefinition.php
 lib/Model/BehavioralV1.php
+lib/Model/BudgetAutomation.php
+lib/Model/BudgetAutomationConfiguration.php
 lib/Model/CampaignBudgetAutomationV23Q1.php
-lib/Model/CampaignBudgetAutomationV23Q1AutomatedBudgetConfiguration.php
 lib/Model/CampaignSearchFiltersV23Q1.php
 lib/Model/CampaignSearchRequestV23Q1.php
 lib/Model/CampaignSpendLimitV23Q1.php
@@ -473,6 +480,7 @@ lib/Model/PatchCampaign.php
 lib/Model/PatchCampaignListRequest.php
 lib/Model/PatchCampaignSpendLimit.php
 lib/Model/PatchCampaignWriteResource.php
+lib/Model/PatchMarketingCampaignBudgetAutomation.php
 lib/Model/PatchResultCampaignListResponse.php
 lib/Model/PatchResultCampaignReadResource.php
 lib/Model/PlacementsReportQueryMessage.php

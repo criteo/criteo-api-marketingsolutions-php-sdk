@@ -82,9 +82,9 @@ class AdSetTargeting implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'delivery_limitations' => false,
-		'geo_location' => false,
-		'frequency_capping' => false
+        'delivery_limitations' => true,
+		'geo_location' => true,
+		'frequency_capping' => true
     ];
 
     /**
@@ -324,7 +324,14 @@ class AdSetTargeting implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDeliveryLimitations($delivery_limitations)
     {
         if (is_null($delivery_limitations)) {
-            throw new \InvalidArgumentException('non-nullable delivery_limitations cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'delivery_limitations');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('delivery_limitations', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['delivery_limitations'] = $delivery_limitations;
 
@@ -351,7 +358,14 @@ class AdSetTargeting implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setGeoLocation($geo_location)
     {
         if (is_null($geo_location)) {
-            throw new \InvalidArgumentException('non-nullable geo_location cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'geo_location');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('geo_location', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['geo_location'] = $geo_location;
 
@@ -378,7 +392,14 @@ class AdSetTargeting implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setFrequencyCapping($frequency_capping)
     {
         if (is_null($frequency_capping)) {
-            throw new \InvalidArgumentException('non-nullable frequency_capping cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'frequency_capping');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('frequency_capping', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['frequency_capping'] = $frequency_capping;
 

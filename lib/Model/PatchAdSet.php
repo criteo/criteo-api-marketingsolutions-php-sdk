@@ -89,7 +89,7 @@ class PatchAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => true,
 		'scheduling' => false,
 		'bidding' => false,
-		'targeting' => false,
+		'targeting' => true,
 		'budget' => false
     ];
 
@@ -426,7 +426,14 @@ class PatchAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTargeting($targeting)
     {
         if (is_null($targeting)) {
-            throw new \InvalidArgumentException('non-nullable targeting cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'targeting');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('targeting', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['targeting'] = $targeting;
 
