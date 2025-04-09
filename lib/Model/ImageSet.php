@@ -58,8 +58,8 @@ class ImageSet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'images' => '\criteo\api\marketingsolutions\v2024_07\Model\ImageShape[]',
-        'headline_text' => 'string'
+        'headline_text' => 'string',
+        'images' => '\criteo\api\marketingsolutions\v2024_07\Model\ImageShape[]'
     ];
 
     /**
@@ -70,8 +70,8 @@ class ImageSet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'images' => null,
-        'headline_text' => null
+        'headline_text' => null,
+        'images' => null
     ];
 
     /**
@@ -80,8 +80,8 @@ class ImageSet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'images' => false,
-		'headline_text' => true
+        'headline_text' => true,
+		'images' => false
     ];
 
     /**
@@ -170,8 +170,8 @@ class ImageSet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'images' => 'images',
-        'headline_text' => 'headlineText'
+        'headline_text' => 'headlineText',
+        'images' => 'images'
     ];
 
     /**
@@ -180,8 +180,8 @@ class ImageSet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'images' => 'setImages',
-        'headline_text' => 'setHeadlineText'
+        'headline_text' => 'setHeadlineText',
+        'images' => 'setImages'
     ];
 
     /**
@@ -190,8 +190,8 @@ class ImageSet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'images' => 'getImages',
-        'headline_text' => 'getHeadlineText'
+        'headline_text' => 'getHeadlineText',
+        'images' => 'getImages'
     ];
 
     /**
@@ -251,8 +251,8 @@ class ImageSet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('images', $data ?? [], null);
         $this->setIfExists('headline_text', $data ?? [], null);
+        $this->setIfExists('images', $data ?? [], null);
     }
 
     /**
@@ -301,33 +301,6 @@ class ImageSet implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets images
-     *
-     * @return \criteo\api\marketingsolutions\v2024_07\Model\ImageShape[]
-     */
-    public function getImages()
-    {
-        return $this->container['images'];
-    }
-
-    /**
-     * Sets images
-     *
-     * @param \criteo\api\marketingsolutions\v2024_07\Model\ImageShape[] $images The images' urls with their shapes.
-     *
-     * @return self
-     */
-    public function setImages($images)
-    {
-        if (is_null($images)) {
-            throw new \InvalidArgumentException('non-nullable images cannot be null');
-        }
-        $this->container['images'] = $images;
-
-        return $this;
-    }
-
-    /**
      * Gets headline_text
      *
      * @return string|null
@@ -357,6 +330,33 @@ class ImageSet implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['headline_text'] = $headline_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets images
+     *
+     * @return \criteo\api\marketingsolutions\v2024_07\Model\ImageShape[]
+     */
+    public function getImages()
+    {
+        return $this->container['images'];
+    }
+
+    /**
+     * Sets images
+     *
+     * @param \criteo\api\marketingsolutions\v2024_07\Model\ImageShape[] $images The images' urls with their shapes.
+     *
+     * @return self
+     */
+    public function setImages($images)
+    {
+        if (is_null($images)) {
+            throw new \InvalidArgumentException('non-nullable images cannot be null');
+        }
+        $this->container['images'] = $images;
 
         return $this;
     }

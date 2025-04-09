@@ -58,8 +58,8 @@ class PatchAdSetSchedulingV24Q1 implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'start_date' => '\criteo\api\marketingsolutions\v2024_07\Model\NillableDateTime',
-        'end_date' => '\criteo\api\marketingsolutions\v2024_07\Model\NillableDateTime'
+        'end_date' => '\criteo\api\marketingsolutions\v2024_07\Model\NillableDateTime',
+        'start_date' => '\criteo\api\marketingsolutions\v2024_07\Model\NillableDateTime'
     ];
 
     /**
@@ -70,8 +70,8 @@ class PatchAdSetSchedulingV24Q1 implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'start_date' => null,
-        'end_date' => null
+        'end_date' => null,
+        'start_date' => null
     ];
 
     /**
@@ -80,8 +80,8 @@ class PatchAdSetSchedulingV24Q1 implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'start_date' => true,
-		'end_date' => true
+        'end_date' => true,
+		'start_date' => true
     ];
 
     /**
@@ -170,8 +170,8 @@ class PatchAdSetSchedulingV24Q1 implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'start_date' => 'startDate',
-        'end_date' => 'endDate'
+        'end_date' => 'endDate',
+        'start_date' => 'startDate'
     ];
 
     /**
@@ -180,8 +180,8 @@ class PatchAdSetSchedulingV24Q1 implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'start_date' => 'setStartDate',
-        'end_date' => 'setEndDate'
+        'end_date' => 'setEndDate',
+        'start_date' => 'setStartDate'
     ];
 
     /**
@@ -190,8 +190,8 @@ class PatchAdSetSchedulingV24Q1 implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'start_date' => 'getStartDate',
-        'end_date' => 'getEndDate'
+        'end_date' => 'getEndDate',
+        'start_date' => 'getStartDate'
     ];
 
     /**
@@ -251,8 +251,8 @@ class PatchAdSetSchedulingV24Q1 implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('start_date', $data ?? [], null);
         $this->setIfExists('end_date', $data ?? [], null);
+        $this->setIfExists('start_date', $data ?? [], null);
     }
 
     /**
@@ -298,40 +298,6 @@ class PatchAdSetSchedulingV24Q1 implements ModelInterface, ArrayAccess, \JsonSer
 
 
     /**
-     * Gets start_date
-     *
-     * @return \criteo\api\marketingsolutions\v2024_07\Model\NillableDateTime|null
-     */
-    public function getStartDate()
-    {
-        return $this->container['start_date'];
-    }
-
-    /**
-     * Sets start_date
-     *
-     * @param \criteo\api\marketingsolutions\v2024_07\Model\NillableDateTime|null $start_date start_date
-     *
-     * @return self
-     */
-    public function setStartDate($start_date)
-    {
-        if (is_null($start_date)) {
-            array_push($this->openAPINullablesSetToNull, 'start_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('start_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['start_date'] = $start_date;
-
-        return $this;
-    }
-
-    /**
      * Gets end_date
      *
      * @return \criteo\api\marketingsolutions\v2024_07\Model\NillableDateTime|null
@@ -361,6 +327,40 @@ class PatchAdSetSchedulingV24Q1 implements ModelInterface, ArrayAccess, \JsonSer
             }
         }
         $this->container['end_date'] = $end_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_date
+     *
+     * @return \criteo\api\marketingsolutions\v2024_07\Model\NillableDateTime|null
+     */
+    public function getStartDate()
+    {
+        return $this->container['start_date'];
+    }
+
+    /**
+     * Sets start_date
+     *
+     * @param \criteo\api\marketingsolutions\v2024_07\Model\NillableDateTime|null $start_date start_date
+     *
+     * @return self
+     */
+    public function setStartDate($start_date)
+    {
+        if (is_null($start_date)) {
+            array_push($this->openAPINullablesSetToNull, 'start_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('start_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['start_date'] = $start_date;
 
         return $this;
     }

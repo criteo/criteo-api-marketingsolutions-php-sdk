@@ -58,17 +58,17 @@ class CreateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'description' => 'string',
         'ad_set_id' => 'string',
-        'landing_page_url' => 'string',
-        'start_date' => 'string',
+        'description' => 'string',
         'end_date' => 'string',
         'format' => 'string',
         'images' => '\criteo\api\marketingsolutions\v2024_07\Model\CreateImageSlide[]',
-        'show_every' => 'int',
+        'landing_page_url' => 'string',
+        'name' => 'string',
+        'rotations_number' => 'int',
         'show_duration' => 'int',
-        'rotations_number' => 'int'
+        'show_every' => 'int',
+        'start_date' => 'string'
     ];
 
     /**
@@ -79,17 +79,17 @@ class CreateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'description' => null,
         'ad_set_id' => null,
-        'landing_page_url' => null,
-        'start_date' => null,
+        'description' => null,
         'end_date' => null,
         'format' => null,
         'images' => null,
-        'show_every' => 'int32',
+        'landing_page_url' => null,
+        'name' => null,
+        'rotations_number' => 'int32',
         'show_duration' => 'int32',
-        'rotations_number' => 'int32'
+        'show_every' => 'int32',
+        'start_date' => null
     ];
 
     /**
@@ -98,17 +98,17 @@ class CreateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
+        'ad_set_id' => false,
 		'description' => true,
-		'ad_set_id' => false,
-		'landing_page_url' => false,
-		'start_date' => false,
 		'end_date' => true,
 		'format' => false,
 		'images' => false,
-		'show_every' => false,
+		'landing_page_url' => false,
+		'name' => false,
+		'rotations_number' => false,
 		'show_duration' => false,
-		'rotations_number' => false
+		'show_every' => false,
+		'start_date' => false
     ];
 
     /**
@@ -197,17 +197,17 @@ class CreateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'description' => 'description',
         'ad_set_id' => 'adSetId',
-        'landing_page_url' => 'landingPageUrl',
-        'start_date' => 'startDate',
+        'description' => 'description',
         'end_date' => 'endDate',
         'format' => 'format',
         'images' => 'images',
-        'show_every' => 'showEvery',
+        'landing_page_url' => 'landingPageUrl',
+        'name' => 'name',
+        'rotations_number' => 'rotationsNumber',
         'show_duration' => 'showDuration',
-        'rotations_number' => 'rotationsNumber'
+        'show_every' => 'showEvery',
+        'start_date' => 'startDate'
     ];
 
     /**
@@ -216,17 +216,17 @@ class CreateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'description' => 'setDescription',
         'ad_set_id' => 'setAdSetId',
-        'landing_page_url' => 'setLandingPageUrl',
-        'start_date' => 'setStartDate',
+        'description' => 'setDescription',
         'end_date' => 'setEndDate',
         'format' => 'setFormat',
         'images' => 'setImages',
-        'show_every' => 'setShowEvery',
+        'landing_page_url' => 'setLandingPageUrl',
+        'name' => 'setName',
+        'rotations_number' => 'setRotationsNumber',
         'show_duration' => 'setShowDuration',
-        'rotations_number' => 'setRotationsNumber'
+        'show_every' => 'setShowEvery',
+        'start_date' => 'setStartDate'
     ];
 
     /**
@@ -235,17 +235,17 @@ class CreateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'description' => 'getDescription',
         'ad_set_id' => 'getAdSetId',
-        'landing_page_url' => 'getLandingPageUrl',
-        'start_date' => 'getStartDate',
+        'description' => 'getDescription',
         'end_date' => 'getEndDate',
         'format' => 'getFormat',
         'images' => 'getImages',
-        'show_every' => 'getShowEvery',
+        'landing_page_url' => 'getLandingPageUrl',
+        'name' => 'getName',
+        'rotations_number' => 'getRotationsNumber',
         'show_duration' => 'getShowDuration',
-        'rotations_number' => 'getRotationsNumber'
+        'show_every' => 'getShowEvery',
+        'start_date' => 'getStartDate'
     ];
 
     /**
@@ -320,17 +320,17 @@ class CreateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('ad_set_id', $data ?? [], null);
-        $this->setIfExists('landing_page_url', $data ?? [], null);
-        $this->setIfExists('start_date', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('end_date', $data ?? [], null);
         $this->setIfExists('format', $data ?? [], null);
         $this->setIfExists('images', $data ?? [], null);
-        $this->setIfExists('show_every', $data ?? [], null);
-        $this->setIfExists('show_duration', $data ?? [], null);
+        $this->setIfExists('landing_page_url', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('rotations_number', $data ?? [], null);
+        $this->setIfExists('show_duration', $data ?? [], null);
+        $this->setIfExists('show_every', $data ?? [], null);
+        $this->setIfExists('start_date', $data ?? [], null);
     }
 
     /**
@@ -360,17 +360,8 @@ class CreateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
         if ($this->container['ad_set_id'] === null) {
             $invalidProperties[] = "'ad_set_id' can't be null";
-        }
-        if ($this->container['landing_page_url'] === null) {
-            $invalidProperties[] = "'landing_page_url' can't be null";
-        }
-        if ($this->container['start_date'] === null) {
-            $invalidProperties[] = "'start_date' can't be null";
         }
         if ($this->container['format'] === null) {
             $invalidProperties[] = "'format' can't be null";
@@ -387,15 +378,21 @@ class CreateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['images'] === null) {
             $invalidProperties[] = "'images' can't be null";
         }
-        if ($this->container['show_every'] === null) {
-            $invalidProperties[] = "'show_every' can't be null";
+        if ($this->container['landing_page_url'] === null) {
+            $invalidProperties[] = "'landing_page_url' can't be null";
         }
-        if (($this->container['show_every'] > 10)) {
-            $invalidProperties[] = "invalid value for 'show_every', must be smaller than or equal to 10.";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['rotations_number'] === null) {
+            $invalidProperties[] = "'rotations_number' can't be null";
+        }
+        if (($this->container['rotations_number'] > 10)) {
+            $invalidProperties[] = "invalid value for 'rotations_number', must be smaller than or equal to 10.";
         }
 
-        if (($this->container['show_every'] < 1)) {
-            $invalidProperties[] = "invalid value for 'show_every', must be bigger than or equal to 1.";
+        if (($this->container['rotations_number'] < 1)) {
+            $invalidProperties[] = "invalid value for 'rotations_number', must be bigger than or equal to 1.";
         }
 
         if ($this->container['show_duration'] === null) {
@@ -409,17 +406,20 @@ class CreateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'show_duration', must be bigger than or equal to 1.";
         }
 
-        if ($this->container['rotations_number'] === null) {
-            $invalidProperties[] = "'rotations_number' can't be null";
+        if ($this->container['show_every'] === null) {
+            $invalidProperties[] = "'show_every' can't be null";
         }
-        if (($this->container['rotations_number'] > 10)) {
-            $invalidProperties[] = "invalid value for 'rotations_number', must be smaller than or equal to 10.";
-        }
-
-        if (($this->container['rotations_number'] < 1)) {
-            $invalidProperties[] = "invalid value for 'rotations_number', must be bigger than or equal to 1.";
+        if (($this->container['show_every'] > 10)) {
+            $invalidProperties[] = "invalid value for 'show_every', must be smaller than or equal to 10.";
         }
 
+        if (($this->container['show_every'] < 1)) {
+            $invalidProperties[] = "invalid value for 'show_every', must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['start_date'] === null) {
+            $invalidProperties[] = "'start_date' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -436,28 +436,28 @@ class CreateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets name
+     * Gets ad_set_id
      *
      * @return string
      */
-    public function getName()
+    public function getAdSetId()
     {
-        return $this->container['name'];
+        return $this->container['ad_set_id'];
     }
 
     /**
-     * Sets name
+     * Sets ad_set_id
      *
-     * @param string $name The name of the Coupon
+     * @param string $ad_set_id The id of the Ad Set on which the Coupon is applied to
      *
      * @return self
      */
-    public function setName($name)
+    public function setAdSetId($ad_set_id)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($ad_set_id)) {
+            throw new \InvalidArgumentException('non-nullable ad_set_id cannot be null');
         }
-        $this->container['name'] = $name;
+        $this->container['ad_set_id'] = $ad_set_id;
 
         return $this;
     }
@@ -492,87 +492,6 @@ class CreateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets ad_set_id
-     *
-     * @return string
-     */
-    public function getAdSetId()
-    {
-        return $this->container['ad_set_id'];
-    }
-
-    /**
-     * Sets ad_set_id
-     *
-     * @param string $ad_set_id The id of the Ad Set on which the Coupon is applied to
-     *
-     * @return self
-     */
-    public function setAdSetId($ad_set_id)
-    {
-        if (is_null($ad_set_id)) {
-            throw new \InvalidArgumentException('non-nullable ad_set_id cannot be null');
-        }
-        $this->container['ad_set_id'] = $ad_set_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets landing_page_url
-     *
-     * @return string
-     */
-    public function getLandingPageUrl()
-    {
-        return $this->container['landing_page_url'];
-    }
-
-    /**
-     * Sets landing_page_url
-     *
-     * @param string $landing_page_url Web redirection of the landing page url
-     *
-     * @return self
-     */
-    public function setLandingPageUrl($landing_page_url)
-    {
-        if (is_null($landing_page_url)) {
-            throw new \InvalidArgumentException('non-nullable landing_page_url cannot be null');
-        }
-        $this->container['landing_page_url'] = $landing_page_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets start_date
-     *
-     * @return string
-     */
-    public function getStartDate()
-    {
-        return $this->container['start_date'];
-    }
-
-    /**
-     * Sets start_date
-     *
-     * @param string $start_date The date when the coupon will be launched  String must be in ISO8601 format
-     *
-     * @return self
-     */
-    public function setStartDate($start_date)
-    {
-        if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
-        }
-        $this->container['start_date'] = $start_date;
 
         return $this;
     }
@@ -676,36 +595,90 @@ class CreateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets show_every
+     * Gets landing_page_url
      *
-     * @return int
+     * @return string
      */
-    public function getShowEvery()
+    public function getLandingPageUrl()
     {
-        return $this->container['show_every'];
+        return $this->container['landing_page_url'];
     }
 
     /**
-     * Sets show_every
+     * Sets landing_page_url
      *
-     * @param int $show_every Show the Coupon every N seconds (between 1 and 10)
+     * @param string $landing_page_url Web redirection of the landing page url
      *
      * @return self
      */
-    public function setShowEvery($show_every)
+    public function setLandingPageUrl($landing_page_url)
     {
-        if (is_null($show_every)) {
-            throw new \InvalidArgumentException('non-nullable show_every cannot be null');
+        if (is_null($landing_page_url)) {
+            throw new \InvalidArgumentException('non-nullable landing_page_url cannot be null');
+        }
+        $this->container['landing_page_url'] = $landing_page_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name The name of the Coupon
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets rotations_number
+     *
+     * @return int
+     */
+    public function getRotationsNumber()
+    {
+        return $this->container['rotations_number'];
+    }
+
+    /**
+     * Sets rotations_number
+     *
+     * @param int $rotations_number Number of rotations for the Coupons (from 1 to 10 times)
+     *
+     * @return self
+     */
+    public function setRotationsNumber($rotations_number)
+    {
+        if (is_null($rotations_number)) {
+            throw new \InvalidArgumentException('non-nullable rotations_number cannot be null');
         }
 
-        if (($show_every > 10)) {
-            throw new \InvalidArgumentException('invalid value for $show_every when calling CreateCoupon., must be smaller than or equal to 10.');
+        if (($rotations_number > 10)) {
+            throw new \InvalidArgumentException('invalid value for $rotations_number when calling CreateCoupon., must be smaller than or equal to 10.');
         }
-        if (($show_every < 1)) {
-            throw new \InvalidArgumentException('invalid value for $show_every when calling CreateCoupon., must be bigger than or equal to 1.');
+        if (($rotations_number < 1)) {
+            throw new \InvalidArgumentException('invalid value for $rotations_number when calling CreateCoupon., must be bigger than or equal to 1.');
         }
 
-        $this->container['show_every'] = $show_every;
+        $this->container['rotations_number'] = $rotations_number;
 
         return $this;
     }
@@ -746,36 +719,63 @@ class CreateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets rotations_number
+     * Gets show_every
      *
      * @return int
      */
-    public function getRotationsNumber()
+    public function getShowEvery()
     {
-        return $this->container['rotations_number'];
+        return $this->container['show_every'];
     }
 
     /**
-     * Sets rotations_number
+     * Sets show_every
      *
-     * @param int $rotations_number Number of rotations for the Coupons (from 1 to 10 times)
+     * @param int $show_every Show the Coupon every N seconds (between 1 and 10)
      *
      * @return self
      */
-    public function setRotationsNumber($rotations_number)
+    public function setShowEvery($show_every)
     {
-        if (is_null($rotations_number)) {
-            throw new \InvalidArgumentException('non-nullable rotations_number cannot be null');
+        if (is_null($show_every)) {
+            throw new \InvalidArgumentException('non-nullable show_every cannot be null');
         }
 
-        if (($rotations_number > 10)) {
-            throw new \InvalidArgumentException('invalid value for $rotations_number when calling CreateCoupon., must be smaller than or equal to 10.');
+        if (($show_every > 10)) {
+            throw new \InvalidArgumentException('invalid value for $show_every when calling CreateCoupon., must be smaller than or equal to 10.');
         }
-        if (($rotations_number < 1)) {
-            throw new \InvalidArgumentException('invalid value for $rotations_number when calling CreateCoupon., must be bigger than or equal to 1.');
+        if (($show_every < 1)) {
+            throw new \InvalidArgumentException('invalid value for $show_every when calling CreateCoupon., must be bigger than or equal to 1.');
         }
 
-        $this->container['rotations_number'] = $rotations_number;
+        $this->container['show_every'] = $show_every;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_date
+     *
+     * @return string
+     */
+    public function getStartDate()
+    {
+        return $this->container['start_date'];
+    }
+
+    /**
+     * Sets start_date
+     *
+     * @param string $start_date The date when the coupon will be launched  String must be in ISO8601 format
+     *
+     * @return self
+     */
+    public function setStartDate($start_date)
+    {
+        if (is_null($start_date)) {
+            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
+        }
+        $this->container['start_date'] = $start_date;
 
         return $this;
     }

@@ -58,8 +58,8 @@ class AudienceSegmentSearchEntityV1 implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'audience_segment_ids' => 'string[]',
         'advertiser_ids' => 'string[]',
+        'audience_segment_ids' => 'string[]',
         'audience_segment_types' => 'string[]'
     ];
 
@@ -71,8 +71,8 @@ class AudienceSegmentSearchEntityV1 implements ModelInterface, ArrayAccess, \Jso
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'audience_segment_ids' => null,
         'advertiser_ids' => null,
+        'audience_segment_ids' => null,
         'audience_segment_types' => null
     ];
 
@@ -82,8 +82,8 @@ class AudienceSegmentSearchEntityV1 implements ModelInterface, ArrayAccess, \Jso
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'audience_segment_ids' => false,
-		'advertiser_ids' => false,
+        'advertiser_ids' => false,
+		'audience_segment_ids' => false,
 		'audience_segment_types' => false
     ];
 
@@ -173,8 +173,8 @@ class AudienceSegmentSearchEntityV1 implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $attributeMap = [
-        'audience_segment_ids' => 'audienceSegmentIds',
         'advertiser_ids' => 'advertiserIds',
+        'audience_segment_ids' => 'audienceSegmentIds',
         'audience_segment_types' => 'audienceSegmentTypes'
     ];
 
@@ -184,8 +184,8 @@ class AudienceSegmentSearchEntityV1 implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $setters = [
-        'audience_segment_ids' => 'setAudienceSegmentIds',
         'advertiser_ids' => 'setAdvertiserIds',
+        'audience_segment_ids' => 'setAudienceSegmentIds',
         'audience_segment_types' => 'setAudienceSegmentTypes'
     ];
 
@@ -195,8 +195,8 @@ class AudienceSegmentSearchEntityV1 implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $getters = [
-        'audience_segment_ids' => 'getAudienceSegmentIds',
         'advertiser_ids' => 'getAdvertiserIds',
+        'audience_segment_ids' => 'getAudienceSegmentIds',
         'audience_segment_types' => 'getAudienceSegmentTypes'
     ];
 
@@ -284,8 +284,8 @@ class AudienceSegmentSearchEntityV1 implements ModelInterface, ArrayAccess, \Jso
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('audience_segment_ids', $data ?? [], null);
         $this->setIfExists('advertiser_ids', $data ?? [], null);
+        $this->setIfExists('audience_segment_ids', $data ?? [], null);
         $this->setIfExists('audience_segment_types', $data ?? [], null);
     }
 
@@ -332,33 +332,6 @@ class AudienceSegmentSearchEntityV1 implements ModelInterface, ArrayAccess, \Jso
 
 
     /**
-     * Gets audience_segment_ids
-     *
-     * @return string[]|null
-     */
-    public function getAudienceSegmentIds()
-    {
-        return $this->container['audience_segment_ids'];
-    }
-
-    /**
-     * Sets audience_segment_ids
-     *
-     * @param string[]|null $audience_segment_ids List of segment ids
-     *
-     * @return self
-     */
-    public function setAudienceSegmentIds($audience_segment_ids)
-    {
-        if (is_null($audience_segment_ids)) {
-            throw new \InvalidArgumentException('non-nullable audience_segment_ids cannot be null');
-        }
-        $this->container['audience_segment_ids'] = $audience_segment_ids;
-
-        return $this;
-    }
-
-    /**
      * Gets advertiser_ids
      *
      * @return string[]|null
@@ -381,6 +354,33 @@ class AudienceSegmentSearchEntityV1 implements ModelInterface, ArrayAccess, \Jso
             throw new \InvalidArgumentException('non-nullable advertiser_ids cannot be null');
         }
         $this->container['advertiser_ids'] = $advertiser_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets audience_segment_ids
+     *
+     * @return string[]|null
+     */
+    public function getAudienceSegmentIds()
+    {
+        return $this->container['audience_segment_ids'];
+    }
+
+    /**
+     * Sets audience_segment_ids
+     *
+     * @param string[]|null $audience_segment_ids List of segment ids
+     *
+     * @return self
+     */
+    public function setAudienceSegmentIds($audience_segment_ids)
+    {
+        if (is_null($audience_segment_ids)) {
+            throw new \InvalidArgumentException('non-nullable audience_segment_ids cannot be null');
+        }
+        $this->container['audience_segment_ids'] = $audience_segment_ids;
 
         return $this;
     }

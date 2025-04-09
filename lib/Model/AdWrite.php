@@ -58,13 +58,13 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'description' => 'string',
-        'creative_id' => 'string',
         'ad_set_id' => 'string',
+        'creative_id' => 'string',
+        'description' => 'string',
+        'end_date' => 'string',
         'inventory_type' => 'string',
-        'start_date' => 'string',
-        'end_date' => 'string'
+        'name' => 'string',
+        'start_date' => 'string'
     ];
 
     /**
@@ -75,13 +75,13 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'description' => null,
-        'creative_id' => null,
         'ad_set_id' => null,
+        'creative_id' => null,
+        'description' => null,
+        'end_date' => null,
         'inventory_type' => null,
-        'start_date' => null,
-        'end_date' => null
+        'name' => null,
+        'start_date' => null
     ];
 
     /**
@@ -90,13 +90,13 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'description' => true,
+        'ad_set_id' => false,
 		'creative_id' => false,
-		'ad_set_id' => false,
+		'description' => true,
+		'end_date' => true,
 		'inventory_type' => true,
-		'start_date' => false,
-		'end_date' => true
+		'name' => false,
+		'start_date' => false
     ];
 
     /**
@@ -185,13 +185,13 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'description' => 'description',
-        'creative_id' => 'creativeId',
         'ad_set_id' => 'adSetId',
+        'creative_id' => 'creativeId',
+        'description' => 'description',
+        'end_date' => 'endDate',
         'inventory_type' => 'inventoryType',
-        'start_date' => 'startDate',
-        'end_date' => 'endDate'
+        'name' => 'name',
+        'start_date' => 'startDate'
     ];
 
     /**
@@ -200,13 +200,13 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'description' => 'setDescription',
-        'creative_id' => 'setCreativeId',
         'ad_set_id' => 'setAdSetId',
+        'creative_id' => 'setCreativeId',
+        'description' => 'setDescription',
+        'end_date' => 'setEndDate',
         'inventory_type' => 'setInventoryType',
-        'start_date' => 'setStartDate',
-        'end_date' => 'setEndDate'
+        'name' => 'setName',
+        'start_date' => 'setStartDate'
     ];
 
     /**
@@ -215,13 +215,13 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'description' => 'getDescription',
-        'creative_id' => 'getCreativeId',
         'ad_set_id' => 'getAdSetId',
+        'creative_id' => 'getCreativeId',
+        'description' => 'getDescription',
+        'end_date' => 'getEndDate',
         'inventory_type' => 'getInventoryType',
-        'start_date' => 'getStartDate',
-        'end_date' => 'getEndDate'
+        'name' => 'getName',
+        'start_date' => 'getStartDate'
     ];
 
     /**
@@ -296,13 +296,13 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('creative_id', $data ?? [], null);
         $this->setIfExists('ad_set_id', $data ?? [], null);
-        $this->setIfExists('inventory_type', $data ?? [], null);
-        $this->setIfExists('start_date', $data ?? [], null);
+        $this->setIfExists('creative_id', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('end_date', $data ?? [], null);
+        $this->setIfExists('inventory_type', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('start_date', $data ?? [], null);
     }
 
     /**
@@ -332,14 +332,11 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['ad_set_id'] === null) {
+            $invalidProperties[] = "'ad_set_id' can't be null";
         }
         if ($this->container['creative_id'] === null) {
             $invalidProperties[] = "'creative_id' can't be null";
-        }
-        if ($this->container['ad_set_id'] === null) {
-            $invalidProperties[] = "'ad_set_id' can't be null";
         }
         $allowedValues = $this->getInventoryTypeAllowableValues();
         if (!is_null($this->container['inventory_type']) && !in_array($this->container['inventory_type'], $allowedValues, true)) {
@@ -350,6 +347,9 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
         if ($this->container['start_date'] === null) {
             $invalidProperties[] = "'start_date' can't be null";
         }
@@ -369,28 +369,55 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets name
+     * Gets ad_set_id
      *
      * @return string
      */
-    public function getName()
+    public function getAdSetId()
     {
-        return $this->container['name'];
+        return $this->container['ad_set_id'];
     }
 
     /**
-     * Sets name
+     * Sets ad_set_id
      *
-     * @param string $name The name of the ad
+     * @param string $ad_set_id The id of the Ad Set bound to this Ad
      *
      * @return self
      */
-    public function setName($name)
+    public function setAdSetId($ad_set_id)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($ad_set_id)) {
+            throw new \InvalidArgumentException('non-nullable ad_set_id cannot be null');
         }
-        $this->container['name'] = $name;
+        $this->container['ad_set_id'] = $ad_set_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets creative_id
+     *
+     * @return string
+     */
+    public function getCreativeId()
+    {
+        return $this->container['creative_id'];
+    }
+
+    /**
+     * Sets creative_id
+     *
+     * @param string $creative_id The id of the Creative bound to this Ad
+     *
+     * @return self
+     */
+    public function setCreativeId($creative_id)
+    {
+        if (is_null($creative_id)) {
+            throw new \InvalidArgumentException('non-nullable creative_id cannot be null');
+        }
+        $this->container['creative_id'] = $creative_id;
 
         return $this;
     }
@@ -430,55 +457,35 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets creative_id
+     * Gets end_date
      *
-     * @return string
+     * @return string|null
      */
-    public function getCreativeId()
+    public function getEndDate()
     {
-        return $this->container['creative_id'];
+        return $this->container['end_date'];
     }
 
     /**
-     * Sets creative_id
+     * Sets end_date
      *
-     * @param string $creative_id The id of the Creative bound to this Ad
+     * @param string|null $end_date The date when when we will stop to show this ad. If the end date is not specified (i.e. null) then the ad will go on forever  String must be in ISO8601 format
      *
      * @return self
      */
-    public function setCreativeId($creative_id)
+    public function setEndDate($end_date)
     {
-        if (is_null($creative_id)) {
-            throw new \InvalidArgumentException('non-nullable creative_id cannot be null');
+        if (is_null($end_date)) {
+            array_push($this->openAPINullablesSetToNull, 'end_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('end_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['creative_id'] = $creative_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets ad_set_id
-     *
-     * @return string
-     */
-    public function getAdSetId()
-    {
-        return $this->container['ad_set_id'];
-    }
-
-    /**
-     * Sets ad_set_id
-     *
-     * @param string $ad_set_id The id of the Ad Set bound to this Ad
-     *
-     * @return self
-     */
-    public function setAdSetId($ad_set_id)
-    {
-        if (is_null($ad_set_id)) {
-            throw new \InvalidArgumentException('non-nullable ad_set_id cannot be null');
-        }
-        $this->container['ad_set_id'] = $ad_set_id;
+        $this->container['end_date'] = $end_date;
 
         return $this;
     }
@@ -528,6 +535,33 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name The name of the ad
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
      * Gets start_date
      *
      * @return string
@@ -550,40 +584,6 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable start_date cannot be null');
         }
         $this->container['start_date'] = $start_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets end_date
-     *
-     * @return string|null
-     */
-    public function getEndDate()
-    {
-        return $this->container['end_date'];
-    }
-
-    /**
-     * Sets end_date
-     *
-     * @param string|null $end_date The date when when we will stop to show this ad. If the end date is not specified (i.e. null) then the ad will go on forever  String must be in ISO8601 format
-     *
-     * @return self
-     */
-    public function setEndDate($end_date)
-    {
-        if (is_null($end_date)) {
-            array_push($this->openAPINullablesSetToNull, 'end_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('end_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['end_date'] = $end_date;
 
         return $this;
     }

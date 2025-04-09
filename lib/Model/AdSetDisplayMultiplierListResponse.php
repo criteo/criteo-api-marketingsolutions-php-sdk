@@ -59,8 +59,8 @@ class AdSetDisplayMultiplierListResponse implements ModelInterface, ArrayAccess,
       */
     protected static $openAPITypes = [
         'data' => '\criteo\api\marketingsolutions\v2024_07\Model\AdSetDisplayMultiplierResource[]',
-        'warnings' => '\criteo\api\marketingsolutions\v2024_07\Model\CommonProblem[]',
-        'errors' => '\criteo\api\marketingsolutions\v2024_07\Model\CommonProblem[]'
+        'errors' => '\criteo\api\marketingsolutions\v2024_07\Model\CommonProblem[]',
+        'warnings' => '\criteo\api\marketingsolutions\v2024_07\Model\CommonProblem[]'
     ];
 
     /**
@@ -72,8 +72,8 @@ class AdSetDisplayMultiplierListResponse implements ModelInterface, ArrayAccess,
       */
     protected static $openAPIFormats = [
         'data' => null,
-        'warnings' => null,
-        'errors' => null
+        'errors' => null,
+        'warnings' => null
     ];
 
     /**
@@ -83,8 +83,8 @@ class AdSetDisplayMultiplierListResponse implements ModelInterface, ArrayAccess,
       */
     protected static array $openAPINullables = [
         'data' => true,
-		'warnings' => true,
-		'errors' => true
+		'errors' => true,
+		'warnings' => true
     ];
 
     /**
@@ -174,8 +174,8 @@ class AdSetDisplayMultiplierListResponse implements ModelInterface, ArrayAccess,
      */
     protected static $attributeMap = [
         'data' => 'data',
-        'warnings' => 'warnings',
-        'errors' => 'errors'
+        'errors' => 'errors',
+        'warnings' => 'warnings'
     ];
 
     /**
@@ -185,8 +185,8 @@ class AdSetDisplayMultiplierListResponse implements ModelInterface, ArrayAccess,
      */
     protected static $setters = [
         'data' => 'setData',
-        'warnings' => 'setWarnings',
-        'errors' => 'setErrors'
+        'errors' => 'setErrors',
+        'warnings' => 'setWarnings'
     ];
 
     /**
@@ -196,8 +196,8 @@ class AdSetDisplayMultiplierListResponse implements ModelInterface, ArrayAccess,
      */
     protected static $getters = [
         'data' => 'getData',
-        'warnings' => 'getWarnings',
-        'errors' => 'getErrors'
+        'errors' => 'getErrors',
+        'warnings' => 'getWarnings'
     ];
 
     /**
@@ -258,8 +258,8 @@ class AdSetDisplayMultiplierListResponse implements ModelInterface, ArrayAccess,
     public function __construct(array $data = null)
     {
         $this->setIfExists('data', $data ?? [], null);
-        $this->setIfExists('warnings', $data ?? [], null);
         $this->setIfExists('errors', $data ?? [], null);
+        $this->setIfExists('warnings', $data ?? [], null);
     }
 
     /**
@@ -339,40 +339,6 @@ class AdSetDisplayMultiplierListResponse implements ModelInterface, ArrayAccess,
     }
 
     /**
-     * Gets warnings
-     *
-     * @return \criteo\api\marketingsolutions\v2024_07\Model\CommonProblem[]|null
-     */
-    public function getWarnings()
-    {
-        return $this->container['warnings'];
-    }
-
-    /**
-     * Sets warnings
-     *
-     * @param \criteo\api\marketingsolutions\v2024_07\Model\CommonProblem[]|null $warnings warnings
-     *
-     * @return self
-     */
-    public function setWarnings($warnings)
-    {
-        if (is_null($warnings)) {
-            array_push($this->openAPINullablesSetToNull, 'warnings');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('warnings', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['warnings'] = $warnings;
-
-        return $this;
-    }
-
-    /**
      * Gets errors
      *
      * @return \criteo\api\marketingsolutions\v2024_07\Model\CommonProblem[]|null
@@ -402,6 +368,40 @@ class AdSetDisplayMultiplierListResponse implements ModelInterface, ArrayAccess,
             }
         }
         $this->container['errors'] = $errors;
+
+        return $this;
+    }
+
+    /**
+     * Gets warnings
+     *
+     * @return \criteo\api\marketingsolutions\v2024_07\Model\CommonProblem[]|null
+     */
+    public function getWarnings()
+    {
+        return $this->container['warnings'];
+    }
+
+    /**
+     * Sets warnings
+     *
+     * @param \criteo\api\marketingsolutions\v2024_07\Model\CommonProblem[]|null $warnings warnings
+     *
+     * @return self
+     */
+    public function setWarnings($warnings)
+    {
+        if (is_null($warnings)) {
+            array_push($this->openAPINullablesSetToNull, 'warnings');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('warnings', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['warnings'] = $warnings;
 
         return $this;
     }

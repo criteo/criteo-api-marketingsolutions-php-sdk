@@ -2426,17 +2426,17 @@ class CreativeApi
      * Operation generateCreativePreview
      *
      * @param  string $id The Creative identifier to preview. (required)
-     * @param  int $width The width of the Creative to preview. (optional)
      * @param  int $height The height of the Creative to preview. (optional)
+     * @param  int $width The width of the Creative to preview. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateCreativePreview'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2024_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function generateCreativePreview($id, $width = null, $height = null, string $contentType = self::contentTypes['generateCreativePreview'][0])
+    public function generateCreativePreview($id, $height = null, $width = null, string $contentType = self::contentTypes['generateCreativePreview'][0])
     {
-        list($response) = $this->generateCreativePreviewWithHttpInfo($id, $width, $height, $contentType);
+        list($response) = $this->generateCreativePreviewWithHttpInfo($id, $height, $width, $contentType);
         return $response;
     }
 
@@ -2444,17 +2444,17 @@ class CreativeApi
      * Operation generateCreativePreviewWithHttpInfo
      *
      * @param  string $id The Creative identifier to preview. (required)
-     * @param  int $width The width of the Creative to preview. (optional)
      * @param  int $height The height of the Creative to preview. (optional)
+     * @param  int $width The width of the Creative to preview. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateCreativePreview'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2024_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function generateCreativePreviewWithHttpInfo($id, $width = null, $height = null, string $contentType = self::contentTypes['generateCreativePreview'][0])
+    public function generateCreativePreviewWithHttpInfo($id, $height = null, $width = null, string $contentType = self::contentTypes['generateCreativePreview'][0])
     {
-        $request = $this->generateCreativePreviewRequest($id, $width, $height, $contentType);
+        $request = $this->generateCreativePreviewRequest($id, $height, $width, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2544,16 +2544,16 @@ class CreativeApi
      * Operation generateCreativePreviewAsync
      *
      * @param  string $id The Creative identifier to preview. (required)
-     * @param  int $width The width of the Creative to preview. (optional)
      * @param  int $height The height of the Creative to preview. (optional)
+     * @param  int $width The width of the Creative to preview. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateCreativePreview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateCreativePreviewAsync($id, $width = null, $height = null, string $contentType = self::contentTypes['generateCreativePreview'][0])
+    public function generateCreativePreviewAsync($id, $height = null, $width = null, string $contentType = self::contentTypes['generateCreativePreview'][0])
     {
-        return $this->generateCreativePreviewAsyncWithHttpInfo($id, $width, $height, $contentType)
+        return $this->generateCreativePreviewAsyncWithHttpInfo($id, $height, $width, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2565,17 +2565,17 @@ class CreativeApi
      * Operation generateCreativePreviewAsyncWithHttpInfo
      *
      * @param  string $id The Creative identifier to preview. (required)
-     * @param  int $width The width of the Creative to preview. (optional)
      * @param  int $height The height of the Creative to preview. (optional)
+     * @param  int $width The width of the Creative to preview. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateCreativePreview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateCreativePreviewAsyncWithHttpInfo($id, $width = null, $height = null, string $contentType = self::contentTypes['generateCreativePreview'][0])
+    public function generateCreativePreviewAsyncWithHttpInfo($id, $height = null, $width = null, string $contentType = self::contentTypes['generateCreativePreview'][0])
     {
         $returnType = 'string';
-        $request = $this->generateCreativePreviewRequest($id, $width, $height, $contentType);
+        $request = $this->generateCreativePreviewRequest($id, $height, $width, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2617,14 +2617,14 @@ class CreativeApi
      * Create request for operation 'generateCreativePreview'
      *
      * @param  string $id The Creative identifier to preview. (required)
-     * @param  int $width The width of the Creative to preview. (optional)
      * @param  int $height The height of the Creative to preview. (optional)
+     * @param  int $width The width of the Creative to preview. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateCreativePreview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function generateCreativePreviewRequest($id, $width = null, $height = null, string $contentType = self::contentTypes['generateCreativePreview'][0])
+    public function generateCreativePreviewRequest($id, $height = null, $width = null, string $contentType = self::contentTypes['generateCreativePreview'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -2646,8 +2646,8 @@ class CreativeApi
 
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $width,
-            'width', // param base name
+            $height,
+            'height', // param base name
             'integer', // openApiType
             'form', // style
             true, // explode
@@ -2655,8 +2655,8 @@ class CreativeApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $height,
-            'height', // param base name
+            $width,
+            'width', // param base name
             'integer', // openApiType
             'form', // style
             true, // explode
@@ -3639,17 +3639,17 @@ class CreativeApi
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $id The Coupon identifier to preview. (required)
-     * @param  int $width The width of the coupon to preview. (optional)
      * @param  int $height The height of the coupon to preview. (optional)
+     * @param  int $width The width of the coupon to preview. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserCouponPreview'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2024_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function getAdvertiserCouponPreview($advertiser_id, $id, $width = null, $height = null, string $contentType = self::contentTypes['getAdvertiserCouponPreview'][0])
+    public function getAdvertiserCouponPreview($advertiser_id, $id, $height = null, $width = null, string $contentType = self::contentTypes['getAdvertiserCouponPreview'][0])
     {
-        list($response) = $this->getAdvertiserCouponPreviewWithHttpInfo($advertiser_id, $id, $width, $height, $contentType);
+        list($response) = $this->getAdvertiserCouponPreviewWithHttpInfo($advertiser_id, $id, $height, $width, $contentType);
         return $response;
     }
 
@@ -3658,17 +3658,17 @@ class CreativeApi
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $id The Coupon identifier to preview. (required)
-     * @param  int $width The width of the coupon to preview. (optional)
      * @param  int $height The height of the coupon to preview. (optional)
+     * @param  int $width The width of the coupon to preview. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserCouponPreview'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2024_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAdvertiserCouponPreviewWithHttpInfo($advertiser_id, $id, $width = null, $height = null, string $contentType = self::contentTypes['getAdvertiserCouponPreview'][0])
+    public function getAdvertiserCouponPreviewWithHttpInfo($advertiser_id, $id, $height = null, $width = null, string $contentType = self::contentTypes['getAdvertiserCouponPreview'][0])
     {
-        $request = $this->getAdvertiserCouponPreviewRequest($advertiser_id, $id, $width, $height, $contentType);
+        $request = $this->getAdvertiserCouponPreviewRequest($advertiser_id, $id, $height, $width, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3759,16 +3759,16 @@ class CreativeApi
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $id The Coupon identifier to preview. (required)
-     * @param  int $width The width of the coupon to preview. (optional)
      * @param  int $height The height of the coupon to preview. (optional)
+     * @param  int $width The width of the coupon to preview. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserCouponPreview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAdvertiserCouponPreviewAsync($advertiser_id, $id, $width = null, $height = null, string $contentType = self::contentTypes['getAdvertiserCouponPreview'][0])
+    public function getAdvertiserCouponPreviewAsync($advertiser_id, $id, $height = null, $width = null, string $contentType = self::contentTypes['getAdvertiserCouponPreview'][0])
     {
-        return $this->getAdvertiserCouponPreviewAsyncWithHttpInfo($advertiser_id, $id, $width, $height, $contentType)
+        return $this->getAdvertiserCouponPreviewAsyncWithHttpInfo($advertiser_id, $id, $height, $width, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3781,17 +3781,17 @@ class CreativeApi
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $id The Coupon identifier to preview. (required)
-     * @param  int $width The width of the coupon to preview. (optional)
      * @param  int $height The height of the coupon to preview. (optional)
+     * @param  int $width The width of the coupon to preview. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserCouponPreview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAdvertiserCouponPreviewAsyncWithHttpInfo($advertiser_id, $id, $width = null, $height = null, string $contentType = self::contentTypes['getAdvertiserCouponPreview'][0])
+    public function getAdvertiserCouponPreviewAsyncWithHttpInfo($advertiser_id, $id, $height = null, $width = null, string $contentType = self::contentTypes['getAdvertiserCouponPreview'][0])
     {
         $returnType = 'string';
-        $request = $this->getAdvertiserCouponPreviewRequest($advertiser_id, $id, $width, $height, $contentType);
+        $request = $this->getAdvertiserCouponPreviewRequest($advertiser_id, $id, $height, $width, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3834,14 +3834,14 @@ class CreativeApi
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $id The Coupon identifier to preview. (required)
-     * @param  int $width The width of the coupon to preview. (optional)
      * @param  int $height The height of the coupon to preview. (optional)
+     * @param  int $width The width of the coupon to preview. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserCouponPreview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAdvertiserCouponPreviewRequest($advertiser_id, $id, $width = null, $height = null, string $contentType = self::contentTypes['getAdvertiserCouponPreview'][0])
+    public function getAdvertiserCouponPreviewRequest($advertiser_id, $id, $height = null, $width = null, string $contentType = self::contentTypes['getAdvertiserCouponPreview'][0])
     {
 
         // verify the required parameter 'advertiser_id' is set
@@ -3870,8 +3870,8 @@ class CreativeApi
 
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $width,
-            'width', // param base name
+            $height,
+            'height', // param base name
             'integer', // openApiType
             'form', // style
             true, // explode
@@ -3879,8 +3879,8 @@ class CreativeApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $height,
-            'height', // param base name
+            $width,
+            'width', // param base name
             'integer', // openApiType
             'form', // style
             true, // explode

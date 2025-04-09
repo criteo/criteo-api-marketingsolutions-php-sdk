@@ -58,21 +58,21 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'description' => 'string',
-        'author' => 'string',
-        'advertiser_id' => 'string',
         'ad_set_id' => 'string',
-        'landing_page_url' => 'string',
-        'start_date' => 'string',
+        'advertiser_id' => 'string',
+        'author' => 'string',
+        'description' => 'string',
         'end_date' => 'string',
         'format' => 'string',
-        'status' => 'string',
+        'id' => 'string',
         'images' => '\criteo\api\marketingsolutions\v2024_07\Model\ImageSlide[]',
-        'show_every' => 'int',
-        'show_duration' => 'int',
+        'landing_page_url' => 'string',
+        'name' => 'string',
         'rotations_number' => 'int',
-        'id' => 'string'
+        'show_duration' => 'int',
+        'show_every' => 'int',
+        'start_date' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -83,21 +83,21 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'description' => null,
-        'author' => null,
-        'advertiser_id' => null,
         'ad_set_id' => null,
-        'landing_page_url' => null,
-        'start_date' => null,
+        'advertiser_id' => null,
+        'author' => null,
+        'description' => null,
         'end_date' => null,
         'format' => null,
-        'status' => null,
+        'id' => null,
         'images' => null,
-        'show_every' => 'int32',
-        'show_duration' => 'int32',
+        'landing_page_url' => null,
+        'name' => null,
         'rotations_number' => 'int32',
-        'id' => null
+        'show_duration' => 'int32',
+        'show_every' => 'int32',
+        'start_date' => null,
+        'status' => null
     ];
 
     /**
@@ -106,21 +106,21 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => true,
-		'description' => true,
-		'author' => true,
+        'ad_set_id' => true,
 		'advertiser_id' => true,
-		'ad_set_id' => true,
-		'landing_page_url' => true,
-		'start_date' => true,
+		'author' => true,
+		'description' => true,
 		'end_date' => true,
 		'format' => true,
-		'status' => true,
+		'id' => true,
 		'images' => true,
-		'show_every' => true,
-		'show_duration' => true,
+		'landing_page_url' => true,
+		'name' => true,
 		'rotations_number' => true,
-		'id' => true
+		'show_duration' => true,
+		'show_every' => true,
+		'start_date' => true,
+		'status' => true
     ];
 
     /**
@@ -209,21 +209,21 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'description' => 'description',
-        'author' => 'author',
-        'advertiser_id' => 'advertiserId',
         'ad_set_id' => 'adSetId',
-        'landing_page_url' => 'landingPageUrl',
-        'start_date' => 'startDate',
+        'advertiser_id' => 'advertiserId',
+        'author' => 'author',
+        'description' => 'description',
         'end_date' => 'endDate',
         'format' => 'format',
-        'status' => 'status',
+        'id' => 'id',
         'images' => 'images',
-        'show_every' => 'showEvery',
-        'show_duration' => 'showDuration',
+        'landing_page_url' => 'landingPageUrl',
+        'name' => 'name',
         'rotations_number' => 'rotationsNumber',
-        'id' => 'id'
+        'show_duration' => 'showDuration',
+        'show_every' => 'showEvery',
+        'start_date' => 'startDate',
+        'status' => 'status'
     ];
 
     /**
@@ -232,21 +232,21 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'description' => 'setDescription',
-        'author' => 'setAuthor',
-        'advertiser_id' => 'setAdvertiserId',
         'ad_set_id' => 'setAdSetId',
-        'landing_page_url' => 'setLandingPageUrl',
-        'start_date' => 'setStartDate',
+        'advertiser_id' => 'setAdvertiserId',
+        'author' => 'setAuthor',
+        'description' => 'setDescription',
         'end_date' => 'setEndDate',
         'format' => 'setFormat',
-        'status' => 'setStatus',
+        'id' => 'setId',
         'images' => 'setImages',
-        'show_every' => 'setShowEvery',
-        'show_duration' => 'setShowDuration',
+        'landing_page_url' => 'setLandingPageUrl',
+        'name' => 'setName',
         'rotations_number' => 'setRotationsNumber',
-        'id' => 'setId'
+        'show_duration' => 'setShowDuration',
+        'show_every' => 'setShowEvery',
+        'start_date' => 'setStartDate',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -255,21 +255,21 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'description' => 'getDescription',
-        'author' => 'getAuthor',
-        'advertiser_id' => 'getAdvertiserId',
         'ad_set_id' => 'getAdSetId',
-        'landing_page_url' => 'getLandingPageUrl',
-        'start_date' => 'getStartDate',
+        'advertiser_id' => 'getAdvertiserId',
+        'author' => 'getAuthor',
+        'description' => 'getDescription',
         'end_date' => 'getEndDate',
         'format' => 'getFormat',
-        'status' => 'getStatus',
+        'id' => 'getId',
         'images' => 'getImages',
-        'show_every' => 'getShowEvery',
-        'show_duration' => 'getShowDuration',
+        'landing_page_url' => 'getLandingPageUrl',
+        'name' => 'getName',
         'rotations_number' => 'getRotationsNumber',
-        'id' => 'getId'
+        'show_duration' => 'getShowDuration',
+        'show_every' => 'getShowEvery',
+        'start_date' => 'getStartDate',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -329,21 +329,21 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('author', $data ?? [], null);
-        $this->setIfExists('advertiser_id', $data ?? [], null);
         $this->setIfExists('ad_set_id', $data ?? [], null);
-        $this->setIfExists('landing_page_url', $data ?? [], null);
-        $this->setIfExists('start_date', $data ?? [], null);
+        $this->setIfExists('advertiser_id', $data ?? [], null);
+        $this->setIfExists('author', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('end_date', $data ?? [], null);
         $this->setIfExists('format', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('images', $data ?? [], null);
-        $this->setIfExists('show_every', $data ?? [], null);
-        $this->setIfExists('show_duration', $data ?? [], null);
-        $this->setIfExists('rotations_number', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('images', $data ?? [], null);
+        $this->setIfExists('landing_page_url', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('rotations_number', $data ?? [], null);
+        $this->setIfExists('show_duration', $data ?? [], null);
+        $this->setIfExists('show_every', $data ?? [], null);
+        $this->setIfExists('start_date', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
     }
 
     /**
@@ -389,103 +389,35 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets name
+     * Gets ad_set_id
      *
      * @return string|null
      */
-    public function getName()
+    public function getAdSetId()
     {
-        return $this->container['name'];
+        return $this->container['ad_set_id'];
     }
 
     /**
-     * Sets name
+     * Sets ad_set_id
      *
-     * @param string|null $name The name of the Coupon
+     * @param string|null $ad_set_id The id of the Ad Set on which the Coupon is applied to
      *
      * @return self
      */
-    public function setName($name)
+    public function setAdSetId($ad_set_id)
     {
-        if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
+        if (is_null($ad_set_id)) {
+            array_push($this->openAPINullablesSetToNull, 'ad_set_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
+            $index = array_search('ad_set_id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description The description of the Coupon
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets author
-     *
-     * @return string|null
-     */
-    public function getAuthor()
-    {
-        return $this->container['author'];
-    }
-
-    /**
-     * Sets author
-     *
-     * @param string|null $author The login of the person who created this Coupon
-     *
-     * @return self
-     */
-    public function setAuthor($author)
-    {
-        if (is_null($author)) {
-            array_push($this->openAPINullablesSetToNull, 'author');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('author', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['author'] = $author;
+        $this->container['ad_set_id'] = $ad_set_id;
 
         return $this;
     }
@@ -525,103 +457,69 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets ad_set_id
+     * Gets author
      *
      * @return string|null
      */
-    public function getAdSetId()
+    public function getAuthor()
     {
-        return $this->container['ad_set_id'];
+        return $this->container['author'];
     }
 
     /**
-     * Sets ad_set_id
+     * Sets author
      *
-     * @param string|null $ad_set_id The id of the Ad Set on which the Coupon is applied to
+     * @param string|null $author The login of the person who created this Coupon
      *
      * @return self
      */
-    public function setAdSetId($ad_set_id)
+    public function setAuthor($author)
     {
-        if (is_null($ad_set_id)) {
-            array_push($this->openAPINullablesSetToNull, 'ad_set_id');
+        if (is_null($author)) {
+            array_push($this->openAPINullablesSetToNull, 'author');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('ad_set_id', $nullablesSetToNull);
+            $index = array_search('author', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['ad_set_id'] = $ad_set_id;
+        $this->container['author'] = $author;
 
         return $this;
     }
 
     /**
-     * Gets landing_page_url
+     * Gets description
      *
      * @return string|null
      */
-    public function getLandingPageUrl()
+    public function getDescription()
     {
-        return $this->container['landing_page_url'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets landing_page_url
+     * Sets description
      *
-     * @param string|null $landing_page_url Web redirection of the landing page url
+     * @param string|null $description The description of the Coupon
      *
      * @return self
      */
-    public function setLandingPageUrl($landing_page_url)
+    public function setDescription($description)
     {
-        if (is_null($landing_page_url)) {
-            array_push($this->openAPINullablesSetToNull, 'landing_page_url');
+        if (is_null($description)) {
+            array_push($this->openAPINullablesSetToNull, 'description');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('landing_page_url', $nullablesSetToNull);
+            $index = array_search('description', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['landing_page_url'] = $landing_page_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets start_date
-     *
-     * @return string|null
-     */
-    public function getStartDate()
-    {
-        return $this->container['start_date'];
-    }
-
-    /**
-     * Sets start_date
-     *
-     * @param string|null $start_date The date when the Coupon will be launched  String must be in ISO8601 format
-     *
-     * @return self
-     */
-    public function setStartDate($start_date)
-    {
-        if (is_null($start_date)) {
-            array_push($this->openAPINullablesSetToNull, 'start_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('start_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['start_date'] = $start_date;
+        $this->container['description'] = $description;
 
         return $this;
     }
@@ -695,35 +593,35 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets status
+     * Gets id
      *
      * @return string|null
      */
-    public function getStatus()
+    public function getId()
     {
-        return $this->container['status'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets status
+     * Sets id
      *
-     * @param string|null $status The status of the Coupon
+     * @param string|null $id Unique identifier (duplicate of the parent id).
      *
      * @return self
      */
-    public function setStatus($status)
+    public function setId($id)
     {
-        if (is_null($status)) {
-            array_push($this->openAPINullablesSetToNull, 'status');
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('status', $nullablesSetToNull);
+            $index = array_search('id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['status'] = $status;
+        $this->container['id'] = $id;
 
         return $this;
     }
@@ -763,69 +661,69 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets show_every
+     * Gets landing_page_url
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getShowEvery()
+    public function getLandingPageUrl()
     {
-        return $this->container['show_every'];
+        return $this->container['landing_page_url'];
     }
 
     /**
-     * Sets show_every
+     * Sets landing_page_url
      *
-     * @param int|null $show_every Show the Coupon every N seconds (between 1 and 10)
+     * @param string|null $landing_page_url Web redirection of the landing page url
      *
      * @return self
      */
-    public function setShowEvery($show_every)
+    public function setLandingPageUrl($landing_page_url)
     {
-        if (is_null($show_every)) {
-            array_push($this->openAPINullablesSetToNull, 'show_every');
+        if (is_null($landing_page_url)) {
+            array_push($this->openAPINullablesSetToNull, 'landing_page_url');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('show_every', $nullablesSetToNull);
+            $index = array_search('landing_page_url', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['show_every'] = $show_every;
+        $this->container['landing_page_url'] = $landing_page_url;
 
         return $this;
     }
 
     /**
-     * Gets show_duration
+     * Gets name
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getShowDuration()
+    public function getName()
     {
-        return $this->container['show_duration'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets show_duration
+     * Sets name
      *
-     * @param int|null $show_duration Show Coupon for a duration of N seconds (between 1 and 5)
+     * @param string|null $name The name of the Coupon
      *
      * @return self
      */
-    public function setShowDuration($show_duration)
+    public function setName($name)
     {
-        if (is_null($show_duration)) {
-            array_push($this->openAPINullablesSetToNull, 'show_duration');
+        if (is_null($name)) {
+            array_push($this->openAPINullablesSetToNull, 'name');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('show_duration', $nullablesSetToNull);
+            $index = array_search('name', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['show_duration'] = $show_duration;
+        $this->container['name'] = $name;
 
         return $this;
     }
@@ -865,35 +763,137 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets id
+     * Gets show_duration
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getId()
+    public function getShowDuration()
     {
-        return $this->container['id'];
+        return $this->container['show_duration'];
     }
 
     /**
-     * Sets id
+     * Sets show_duration
      *
-     * @param string|null $id Unique identifier (duplicate of the parent id).
+     * @param int|null $show_duration Show Coupon for a duration of N seconds (between 1 and 5)
      *
      * @return self
      */
-    public function setId($id)
+    public function setShowDuration($show_duration)
     {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
+        if (is_null($show_duration)) {
+            array_push($this->openAPINullablesSetToNull, 'show_duration');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
+            $index = array_search('show_duration', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['id'] = $id;
+        $this->container['show_duration'] = $show_duration;
+
+        return $this;
+    }
+
+    /**
+     * Gets show_every
+     *
+     * @return int|null
+     */
+    public function getShowEvery()
+    {
+        return $this->container['show_every'];
+    }
+
+    /**
+     * Sets show_every
+     *
+     * @param int|null $show_every Show the Coupon every N seconds (between 1 and 10)
+     *
+     * @return self
+     */
+    public function setShowEvery($show_every)
+    {
+        if (is_null($show_every)) {
+            array_push($this->openAPINullablesSetToNull, 'show_every');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('show_every', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['show_every'] = $show_every;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_date
+     *
+     * @return string|null
+     */
+    public function getStartDate()
+    {
+        return $this->container['start_date'];
+    }
+
+    /**
+     * Sets start_date
+     *
+     * @param string|null $start_date The date when the Coupon will be launched  String must be in ISO8601 format
+     *
+     * @return self
+     */
+    public function setStartDate($start_date)
+    {
+        if (is_null($start_date)) {
+            array_push($this->openAPINullablesSetToNull, 'start_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('start_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['start_date'] = $start_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status The status of the Coupon
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            array_push($this->openAPINullablesSetToNull, 'status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }
