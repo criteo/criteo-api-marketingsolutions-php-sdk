@@ -59,9 +59,9 @@ class AlgebraNodeV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'and' => '\criteo\api\marketingsolutions\v2024_10\Model\AlgebraNodeV1[]',
-        'or' => '\criteo\api\marketingsolutions\v2024_10\Model\AlgebraNodeV1[]',
+        'audience_segment_id' => 'string',
         'not' => '\criteo\api\marketingsolutions\v2024_10\Model\AlgebraNodeV1',
-        'audience_segment_id' => 'string'
+        'or' => '\criteo\api\marketingsolutions\v2024_10\Model\AlgebraNodeV1[]'
     ];
 
     /**
@@ -73,9 +73,9 @@ class AlgebraNodeV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'and' => null,
-        'or' => null,
+        'audience_segment_id' => null,
         'not' => null,
-        'audience_segment_id' => null
+        'or' => null
     ];
 
     /**
@@ -85,9 +85,9 @@ class AlgebraNodeV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'and' => true,
-		'or' => true,
+		'audience_segment_id' => true,
 		'not' => true,
-		'audience_segment_id' => true
+		'or' => true
     ];
 
     /**
@@ -177,9 +177,9 @@ class AlgebraNodeV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'and' => 'and',
-        'or' => 'or',
+        'audience_segment_id' => 'audienceSegmentId',
         'not' => 'not',
-        'audience_segment_id' => 'audienceSegmentId'
+        'or' => 'or'
     ];
 
     /**
@@ -189,9 +189,9 @@ class AlgebraNodeV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'and' => 'setAnd',
-        'or' => 'setOr',
+        'audience_segment_id' => 'setAudienceSegmentId',
         'not' => 'setNot',
-        'audience_segment_id' => 'setAudienceSegmentId'
+        'or' => 'setOr'
     ];
 
     /**
@@ -201,9 +201,9 @@ class AlgebraNodeV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'and' => 'getAnd',
-        'or' => 'getOr',
+        'audience_segment_id' => 'getAudienceSegmentId',
         'not' => 'getNot',
-        'audience_segment_id' => 'getAudienceSegmentId'
+        'or' => 'getOr'
     ];
 
     /**
@@ -264,9 +264,9 @@ class AlgebraNodeV1 implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('and', $data ?? [], null);
-        $this->setIfExists('or', $data ?? [], null);
-        $this->setIfExists('not', $data ?? [], null);
         $this->setIfExists('audience_segment_id', $data ?? [], null);
+        $this->setIfExists('not', $data ?? [], null);
+        $this->setIfExists('or', $data ?? [], null);
     }
 
     /**
@@ -346,35 +346,35 @@ class AlgebraNodeV1 implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets or
+     * Gets audience_segment_id
      *
-     * @return \criteo\api\marketingsolutions\v2024_10\Model\AlgebraNodeV1[]|null
+     * @return string|null
      */
-    public function getOr()
+    public function getAudienceSegmentId()
     {
-        return $this->container['or'];
+        return $this->container['audience_segment_id'];
     }
 
     /**
-     * Sets or
+     * Sets audience_segment_id
      *
-     * @param \criteo\api\marketingsolutions\v2024_10\Model\AlgebraNodeV1[]|null $or or
+     * @param string|null $audience_segment_id audience_segment_id
      *
      * @return self
      */
-    public function setOr($or)
+    public function setAudienceSegmentId($audience_segment_id)
     {
-        if (is_null($or)) {
-            array_push($this->openAPINullablesSetToNull, 'or');
+        if (is_null($audience_segment_id)) {
+            array_push($this->openAPINullablesSetToNull, 'audience_segment_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('or', $nullablesSetToNull);
+            $index = array_search('audience_segment_id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['or'] = $or;
+        $this->container['audience_segment_id'] = $audience_segment_id;
 
         return $this;
     }
@@ -414,35 +414,35 @@ class AlgebraNodeV1 implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets audience_segment_id
+     * Gets or
      *
-     * @return string|null
+     * @return \criteo\api\marketingsolutions\v2024_10\Model\AlgebraNodeV1[]|null
      */
-    public function getAudienceSegmentId()
+    public function getOr()
     {
-        return $this->container['audience_segment_id'];
+        return $this->container['or'];
     }
 
     /**
-     * Sets audience_segment_id
+     * Sets or
      *
-     * @param string|null $audience_segment_id audience_segment_id
+     * @param \criteo\api\marketingsolutions\v2024_10\Model\AlgebraNodeV1[]|null $or or
      *
      * @return self
      */
-    public function setAudienceSegmentId($audience_segment_id)
+    public function setOr($or)
     {
-        if (is_null($audience_segment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'audience_segment_id');
+        if (is_null($or)) {
+            array_push($this->openAPINullablesSetToNull, 'or');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('audience_segment_id', $nullablesSetToNull);
+            $index = array_search('or', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['audience_segment_id'] = $audience_segment_id;
+        $this->container['or'] = $or;
 
         return $this;
     }

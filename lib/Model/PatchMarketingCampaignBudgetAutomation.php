@@ -58,8 +58,8 @@ class PatchMarketingCampaignBudgetAutomation implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'enable' => 'bool',
-        'budget_configuration' => '\criteo\api\marketingsolutions\v2024_10\Model\BudgetAutomationConfiguration'
+        'budget_configuration' => '\criteo\api\marketingsolutions\v2024_10\Model\BudgetAutomationConfiguration',
+        'enable' => 'bool'
     ];
 
     /**
@@ -70,8 +70,8 @@ class PatchMarketingCampaignBudgetAutomation implements ModelInterface, ArrayAcc
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'enable' => null,
-        'budget_configuration' => null
+        'budget_configuration' => null,
+        'enable' => null
     ];
 
     /**
@@ -80,8 +80,8 @@ class PatchMarketingCampaignBudgetAutomation implements ModelInterface, ArrayAcc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'enable' => false,
-		'budget_configuration' => false
+        'budget_configuration' => false,
+		'enable' => false
     ];
 
     /**
@@ -170,8 +170,8 @@ class PatchMarketingCampaignBudgetAutomation implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'enable' => 'enable',
-        'budget_configuration' => 'budgetConfiguration'
+        'budget_configuration' => 'budgetConfiguration',
+        'enable' => 'enable'
     ];
 
     /**
@@ -180,8 +180,8 @@ class PatchMarketingCampaignBudgetAutomation implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'enable' => 'setEnable',
-        'budget_configuration' => 'setBudgetConfiguration'
+        'budget_configuration' => 'setBudgetConfiguration',
+        'enable' => 'setEnable'
     ];
 
     /**
@@ -190,8 +190,8 @@ class PatchMarketingCampaignBudgetAutomation implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'enable' => 'getEnable',
-        'budget_configuration' => 'getBudgetConfiguration'
+        'budget_configuration' => 'getBudgetConfiguration',
+        'enable' => 'getEnable'
     ];
 
     /**
@@ -251,8 +251,8 @@ class PatchMarketingCampaignBudgetAutomation implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('enable', $data ?? [], null);
         $this->setIfExists('budget_configuration', $data ?? [], null);
+        $this->setIfExists('enable', $data ?? [], null);
     }
 
     /**
@@ -298,33 +298,6 @@ class PatchMarketingCampaignBudgetAutomation implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets enable
-     *
-     * @return bool|null
-     */
-    public function getEnable()
-    {
-        return $this->container['enable'];
-    }
-
-    /**
-     * Sets enable
-     *
-     * @param bool|null $enable Budget automation for the marketing campaign enable
-     *
-     * @return self
-     */
-    public function setEnable($enable)
-    {
-        if (is_null($enable)) {
-            throw new \InvalidArgumentException('non-nullable enable cannot be null');
-        }
-        $this->container['enable'] = $enable;
-
-        return $this;
-    }
-
-    /**
      * Gets budget_configuration
      *
      * @return \criteo\api\marketingsolutions\v2024_10\Model\BudgetAutomationConfiguration|null
@@ -347,6 +320,33 @@ class PatchMarketingCampaignBudgetAutomation implements ModelInterface, ArrayAcc
             throw new \InvalidArgumentException('non-nullable budget_configuration cannot be null');
         }
         $this->container['budget_configuration'] = $budget_configuration;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable
+     *
+     * @return bool|null
+     */
+    public function getEnable()
+    {
+        return $this->container['enable'];
+    }
+
+    /**
+     * Sets enable
+     *
+     * @param bool|null $enable Budget automation for the marketing campaign enable
+     *
+     * @return self
+     */
+    public function setEnable($enable)
+    {
+        if (is_null($enable)) {
+            throw new \InvalidArgumentException('non-nullable enable cannot be null');
+        }
+        $this->container['enable'] = $enable;
 
         return $this;
     }

@@ -58,19 +58,19 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
+        'adset_ids' => 'string',
         'advertiser_ids' => 'string',
         'campaign_ids' => 'string',
-        'adset_ids' => 'string',
-        'environment' => 'string',
-        'placement' => 'string',
-        'dimensions' => 'string[]',
-        'metrics' => 'string[]',
         'currency' => 'string',
+        'dimensions' => 'string[]',
         'disclosed' => 'bool',
+        'end_date' => '\DateTime',
+        'environment' => 'string',
         'format' => 'string',
-        'timezone' => 'string',
+        'metrics' => 'string[]',
+        'placement' => 'string',
         'start_date' => '\DateTime',
-        'end_date' => '\DateTime'
+        'timezone' => 'string'
     ];
 
     /**
@@ -81,19 +81,19 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'adset_ids' => null,
         'advertiser_ids' => null,
         'campaign_ids' => null,
-        'adset_ids' => null,
-        'environment' => null,
-        'placement' => null,
-        'dimensions' => null,
-        'metrics' => null,
         'currency' => null,
+        'dimensions' => null,
         'disclosed' => null,
+        'end_date' => 'date-time',
+        'environment' => null,
         'format' => null,
-        'timezone' => null,
+        'metrics' => null,
+        'placement' => null,
         'start_date' => 'date-time',
-        'end_date' => 'date-time'
+        'timezone' => null
     ];
 
     /**
@@ -102,19 +102,19 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'advertiser_ids' => false,
+        'adset_ids' => true,
+		'advertiser_ids' => false,
 		'campaign_ids' => true,
-		'adset_ids' => true,
-		'environment' => true,
-		'placement' => true,
-		'dimensions' => false,
-		'metrics' => false,
 		'currency' => false,
+		'dimensions' => false,
 		'disclosed' => false,
+		'end_date' => false,
+		'environment' => true,
 		'format' => false,
-		'timezone' => true,
+		'metrics' => false,
+		'placement' => true,
 		'start_date' => false,
-		'end_date' => false
+		'timezone' => true
     ];
 
     /**
@@ -203,19 +203,19 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
+        'adset_ids' => 'adsetIds',
         'advertiser_ids' => 'advertiserIds',
         'campaign_ids' => 'campaignIds',
-        'adset_ids' => 'adsetIds',
-        'environment' => 'environment',
-        'placement' => 'placement',
-        'dimensions' => 'dimensions',
-        'metrics' => 'metrics',
         'currency' => 'currency',
+        'dimensions' => 'dimensions',
         'disclosed' => 'disclosed',
+        'end_date' => 'endDate',
+        'environment' => 'environment',
         'format' => 'format',
-        'timezone' => 'timezone',
+        'metrics' => 'metrics',
+        'placement' => 'placement',
         'start_date' => 'startDate',
-        'end_date' => 'endDate'
+        'timezone' => 'timezone'
     ];
 
     /**
@@ -224,19 +224,19 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
+        'adset_ids' => 'setAdsetIds',
         'advertiser_ids' => 'setAdvertiserIds',
         'campaign_ids' => 'setCampaignIds',
-        'adset_ids' => 'setAdsetIds',
-        'environment' => 'setEnvironment',
-        'placement' => 'setPlacement',
-        'dimensions' => 'setDimensions',
-        'metrics' => 'setMetrics',
         'currency' => 'setCurrency',
+        'dimensions' => 'setDimensions',
         'disclosed' => 'setDisclosed',
+        'end_date' => 'setEndDate',
+        'environment' => 'setEnvironment',
         'format' => 'setFormat',
-        'timezone' => 'setTimezone',
+        'metrics' => 'setMetrics',
+        'placement' => 'setPlacement',
         'start_date' => 'setStartDate',
-        'end_date' => 'setEndDate'
+        'timezone' => 'setTimezone'
     ];
 
     /**
@@ -245,19 +245,19 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
+        'adset_ids' => 'getAdsetIds',
         'advertiser_ids' => 'getAdvertiserIds',
         'campaign_ids' => 'getCampaignIds',
-        'adset_ids' => 'getAdsetIds',
-        'environment' => 'getEnvironment',
-        'placement' => 'getPlacement',
-        'dimensions' => 'getDimensions',
-        'metrics' => 'getMetrics',
         'currency' => 'getCurrency',
+        'dimensions' => 'getDimensions',
         'disclosed' => 'getDisclosed',
+        'end_date' => 'getEndDate',
+        'environment' => 'getEnvironment',
         'format' => 'getFormat',
-        'timezone' => 'getTimezone',
+        'metrics' => 'getMetrics',
+        'placement' => 'getPlacement',
         'start_date' => 'getStartDate',
-        'end_date' => 'getEndDate'
+        'timezone' => 'getTimezone'
     ];
 
     /**
@@ -352,19 +352,19 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('adset_ids', $data ?? [], null);
         $this->setIfExists('advertiser_ids', $data ?? [], null);
         $this->setIfExists('campaign_ids', $data ?? [], null);
-        $this->setIfExists('adset_ids', $data ?? [], null);
-        $this->setIfExists('environment', $data ?? [], null);
-        $this->setIfExists('placement', $data ?? [], null);
-        $this->setIfExists('dimensions', $data ?? [], null);
-        $this->setIfExists('metrics', $data ?? [], null);
         $this->setIfExists('currency', $data ?? [], null);
+        $this->setIfExists('dimensions', $data ?? [], null);
         $this->setIfExists('disclosed', $data ?? [], true);
-        $this->setIfExists('format', $data ?? [], null);
-        $this->setIfExists('timezone', $data ?? [], 'UTC');
-        $this->setIfExists('start_date', $data ?? [], null);
         $this->setIfExists('end_date', $data ?? [], null);
+        $this->setIfExists('environment', $data ?? [], null);
+        $this->setIfExists('format', $data ?? [], null);
+        $this->setIfExists('metrics', $data ?? [], null);
+        $this->setIfExists('placement', $data ?? [], null);
+        $this->setIfExists('start_date', $data ?? [], null);
+        $this->setIfExists('timezone', $data ?? [], 'UTC');
     }
 
     /**
@@ -397,23 +397,23 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
         if ($this->container['advertiser_ids'] === null) {
             $invalidProperties[] = "'advertiser_ids' can't be null";
         }
+        if ($this->container['currency'] === null) {
+            $invalidProperties[] = "'currency' can't be null";
+        }
         if ($this->container['dimensions'] === null) {
             $invalidProperties[] = "'dimensions' can't be null";
         }
-        if ($this->container['metrics'] === null) {
-            $invalidProperties[] = "'metrics' can't be null";
-        }
-        if ($this->container['currency'] === null) {
-            $invalidProperties[] = "'currency' can't be null";
+        if ($this->container['end_date'] === null) {
+            $invalidProperties[] = "'end_date' can't be null";
         }
         if ($this->container['format'] === null) {
             $invalidProperties[] = "'format' can't be null";
         }
+        if ($this->container['metrics'] === null) {
+            $invalidProperties[] = "'metrics' can't be null";
+        }
         if ($this->container['start_date'] === null) {
             $invalidProperties[] = "'start_date' can't be null";
-        }
-        if ($this->container['end_date'] === null) {
-            $invalidProperties[] = "'end_date' can't be null";
         }
         return $invalidProperties;
     }
@@ -429,6 +429,40 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets adset_ids
+     *
+     * @return string|null
+     */
+    public function getAdsetIds()
+    {
+        return $this->container['adset_ids'];
+    }
+
+    /**
+     * Sets adset_ids
+     *
+     * @param string|null $adset_ids The comma-separated list of adSet ids.
+     *
+     * @return self
+     */
+    public function setAdsetIds($adset_ids)
+    {
+        if (is_null($adset_ids)) {
+            array_push($this->openAPINullablesSetToNull, 'adset_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('adset_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['adset_ids'] = $adset_ids;
+
+        return $this;
+    }
 
     /**
      * Gets advertiser_ids
@@ -492,103 +526,28 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     }
 
     /**
-     * Gets adset_ids
+     * Gets currency
      *
-     * @return string|null
+     * @return string
      */
-    public function getAdsetIds()
+    public function getCurrency()
     {
-        return $this->container['adset_ids'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets adset_ids
+     * Sets currency
      *
-     * @param string|null $adset_ids The comma-separated list of adSet ids.
+     * @param string $currency The currency used for the report. ISO 4217 code (three-letter capitals).
      *
      * @return self
      */
-    public function setAdsetIds($adset_ids)
+    public function setCurrency($currency)
     {
-        if (is_null($adset_ids)) {
-            array_push($this->openAPINullablesSetToNull, 'adset_ids');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('adset_ids', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($currency)) {
+            throw new \InvalidArgumentException('non-nullable currency cannot be null');
         }
-        $this->container['adset_ids'] = $adset_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets environment
-     *
-     * @return string|null
-     */
-    public function getEnvironment()
-    {
-        return $this->container['environment'];
-    }
-
-    /**
-     * Sets environment
-     *
-     * @param string|null $environment Type of environment: Web, Android or iOS.
-     *
-     * @return self
-     */
-    public function setEnvironment($environment)
-    {
-        if (is_null($environment)) {
-            array_push($this->openAPINullablesSetToNull, 'environment');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('environment', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['environment'] = $environment;
-
-        return $this;
-    }
-
-    /**
-     * Gets placement
-     *
-     * @return string|null
-     */
-    public function getPlacement()
-    {
-        return $this->container['placement'];
-    }
-
-    /**
-     * Sets placement
-     *
-     * @param string|null $placement Filter the value of the placement
-     *
-     * @return self
-     */
-    public function setPlacement($placement)
-    {
-        if (is_null($placement)) {
-            array_push($this->openAPINullablesSetToNull, 'placement');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('placement', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['placement'] = $placement;
+        $this->container['currency'] = $currency;
 
         return $this;
     }
@@ -630,60 +589,6 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     }
 
     /**
-     * Gets metrics
-     *
-     * @return string[]
-     */
-    public function getMetrics()
-    {
-        return $this->container['metrics'];
-    }
-
-    /**
-     * Sets metrics
-     *
-     * @param string[] $metrics The list of metrics to report.
-     *
-     * @return self
-     */
-    public function setMetrics($metrics)
-    {
-        if (is_null($metrics)) {
-            throw new \InvalidArgumentException('non-nullable metrics cannot be null');
-        }
-        $this->container['metrics'] = $metrics;
-
-        return $this;
-    }
-
-    /**
-     * Gets currency
-     *
-     * @return string
-     */
-    public function getCurrency()
-    {
-        return $this->container['currency'];
-    }
-
-    /**
-     * Sets currency
-     *
-     * @param string $currency The currency used for the report. ISO 4217 code (three-letter capitals).
-     *
-     * @return self
-     */
-    public function setCurrency($currency)
-    {
-        if (is_null($currency)) {
-            throw new \InvalidArgumentException('non-nullable currency cannot be null');
-        }
-        $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
      * Gets disclosed
      *
      * @return bool|null
@@ -711,6 +616,67 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     }
 
     /**
+     * Gets end_date
+     *
+     * @return \DateTime
+     */
+    public function getEndDate()
+    {
+        return $this->container['end_date'];
+    }
+
+    /**
+     * Sets end_date
+     *
+     * @param \DateTime $end_date End date of the report. Date component of ISO 8061 format, any time or timezone component is ignored.
+     *
+     * @return self
+     */
+    public function setEndDate($end_date)
+    {
+        if (is_null($end_date)) {
+            throw new \InvalidArgumentException('non-nullable end_date cannot be null');
+        }
+        $this->container['end_date'] = $end_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets environment
+     *
+     * @return string|null
+     */
+    public function getEnvironment()
+    {
+        return $this->container['environment'];
+    }
+
+    /**
+     * Sets environment
+     *
+     * @param string|null $environment Type of environment: Web, Android or iOS.
+     *
+     * @return self
+     */
+    public function setEnvironment($environment)
+    {
+        if (is_null($environment)) {
+            array_push($this->openAPINullablesSetToNull, 'environment');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('environment', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['environment'] = $environment;
+
+        return $this;
+    }
+
+    /**
      * Gets format
      *
      * @return string
@@ -733,6 +699,94 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
             throw new \InvalidArgumentException('non-nullable format cannot be null');
         }
         $this->container['format'] = $format;
+
+        return $this;
+    }
+
+    /**
+     * Gets metrics
+     *
+     * @return string[]
+     */
+    public function getMetrics()
+    {
+        return $this->container['metrics'];
+    }
+
+    /**
+     * Sets metrics
+     *
+     * @param string[] $metrics The list of metrics to report.
+     *
+     * @return self
+     */
+    public function setMetrics($metrics)
+    {
+        if (is_null($metrics)) {
+            throw new \InvalidArgumentException('non-nullable metrics cannot be null');
+        }
+        $this->container['metrics'] = $metrics;
+
+        return $this;
+    }
+
+    /**
+     * Gets placement
+     *
+     * @return string|null
+     */
+    public function getPlacement()
+    {
+        return $this->container['placement'];
+    }
+
+    /**
+     * Sets placement
+     *
+     * @param string|null $placement Filter the value of the placement
+     *
+     * @return self
+     */
+    public function setPlacement($placement)
+    {
+        if (is_null($placement)) {
+            array_push($this->openAPINullablesSetToNull, 'placement');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('placement', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['placement'] = $placement;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_date
+     *
+     * @return \DateTime
+     */
+    public function getStartDate()
+    {
+        return $this->container['start_date'];
+    }
+
+    /**
+     * Sets start_date
+     *
+     * @param \DateTime $start_date Start date of the report. Date component of ISO 8061 format, any time or timezone component is ignored.
+     *
+     * @return self
+     */
+    public function setStartDate($start_date)
+    {
+        if (is_null($start_date)) {
+            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
+        }
+        $this->container['start_date'] = $start_date;
 
         return $this;
     }
@@ -767,60 +821,6 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
             }
         }
         $this->container['timezone'] = $timezone;
-
-        return $this;
-    }
-
-    /**
-     * Gets start_date
-     *
-     * @return \DateTime
-     */
-    public function getStartDate()
-    {
-        return $this->container['start_date'];
-    }
-
-    /**
-     * Sets start_date
-     *
-     * @param \DateTime $start_date Start date of the report. Date component of ISO 8061 format, any time or timezone component is ignored.
-     *
-     * @return self
-     */
-    public function setStartDate($start_date)
-    {
-        if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
-        }
-        $this->container['start_date'] = $start_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets end_date
-     *
-     * @return \DateTime
-     */
-    public function getEndDate()
-    {
-        return $this->container['end_date'];
-    }
-
-    /**
-     * Sets end_date
-     *
-     * @param \DateTime $end_date End date of the report. Date component of ISO 8061 format, any time or timezone component is ignored.
-     *
-     * @return self
-     */
-    public function setEndDate($end_date)
-    {
-        if (is_null($end_date)) {
-            throw new \InvalidArgumentException('non-nullable end_date cannot be null');
-        }
-        $this->container['end_date'] = $end_date;
 
         return $this;
     }

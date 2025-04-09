@@ -58,13 +58,13 @@ class AudienceEntityV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'description' => 'string',
-        'created_at' => '\DateTime',
-        'updated_at' => '\DateTime',
-        'advertiser_id' => 'string',
         'ad_set_ids' => 'string[]',
-        'algebra' => '\criteo\api\marketingsolutions\v2024_10\Model\AlgebraNodeV1'
+        'advertiser_id' => 'string',
+        'algebra' => '\criteo\api\marketingsolutions\v2024_10\Model\AlgebraNodeV1',
+        'created_at' => '\DateTime',
+        'description' => 'string',
+        'name' => 'string',
+        'updated_at' => '\DateTime'
     ];
 
     /**
@@ -75,13 +75,13 @@ class AudienceEntityV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'description' => null,
-        'created_at' => 'date-time',
-        'updated_at' => 'date-time',
-        'advertiser_id' => null,
         'ad_set_ids' => null,
-        'algebra' => null
+        'advertiser_id' => null,
+        'algebra' => null,
+        'created_at' => 'date-time',
+        'description' => null,
+        'name' => null,
+        'updated_at' => 'date-time'
     ];
 
     /**
@@ -90,13 +90,13 @@ class AudienceEntityV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => true,
-		'description' => true,
-		'created_at' => true,
-		'updated_at' => true,
+        'ad_set_ids' => true,
 		'advertiser_id' => true,
-		'ad_set_ids' => true,
-		'algebra' => true
+		'algebra' => true,
+		'created_at' => true,
+		'description' => true,
+		'name' => true,
+		'updated_at' => true
     ];
 
     /**
@@ -185,13 +185,13 @@ class AudienceEntityV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'description' => 'description',
-        'created_at' => 'createdAt',
-        'updated_at' => 'updatedAt',
-        'advertiser_id' => 'advertiserId',
         'ad_set_ids' => 'adSetIds',
-        'algebra' => 'algebra'
+        'advertiser_id' => 'advertiserId',
+        'algebra' => 'algebra',
+        'created_at' => 'createdAt',
+        'description' => 'description',
+        'name' => 'name',
+        'updated_at' => 'updatedAt'
     ];
 
     /**
@@ -200,13 +200,13 @@ class AudienceEntityV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'description' => 'setDescription',
-        'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt',
-        'advertiser_id' => 'setAdvertiserId',
         'ad_set_ids' => 'setAdSetIds',
-        'algebra' => 'setAlgebra'
+        'advertiser_id' => 'setAdvertiserId',
+        'algebra' => 'setAlgebra',
+        'created_at' => 'setCreatedAt',
+        'description' => 'setDescription',
+        'name' => 'setName',
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -215,13 +215,13 @@ class AudienceEntityV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'description' => 'getDescription',
-        'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt',
-        'advertiser_id' => 'getAdvertiserId',
         'ad_set_ids' => 'getAdSetIds',
-        'algebra' => 'getAlgebra'
+        'advertiser_id' => 'getAdvertiserId',
+        'algebra' => 'getAlgebra',
+        'created_at' => 'getCreatedAt',
+        'description' => 'getDescription',
+        'name' => 'getName',
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -281,13 +281,13 @@ class AudienceEntityV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('updated_at', $data ?? [], null);
-        $this->setIfExists('advertiser_id', $data ?? [], null);
         $this->setIfExists('ad_set_ids', $data ?? [], null);
+        $this->setIfExists('advertiser_id', $data ?? [], null);
         $this->setIfExists('algebra', $data ?? [], null);
+        $this->setIfExists('created_at', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('updated_at', $data ?? [], null);
     }
 
     /**
@@ -333,137 +333,37 @@ class AudienceEntityV1 implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets name
+     * Gets ad_set_ids
      *
-     * @return string|null
+     * @return string[]|null
      */
-    public function getName()
+    public function getAdSetIds()
     {
-        return $this->container['name'];
+        return $this->container['ad_set_ids'];
     }
 
     /**
-     * Sets name
+     * Sets ad_set_ids
      *
-     * @param string|null $name Name of the audience
+     * @param string[]|null $ad_set_ids Ad sets associated to the audience
      *
      * @return self
      */
-    public function setName($name)
+    public function setAdSetIds($ad_set_ids)
     {
-        if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
+        if (is_null($ad_set_ids)) {
+            array_push($this->openAPINullablesSetToNull, 'ad_set_ids');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
+            $index = array_search('ad_set_ids', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['name'] = $name;
 
-        return $this;
-    }
 
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description Description of the audience
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return \DateTime|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime|null $created_at ISO-8601 timestamp in UTC of audience creation (read-only)
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        if (is_null($created_at)) {
-            array_push($this->openAPINullablesSetToNull, 'created_at');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('created_at', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime|null $updated_at ISO-8601 timestamp in UTC of audience update (read-only)
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        if (is_null($updated_at)) {
-            array_push($this->openAPINullablesSetToNull, 'updated_at');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('updated_at', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['updated_at'] = $updated_at;
+        $this->container['ad_set_ids'] = $ad_set_ids;
 
         return $this;
     }
@@ -503,42 +403,6 @@ class AudienceEntityV1 implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets ad_set_ids
-     *
-     * @return string[]|null
-     */
-    public function getAdSetIds()
-    {
-        return $this->container['ad_set_ids'];
-    }
-
-    /**
-     * Sets ad_set_ids
-     *
-     * @param string[]|null $ad_set_ids Ad sets associated to the audience
-     *
-     * @return self
-     */
-    public function setAdSetIds($ad_set_ids)
-    {
-        if (is_null($ad_set_ids)) {
-            array_push($this->openAPINullablesSetToNull, 'ad_set_ids');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('ad_set_ids', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-
-
-        $this->container['ad_set_ids'] = $ad_set_ids;
-
-        return $this;
-    }
-
-    /**
      * Gets algebra
      *
      * @return \criteo\api\marketingsolutions\v2024_10\Model\AlgebraNodeV1|null
@@ -568,6 +432,142 @@ class AudienceEntityV1 implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['algebra'] = $algebra;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return \DateTime|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param \DateTime|null $created_at ISO-8601 timestamp in UTC of audience creation (read-only)
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        if (is_null($created_at)) {
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description Description of the audience
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name Name of the audience
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return \DateTime|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param \DateTime|null $updated_at ISO-8601 timestamp in UTC of audience update (read-only)
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        if (is_null($updated_at)) {
+            array_push($this->openAPINullablesSetToNull, 'updated_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('updated_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }

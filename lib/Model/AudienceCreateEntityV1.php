@@ -58,10 +58,10 @@ class AudienceCreateEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'description' => 'string',
         'advertiser_id' => 'string',
-        'algebra' => '\criteo\api\marketingsolutions\v2024_10\Model\AlgebraNodeV1'
+        'algebra' => '\criteo\api\marketingsolutions\v2024_10\Model\AlgebraNodeV1',
+        'description' => 'string',
+        'name' => 'string'
     ];
 
     /**
@@ -72,10 +72,10 @@ class AudienceCreateEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'description' => null,
         'advertiser_id' => null,
-        'algebra' => null
+        'algebra' => null,
+        'description' => null,
+        'name' => null
     ];
 
     /**
@@ -84,10 +84,10 @@ class AudienceCreateEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
+        'advertiser_id' => false,
+		'algebra' => true,
 		'description' => false,
-		'advertiser_id' => false,
-		'algebra' => true
+		'name' => false
     ];
 
     /**
@@ -176,10 +176,10 @@ class AudienceCreateEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'description' => 'description',
         'advertiser_id' => 'advertiserId',
-        'algebra' => 'algebra'
+        'algebra' => 'algebra',
+        'description' => 'description',
+        'name' => 'name'
     ];
 
     /**
@@ -188,10 +188,10 @@ class AudienceCreateEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'description' => 'setDescription',
         'advertiser_id' => 'setAdvertiserId',
-        'algebra' => 'setAlgebra'
+        'algebra' => 'setAlgebra',
+        'description' => 'setDescription',
+        'name' => 'setName'
     ];
 
     /**
@@ -200,10 +200,10 @@ class AudienceCreateEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'description' => 'getDescription',
         'advertiser_id' => 'getAdvertiserId',
-        'algebra' => 'getAlgebra'
+        'algebra' => 'getAlgebra',
+        'description' => 'getDescription',
+        'name' => 'getName'
     ];
 
     /**
@@ -263,10 +263,10 @@ class AudienceCreateEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('advertiser_id', $data ?? [], null);
         $this->setIfExists('algebra', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
     }
 
     /**
@@ -296,14 +296,14 @@ class AudienceCreateEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
         if ($this->container['advertiser_id'] === null) {
             $invalidProperties[] = "'advertiser_id' can't be null";
         }
         if ($this->container['algebra'] === null) {
             $invalidProperties[] = "'algebra' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
         }
         return $invalidProperties;
     }
@@ -319,60 +319,6 @@ class AudienceCreateEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name Name of the audience
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description Description of the audience
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
-        }
-        $this->container['description'] = $description;
-
-        return $this;
-    }
 
     /**
      * Gets advertiser_id
@@ -431,6 +377,60 @@ class AudienceCreateEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
             }
         }
         $this->container['algebra'] = $algebra;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description Description of the audience
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
+        }
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name Name of the audience
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
 
         return $this;
     }

@@ -58,9 +58,9 @@ class TransparencyQueryMessage implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
+        'end_date' => '\DateTime',
         'should_display_product_ids' => 'bool',
-        'start_date' => '\DateTime',
-        'end_date' => '\DateTime'
+        'start_date' => '\DateTime'
     ];
 
     /**
@@ -71,9 +71,9 @@ class TransparencyQueryMessage implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'end_date' => 'date-time',
         'should_display_product_ids' => null,
-        'start_date' => 'date-time',
-        'end_date' => 'date-time'
+        'start_date' => 'date-time'
     ];
 
     /**
@@ -82,9 +82,9 @@ class TransparencyQueryMessage implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'should_display_product_ids' => false,
-		'start_date' => false,
-		'end_date' => false
+        'end_date' => false,
+		'should_display_product_ids' => false,
+		'start_date' => false
     ];
 
     /**
@@ -173,9 +173,9 @@ class TransparencyQueryMessage implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
+        'end_date' => 'endDate',
         'should_display_product_ids' => 'shouldDisplayProductIds',
-        'start_date' => 'startDate',
-        'end_date' => 'endDate'
+        'start_date' => 'startDate'
     ];
 
     /**
@@ -184,9 +184,9 @@ class TransparencyQueryMessage implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
+        'end_date' => 'setEndDate',
         'should_display_product_ids' => 'setShouldDisplayProductIds',
-        'start_date' => 'setStartDate',
-        'end_date' => 'setEndDate'
+        'start_date' => 'setStartDate'
     ];
 
     /**
@@ -195,9 +195,9 @@ class TransparencyQueryMessage implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
+        'end_date' => 'getEndDate',
         'should_display_product_ids' => 'getShouldDisplayProductIds',
-        'start_date' => 'getStartDate',
-        'end_date' => 'getEndDate'
+        'start_date' => 'getStartDate'
     ];
 
     /**
@@ -257,9 +257,9 @@ class TransparencyQueryMessage implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('end_date', $data ?? [], null);
         $this->setIfExists('should_display_product_ids', $data ?? [], false);
         $this->setIfExists('start_date', $data ?? [], null);
-        $this->setIfExists('end_date', $data ?? [], null);
     }
 
     /**
@@ -289,11 +289,11 @@ class TransparencyQueryMessage implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['start_date'] === null) {
-            $invalidProperties[] = "'start_date' can't be null";
-        }
         if ($this->container['end_date'] === null) {
             $invalidProperties[] = "'end_date' can't be null";
+        }
+        if ($this->container['start_date'] === null) {
+            $invalidProperties[] = "'start_date' can't be null";
         }
         return $invalidProperties;
     }
@@ -309,6 +309,33 @@ class TransparencyQueryMessage implements ModelInterface, ArrayAccess, \JsonSeri
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets end_date
+     *
+     * @return \DateTime
+     */
+    public function getEndDate()
+    {
+        return $this->container['end_date'];
+    }
+
+    /**
+     * Sets end_date
+     *
+     * @param \DateTime $end_date End date of the report. Date component of ISO 8061 format, any time or timezone component is ignored.
+     *
+     * @return self
+     */
+    public function setEndDate($end_date)
+    {
+        if (is_null($end_date)) {
+            throw new \InvalidArgumentException('non-nullable end_date cannot be null');
+        }
+        $this->container['end_date'] = $end_date;
+
+        return $this;
+    }
 
     /**
      * Gets should_display_product_ids
@@ -360,33 +387,6 @@ class TransparencyQueryMessage implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable start_date cannot be null');
         }
         $this->container['start_date'] = $start_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets end_date
-     *
-     * @return \DateTime
-     */
-    public function getEndDate()
-    {
-        return $this->container['end_date'];
-    }
-
-    /**
-     * Sets end_date
-     *
-     * @param \DateTime $end_date End date of the report. Date component of ISO 8061 format, any time or timezone component is ignored.
-     *
-     * @return self
-     */
-    public function setEndDate($end_date)
-    {
-        if (is_null($end_date)) {
-            throw new \InvalidArgumentException('non-nullable end_date cannot be null');
-        }
-        $this->container['end_date'] = $end_date;
 
         return $this;
     }

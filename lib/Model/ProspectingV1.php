@@ -58,8 +58,8 @@ class ProspectingV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'days_since_last_visit_min' => 'int',
         'days_since_last_visit_max' => 'int',
+        'days_since_last_visit_min' => 'int',
         'users_type' => 'string'
     ];
 
@@ -71,8 +71,8 @@ class ProspectingV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'days_since_last_visit_min' => 'int32',
         'days_since_last_visit_max' => 'int32',
+        'days_since_last_visit_min' => 'int32',
         'users_type' => null
     ];
 
@@ -82,8 +82,8 @@ class ProspectingV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'days_since_last_visit_min' => true,
-		'days_since_last_visit_max' => true,
+        'days_since_last_visit_max' => true,
+		'days_since_last_visit_min' => true,
 		'users_type' => true
     ];
 
@@ -173,8 +173,8 @@ class ProspectingV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'days_since_last_visit_min' => 'daysSinceLastVisitMin',
         'days_since_last_visit_max' => 'daysSinceLastVisitMax',
+        'days_since_last_visit_min' => 'daysSinceLastVisitMin',
         'users_type' => 'usersType'
     ];
 
@@ -184,8 +184,8 @@ class ProspectingV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'days_since_last_visit_min' => 'setDaysSinceLastVisitMin',
         'days_since_last_visit_max' => 'setDaysSinceLastVisitMax',
+        'days_since_last_visit_min' => 'setDaysSinceLastVisitMin',
         'users_type' => 'setUsersType'
     ];
 
@@ -195,8 +195,8 @@ class ProspectingV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'days_since_last_visit_min' => 'getDaysSinceLastVisitMin',
         'days_since_last_visit_max' => 'getDaysSinceLastVisitMax',
+        'days_since_last_visit_min' => 'getDaysSinceLastVisitMin',
         'users_type' => 'getUsersType'
     ];
 
@@ -274,8 +274,8 @@ class ProspectingV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('days_since_last_visit_min', $data ?? [], null);
         $this->setIfExists('days_since_last_visit_max', $data ?? [], null);
+        $this->setIfExists('days_since_last_visit_min', $data ?? [], null);
         $this->setIfExists('users_type', $data ?? [], null);
     }
 
@@ -331,40 +331,6 @@ class ProspectingV1 implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets days_since_last_visit_min
-     *
-     * @return int|null
-     */
-    public function getDaysSinceLastVisitMin()
-    {
-        return $this->container['days_since_last_visit_min'];
-    }
-
-    /**
-     * Sets days_since_last_visit_min
-     *
-     * @param int|null $days_since_last_visit_min When non buyers are included, include users who visited your website before this number of days
-     *
-     * @return self
-     */
-    public function setDaysSinceLastVisitMin($days_since_last_visit_min)
-    {
-        if (is_null($days_since_last_visit_min)) {
-            array_push($this->openAPINullablesSetToNull, 'days_since_last_visit_min');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('days_since_last_visit_min', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['days_since_last_visit_min'] = $days_since_last_visit_min;
-
-        return $this;
-    }
-
-    /**
      * Gets days_since_last_visit_max
      *
      * @return int|null
@@ -394,6 +360,40 @@ class ProspectingV1 implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['days_since_last_visit_max'] = $days_since_last_visit_max;
+
+        return $this;
+    }
+
+    /**
+     * Gets days_since_last_visit_min
+     *
+     * @return int|null
+     */
+    public function getDaysSinceLastVisitMin()
+    {
+        return $this->container['days_since_last_visit_min'];
+    }
+
+    /**
+     * Sets days_since_last_visit_min
+     *
+     * @param int|null $days_since_last_visit_min When non buyers are included, include users who visited your website before this number of days
+     *
+     * @return self
+     */
+    public function setDaysSinceLastVisitMin($days_since_last_visit_min)
+    {
+        if (is_null($days_since_last_visit_min)) {
+            array_push($this->openAPINullablesSetToNull, 'days_since_last_visit_min');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('days_since_last_visit_min', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['days_since_last_visit_min'] = $days_since_last_visit_min;
 
         return $this;
     }
