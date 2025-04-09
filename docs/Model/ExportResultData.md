@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**metadata** | [**\criteo\api\marketingsolutions\preview\Model\ExportMetaData**](ExportMetaData.md) |  | [optional]
 **data** | **mixed[][]** |  | [optional]
+**metadata** | [**\criteo\api\marketingsolutions\preview\Model\ExportMetaData**](ExportMetaData.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
