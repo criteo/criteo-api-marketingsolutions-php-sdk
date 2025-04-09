@@ -58,8 +58,8 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'warnings' => '\criteo\api\marketingsolutions\v2025_01\Model\CommonProblem[]',
-        'errors' => '\criteo\api\marketingsolutions\v2025_01\Model\CommonProblem[]'
+        'errors' => '\criteo\api\marketingsolutions\v2025_01\Model\CommonProblem[]',
+        'warnings' => '\criteo\api\marketingsolutions\v2025_01\Model\CommonProblem[]'
     ];
 
     /**
@@ -70,8 +70,8 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'warnings' => null,
-        'errors' => null
+        'errors' => null,
+        'warnings' => null
     ];
 
     /**
@@ -80,8 +80,8 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'warnings' => true,
-		'errors' => true
+        'errors' => true,
+		'warnings' => true
     ];
 
     /**
@@ -170,8 +170,8 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'warnings' => 'warnings',
-        'errors' => 'errors'
+        'errors' => 'errors',
+        'warnings' => 'warnings'
     ];
 
     /**
@@ -180,8 +180,8 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'warnings' => 'setWarnings',
-        'errors' => 'setErrors'
+        'errors' => 'setErrors',
+        'warnings' => 'setWarnings'
     ];
 
     /**
@@ -190,8 +190,8 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'warnings' => 'getWarnings',
-        'errors' => 'getErrors'
+        'errors' => 'getErrors',
+        'warnings' => 'getWarnings'
     ];
 
     /**
@@ -251,8 +251,8 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('warnings', $data ?? [], null);
         $this->setIfExists('errors', $data ?? [], null);
+        $this->setIfExists('warnings', $data ?? [], null);
     }
 
     /**
@@ -298,40 +298,6 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets warnings
-     *
-     * @return \criteo\api\marketingsolutions\v2025_01\Model\CommonProblem[]|null
-     */
-    public function getWarnings()
-    {
-        return $this->container['warnings'];
-    }
-
-    /**
-     * Sets warnings
-     *
-     * @param \criteo\api\marketingsolutions\v2025_01\Model\CommonProblem[]|null $warnings Warnings that occured during this call.
-     *
-     * @return self
-     */
-    public function setWarnings($warnings)
-    {
-        if (is_null($warnings)) {
-            array_push($this->openAPINullablesSetToNull, 'warnings');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('warnings', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['warnings'] = $warnings;
-
-        return $this;
-    }
-
-    /**
      * Gets errors
      *
      * @return \criteo\api\marketingsolutions\v2025_01\Model\CommonProblem[]|null
@@ -361,6 +327,40 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['errors'] = $errors;
+
+        return $this;
+    }
+
+    /**
+     * Gets warnings
+     *
+     * @return \criteo\api\marketingsolutions\v2025_01\Model\CommonProblem[]|null
+     */
+    public function getWarnings()
+    {
+        return $this->container['warnings'];
+    }
+
+    /**
+     * Sets warnings
+     *
+     * @param \criteo\api\marketingsolutions\v2025_01\Model\CommonProblem[]|null $warnings Warnings that occured during this call.
+     *
+     * @return self
+     */
+    public function setWarnings($warnings)
+    {
+        if (is_null($warnings)) {
+            array_push($this->openAPINullablesSetToNull, 'warnings');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('warnings', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['warnings'] = $warnings;
 
         return $this;
     }

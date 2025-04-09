@@ -58,8 +58,8 @@ class CreateAdSetScheduleV24Q1 implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'start_date' => '\DateTime',
-        'end_date' => '\DateTime'
+        'end_date' => '\DateTime',
+        'start_date' => '\DateTime'
     ];
 
     /**
@@ -70,8 +70,8 @@ class CreateAdSetScheduleV24Q1 implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'start_date' => 'date-time',
-        'end_date' => 'date-time'
+        'end_date' => 'date-time',
+        'start_date' => 'date-time'
     ];
 
     /**
@@ -80,8 +80,8 @@ class CreateAdSetScheduleV24Q1 implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'start_date' => false,
-		'end_date' => true
+        'end_date' => true,
+		'start_date' => false
     ];
 
     /**
@@ -170,8 +170,8 @@ class CreateAdSetScheduleV24Q1 implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'start_date' => 'startDate',
-        'end_date' => 'endDate'
+        'end_date' => 'endDate',
+        'start_date' => 'startDate'
     ];
 
     /**
@@ -180,8 +180,8 @@ class CreateAdSetScheduleV24Q1 implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'start_date' => 'setStartDate',
-        'end_date' => 'setEndDate'
+        'end_date' => 'setEndDate',
+        'start_date' => 'setStartDate'
     ];
 
     /**
@@ -190,8 +190,8 @@ class CreateAdSetScheduleV24Q1 implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'start_date' => 'getStartDate',
-        'end_date' => 'getEndDate'
+        'end_date' => 'getEndDate',
+        'start_date' => 'getStartDate'
     ];
 
     /**
@@ -251,8 +251,8 @@ class CreateAdSetScheduleV24Q1 implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('start_date', $data ?? [], null);
         $this->setIfExists('end_date', $data ?? [], null);
+        $this->setIfExists('start_date', $data ?? [], null);
     }
 
     /**
@@ -301,33 +301,6 @@ class CreateAdSetScheduleV24Q1 implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
-     * Gets start_date
-     *
-     * @return \DateTime
-     */
-    public function getStartDate()
-    {
-        return $this->container['start_date'];
-    }
-
-    /**
-     * Sets start_date
-     *
-     * @param \DateTime $start_date start_date
-     *
-     * @return self
-     */
-    public function setStartDate($start_date)
-    {
-        if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
-        }
-        $this->container['start_date'] = $start_date;
-
-        return $this;
-    }
-
-    /**
      * Gets end_date
      *
      * @return \DateTime|null
@@ -357,6 +330,33 @@ class CreateAdSetScheduleV24Q1 implements ModelInterface, ArrayAccess, \JsonSeri
             }
         }
         $this->container['end_date'] = $end_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_date
+     *
+     * @return \DateTime
+     */
+    public function getStartDate()
+    {
+        return $this->container['start_date'];
+    }
+
+    /**
+     * Sets start_date
+     *
+     * @param \DateTime $start_date start_date
+     *
+     * @return self
+     */
+    public function setStartDate($start_date)
+    {
+        if (is_null($start_date)) {
+            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
+        }
+        $this->container['start_date'] = $start_date;
 
         return $this;
     }

@@ -58,14 +58,14 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'description' => 'string',
-        'format' => 'string',
+        'adaptive_write_attributes' => '\criteo\api\marketingsolutions\v2025_01\Model\AdaptiveWriteAttributes',
         'dataset_id' => 'string',
-        'image_write_attributes' => '\criteo\api\marketingsolutions\v2025_01\Model\ImageWriteAttributes',
-        'html_tag_write_attributes' => '\criteo\api\marketingsolutions\v2025_01\Model\HtmlTagWriteAttributes',
+        'description' => 'string',
         'dynamic_write_attributes' => '\criteo\api\marketingsolutions\v2025_01\Model\DynamicWriteAttributes',
-        'adaptive_write_attributes' => '\criteo\api\marketingsolutions\v2025_01\Model\AdaptiveWriteAttributes'
+        'format' => 'string',
+        'html_tag_write_attributes' => '\criteo\api\marketingsolutions\v2025_01\Model\HtmlTagWriteAttributes',
+        'image_write_attributes' => '\criteo\api\marketingsolutions\v2025_01\Model\ImageWriteAttributes',
+        'name' => 'string'
     ];
 
     /**
@@ -76,14 +76,14 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'description' => null,
-        'format' => null,
+        'adaptive_write_attributes' => null,
         'dataset_id' => null,
-        'image_write_attributes' => null,
-        'html_tag_write_attributes' => null,
+        'description' => null,
         'dynamic_write_attributes' => null,
-        'adaptive_write_attributes' => null
+        'format' => null,
+        'html_tag_write_attributes' => null,
+        'image_write_attributes' => null,
+        'name' => null
     ];
 
     /**
@@ -92,14 +92,14 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'description' => true,
-		'format' => false,
+        'adaptive_write_attributes' => false,
 		'dataset_id' => false,
-		'image_write_attributes' => false,
-		'html_tag_write_attributes' => false,
+		'description' => true,
 		'dynamic_write_attributes' => false,
-		'adaptive_write_attributes' => false
+		'format' => false,
+		'html_tag_write_attributes' => false,
+		'image_write_attributes' => false,
+		'name' => false
     ];
 
     /**
@@ -188,14 +188,14 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'description' => 'description',
-        'format' => 'format',
+        'adaptive_write_attributes' => 'adaptiveWriteAttributes',
         'dataset_id' => 'datasetId',
-        'image_write_attributes' => 'imageWriteAttributes',
-        'html_tag_write_attributes' => 'htmlTagWriteAttributes',
+        'description' => 'description',
         'dynamic_write_attributes' => 'dynamicWriteAttributes',
-        'adaptive_write_attributes' => 'adaptiveWriteAttributes'
+        'format' => 'format',
+        'html_tag_write_attributes' => 'htmlTagWriteAttributes',
+        'image_write_attributes' => 'imageWriteAttributes',
+        'name' => 'name'
     ];
 
     /**
@@ -204,14 +204,14 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'description' => 'setDescription',
-        'format' => 'setFormat',
+        'adaptive_write_attributes' => 'setAdaptiveWriteAttributes',
         'dataset_id' => 'setDatasetId',
-        'image_write_attributes' => 'setImageWriteAttributes',
-        'html_tag_write_attributes' => 'setHtmlTagWriteAttributes',
+        'description' => 'setDescription',
         'dynamic_write_attributes' => 'setDynamicWriteAttributes',
-        'adaptive_write_attributes' => 'setAdaptiveWriteAttributes'
+        'format' => 'setFormat',
+        'html_tag_write_attributes' => 'setHtmlTagWriteAttributes',
+        'image_write_attributes' => 'setImageWriteAttributes',
+        'name' => 'setName'
     ];
 
     /**
@@ -220,14 +220,14 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'description' => 'getDescription',
-        'format' => 'getFormat',
+        'adaptive_write_attributes' => 'getAdaptiveWriteAttributes',
         'dataset_id' => 'getDatasetId',
-        'image_write_attributes' => 'getImageWriteAttributes',
-        'html_tag_write_attributes' => 'getHtmlTagWriteAttributes',
+        'description' => 'getDescription',
         'dynamic_write_attributes' => 'getDynamicWriteAttributes',
-        'adaptive_write_attributes' => 'getAdaptiveWriteAttributes'
+        'format' => 'getFormat',
+        'html_tag_write_attributes' => 'getHtmlTagWriteAttributes',
+        'image_write_attributes' => 'getImageWriteAttributes',
+        'name' => 'getName'
     ];
 
     /**
@@ -306,14 +306,14 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('format', $data ?? [], null);
-        $this->setIfExists('dataset_id', $data ?? [], null);
-        $this->setIfExists('image_write_attributes', $data ?? [], null);
-        $this->setIfExists('html_tag_write_attributes', $data ?? [], null);
-        $this->setIfExists('dynamic_write_attributes', $data ?? [], null);
         $this->setIfExists('adaptive_write_attributes', $data ?? [], null);
+        $this->setIfExists('dataset_id', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('dynamic_write_attributes', $data ?? [], null);
+        $this->setIfExists('format', $data ?? [], null);
+        $this->setIfExists('html_tag_write_attributes', $data ?? [], null);
+        $this->setIfExists('image_write_attributes', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
     }
 
     /**
@@ -343,8 +343,8 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['dataset_id'] === null) {
+            $invalidProperties[] = "'dataset_id' can't be null";
         }
         if ($this->container['format'] === null) {
             $invalidProperties[] = "'format' can't be null";
@@ -358,8 +358,8 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
-        if ($this->container['dataset_id'] === null) {
-            $invalidProperties[] = "'dataset_id' can't be null";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
         }
         return $invalidProperties;
     }
@@ -377,28 +377,55 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets name
+     * Gets adaptive_write_attributes
      *
-     * @return string
+     * @return \criteo\api\marketingsolutions\v2025_01\Model\AdaptiveWriteAttributes|null
      */
-    public function getName()
+    public function getAdaptiveWriteAttributes()
     {
-        return $this->container['name'];
+        return $this->container['adaptive_write_attributes'];
     }
 
     /**
-     * Sets name
+     * Sets adaptive_write_attributes
      *
-     * @param string $name The name of the creative
+     * @param \criteo\api\marketingsolutions\v2025_01\Model\AdaptiveWriteAttributes|null $adaptive_write_attributes adaptive_write_attributes
      *
      * @return self
      */
-    public function setName($name)
+    public function setAdaptiveWriteAttributes($adaptive_write_attributes)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($adaptive_write_attributes)) {
+            throw new \InvalidArgumentException('non-nullable adaptive_write_attributes cannot be null');
         }
-        $this->container['name'] = $name;
+        $this->container['adaptive_write_attributes'] = $adaptive_write_attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets dataset_id
+     *
+     * @return string
+     */
+    public function getDatasetId()
+    {
+        return $this->container['dataset_id'];
+    }
+
+    /**
+     * Sets dataset_id
+     *
+     * @param string $dataset_id Dataset linked to the Creative
+     *
+     * @return self
+     */
+    public function setDatasetId($dataset_id)
+    {
+        if (is_null($dataset_id)) {
+            throw new \InvalidArgumentException('non-nullable dataset_id cannot be null');
+        }
+        $this->container['dataset_id'] = $dataset_id;
 
         return $this;
     }
@@ -433,6 +460,33 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets dynamic_write_attributes
+     *
+     * @return \criteo\api\marketingsolutions\v2025_01\Model\DynamicWriteAttributes|null
+     */
+    public function getDynamicWriteAttributes()
+    {
+        return $this->container['dynamic_write_attributes'];
+    }
+
+    /**
+     * Sets dynamic_write_attributes
+     *
+     * @param \criteo\api\marketingsolutions\v2025_01\Model\DynamicWriteAttributes|null $dynamic_write_attributes dynamic_write_attributes
+     *
+     * @return self
+     */
+    public function setDynamicWriteAttributes($dynamic_write_attributes)
+    {
+        if (is_null($dynamic_write_attributes)) {
+            throw new \InvalidArgumentException('non-nullable dynamic_write_attributes cannot be null');
+        }
+        $this->container['dynamic_write_attributes'] = $dynamic_write_attributes;
 
         return $this;
     }
@@ -475,28 +529,28 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets dataset_id
+     * Gets html_tag_write_attributes
      *
-     * @return string
+     * @return \criteo\api\marketingsolutions\v2025_01\Model\HtmlTagWriteAttributes|null
      */
-    public function getDatasetId()
+    public function getHtmlTagWriteAttributes()
     {
-        return $this->container['dataset_id'];
+        return $this->container['html_tag_write_attributes'];
     }
 
     /**
-     * Sets dataset_id
+     * Sets html_tag_write_attributes
      *
-     * @param string $dataset_id Dataset linked to the Creative
+     * @param \criteo\api\marketingsolutions\v2025_01\Model\HtmlTagWriteAttributes|null $html_tag_write_attributes html_tag_write_attributes
      *
      * @return self
      */
-    public function setDatasetId($dataset_id)
+    public function setHtmlTagWriteAttributes($html_tag_write_attributes)
     {
-        if (is_null($dataset_id)) {
-            throw new \InvalidArgumentException('non-nullable dataset_id cannot be null');
+        if (is_null($html_tag_write_attributes)) {
+            throw new \InvalidArgumentException('non-nullable html_tag_write_attributes cannot be null');
         }
-        $this->container['dataset_id'] = $dataset_id;
+        $this->container['html_tag_write_attributes'] = $html_tag_write_attributes;
 
         return $this;
     }
@@ -529,82 +583,28 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets html_tag_write_attributes
+     * Gets name
      *
-     * @return \criteo\api\marketingsolutions\v2025_01\Model\HtmlTagWriteAttributes|null
+     * @return string
      */
-    public function getHtmlTagWriteAttributes()
+    public function getName()
     {
-        return $this->container['html_tag_write_attributes'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets html_tag_write_attributes
+     * Sets name
      *
-     * @param \criteo\api\marketingsolutions\v2025_01\Model\HtmlTagWriteAttributes|null $html_tag_write_attributes html_tag_write_attributes
+     * @param string $name The name of the creative
      *
      * @return self
      */
-    public function setHtmlTagWriteAttributes($html_tag_write_attributes)
+    public function setName($name)
     {
-        if (is_null($html_tag_write_attributes)) {
-            throw new \InvalidArgumentException('non-nullable html_tag_write_attributes cannot be null');
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        $this->container['html_tag_write_attributes'] = $html_tag_write_attributes;
-
-        return $this;
-    }
-
-    /**
-     * Gets dynamic_write_attributes
-     *
-     * @return \criteo\api\marketingsolutions\v2025_01\Model\DynamicWriteAttributes|null
-     */
-    public function getDynamicWriteAttributes()
-    {
-        return $this->container['dynamic_write_attributes'];
-    }
-
-    /**
-     * Sets dynamic_write_attributes
-     *
-     * @param \criteo\api\marketingsolutions\v2025_01\Model\DynamicWriteAttributes|null $dynamic_write_attributes dynamic_write_attributes
-     *
-     * @return self
-     */
-    public function setDynamicWriteAttributes($dynamic_write_attributes)
-    {
-        if (is_null($dynamic_write_attributes)) {
-            throw new \InvalidArgumentException('non-nullable dynamic_write_attributes cannot be null');
-        }
-        $this->container['dynamic_write_attributes'] = $dynamic_write_attributes;
-
-        return $this;
-    }
-
-    /**
-     * Gets adaptive_write_attributes
-     *
-     * @return \criteo\api\marketingsolutions\v2025_01\Model\AdaptiveWriteAttributes|null
-     */
-    public function getAdaptiveWriteAttributes()
-    {
-        return $this->container['adaptive_write_attributes'];
-    }
-
-    /**
-     * Sets adaptive_write_attributes
-     *
-     * @param \criteo\api\marketingsolutions\v2025_01\Model\AdaptiveWriteAttributes|null $adaptive_write_attributes adaptive_write_attributes
-     *
-     * @return self
-     */
-    public function setAdaptiveWriteAttributes($adaptive_write_attributes)
-    {
-        if (is_null($adaptive_write_attributes)) {
-            throw new \InvalidArgumentException('non-nullable adaptive_write_attributes cannot be null');
-        }
-        $this->container['adaptive_write_attributes'] = $adaptive_write_attributes;
+        $this->container['name'] = $name;
 
         return $this;
     }

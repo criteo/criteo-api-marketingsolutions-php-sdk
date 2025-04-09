@@ -58,18 +58,18 @@ class AdaptiveAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'layouts' => 'string[]',
-        'logos' => '\criteo\api\marketingsolutions\v2025_01\Model\ImageShape[]',
-        'headline_text' => 'string',
-        'headline_font' => 'string',
-        'description_text' => 'string',
-        'description_font' => 'string',
         'calls_to_action' => 'string[]',
         'colors' => '\criteo\api\marketingsolutions\v2025_01\Model\AdaptiveColors',
-        'image_sets' => '\criteo\api\marketingsolutions\v2025_01\Model\ImageSet[]',
+        'description_font' => 'string',
+        'description_text' => 'string',
+        'headline_font' => 'string',
+        'headline_text' => 'string',
         'image_display' => 'string',
-        'videos' => '\criteo\api\marketingsolutions\v2025_01\Model\VideoDetail[]',
-        'landing_page_url' => 'string'
+        'image_sets' => '\criteo\api\marketingsolutions\v2025_01\Model\ImageSet[]',
+        'landing_page_url' => 'string',
+        'layouts' => 'string[]',
+        'logos' => '\criteo\api\marketingsolutions\v2025_01\Model\ImageShape[]',
+        'videos' => '\criteo\api\marketingsolutions\v2025_01\Model\VideoDetail[]'
     ];
 
     /**
@@ -80,18 +80,18 @@ class AdaptiveAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'layouts' => null,
-        'logos' => null,
-        'headline_text' => null,
-        'headline_font' => null,
-        'description_text' => null,
-        'description_font' => null,
         'calls_to_action' => null,
         'colors' => null,
-        'image_sets' => null,
+        'description_font' => null,
+        'description_text' => null,
+        'headline_font' => null,
+        'headline_text' => null,
         'image_display' => null,
-        'videos' => null,
-        'landing_page_url' => 'uri'
+        'image_sets' => null,
+        'landing_page_url' => 'uri',
+        'layouts' => null,
+        'logos' => null,
+        'videos' => null
     ];
 
     /**
@@ -100,18 +100,18 @@ class AdaptiveAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'layouts' => false,
-		'logos' => false,
-		'headline_text' => false,
-		'headline_font' => false,
-		'description_text' => false,
-		'description_font' => false,
-		'calls_to_action' => false,
+        'calls_to_action' => false,
 		'colors' => false,
-		'image_sets' => true,
+		'description_font' => false,
+		'description_text' => false,
+		'headline_font' => false,
+		'headline_text' => false,
 		'image_display' => true,
-		'videos' => true,
-		'landing_page_url' => false
+		'image_sets' => true,
+		'landing_page_url' => false,
+		'layouts' => false,
+		'logos' => false,
+		'videos' => true
     ];
 
     /**
@@ -200,18 +200,18 @@ class AdaptiveAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'layouts' => 'layouts',
-        'logos' => 'logos',
-        'headline_text' => 'headlineText',
-        'headline_font' => 'headlineFont',
-        'description_text' => 'descriptionText',
-        'description_font' => 'descriptionFont',
         'calls_to_action' => 'callsToAction',
         'colors' => 'colors',
-        'image_sets' => 'imageSets',
+        'description_font' => 'descriptionFont',
+        'description_text' => 'descriptionText',
+        'headline_font' => 'headlineFont',
+        'headline_text' => 'headlineText',
         'image_display' => 'imageDisplay',
-        'videos' => 'videos',
-        'landing_page_url' => 'landingPageUrl'
+        'image_sets' => 'imageSets',
+        'landing_page_url' => 'landingPageUrl',
+        'layouts' => 'layouts',
+        'logos' => 'logos',
+        'videos' => 'videos'
     ];
 
     /**
@@ -220,18 +220,18 @@ class AdaptiveAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'layouts' => 'setLayouts',
-        'logos' => 'setLogos',
-        'headline_text' => 'setHeadlineText',
-        'headline_font' => 'setHeadlineFont',
-        'description_text' => 'setDescriptionText',
-        'description_font' => 'setDescriptionFont',
         'calls_to_action' => 'setCallsToAction',
         'colors' => 'setColors',
-        'image_sets' => 'setImageSets',
+        'description_font' => 'setDescriptionFont',
+        'description_text' => 'setDescriptionText',
+        'headline_font' => 'setHeadlineFont',
+        'headline_text' => 'setHeadlineText',
         'image_display' => 'setImageDisplay',
-        'videos' => 'setVideos',
-        'landing_page_url' => 'setLandingPageUrl'
+        'image_sets' => 'setImageSets',
+        'landing_page_url' => 'setLandingPageUrl',
+        'layouts' => 'setLayouts',
+        'logos' => 'setLogos',
+        'videos' => 'setVideos'
     ];
 
     /**
@@ -240,18 +240,18 @@ class AdaptiveAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'layouts' => 'getLayouts',
-        'logos' => 'getLogos',
-        'headline_text' => 'getHeadlineText',
-        'headline_font' => 'getHeadlineFont',
-        'description_text' => 'getDescriptionText',
-        'description_font' => 'getDescriptionFont',
         'calls_to_action' => 'getCallsToAction',
         'colors' => 'getColors',
-        'image_sets' => 'getImageSets',
+        'description_font' => 'getDescriptionFont',
+        'description_text' => 'getDescriptionText',
+        'headline_font' => 'getHeadlineFont',
+        'headline_text' => 'getHeadlineText',
         'image_display' => 'getImageDisplay',
-        'videos' => 'getVideos',
-        'landing_page_url' => 'getLandingPageUrl'
+        'image_sets' => 'getImageSets',
+        'landing_page_url' => 'getLandingPageUrl',
+        'layouts' => 'getLayouts',
+        'logos' => 'getLogos',
+        'videos' => 'getVideos'
     ];
 
     /**
@@ -295,11 +295,24 @@ class AdaptiveAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
         return self::$openAPIModelName;
     }
 
+    public const IMAGE_DISPLAY_SHOW_FULL_IMAGE = 'ShowFullImage';
+    public const IMAGE_DISPLAY_ZOOM_ON_IMAGE = 'ZoomOnImage';
     public const LAYOUTS_EDITORIAL = 'Editorial';
     public const LAYOUTS_MONTAGE = 'Montage';
     public const LAYOUTS_IN_BANNER_VIDEO = 'InBannerVideo';
-    public const IMAGE_DISPLAY_SHOW_FULL_IMAGE = 'ShowFullImage';
-    public const IMAGE_DISPLAY_ZOOM_ON_IMAGE = 'ZoomOnImage';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getImageDisplayAllowableValues()
+    {
+        return [
+            self::IMAGE_DISPLAY_SHOW_FULL_IMAGE,
+            self::IMAGE_DISPLAY_ZOOM_ON_IMAGE,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -312,19 +325,6 @@ class AdaptiveAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
             self::LAYOUTS_EDITORIAL,
             self::LAYOUTS_MONTAGE,
             self::LAYOUTS_IN_BANNER_VIDEO,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getImageDisplayAllowableValues()
-    {
-        return [
-            self::IMAGE_DISPLAY_SHOW_FULL_IMAGE,
-            self::IMAGE_DISPLAY_ZOOM_ON_IMAGE,
         ];
     }
 
@@ -343,18 +343,18 @@ class AdaptiveAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('layouts', $data ?? [], null);
-        $this->setIfExists('logos', $data ?? [], null);
-        $this->setIfExists('headline_text', $data ?? [], null);
-        $this->setIfExists('headline_font', $data ?? [], null);
-        $this->setIfExists('description_text', $data ?? [], null);
-        $this->setIfExists('description_font', $data ?? [], null);
         $this->setIfExists('calls_to_action', $data ?? [], null);
         $this->setIfExists('colors', $data ?? [], null);
-        $this->setIfExists('image_sets', $data ?? [], null);
+        $this->setIfExists('description_font', $data ?? [], null);
+        $this->setIfExists('description_text', $data ?? [], null);
+        $this->setIfExists('headline_font', $data ?? [], null);
+        $this->setIfExists('headline_text', $data ?? [], null);
         $this->setIfExists('image_display', $data ?? [], null);
-        $this->setIfExists('videos', $data ?? [], null);
+        $this->setIfExists('image_sets', $data ?? [], null);
         $this->setIfExists('landing_page_url', $data ?? [], null);
+        $this->setIfExists('layouts', $data ?? [], null);
+        $this->setIfExists('logos', $data ?? [], null);
+        $this->setIfExists('videos', $data ?? [], null);
     }
 
     /**
@@ -384,29 +384,23 @@ class AdaptiveAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['layouts'] === null) {
-            $invalidProperties[] = "'layouts' can't be null";
-        }
-        if ($this->container['logos'] === null) {
-            $invalidProperties[] = "'logos' can't be null";
-        }
-        if ($this->container['headline_text'] === null) {
-            $invalidProperties[] = "'headline_text' can't be null";
-        }
-        if ($this->container['headline_font'] === null) {
-            $invalidProperties[] = "'headline_font' can't be null";
-        }
-        if ($this->container['description_text'] === null) {
-            $invalidProperties[] = "'description_text' can't be null";
-        }
-        if ($this->container['description_font'] === null) {
-            $invalidProperties[] = "'description_font' can't be null";
-        }
         if ($this->container['calls_to_action'] === null) {
             $invalidProperties[] = "'calls_to_action' can't be null";
         }
         if ($this->container['colors'] === null) {
             $invalidProperties[] = "'colors' can't be null";
+        }
+        if ($this->container['description_font'] === null) {
+            $invalidProperties[] = "'description_font' can't be null";
+        }
+        if ($this->container['description_text'] === null) {
+            $invalidProperties[] = "'description_text' can't be null";
+        }
+        if ($this->container['headline_font'] === null) {
+            $invalidProperties[] = "'headline_font' can't be null";
+        }
+        if ($this->container['headline_text'] === null) {
+            $invalidProperties[] = "'headline_text' can't be null";
         }
         $allowedValues = $this->getImageDisplayAllowableValues();
         if (!is_null($this->container['image_display']) && !in_array($this->container['image_display'], $allowedValues, true)) {
@@ -419,6 +413,12 @@ class AdaptiveAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
 
         if ($this->container['landing_page_url'] === null) {
             $invalidProperties[] = "'landing_page_url' can't be null";
+        }
+        if ($this->container['layouts'] === null) {
+            $invalidProperties[] = "'layouts' can't be null";
+        }
+        if ($this->container['logos'] === null) {
+            $invalidProperties[] = "'logos' can't be null";
         }
         return $invalidProperties;
     }
@@ -434,6 +434,273 @@ class AdaptiveAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets calls_to_action
+     *
+     * @return string[]
+     */
+    public function getCallsToAction()
+    {
+        return $this->container['calls_to_action'];
+    }
+
+    /**
+     * Sets calls_to_action
+     *
+     * @param string[] $calls_to_action A Call-to-Action (CTA) is an action-driven instruction to your audience intended to provoke an immediate  response, such as “Buy now” or “Go!”.
+     *
+     * @return self
+     */
+    public function setCallsToAction($calls_to_action)
+    {
+        if (is_null($calls_to_action)) {
+            throw new \InvalidArgumentException('non-nullable calls_to_action cannot be null');
+        }
+        $this->container['calls_to_action'] = $calls_to_action;
+
+        return $this;
+    }
+
+    /**
+     * Gets colors
+     *
+     * @return \criteo\api\marketingsolutions\v2025_01\Model\AdaptiveColors
+     */
+    public function getColors()
+    {
+        return $this->container['colors'];
+    }
+
+    /**
+     * Sets colors
+     *
+     * @param \criteo\api\marketingsolutions\v2025_01\Model\AdaptiveColors $colors colors
+     *
+     * @return self
+     */
+    public function setColors($colors)
+    {
+        if (is_null($colors)) {
+            throw new \InvalidArgumentException('non-nullable colors cannot be null');
+        }
+        $this->container['colors'] = $colors;
+
+        return $this;
+    }
+
+    /**
+     * Gets description_font
+     *
+     * @return string
+     */
+    public function getDescriptionFont()
+    {
+        return $this->container['description_font'];
+    }
+
+    /**
+     * Sets description_font
+     *
+     * @param string $description_font Font of the description  Valid supported font like \"Arial\"
+     *
+     * @return self
+     */
+    public function setDescriptionFont($description_font)
+    {
+        if (is_null($description_font)) {
+            throw new \InvalidArgumentException('non-nullable description_font cannot be null');
+        }
+        $this->container['description_font'] = $description_font;
+
+        return $this;
+    }
+
+    /**
+     * Gets description_text
+     *
+     * @return string
+     */
+    public function getDescriptionText()
+    {
+        return $this->container['description_text'];
+    }
+
+    /**
+     * Sets description_text
+     *
+     * @param string $description_text The description text of the banner
+     *
+     * @return self
+     */
+    public function setDescriptionText($description_text)
+    {
+        if (is_null($description_text)) {
+            throw new \InvalidArgumentException('non-nullable description_text cannot be null');
+        }
+        $this->container['description_text'] = $description_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets headline_font
+     *
+     * @return string
+     */
+    public function getHeadlineFont()
+    {
+        return $this->container['headline_font'];
+    }
+
+    /**
+     * Sets headline_font
+     *
+     * @param string $headline_font Font of the headline  Valid supported font like \"Arial\"
+     *
+     * @return self
+     */
+    public function setHeadlineFont($headline_font)
+    {
+        if (is_null($headline_font)) {
+            throw new \InvalidArgumentException('non-nullable headline_font cannot be null');
+        }
+        $this->container['headline_font'] = $headline_font;
+
+        return $this;
+    }
+
+    /**
+     * Gets headline_text
+     *
+     * @return string
+     */
+    public function getHeadlineText()
+    {
+        return $this->container['headline_text'];
+    }
+
+    /**
+     * Sets headline_text
+     *
+     * @param string $headline_text The headline text of the banner
+     *
+     * @return self
+     */
+    public function setHeadlineText($headline_text)
+    {
+        if (is_null($headline_text)) {
+            throw new \InvalidArgumentException('non-nullable headline_text cannot be null');
+        }
+        $this->container['headline_text'] = $headline_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets image_display
+     *
+     * @return string|null
+     */
+    public function getImageDisplay()
+    {
+        return $this->container['image_display'];
+    }
+
+    /**
+     * Sets image_display
+     *
+     * @param string|null $image_display Value can be \"ShowFullImage\" or \"ZoomOnImage\". Choose whether your image set should fit inside the allocated  space (\"ShowFullImage\") or whether it should fill that space (\"ZoomOnImage\"). If you choose ZoomOnImage, there may be some  image cropping.
+     *
+     * @return self
+     */
+    public function setImageDisplay($image_display)
+    {
+        if (is_null($image_display)) {
+            array_push($this->openAPINullablesSetToNull, 'image_display');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('image_display', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getImageDisplayAllowableValues();
+        if (!is_null($image_display) && !in_array($image_display, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'image_display', must be one of '%s'",
+                    $image_display,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['image_display'] = $image_display;
+
+        return $this;
+    }
+
+    /**
+     * Gets image_sets
+     *
+     * @return \criteo\api\marketingsolutions\v2025_01\Model\ImageSet[]|null
+     */
+    public function getImageSets()
+    {
+        return $this->container['image_sets'];
+    }
+
+    /**
+     * Sets image_sets
+     *
+     * @param \criteo\api\marketingsolutions\v2025_01\Model\ImageSet[]|null $image_sets Multiple image sets, each image set consists of multiple images and a headline text.
+     *
+     * @return self
+     */
+    public function setImageSets($image_sets)
+    {
+        if (is_null($image_sets)) {
+            array_push($this->openAPINullablesSetToNull, 'image_sets');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('image_sets', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['image_sets'] = $image_sets;
+
+        return $this;
+    }
+
+    /**
+     * Gets landing_page_url
+     *
+     * @return string
+     */
+    public function getLandingPageUrl()
+    {
+        return $this->container['landing_page_url'];
+    }
+
+    /**
+     * Sets landing_page_url
+     *
+     * @param string $landing_page_url Web redirection of the landing page url
+     *
+     * @return self
+     */
+    public function setLandingPageUrl($landing_page_url)
+    {
+        if (is_null($landing_page_url)) {
+            throw new \InvalidArgumentException('non-nullable landing_page_url cannot be null');
+        }
+        $this->container['landing_page_url'] = $landing_page_url;
+
+        return $this;
+    }
 
     /**
      * Gets layouts
@@ -499,246 +766,6 @@ class AdaptiveAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets headline_text
-     *
-     * @return string
-     */
-    public function getHeadlineText()
-    {
-        return $this->container['headline_text'];
-    }
-
-    /**
-     * Sets headline_text
-     *
-     * @param string $headline_text The headline text of the banner
-     *
-     * @return self
-     */
-    public function setHeadlineText($headline_text)
-    {
-        if (is_null($headline_text)) {
-            throw new \InvalidArgumentException('non-nullable headline_text cannot be null');
-        }
-        $this->container['headline_text'] = $headline_text;
-
-        return $this;
-    }
-
-    /**
-     * Gets headline_font
-     *
-     * @return string
-     */
-    public function getHeadlineFont()
-    {
-        return $this->container['headline_font'];
-    }
-
-    /**
-     * Sets headline_font
-     *
-     * @param string $headline_font Font of the headline  Valid supported font like \"Arial\"
-     *
-     * @return self
-     */
-    public function setHeadlineFont($headline_font)
-    {
-        if (is_null($headline_font)) {
-            throw new \InvalidArgumentException('non-nullable headline_font cannot be null');
-        }
-        $this->container['headline_font'] = $headline_font;
-
-        return $this;
-    }
-
-    /**
-     * Gets description_text
-     *
-     * @return string
-     */
-    public function getDescriptionText()
-    {
-        return $this->container['description_text'];
-    }
-
-    /**
-     * Sets description_text
-     *
-     * @param string $description_text The description text of the banner
-     *
-     * @return self
-     */
-    public function setDescriptionText($description_text)
-    {
-        if (is_null($description_text)) {
-            throw new \InvalidArgumentException('non-nullable description_text cannot be null');
-        }
-        $this->container['description_text'] = $description_text;
-
-        return $this;
-    }
-
-    /**
-     * Gets description_font
-     *
-     * @return string
-     */
-    public function getDescriptionFont()
-    {
-        return $this->container['description_font'];
-    }
-
-    /**
-     * Sets description_font
-     *
-     * @param string $description_font Font of the description  Valid supported font like \"Arial\"
-     *
-     * @return self
-     */
-    public function setDescriptionFont($description_font)
-    {
-        if (is_null($description_font)) {
-            throw new \InvalidArgumentException('non-nullable description_font cannot be null');
-        }
-        $this->container['description_font'] = $description_font;
-
-        return $this;
-    }
-
-    /**
-     * Gets calls_to_action
-     *
-     * @return string[]
-     */
-    public function getCallsToAction()
-    {
-        return $this->container['calls_to_action'];
-    }
-
-    /**
-     * Sets calls_to_action
-     *
-     * @param string[] $calls_to_action A Call-to-Action (CTA) is an action-driven instruction to your audience intended to provoke an immediate  response, such as “Buy now” or “Go!”.
-     *
-     * @return self
-     */
-    public function setCallsToAction($calls_to_action)
-    {
-        if (is_null($calls_to_action)) {
-            throw new \InvalidArgumentException('non-nullable calls_to_action cannot be null');
-        }
-        $this->container['calls_to_action'] = $calls_to_action;
-
-        return $this;
-    }
-
-    /**
-     * Gets colors
-     *
-     * @return \criteo\api\marketingsolutions\v2025_01\Model\AdaptiveColors
-     */
-    public function getColors()
-    {
-        return $this->container['colors'];
-    }
-
-    /**
-     * Sets colors
-     *
-     * @param \criteo\api\marketingsolutions\v2025_01\Model\AdaptiveColors $colors colors
-     *
-     * @return self
-     */
-    public function setColors($colors)
-    {
-        if (is_null($colors)) {
-            throw new \InvalidArgumentException('non-nullable colors cannot be null');
-        }
-        $this->container['colors'] = $colors;
-
-        return $this;
-    }
-
-    /**
-     * Gets image_sets
-     *
-     * @return \criteo\api\marketingsolutions\v2025_01\Model\ImageSet[]|null
-     */
-    public function getImageSets()
-    {
-        return $this->container['image_sets'];
-    }
-
-    /**
-     * Sets image_sets
-     *
-     * @param \criteo\api\marketingsolutions\v2025_01\Model\ImageSet[]|null $image_sets Multiple image sets, each image set consists of multiple images and a headline text.
-     *
-     * @return self
-     */
-    public function setImageSets($image_sets)
-    {
-        if (is_null($image_sets)) {
-            array_push($this->openAPINullablesSetToNull, 'image_sets');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('image_sets', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['image_sets'] = $image_sets;
-
-        return $this;
-    }
-
-    /**
-     * Gets image_display
-     *
-     * @return string|null
-     */
-    public function getImageDisplay()
-    {
-        return $this->container['image_display'];
-    }
-
-    /**
-     * Sets image_display
-     *
-     * @param string|null $image_display Value can be \"ShowFullImage\" or \"ZoomOnImage\". Choose whether your image set should fit inside the allocated  space (\"ShowFullImage\") or whether it should fill that space (\"ZoomOnImage\"). If you choose ZoomOnImage, there may be some  image cropping.
-     *
-     * @return self
-     */
-    public function setImageDisplay($image_display)
-    {
-        if (is_null($image_display)) {
-            array_push($this->openAPINullablesSetToNull, 'image_display');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('image_display', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $allowedValues = $this->getImageDisplayAllowableValues();
-        if (!is_null($image_display) && !in_array($image_display, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'image_display', must be one of '%s'",
-                    $image_display,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['image_display'] = $image_display;
-
-        return $this;
-    }
-
-    /**
      * Gets videos
      *
      * @return \criteo\api\marketingsolutions\v2025_01\Model\VideoDetail[]|null
@@ -768,33 +795,6 @@ class AdaptiveAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
             }
         }
         $this->container['videos'] = $videos;
-
-        return $this;
-    }
-
-    /**
-     * Gets landing_page_url
-     *
-     * @return string
-     */
-    public function getLandingPageUrl()
-    {
-        return $this->container['landing_page_url'];
-    }
-
-    /**
-     * Sets landing_page_url
-     *
-     * @param string $landing_page_url Web redirection of the landing page url
-     *
-     * @return self
-     */
-    public function setLandingPageUrl($landing_page_url)
-    {
-        if (is_null($landing_page_url)) {
-            throw new \InvalidArgumentException('non-nullable landing_page_url cannot be null');
-        }
-        $this->container['landing_page_url'] = $landing_page_url;
 
         return $this;
     }

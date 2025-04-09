@@ -59,8 +59,8 @@ class CreateAdSetTargetingV24Q1 implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPITypes = [
         'delivery_limitations' => '\criteo\api\marketingsolutions\v2025_01\Model\AdSetDeliveryLimitationsV24Q1',
-        'geo_location' => '\criteo\api\marketingsolutions\v2025_01\Model\CreateAdSetGeoLocationV24Q1',
-        'frequency_capping' => '\criteo\api\marketingsolutions\v2025_01\Model\AdSetFrequencyCappingV24Q1'
+        'frequency_capping' => '\criteo\api\marketingsolutions\v2025_01\Model\AdSetFrequencyCappingV24Q1',
+        'geo_location' => '\criteo\api\marketingsolutions\v2025_01\Model\CreateAdSetGeoLocationV24Q1'
     ];
 
     /**
@@ -72,8 +72,8 @@ class CreateAdSetTargetingV24Q1 implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPIFormats = [
         'delivery_limitations' => null,
-        'geo_location' => null,
-        'frequency_capping' => null
+        'frequency_capping' => null,
+        'geo_location' => null
     ];
 
     /**
@@ -83,8 +83,8 @@ class CreateAdSetTargetingV24Q1 implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static array $openAPINullables = [
         'delivery_limitations' => true,
-		'geo_location' => false,
-		'frequency_capping' => true
+		'frequency_capping' => true,
+		'geo_location' => false
     ];
 
     /**
@@ -174,8 +174,8 @@ class CreateAdSetTargetingV24Q1 implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $attributeMap = [
         'delivery_limitations' => 'deliveryLimitations',
-        'geo_location' => 'geoLocation',
-        'frequency_capping' => 'frequencyCapping'
+        'frequency_capping' => 'frequencyCapping',
+        'geo_location' => 'geoLocation'
     ];
 
     /**
@@ -185,8 +185,8 @@ class CreateAdSetTargetingV24Q1 implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $setters = [
         'delivery_limitations' => 'setDeliveryLimitations',
-        'geo_location' => 'setGeoLocation',
-        'frequency_capping' => 'setFrequencyCapping'
+        'frequency_capping' => 'setFrequencyCapping',
+        'geo_location' => 'setGeoLocation'
     ];
 
     /**
@@ -196,8 +196,8 @@ class CreateAdSetTargetingV24Q1 implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $getters = [
         'delivery_limitations' => 'getDeliveryLimitations',
-        'geo_location' => 'getGeoLocation',
-        'frequency_capping' => 'getFrequencyCapping'
+        'frequency_capping' => 'getFrequencyCapping',
+        'geo_location' => 'getGeoLocation'
     ];
 
     /**
@@ -258,8 +258,8 @@ class CreateAdSetTargetingV24Q1 implements ModelInterface, ArrayAccess, \JsonSer
     public function __construct(array $data = null)
     {
         $this->setIfExists('delivery_limitations', $data ?? [], null);
-        $this->setIfExists('geo_location', $data ?? [], null);
         $this->setIfExists('frequency_capping', $data ?? [], null);
+        $this->setIfExists('geo_location', $data ?? [], null);
     }
 
     /**
@@ -342,33 +342,6 @@ class CreateAdSetTargetingV24Q1 implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     /**
-     * Gets geo_location
-     *
-     * @return \criteo\api\marketingsolutions\v2025_01\Model\CreateAdSetGeoLocationV24Q1|null
-     */
-    public function getGeoLocation()
-    {
-        return $this->container['geo_location'];
-    }
-
-    /**
-     * Sets geo_location
-     *
-     * @param \criteo\api\marketingsolutions\v2025_01\Model\CreateAdSetGeoLocationV24Q1|null $geo_location geo_location
-     *
-     * @return self
-     */
-    public function setGeoLocation($geo_location)
-    {
-        if (is_null($geo_location)) {
-            throw new \InvalidArgumentException('non-nullable geo_location cannot be null');
-        }
-        $this->container['geo_location'] = $geo_location;
-
-        return $this;
-    }
-
-    /**
      * Gets frequency_capping
      *
      * @return \criteo\api\marketingsolutions\v2025_01\Model\AdSetFrequencyCappingV24Q1
@@ -398,6 +371,33 @@ class CreateAdSetTargetingV24Q1 implements ModelInterface, ArrayAccess, \JsonSer
             }
         }
         $this->container['frequency_capping'] = $frequency_capping;
+
+        return $this;
+    }
+
+    /**
+     * Gets geo_location
+     *
+     * @return \criteo\api\marketingsolutions\v2025_01\Model\CreateAdSetGeoLocationV24Q1|null
+     */
+    public function getGeoLocation()
+    {
+        return $this->container['geo_location'];
+    }
+
+    /**
+     * Sets geo_location
+     *
+     * @param \criteo\api\marketingsolutions\v2025_01\Model\CreateAdSetGeoLocationV24Q1|null $geo_location geo_location
+     *
+     * @return self
+     */
+    public function setGeoLocation($geo_location)
+    {
+        if (is_null($geo_location)) {
+            throw new \InvalidArgumentException('non-nullable geo_location cannot be null');
+        }
+        $this->container['geo_location'] = $geo_location;
 
         return $this;
     }

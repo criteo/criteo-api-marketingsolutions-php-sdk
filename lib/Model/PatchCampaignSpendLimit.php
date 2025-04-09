@@ -58,9 +58,9 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'spend_limit_type' => 'string',
+        'spend_limit_amount' => '\criteo\api\marketingsolutions\v2025_01\Model\NillableDecimal',
         'spend_limit_renewal' => 'string',
-        'spend_limit_amount' => '\criteo\api\marketingsolutions\v2025_01\Model\NillableDecimal'
+        'spend_limit_type' => 'string'
     ];
 
     /**
@@ -71,9 +71,9 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'spend_limit_type' => null,
+        'spend_limit_amount' => null,
         'spend_limit_renewal' => null,
-        'spend_limit_amount' => null
+        'spend_limit_type' => null
     ];
 
     /**
@@ -82,9 +82,9 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'spend_limit_type' => true,
+        'spend_limit_amount' => true,
 		'spend_limit_renewal' => true,
-		'spend_limit_amount' => true
+		'spend_limit_type' => true
     ];
 
     /**
@@ -173,9 +173,9 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'spend_limit_type' => 'spendLimitType',
+        'spend_limit_amount' => 'spendLimitAmount',
         'spend_limit_renewal' => 'spendLimitRenewal',
-        'spend_limit_amount' => 'spendLimitAmount'
+        'spend_limit_type' => 'spendLimitType'
     ];
 
     /**
@@ -184,9 +184,9 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'spend_limit_type' => 'setSpendLimitType',
+        'spend_limit_amount' => 'setSpendLimitAmount',
         'spend_limit_renewal' => 'setSpendLimitRenewal',
-        'spend_limit_amount' => 'setSpendLimitAmount'
+        'spend_limit_type' => 'setSpendLimitType'
     ];
 
     /**
@@ -195,9 +195,9 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'spend_limit_type' => 'getSpendLimitType',
+        'spend_limit_amount' => 'getSpendLimitAmount',
         'spend_limit_renewal' => 'getSpendLimitRenewal',
-        'spend_limit_amount' => 'getSpendLimitAmount'
+        'spend_limit_type' => 'getSpendLimitType'
     ];
 
     /**
@@ -241,25 +241,12 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
         return self::$openAPIModelName;
     }
 
-    public const SPEND_LIMIT_TYPE_CAPPED = 'capped';
-    public const SPEND_LIMIT_TYPE_UNCAPPED = 'uncapped';
     public const SPEND_LIMIT_RENEWAL_UNDEFINED = 'undefined';
     public const SPEND_LIMIT_RENEWAL_DAILY = 'daily';
     public const SPEND_LIMIT_RENEWAL_MONTHLY = 'monthly';
     public const SPEND_LIMIT_RENEWAL_LIFETIME = 'lifetime';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSpendLimitTypeAllowableValues()
-    {
-        return [
-            self::SPEND_LIMIT_TYPE_CAPPED,
-            self::SPEND_LIMIT_TYPE_UNCAPPED,
-        ];
-    }
+    public const SPEND_LIMIT_TYPE_CAPPED = 'capped';
+    public const SPEND_LIMIT_TYPE_UNCAPPED = 'uncapped';
 
     /**
      * Gets allowable values of the enum
@@ -273,6 +260,19 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
             self::SPEND_LIMIT_RENEWAL_DAILY,
             self::SPEND_LIMIT_RENEWAL_MONTHLY,
             self::SPEND_LIMIT_RENEWAL_LIFETIME,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSpendLimitTypeAllowableValues()
+    {
+        return [
+            self::SPEND_LIMIT_TYPE_CAPPED,
+            self::SPEND_LIMIT_TYPE_UNCAPPED,
         ];
     }
 
@@ -291,9 +291,9 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('spend_limit_type', $data ?? [], null);
-        $this->setIfExists('spend_limit_renewal', $data ?? [], null);
         $this->setIfExists('spend_limit_amount', $data ?? [], null);
+        $this->setIfExists('spend_limit_renewal', $data ?? [], null);
+        $this->setIfExists('spend_limit_type', $data ?? [], null);
     }
 
     /**
@@ -323,20 +323,20 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getSpendLimitTypeAllowableValues();
-        if (!is_null($this->container['spend_limit_type']) && !in_array($this->container['spend_limit_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'spend_limit_type', must be one of '%s'",
-                $this->container['spend_limit_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         $allowedValues = $this->getSpendLimitRenewalAllowableValues();
         if (!is_null($this->container['spend_limit_renewal']) && !in_array($this->container['spend_limit_renewal'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'spend_limit_renewal', must be one of '%s'",
                 $this->container['spend_limit_renewal'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getSpendLimitTypeAllowableValues();
+        if (!is_null($this->container['spend_limit_type']) && !in_array($this->container['spend_limit_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'spend_limit_type', must be one of '%s'",
+                $this->container['spend_limit_type'],
                 implode("', '", $allowedValues)
             );
         }
@@ -357,45 +357,35 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets spend_limit_type
+     * Gets spend_limit_amount
      *
-     * @return string|null
+     * @return \criteo\api\marketingsolutions\v2025_01\Model\NillableDecimal|null
      */
-    public function getSpendLimitType()
+    public function getSpendLimitAmount()
     {
-        return $this->container['spend_limit_type'];
+        return $this->container['spend_limit_amount'];
     }
 
     /**
-     * Sets spend_limit_type
+     * Sets spend_limit_amount
      *
-     * @param string|null $spend_limit_type spend_limit_type
+     * @param \criteo\api\marketingsolutions\v2025_01\Model\NillableDecimal|null $spend_limit_amount spend_limit_amount
      *
      * @return self
      */
-    public function setSpendLimitType($spend_limit_type)
+    public function setSpendLimitAmount($spend_limit_amount)
     {
-        if (is_null($spend_limit_type)) {
-            array_push($this->openAPINullablesSetToNull, 'spend_limit_type');
+        if (is_null($spend_limit_amount)) {
+            array_push($this->openAPINullablesSetToNull, 'spend_limit_amount');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('spend_limit_type', $nullablesSetToNull);
+            $index = array_search('spend_limit_amount', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $allowedValues = $this->getSpendLimitTypeAllowableValues();
-        if (!is_null($spend_limit_type) && !in_array($spend_limit_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'spend_limit_type', must be one of '%s'",
-                    $spend_limit_type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['spend_limit_type'] = $spend_limit_type;
+        $this->container['spend_limit_amount'] = $spend_limit_amount;
 
         return $this;
     }
@@ -445,35 +435,45 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets spend_limit_amount
+     * Gets spend_limit_type
      *
-     * @return \criteo\api\marketingsolutions\v2025_01\Model\NillableDecimal|null
+     * @return string|null
      */
-    public function getSpendLimitAmount()
+    public function getSpendLimitType()
     {
-        return $this->container['spend_limit_amount'];
+        return $this->container['spend_limit_type'];
     }
 
     /**
-     * Sets spend_limit_amount
+     * Sets spend_limit_type
      *
-     * @param \criteo\api\marketingsolutions\v2025_01\Model\NillableDecimal|null $spend_limit_amount spend_limit_amount
+     * @param string|null $spend_limit_type spend_limit_type
      *
      * @return self
      */
-    public function setSpendLimitAmount($spend_limit_amount)
+    public function setSpendLimitType($spend_limit_type)
     {
-        if (is_null($spend_limit_amount)) {
-            array_push($this->openAPINullablesSetToNull, 'spend_limit_amount');
+        if (is_null($spend_limit_type)) {
+            array_push($this->openAPINullablesSetToNull, 'spend_limit_type');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('spend_limit_amount', $nullablesSetToNull);
+            $index = array_search('spend_limit_type', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['spend_limit_amount'] = $spend_limit_amount;
+        $allowedValues = $this->getSpendLimitTypeAllowableValues();
+        if (!is_null($spend_limit_type) && !in_array($spend_limit_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'spend_limit_type', must be one of '%s'",
+                    $spend_limit_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['spend_limit_type'] = $spend_limit_type;
 
         return $this;
     }

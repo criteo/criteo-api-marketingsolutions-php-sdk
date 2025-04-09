@@ -58,13 +58,13 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
         'description' => '\criteo\api\marketingsolutions\v2025_01\Model\NillableString',
         'in_market' => '\criteo\api\marketingsolutions\v2025_01\Model\InMarketUpdateV1',
         'location' => '\criteo\api\marketingsolutions\v2025_01\Model\LocationUpdateV1',
-        'retargeting' => '\criteo\api\marketingsolutions\v2025_01\Model\RetargetingUpdateV1',
         'lookalike' => '\criteo\api\marketingsolutions\v2025_01\Model\LookalikeUpdateV1',
-        'prospecting' => '\criteo\api\marketingsolutions\v2025_01\Model\ProspectingUpdateV1'
+        'name' => 'string',
+        'prospecting' => '\criteo\api\marketingsolutions\v2025_01\Model\ProspectingUpdateV1',
+        'retargeting' => '\criteo\api\marketingsolutions\v2025_01\Model\RetargetingUpdateV1'
     ];
 
     /**
@@ -75,13 +75,13 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
         'description' => null,
         'in_market' => null,
         'location' => null,
-        'retargeting' => null,
         'lookalike' => null,
-        'prospecting' => null
+        'name' => null,
+        'prospecting' => null,
+        'retargeting' => null
     ];
 
     /**
@@ -90,13 +90,13 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'description' => true,
+        'description' => true,
 		'in_market' => false,
 		'location' => false,
-		'retargeting' => false,
 		'lookalike' => false,
-		'prospecting' => false
+		'name' => false,
+		'prospecting' => false,
+		'retargeting' => false
     ];
 
     /**
@@ -185,13 +185,13 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
         'description' => 'description',
         'in_market' => 'inMarket',
         'location' => 'location',
-        'retargeting' => 'retargeting',
         'lookalike' => 'lookalike',
-        'prospecting' => 'prospecting'
+        'name' => 'name',
+        'prospecting' => 'prospecting',
+        'retargeting' => 'retargeting'
     ];
 
     /**
@@ -200,13 +200,13 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
         'description' => 'setDescription',
         'in_market' => 'setInMarket',
         'location' => 'setLocation',
-        'retargeting' => 'setRetargeting',
         'lookalike' => 'setLookalike',
-        'prospecting' => 'setProspecting'
+        'name' => 'setName',
+        'prospecting' => 'setProspecting',
+        'retargeting' => 'setRetargeting'
     ];
 
     /**
@@ -215,13 +215,13 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
         'description' => 'getDescription',
         'in_market' => 'getInMarket',
         'location' => 'getLocation',
-        'retargeting' => 'getRetargeting',
         'lookalike' => 'getLookalike',
-        'prospecting' => 'getProspecting'
+        'name' => 'getName',
+        'prospecting' => 'getProspecting',
+        'retargeting' => 'getRetargeting'
     ];
 
     /**
@@ -281,13 +281,13 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('in_market', $data ?? [], null);
         $this->setIfExists('location', $data ?? [], null);
-        $this->setIfExists('retargeting', $data ?? [], null);
         $this->setIfExists('lookalike', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('prospecting', $data ?? [], null);
+        $this->setIfExists('retargeting', $data ?? [], null);
     }
 
     /**
@@ -331,33 +331,6 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name Name of the segment
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
 
     /**
      * Gets description
@@ -448,33 +421,6 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
     }
 
     /**
-     * Gets retargeting
-     *
-     * @return \criteo\api\marketingsolutions\v2025_01\Model\RetargetingUpdateV1|null
-     */
-    public function getRetargeting()
-    {
-        return $this->container['retargeting'];
-    }
-
-    /**
-     * Sets retargeting
-     *
-     * @param \criteo\api\marketingsolutions\v2025_01\Model\RetargetingUpdateV1|null $retargeting retargeting
-     *
-     * @return self
-     */
-    public function setRetargeting($retargeting)
-    {
-        if (is_null($retargeting)) {
-            throw new \InvalidArgumentException('non-nullable retargeting cannot be null');
-        }
-        $this->container['retargeting'] = $retargeting;
-
-        return $this;
-    }
-
-    /**
      * Gets lookalike
      *
      * @return \criteo\api\marketingsolutions\v2025_01\Model\LookalikeUpdateV1|null
@@ -502,6 +448,33 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
     }
 
     /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name Name of the segment
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
      * Gets prospecting
      *
      * @return \criteo\api\marketingsolutions\v2025_01\Model\ProspectingUpdateV1|null
@@ -524,6 +497,33 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
             throw new \InvalidArgumentException('non-nullable prospecting cannot be null');
         }
         $this->container['prospecting'] = $prospecting;
+
+        return $this;
+    }
+
+    /**
+     * Gets retargeting
+     *
+     * @return \criteo\api\marketingsolutions\v2025_01\Model\RetargetingUpdateV1|null
+     */
+    public function getRetargeting()
+    {
+        return $this->container['retargeting'];
+    }
+
+    /**
+     * Sets retargeting
+     *
+     * @param \criteo\api\marketingsolutions\v2025_01\Model\RetargetingUpdateV1|null $retargeting retargeting
+     *
+     * @return self
+     */
+    public function setRetargeting($retargeting)
+    {
+        if (is_null($retargeting)) {
+            throw new \InvalidArgumentException('non-nullable retargeting cannot be null');
+        }
+        $this->container['retargeting'] = $retargeting;
 
         return $this;
     }

@@ -59,10 +59,10 @@ class ApplicationSummaryModel implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static $openAPITypes = [
         'application_id' => 'int',
-        'name' => 'string',
-        'organization_id' => 'int',
+        'criteo_service' => 'string',
         'description' => 'string',
-        'criteo_service' => 'string'
+        'name' => 'string',
+        'organization_id' => 'int'
     ];
 
     /**
@@ -74,10 +74,10 @@ class ApplicationSummaryModel implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static $openAPIFormats = [
         'application_id' => 'int32',
-        'name' => null,
-        'organization_id' => 'int32',
+        'criteo_service' => null,
         'description' => null,
-        'criteo_service' => null
+        'name' => null,
+        'organization_id' => 'int32'
     ];
 
     /**
@@ -87,10 +87,10 @@ class ApplicationSummaryModel implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static array $openAPINullables = [
         'application_id' => true,
-		'name' => true,
-		'organization_id' => true,
+		'criteo_service' => true,
 		'description' => true,
-		'criteo_service' => true
+		'name' => true,
+		'organization_id' => true
     ];
 
     /**
@@ -180,10 +180,10 @@ class ApplicationSummaryModel implements ModelInterface, ArrayAccess, \JsonSeria
      */
     protected static $attributeMap = [
         'application_id' => 'applicationId',
-        'name' => 'name',
-        'organization_id' => 'organizationId',
+        'criteo_service' => 'criteoService',
         'description' => 'description',
-        'criteo_service' => 'criteoService'
+        'name' => 'name',
+        'organization_id' => 'organizationId'
     ];
 
     /**
@@ -193,10 +193,10 @@ class ApplicationSummaryModel implements ModelInterface, ArrayAccess, \JsonSeria
      */
     protected static $setters = [
         'application_id' => 'setApplicationId',
-        'name' => 'setName',
-        'organization_id' => 'setOrganizationId',
+        'criteo_service' => 'setCriteoService',
         'description' => 'setDescription',
-        'criteo_service' => 'setCriteoService'
+        'name' => 'setName',
+        'organization_id' => 'setOrganizationId'
     ];
 
     /**
@@ -206,10 +206,10 @@ class ApplicationSummaryModel implements ModelInterface, ArrayAccess, \JsonSeria
      */
     protected static $getters = [
         'application_id' => 'getApplicationId',
-        'name' => 'getName',
-        'organization_id' => 'getOrganizationId',
+        'criteo_service' => 'getCriteoService',
         'description' => 'getDescription',
-        'criteo_service' => 'getCriteoService'
+        'name' => 'getName',
+        'organization_id' => 'getOrganizationId'
     ];
 
     /**
@@ -270,10 +270,10 @@ class ApplicationSummaryModel implements ModelInterface, ArrayAccess, \JsonSeria
     public function __construct(array $data = null)
     {
         $this->setIfExists('application_id', $data ?? [], null);
+        $this->setIfExists('criteo_service', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('organization_id', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('criteo_service', $data ?? [], null);
     }
 
     /**
@@ -353,6 +353,74 @@ class ApplicationSummaryModel implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
+     * Gets criteo_service
+     *
+     * @return string|null
+     */
+    public function getCriteoService()
+    {
+        return $this->container['criteo_service'];
+    }
+
+    /**
+     * Sets criteo_service
+     *
+     * @param string|null $criteo_service criteo_service
+     *
+     * @return self
+     */
+    public function setCriteoService($criteo_service)
+    {
+        if (is_null($criteo_service)) {
+            array_push($this->openAPINullablesSetToNull, 'criteo_service');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('criteo_service', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['criteo_service'] = $criteo_service;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description description
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
      * Gets name
      *
      * @return string|null
@@ -416,74 +484,6 @@ class ApplicationSummaryModel implements ModelInterface, ArrayAccess, \JsonSeria
             }
         }
         $this->container['organization_id'] = $organization_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description description
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets criteo_service
-     *
-     * @return string|null
-     */
-    public function getCriteoService()
-    {
-        return $this->container['criteo_service'];
-    }
-
-    /**
-     * Sets criteo_service
-     *
-     * @param string|null $criteo_service criteo_service
-     *
-     * @return self
-     */
-    public function setCriteoService($criteo_service)
-    {
-        if (is_null($criteo_service)) {
-            array_push($this->openAPINullablesSetToNull, 'criteo_service');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('criteo_service', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['criteo_service'] = $criteo_service;
 
         return $this;
     }

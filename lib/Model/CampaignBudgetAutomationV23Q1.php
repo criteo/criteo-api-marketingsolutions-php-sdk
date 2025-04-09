@@ -58,8 +58,8 @@ class CampaignBudgetAutomationV23Q1 implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'enabled' => 'bool',
-        'automated_budget_configuration' => '\criteo\api\marketingsolutions\v2025_01\Model\AutomatedBudgetConfigurationV23Q1'
+        'automated_budget_configuration' => '\criteo\api\marketingsolutions\v2025_01\Model\AutomatedBudgetConfigurationV23Q1',
+        'enabled' => 'bool'
     ];
 
     /**
@@ -70,8 +70,8 @@ class CampaignBudgetAutomationV23Q1 implements ModelInterface, ArrayAccess, \Jso
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'enabled' => null,
-        'automated_budget_configuration' => null
+        'automated_budget_configuration' => null,
+        'enabled' => null
     ];
 
     /**
@@ -80,8 +80,8 @@ class CampaignBudgetAutomationV23Q1 implements ModelInterface, ArrayAccess, \Jso
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'enabled' => true,
-		'automated_budget_configuration' => true
+        'automated_budget_configuration' => true,
+		'enabled' => true
     ];
 
     /**
@@ -170,8 +170,8 @@ class CampaignBudgetAutomationV23Q1 implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $attributeMap = [
-        'enabled' => 'enabled',
-        'automated_budget_configuration' => 'automatedBudgetConfiguration'
+        'automated_budget_configuration' => 'automatedBudgetConfiguration',
+        'enabled' => 'enabled'
     ];
 
     /**
@@ -180,8 +180,8 @@ class CampaignBudgetAutomationV23Q1 implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $setters = [
-        'enabled' => 'setEnabled',
-        'automated_budget_configuration' => 'setAutomatedBudgetConfiguration'
+        'automated_budget_configuration' => 'setAutomatedBudgetConfiguration',
+        'enabled' => 'setEnabled'
     ];
 
     /**
@@ -190,8 +190,8 @@ class CampaignBudgetAutomationV23Q1 implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $getters = [
-        'enabled' => 'getEnabled',
-        'automated_budget_configuration' => 'getAutomatedBudgetConfiguration'
+        'automated_budget_configuration' => 'getAutomatedBudgetConfiguration',
+        'enabled' => 'getEnabled'
     ];
 
     /**
@@ -251,8 +251,8 @@ class CampaignBudgetAutomationV23Q1 implements ModelInterface, ArrayAccess, \Jso
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('enabled', $data ?? [], null);
         $this->setIfExists('automated_budget_configuration', $data ?? [], null);
+        $this->setIfExists('enabled', $data ?? [], null);
     }
 
     /**
@@ -298,40 +298,6 @@ class CampaignBudgetAutomationV23Q1 implements ModelInterface, ArrayAccess, \Jso
 
 
     /**
-     * Gets enabled
-     *
-     * @return bool|null
-     */
-    public function getEnabled()
-    {
-        return $this->container['enabled'];
-    }
-
-    /**
-     * Sets enabled
-     *
-     * @param bool|null $enabled enabled
-     *
-     * @return self
-     */
-    public function setEnabled($enabled)
-    {
-        if (is_null($enabled)) {
-            array_push($this->openAPINullablesSetToNull, 'enabled');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enabled', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['enabled'] = $enabled;
-
-        return $this;
-    }
-
-    /**
      * Gets automated_budget_configuration
      *
      * @return \criteo\api\marketingsolutions\v2025_01\Model\AutomatedBudgetConfigurationV23Q1|null
@@ -361,6 +327,40 @@ class CampaignBudgetAutomationV23Q1 implements ModelInterface, ArrayAccess, \Jso
             }
         }
         $this->container['automated_budget_configuration'] = $automated_budget_configuration;
+
+        return $this;
+    }
+
+    /**
+     * Gets enabled
+     *
+     * @return bool|null
+     */
+    public function getEnabled()
+    {
+        return $this->container['enabled'];
+    }
+
+    /**
+     * Sets enabled
+     *
+     * @param bool|null $enabled enabled
+     *
+     * @return self
+     */
+    public function setEnabled($enabled)
+    {
+        if (is_null($enabled)) {
+            array_push($this->openAPINullablesSetToNull, 'enabled');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('enabled', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['enabled'] = $enabled;
 
         return $this;
     }
