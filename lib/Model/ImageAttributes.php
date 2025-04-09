@@ -58,8 +58,8 @@ class ImageAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'urls' => 'string[]',
-        'landing_page_url' => 'string'
+        'landing_page_url' => 'string',
+        'urls' => 'string[]'
     ];
 
     /**
@@ -70,8 +70,8 @@ class ImageAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'urls' => null,
-        'landing_page_url' => null
+        'landing_page_url' => null,
+        'urls' => null
     ];
 
     /**
@@ -80,8 +80,8 @@ class ImageAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'urls' => true,
-		'landing_page_url' => true
+        'landing_page_url' => true,
+		'urls' => true
     ];
 
     /**
@@ -170,8 +170,8 @@ class ImageAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'urls' => 'urls',
-        'landing_page_url' => 'landingPageUrl'
+        'landing_page_url' => 'landingPageUrl',
+        'urls' => 'urls'
     ];
 
     /**
@@ -180,8 +180,8 @@ class ImageAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'urls' => 'setUrls',
-        'landing_page_url' => 'setLandingPageUrl'
+        'landing_page_url' => 'setLandingPageUrl',
+        'urls' => 'setUrls'
     ];
 
     /**
@@ -190,8 +190,8 @@ class ImageAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'urls' => 'getUrls',
-        'landing_page_url' => 'getLandingPageUrl'
+        'landing_page_url' => 'getLandingPageUrl',
+        'urls' => 'getUrls'
     ];
 
     /**
@@ -251,8 +251,8 @@ class ImageAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('urls', $data ?? [], null);
         $this->setIfExists('landing_page_url', $data ?? [], null);
+        $this->setIfExists('urls', $data ?? [], null);
     }
 
     /**
@@ -298,40 +298,6 @@ class ImageAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets urls
-     *
-     * @return string[]|null
-     */
-    public function getUrls()
-    {
-        return $this->container['urls'];
-    }
-
-    /**
-     * Sets urls
-     *
-     * @param string[]|null $urls Array of images uploaded on demostatic.criteo.com when deploying and then static.criteo.net
-     *
-     * @return self
-     */
-    public function setUrls($urls)
-    {
-        if (is_null($urls)) {
-            array_push($this->openAPINullablesSetToNull, 'urls');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('urls', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['urls'] = $urls;
-
-        return $this;
-    }
-
-    /**
      * Gets landing_page_url
      *
      * @return string|null
@@ -361,6 +327,40 @@ class ImageAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['landing_page_url'] = $landing_page_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets urls
+     *
+     * @return string[]|null
+     */
+    public function getUrls()
+    {
+        return $this->container['urls'];
+    }
+
+    /**
+     * Sets urls
+     *
+     * @param string[]|null $urls Array of images uploaded on demostatic.criteo.com when deploying and then static.criteo.net
+     *
+     * @return self
+     */
+    public function setUrls($urls)
+    {
+        if (is_null($urls)) {
+            array_push($this->openAPINullablesSetToNull, 'urls');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('urls', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['urls'] = $urls;
 
         return $this;
     }

@@ -58,10 +58,10 @@ class BehavioralV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'country' => 'string',
         'category' => 'string',
-        'start_date' => '\DateTime',
-        'end_date' => '\DateTime'
+        'country' => 'string',
+        'end_date' => '\DateTime',
+        'start_date' => '\DateTime'
     ];
 
     /**
@@ -72,10 +72,10 @@ class BehavioralV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'country' => null,
         'category' => null,
-        'start_date' => 'date-time',
-        'end_date' => 'date-time'
+        'country' => null,
+        'end_date' => 'date-time',
+        'start_date' => 'date-time'
     ];
 
     /**
@@ -84,10 +84,10 @@ class BehavioralV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'country' => true,
-		'category' => false,
-		'start_date' => true,
-		'end_date' => true
+        'category' => false,
+		'country' => true,
+		'end_date' => true,
+		'start_date' => true
     ];
 
     /**
@@ -176,10 +176,10 @@ class BehavioralV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'country' => 'country',
         'category' => 'category',
-        'start_date' => 'startDate',
-        'end_date' => 'endDate'
+        'country' => 'country',
+        'end_date' => 'endDate',
+        'start_date' => 'startDate'
     ];
 
     /**
@@ -188,10 +188,10 @@ class BehavioralV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'country' => 'setCountry',
         'category' => 'setCategory',
-        'start_date' => 'setStartDate',
-        'end_date' => 'setEndDate'
+        'country' => 'setCountry',
+        'end_date' => 'setEndDate',
+        'start_date' => 'setStartDate'
     ];
 
     /**
@@ -200,10 +200,10 @@ class BehavioralV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'country' => 'getCountry',
         'category' => 'getCategory',
-        'start_date' => 'getStartDate',
-        'end_date' => 'getEndDate'
+        'country' => 'getCountry',
+        'end_date' => 'getEndDate',
+        'start_date' => 'getStartDate'
     ];
 
     /**
@@ -284,10 +284,10 @@ class BehavioralV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('country', $data ?? [], null);
         $this->setIfExists('category', $data ?? [], null);
-        $this->setIfExists('start_date', $data ?? [], null);
+        $this->setIfExists('country', $data ?? [], null);
         $this->setIfExists('end_date', $data ?? [], null);
+        $this->setIfExists('start_date', $data ?? [], null);
     }
 
     /**
@@ -345,40 +345,6 @@ class BehavioralV1 implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets country
-     *
-     * @return string|null
-     */
-    public function getCountry()
-    {
-        return $this->container['country'];
-    }
-
-    /**
-     * Sets country
-     *
-     * @param string|null $country The users' country
-     *
-     * @return self
-     */
-    public function setCountry($country)
-    {
-        if (is_null($country)) {
-            array_push($this->openAPINullablesSetToNull, 'country');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('country', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['country'] = $country;
-
-        return $this;
-    }
-
-    /**
      * Gets category
      *
      * @return string
@@ -416,35 +382,35 @@ class BehavioralV1 implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets start_date
+     * Gets country
      *
-     * @return \DateTime|null
+     * @return string|null
      */
-    public function getStartDate()
+    public function getCountry()
     {
-        return $this->container['start_date'];
+        return $this->container['country'];
     }
 
     /**
-     * Sets start_date
+     * Sets country
      *
-     * @param \DateTime|null $start_date Desired date when the behavioral will start
+     * @param string|null $country The users' country
      *
      * @return self
      */
-    public function setStartDate($start_date)
+    public function setCountry($country)
     {
-        if (is_null($start_date)) {
-            array_push($this->openAPINullablesSetToNull, 'start_date');
+        if (is_null($country)) {
+            array_push($this->openAPINullablesSetToNull, 'country');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('start_date', $nullablesSetToNull);
+            $index = array_search('country', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['start_date'] = $start_date;
+        $this->container['country'] = $country;
 
         return $this;
     }
@@ -479,6 +445,40 @@ class BehavioralV1 implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['end_date'] = $end_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_date
+     *
+     * @return \DateTime|null
+     */
+    public function getStartDate()
+    {
+        return $this->container['start_date'];
+    }
+
+    /**
+     * Sets start_date
+     *
+     * @param \DateTime|null $start_date Desired date when the behavioral will start
+     *
+     * @return self
+     */
+    public function setStartDate($start_date)
+    {
+        if (is_null($start_date)) {
+            array_push($this->openAPINullablesSetToNull, 'start_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('start_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['start_date'] = $start_date;
 
         return $this;
     }

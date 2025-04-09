@@ -58,9 +58,9 @@ class PointOfInterestV1 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
         'latitude' => 'float',
-        'longitude' => 'float'
+        'longitude' => 'float',
+        'name' => 'string'
     ];
 
     /**
@@ -71,9 +71,9 @@ class PointOfInterestV1 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
         'latitude' => 'double',
-        'longitude' => 'double'
+        'longitude' => 'double',
+        'name' => null
     ];
 
     /**
@@ -82,9 +82,9 @@ class PointOfInterestV1 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => true,
-		'latitude' => true,
-		'longitude' => true
+        'latitude' => true,
+		'longitude' => true,
+		'name' => true
     ];
 
     /**
@@ -173,9 +173,9 @@ class PointOfInterestV1 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
         'latitude' => 'latitude',
-        'longitude' => 'longitude'
+        'longitude' => 'longitude',
+        'name' => 'name'
     ];
 
     /**
@@ -184,9 +184,9 @@ class PointOfInterestV1 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
         'latitude' => 'setLatitude',
-        'longitude' => 'setLongitude'
+        'longitude' => 'setLongitude',
+        'name' => 'setName'
     ];
 
     /**
@@ -195,9 +195,9 @@ class PointOfInterestV1 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
         'latitude' => 'getLatitude',
-        'longitude' => 'getLongitude'
+        'longitude' => 'getLongitude',
+        'name' => 'getName'
     ];
 
     /**
@@ -257,9 +257,9 @@ class PointOfInterestV1 implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('latitude', $data ?? [], null);
         $this->setIfExists('longitude', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
     }
 
     /**
@@ -303,40 +303,6 @@ class PointOfInterestV1 implements ModelInterface, ArrayAccess, \JsonSerializabl
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name Name of the point of interest
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
 
     /**
      * Gets latitude
@@ -402,6 +368,40 @@ class PointOfInterestV1 implements ModelInterface, ArrayAccess, \JsonSerializabl
             }
         }
         $this->container['longitude'] = $longitude;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name Name of the point of interest
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['name'] = $name;
 
         return $this;
     }

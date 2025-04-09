@@ -58,12 +58,12 @@ class DynamicAttributes implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'logos' => '\criteo\api\marketingsolutions\v2024_04\Model\ImageShape[]',
-        'creative_background_color' => 'string',
         'body_text_color' => 'string',
+        'calls_to_action' => 'string[]',
+        'creative_background_color' => 'string',
+        'logos' => '\criteo\api\marketingsolutions\v2024_04\Model\ImageShape[]',
         'prices_color' => 'string',
         'primary_font' => 'string',
-        'calls_to_action' => 'string[]',
         'product_image_display' => 'string'
     ];
 
@@ -75,12 +75,12 @@ class DynamicAttributes implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'logos' => null,
-        'creative_background_color' => null,
         'body_text_color' => null,
+        'calls_to_action' => null,
+        'creative_background_color' => null,
+        'logos' => null,
         'prices_color' => null,
         'primary_font' => null,
-        'calls_to_action' => null,
         'product_image_display' => null
     ];
 
@@ -90,12 +90,12 @@ class DynamicAttributes implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'logos' => true,
+        'body_text_color' => true,
+		'calls_to_action' => true,
 		'creative_background_color' => true,
-		'body_text_color' => true,
+		'logos' => true,
 		'prices_color' => true,
 		'primary_font' => true,
-		'calls_to_action' => true,
 		'product_image_display' => true
     ];
 
@@ -185,12 +185,12 @@ class DynamicAttributes implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'logos' => 'logos',
-        'creative_background_color' => 'creativeBackgroundColor',
         'body_text_color' => 'bodyTextColor',
+        'calls_to_action' => 'callsToAction',
+        'creative_background_color' => 'creativeBackgroundColor',
+        'logos' => 'logos',
         'prices_color' => 'pricesColor',
         'primary_font' => 'primaryFont',
-        'calls_to_action' => 'callsToAction',
         'product_image_display' => 'productImageDisplay'
     ];
 
@@ -200,12 +200,12 @@ class DynamicAttributes implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'logos' => 'setLogos',
-        'creative_background_color' => 'setCreativeBackgroundColor',
         'body_text_color' => 'setBodyTextColor',
+        'calls_to_action' => 'setCallsToAction',
+        'creative_background_color' => 'setCreativeBackgroundColor',
+        'logos' => 'setLogos',
         'prices_color' => 'setPricesColor',
         'primary_font' => 'setPrimaryFont',
-        'calls_to_action' => 'setCallsToAction',
         'product_image_display' => 'setProductImageDisplay'
     ];
 
@@ -215,12 +215,12 @@ class DynamicAttributes implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'logos' => 'getLogos',
-        'creative_background_color' => 'getCreativeBackgroundColor',
         'body_text_color' => 'getBodyTextColor',
+        'calls_to_action' => 'getCallsToAction',
+        'creative_background_color' => 'getCreativeBackgroundColor',
+        'logos' => 'getLogos',
         'prices_color' => 'getPricesColor',
         'primary_font' => 'getPrimaryFont',
-        'calls_to_action' => 'getCallsToAction',
         'product_image_display' => 'getProductImageDisplay'
     ];
 
@@ -296,12 +296,12 @@ class DynamicAttributes implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('logos', $data ?? [], null);
-        $this->setIfExists('creative_background_color', $data ?? [], null);
         $this->setIfExists('body_text_color', $data ?? [], null);
+        $this->setIfExists('calls_to_action', $data ?? [], null);
+        $this->setIfExists('creative_background_color', $data ?? [], null);
+        $this->setIfExists('logos', $data ?? [], null);
         $this->setIfExists('prices_color', $data ?? [], null);
         $this->setIfExists('primary_font', $data ?? [], null);
-        $this->setIfExists('calls_to_action', $data ?? [], null);
         $this->setIfExists('product_image_display', $data ?? [], null);
     }
 
@@ -357,35 +357,69 @@ class DynamicAttributes implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets logos
+     * Gets body_text_color
      *
-     * @return \criteo\api\marketingsolutions\v2024_04\Model\ImageShape[]|null
+     * @return string|null
      */
-    public function getLogos()
+    public function getBodyTextColor()
     {
-        return $this->container['logos'];
+        return $this->container['body_text_color'];
     }
 
     /**
-     * Sets logos
+     * Sets body_text_color
      *
-     * @param \criteo\api\marketingsolutions\v2024_04\Model\ImageShape[]|null $logos Logo images uploaded on demostatic.criteo.com when deploying and then static.criteo.net
+     * @param string|null $body_text_color Color of the creative's body text  Valid hexadecimal color (e.g. \"AB00FF\")
      *
      * @return self
      */
-    public function setLogos($logos)
+    public function setBodyTextColor($body_text_color)
     {
-        if (is_null($logos)) {
-            array_push($this->openAPINullablesSetToNull, 'logos');
+        if (is_null($body_text_color)) {
+            array_push($this->openAPINullablesSetToNull, 'body_text_color');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('logos', $nullablesSetToNull);
+            $index = array_search('body_text_color', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['logos'] = $logos;
+        $this->container['body_text_color'] = $body_text_color;
+
+        return $this;
+    }
+
+    /**
+     * Gets calls_to_action
+     *
+     * @return string[]|null
+     */
+    public function getCallsToAction()
+    {
+        return $this->container['calls_to_action'];
+    }
+
+    /**
+     * Sets calls_to_action
+     *
+     * @param string[]|null $calls_to_action A Call-to-Action (CTA) is an action-driven instruction to your audience intended to provoke an immediate  response, such as “Buy now” or “Go!”.
+     *
+     * @return self
+     */
+    public function setCallsToAction($calls_to_action)
+    {
+        if (is_null($calls_to_action)) {
+            array_push($this->openAPINullablesSetToNull, 'calls_to_action');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('calls_to_action', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['calls_to_action'] = $calls_to_action;
 
         return $this;
     }
@@ -425,35 +459,35 @@ class DynamicAttributes implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Gets body_text_color
+     * Gets logos
      *
-     * @return string|null
+     * @return \criteo\api\marketingsolutions\v2024_04\Model\ImageShape[]|null
      */
-    public function getBodyTextColor()
+    public function getLogos()
     {
-        return $this->container['body_text_color'];
+        return $this->container['logos'];
     }
 
     /**
-     * Sets body_text_color
+     * Sets logos
      *
-     * @param string|null $body_text_color Color of the creative's body text  Valid hexadecimal color (e.g. \"AB00FF\")
+     * @param \criteo\api\marketingsolutions\v2024_04\Model\ImageShape[]|null $logos Logo images uploaded on demostatic.criteo.com when deploying and then static.criteo.net
      *
      * @return self
      */
-    public function setBodyTextColor($body_text_color)
+    public function setLogos($logos)
     {
-        if (is_null($body_text_color)) {
-            array_push($this->openAPINullablesSetToNull, 'body_text_color');
+        if (is_null($logos)) {
+            array_push($this->openAPINullablesSetToNull, 'logos');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('body_text_color', $nullablesSetToNull);
+            $index = array_search('logos', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['body_text_color'] = $body_text_color;
+        $this->container['logos'] = $logos;
 
         return $this;
     }
@@ -522,40 +556,6 @@ class DynamicAttributes implements ModelInterface, ArrayAccess, \JsonSerializabl
             }
         }
         $this->container['primary_font'] = $primary_font;
-
-        return $this;
-    }
-
-    /**
-     * Gets calls_to_action
-     *
-     * @return string[]|null
-     */
-    public function getCallsToAction()
-    {
-        return $this->container['calls_to_action'];
-    }
-
-    /**
-     * Sets calls_to_action
-     *
-     * @param string[]|null $calls_to_action A Call-to-Action (CTA) is an action-driven instruction to your audience intended to provoke an immediate  response, such as “Buy now” or “Go!”.
-     *
-     * @return self
-     */
-    public function setCallsToAction($calls_to_action)
-    {
-        if (is_null($calls_to_action)) {
-            array_push($this->openAPINullablesSetToNull, 'calls_to_action');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('calls_to_action', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['calls_to_action'] = $calls_to_action;
 
         return $this;
     }

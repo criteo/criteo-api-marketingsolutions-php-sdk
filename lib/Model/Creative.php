@@ -58,18 +58,18 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'description' => 'string',
-        'author' => 'string',
-        'status' => 'string',
-        'format' => 'string',
-        'advertiser_id' => 'string',
-        'dataset_id' => 'string',
-        'image_attributes' => '\criteo\api\marketingsolutions\v2024_04\Model\ImageAttributes',
-        'html_tag_attributes' => '\criteo\api\marketingsolutions\v2024_04\Model\HtmlTagAttributes',
-        'dynamic_attributes' => '\criteo\api\marketingsolutions\v2024_04\Model\DynamicAttributes',
         'adaptive_attributes' => '\criteo\api\marketingsolutions\v2024_04\Model\AdaptiveAttributes',
-        'id' => 'string'
+        'advertiser_id' => 'string',
+        'author' => 'string',
+        'dataset_id' => 'string',
+        'description' => 'string',
+        'dynamic_attributes' => '\criteo\api\marketingsolutions\v2024_04\Model\DynamicAttributes',
+        'format' => 'string',
+        'html_tag_attributes' => '\criteo\api\marketingsolutions\v2024_04\Model\HtmlTagAttributes',
+        'id' => 'string',
+        'image_attributes' => '\criteo\api\marketingsolutions\v2024_04\Model\ImageAttributes',
+        'name' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -80,18 +80,18 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'description' => null,
-        'author' => null,
-        'status' => null,
-        'format' => null,
-        'advertiser_id' => null,
-        'dataset_id' => null,
-        'image_attributes' => null,
-        'html_tag_attributes' => null,
-        'dynamic_attributes' => null,
         'adaptive_attributes' => null,
-        'id' => null
+        'advertiser_id' => null,
+        'author' => null,
+        'dataset_id' => null,
+        'description' => null,
+        'dynamic_attributes' => null,
+        'format' => null,
+        'html_tag_attributes' => null,
+        'id' => null,
+        'image_attributes' => null,
+        'name' => null,
+        'status' => null
     ];
 
     /**
@@ -100,18 +100,18 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'description' => true,
-		'author' => false,
-		'status' => false,
-		'format' => true,
+        'adaptive_attributes' => true,
 		'advertiser_id' => false,
+		'author' => false,
 		'dataset_id' => true,
-		'image_attributes' => true,
-		'html_tag_attributes' => true,
+		'description' => true,
 		'dynamic_attributes' => true,
-		'adaptive_attributes' => true,
-		'id' => true
+		'format' => true,
+		'html_tag_attributes' => true,
+		'id' => true,
+		'image_attributes' => true,
+		'name' => false,
+		'status' => false
     ];
 
     /**
@@ -200,18 +200,18 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'description' => 'description',
-        'author' => 'author',
-        'status' => 'status',
-        'format' => 'format',
-        'advertiser_id' => 'advertiserId',
-        'dataset_id' => 'datasetId',
-        'image_attributes' => 'imageAttributes',
-        'html_tag_attributes' => 'htmlTagAttributes',
-        'dynamic_attributes' => 'dynamicAttributes',
         'adaptive_attributes' => 'adaptiveAttributes',
-        'id' => 'id'
+        'advertiser_id' => 'advertiserId',
+        'author' => 'author',
+        'dataset_id' => 'datasetId',
+        'description' => 'description',
+        'dynamic_attributes' => 'dynamicAttributes',
+        'format' => 'format',
+        'html_tag_attributes' => 'htmlTagAttributes',
+        'id' => 'id',
+        'image_attributes' => 'imageAttributes',
+        'name' => 'name',
+        'status' => 'status'
     ];
 
     /**
@@ -220,18 +220,18 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'description' => 'setDescription',
-        'author' => 'setAuthor',
-        'status' => 'setStatus',
-        'format' => 'setFormat',
-        'advertiser_id' => 'setAdvertiserId',
-        'dataset_id' => 'setDatasetId',
-        'image_attributes' => 'setImageAttributes',
-        'html_tag_attributes' => 'setHtmlTagAttributes',
-        'dynamic_attributes' => 'setDynamicAttributes',
         'adaptive_attributes' => 'setAdaptiveAttributes',
-        'id' => 'setId'
+        'advertiser_id' => 'setAdvertiserId',
+        'author' => 'setAuthor',
+        'dataset_id' => 'setDatasetId',
+        'description' => 'setDescription',
+        'dynamic_attributes' => 'setDynamicAttributes',
+        'format' => 'setFormat',
+        'html_tag_attributes' => 'setHtmlTagAttributes',
+        'id' => 'setId',
+        'image_attributes' => 'setImageAttributes',
+        'name' => 'setName',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -240,18 +240,18 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'description' => 'getDescription',
-        'author' => 'getAuthor',
-        'status' => 'getStatus',
-        'format' => 'getFormat',
-        'advertiser_id' => 'getAdvertiserId',
-        'dataset_id' => 'getDatasetId',
-        'image_attributes' => 'getImageAttributes',
-        'html_tag_attributes' => 'getHtmlTagAttributes',
-        'dynamic_attributes' => 'getDynamicAttributes',
         'adaptive_attributes' => 'getAdaptiveAttributes',
-        'id' => 'getId'
+        'advertiser_id' => 'getAdvertiserId',
+        'author' => 'getAuthor',
+        'dataset_id' => 'getDatasetId',
+        'description' => 'getDescription',
+        'dynamic_attributes' => 'getDynamicAttributes',
+        'format' => 'getFormat',
+        'html_tag_attributes' => 'getHtmlTagAttributes',
+        'id' => 'getId',
+        'image_attributes' => 'getImageAttributes',
+        'name' => 'getName',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -311,18 +311,18 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('author', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('format', $data ?? [], null);
-        $this->setIfExists('advertiser_id', $data ?? [], null);
-        $this->setIfExists('dataset_id', $data ?? [], null);
-        $this->setIfExists('image_attributes', $data ?? [], null);
-        $this->setIfExists('html_tag_attributes', $data ?? [], null);
-        $this->setIfExists('dynamic_attributes', $data ?? [], null);
         $this->setIfExists('adaptive_attributes', $data ?? [], null);
+        $this->setIfExists('advertiser_id', $data ?? [], null);
+        $this->setIfExists('author', $data ?? [], null);
+        $this->setIfExists('dataset_id', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('dynamic_attributes', $data ?? [], null);
+        $this->setIfExists('format', $data ?? [], null);
+        $this->setIfExists('html_tag_attributes', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('image_attributes', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
     }
 
     /**
@@ -352,17 +352,17 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['advertiser_id'] === null) {
+            $invalidProperties[] = "'advertiser_id' can't be null";
         }
         if ($this->container['author'] === null) {
             $invalidProperties[] = "'author' can't be null";
         }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
-        }
-        if ($this->container['advertiser_id'] === null) {
-            $invalidProperties[] = "'advertiser_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -380,150 +380,35 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets name
+     * Gets adaptive_attributes
      *
-     * @return string
+     * @return \criteo\api\marketingsolutions\v2024_04\Model\AdaptiveAttributes|null
      */
-    public function getName()
+    public function getAdaptiveAttributes()
     {
-        return $this->container['name'];
+        return $this->container['adaptive_attributes'];
     }
 
     /**
-     * Sets name
+     * Sets adaptive_attributes
      *
-     * @param string $name The name of the creative
+     * @param \criteo\api\marketingsolutions\v2024_04\Model\AdaptiveAttributes|null $adaptive_attributes adaptive_attributes
      *
      * @return self
      */
-    public function setName($name)
+    public function setAdaptiveAttributes($adaptive_attributes)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description The description of the creative
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
+        if (is_null($adaptive_attributes)) {
+            array_push($this->openAPINullablesSetToNull, 'adaptive_attributes');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
+            $index = array_search('adaptive_attributes', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets author
-     *
-     * @return string
-     */
-    public function getAuthor()
-    {
-        return $this->container['author'];
-    }
-
-    /**
-     * Sets author
-     *
-     * @param string $author The login of the person who created this creative (
-     *
-     * @return self
-     */
-    public function setAuthor($author)
-    {
-        if (is_null($author)) {
-            throw new \InvalidArgumentException('non-nullable author cannot be null');
-        }
-        $this->container['author'] = $author;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status The status of the creative
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
-        }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets format
-     *
-     * @return string|null
-     */
-    public function getFormat()
-    {
-        return $this->container['format'];
-    }
-
-    /**
-     * Sets format
-     *
-     * @param string|null $format The format of the creative
-     *
-     * @return self
-     */
-    public function setFormat($format)
-    {
-        if (is_null($format)) {
-            array_push($this->openAPINullablesSetToNull, 'format');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('format', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['format'] = $format;
+        $this->container['adaptive_attributes'] = $adaptive_attributes;
 
         return $this;
     }
@@ -551,6 +436,33 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable advertiser_id cannot be null');
         }
         $this->container['advertiser_id'] = $advertiser_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets author
+     *
+     * @return string
+     */
+    public function getAuthor()
+    {
+        return $this->container['author'];
+    }
+
+    /**
+     * Sets author
+     *
+     * @param string $author The login of the person who created this creative (
+     *
+     * @return self
+     */
+    public function setAuthor($author)
+    {
+        if (is_null($author)) {
+            throw new \InvalidArgumentException('non-nullable author cannot be null');
+        }
+        $this->container['author'] = $author;
 
         return $this;
     }
@@ -590,69 +502,35 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets image_attributes
+     * Gets description
      *
-     * @return \criteo\api\marketingsolutions\v2024_04\Model\ImageAttributes|null
+     * @return string|null
      */
-    public function getImageAttributes()
+    public function getDescription()
     {
-        return $this->container['image_attributes'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets image_attributes
+     * Sets description
      *
-     * @param \criteo\api\marketingsolutions\v2024_04\Model\ImageAttributes|null $image_attributes image_attributes
+     * @param string|null $description The description of the creative
      *
      * @return self
      */
-    public function setImageAttributes($image_attributes)
+    public function setDescription($description)
     {
-        if (is_null($image_attributes)) {
-            array_push($this->openAPINullablesSetToNull, 'image_attributes');
+        if (is_null($description)) {
+            array_push($this->openAPINullablesSetToNull, 'description');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('image_attributes', $nullablesSetToNull);
+            $index = array_search('description', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['image_attributes'] = $image_attributes;
-
-        return $this;
-    }
-
-    /**
-     * Gets html_tag_attributes
-     *
-     * @return \criteo\api\marketingsolutions\v2024_04\Model\HtmlTagAttributes|null
-     */
-    public function getHtmlTagAttributes()
-    {
-        return $this->container['html_tag_attributes'];
-    }
-
-    /**
-     * Sets html_tag_attributes
-     *
-     * @param \criteo\api\marketingsolutions\v2024_04\Model\HtmlTagAttributes|null $html_tag_attributes html_tag_attributes
-     *
-     * @return self
-     */
-    public function setHtmlTagAttributes($html_tag_attributes)
-    {
-        if (is_null($html_tag_attributes)) {
-            array_push($this->openAPINullablesSetToNull, 'html_tag_attributes');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('html_tag_attributes', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['html_tag_attributes'] = $html_tag_attributes;
+        $this->container['description'] = $description;
 
         return $this;
     }
@@ -692,35 +570,69 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets adaptive_attributes
+     * Gets format
      *
-     * @return \criteo\api\marketingsolutions\v2024_04\Model\AdaptiveAttributes|null
+     * @return string|null
      */
-    public function getAdaptiveAttributes()
+    public function getFormat()
     {
-        return $this->container['adaptive_attributes'];
+        return $this->container['format'];
     }
 
     /**
-     * Sets adaptive_attributes
+     * Sets format
      *
-     * @param \criteo\api\marketingsolutions\v2024_04\Model\AdaptiveAttributes|null $adaptive_attributes adaptive_attributes
+     * @param string|null $format The format of the creative
      *
      * @return self
      */
-    public function setAdaptiveAttributes($adaptive_attributes)
+    public function setFormat($format)
     {
-        if (is_null($adaptive_attributes)) {
-            array_push($this->openAPINullablesSetToNull, 'adaptive_attributes');
+        if (is_null($format)) {
+            array_push($this->openAPINullablesSetToNull, 'format');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('adaptive_attributes', $nullablesSetToNull);
+            $index = array_search('format', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['adaptive_attributes'] = $adaptive_attributes;
+        $this->container['format'] = $format;
+
+        return $this;
+    }
+
+    /**
+     * Gets html_tag_attributes
+     *
+     * @return \criteo\api\marketingsolutions\v2024_04\Model\HtmlTagAttributes|null
+     */
+    public function getHtmlTagAttributes()
+    {
+        return $this->container['html_tag_attributes'];
+    }
+
+    /**
+     * Sets html_tag_attributes
+     *
+     * @param \criteo\api\marketingsolutions\v2024_04\Model\HtmlTagAttributes|null $html_tag_attributes html_tag_attributes
+     *
+     * @return self
+     */
+    public function setHtmlTagAttributes($html_tag_attributes)
+    {
+        if (is_null($html_tag_attributes)) {
+            array_push($this->openAPINullablesSetToNull, 'html_tag_attributes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('html_tag_attributes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['html_tag_attributes'] = $html_tag_attributes;
 
         return $this;
     }
@@ -755,6 +667,94 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets image_attributes
+     *
+     * @return \criteo\api\marketingsolutions\v2024_04\Model\ImageAttributes|null
+     */
+    public function getImageAttributes()
+    {
+        return $this->container['image_attributes'];
+    }
+
+    /**
+     * Sets image_attributes
+     *
+     * @param \criteo\api\marketingsolutions\v2024_04\Model\ImageAttributes|null $image_attributes image_attributes
+     *
+     * @return self
+     */
+    public function setImageAttributes($image_attributes)
+    {
+        if (is_null($image_attributes)) {
+            array_push($this->openAPINullablesSetToNull, 'image_attributes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('image_attributes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['image_attributes'] = $image_attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name The name of the creative
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status The status of the creative
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }

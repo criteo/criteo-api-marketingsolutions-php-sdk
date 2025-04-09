@@ -58,11 +58,11 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
         'advertiser_id' => 'string',
+        'budget_automation' => '\criteo\api\marketingsolutions\v2024_04\Model\BudgetAutomation',
         'goal' => 'string',
-        'spend_limit' => '\criteo\api\marketingsolutions\v2024_04\Model\CreateCampaignSpendLimit',
-        'budget_automation' => '\criteo\api\marketingsolutions\v2024_04\Model\BudgetAutomation'
+        'name' => 'string',
+        'spend_limit' => '\criteo\api\marketingsolutions\v2024_04\Model\CreateCampaignSpendLimit'
     ];
 
     /**
@@ -73,11 +73,11 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
         'advertiser_id' => null,
+        'budget_automation' => null,
         'goal' => null,
-        'spend_limit' => null,
-        'budget_automation' => null
+        'name' => null,
+        'spend_limit' => null
     ];
 
     /**
@@ -86,11 +86,11 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => true,
-		'advertiser_id' => true,
+        'advertiser_id' => true,
+		'budget_automation' => false,
 		'goal' => false,
-		'spend_limit' => false,
-		'budget_automation' => false
+		'name' => true,
+		'spend_limit' => false
     ];
 
     /**
@@ -179,11 +179,11 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
         'advertiser_id' => 'advertiserId',
+        'budget_automation' => 'budgetAutomation',
         'goal' => 'goal',
-        'spend_limit' => 'spendLimit',
-        'budget_automation' => 'budgetAutomation'
+        'name' => 'name',
+        'spend_limit' => 'spendLimit'
     ];
 
     /**
@@ -192,11 +192,11 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
         'advertiser_id' => 'setAdvertiserId',
+        'budget_automation' => 'setBudgetAutomation',
         'goal' => 'setGoal',
-        'spend_limit' => 'setSpendLimit',
-        'budget_automation' => 'setBudgetAutomation'
+        'name' => 'setName',
+        'spend_limit' => 'setSpendLimit'
     ];
 
     /**
@@ -205,11 +205,11 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
         'advertiser_id' => 'getAdvertiserId',
+        'budget_automation' => 'getBudgetAutomation',
         'goal' => 'getGoal',
-        'spend_limit' => 'getSpendLimit',
-        'budget_automation' => 'getBudgetAutomation'
+        'name' => 'getName',
+        'spend_limit' => 'getSpendLimit'
     ];
 
     /**
@@ -286,11 +286,11 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('advertiser_id', $data ?? [], null);
-        $this->setIfExists('goal', $data ?? [], null);
-        $this->setIfExists('spend_limit', $data ?? [], null);
         $this->setIfExists('budget_automation', $data ?? [], null);
+        $this->setIfExists('goal', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('spend_limit', $data ?? [], null);
     }
 
     /**
@@ -320,9 +320,6 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
         if ($this->container['advertiser_id'] === null) {
             $invalidProperties[] = "'advertiser_id' can't be null";
         }
@@ -338,6 +335,9 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
         if ($this->container['spend_limit'] === null) {
             $invalidProperties[] = "'spend_limit' can't be null";
         }
@@ -355,40 +355,6 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name Name of the campaign
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
 
     /**
      * Gets advertiser_id
@@ -420,6 +386,33 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['advertiser_id'] = $advertiser_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets budget_automation
+     *
+     * @return \criteo\api\marketingsolutions\v2024_04\Model\BudgetAutomation|null
+     */
+    public function getBudgetAutomation()
+    {
+        return $this->container['budget_automation'];
+    }
+
+    /**
+     * Sets budget_automation
+     *
+     * @param \criteo\api\marketingsolutions\v2024_04\Model\BudgetAutomation|null $budget_automation budget_automation
+     *
+     * @return self
+     */
+    public function setBudgetAutomation($budget_automation)
+    {
+        if (is_null($budget_automation)) {
+            throw new \InvalidArgumentException('non-nullable budget_automation cannot be null');
+        }
+        $this->container['budget_automation'] = $budget_automation;
 
         return $this;
     }
@@ -462,6 +455,40 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name Name of the campaign
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
      * Gets spend_limit
      *
      * @return \criteo\api\marketingsolutions\v2024_04\Model\CreateCampaignSpendLimit
@@ -484,33 +511,6 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable spend_limit cannot be null');
         }
         $this->container['spend_limit'] = $spend_limit;
-
-        return $this;
-    }
-
-    /**
-     * Gets budget_automation
-     *
-     * @return \criteo\api\marketingsolutions\v2024_04\Model\BudgetAutomation|null
-     */
-    public function getBudgetAutomation()
-    {
-        return $this->container['budget_automation'];
-    }
-
-    /**
-     * Sets budget_automation
-     *
-     * @param \criteo\api\marketingsolutions\v2024_04\Model\BudgetAutomation|null $budget_automation budget_automation
-     *
-     * @return self
-     */
-    public function setBudgetAutomation($budget_automation)
-    {
-        if (is_null($budget_automation)) {
-            throw new \InvalidArgumentException('non-nullable budget_automation cannot be null');
-        }
-        $this->container['budget_automation'] = $budget_automation;
 
         return $this;
     }

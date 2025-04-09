@@ -58,9 +58,9 @@ class AudienceUpdateEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
+        'algebra' => '\criteo\api\marketingsolutions\v2024_04\Model\AlgebraNodeV1',
         'description' => '\criteo\api\marketingsolutions\v2024_04\Model\NillableString',
-        'algebra' => '\criteo\api\marketingsolutions\v2024_04\Model\AlgebraNodeV1'
+        'name' => 'string'
     ];
 
     /**
@@ -71,9 +71,9 @@ class AudienceUpdateEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
+        'algebra' => null,
         'description' => null,
-        'algebra' => null
+        'name' => null
     ];
 
     /**
@@ -82,9 +82,9 @@ class AudienceUpdateEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
+        'algebra' => true,
 		'description' => true,
-		'algebra' => true
+		'name' => false
     ];
 
     /**
@@ -173,9 +173,9 @@ class AudienceUpdateEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
+        'algebra' => 'algebra',
         'description' => 'description',
-        'algebra' => 'algebra'
+        'name' => 'name'
     ];
 
     /**
@@ -184,9 +184,9 @@ class AudienceUpdateEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
+        'algebra' => 'setAlgebra',
         'description' => 'setDescription',
-        'algebra' => 'setAlgebra'
+        'name' => 'setName'
     ];
 
     /**
@@ -195,9 +195,9 @@ class AudienceUpdateEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
+        'algebra' => 'getAlgebra',
         'description' => 'getDescription',
-        'algebra' => 'getAlgebra'
+        'name' => 'getName'
     ];
 
     /**
@@ -257,9 +257,9 @@ class AudienceUpdateEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('algebra', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
     }
 
     /**
@@ -305,28 +305,35 @@ class AudienceUpdateEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets name
+     * Gets algebra
      *
-     * @return string|null
+     * @return \criteo\api\marketingsolutions\v2024_04\Model\AlgebraNodeV1|null
      */
-    public function getName()
+    public function getAlgebra()
     {
-        return $this->container['name'];
+        return $this->container['algebra'];
     }
 
     /**
-     * Sets name
+     * Sets algebra
      *
-     * @param string|null $name Name of the audience
+     * @param \criteo\api\marketingsolutions\v2024_04\Model\AlgebraNodeV1|null $algebra algebra
      *
      * @return self
      */
-    public function setName($name)
+    public function setAlgebra($algebra)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($algebra)) {
+            array_push($this->openAPINullablesSetToNull, 'algebra');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('algebra', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['name'] = $name;
+        $this->container['algebra'] = $algebra;
 
         return $this;
     }
@@ -366,35 +373,28 @@ class AudienceUpdateEntityV1 implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets algebra
+     * Gets name
      *
-     * @return \criteo\api\marketingsolutions\v2024_04\Model\AlgebraNodeV1|null
+     * @return string|null
      */
-    public function getAlgebra()
+    public function getName()
     {
-        return $this->container['algebra'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets algebra
+     * Sets name
      *
-     * @param \criteo\api\marketingsolutions\v2024_04\Model\AlgebraNodeV1|null $algebra algebra
+     * @param string|null $name Name of the audience
      *
      * @return self
      */
-    public function setAlgebra($algebra)
+    public function setName($name)
     {
-        if (is_null($algebra)) {
-            array_push($this->openAPINullablesSetToNull, 'algebra');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('algebra', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        $this->container['algebra'] = $algebra;
+        $this->container['name'] = $name;
 
         return $this;
     }
