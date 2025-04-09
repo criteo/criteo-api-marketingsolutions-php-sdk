@@ -59,12 +59,12 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
       */
     protected static $openAPITypes = [
         'advertiser_ids' => 'string',
-        'event_type' => 'string',
         'currency' => 'string',
+        'end_date' => '\DateTime',
+        'event_type' => 'string',
         'format' => 'string',
-        'timezone' => 'string',
         'start_date' => '\DateTime',
-        'end_date' => '\DateTime'
+        'timezone' => 'string'
     ];
 
     /**
@@ -76,12 +76,12 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
       */
     protected static $openAPIFormats = [
         'advertiser_ids' => null,
-        'event_type' => null,
         'currency' => null,
+        'end_date' => 'date-time',
+        'event_type' => null,
         'format' => null,
-        'timezone' => null,
         'start_date' => 'date-time',
-        'end_date' => 'date-time'
+        'timezone' => null
     ];
 
     /**
@@ -91,12 +91,12 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
       */
     protected static array $openAPINullables = [
         'advertiser_ids' => true,
-		'event_type' => true,
 		'currency' => false,
+		'end_date' => false,
+		'event_type' => true,
 		'format' => false,
-		'timezone' => true,
 		'start_date' => false,
-		'end_date' => false
+		'timezone' => true
     ];
 
     /**
@@ -186,12 +186,12 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
      */
     protected static $attributeMap = [
         'advertiser_ids' => 'advertiserIds',
-        'event_type' => 'eventType',
         'currency' => 'currency',
+        'end_date' => 'endDate',
+        'event_type' => 'eventType',
         'format' => 'format',
-        'timezone' => 'timezone',
         'start_date' => 'startDate',
-        'end_date' => 'endDate'
+        'timezone' => 'timezone'
     ];
 
     /**
@@ -201,12 +201,12 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
      */
     protected static $setters = [
         'advertiser_ids' => 'setAdvertiserIds',
-        'event_type' => 'setEventType',
         'currency' => 'setCurrency',
+        'end_date' => 'setEndDate',
+        'event_type' => 'setEventType',
         'format' => 'setFormat',
-        'timezone' => 'setTimezone',
         'start_date' => 'setStartDate',
-        'end_date' => 'setEndDate'
+        'timezone' => 'setTimezone'
     ];
 
     /**
@@ -216,12 +216,12 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
      */
     protected static $getters = [
         'advertiser_ids' => 'getAdvertiserIds',
-        'event_type' => 'getEventType',
         'currency' => 'getCurrency',
+        'end_date' => 'getEndDate',
+        'event_type' => 'getEventType',
         'format' => 'getFormat',
-        'timezone' => 'getTimezone',
         'start_date' => 'getStartDate',
-        'end_date' => 'getEndDate'
+        'timezone' => 'getTimezone'
     ];
 
     /**
@@ -282,12 +282,12 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
     public function __construct(array $data = null)
     {
         $this->setIfExists('advertiser_ids', $data ?? [], null);
-        $this->setIfExists('event_type', $data ?? [], null);
         $this->setIfExists('currency', $data ?? [], null);
-        $this->setIfExists('format', $data ?? [], null);
-        $this->setIfExists('timezone', $data ?? [], 'UTC');
-        $this->setIfExists('start_date', $data ?? [], null);
         $this->setIfExists('end_date', $data ?? [], null);
+        $this->setIfExists('event_type', $data ?? [], null);
+        $this->setIfExists('format', $data ?? [], null);
+        $this->setIfExists('start_date', $data ?? [], null);
+        $this->setIfExists('timezone', $data ?? [], 'UTC');
     }
 
     /**
@@ -320,14 +320,14 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
         if ($this->container['currency'] === null) {
             $invalidProperties[] = "'currency' can't be null";
         }
+        if ($this->container['end_date'] === null) {
+            $invalidProperties[] = "'end_date' can't be null";
+        }
         if ($this->container['format'] === null) {
             $invalidProperties[] = "'format' can't be null";
         }
         if ($this->container['start_date'] === null) {
             $invalidProperties[] = "'start_date' can't be null";
-        }
-        if ($this->container['end_date'] === null) {
-            $invalidProperties[] = "'end_date' can't be null";
         }
         return $invalidProperties;
     }
@@ -379,6 +379,60 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
     }
 
     /**
+     * Gets currency
+     *
+     * @return string
+     */
+    public function getCurrency()
+    {
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     *
+     * @param string $currency The currency used for the report. ISO 4217 code (three-letter capitals).
+     *
+     * @return self
+     */
+    public function setCurrency($currency)
+    {
+        if (is_null($currency)) {
+            throw new \InvalidArgumentException('non-nullable currency cannot be null');
+        }
+        $this->container['currency'] = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_date
+     *
+     * @return \DateTime
+     */
+    public function getEndDate()
+    {
+        return $this->container['end_date'];
+    }
+
+    /**
+     * Sets end_date
+     *
+     * @param \DateTime $end_date End date of the report. Date component of ISO 8061 format, any time or timezone component is ignored.
+     *
+     * @return self
+     */
+    public function setEndDate($end_date)
+    {
+        if (is_null($end_date)) {
+            throw new \InvalidArgumentException('non-nullable end_date cannot be null');
+        }
+        $this->container['end_date'] = $end_date;
+
+        return $this;
+    }
+
+    /**
      * Gets event_type
      *
      * @return string|null
@@ -413,33 +467,6 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
     }
 
     /**
-     * Gets currency
-     *
-     * @return string
-     */
-    public function getCurrency()
-    {
-        return $this->container['currency'];
-    }
-
-    /**
-     * Sets currency
-     *
-     * @param string $currency The currency used for the report. ISO 4217 code (three-letter capitals).
-     *
-     * @return self
-     */
-    public function setCurrency($currency)
-    {
-        if (is_null($currency)) {
-            throw new \InvalidArgumentException('non-nullable currency cannot be null');
-        }
-        $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
      * Gets format
      *
      * @return string
@@ -462,6 +489,33 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
             throw new \InvalidArgumentException('non-nullable format cannot be null');
         }
         $this->container['format'] = $format;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_date
+     *
+     * @return \DateTime
+     */
+    public function getStartDate()
+    {
+        return $this->container['start_date'];
+    }
+
+    /**
+     * Sets start_date
+     *
+     * @param \DateTime $start_date Start date of the report. Date component of ISO 8061 format, any time or timezone component is ignored.
+     *
+     * @return self
+     */
+    public function setStartDate($start_date)
+    {
+        if (is_null($start_date)) {
+            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
+        }
+        $this->container['start_date'] = $start_date;
 
         return $this;
     }
@@ -496,60 +550,6 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
             }
         }
         $this->container['timezone'] = $timezone;
-
-        return $this;
-    }
-
-    /**
-     * Gets start_date
-     *
-     * @return \DateTime
-     */
-    public function getStartDate()
-    {
-        return $this->container['start_date'];
-    }
-
-    /**
-     * Sets start_date
-     *
-     * @param \DateTime $start_date Start date of the report. Date component of ISO 8061 format, any time or timezone component is ignored.
-     *
-     * @return self
-     */
-    public function setStartDate($start_date)
-    {
-        if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
-        }
-        $this->container['start_date'] = $start_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets end_date
-     *
-     * @return \DateTime
-     */
-    public function getEndDate()
-    {
-        return $this->container['end_date'];
-    }
-
-    /**
-     * Sets end_date
-     *
-     * @param \DateTime $end_date End date of the report. Date component of ISO 8061 format, any time or timezone component is ignored.
-     *
-     * @return self
-     */
-    public function setEndDate($end_date)
-    {
-        if (is_null($end_date)) {
-            throw new \InvalidArgumentException('non-nullable end_date cannot be null');
-        }
-        $this->container['end_date'] = $end_date;
 
         return $this;
     }

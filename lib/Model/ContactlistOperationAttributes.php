@@ -59,11 +59,11 @@ class ContactlistOperationAttributes implements ModelInterface, ArrayAccess, \Js
       */
     protected static $openAPITypes = [
         'contact_list_id' => 'int',
+        'identifier_type' => 'string',
+        'nb_invalid_identifiers' => 'int',
+        'nb_valid_identifiers' => 'int',
         'operation' => 'string',
         'request_date' => '\DateTime',
-        'identifier_type' => 'string',
-        'nb_valid_identifiers' => 'int',
-        'nb_invalid_identifiers' => 'int',
         'sample_invalid_identifiers' => 'string[]'
     ];
 
@@ -76,11 +76,11 @@ class ContactlistOperationAttributes implements ModelInterface, ArrayAccess, \Js
       */
     protected static $openAPIFormats = [
         'contact_list_id' => null,
+        'identifier_type' => null,
+        'nb_invalid_identifiers' => null,
+        'nb_valid_identifiers' => null,
         'operation' => null,
         'request_date' => 'date-time',
-        'identifier_type' => null,
-        'nb_valid_identifiers' => null,
-        'nb_invalid_identifiers' => null,
         'sample_invalid_identifiers' => null
     ];
 
@@ -91,11 +91,11 @@ class ContactlistOperationAttributes implements ModelInterface, ArrayAccess, \Js
       */
     protected static array $openAPINullables = [
         'contact_list_id' => true,
+		'identifier_type' => true,
+		'nb_invalid_identifiers' => true,
+		'nb_valid_identifiers' => true,
 		'operation' => false,
 		'request_date' => true,
-		'identifier_type' => true,
-		'nb_valid_identifiers' => true,
-		'nb_invalid_identifiers' => true,
 		'sample_invalid_identifiers' => true
     ];
 
@@ -186,11 +186,11 @@ class ContactlistOperationAttributes implements ModelInterface, ArrayAccess, \Js
      */
     protected static $attributeMap = [
         'contact_list_id' => 'contactListId',
+        'identifier_type' => 'identifierType',
+        'nb_invalid_identifiers' => 'nbInvalidIdentifiers',
+        'nb_valid_identifiers' => 'nbValidIdentifiers',
         'operation' => 'operation',
         'request_date' => 'requestDate',
-        'identifier_type' => 'identifierType',
-        'nb_valid_identifiers' => 'nbValidIdentifiers',
-        'nb_invalid_identifiers' => 'nbInvalidIdentifiers',
         'sample_invalid_identifiers' => 'sampleInvalidIdentifiers'
     ];
 
@@ -201,11 +201,11 @@ class ContactlistOperationAttributes implements ModelInterface, ArrayAccess, \Js
      */
     protected static $setters = [
         'contact_list_id' => 'setContactListId',
+        'identifier_type' => 'setIdentifierType',
+        'nb_invalid_identifiers' => 'setNbInvalidIdentifiers',
+        'nb_valid_identifiers' => 'setNbValidIdentifiers',
         'operation' => 'setOperation',
         'request_date' => 'setRequestDate',
-        'identifier_type' => 'setIdentifierType',
-        'nb_valid_identifiers' => 'setNbValidIdentifiers',
-        'nb_invalid_identifiers' => 'setNbInvalidIdentifiers',
         'sample_invalid_identifiers' => 'setSampleInvalidIdentifiers'
     ];
 
@@ -216,11 +216,11 @@ class ContactlistOperationAttributes implements ModelInterface, ArrayAccess, \Js
      */
     protected static $getters = [
         'contact_list_id' => 'getContactListId',
+        'identifier_type' => 'getIdentifierType',
+        'nb_invalid_identifiers' => 'getNbInvalidIdentifiers',
+        'nb_valid_identifiers' => 'getNbValidIdentifiers',
         'operation' => 'getOperation',
         'request_date' => 'getRequestDate',
-        'identifier_type' => 'getIdentifierType',
-        'nb_valid_identifiers' => 'getNbValidIdentifiers',
-        'nb_invalid_identifiers' => 'getNbInvalidIdentifiers',
         'sample_invalid_identifiers' => 'getSampleInvalidIdentifiers'
     ];
 
@@ -282,11 +282,11 @@ class ContactlistOperationAttributes implements ModelInterface, ArrayAccess, \Js
     public function __construct(array $data = null)
     {
         $this->setIfExists('contact_list_id', $data ?? [], null);
+        $this->setIfExists('identifier_type', $data ?? [], null);
+        $this->setIfExists('nb_invalid_identifiers', $data ?? [], null);
+        $this->setIfExists('nb_valid_identifiers', $data ?? [], null);
         $this->setIfExists('operation', $data ?? [], null);
         $this->setIfExists('request_date', $data ?? [], null);
-        $this->setIfExists('identifier_type', $data ?? [], null);
-        $this->setIfExists('nb_valid_identifiers', $data ?? [], null);
-        $this->setIfExists('nb_invalid_identifiers', $data ?? [], null);
         $this->setIfExists('sample_invalid_identifiers', $data ?? [], null);
     }
 
@@ -370,6 +370,108 @@ class ContactlistOperationAttributes implements ModelInterface, ArrayAccess, \Js
     }
 
     /**
+     * Gets identifier_type
+     *
+     * @return string|null
+     */
+    public function getIdentifierType()
+    {
+        return $this->container['identifier_type'];
+    }
+
+    /**
+     * Sets identifier_type
+     *
+     * @param string|null $identifier_type The schema specified for of the identifiers
+     *
+     * @return self
+     */
+    public function setIdentifierType($identifier_type)
+    {
+        if (is_null($identifier_type)) {
+            array_push($this->openAPINullablesSetToNull, 'identifier_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('identifier_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['identifier_type'] = $identifier_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets nb_invalid_identifiers
+     *
+     * @return int|null
+     */
+    public function getNbInvalidIdentifiers()
+    {
+        return $this->container['nb_invalid_identifiers'];
+    }
+
+    /**
+     * Sets nb_invalid_identifiers
+     *
+     * @param int|null $nb_invalid_identifiers How many identifiers were invalid for the specified schema
+     *
+     * @return self
+     */
+    public function setNbInvalidIdentifiers($nb_invalid_identifiers)
+    {
+        if (is_null($nb_invalid_identifiers)) {
+            array_push($this->openAPINullablesSetToNull, 'nb_invalid_identifiers');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('nb_invalid_identifiers', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['nb_invalid_identifiers'] = $nb_invalid_identifiers;
+
+        return $this;
+    }
+
+    /**
+     * Gets nb_valid_identifiers
+     *
+     * @return int|null
+     */
+    public function getNbValidIdentifiers()
+    {
+        return $this->container['nb_valid_identifiers'];
+    }
+
+    /**
+     * Sets nb_valid_identifiers
+     *
+     * @param int|null $nb_valid_identifiers How many identifiers were valid for the specified schema
+     *
+     * @return self
+     */
+    public function setNbValidIdentifiers($nb_valid_identifiers)
+    {
+        if (is_null($nb_valid_identifiers)) {
+            array_push($this->openAPINullablesSetToNull, 'nb_valid_identifiers');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('nb_valid_identifiers', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['nb_valid_identifiers'] = $nb_valid_identifiers;
+
+        return $this;
+    }
+
+    /**
      * Gets operation
      *
      * @return string
@@ -426,108 +528,6 @@ class ContactlistOperationAttributes implements ModelInterface, ArrayAccess, \Js
             }
         }
         $this->container['request_date'] = $request_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets identifier_type
-     *
-     * @return string|null
-     */
-    public function getIdentifierType()
-    {
-        return $this->container['identifier_type'];
-    }
-
-    /**
-     * Sets identifier_type
-     *
-     * @param string|null $identifier_type The schema specified for of the identifiers
-     *
-     * @return self
-     */
-    public function setIdentifierType($identifier_type)
-    {
-        if (is_null($identifier_type)) {
-            array_push($this->openAPINullablesSetToNull, 'identifier_type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('identifier_type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['identifier_type'] = $identifier_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets nb_valid_identifiers
-     *
-     * @return int|null
-     */
-    public function getNbValidIdentifiers()
-    {
-        return $this->container['nb_valid_identifiers'];
-    }
-
-    /**
-     * Sets nb_valid_identifiers
-     *
-     * @param int|null $nb_valid_identifiers How many identifiers were valid for the specified schema
-     *
-     * @return self
-     */
-    public function setNbValidIdentifiers($nb_valid_identifiers)
-    {
-        if (is_null($nb_valid_identifiers)) {
-            array_push($this->openAPINullablesSetToNull, 'nb_valid_identifiers');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('nb_valid_identifiers', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['nb_valid_identifiers'] = $nb_valid_identifiers;
-
-        return $this;
-    }
-
-    /**
-     * Gets nb_invalid_identifiers
-     *
-     * @return int|null
-     */
-    public function getNbInvalidIdentifiers()
-    {
-        return $this->container['nb_invalid_identifiers'];
-    }
-
-    /**
-     * Sets nb_invalid_identifiers
-     *
-     * @param int|null $nb_invalid_identifiers How many identifiers were invalid for the specified schema
-     *
-     * @return self
-     */
-    public function setNbInvalidIdentifiers($nb_invalid_identifiers)
-    {
-        if (is_null($nb_invalid_identifiers)) {
-            array_push($this->openAPINullablesSetToNull, 'nb_invalid_identifiers');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('nb_invalid_identifiers', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['nb_invalid_identifiers'] = $nb_invalid_identifiers;
 
         return $this;
     }

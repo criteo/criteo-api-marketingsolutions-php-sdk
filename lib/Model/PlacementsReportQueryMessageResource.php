@@ -58,8 +58,8 @@ class PlacementsReportQueryMessageResource implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
-        'attributes' => '\criteo\api\marketingsolutions\v2024_01\Model\PlacementsReportQueryMessage'
+        'attributes' => '\criteo\api\marketingsolutions\v2024_01\Model\PlacementsReportQueryMessage',
+        'type' => 'string'
     ];
 
     /**
@@ -70,8 +70,8 @@ class PlacementsReportQueryMessageResource implements ModelInterface, ArrayAcces
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
-        'attributes' => null
+        'attributes' => null,
+        'type' => null
     ];
 
     /**
@@ -80,8 +80,8 @@ class PlacementsReportQueryMessageResource implements ModelInterface, ArrayAcces
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'type' => true,
-		'attributes' => false
+        'attributes' => false,
+		'type' => true
     ];
 
     /**
@@ -170,8 +170,8 @@ class PlacementsReportQueryMessageResource implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'attributes' => 'attributes'
+        'attributes' => 'attributes',
+        'type' => 'type'
     ];
 
     /**
@@ -180,8 +180,8 @@ class PlacementsReportQueryMessageResource implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'attributes' => 'setAttributes'
+        'attributes' => 'setAttributes',
+        'type' => 'setType'
     ];
 
     /**
@@ -190,8 +190,8 @@ class PlacementsReportQueryMessageResource implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'attributes' => 'getAttributes'
+        'attributes' => 'getAttributes',
+        'type' => 'getType'
     ];
 
     /**
@@ -251,8 +251,8 @@ class PlacementsReportQueryMessageResource implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('attributes', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
     }
 
     /**
@@ -298,6 +298,33 @@ class PlacementsReportQueryMessageResource implements ModelInterface, ArrayAcces
 
 
     /**
+     * Gets attributes
+     *
+     * @return \criteo\api\marketingsolutions\v2024_01\Model\PlacementsReportQueryMessage|null
+     */
+    public function getAttributes()
+    {
+        return $this->container['attributes'];
+    }
+
+    /**
+     * Sets attributes
+     *
+     * @param \criteo\api\marketingsolutions\v2024_01\Model\PlacementsReportQueryMessage|null $attributes attributes
+     *
+     * @return self
+     */
+    public function setAttributes($attributes)
+    {
+        if (is_null($attributes)) {
+            throw new \InvalidArgumentException('non-nullable attributes cannot be null');
+        }
+        $this->container['attributes'] = $attributes;
+
+        return $this;
+    }
+
+    /**
      * Gets type
      *
      * @return string|null
@@ -327,33 +354,6 @@ class PlacementsReportQueryMessageResource implements ModelInterface, ArrayAcces
             }
         }
         $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets attributes
-     *
-     * @return \criteo\api\marketingsolutions\v2024_01\Model\PlacementsReportQueryMessage|null
-     */
-    public function getAttributes()
-    {
-        return $this->container['attributes'];
-    }
-
-    /**
-     * Sets attributes
-     *
-     * @param \criteo\api\marketingsolutions\v2024_01\Model\PlacementsReportQueryMessage|null $attributes attributes
-     *
-     * @return self
-     */
-    public function setAttributes($attributes)
-    {
-        if (is_null($attributes)) {
-            throw new \InvalidArgumentException('non-nullable attributes cannot be null');
-        }
-        $this->container['attributes'] = $attributes;
 
         return $this;
     }

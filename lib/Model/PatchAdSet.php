@@ -58,11 +58,11 @@ class PatchAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'bidding' => '\criteo\api\marketingsolutions\v2024_01\Model\PatchAdSetBidding',
+        'budget' => '\criteo\api\marketingsolutions\v2024_01\Model\PatchAdSetBudget',
         'name' => 'string',
         'scheduling' => '\criteo\api\marketingsolutions\v2024_01\Model\PatchAdSetScheduling',
-        'bidding' => '\criteo\api\marketingsolutions\v2024_01\Model\PatchAdSetBidding',
-        'targeting' => '\criteo\api\marketingsolutions\v2024_01\Model\AdSetTargeting',
-        'budget' => '\criteo\api\marketingsolutions\v2024_01\Model\PatchAdSetBudget'
+        'targeting' => '\criteo\api\marketingsolutions\v2024_01\Model\AdSetTargeting'
     ];
 
     /**
@@ -73,11 +73,11 @@ class PatchAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'bidding' => null,
+        'budget' => null,
         'name' => null,
         'scheduling' => null,
-        'bidding' => null,
-        'targeting' => null,
-        'budget' => null
+        'targeting' => null
     ];
 
     /**
@@ -86,11 +86,11 @@ class PatchAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => true,
+        'bidding' => false,
+		'budget' => false,
+		'name' => true,
 		'scheduling' => false,
-		'bidding' => false,
-		'targeting' => true,
-		'budget' => false
+		'targeting' => true
     ];
 
     /**
@@ -179,11 +179,11 @@ class PatchAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'bidding' => 'bidding',
+        'budget' => 'budget',
         'name' => 'name',
         'scheduling' => 'scheduling',
-        'bidding' => 'bidding',
-        'targeting' => 'targeting',
-        'budget' => 'budget'
+        'targeting' => 'targeting'
     ];
 
     /**
@@ -192,11 +192,11 @@ class PatchAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'bidding' => 'setBidding',
+        'budget' => 'setBudget',
         'name' => 'setName',
         'scheduling' => 'setScheduling',
-        'bidding' => 'setBidding',
-        'targeting' => 'setTargeting',
-        'budget' => 'setBudget'
+        'targeting' => 'setTargeting'
     ];
 
     /**
@@ -205,11 +205,11 @@ class PatchAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'bidding' => 'getBidding',
+        'budget' => 'getBudget',
         'name' => 'getName',
         'scheduling' => 'getScheduling',
-        'bidding' => 'getBidding',
-        'targeting' => 'getTargeting',
-        'budget' => 'getBudget'
+        'targeting' => 'getTargeting'
     ];
 
     /**
@@ -269,11 +269,11 @@ class PatchAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('bidding', $data ?? [], null);
+        $this->setIfExists('budget', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('scheduling', $data ?? [], null);
-        $this->setIfExists('bidding', $data ?? [], null);
         $this->setIfExists('targeting', $data ?? [], null);
-        $this->setIfExists('budget', $data ?? [], null);
     }
 
     /**
@@ -317,6 +317,60 @@ class PatchAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets bidding
+     *
+     * @return \criteo\api\marketingsolutions\v2024_01\Model\PatchAdSetBidding|null
+     */
+    public function getBidding()
+    {
+        return $this->container['bidding'];
+    }
+
+    /**
+     * Sets bidding
+     *
+     * @param \criteo\api\marketingsolutions\v2024_01\Model\PatchAdSetBidding|null $bidding bidding
+     *
+     * @return self
+     */
+    public function setBidding($bidding)
+    {
+        if (is_null($bidding)) {
+            throw new \InvalidArgumentException('non-nullable bidding cannot be null');
+        }
+        $this->container['bidding'] = $bidding;
+
+        return $this;
+    }
+
+    /**
+     * Gets budget
+     *
+     * @return \criteo\api\marketingsolutions\v2024_01\Model\PatchAdSetBudget|null
+     */
+    public function getBudget()
+    {
+        return $this->container['budget'];
+    }
+
+    /**
+     * Sets budget
+     *
+     * @param \criteo\api\marketingsolutions\v2024_01\Model\PatchAdSetBudget|null $budget budget
+     *
+     * @return self
+     */
+    public function setBudget($budget)
+    {
+        if (is_null($budget)) {
+            throw new \InvalidArgumentException('non-nullable budget cannot be null');
+        }
+        $this->container['budget'] = $budget;
+
+        return $this;
+    }
 
     /**
      * Gets name
@@ -380,33 +434,6 @@ class PatchAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets bidding
-     *
-     * @return \criteo\api\marketingsolutions\v2024_01\Model\PatchAdSetBidding|null
-     */
-    public function getBidding()
-    {
-        return $this->container['bidding'];
-    }
-
-    /**
-     * Sets bidding
-     *
-     * @param \criteo\api\marketingsolutions\v2024_01\Model\PatchAdSetBidding|null $bidding bidding
-     *
-     * @return self
-     */
-    public function setBidding($bidding)
-    {
-        if (is_null($bidding)) {
-            throw new \InvalidArgumentException('non-nullable bidding cannot be null');
-        }
-        $this->container['bidding'] = $bidding;
-
-        return $this;
-    }
-
-    /**
      * Gets targeting
      *
      * @return \criteo\api\marketingsolutions\v2024_01\Model\AdSetTargeting|null
@@ -436,33 +463,6 @@ class PatchAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['targeting'] = $targeting;
-
-        return $this;
-    }
-
-    /**
-     * Gets budget
-     *
-     * @return \criteo\api\marketingsolutions\v2024_01\Model\PatchAdSetBudget|null
-     */
-    public function getBudget()
-    {
-        return $this->container['budget'];
-    }
-
-    /**
-     * Sets budget
-     *
-     * @param \criteo\api\marketingsolutions\v2024_01\Model\PatchAdSetBudget|null $budget budget
-     *
-     * @return self
-     */
-    public function setBudget($budget)
-    {
-        if (is_null($budget)) {
-            throw new \InvalidArgumentException('non-nullable budget cannot be null');
-        }
-        $this->container['budget'] = $budget;
 
         return $this;
     }

@@ -58,12 +58,12 @@ class CriteoApiWarning implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'trace_id' => 'string',
-        'type' => 'string',
         'code' => 'string',
+        'detail' => 'string',
         'instance' => 'string',
         'title' => 'string',
-        'detail' => 'string'
+        'trace_id' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -74,12 +74,12 @@ class CriteoApiWarning implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'trace_id' => null,
-        'type' => null,
         'code' => null,
+        'detail' => null,
         'instance' => null,
         'title' => null,
-        'detail' => null
+        'trace_id' => null,
+        'type' => null
     ];
 
     /**
@@ -88,12 +88,12 @@ class CriteoApiWarning implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'trace_id' => true,
-		'type' => true,
-		'code' => true,
+        'code' => true,
+		'detail' => true,
 		'instance' => true,
 		'title' => true,
-		'detail' => true
+		'trace_id' => true,
+		'type' => true
     ];
 
     /**
@@ -182,12 +182,12 @@ class CriteoApiWarning implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'trace_id' => 'traceId',
-        'type' => 'type',
         'code' => 'code',
+        'detail' => 'detail',
         'instance' => 'instance',
         'title' => 'title',
-        'detail' => 'detail'
+        'trace_id' => 'traceId',
+        'type' => 'type'
     ];
 
     /**
@@ -196,12 +196,12 @@ class CriteoApiWarning implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'trace_id' => 'setTraceId',
-        'type' => 'setType',
         'code' => 'setCode',
+        'detail' => 'setDetail',
         'instance' => 'setInstance',
         'title' => 'setTitle',
-        'detail' => 'setDetail'
+        'trace_id' => 'setTraceId',
+        'type' => 'setType'
     ];
 
     /**
@@ -210,12 +210,12 @@ class CriteoApiWarning implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'trace_id' => 'getTraceId',
-        'type' => 'getType',
         'code' => 'getCode',
+        'detail' => 'getDetail',
         'instance' => 'getInstance',
         'title' => 'getTitle',
-        'detail' => 'getDetail'
+        'trace_id' => 'getTraceId',
+        'type' => 'getType'
     ];
 
     /**
@@ -259,13 +259,6 @@ class CriteoApiWarning implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const TYPE_ACCESS_CONTROL = 'access_control';
-    public const TYPE_AUTHENTICATION = 'authentication';
-    public const TYPE_AUTHORIZATION = 'authorization';
-    public const TYPE_AVAILABILITY = 'availability';
-    public const TYPE_DEPRECATION = 'deprecation';
-    public const TYPE_QUOTA = 'quota';
-    public const TYPE_VALIDATION = 'validation';
     public const CODE_INTERNAL_ERROR = 'internal-error';
     public const CODE_DEPRECATED_FIELD = 'deprecated-field';
     public const CODE_ENDPOINT_DEPRECATED = 'endpoint-deprecated';
@@ -274,24 +267,13 @@ class CriteoApiWarning implements ModelInterface, ArrayAccess, \JsonSerializable
     public const CODE_INVALID = 'invalid';
     public const CODE_INVALID_RANGED = 'invalid-ranged';
     public const CODE_INVALID_TIMESPAN = 'invalid-timespan';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_ACCESS_CONTROL,
-            self::TYPE_AUTHENTICATION,
-            self::TYPE_AUTHORIZATION,
-            self::TYPE_AVAILABILITY,
-            self::TYPE_DEPRECATION,
-            self::TYPE_QUOTA,
-            self::TYPE_VALIDATION,
-        ];
-    }
+    public const TYPE_ACCESS_CONTROL = 'access_control';
+    public const TYPE_AUTHENTICATION = 'authentication';
+    public const TYPE_AUTHORIZATION = 'authorization';
+    public const TYPE_AVAILABILITY = 'availability';
+    public const TYPE_DEPRECATION = 'deprecation';
+    public const TYPE_QUOTA = 'quota';
+    public const TYPE_VALIDATION = 'validation';
 
     /**
      * Gets allowable values of the enum
@@ -313,6 +295,24 @@ class CriteoApiWarning implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_ACCESS_CONTROL,
+            self::TYPE_AUTHENTICATION,
+            self::TYPE_AUTHORIZATION,
+            self::TYPE_AVAILABILITY,
+            self::TYPE_DEPRECATION,
+            self::TYPE_QUOTA,
+            self::TYPE_VALIDATION,
+        ];
+    }
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -327,12 +327,12 @@ class CriteoApiWarning implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('trace_id', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('code', $data ?? [], null);
+        $this->setIfExists('detail', $data ?? [], null);
         $this->setIfExists('instance', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
-        $this->setIfExists('detail', $data ?? [], null);
+        $this->setIfExists('trace_id', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
     }
 
     /**
@@ -362,20 +362,20 @@ class CriteoApiWarning implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         $allowedValues = $this->getCodeAllowableValues();
         if (!is_null($this->container['code']) && !in_array($this->container['code'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'code', must be one of '%s'",
                 $this->container['code'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
                 implode("', '", $allowedValues)
             );
         }
@@ -394,6 +394,152 @@ class CriteoApiWarning implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets code
+     *
+     * @return string|null
+     */
+    public function getCode()
+    {
+        return $this->container['code'];
+    }
+
+    /**
+     * Sets code
+     *
+     * @param string|null $code A machine-readable error code string in kabab-case. Unique across Criteo
+     *
+     * @return self
+     */
+    public function setCode($code)
+    {
+        if (is_null($code)) {
+            array_push($this->openAPINullablesSetToNull, 'code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getCodeAllowableValues();
+        if (!is_null($code) && !in_array($code, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'code', must be one of '%s'",
+                    $code,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets detail
+     *
+     * @return string|null
+     */
+    public function getDetail()
+    {
+        return $this->container['detail'];
+    }
+
+    /**
+     * Sets detail
+     *
+     * @param string|null $detail A human-readable explanation specific to this occurrence of the problem.
+     *
+     * @return self
+     */
+    public function setDetail($detail)
+    {
+        if (is_null($detail)) {
+            array_push($this->openAPINullablesSetToNull, 'detail');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('detail', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['detail'] = $detail;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance
+     *
+     * @return string|null
+     */
+    public function getInstance()
+    {
+        return $this->container['instance'];
+    }
+
+    /**
+     * Sets instance
+     *
+     * @param string|null $instance A URI reference that identifies the specific occurrence of the problem
+     *
+     * @return self
+     */
+    public function setInstance($instance)
+    {
+        if (is_null($instance)) {
+            array_push($this->openAPINullablesSetToNull, 'instance');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('instance', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['instance'] = $instance;
+
+        return $this;
+    }
+
+    /**
+     * Gets title
+     *
+     * @return string|null
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string|null $title A short, human-readable remarks of the problem type.
+     *
+     * @return self
+     */
+    public function setTitle($title)
+    {
+        if (is_null($title)) {
+            array_push($this->openAPINullablesSetToNull, 'title');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('title', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['title'] = $title;
+
+        return $this;
+    }
 
     /**
      * Gets trace_id
@@ -469,152 +615,6 @@ class CriteoApiWarning implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets code
-     *
-     * @return string|null
-     */
-    public function getCode()
-    {
-        return $this->container['code'];
-    }
-
-    /**
-     * Sets code
-     *
-     * @param string|null $code A machine-readable error code string in kabab-case. Unique across Criteo
-     *
-     * @return self
-     */
-    public function setCode($code)
-    {
-        if (is_null($code)) {
-            array_push($this->openAPINullablesSetToNull, 'code');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('code', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $allowedValues = $this->getCodeAllowableValues();
-        if (!is_null($code) && !in_array($code, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'code', must be one of '%s'",
-                    $code,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['code'] = $code;
-
-        return $this;
-    }
-
-    /**
-     * Gets instance
-     *
-     * @return string|null
-     */
-    public function getInstance()
-    {
-        return $this->container['instance'];
-    }
-
-    /**
-     * Sets instance
-     *
-     * @param string|null $instance A URI reference that identifies the specific occurrence of the problem
-     *
-     * @return self
-     */
-    public function setInstance($instance)
-    {
-        if (is_null($instance)) {
-            array_push($this->openAPINullablesSetToNull, 'instance');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('instance', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['instance'] = $instance;
-
-        return $this;
-    }
-
-    /**
-     * Gets title
-     *
-     * @return string|null
-     */
-    public function getTitle()
-    {
-        return $this->container['title'];
-    }
-
-    /**
-     * Sets title
-     *
-     * @param string|null $title A short, human-readable remarks of the problem type.
-     *
-     * @return self
-     */
-    public function setTitle($title)
-    {
-        if (is_null($title)) {
-            array_push($this->openAPINullablesSetToNull, 'title');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('title', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['title'] = $title;
-
-        return $this;
-    }
-
-    /**
-     * Gets detail
-     *
-     * @return string|null
-     */
-    public function getDetail()
-    {
-        return $this->container['detail'];
-    }
-
-    /**
-     * Sets detail
-     *
-     * @param string|null $detail A human-readable explanation specific to this occurrence of the problem.
-     *
-     * @return self
-     */
-    public function setDetail($detail)
-    {
-        if (is_null($detail)) {
-            array_push($this->openAPINullablesSetToNull, 'detail');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('detail', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['detail'] = $detail;
 
         return $this;
     }

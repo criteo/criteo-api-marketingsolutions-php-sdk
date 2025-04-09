@@ -541,7 +541,7 @@ try {
 ## `generateCreativePreview()`
 
 ```php
-generateCreativePreview($id, $width, $height): string
+generateCreativePreview($id, $height, $width): string
 ```
 
 
@@ -569,11 +569,11 @@ $apiInstance = new criteo\api\marketingsolutions\v2024_01\Api\CreativeApi(
     $config
 );
 $id = 'id_example'; // string | The Creative identifier to preview.
-$width = 56; // int | The width of the Creative to preview.
 $height = 56; // int | The height of the Creative to preview.
+$width = 56; // int | The width of the Creative to preview.
 
 try {
-    $result = $apiInstance->generateCreativePreview($id, $width, $height);
+    $result = $apiInstance->generateCreativePreview($id, $height, $width);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CreativeApi->generateCreativePreview: ', $e->getMessage(), PHP_EOL;
@@ -585,8 +585,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| The Creative identifier to preview. | |
-| **width** | **int**| The width of the Creative to preview. | [optional] |
 | **height** | **int**| The height of the Creative to preview. | [optional] |
+| **width** | **int**| The width of the Creative to preview. | [optional] |
 
 ### Return type
 
@@ -803,7 +803,7 @@ try {
 ## `getAdvertiserCouponPreview()`
 
 ```php
-getAdvertiserCouponPreview($advertiser_id, $id, $width, $height): string
+getAdvertiserCouponPreview($advertiser_id, $id, $height, $width): string
 ```
 
 
@@ -832,11 +832,11 @@ $apiInstance = new criteo\api\marketingsolutions\v2024_01\Api\CreativeApi(
 );
 $advertiser_id = 'advertiser_id_example'; // string | The advertiser identifier.
 $id = 'id_example'; // string | The Coupon identifier to preview.
-$width = 56; // int | The width of the coupon to preview.
 $height = 56; // int | The height of the coupon to preview.
+$width = 56; // int | The width of the coupon to preview.
 
 try {
-    $result = $apiInstance->getAdvertiserCouponPreview($advertiser_id, $id, $width, $height);
+    $result = $apiInstance->getAdvertiserCouponPreview($advertiser_id, $id, $height, $width);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CreativeApi->getAdvertiserCouponPreview: ', $e->getMessage(), PHP_EOL;
@@ -849,8 +849,8 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **advertiser_id** | **string**| The advertiser identifier. | |
 | **id** | **string**| The Coupon identifier to preview. | |
-| **width** | **int**| The width of the coupon to preview. | [optional] |
 | **height** | **int**| The height of the coupon to preview. | [optional] |
+| **width** | **int**| The width of the coupon to preview. | [optional] |
 
 ### Return type
 

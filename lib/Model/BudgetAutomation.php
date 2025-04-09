@@ -58,8 +58,8 @@ class BudgetAutomation implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'enabled' => 'bool',
-        'automated_budget_configuration' => '\criteo\api\marketingsolutions\v2024_01\Model\AutomatedBudgetConfiguration'
+        'automated_budget_configuration' => '\criteo\api\marketingsolutions\v2024_01\Model\AutomatedBudgetConfiguration',
+        'enabled' => 'bool'
     ];
 
     /**
@@ -70,8 +70,8 @@ class BudgetAutomation implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'enabled' => null,
-        'automated_budget_configuration' => null
+        'automated_budget_configuration' => null,
+        'enabled' => null
     ];
 
     /**
@@ -80,8 +80,8 @@ class BudgetAutomation implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'enabled' => false,
-		'automated_budget_configuration' => true
+        'automated_budget_configuration' => true,
+		'enabled' => false
     ];
 
     /**
@@ -170,8 +170,8 @@ class BudgetAutomation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'enabled' => 'enabled',
-        'automated_budget_configuration' => 'automatedBudgetConfiguration'
+        'automated_budget_configuration' => 'automatedBudgetConfiguration',
+        'enabled' => 'enabled'
     ];
 
     /**
@@ -180,8 +180,8 @@ class BudgetAutomation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'enabled' => 'setEnabled',
-        'automated_budget_configuration' => 'setAutomatedBudgetConfiguration'
+        'automated_budget_configuration' => 'setAutomatedBudgetConfiguration',
+        'enabled' => 'setEnabled'
     ];
 
     /**
@@ -190,8 +190,8 @@ class BudgetAutomation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'enabled' => 'getEnabled',
-        'automated_budget_configuration' => 'getAutomatedBudgetConfiguration'
+        'automated_budget_configuration' => 'getAutomatedBudgetConfiguration',
+        'enabled' => 'getEnabled'
     ];
 
     /**
@@ -251,8 +251,8 @@ class BudgetAutomation implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('enabled', $data ?? [], null);
         $this->setIfExists('automated_budget_configuration', $data ?? [], null);
+        $this->setIfExists('enabled', $data ?? [], null);
     }
 
     /**
@@ -298,33 +298,6 @@ class BudgetAutomation implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets enabled
-     *
-     * @return bool|null
-     */
-    public function getEnabled()
-    {
-        return $this->container['enabled'];
-    }
-
-    /**
-     * Sets enabled
-     *
-     * @param bool|null $enabled enabled
-     *
-     * @return self
-     */
-    public function setEnabled($enabled)
-    {
-        if (is_null($enabled)) {
-            throw new \InvalidArgumentException('non-nullable enabled cannot be null');
-        }
-        $this->container['enabled'] = $enabled;
-
-        return $this;
-    }
-
-    /**
      * Gets automated_budget_configuration
      *
      * @return \criteo\api\marketingsolutions\v2024_01\Model\AutomatedBudgetConfiguration|null
@@ -354,6 +327,33 @@ class BudgetAutomation implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['automated_budget_configuration'] = $automated_budget_configuration;
+
+        return $this;
+    }
+
+    /**
+     * Gets enabled
+     *
+     * @return bool|null
+     */
+    public function getEnabled()
+    {
+        return $this->container['enabled'];
+    }
+
+    /**
+     * Sets enabled
+     *
+     * @param bool|null $enabled enabled
+     *
+     * @return self
+     */
+    public function setEnabled($enabled)
+    {
+        if (is_null($enabled)) {
+            throw new \InvalidArgumentException('non-nullable enabled cannot be null');
+        }
+        $this->container['enabled'] = $enabled;
 
         return $this;
     }

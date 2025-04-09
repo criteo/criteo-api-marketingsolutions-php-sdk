@@ -58,16 +58,16 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'dataset_id' => 'string',
+        'bidding' => '\criteo\api\marketingsolutions\v2024_01\Model\CreateAdSetBidding',
+        'budget' => '\criteo\api\marketingsolutions\v2024_01\Model\CreateAdSetBudget',
         'campaign_id' => 'string',
+        'dataset_id' => 'string',
+        'media_type' => 'string',
+        'name' => 'string',
         'objective' => 'string',
         'schedule' => '\criteo\api\marketingsolutions\v2024_01\Model\CreateAdSetSchedule',
-        'bidding' => '\criteo\api\marketingsolutions\v2024_01\Model\CreateAdSetBidding',
         'targeting' => '\criteo\api\marketingsolutions\v2024_01\Model\CreateAdSetTargeting',
-        'budget' => '\criteo\api\marketingsolutions\v2024_01\Model\CreateAdSetBudget',
-        'tracking_code' => 'string',
-        'media_type' => 'string'
+        'tracking_code' => 'string'
     ];
 
     /**
@@ -78,16 +78,16 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'dataset_id' => null,
+        'bidding' => null,
+        'budget' => null,
         'campaign_id' => null,
+        'dataset_id' => null,
+        'media_type' => null,
+        'name' => null,
         'objective' => null,
         'schedule' => null,
-        'bidding' => null,
         'targeting' => null,
-        'budget' => null,
-        'tracking_code' => null,
-        'media_type' => null
+        'tracking_code' => null
     ];
 
     /**
@@ -96,16 +96,16 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => true,
-		'dataset_id' => true,
+        'bidding' => false,
+		'budget' => false,
 		'campaign_id' => true,
+		'dataset_id' => true,
+		'media_type' => false,
+		'name' => true,
 		'objective' => false,
 		'schedule' => false,
-		'bidding' => false,
 		'targeting' => false,
-		'budget' => false,
-		'tracking_code' => true,
-		'media_type' => false
+		'tracking_code' => true
     ];
 
     /**
@@ -194,16 +194,16 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'dataset_id' => 'datasetId',
+        'bidding' => 'bidding',
+        'budget' => 'budget',
         'campaign_id' => 'campaignId',
+        'dataset_id' => 'datasetId',
+        'media_type' => 'mediaType',
+        'name' => 'name',
         'objective' => 'objective',
         'schedule' => 'schedule',
-        'bidding' => 'bidding',
         'targeting' => 'targeting',
-        'budget' => 'budget',
-        'tracking_code' => 'trackingCode',
-        'media_type' => 'mediaType'
+        'tracking_code' => 'trackingCode'
     ];
 
     /**
@@ -212,16 +212,16 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'dataset_id' => 'setDatasetId',
+        'bidding' => 'setBidding',
+        'budget' => 'setBudget',
         'campaign_id' => 'setCampaignId',
+        'dataset_id' => 'setDatasetId',
+        'media_type' => 'setMediaType',
+        'name' => 'setName',
         'objective' => 'setObjective',
         'schedule' => 'setSchedule',
-        'bidding' => 'setBidding',
         'targeting' => 'setTargeting',
-        'budget' => 'setBudget',
-        'tracking_code' => 'setTrackingCode',
-        'media_type' => 'setMediaType'
+        'tracking_code' => 'setTrackingCode'
     ];
 
     /**
@@ -230,16 +230,16 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'dataset_id' => 'getDatasetId',
+        'bidding' => 'getBidding',
+        'budget' => 'getBudget',
         'campaign_id' => 'getCampaignId',
+        'dataset_id' => 'getDatasetId',
+        'media_type' => 'getMediaType',
+        'name' => 'getName',
         'objective' => 'getObjective',
         'schedule' => 'getSchedule',
-        'bidding' => 'getBidding',
         'targeting' => 'getTargeting',
-        'budget' => 'getBudget',
-        'tracking_code' => 'getTrackingCode',
-        'media_type' => 'getMediaType'
+        'tracking_code' => 'getTrackingCode'
     ];
 
     /**
@@ -283,6 +283,8 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const MEDIA_TYPE_DISPLAY = 'display';
+    public const MEDIA_TYPE_VIDEO = 'video';
     public const OBJECTIVE_CUSTOM_ACTION = 'customAction';
     public const OBJECTIVE_CLICKS = 'clicks';
     public const OBJECTIVE_CONVERSIONS = 'conversions';
@@ -294,8 +296,19 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     public const OBJECTIVE_REACH = 'reach';
     public const OBJECTIVE_VISITS = 'visits';
     public const OBJECTIVE_VIDEO_VIEWS = 'videoViews';
-    public const MEDIA_TYPE_DISPLAY = 'display';
-    public const MEDIA_TYPE_VIDEO = 'video';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMediaTypeAllowableValues()
+    {
+        return [
+            self::MEDIA_TYPE_DISPLAY,
+            self::MEDIA_TYPE_VIDEO,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -320,19 +333,6 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getMediaTypeAllowableValues()
-    {
-        return [
-            self::MEDIA_TYPE_DISPLAY,
-            self::MEDIA_TYPE_VIDEO,
-        ];
-    }
-
-    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -347,16 +347,16 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('dataset_id', $data ?? [], null);
+        $this->setIfExists('bidding', $data ?? [], null);
+        $this->setIfExists('budget', $data ?? [], null);
         $this->setIfExists('campaign_id', $data ?? [], null);
+        $this->setIfExists('dataset_id', $data ?? [], null);
+        $this->setIfExists('media_type', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('objective', $data ?? [], null);
         $this->setIfExists('schedule', $data ?? [], null);
-        $this->setIfExists('bidding', $data ?? [], null);
         $this->setIfExists('targeting', $data ?? [], null);
-        $this->setIfExists('budget', $data ?? [], null);
         $this->setIfExists('tracking_code', $data ?? [], null);
-        $this->setIfExists('media_type', $data ?? [], null);
     }
 
     /**
@@ -386,14 +386,29 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['bidding'] === null) {
+            $invalidProperties[] = "'bidding' can't be null";
+        }
+        if ($this->container['campaign_id'] === null) {
+            $invalidProperties[] = "'campaign_id' can't be null";
         }
         if ($this->container['dataset_id'] === null) {
             $invalidProperties[] = "'dataset_id' can't be null";
         }
-        if ($this->container['campaign_id'] === null) {
-            $invalidProperties[] = "'campaign_id' can't be null";
+        if ($this->container['media_type'] === null) {
+            $invalidProperties[] = "'media_type' can't be null";
+        }
+        $allowedValues = $this->getMediaTypeAllowableValues();
+        if (!is_null($this->container['media_type']) && !in_array($this->container['media_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'media_type', must be one of '%s'",
+                $this->container['media_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
         }
         if ($this->container['objective'] === null) {
             $invalidProperties[] = "'objective' can't be null";
@@ -410,27 +425,12 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['schedule'] === null) {
             $invalidProperties[] = "'schedule' can't be null";
         }
-        if ($this->container['bidding'] === null) {
-            $invalidProperties[] = "'bidding' can't be null";
-        }
         if ($this->container['targeting'] === null) {
             $invalidProperties[] = "'targeting' can't be null";
         }
         if ($this->container['tracking_code'] === null) {
             $invalidProperties[] = "'tracking_code' can't be null";
         }
-        if ($this->container['media_type'] === null) {
-            $invalidProperties[] = "'media_type' can't be null";
-        }
-        $allowedValues = $this->getMediaTypeAllowableValues();
-        if (!is_null($this->container['media_type']) && !in_array($this->container['media_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'media_type', must be one of '%s'",
-                $this->container['media_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -447,35 +447,89 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets name
+     * Gets bidding
      *
-     * @return string
+     * @return \criteo\api\marketingsolutions\v2024_01\Model\CreateAdSetBidding
      */
-    public function getName()
+    public function getBidding()
     {
-        return $this->container['name'];
+        return $this->container['bidding'];
     }
 
     /**
-     * Sets name
+     * Sets bidding
      *
-     * @param string $name Name of the ad set
+     * @param \criteo\api\marketingsolutions\v2024_01\Model\CreateAdSetBidding $bidding bidding
      *
      * @return self
      */
-    public function setName($name)
+    public function setBidding($bidding)
     {
-        if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
+        if (is_null($bidding)) {
+            throw new \InvalidArgumentException('non-nullable bidding cannot be null');
+        }
+        $this->container['bidding'] = $bidding;
+
+        return $this;
+    }
+
+    /**
+     * Gets budget
+     *
+     * @return \criteo\api\marketingsolutions\v2024_01\Model\CreateAdSetBudget|null
+     */
+    public function getBudget()
+    {
+        return $this->container['budget'];
+    }
+
+    /**
+     * Sets budget
+     *
+     * @param \criteo\api\marketingsolutions\v2024_01\Model\CreateAdSetBudget|null $budget budget
+     *
+     * @return self
+     */
+    public function setBudget($budget)
+    {
+        if (is_null($budget)) {
+            throw new \InvalidArgumentException('non-nullable budget cannot be null');
+        }
+        $this->container['budget'] = $budget;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaign_id
+     *
+     * @return string
+     */
+    public function getCampaignId()
+    {
+        return $this->container['campaign_id'];
+    }
+
+    /**
+     * Sets campaign_id
+     *
+     * @param string $campaign_id Campaign id this ad set belongs to
+     *
+     * @return self
+     */
+    public function setCampaignId($campaign_id)
+    {
+        if (is_null($campaign_id)) {
+            array_push($this->openAPINullablesSetToNull, 'campaign_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
+            $index = array_search('campaign_id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['name'] = $name;
+        $this->container['campaign_id'] = $campaign_id;
 
         return $this;
     }
@@ -515,35 +569,72 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets campaign_id
+     * Gets media_type
      *
      * @return string
      */
-    public function getCampaignId()
+    public function getMediaType()
     {
-        return $this->container['campaign_id'];
+        return $this->container['media_type'];
     }
 
     /**
-     * Sets campaign_id
+     * Sets media_type
      *
-     * @param string $campaign_id Campaign id this ad set belongs to
+     * @param string $media_type Media type for the ad set
      *
      * @return self
      */
-    public function setCampaignId($campaign_id)
+    public function setMediaType($media_type)
     {
-        if (is_null($campaign_id)) {
-            array_push($this->openAPINullablesSetToNull, 'campaign_id');
+        if (is_null($media_type)) {
+            throw new \InvalidArgumentException('non-nullable media_type cannot be null');
+        }
+        $allowedValues = $this->getMediaTypeAllowableValues();
+        if (!in_array($media_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'media_type', must be one of '%s'",
+                    $media_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['media_type'] = $media_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name Name of the ad set
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            array_push($this->openAPINullablesSetToNull, 'name');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('campaign_id', $nullablesSetToNull);
+            $index = array_search('name', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['campaign_id'] = $campaign_id;
+        $this->container['name'] = $name;
 
         return $this;
     }
@@ -613,33 +704,6 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets bidding
-     *
-     * @return \criteo\api\marketingsolutions\v2024_01\Model\CreateAdSetBidding
-     */
-    public function getBidding()
-    {
-        return $this->container['bidding'];
-    }
-
-    /**
-     * Sets bidding
-     *
-     * @param \criteo\api\marketingsolutions\v2024_01\Model\CreateAdSetBidding $bidding bidding
-     *
-     * @return self
-     */
-    public function setBidding($bidding)
-    {
-        if (is_null($bidding)) {
-            throw new \InvalidArgumentException('non-nullable bidding cannot be null');
-        }
-        $this->container['bidding'] = $bidding;
-
-        return $this;
-    }
-
-    /**
      * Gets targeting
      *
      * @return \criteo\api\marketingsolutions\v2024_01\Model\CreateAdSetTargeting
@@ -662,33 +726,6 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable targeting cannot be null');
         }
         $this->container['targeting'] = $targeting;
-
-        return $this;
-    }
-
-    /**
-     * Gets budget
-     *
-     * @return \criteo\api\marketingsolutions\v2024_01\Model\CreateAdSetBudget|null
-     */
-    public function getBudget()
-    {
-        return $this->container['budget'];
-    }
-
-    /**
-     * Sets budget
-     *
-     * @param \criteo\api\marketingsolutions\v2024_01\Model\CreateAdSetBudget|null $budget budget
-     *
-     * @return self
-     */
-    public function setBudget($budget)
-    {
-        if (is_null($budget)) {
-            throw new \InvalidArgumentException('non-nullable budget cannot be null');
-        }
-        $this->container['budget'] = $budget;
 
         return $this;
     }
@@ -723,43 +760,6 @@ class CreateAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['tracking_code'] = $tracking_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets media_type
-     *
-     * @return string
-     */
-    public function getMediaType()
-    {
-        return $this->container['media_type'];
-    }
-
-    /**
-     * Sets media_type
-     *
-     * @param string $media_type Media type for the ad set
-     *
-     * @return self
-     */
-    public function setMediaType($media_type)
-    {
-        if (is_null($media_type)) {
-            throw new \InvalidArgumentException('non-nullable media_type cannot be null');
-        }
-        $allowedValues = $this->getMediaTypeAllowableValues();
-        if (!in_array($media_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'media_type', must be one of '%s'",
-                    $media_type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['media_type'] = $media_type;
 
         return $this;
     }

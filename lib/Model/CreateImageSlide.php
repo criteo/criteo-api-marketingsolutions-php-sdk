@@ -58,9 +58,9 @@ class CreateImageSlide implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'width' => 'int',
         'height' => 'int',
-        'slide_base64_strings' => 'string[]'
+        'slide_base64_strings' => 'string[]',
+        'width' => 'int'
     ];
 
     /**
@@ -71,9 +71,9 @@ class CreateImageSlide implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'width' => 'int32',
         'height' => 'int32',
-        'slide_base64_strings' => null
+        'slide_base64_strings' => null,
+        'width' => 'int32'
     ];
 
     /**
@@ -82,9 +82,9 @@ class CreateImageSlide implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'width' => false,
-		'height' => false,
-		'slide_base64_strings' => true
+        'height' => false,
+		'slide_base64_strings' => true,
+		'width' => false
     ];
 
     /**
@@ -173,9 +173,9 @@ class CreateImageSlide implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'width' => 'width',
         'height' => 'height',
-        'slide_base64_strings' => 'slideBase64Strings'
+        'slide_base64_strings' => 'slideBase64Strings',
+        'width' => 'width'
     ];
 
     /**
@@ -184,9 +184,9 @@ class CreateImageSlide implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'width' => 'setWidth',
         'height' => 'setHeight',
-        'slide_base64_strings' => 'setSlideBase64Strings'
+        'slide_base64_strings' => 'setSlideBase64Strings',
+        'width' => 'setWidth'
     ];
 
     /**
@@ -195,9 +195,9 @@ class CreateImageSlide implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'width' => 'getWidth',
         'height' => 'getHeight',
-        'slide_base64_strings' => 'getSlideBase64Strings'
+        'slide_base64_strings' => 'getSlideBase64Strings',
+        'width' => 'getWidth'
     ];
 
     /**
@@ -257,9 +257,9 @@ class CreateImageSlide implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('width', $data ?? [], null);
         $this->setIfExists('height', $data ?? [], null);
         $this->setIfExists('slide_base64_strings', $data ?? [], null);
+        $this->setIfExists('width', $data ?? [], null);
     }
 
     /**
@@ -303,33 +303,6 @@ class CreateImageSlide implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets width
-     *
-     * @return int|null
-     */
-    public function getWidth()
-    {
-        return $this->container['width'];
-    }
-
-    /**
-     * Sets width
-     *
-     * @param int|null $width Width of the Coupon slide
-     *
-     * @return self
-     */
-    public function setWidth($width)
-    {
-        if (is_null($width)) {
-            throw new \InvalidArgumentException('non-nullable width cannot be null');
-        }
-        $this->container['width'] = $width;
-
-        return $this;
-    }
 
     /**
      * Gets height
@@ -388,6 +361,33 @@ class CreateImageSlide implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['slide_base64_strings'] = $slide_base64_strings;
+
+        return $this;
+    }
+
+    /**
+     * Gets width
+     *
+     * @return int|null
+     */
+    public function getWidth()
+    {
+        return $this->container['width'];
+    }
+
+    /**
+     * Sets width
+     *
+     * @param int|null $width Width of the Coupon slide
+     *
+     * @return self
+     */
+    public function setWidth($width)
+    {
+        if (is_null($width)) {
+            throw new \InvalidArgumentException('non-nullable width cannot be null');
+        }
+        $this->container['width'] = $width;
 
         return $this;
     }

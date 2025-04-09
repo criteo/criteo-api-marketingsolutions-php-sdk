@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **string** | User List |
 **attributes** | [**\criteo\api\marketingsolutions\v2024_01\Model\ContactlistAmendmentAttributes**](ContactlistAmendmentAttributes.md) |  |
+**type** | **string** | User List |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

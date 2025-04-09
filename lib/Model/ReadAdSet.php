@@ -58,16 +58,16 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
         'advertiser_id' => 'string',
-        'dataset_id' => 'string',
-        'campaign_id' => 'string',
-        'destination_environment' => 'string',
-        'schedule' => '\criteo\api\marketingsolutions\v2024_01\Model\ReadAdSetSchedule',
         'bidding' => '\criteo\api\marketingsolutions\v2024_01\Model\ReadAdSetBidding',
-        'targeting' => '\criteo\api\marketingsolutions\v2024_01\Model\AdSetTargeting',
         'budget' => '\criteo\api\marketingsolutions\v2024_01\Model\ReadAdSetBudget',
-        'media_type' => 'string'
+        'campaign_id' => 'string',
+        'dataset_id' => 'string',
+        'destination_environment' => 'string',
+        'media_type' => 'string',
+        'name' => 'string',
+        'schedule' => '\criteo\api\marketingsolutions\v2024_01\Model\ReadAdSetSchedule',
+        'targeting' => '\criteo\api\marketingsolutions\v2024_01\Model\AdSetTargeting'
     ];
 
     /**
@@ -78,16 +78,16 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
         'advertiser_id' => null,
-        'dataset_id' => null,
-        'campaign_id' => null,
-        'destination_environment' => null,
-        'schedule' => null,
         'bidding' => null,
-        'targeting' => null,
         'budget' => null,
-        'media_type' => null
+        'campaign_id' => null,
+        'dataset_id' => null,
+        'destination_environment' => null,
+        'media_type' => null,
+        'name' => null,
+        'schedule' => null,
+        'targeting' => null
     ];
 
     /**
@@ -96,16 +96,16 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => true,
-		'advertiser_id' => true,
-		'dataset_id' => true,
-		'campaign_id' => true,
-		'destination_environment' => true,
-		'schedule' => true,
+        'advertiser_id' => true,
 		'bidding' => true,
-		'targeting' => true,
 		'budget' => true,
-		'media_type' => true
+		'campaign_id' => true,
+		'dataset_id' => true,
+		'destination_environment' => true,
+		'media_type' => true,
+		'name' => true,
+		'schedule' => true,
+		'targeting' => true
     ];
 
     /**
@@ -194,16 +194,16 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
         'advertiser_id' => 'advertiserId',
-        'dataset_id' => 'datasetId',
-        'campaign_id' => 'campaignId',
-        'destination_environment' => 'destinationEnvironment',
-        'schedule' => 'schedule',
         'bidding' => 'bidding',
-        'targeting' => 'targeting',
         'budget' => 'budget',
-        'media_type' => 'mediaType'
+        'campaign_id' => 'campaignId',
+        'dataset_id' => 'datasetId',
+        'destination_environment' => 'destinationEnvironment',
+        'media_type' => 'mediaType',
+        'name' => 'name',
+        'schedule' => 'schedule',
+        'targeting' => 'targeting'
     ];
 
     /**
@@ -212,16 +212,16 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
         'advertiser_id' => 'setAdvertiserId',
-        'dataset_id' => 'setDatasetId',
-        'campaign_id' => 'setCampaignId',
-        'destination_environment' => 'setDestinationEnvironment',
-        'schedule' => 'setSchedule',
         'bidding' => 'setBidding',
-        'targeting' => 'setTargeting',
         'budget' => 'setBudget',
-        'media_type' => 'setMediaType'
+        'campaign_id' => 'setCampaignId',
+        'dataset_id' => 'setDatasetId',
+        'destination_environment' => 'setDestinationEnvironment',
+        'media_type' => 'setMediaType',
+        'name' => 'setName',
+        'schedule' => 'setSchedule',
+        'targeting' => 'setTargeting'
     ];
 
     /**
@@ -230,16 +230,16 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
         'advertiser_id' => 'getAdvertiserId',
-        'dataset_id' => 'getDatasetId',
-        'campaign_id' => 'getCampaignId',
-        'destination_environment' => 'getDestinationEnvironment',
-        'schedule' => 'getSchedule',
         'bidding' => 'getBidding',
-        'targeting' => 'getTargeting',
         'budget' => 'getBudget',
-        'media_type' => 'getMediaType'
+        'campaign_id' => 'getCampaignId',
+        'dataset_id' => 'getDatasetId',
+        'destination_environment' => 'getDestinationEnvironment',
+        'media_type' => 'getMediaType',
+        'name' => 'getName',
+        'schedule' => 'getSchedule',
+        'targeting' => 'getTargeting'
     ];
 
     /**
@@ -331,16 +331,16 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('advertiser_id', $data ?? [], null);
-        $this->setIfExists('dataset_id', $data ?? [], null);
-        $this->setIfExists('campaign_id', $data ?? [], null);
-        $this->setIfExists('destination_environment', $data ?? [], null);
-        $this->setIfExists('schedule', $data ?? [], null);
         $this->setIfExists('bidding', $data ?? [], null);
-        $this->setIfExists('targeting', $data ?? [], null);
         $this->setIfExists('budget', $data ?? [], null);
+        $this->setIfExists('campaign_id', $data ?? [], null);
+        $this->setIfExists('dataset_id', $data ?? [], null);
+        $this->setIfExists('destination_environment', $data ?? [], null);
         $this->setIfExists('media_type', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('schedule', $data ?? [], null);
+        $this->setIfExists('targeting', $data ?? [], null);
     }
 
     /**
@@ -404,40 +404,6 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
      * Gets advertiser_id
      *
      * @return string|null
@@ -472,35 +438,69 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets dataset_id
+     * Gets bidding
      *
-     * @return string|null
+     * @return \criteo\api\marketingsolutions\v2024_01\Model\ReadAdSetBidding|null
      */
-    public function getDatasetId()
+    public function getBidding()
     {
-        return $this->container['dataset_id'];
+        return $this->container['bidding'];
     }
 
     /**
-     * Sets dataset_id
+     * Sets bidding
      *
-     * @param string|null $dataset_id dataset_id
+     * @param \criteo\api\marketingsolutions\v2024_01\Model\ReadAdSetBidding|null $bidding bidding
      *
      * @return self
      */
-    public function setDatasetId($dataset_id)
+    public function setBidding($bidding)
     {
-        if (is_null($dataset_id)) {
-            array_push($this->openAPINullablesSetToNull, 'dataset_id');
+        if (is_null($bidding)) {
+            array_push($this->openAPINullablesSetToNull, 'bidding');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('dataset_id', $nullablesSetToNull);
+            $index = array_search('bidding', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['dataset_id'] = $dataset_id;
+        $this->container['bidding'] = $bidding;
+
+        return $this;
+    }
+
+    /**
+     * Gets budget
+     *
+     * @return \criteo\api\marketingsolutions\v2024_01\Model\ReadAdSetBudget|null
+     */
+    public function getBudget()
+    {
+        return $this->container['budget'];
+    }
+
+    /**
+     * Sets budget
+     *
+     * @param \criteo\api\marketingsolutions\v2024_01\Model\ReadAdSetBudget|null $budget budget
+     *
+     * @return self
+     */
+    public function setBudget($budget)
+    {
+        if (is_null($budget)) {
+            array_push($this->openAPINullablesSetToNull, 'budget');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('budget', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['budget'] = $budget;
 
         return $this;
     }
@@ -535,6 +535,40 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['campaign_id'] = $campaign_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets dataset_id
+     *
+     * @return string|null
+     */
+    public function getDatasetId()
+    {
+        return $this->container['dataset_id'];
+    }
+
+    /**
+     * Sets dataset_id
+     *
+     * @param string|null $dataset_id dataset_id
+     *
+     * @return self
+     */
+    public function setDatasetId($dataset_id)
+    {
+        if (is_null($dataset_id)) {
+            array_push($this->openAPINullablesSetToNull, 'dataset_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('dataset_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['dataset_id'] = $dataset_id;
 
         return $this;
     }
@@ -584,142 +618,6 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets schedule
-     *
-     * @return \criteo\api\marketingsolutions\v2024_01\Model\ReadAdSetSchedule|null
-     */
-    public function getSchedule()
-    {
-        return $this->container['schedule'];
-    }
-
-    /**
-     * Sets schedule
-     *
-     * @param \criteo\api\marketingsolutions\v2024_01\Model\ReadAdSetSchedule|null $schedule schedule
-     *
-     * @return self
-     */
-    public function setSchedule($schedule)
-    {
-        if (is_null($schedule)) {
-            array_push($this->openAPINullablesSetToNull, 'schedule');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('schedule', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['schedule'] = $schedule;
-
-        return $this;
-    }
-
-    /**
-     * Gets bidding
-     *
-     * @return \criteo\api\marketingsolutions\v2024_01\Model\ReadAdSetBidding|null
-     */
-    public function getBidding()
-    {
-        return $this->container['bidding'];
-    }
-
-    /**
-     * Sets bidding
-     *
-     * @param \criteo\api\marketingsolutions\v2024_01\Model\ReadAdSetBidding|null $bidding bidding
-     *
-     * @return self
-     */
-    public function setBidding($bidding)
-    {
-        if (is_null($bidding)) {
-            array_push($this->openAPINullablesSetToNull, 'bidding');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('bidding', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['bidding'] = $bidding;
-
-        return $this;
-    }
-
-    /**
-     * Gets targeting
-     *
-     * @return \criteo\api\marketingsolutions\v2024_01\Model\AdSetTargeting|null
-     */
-    public function getTargeting()
-    {
-        return $this->container['targeting'];
-    }
-
-    /**
-     * Sets targeting
-     *
-     * @param \criteo\api\marketingsolutions\v2024_01\Model\AdSetTargeting|null $targeting targeting
-     *
-     * @return self
-     */
-    public function setTargeting($targeting)
-    {
-        if (is_null($targeting)) {
-            array_push($this->openAPINullablesSetToNull, 'targeting');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('targeting', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['targeting'] = $targeting;
-
-        return $this;
-    }
-
-    /**
-     * Gets budget
-     *
-     * @return \criteo\api\marketingsolutions\v2024_01\Model\ReadAdSetBudget|null
-     */
-    public function getBudget()
-    {
-        return $this->container['budget'];
-    }
-
-    /**
-     * Sets budget
-     *
-     * @param \criteo\api\marketingsolutions\v2024_01\Model\ReadAdSetBudget|null $budget budget
-     *
-     * @return self
-     */
-    public function setBudget($budget)
-    {
-        if (is_null($budget)) {
-            array_push($this->openAPINullablesSetToNull, 'budget');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('budget', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['budget'] = $budget;
-
-        return $this;
-    }
-
-    /**
      * Gets media_type
      *
      * @return string|null
@@ -759,6 +657,108 @@ class ReadAdSet implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['media_type'] = $media_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name name
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets schedule
+     *
+     * @return \criteo\api\marketingsolutions\v2024_01\Model\ReadAdSetSchedule|null
+     */
+    public function getSchedule()
+    {
+        return $this->container['schedule'];
+    }
+
+    /**
+     * Sets schedule
+     *
+     * @param \criteo\api\marketingsolutions\v2024_01\Model\ReadAdSetSchedule|null $schedule schedule
+     *
+     * @return self
+     */
+    public function setSchedule($schedule)
+    {
+        if (is_null($schedule)) {
+            array_push($this->openAPINullablesSetToNull, 'schedule');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('schedule', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['schedule'] = $schedule;
+
+        return $this;
+    }
+
+    /**
+     * Gets targeting
+     *
+     * @return \criteo\api\marketingsolutions\v2024_01\Model\AdSetTargeting|null
+     */
+    public function getTargeting()
+    {
+        return $this->container['targeting'];
+    }
+
+    /**
+     * Sets targeting
+     *
+     * @param \criteo\api\marketingsolutions\v2024_01\Model\AdSetTargeting|null $targeting targeting
+     *
+     * @return self
+     */
+    public function setTargeting($targeting)
+    {
+        if (is_null($targeting)) {
+            array_push($this->openAPINullablesSetToNull, 'targeting');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('targeting', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['targeting'] = $targeting;
 
         return $this;
     }

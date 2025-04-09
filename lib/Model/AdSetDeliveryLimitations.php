@@ -58,8 +58,8 @@ class AdSetDeliveryLimitations implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'environments' => 'string[]',
         'devices' => 'string[]',
+        'environments' => 'string[]',
         'operating_systems' => 'string[]'
     ];
 
@@ -71,8 +71,8 @@ class AdSetDeliveryLimitations implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'environments' => null,
         'devices' => null,
+        'environments' => null,
         'operating_systems' => null
     ];
 
@@ -82,8 +82,8 @@ class AdSetDeliveryLimitations implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'environments' => true,
-		'devices' => true,
+        'devices' => true,
+		'environments' => true,
 		'operating_systems' => true
     ];
 
@@ -173,8 +173,8 @@ class AdSetDeliveryLimitations implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'environments' => 'environments',
         'devices' => 'devices',
+        'environments' => 'environments',
         'operating_systems' => 'operatingSystems'
     ];
 
@@ -184,8 +184,8 @@ class AdSetDeliveryLimitations implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'environments' => 'setEnvironments',
         'devices' => 'setDevices',
+        'environments' => 'setEnvironments',
         'operating_systems' => 'setOperatingSystems'
     ];
 
@@ -195,8 +195,8 @@ class AdSetDeliveryLimitations implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'environments' => 'getEnvironments',
         'devices' => 'getDevices',
+        'environments' => 'getEnvironments',
         'operating_systems' => 'getOperatingSystems'
     ];
 
@@ -241,28 +241,15 @@ class AdSetDeliveryLimitations implements ModelInterface, ArrayAccess, \JsonSeri
         return self::$openAPIModelName;
     }
 
-    public const ENVIRONMENTS_WEB = 'web';
-    public const ENVIRONMENTS_IN_APP = 'inApp';
     public const DEVICES_OTHER = 'other';
     public const DEVICES_DESKTOP = 'desktop';
     public const DEVICES_MOBILE = 'mobile';
     public const DEVICES_TABLET = 'tablet';
+    public const ENVIRONMENTS_WEB = 'web';
+    public const ENVIRONMENTS_IN_APP = 'inApp';
     public const OPERATING_SYSTEMS_ANDROID = 'android';
     public const OPERATING_SYSTEMS_IOS = 'ios';
     public const OPERATING_SYSTEMS_UNKNOWN = 'unknown';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getEnvironmentsAllowableValues()
-    {
-        return [
-            self::ENVIRONMENTS_WEB,
-            self::ENVIRONMENTS_IN_APP,
-        ];
-    }
 
     /**
      * Gets allowable values of the enum
@@ -276,6 +263,19 @@ class AdSetDeliveryLimitations implements ModelInterface, ArrayAccess, \JsonSeri
             self::DEVICES_DESKTOP,
             self::DEVICES_MOBILE,
             self::DEVICES_TABLET,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getEnvironmentsAllowableValues()
+    {
+        return [
+            self::ENVIRONMENTS_WEB,
+            self::ENVIRONMENTS_IN_APP,
         ];
     }
 
@@ -308,8 +308,8 @@ class AdSetDeliveryLimitations implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('environments', $data ?? [], null);
         $this->setIfExists('devices', $data ?? [], null);
+        $this->setIfExists('environments', $data ?? [], null);
         $this->setIfExists('operating_systems', $data ?? [], null);
     }
 
@@ -356,49 +356,6 @@ class AdSetDeliveryLimitations implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
-     * Gets environments
-     *
-     * @return string[]|null
-     */
-    public function getEnvironments()
-    {
-        return $this->container['environments'];
-    }
-
-    /**
-     * Sets environments
-     *
-     * @param string[]|null $environments environments
-     *
-     * @return self
-     */
-    public function setEnvironments($environments)
-    {
-        if (is_null($environments)) {
-            array_push($this->openAPINullablesSetToNull, 'environments');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('environments', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $allowedValues = $this->getEnvironmentsAllowableValues();
-        if (!is_null($environments) && array_diff($environments, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'environments', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['environments'] = $environments;
-
-        return $this;
-    }
-
-    /**
      * Gets devices
      *
      * @return string[]|null
@@ -437,6 +394,49 @@ class AdSetDeliveryLimitations implements ModelInterface, ArrayAccess, \JsonSeri
             );
         }
         $this->container['devices'] = $devices;
+
+        return $this;
+    }
+
+    /**
+     * Gets environments
+     *
+     * @return string[]|null
+     */
+    public function getEnvironments()
+    {
+        return $this->container['environments'];
+    }
+
+    /**
+     * Sets environments
+     *
+     * @param string[]|null $environments environments
+     *
+     * @return self
+     */
+    public function setEnvironments($environments)
+    {
+        if (is_null($environments)) {
+            array_push($this->openAPINullablesSetToNull, 'environments');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('environments', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getEnvironmentsAllowableValues();
+        if (!is_null($environments) && array_diff($environments, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'environments', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['environments'] = $environments;
 
         return $this;
     }

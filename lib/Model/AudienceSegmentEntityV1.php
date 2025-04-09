@@ -58,19 +58,19 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'description' => 'string',
-        'type' => 'string',
-        'created_at' => '\DateTime',
-        'updated_at' => '\DateTime',
         'advertiser_id' => 'string',
-        'in_market' => '\criteo\api\marketingsolutions\v2024_01\Model\InMarketV1',
-        'prospecting' => '\criteo\api\marketingsolutions\v2024_01\Model\ProspectingV1',
-        'contact_list' => '\criteo\api\marketingsolutions\v2024_01\Model\ContactListV1',
-        'location' => '\criteo\api\marketingsolutions\v2024_01\Model\LocationV1',
         'behavioral' => '\criteo\api\marketingsolutions\v2024_01\Model\BehavioralV1',
+        'contact_list' => '\criteo\api\marketingsolutions\v2024_01\Model\ContactListV1',
+        'created_at' => '\DateTime',
+        'description' => 'string',
+        'in_market' => '\criteo\api\marketingsolutions\v2024_01\Model\InMarketV1',
+        'location' => '\criteo\api\marketingsolutions\v2024_01\Model\LocationV1',
+        'lookalike' => '\criteo\api\marketingsolutions\v2024_01\Model\LookalikeV1',
+        'name' => 'string',
+        'prospecting' => '\criteo\api\marketingsolutions\v2024_01\Model\ProspectingV1',
         'retargeting' => '\criteo\api\marketingsolutions\v2024_01\Model\RetargetingV1',
-        'lookalike' => '\criteo\api\marketingsolutions\v2024_01\Model\LookalikeV1'
+        'type' => 'string',
+        'updated_at' => '\DateTime'
     ];
 
     /**
@@ -81,19 +81,19 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'description' => null,
-        'type' => null,
-        'created_at' => 'date-time',
-        'updated_at' => 'date-time',
         'advertiser_id' => null,
-        'in_market' => null,
-        'prospecting' => null,
-        'contact_list' => null,
-        'location' => null,
         'behavioral' => null,
+        'contact_list' => null,
+        'created_at' => 'date-time',
+        'description' => null,
+        'in_market' => null,
+        'location' => null,
+        'lookalike' => null,
+        'name' => null,
+        'prospecting' => null,
         'retargeting' => null,
-        'lookalike' => null
+        'type' => null,
+        'updated_at' => 'date-time'
     ];
 
     /**
@@ -102,19 +102,19 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => true,
-		'description' => true,
-		'type' => true,
-		'created_at' => true,
-		'updated_at' => true,
-		'advertiser_id' => true,
-		'in_market' => true,
-		'prospecting' => true,
-		'contact_list' => true,
-		'location' => true,
+        'advertiser_id' => true,
 		'behavioral' => true,
+		'contact_list' => true,
+		'created_at' => true,
+		'description' => true,
+		'in_market' => true,
+		'location' => true,
+		'lookalike' => true,
+		'name' => true,
+		'prospecting' => true,
 		'retargeting' => true,
-		'lookalike' => true
+		'type' => true,
+		'updated_at' => true
     ];
 
     /**
@@ -203,19 +203,19 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'description' => 'description',
-        'type' => 'type',
-        'created_at' => 'createdAt',
-        'updated_at' => 'updatedAt',
         'advertiser_id' => 'advertiserId',
-        'in_market' => 'inMarket',
-        'prospecting' => 'prospecting',
-        'contact_list' => 'contactList',
-        'location' => 'location',
         'behavioral' => 'behavioral',
+        'contact_list' => 'contactList',
+        'created_at' => 'createdAt',
+        'description' => 'description',
+        'in_market' => 'inMarket',
+        'location' => 'location',
+        'lookalike' => 'lookalike',
+        'name' => 'name',
+        'prospecting' => 'prospecting',
         'retargeting' => 'retargeting',
-        'lookalike' => 'lookalike'
+        'type' => 'type',
+        'updated_at' => 'updatedAt'
     ];
 
     /**
@@ -224,19 +224,19 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'description' => 'setDescription',
-        'type' => 'setType',
-        'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt',
         'advertiser_id' => 'setAdvertiserId',
-        'in_market' => 'setInMarket',
-        'prospecting' => 'setProspecting',
-        'contact_list' => 'setContactList',
-        'location' => 'setLocation',
         'behavioral' => 'setBehavioral',
+        'contact_list' => 'setContactList',
+        'created_at' => 'setCreatedAt',
+        'description' => 'setDescription',
+        'in_market' => 'setInMarket',
+        'location' => 'setLocation',
+        'lookalike' => 'setLookalike',
+        'name' => 'setName',
+        'prospecting' => 'setProspecting',
         'retargeting' => 'setRetargeting',
-        'lookalike' => 'setLookalike'
+        'type' => 'setType',
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -245,19 +245,19 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'description' => 'getDescription',
-        'type' => 'getType',
-        'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt',
         'advertiser_id' => 'getAdvertiserId',
-        'in_market' => 'getInMarket',
-        'prospecting' => 'getProspecting',
-        'contact_list' => 'getContactList',
-        'location' => 'getLocation',
         'behavioral' => 'getBehavioral',
+        'contact_list' => 'getContactList',
+        'created_at' => 'getCreatedAt',
+        'description' => 'getDescription',
+        'in_market' => 'getInMarket',
+        'location' => 'getLocation',
+        'lookalike' => 'getLookalike',
+        'name' => 'getName',
+        'prospecting' => 'getProspecting',
         'retargeting' => 'getRetargeting',
-        'lookalike' => 'getLookalike'
+        'type' => 'getType',
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -344,19 +344,19 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('updated_at', $data ?? [], null);
         $this->setIfExists('advertiser_id', $data ?? [], null);
-        $this->setIfExists('in_market', $data ?? [], null);
-        $this->setIfExists('prospecting', $data ?? [], null);
-        $this->setIfExists('contact_list', $data ?? [], null);
-        $this->setIfExists('location', $data ?? [], null);
         $this->setIfExists('behavioral', $data ?? [], null);
-        $this->setIfExists('retargeting', $data ?? [], null);
+        $this->setIfExists('contact_list', $data ?? [], null);
+        $this->setIfExists('created_at', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('in_market', $data ?? [], null);
+        $this->setIfExists('location', $data ?? [], null);
         $this->setIfExists('lookalike', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('prospecting', $data ?? [], null);
+        $this->setIfExists('retargeting', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('updated_at', $data ?? [], null);
     }
 
     /**
@@ -411,35 +411,137 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets name
+     * Gets advertiser_id
      *
      * @return string|null
      */
-    public function getName()
+    public function getAdvertiserId()
     {
-        return $this->container['name'];
+        return $this->container['advertiser_id'];
     }
 
     /**
-     * Sets name
+     * Sets advertiser_id
      *
-     * @param string|null $name Name of the segment
+     * @param string|null $advertiser_id Advertiser associated to the segment
      *
      * @return self
      */
-    public function setName($name)
+    public function setAdvertiserId($advertiser_id)
     {
-        if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
+        if (is_null($advertiser_id)) {
+            array_push($this->openAPINullablesSetToNull, 'advertiser_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
+            $index = array_search('advertiser_id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['name'] = $name;
+        $this->container['advertiser_id'] = $advertiser_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets behavioral
+     *
+     * @return \criteo\api\marketingsolutions\v2024_01\Model\BehavioralV1|null
+     */
+    public function getBehavioral()
+    {
+        return $this->container['behavioral'];
+    }
+
+    /**
+     * Sets behavioral
+     *
+     * @param \criteo\api\marketingsolutions\v2024_01\Model\BehavioralV1|null $behavioral behavioral
+     *
+     * @return self
+     */
+    public function setBehavioral($behavioral)
+    {
+        if (is_null($behavioral)) {
+            array_push($this->openAPINullablesSetToNull, 'behavioral');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('behavioral', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['behavioral'] = $behavioral;
+
+        return $this;
+    }
+
+    /**
+     * Gets contact_list
+     *
+     * @return \criteo\api\marketingsolutions\v2024_01\Model\ContactListV1|null
+     */
+    public function getContactList()
+    {
+        return $this->container['contact_list'];
+    }
+
+    /**
+     * Sets contact_list
+     *
+     * @param \criteo\api\marketingsolutions\v2024_01\Model\ContactListV1|null $contact_list contact_list
+     *
+     * @return self
+     */
+    public function setContactList($contact_list)
+    {
+        if (is_null($contact_list)) {
+            array_push($this->openAPINullablesSetToNull, 'contact_list');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('contact_list', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['contact_list'] = $contact_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return \DateTime|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param \DateTime|null $created_at ISO-8601 timestamp in UTC of segment creation (read-only)
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        if (is_null($created_at)) {
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }
@@ -474,6 +576,210 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
             }
         }
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets in_market
+     *
+     * @return \criteo\api\marketingsolutions\v2024_01\Model\InMarketV1|null
+     */
+    public function getInMarket()
+    {
+        return $this->container['in_market'];
+    }
+
+    /**
+     * Sets in_market
+     *
+     * @param \criteo\api\marketingsolutions\v2024_01\Model\InMarketV1|null $in_market in_market
+     *
+     * @return self
+     */
+    public function setInMarket($in_market)
+    {
+        if (is_null($in_market)) {
+            array_push($this->openAPINullablesSetToNull, 'in_market');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('in_market', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['in_market'] = $in_market;
+
+        return $this;
+    }
+
+    /**
+     * Gets location
+     *
+     * @return \criteo\api\marketingsolutions\v2024_01\Model\LocationV1|null
+     */
+    public function getLocation()
+    {
+        return $this->container['location'];
+    }
+
+    /**
+     * Sets location
+     *
+     * @param \criteo\api\marketingsolutions\v2024_01\Model\LocationV1|null $location location
+     *
+     * @return self
+     */
+    public function setLocation($location)
+    {
+        if (is_null($location)) {
+            array_push($this->openAPINullablesSetToNull, 'location');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('location', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['location'] = $location;
+
+        return $this;
+    }
+
+    /**
+     * Gets lookalike
+     *
+     * @return \criteo\api\marketingsolutions\v2024_01\Model\LookalikeV1|null
+     */
+    public function getLookalike()
+    {
+        return $this->container['lookalike'];
+    }
+
+    /**
+     * Sets lookalike
+     *
+     * @param \criteo\api\marketingsolutions\v2024_01\Model\LookalikeV1|null $lookalike lookalike
+     *
+     * @return self
+     */
+    public function setLookalike($lookalike)
+    {
+        if (is_null($lookalike)) {
+            array_push($this->openAPINullablesSetToNull, 'lookalike');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('lookalike', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['lookalike'] = $lookalike;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name Name of the segment
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets prospecting
+     *
+     * @return \criteo\api\marketingsolutions\v2024_01\Model\ProspectingV1|null
+     */
+    public function getProspecting()
+    {
+        return $this->container['prospecting'];
+    }
+
+    /**
+     * Sets prospecting
+     *
+     * @param \criteo\api\marketingsolutions\v2024_01\Model\ProspectingV1|null $prospecting prospecting
+     *
+     * @return self
+     */
+    public function setProspecting($prospecting)
+    {
+        if (is_null($prospecting)) {
+            array_push($this->openAPINullablesSetToNull, 'prospecting');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('prospecting', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['prospecting'] = $prospecting;
+
+        return $this;
+    }
+
+    /**
+     * Gets retargeting
+     *
+     * @return \criteo\api\marketingsolutions\v2024_01\Model\RetargetingV1|null
+     */
+    public function getRetargeting()
+    {
+        return $this->container['retargeting'];
+    }
+
+    /**
+     * Sets retargeting
+     *
+     * @param \criteo\api\marketingsolutions\v2024_01\Model\RetargetingV1|null $retargeting retargeting
+     *
+     * @return self
+     */
+    public function setRetargeting($retargeting)
+    {
+        if (is_null($retargeting)) {
+            array_push($this->openAPINullablesSetToNull, 'retargeting');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('retargeting', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['retargeting'] = $retargeting;
 
         return $this;
     }
@@ -523,40 +829,6 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets created_at
-     *
-     * @return \DateTime|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime|null $created_at ISO-8601 timestamp in UTC of segment creation (read-only)
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        if (is_null($created_at)) {
-            array_push($this->openAPINullablesSetToNull, 'created_at');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('created_at', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
      * Gets updated_at
      *
      * @return \DateTime|null
@@ -586,278 +858,6 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
             }
         }
         $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets advertiser_id
-     *
-     * @return string|null
-     */
-    public function getAdvertiserId()
-    {
-        return $this->container['advertiser_id'];
-    }
-
-    /**
-     * Sets advertiser_id
-     *
-     * @param string|null $advertiser_id Advertiser associated to the segment
-     *
-     * @return self
-     */
-    public function setAdvertiserId($advertiser_id)
-    {
-        if (is_null($advertiser_id)) {
-            array_push($this->openAPINullablesSetToNull, 'advertiser_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('advertiser_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['advertiser_id'] = $advertiser_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets in_market
-     *
-     * @return \criteo\api\marketingsolutions\v2024_01\Model\InMarketV1|null
-     */
-    public function getInMarket()
-    {
-        return $this->container['in_market'];
-    }
-
-    /**
-     * Sets in_market
-     *
-     * @param \criteo\api\marketingsolutions\v2024_01\Model\InMarketV1|null $in_market in_market
-     *
-     * @return self
-     */
-    public function setInMarket($in_market)
-    {
-        if (is_null($in_market)) {
-            array_push($this->openAPINullablesSetToNull, 'in_market');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('in_market', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['in_market'] = $in_market;
-
-        return $this;
-    }
-
-    /**
-     * Gets prospecting
-     *
-     * @return \criteo\api\marketingsolutions\v2024_01\Model\ProspectingV1|null
-     */
-    public function getProspecting()
-    {
-        return $this->container['prospecting'];
-    }
-
-    /**
-     * Sets prospecting
-     *
-     * @param \criteo\api\marketingsolutions\v2024_01\Model\ProspectingV1|null $prospecting prospecting
-     *
-     * @return self
-     */
-    public function setProspecting($prospecting)
-    {
-        if (is_null($prospecting)) {
-            array_push($this->openAPINullablesSetToNull, 'prospecting');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('prospecting', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['prospecting'] = $prospecting;
-
-        return $this;
-    }
-
-    /**
-     * Gets contact_list
-     *
-     * @return \criteo\api\marketingsolutions\v2024_01\Model\ContactListV1|null
-     */
-    public function getContactList()
-    {
-        return $this->container['contact_list'];
-    }
-
-    /**
-     * Sets contact_list
-     *
-     * @param \criteo\api\marketingsolutions\v2024_01\Model\ContactListV1|null $contact_list contact_list
-     *
-     * @return self
-     */
-    public function setContactList($contact_list)
-    {
-        if (is_null($contact_list)) {
-            array_push($this->openAPINullablesSetToNull, 'contact_list');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('contact_list', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['contact_list'] = $contact_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets location
-     *
-     * @return \criteo\api\marketingsolutions\v2024_01\Model\LocationV1|null
-     */
-    public function getLocation()
-    {
-        return $this->container['location'];
-    }
-
-    /**
-     * Sets location
-     *
-     * @param \criteo\api\marketingsolutions\v2024_01\Model\LocationV1|null $location location
-     *
-     * @return self
-     */
-    public function setLocation($location)
-    {
-        if (is_null($location)) {
-            array_push($this->openAPINullablesSetToNull, 'location');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('location', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['location'] = $location;
-
-        return $this;
-    }
-
-    /**
-     * Gets behavioral
-     *
-     * @return \criteo\api\marketingsolutions\v2024_01\Model\BehavioralV1|null
-     */
-    public function getBehavioral()
-    {
-        return $this->container['behavioral'];
-    }
-
-    /**
-     * Sets behavioral
-     *
-     * @param \criteo\api\marketingsolutions\v2024_01\Model\BehavioralV1|null $behavioral behavioral
-     *
-     * @return self
-     */
-    public function setBehavioral($behavioral)
-    {
-        if (is_null($behavioral)) {
-            array_push($this->openAPINullablesSetToNull, 'behavioral');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('behavioral', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['behavioral'] = $behavioral;
-
-        return $this;
-    }
-
-    /**
-     * Gets retargeting
-     *
-     * @return \criteo\api\marketingsolutions\v2024_01\Model\RetargetingV1|null
-     */
-    public function getRetargeting()
-    {
-        return $this->container['retargeting'];
-    }
-
-    /**
-     * Sets retargeting
-     *
-     * @param \criteo\api\marketingsolutions\v2024_01\Model\RetargetingV1|null $retargeting retargeting
-     *
-     * @return self
-     */
-    public function setRetargeting($retargeting)
-    {
-        if (is_null($retargeting)) {
-            array_push($this->openAPINullablesSetToNull, 'retargeting');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('retargeting', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['retargeting'] = $retargeting;
-
-        return $this;
-    }
-
-    /**
-     * Gets lookalike
-     *
-     * @return \criteo\api\marketingsolutions\v2024_01\Model\LookalikeV1|null
-     */
-    public function getLookalike()
-    {
-        return $this->container['lookalike'];
-    }
-
-    /**
-     * Sets lookalike
-     *
-     * @param \criteo\api\marketingsolutions\v2024_01\Model\LookalikeV1|null $lookalike lookalike
-     *
-     * @return self
-     */
-    public function setLookalike($lookalike)
-    {
-        if (is_null($lookalike)) {
-            array_push($this->openAPINullablesSetToNull, 'lookalike');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('lookalike', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['lookalike'] = $lookalike;
 
         return $this;
     }

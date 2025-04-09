@@ -58,11 +58,11 @@ class ReadAdSetBudget implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'budget_strategy' => 'string',
-        'budget_renewal' => 'string',
+        'budget_amount' => '\criteo\api\marketingsolutions\v2024_01\Model\NillableDecimal',
         'budget_delivery_smoothing' => 'string',
         'budget_delivery_week' => 'string',
-        'budget_amount' => '\criteo\api\marketingsolutions\v2024_01\Model\NillableDecimal'
+        'budget_renewal' => 'string',
+        'budget_strategy' => 'string'
     ];
 
     /**
@@ -73,11 +73,11 @@ class ReadAdSetBudget implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'budget_strategy' => null,
-        'budget_renewal' => null,
+        'budget_amount' => null,
         'budget_delivery_smoothing' => null,
         'budget_delivery_week' => null,
-        'budget_amount' => null
+        'budget_renewal' => null,
+        'budget_strategy' => null
     ];
 
     /**
@@ -86,11 +86,11 @@ class ReadAdSetBudget implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'budget_strategy' => true,
-		'budget_renewal' => true,
+        'budget_amount' => true,
 		'budget_delivery_smoothing' => true,
 		'budget_delivery_week' => true,
-		'budget_amount' => true
+		'budget_renewal' => true,
+		'budget_strategy' => true
     ];
 
     /**
@@ -179,11 +179,11 @@ class ReadAdSetBudget implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'budget_strategy' => 'budgetStrategy',
-        'budget_renewal' => 'budgetRenewal',
+        'budget_amount' => 'budgetAmount',
         'budget_delivery_smoothing' => 'budgetDeliverySmoothing',
         'budget_delivery_week' => 'budgetDeliveryWeek',
-        'budget_amount' => 'budgetAmount'
+        'budget_renewal' => 'budgetRenewal',
+        'budget_strategy' => 'budgetStrategy'
     ];
 
     /**
@@ -192,11 +192,11 @@ class ReadAdSetBudget implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'budget_strategy' => 'setBudgetStrategy',
-        'budget_renewal' => 'setBudgetRenewal',
+        'budget_amount' => 'setBudgetAmount',
         'budget_delivery_smoothing' => 'setBudgetDeliverySmoothing',
         'budget_delivery_week' => 'setBudgetDeliveryWeek',
-        'budget_amount' => 'setBudgetAmount'
+        'budget_renewal' => 'setBudgetRenewal',
+        'budget_strategy' => 'setBudgetStrategy'
     ];
 
     /**
@@ -205,11 +205,11 @@ class ReadAdSetBudget implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'budget_strategy' => 'getBudgetStrategy',
-        'budget_renewal' => 'getBudgetRenewal',
+        'budget_amount' => 'getBudgetAmount',
         'budget_delivery_smoothing' => 'getBudgetDeliverySmoothing',
         'budget_delivery_week' => 'getBudgetDeliveryWeek',
-        'budget_amount' => 'getBudgetAmount'
+        'budget_renewal' => 'getBudgetRenewal',
+        'budget_strategy' => 'getBudgetStrategy'
     ];
 
     /**
@@ -253,12 +253,6 @@ class ReadAdSetBudget implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const BUDGET_STRATEGY_CAPPED = 'capped';
-    public const BUDGET_STRATEGY_UNCAPPED = 'uncapped';
-    public const BUDGET_RENEWAL_UNDEFINED = 'undefined';
-    public const BUDGET_RENEWAL_DAILY = 'daily';
-    public const BUDGET_RENEWAL_MONTHLY = 'monthly';
-    public const BUDGET_RENEWAL_LIFETIME = 'lifetime';
     public const BUDGET_DELIVERY_SMOOTHING_ACCELERATED = 'accelerated';
     public const BUDGET_DELIVERY_SMOOTHING_STANDARD = 'standard';
     public const BUDGET_DELIVERY_WEEK_UNDEFINED = 'undefined';
@@ -269,34 +263,12 @@ class ReadAdSetBudget implements ModelInterface, ArrayAccess, \JsonSerializable
     public const BUDGET_DELIVERY_WEEK_FRIDAY_TO_THURSDAY = 'fridayToThursday';
     public const BUDGET_DELIVERY_WEEK_SATURDAY_TO_FRIDAY = 'saturdayToFriday';
     public const BUDGET_DELIVERY_WEEK_SUNDAY_TO_SATURDAY = 'sundayToSaturday';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getBudgetStrategyAllowableValues()
-    {
-        return [
-            self::BUDGET_STRATEGY_CAPPED,
-            self::BUDGET_STRATEGY_UNCAPPED,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getBudgetRenewalAllowableValues()
-    {
-        return [
-            self::BUDGET_RENEWAL_UNDEFINED,
-            self::BUDGET_RENEWAL_DAILY,
-            self::BUDGET_RENEWAL_MONTHLY,
-            self::BUDGET_RENEWAL_LIFETIME,
-        ];
-    }
+    public const BUDGET_RENEWAL_UNDEFINED = 'undefined';
+    public const BUDGET_RENEWAL_DAILY = 'daily';
+    public const BUDGET_RENEWAL_MONTHLY = 'monthly';
+    public const BUDGET_RENEWAL_LIFETIME = 'lifetime';
+    public const BUDGET_STRATEGY_CAPPED = 'capped';
+    public const BUDGET_STRATEGY_UNCAPPED = 'uncapped';
 
     /**
      * Gets allowable values of the enum
@@ -331,6 +303,34 @@ class ReadAdSetBudget implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getBudgetRenewalAllowableValues()
+    {
+        return [
+            self::BUDGET_RENEWAL_UNDEFINED,
+            self::BUDGET_RENEWAL_DAILY,
+            self::BUDGET_RENEWAL_MONTHLY,
+            self::BUDGET_RENEWAL_LIFETIME,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getBudgetStrategyAllowableValues()
+    {
+        return [
+            self::BUDGET_STRATEGY_CAPPED,
+            self::BUDGET_STRATEGY_UNCAPPED,
+        ];
+    }
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -345,11 +345,11 @@ class ReadAdSetBudget implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('budget_strategy', $data ?? [], null);
-        $this->setIfExists('budget_renewal', $data ?? [], null);
+        $this->setIfExists('budget_amount', $data ?? [], null);
         $this->setIfExists('budget_delivery_smoothing', $data ?? [], null);
         $this->setIfExists('budget_delivery_week', $data ?? [], null);
-        $this->setIfExists('budget_amount', $data ?? [], null);
+        $this->setIfExists('budget_renewal', $data ?? [], null);
+        $this->setIfExists('budget_strategy', $data ?? [], null);
     }
 
     /**
@@ -379,24 +379,6 @@ class ReadAdSetBudget implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getBudgetStrategyAllowableValues();
-        if (!is_null($this->container['budget_strategy']) && !in_array($this->container['budget_strategy'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'budget_strategy', must be one of '%s'",
-                $this->container['budget_strategy'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getBudgetRenewalAllowableValues();
-        if (!is_null($this->container['budget_renewal']) && !in_array($this->container['budget_renewal'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'budget_renewal', must be one of '%s'",
-                $this->container['budget_renewal'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         $allowedValues = $this->getBudgetDeliverySmoothingAllowableValues();
         if (!is_null($this->container['budget_delivery_smoothing']) && !in_array($this->container['budget_delivery_smoothing'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -411,6 +393,24 @@ class ReadAdSetBudget implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'budget_delivery_week', must be one of '%s'",
                 $this->container['budget_delivery_week'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getBudgetRenewalAllowableValues();
+        if (!is_null($this->container['budget_renewal']) && !in_array($this->container['budget_renewal'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'budget_renewal', must be one of '%s'",
+                $this->container['budget_renewal'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getBudgetStrategyAllowableValues();
+        if (!is_null($this->container['budget_strategy']) && !in_array($this->container['budget_strategy'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'budget_strategy', must be one of '%s'",
+                $this->container['budget_strategy'],
                 implode("', '", $allowedValues)
             );
         }
@@ -431,89 +431,35 @@ class ReadAdSetBudget implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets budget_strategy
+     * Gets budget_amount
      *
-     * @return string|null
+     * @return \criteo\api\marketingsolutions\v2024_01\Model\NillableDecimal|null
      */
-    public function getBudgetStrategy()
+    public function getBudgetAmount()
     {
-        return $this->container['budget_strategy'];
+        return $this->container['budget_amount'];
     }
 
     /**
-     * Sets budget_strategy
+     * Sets budget_amount
      *
-     * @param string|null $budget_strategy budget_strategy
+     * @param \criteo\api\marketingsolutions\v2024_01\Model\NillableDecimal|null $budget_amount budget_amount
      *
      * @return self
      */
-    public function setBudgetStrategy($budget_strategy)
+    public function setBudgetAmount($budget_amount)
     {
-        if (is_null($budget_strategy)) {
-            array_push($this->openAPINullablesSetToNull, 'budget_strategy');
+        if (is_null($budget_amount)) {
+            array_push($this->openAPINullablesSetToNull, 'budget_amount');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('budget_strategy', $nullablesSetToNull);
+            $index = array_search('budget_amount', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $allowedValues = $this->getBudgetStrategyAllowableValues();
-        if (!is_null($budget_strategy) && !in_array($budget_strategy, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'budget_strategy', must be one of '%s'",
-                    $budget_strategy,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['budget_strategy'] = $budget_strategy;
-
-        return $this;
-    }
-
-    /**
-     * Gets budget_renewal
-     *
-     * @return string|null
-     */
-    public function getBudgetRenewal()
-    {
-        return $this->container['budget_renewal'];
-    }
-
-    /**
-     * Sets budget_renewal
-     *
-     * @param string|null $budget_renewal budget_renewal
-     *
-     * @return self
-     */
-    public function setBudgetRenewal($budget_renewal)
-    {
-        if (is_null($budget_renewal)) {
-            array_push($this->openAPINullablesSetToNull, 'budget_renewal');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('budget_renewal', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $allowedValues = $this->getBudgetRenewalAllowableValues();
-        if (!is_null($budget_renewal) && !in_array($budget_renewal, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'budget_renewal', must be one of '%s'",
-                    $budget_renewal,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['budget_renewal'] = $budget_renewal;
+        $this->container['budget_amount'] = $budget_amount;
 
         return $this;
     }
@@ -607,35 +553,89 @@ class ReadAdSetBudget implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets budget_amount
+     * Gets budget_renewal
      *
-     * @return \criteo\api\marketingsolutions\v2024_01\Model\NillableDecimal|null
+     * @return string|null
      */
-    public function getBudgetAmount()
+    public function getBudgetRenewal()
     {
-        return $this->container['budget_amount'];
+        return $this->container['budget_renewal'];
     }
 
     /**
-     * Sets budget_amount
+     * Sets budget_renewal
      *
-     * @param \criteo\api\marketingsolutions\v2024_01\Model\NillableDecimal|null $budget_amount budget_amount
+     * @param string|null $budget_renewal budget_renewal
      *
      * @return self
      */
-    public function setBudgetAmount($budget_amount)
+    public function setBudgetRenewal($budget_renewal)
     {
-        if (is_null($budget_amount)) {
-            array_push($this->openAPINullablesSetToNull, 'budget_amount');
+        if (is_null($budget_renewal)) {
+            array_push($this->openAPINullablesSetToNull, 'budget_renewal');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('budget_amount', $nullablesSetToNull);
+            $index = array_search('budget_renewal', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['budget_amount'] = $budget_amount;
+        $allowedValues = $this->getBudgetRenewalAllowableValues();
+        if (!is_null($budget_renewal) && !in_array($budget_renewal, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'budget_renewal', must be one of '%s'",
+                    $budget_renewal,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['budget_renewal'] = $budget_renewal;
+
+        return $this;
+    }
+
+    /**
+     * Gets budget_strategy
+     *
+     * @return string|null
+     */
+    public function getBudgetStrategy()
+    {
+        return $this->container['budget_strategy'];
+    }
+
+    /**
+     * Sets budget_strategy
+     *
+     * @param string|null $budget_strategy budget_strategy
+     *
+     * @return self
+     */
+    public function setBudgetStrategy($budget_strategy)
+    {
+        if (is_null($budget_strategy)) {
+            array_push($this->openAPINullablesSetToNull, 'budget_strategy');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('budget_strategy', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getBudgetStrategyAllowableValues();
+        if (!is_null($budget_strategy) && !in_array($budget_strategy, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'budget_strategy', must be one of '%s'",
+                    $budget_strategy,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['budget_strategy'] = $budget_strategy;
 
         return $this;
     }
