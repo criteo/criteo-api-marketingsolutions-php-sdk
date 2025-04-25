@@ -229,15 +229,8 @@ class AutomatedBudgetConfigurationV23Q1 implements ModelInterface, ArrayAccess, 
         return self::$openAPIModelName;
     }
 
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_CUSTOM_ACTION = 'customAction';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_CLICKS = 'clicks';
     public const AD_SET_OPTIMIZATION_OBJECTIVE_CONVERSIONS = 'conversions';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_DISPLAYS = 'displays';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_APP_PROMOTION = 'appPromotion';
     public const AD_SET_OPTIMIZATION_OBJECTIVE_REVENUE = 'revenue';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_STORE_CONVERSIONS = 'storeConversions';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_VALUE = 'value';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_REACH = 'reach';
     public const AD_SET_OPTIMIZATION_OBJECTIVE_VISITS = 'visits';
     public const AD_SET_OPTIMIZATION_OBJECTIVE_VIDEO_VIEWS = 'videoViews';
 
@@ -249,15 +242,8 @@ class AutomatedBudgetConfigurationV23Q1 implements ModelInterface, ArrayAccess, 
     public function getAdSetOptimizationObjectiveAllowableValues()
     {
         return [
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_CUSTOM_ACTION,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_CLICKS,
             self::AD_SET_OPTIMIZATION_OBJECTIVE_CONVERSIONS,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_DISPLAYS,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_APP_PROMOTION,
             self::AD_SET_OPTIMIZATION_OBJECTIVE_REVENUE,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_STORE_CONVERSIONS,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_VALUE,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_REACH,
             self::AD_SET_OPTIMIZATION_OBJECTIVE_VISITS,
             self::AD_SET_OPTIMIZATION_OBJECTIVE_VIDEO_VIEWS,
         ];

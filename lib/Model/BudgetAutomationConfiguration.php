@@ -229,15 +229,8 @@ class BudgetAutomationConfiguration implements ModelInterface, ArrayAccess, \Jso
         return self::$openAPIModelName;
     }
 
-    public const AD_SET_OBJECTIVES_CUSTOM_ACTION = 'customAction';
-    public const AD_SET_OBJECTIVES_CLICKS = 'clicks';
     public const AD_SET_OBJECTIVES_CONVERSIONS = 'conversions';
-    public const AD_SET_OBJECTIVES_DISPLAYS = 'displays';
-    public const AD_SET_OBJECTIVES_APP_PROMOTION = 'appPromotion';
     public const AD_SET_OBJECTIVES_REVENUE = 'revenue';
-    public const AD_SET_OBJECTIVES_STORE_CONVERSIONS = 'storeConversions';
-    public const AD_SET_OBJECTIVES_VALUE = 'value';
-    public const AD_SET_OBJECTIVES_REACH = 'reach';
     public const AD_SET_OBJECTIVES_VISITS = 'visits';
     public const AD_SET_OBJECTIVES_VIDEO_VIEWS = 'videoViews';
 
@@ -249,15 +242,8 @@ class BudgetAutomationConfiguration implements ModelInterface, ArrayAccess, \Jso
     public function getAdSetObjectivesAllowableValues()
     {
         return [
-            self::AD_SET_OBJECTIVES_CUSTOM_ACTION,
-            self::AD_SET_OBJECTIVES_CLICKS,
             self::AD_SET_OBJECTIVES_CONVERSIONS,
-            self::AD_SET_OBJECTIVES_DISPLAYS,
-            self::AD_SET_OBJECTIVES_APP_PROMOTION,
             self::AD_SET_OBJECTIVES_REVENUE,
-            self::AD_SET_OBJECTIVES_STORE_CONVERSIONS,
-            self::AD_SET_OBJECTIVES_VALUE,
-            self::AD_SET_OBJECTIVES_REACH,
             self::AD_SET_OBJECTIVES_VISITS,
             self::AD_SET_OBJECTIVES_VIDEO_VIEWS,
         ];
