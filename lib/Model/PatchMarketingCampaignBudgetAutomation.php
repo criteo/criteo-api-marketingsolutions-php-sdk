@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\v2024_07\ObjectSerializer;
  * PatchMarketingCampaignBudgetAutomation Class Doc Comment
  *
  * @category Class
- * @description patch marketing campaign budet automation model
+ * @description patch marketing campaign budget automation model
  * @package  criteo\api\marketingsolutions\v2024_07
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,7 +59,7 @@ class PatchMarketingCampaignBudgetAutomation implements ModelInterface, ArrayAcc
       */
     protected static $openAPITypes = [
         'budget_configuration' => '\criteo\api\marketingsolutions\v2024_07\Model\BudgetAutomationConfiguration',
-        'enable' => 'bool'
+        'enabled' => 'bool'
     ];
 
     /**
@@ -71,7 +71,7 @@ class PatchMarketingCampaignBudgetAutomation implements ModelInterface, ArrayAcc
       */
     protected static $openAPIFormats = [
         'budget_configuration' => null,
-        'enable' => null
+        'enabled' => null
     ];
 
     /**
@@ -81,7 +81,7 @@ class PatchMarketingCampaignBudgetAutomation implements ModelInterface, ArrayAcc
       */
     protected static array $openAPINullables = [
         'budget_configuration' => false,
-		'enable' => false
+		'enabled' => false
     ];
 
     /**
@@ -171,7 +171,7 @@ class PatchMarketingCampaignBudgetAutomation implements ModelInterface, ArrayAcc
      */
     protected static $attributeMap = [
         'budget_configuration' => 'budgetConfiguration',
-        'enable' => 'enable'
+        'enabled' => 'enabled'
     ];
 
     /**
@@ -181,7 +181,7 @@ class PatchMarketingCampaignBudgetAutomation implements ModelInterface, ArrayAcc
      */
     protected static $setters = [
         'budget_configuration' => 'setBudgetConfiguration',
-        'enable' => 'setEnable'
+        'enabled' => 'setEnabled'
     ];
 
     /**
@@ -191,7 +191,7 @@ class PatchMarketingCampaignBudgetAutomation implements ModelInterface, ArrayAcc
      */
     protected static $getters = [
         'budget_configuration' => 'getBudgetConfiguration',
-        'enable' => 'getEnable'
+        'enabled' => 'getEnabled'
     ];
 
     /**
@@ -252,7 +252,7 @@ class PatchMarketingCampaignBudgetAutomation implements ModelInterface, ArrayAcc
     public function __construct(array $data = null)
     {
         $this->setIfExists('budget_configuration', $data ?? [], null);
-        $this->setIfExists('enable', $data ?? [], null);
+        $this->setIfExists('enabled', $data ?? [], null);
     }
 
     /**
@@ -325,28 +325,28 @@ class PatchMarketingCampaignBudgetAutomation implements ModelInterface, ArrayAcc
     }
 
     /**
-     * Gets enable
+     * Gets enabled
      *
      * @return bool|null
      */
-    public function getEnable()
+    public function getEnabled()
     {
-        return $this->container['enable'];
+        return $this->container['enabled'];
     }
 
     /**
-     * Sets enable
+     * Sets enabled
      *
-     * @param bool|null $enable Budget automation for the marketing campaign enable
+     * @param bool|null $enabled Budget automation for the marketing campaign enable
      *
      * @return self
      */
-    public function setEnable($enable)
+    public function setEnabled($enabled)
     {
-        if (is_null($enable)) {
-            throw new \InvalidArgumentException('non-nullable enable cannot be null');
+        if (is_null($enabled)) {
+            throw new \InvalidArgumentException('non-nullable enabled cannot be null');
         }
-        $this->container['enable'] = $enable;
+        $this->container['enabled'] = $enabled;
 
         return $this;
     }
