@@ -58,7 +58,7 @@ class BudgetAutomation implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'automated_budget_configuration' => '\criteo\api\marketingsolutions\preview\Model\AutomatedBudgetConfiguration',
+        'budget_configuration' => '\criteo\api\marketingsolutions\preview\Model\BudgetAutomationConfiguration',
         'enabled' => 'bool'
     ];
 
@@ -70,7 +70,7 @@ class BudgetAutomation implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'automated_budget_configuration' => null,
+        'budget_configuration' => null,
         'enabled' => null
     ];
 
@@ -80,7 +80,7 @@ class BudgetAutomation implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'automated_budget_configuration' => true,
+        'budget_configuration' => false,
 		'enabled' => false
     ];
 
@@ -170,7 +170,7 @@ class BudgetAutomation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'automated_budget_configuration' => 'automatedBudgetConfiguration',
+        'budget_configuration' => 'budgetConfiguration',
         'enabled' => 'enabled'
     ];
 
@@ -180,7 +180,7 @@ class BudgetAutomation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'automated_budget_configuration' => 'setAutomatedBudgetConfiguration',
+        'budget_configuration' => 'setBudgetConfiguration',
         'enabled' => 'setEnabled'
     ];
 
@@ -190,7 +190,7 @@ class BudgetAutomation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'automated_budget_configuration' => 'getAutomatedBudgetConfiguration',
+        'budget_configuration' => 'getBudgetConfiguration',
         'enabled' => 'getEnabled'
     ];
 
@@ -251,7 +251,7 @@ class BudgetAutomation implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('automated_budget_configuration', $data ?? [], null);
+        $this->setIfExists('budget_configuration', $data ?? [], null);
         $this->setIfExists('enabled', $data ?? [], null);
     }
 
@@ -298,35 +298,28 @@ class BudgetAutomation implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets automated_budget_configuration
+     * Gets budget_configuration
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\AutomatedBudgetConfiguration|null
+     * @return \criteo\api\marketingsolutions\preview\Model\BudgetAutomationConfiguration|null
      */
-    public function getAutomatedBudgetConfiguration()
+    public function getBudgetConfiguration()
     {
-        return $this->container['automated_budget_configuration'];
+        return $this->container['budget_configuration'];
     }
 
     /**
-     * Sets automated_budget_configuration
+     * Sets budget_configuration
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\AutomatedBudgetConfiguration|null $automated_budget_configuration automated_budget_configuration
+     * @param \criteo\api\marketingsolutions\preview\Model\BudgetAutomationConfiguration|null $budget_configuration budget_configuration
      *
      * @return self
      */
-    public function setAutomatedBudgetConfiguration($automated_budget_configuration)
+    public function setBudgetConfiguration($budget_configuration)
     {
-        if (is_null($automated_budget_configuration)) {
-            array_push($this->openAPINullablesSetToNull, 'automated_budget_configuration');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('automated_budget_configuration', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($budget_configuration)) {
+            throw new \InvalidArgumentException('non-nullable budget_configuration cannot be null');
         }
-        $this->container['automated_budget_configuration'] = $automated_budget_configuration;
+        $this->container['budget_configuration'] = $budget_configuration;
 
         return $this;
     }

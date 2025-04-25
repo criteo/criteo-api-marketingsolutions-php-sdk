@@ -123,7 +123,6 @@ docs/Model/AudienceSizeEstimationV1Response.md
 docs/Model/AudienceUpdateEntityV1.md
 docs/Model/AudienceUpdateEntityV1Resource.md
 docs/Model/AudienceWarning.md
-docs/Model/AutomatedBudgetConfiguration.md
 docs/Model/AutomatedBudgetConfigurationV23Q1.md
 docs/Model/BasicAudienceDefinition.md
 docs/Model/BatchAcceptedResponse.md
@@ -507,7 +506,6 @@ lib/Model/AudienceSizeEstimationV1Response.php
 lib/Model/AudienceUpdateEntityV1.php
 lib/Model/AudienceUpdateEntityV1Resource.php
 lib/Model/AudienceWarning.php
-lib/Model/AutomatedBudgetConfiguration.php
 lib/Model/AutomatedBudgetConfigurationV23Q1.php
 lib/Model/BasicAudienceDefinition.php
 lib/Model/BatchAcceptedResponse.php
