@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **advertiser_id** | **string** |  | [optional]
-**budget_automation** | [**\criteo\api\marketingsolutions\preview\Model\CampaignBudgetAutomationV23Q1**](CampaignBudgetAutomationV23Q1.md) |  | [optional]
+**budget_automation** | [**\criteo\api\marketingsolutions\v2025_04\Model\CampaignBudgetAutomationV23Q1**](CampaignBudgetAutomationV23Q1.md) |  | [optional]
 **goal** | **string** |  | [optional]
 **id** | **string** | Id of the entity (duplicate of the parent id). | [optional]
 **name** | **string** |  | [optional]
-**spend_limit** | [**\criteo\api\marketingsolutions\preview\Model\CampaignSpendLimitV23Q1**](CampaignSpendLimitV23Q1.md) |  | [optional]
+**spend_limit** | [**\criteo\api\marketingsolutions\v2025_04\Model\CampaignSpendLimitV23Q1**](CampaignSpendLimitV23Q1.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

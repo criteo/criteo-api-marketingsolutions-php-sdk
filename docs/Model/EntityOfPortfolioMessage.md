@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | [**\criteo\api\marketingsolutions\preview\Model\PortfolioMessage**](PortfolioMessage.md) |  | [optional]
+**attributes** | [**\criteo\api\marketingsolutions\v2025_04\Model\PortfolioMessage**](PortfolioMessage.md) |  | [optional]
 **id** | **string** | A opaque string containing the unique Id of the entity | [optional]
 **meta** | **object** | A meta object that contains application-specific metadata | [optional]
 **type** | **string** | A string containing the entity type | [optional]

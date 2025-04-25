@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ad_set_ids** | **string[]** | Ad sets associated to the audience | [optional]
 **advertiser_id** | **string** | Advertiser associated to the audience | [optional]
-**algebra** | [**\criteo\api\marketingsolutions\preview\Model\AlgebraNodeV1**](AlgebraNodeV1.md) |  | [optional]
+**algebra** | [**\criteo\api\marketingsolutions\v2025_04\Model\AlgebraNodeV1**](AlgebraNodeV1.md) |  | [optional]
 **created_at** | **\DateTime** | ISO-8601 timestamp in UTC of audience creation (read-only) | [optional]
 **description** | **string** | Description of the audience | [optional]
 **name** | **string** | Name of the audience | [optional]
