@@ -80,7 +80,7 @@ class BudgetAutomation implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'budget_configuration' => false,
+        'budget_configuration' => true,
 		'enabled' => false
     ];
 
@@ -317,7 +317,14 @@ class BudgetAutomation implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setBudgetConfiguration($budget_configuration)
     {
         if (is_null($budget_configuration)) {
-            throw new \InvalidArgumentException('non-nullable budget_configuration cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'budget_configuration');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('budget_configuration', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['budget_configuration'] = $budget_configuration;
 
