@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **skippable** | **string** |  | [optional]
 **video_aspect_ratio** | **string[]** |  | [optional]
 **video_in_stream_position** | **string[]** |  | [optional]
-**video_placement** | **string[]** |  | [optional]
 **video_player_size** | **string[]** |  | [optional]
 **video_plcmt** | **string[]** |  | [optional]
 
