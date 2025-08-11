@@ -33,9 +33,9 @@ class GatewayApiTest extends TestCase
     {
         parent::__construct();
 
-        $this->clientId = $_SERVER["TEST_CLIENT_ID"];
-        $this->clientSecret = $_SERVER["TEST_CLIENT_SECRET"];
-        $this->applicationId = (int) $_SERVER["TEST_APPLICATION_ID"];
+        $this->clientId = $_SERVER["MARKETINGSOLUTIONS_TEST_CLIENT_ID"];
+        $this->clientSecret = $_SERVER["MARKETINGSOLUTIONS_TEST_CLIENT_SECRET"];
+        $this->applicationId = (int) $_SERVER["MARKETINGSOLUTIONS_TEST_APPLICATION_ID"];
     }
 
     public function secretEnvironmentVariables()
@@ -98,8 +98,8 @@ class GatewayApiTest extends TestCase
 
                 // Assert
                 $this->assertEquals(401, $exception->getCode());
-                $this->assertEquals('authentication', $data->getErrors()[0]->getType());
-                $this->assertEquals('authentication-required', $data->getErrors()[0]->getCode());
+                $this->assertEquals('authorization', $data->getErrors()[0]->getType());
+                $this->assertEquals('authorization-token-invalid', $data->getErrors()[0]->getCode());
             }
         );
     }
