@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**spend_limit_amount** | [**\criteo\api\marketingsolutions\v2025_01\Model\NillableDecimal**](NillableDecimal.md) |  | [optional]
+**spend_limit_amount** | [**\criteo\api\marketingsolutions\v2025_07\Model\NillableDecimal**](NillableDecimal.md) |  | [optional]
 **spend_limit_renewal** | **string** |  | [optional]
 **spend_limit_type** | **string** |  | [optional]
 
