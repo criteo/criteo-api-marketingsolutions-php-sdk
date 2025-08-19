@@ -50,9 +50,6 @@ docs/Model/AdWrite.md
 docs/Model/AdaptiveAttributes.md
 docs/Model/AdaptiveColors.md
 docs/Model/AdaptiveWriteAttributes.md
-docs/Model/AdvertiserCreationInput.md
-docs/Model/AdvertiserCreationRequest.md
-docs/Model/AdvertiserCreationResponse.md
 docs/Model/AdvertiserDatasetListResponse.md
 docs/Model/AlgebraNodeV1.md
 docs/Model/ApiErrorResponse.md
@@ -370,13 +367,11 @@ docs/Model/TransparencyReport.md
 docs/Model/TransparencyReportFile.md
 docs/Model/TransparencyReportListResponse.md
 docs/Model/TransparencyReportResource.md
-docs/Model/UnauthorizedResponseV2.md
 docs/Model/UpdateCoupon.md
 docs/Model/UserDef.md
 docs/Model/ValueResourceCollectionOutcomeOfProductFilterConfig.md
 docs/Model/ValueResourceInputOfCreateProductFilterRequest.md
 docs/Model/ValueResourceInputOfCreateProductSetRequest.md
-docs/Model/ValueResourceOfAdvertiserCreationInput.md
 docs/Model/ValueResourceOfCreateProductFilterRequest.md
 docs/Model/ValueResourceOfCreateProductSetRequest.md
 docs/Model/ValueResourceOfProductFilterConfig.md
@@ -436,9 +431,6 @@ lib/Model/AdWrite.php
 lib/Model/AdaptiveAttributes.php
 lib/Model/AdaptiveColors.php
 lib/Model/AdaptiveWriteAttributes.php
-lib/Model/AdvertiserCreationInput.php
-lib/Model/AdvertiserCreationRequest.php
-lib/Model/AdvertiserCreationResponse.php
 lib/Model/AdvertiserDatasetListResponse.php
 lib/Model/AlgebraNodeV1.php
 lib/Model/ApiErrorResponse.php
@@ -757,13 +749,11 @@ lib/Model/TransparencyReport.php
 lib/Model/TransparencyReportFile.php
 lib/Model/TransparencyReportListResponse.php
 lib/Model/TransparencyReportResource.php
-lib/Model/UnauthorizedResponseV2.php
 lib/Model/UpdateCoupon.php
 lib/Model/UserDef.php
 lib/Model/ValueResourceCollectionOutcomeOfProductFilterConfig.php
 lib/Model/ValueResourceInputOfCreateProductFilterRequest.php
 lib/Model/ValueResourceInputOfCreateProductSetRequest.php
-lib/Model/ValueResourceOfAdvertiserCreationInput.php
 lib/Model/ValueResourceOfCreateProductFilterRequest.php
 lib/Model/ValueResourceOfCreateProductSetRequest.php
 lib/Model/ValueResourceOfProductFilterConfig.php
