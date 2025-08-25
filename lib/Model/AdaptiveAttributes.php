@@ -102,10 +102,10 @@ class AdaptiveAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static array $openAPINullables = [
         'calls_to_action' => false,
 		'colors' => false,
-		'description_font' => false,
-		'description_text' => false,
+		'description_font' => true,
+		'description_text' => true,
 		'headline_font' => false,
-		'headline_text' => false,
+		'headline_text' => true,
 		'image_display' => true,
 		'image_sets' => true,
 		'landing_page_url' => false,
@@ -509,7 +509,14 @@ class AdaptiveAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setDescriptionFont($description_font)
     {
         if (is_null($description_font)) {
-            throw new \InvalidArgumentException('non-nullable description_font cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'description_font');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description_font', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['description_font'] = $description_font;
 
@@ -536,7 +543,14 @@ class AdaptiveAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setDescriptionText($description_text)
     {
         if (is_null($description_text)) {
-            throw new \InvalidArgumentException('non-nullable description_text cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'description_text');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description_text', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['description_text'] = $description_text;
 
@@ -590,7 +604,14 @@ class AdaptiveAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setHeadlineText($headline_text)
     {
         if (is_null($headline_text)) {
-            throw new \InvalidArgumentException('non-nullable headline_text cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'headline_text');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('headline_text', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['headline_text'] = $headline_text;
 
