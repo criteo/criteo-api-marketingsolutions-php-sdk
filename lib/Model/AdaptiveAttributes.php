@@ -104,7 +104,7 @@ class AdaptiveAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
 		'colors' => false,
 		'description_font' => true,
 		'description_text' => true,
-		'headline_font' => false,
+		'headline_font' => true,
 		'headline_text' => true,
 		'image_display' => true,
 		'image_sets' => true,
@@ -577,7 +577,14 @@ class AdaptiveAttributes implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setHeadlineFont($headline_font)
     {
         if (is_null($headline_font)) {
-            throw new \InvalidArgumentException('non-nullable headline_font cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'headline_font');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('headline_font', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['headline_font'] = $headline_font;
 
