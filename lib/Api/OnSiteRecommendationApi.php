@@ -72,10 +72,7 @@ class OnSiteRecommendationApi
     /** @var string[] $contentTypes **/
     public const contentTypes = [
         'apiV1RecoPost' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
     ];
 

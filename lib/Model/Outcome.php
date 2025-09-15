@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * Outcome Class Doc Comment
  *
  * @category Class
- * @description The outcome of an API call.
+ * @description A class implementing the body of a response without data of the Criteo API as described in API Guild Guidelines
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -310,7 +310,7 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets errors
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\CommonProblem[]|null $errors Errors that occured during this call.
+     * @param \criteo\api\marketingsolutions\preview\Model\CommonProblem[]|null $errors errors
      *
      * @return self
      */
@@ -326,6 +326,8 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+
+
         $this->container['errors'] = $errors;
 
         return $this;
@@ -344,7 +346,7 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets warnings
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\CommonProblem[]|null $warnings Warnings that occured during this call.
+     * @param \criteo\api\marketingsolutions\preview\Model\CommonProblem[]|null $warnings warnings
      *
      * @return self
      */
@@ -360,6 +362,8 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+
+
         $this->container['warnings'] = $warnings;
 
         return $this;

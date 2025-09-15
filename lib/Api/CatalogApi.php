@@ -136,7 +136,7 @@ class CatalogApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\BatchAcceptedResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse
+     * @return \criteo\api\marketingsolutions\preview\Model\BatchAcceptedResponse
      */
     public function previewCatalogProductsBatchPost($products_custom_batch_request, string $contentType = self::contentTypes['previewCatalogProductsBatchPost'][0])
     {
@@ -152,7 +152,7 @@ class CatalogApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\BatchAcceptedResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\BatchAcceptedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function previewCatalogProductsBatchPostWithHttpInfo($products_custom_batch_request, string $contentType = self::contentTypes['previewCatalogProductsBatchPost'][0])
     {
@@ -209,96 +209,6 @@ class CatalogApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 400:
-                    if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\FailResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\FailResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\FailResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 429:
-                    if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\FailResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\FailResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 503:
-                    if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\FailResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
             }
 
             $returnType = '\criteo\api\marketingsolutions\preview\Model\BatchAcceptedResponse';
@@ -323,54 +233,6 @@ class CatalogApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\criteo\api\marketingsolutions\preview\Model\BatchAcceptedResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\FailResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\FailResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\FailResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\FailResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\FailResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 503:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\FailResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -556,7 +418,7 @@ class CatalogApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\ReportOkResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse
+     * @return \criteo\api\marketingsolutions\preview\Model\ReportOkResponse
      */
     public function previewCatalogProductsBatchReportOperationTokenGet($operation_token, string $contentType = self::contentTypes['previewCatalogProductsBatchReportOperationTokenGet'][0])
     {
@@ -572,7 +434,7 @@ class CatalogApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\ReportOkResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ReportOkResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function previewCatalogProductsBatchReportOperationTokenGetWithHttpInfo($operation_token, string $contentType = self::contentTypes['previewCatalogProductsBatchReportOperationTokenGet'][0])
     {
@@ -629,96 +491,6 @@ class CatalogApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 400:
-                    if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\FailResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\FailResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\FailResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 404:
-                    if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\FailResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\FailResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 503:
-                    if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\FailResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
             }
 
             $returnType = '\criteo\api\marketingsolutions\preview\Model\ReportOkResponse';
@@ -743,54 +515,6 @@ class CatalogApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\criteo\api\marketingsolutions\preview\Model\ReportOkResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\FailResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\FailResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\FailResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\FailResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\FailResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 503:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\FailResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -978,7 +702,7 @@ class CatalogApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\StatisticsOkResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse
+     * @return \criteo\api\marketingsolutions\preview\Model\StatisticsOkResponse
      */
     public function previewCatalogStatsMerchantsMerchantIdGet($merchant_id, $last_num_hours = null, string $contentType = self::contentTypes['previewCatalogStatsMerchantsMerchantIdGet'][0])
     {
@@ -995,7 +719,7 @@ class CatalogApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\StatisticsOkResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse|\criteo\api\marketingsolutions\preview\Model\FailResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\StatisticsOkResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function previewCatalogStatsMerchantsMerchantIdGetWithHttpInfo($merchant_id, $last_num_hours = null, string $contentType = self::contentTypes['previewCatalogStatsMerchantsMerchantIdGet'][0])
     {
@@ -1052,81 +776,6 @@ class CatalogApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 401:
-                    if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\FailResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\FailResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 429:
-                    if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\FailResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\FailResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 503:
-                    if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\FailResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\FailResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
             }
 
             $returnType = '\criteo\api\marketingsolutions\preview\Model\StatisticsOkResponse';
@@ -1151,46 +800,6 @@ class CatalogApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\criteo\api\marketingsolutions\preview\Model\StatisticsOkResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\FailResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\FailResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\FailResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\FailResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 503:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\FailResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

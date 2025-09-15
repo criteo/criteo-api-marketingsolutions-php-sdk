@@ -52,7 +52,6 @@ docs/Model/AdaptiveColors.md
 docs/Model/AdaptiveWriteAttributes.md
 docs/Model/AdvertiserDatasetListResponse.md
 docs/Model/AlgebraNodeV1.md
-docs/Model/ApiErrorResponse.md
 docs/Model/ApiRequestOfTargetingEntity.md
 docs/Model/ApiResponseOfTargetingEntity.md
 docs/Model/ApplicationSummaryModel.md
@@ -182,13 +181,10 @@ docs/Model/EntityOfPortfolioMessage.md
 docs/Model/EntityV2OfDataset.md
 docs/Model/EntityV2OfObject.md
 docs/Model/EntityWrapperOfTargetingEntity.md
-docs/Model/ErrorCodeResponse.md
-docs/Model/ErrorDescription.md
 docs/Model/ExportColumn.md
 docs/Model/ExportMetaData.md
 docs/Model/ExportResult.md
 docs/Model/ExportResultData.md
-docs/Model/FailResponse.md
 docs/Model/GenerateAudiencePerformanceReport.md
 docs/Model/GenerateAudiencePerformanceReportRequest.md
 docs/Model/GenerateAudiencePerformanceReportResource.md
@@ -433,7 +429,6 @@ lib/Model/AdaptiveColors.php
 lib/Model/AdaptiveWriteAttributes.php
 lib/Model/AdvertiserDatasetListResponse.php
 lib/Model/AlgebraNodeV1.php
-lib/Model/ApiErrorResponse.php
 lib/Model/ApiRequestOfTargetingEntity.php
 lib/Model/ApiResponseOfTargetingEntity.php
 lib/Model/ApplicationSummaryModel.php
@@ -563,13 +558,10 @@ lib/Model/EntityOfPortfolioMessage.php
 lib/Model/EntityV2OfDataset.php
 lib/Model/EntityV2OfObject.php
 lib/Model/EntityWrapperOfTargetingEntity.php
-lib/Model/ErrorCodeResponse.php
-lib/Model/ErrorDescription.php
 lib/Model/ExportColumn.php
 lib/Model/ExportMetaData.php
 lib/Model/ExportResult.php
 lib/Model/ExportResultData.php
-lib/Model/FailResponse.php
 lib/Model/GenerateAudiencePerformanceReport.php
 lib/Model/GenerateAudiencePerformanceReportRequest.php
 lib/Model/GenerateAudiencePerformanceReportResource.php

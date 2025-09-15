@@ -283,6 +283,25 @@ class GenerateCategoriesReportRequestAttributes implements ModelInterface, Array
         return self::$openAPIModelName;
     }
 
+    public const FORMAT_CSV = 'csv';
+    public const FORMAT_EXCEL = 'excel';
+    public const FORMAT_XML = 'xml';
+    public const FORMAT_JSON = 'json';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFormatAllowableValues()
+    {
+        return [
+            self::FORMAT_CSV,
+            self::FORMAT_EXCEL,
+            self::FORMAT_XML,
+            self::FORMAT_JSON,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -305,7 +324,7 @@ class GenerateCategoriesReportRequestAttributes implements ModelInterface, Array
         $this->setIfExists('category', $data ?? [], null);
         $this->setIfExists('domain', $data ?? [], null);
         $this->setIfExists('end_date', $data ?? [], null);
-        $this->setIfExists('format', $data ?? [], null);
+        $this->setIfExists('format', $data ?? [], 'json');
         $this->setIfExists('should_display_domain_dimension', $data ?? [], true);
         $this->setIfExists('start_date', $data ?? [], null);
         $this->setIfExists('timezone', $data ?? [], 'UTC');
@@ -344,9 +363,15 @@ class GenerateCategoriesReportRequestAttributes implements ModelInterface, Array
         if ($this->container['end_date'] === null) {
             $invalidProperties[] = "'end_date' can't be null";
         }
-        if ($this->container['format'] === null) {
-            $invalidProperties[] = "'format' can't be null";
+        $allowedValues = $this->getFormatAllowableValues();
+        if (!is_null($this->container['format']) && !in_array($this->container['format'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'format', must be one of '%s'",
+                $this->container['format'],
+                implode("', '", $allowedValues)
+            );
         }
+
         if ($this->container['start_date'] === null) {
             $invalidProperties[] = "'start_date' can't be null";
         }
@@ -558,7 +583,7 @@ class GenerateCategoriesReportRequestAttributes implements ModelInterface, Array
     /**
      * Gets format
      *
-     * @return string
+     * @return string|null
      */
     public function getFormat()
     {
@@ -568,7 +593,7 @@ class GenerateCategoriesReportRequestAttributes implements ModelInterface, Array
     /**
      * Sets format
      *
-     * @param string $format The file format of the generated report: csv, xml, excel or json.
+     * @param string|null $format The file format of the generated report
      *
      * @return self
      */
@@ -576,6 +601,16 @@ class GenerateCategoriesReportRequestAttributes implements ModelInterface, Array
     {
         if (is_null($format)) {
             throw new \InvalidArgumentException('non-nullable format cannot be null');
+        }
+        $allowedValues = $this->getFormatAllowableValues();
+        if (!in_array($format, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'format', must be one of '%s'",
+                    $format,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['format'] = $format;
 

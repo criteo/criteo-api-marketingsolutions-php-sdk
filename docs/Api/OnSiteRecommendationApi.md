@@ -63,7 +63,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

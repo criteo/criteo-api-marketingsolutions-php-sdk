@@ -72,40 +72,22 @@ class CampaignApi
     /** @var string[] $contentTypes **/
     public const contentTypes = [
         'createAdSetV24Q3' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'createCampaign' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'deleteAdvertiserBundleRules' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'deleteAdvertiserDomainRules' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'deleteCampaignBundleRules' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'deleteCampaignDomainRules' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'disableAdSetTargetingDealIds' => [
             'application/json',
@@ -147,118 +129,61 @@ class CampaignApi
             'application/json',
         ],
         'patchAdSetsV24Q3' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'patchCampaigns' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'patchCategoryBidList' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'patchDisplayMultipliers' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'postAdvertiserBundleRules' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'postAdvertiserDomainRules' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'postCampaignBundleRules' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'postCampaignDomainRules' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'putAdvertiserBundleRules' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'putAdvertiserDomainRules' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'putCampaignBundleRules' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'putCampaignDomainRules' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'searchAdSetsV24Q3' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'searchCampaignsV23Q1' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'setAdSetTargetingDealIds' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'setAdSetTargetingVideoPositioning' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'startAdSets' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'stopAdSets' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'updateAdSetAudience' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
     ];
 
@@ -523,7 +448,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -805,7 +730,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -881,7 +806,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse
+     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
      */
     public function deleteAdvertiserBundleRules($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['deleteAdvertiserBundleRules'][0])
     {
@@ -898,7 +823,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteAdvertiserBundleRulesWithHttpInfo($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['deleteAdvertiserBundleRules'][0])
     {
@@ -955,51 +880,6 @@ class CampaignApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 400:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
             }
 
             $returnType = '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity';
@@ -1024,30 +904,6 @@ class CampaignApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1170,7 +1026,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -1246,7 +1102,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse
+     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
      */
     public function deleteAdvertiserDomainRules($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['deleteAdvertiserDomainRules'][0])
     {
@@ -1263,7 +1119,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteAdvertiserDomainRulesWithHttpInfo($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['deleteAdvertiserDomainRules'][0])
     {
@@ -1320,51 +1176,6 @@ class CampaignApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 400:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
             }
 
             $returnType = '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity';
@@ -1389,30 +1200,6 @@ class CampaignApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1535,7 +1322,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -1611,7 +1398,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse
+     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
      */
     public function deleteCampaignBundleRules($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['deleteCampaignBundleRules'][0])
     {
@@ -1628,7 +1415,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteCampaignBundleRulesWithHttpInfo($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['deleteCampaignBundleRules'][0])
     {
@@ -1685,51 +1472,6 @@ class CampaignApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 400:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
             }
 
             $returnType = '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity';
@@ -1754,30 +1496,6 @@ class CampaignApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1900,7 +1618,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -1976,7 +1694,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse
+     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
      */
     public function deleteCampaignDomainRules($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['deleteCampaignDomainRules'][0])
     {
@@ -1993,7 +1711,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteCampaignDomainRulesWithHttpInfo($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['deleteCampaignDomainRules'][0])
     {
@@ -2050,51 +1768,6 @@ class CampaignApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 400:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
             }
 
             $returnType = '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity';
@@ -2119,30 +1792,6 @@ class CampaignApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2265,7 +1914,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -2555,7 +2204,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -2838,7 +2487,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -3121,7 +2770,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -3404,7 +3053,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -3687,7 +3336,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -3755,7 +3404,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse
+     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
      */
     public function getAdvertiserBundleRules($advertiser_id, string $contentType = self::contentTypes['getAdvertiserBundleRules'][0])
     {
@@ -3771,7 +3420,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAdvertiserBundleRulesWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getAdvertiserBundleRules'][0])
     {
@@ -3828,51 +3477,6 @@ class CampaignApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 400:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
             }
 
             $returnType = '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity';
@@ -3897,30 +3501,6 @@ class CampaignApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4039,7 +3619,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -4107,7 +3687,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse
+     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
      */
     public function getAdvertiserDomainRules($advertiser_id, string $contentType = self::contentTypes['getAdvertiserDomainRules'][0])
     {
@@ -4123,7 +3703,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAdvertiserDomainRulesWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getAdvertiserDomainRules'][0])
     {
@@ -4180,51 +3760,6 @@ class CampaignApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 400:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
             }
 
             $returnType = '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity';
@@ -4249,30 +3784,6 @@ class CampaignApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4391,7 +3902,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -4459,7 +3970,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse
+     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
      */
     public function getCampaignBundleRules($campaign_id, string $contentType = self::contentTypes['getCampaignBundleRules'][0])
     {
@@ -4475,7 +3986,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCampaignBundleRulesWithHttpInfo($campaign_id, string $contentType = self::contentTypes['getCampaignBundleRules'][0])
     {
@@ -4532,51 +4043,6 @@ class CampaignApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 400:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
             }
 
             $returnType = '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity';
@@ -4601,30 +4067,6 @@ class CampaignApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4743,7 +4185,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -4811,7 +4253,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse
+     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
      */
     public function getCampaignDomainRules($campaign_id, string $contentType = self::contentTypes['getCampaignDomainRules'][0])
     {
@@ -4827,7 +4269,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCampaignDomainRulesWithHttpInfo($campaign_id, string $contentType = self::contentTypes['getCampaignDomainRules'][0])
     {
@@ -4884,51 +4326,6 @@ class CampaignApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 400:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
             }
 
             $returnType = '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity';
@@ -4953,30 +4350,6 @@ class CampaignApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5095,7 +4468,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -5378,7 +4751,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -5661,7 +5034,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -5944,7 +5317,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -6207,7 +5580,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -6476,7 +5849,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -6752,7 +6125,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -7048,7 +6421,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -7344,7 +6717,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -7420,7 +6793,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse
+     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
      */
     public function postAdvertiserBundleRules($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['postAdvertiserBundleRules'][0])
     {
@@ -7437,7 +6810,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity, HTTP status code, HTTP response headers (array of strings)
      */
     public function postAdvertiserBundleRulesWithHttpInfo($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['postAdvertiserBundleRules'][0])
     {
@@ -7494,51 +6867,6 @@ class CampaignApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 400:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
             }
 
             $returnType = '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity';
@@ -7563,30 +6891,6 @@ class CampaignApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7709,7 +7013,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -8005,7 +7309,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -8081,7 +7385,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse
+     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
      */
     public function postCampaignBundleRules($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['postCampaignBundleRules'][0])
     {
@@ -8098,7 +7402,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity, HTTP status code, HTTP response headers (array of strings)
      */
     public function postCampaignBundleRulesWithHttpInfo($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['postCampaignBundleRules'][0])
     {
@@ -8155,51 +7459,6 @@ class CampaignApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 400:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
             }
 
             $returnType = '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity';
@@ -8224,30 +7483,6 @@ class CampaignApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8370,7 +7605,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -8446,7 +7681,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse
+     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
      */
     public function postCampaignDomainRules($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['postCampaignDomainRules'][0])
     {
@@ -8463,7 +7698,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity, HTTP status code, HTTP response headers (array of strings)
      */
     public function postCampaignDomainRulesWithHttpInfo($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['postCampaignDomainRules'][0])
     {
@@ -8520,51 +7755,6 @@ class CampaignApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 400:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
             }
 
             $returnType = '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity';
@@ -8589,30 +7779,6 @@ class CampaignApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8735,7 +7901,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -8811,7 +7977,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse
+     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
      */
     public function putAdvertiserBundleRules($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putAdvertiserBundleRules'][0])
     {
@@ -8828,7 +7994,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity, HTTP status code, HTTP response headers (array of strings)
      */
     public function putAdvertiserBundleRulesWithHttpInfo($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putAdvertiserBundleRules'][0])
     {
@@ -8885,51 +8051,6 @@ class CampaignApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 400:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
             }
 
             $returnType = '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity';
@@ -8954,30 +8075,6 @@ class CampaignApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9100,7 +8197,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -9176,7 +8273,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse
+     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
      */
     public function putAdvertiserDomainRules($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putAdvertiserDomainRules'][0])
     {
@@ -9193,7 +8290,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity, HTTP status code, HTTP response headers (array of strings)
      */
     public function putAdvertiserDomainRulesWithHttpInfo($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putAdvertiserDomainRules'][0])
     {
@@ -9250,51 +8347,6 @@ class CampaignApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 400:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
             }
 
             $returnType = '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity';
@@ -9319,30 +8371,6 @@ class CampaignApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9465,7 +8493,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -9541,7 +8569,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse
+     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
      */
     public function putCampaignBundleRules($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putCampaignBundleRules'][0])
     {
@@ -9558,7 +8586,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity, HTTP status code, HTTP response headers (array of strings)
      */
     public function putCampaignBundleRulesWithHttpInfo($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putCampaignBundleRules'][0])
     {
@@ -9615,51 +8643,6 @@ class CampaignApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 400:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
             }
 
             $returnType = '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity';
@@ -9684,30 +8667,6 @@ class CampaignApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9830,7 +8789,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -9906,7 +8865,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse
+     * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
      */
     public function putCampaignDomainRules($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putCampaignDomainRules'][0])
     {
@@ -9923,7 +8882,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse|\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity, HTTP status code, HTTP response headers (array of strings)
      */
     public function putCampaignDomainRulesWithHttpInfo($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putCampaignDomainRules'][0])
     {
@@ -9980,51 +8939,6 @@ class CampaignApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 400:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
             }
 
             $returnType = '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity';
@@ -10049,30 +8963,6 @@ class CampaignApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10195,7 +9085,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -10471,7 +9361,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -10747,7 +9637,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -11043,7 +9933,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -11339,7 +10229,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -11615,7 +10505,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -11891,7 +10781,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -12193,7 +11083,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );

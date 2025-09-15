@@ -63,7 +63,7 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`, `text/plain`, `text/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -126,7 +126,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`, `text/plain`, `text/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -186,7 +186,7 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`, `text/plain`, `text/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

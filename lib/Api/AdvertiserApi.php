@@ -135,7 +135,7 @@ class AdvertiserApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\GetPortfolioResponse|\criteo\api\marketingsolutions\preview\Model\GetPortfolioResponse
+     * @return \criteo\api\marketingsolutions\preview\Model\GetPortfolioResponse
      */
     public function apiPortfolioGet(string $contentType = self::contentTypes['apiPortfolioGet'][0])
     {
@@ -150,7 +150,7 @@ class AdvertiserApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\GetPortfolioResponse|\criteo\api\marketingsolutions\preview\Model\GetPortfolioResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\GetPortfolioResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function apiPortfolioGetWithHttpInfo(string $contentType = self::contentTypes['apiPortfolioGet'][0])
     {
@@ -207,21 +207,6 @@ class AdvertiserApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 401:
-                    if ('\criteo\api\marketingsolutions\preview\Model\GetPortfolioResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\GetPortfolioResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\GetPortfolioResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
             }
 
             $returnType = '\criteo\api\marketingsolutions\preview\Model\GetPortfolioResponse';
@@ -243,14 +228,6 @@ class AdvertiserApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\GetPortfolioResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\criteo\api\marketingsolutions\preview\Model\GetPortfolioResponse',
@@ -354,7 +331,7 @@ class AdvertiserApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', 'text/plain', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -422,7 +399,7 @@ class AdvertiserApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\AdvertiserDatasetListResponse|\criteo\api\marketingsolutions\preview\Model\AdvertiserDatasetListResponse
+     * @return \criteo\api\marketingsolutions\preview\Model\AdvertiserDatasetListResponse
      */
     public function getDatasetList($advertiser_id, string $contentType = self::contentTypes['getDatasetList'][0])
     {
@@ -438,7 +415,7 @@ class AdvertiserApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\AdvertiserDatasetListResponse|\criteo\api\marketingsolutions\preview\Model\AdvertiserDatasetListResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\AdvertiserDatasetListResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getDatasetListWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getDatasetList'][0])
     {
@@ -495,21 +472,6 @@ class AdvertiserApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\AdvertiserDatasetListResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\AdvertiserDatasetListResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\AdvertiserDatasetListResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
             }
 
             $returnType = '\criteo\api\marketingsolutions\preview\Model\AdvertiserDatasetListResponse';
@@ -531,14 +493,6 @@ class AdvertiserApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\AdvertiserDatasetListResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\criteo\api\marketingsolutions\preview\Model\AdvertiserDatasetListResponse',
@@ -660,7 +614,7 @@ class AdvertiserApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', 'text/plain', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -923,7 +877,7 @@ class AdvertiserApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', 'text/plain', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );

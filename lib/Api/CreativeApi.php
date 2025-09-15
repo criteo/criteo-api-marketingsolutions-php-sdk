@@ -72,22 +72,13 @@ class CreativeApi
     /** @var string[] $contentTypes **/
     public const contentTypes = [
         'createAdvertiserAd' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'createAdvertiserCoupon' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'createAdvertiserCreative' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'deleteAd' => [
             'application/json',
@@ -99,16 +90,10 @@ class CreativeApi
             'application/json',
         ],
         'editAdvertiserCoupon' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'editCreative' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'generateCreativePreview' => [
             'application/json',
@@ -420,7 +405,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -722,7 +707,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -1024,7 +1009,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -2053,7 +2038,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -2355,7 +2340,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -2675,7 +2660,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/html', 'application/json', 'text/json', ],
+            ['text/html', 'application/json', ],
             $contentType,
             $multipart
         );
@@ -2958,7 +2943,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -3271,7 +3256,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -3574,7 +3559,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -3907,7 +3892,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/html', 'application/json', 'text/json', ],
+            ['text/html', 'application/json', ],
             $contentType,
             $multipart
         );
@@ -4205,7 +4190,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -4518,7 +4503,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -4831,7 +4816,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -5114,7 +5099,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **category** | **string** | Report only on the specified category. | [optional]
 **domain** | **string** | Report only on the specified domain. | [optional]
 **end_date** | **\DateTime** | End date of the report. Date component of ISO 8061 format, any time or timezone component is ignored. |
-**format** | **string** | The file format of the generated report: csv, xml, excel or json. |
+**format** | **string** | The file format of the generated report | [optional] [default to 'json']
 **should_display_domain_dimension** | **bool** | Specify if the domain dimension is displayed in the report. | [optional] [default to true]
 **start_date** | **\DateTime** | Start date of the report. Date component of ISO 8061 format, any time or timezone component is ignored. |
 **timezone** | **string** | The timezone used for the report. Timezone Database format (Tz). | [optional] [default to 'UTC']

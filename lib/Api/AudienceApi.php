@@ -72,64 +72,34 @@ class AudienceApi
     /** @var string[] $contentTypes **/
     public const contentTypes = [
         'bulkCreateAudienceSegments' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'bulkCreateAudiences' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'bulkDeleteAudienceSegments' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'bulkDeleteAudiences' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'bulkUpdateAudienceSegments' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'bulkUpdateAudiences' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'computeAudienceSegmentsSizes' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'computeAudiencesSizes' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'estimateAudienceSegmentSize' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'estimateAudienceSize' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'getAudienceSegmentContactListStatistics' => [
             'application/json',
@@ -150,16 +120,10 @@ class AudienceApi
             'application/json',
         ],
         'searchAudienceSegments' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'searchAudiences' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
     ];
 
@@ -424,7 +388,7 @@ class AudienceApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -706,7 +670,7 @@ class AudienceApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -988,7 +952,7 @@ class AudienceApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -1270,7 +1234,7 @@ class AudienceApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -1552,7 +1516,7 @@ class AudienceApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -1834,7 +1798,7 @@ class AudienceApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -2116,7 +2080,7 @@ class AudienceApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -2398,7 +2362,7 @@ class AudienceApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -2680,7 +2644,7 @@ class AudienceApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -2962,7 +2926,7 @@ class AudienceApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -3252,7 +3216,7 @@ class AudienceApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -3557,7 +3521,7 @@ class AudienceApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -3862,7 +3826,7 @@ class AudienceApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -4232,7 +4196,7 @@ class AudienceApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\DeleteAudienceContactListResponse|\criteo\api\marketingsolutions\preview\Model\ErrorCodeResponse
+     * @return \criteo\api\marketingsolutions\preview\Model\DeleteAudienceContactListResponse
      */
     public function previewMarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListDelete($audience_segment_id, string $contentType = self::contentTypes['previewMarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListDelete'][0])
     {
@@ -4248,7 +4212,7 @@ class AudienceApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\DeleteAudienceContactListResponse|\criteo\api\marketingsolutions\preview\Model\ErrorCodeResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\DeleteAudienceContactListResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function previewMarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListDeleteWithHttpInfo($audience_segment_id, string $contentType = self::contentTypes['previewMarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListDelete'][0])
     {
@@ -4305,21 +4269,6 @@ class AudienceApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ErrorCodeResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ErrorCodeResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ErrorCodeResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
             }
 
             $returnType = '\criteo\api\marketingsolutions\preview\Model\DeleteAudienceContactListResponse';
@@ -4344,14 +4293,6 @@ class AudienceApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\criteo\api\marketingsolutions\preview\Model\DeleteAudienceContactListResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ErrorCodeResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4539,7 +4480,7 @@ class AudienceApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\ModifyAudienceResponse|\criteo\api\marketingsolutions\preview\Model\ErrorCodeResponse|\criteo\api\marketingsolutions\preview\Model\ErrorCodeResponse
+     * @return \criteo\api\marketingsolutions\preview\Model\ModifyAudienceResponse
      */
     public function previewMarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListPatch($audience_segment_id, $contactlist_amendment_request, string $contentType = self::contentTypes['previewMarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListPatch'][0])
     {
@@ -4556,7 +4497,7 @@ class AudienceApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\ModifyAudienceResponse|\criteo\api\marketingsolutions\preview\Model\ErrorCodeResponse|\criteo\api\marketingsolutions\preview\Model\ErrorCodeResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ModifyAudienceResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function previewMarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListPatchWithHttpInfo($audience_segment_id, $contactlist_amendment_request, string $contentType = self::contentTypes['previewMarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListPatch'][0])
     {
@@ -4613,36 +4554,6 @@ class AudienceApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 403:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ErrorCodeResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ErrorCodeResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ErrorCodeResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 404:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ErrorCodeResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ErrorCodeResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ErrorCodeResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
             }
 
             $returnType = '\criteo\api\marketingsolutions\preview\Model\ModifyAudienceResponse';
@@ -4667,22 +4578,6 @@ class AudienceApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\criteo\api\marketingsolutions\preview\Model\ModifyAudienceResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ErrorCodeResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ErrorCodeResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5129,7 +5024,7 @@ class AudienceApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -5447,7 +5342,7 @@ class AudienceApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );

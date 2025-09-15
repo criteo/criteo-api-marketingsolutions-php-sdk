@@ -313,6 +313,10 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     public const DIMENSIONS_SOCIAL_PLATFORM = 'SocialPlatform';
     public const DIMENSIONS_CATEGORY_ID = 'CategoryId';
     public const DIMENSIONS_CATEGORY_NAME = 'CategoryName';
+    public const FORMAT_CSV = 'csv';
+    public const FORMAT_EXCEL = 'excel';
+    public const FORMAT_XML = 'xml';
+    public const FORMAT_JSON = 'json';
 
     /**
      * Gets allowable values of the enum
@@ -334,6 +338,21 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
             self::DIMENSIONS_SOCIAL_PLATFORM,
             self::DIMENSIONS_CATEGORY_ID,
             self::DIMENSIONS_CATEGORY_NAME,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFormatAllowableValues()
+    {
+        return [
+            self::FORMAT_CSV,
+            self::FORMAT_EXCEL,
+            self::FORMAT_XML,
+            self::FORMAT_JSON,
         ];
     }
 
@@ -360,7 +379,7 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
         $this->setIfExists('disclosed', $data ?? [], true);
         $this->setIfExists('end_date', $data ?? [], null);
         $this->setIfExists('environment', $data ?? [], null);
-        $this->setIfExists('format', $data ?? [], null);
+        $this->setIfExists('format', $data ?? [], 'json');
         $this->setIfExists('metrics', $data ?? [], null);
         $this->setIfExists('placement', $data ?? [], null);
         $this->setIfExists('start_date', $data ?? [], null);
@@ -406,9 +425,15 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
         if ($this->container['end_date'] === null) {
             $invalidProperties[] = "'end_date' can't be null";
         }
-        if ($this->container['format'] === null) {
-            $invalidProperties[] = "'format' can't be null";
+        $allowedValues = $this->getFormatAllowableValues();
+        if (!is_null($this->container['format']) && !in_array($this->container['format'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'format', must be one of '%s'",
+                $this->container['format'],
+                implode("', '", $allowedValues)
+            );
         }
+
         if ($this->container['metrics'] === null) {
             $invalidProperties[] = "'metrics' can't be null";
         }
@@ -679,7 +704,7 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets format
      *
-     * @return string
+     * @return string|null
      */
     public function getFormat()
     {
@@ -689,7 +714,7 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets format
      *
-     * @param string $format The file format of the generated report: csv, xml, excel or json.
+     * @param string|null $format The file format of the generated report
      *
      * @return self
      */
@@ -697,6 +722,16 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     {
         if (is_null($format)) {
             throw new \InvalidArgumentException('non-nullable format cannot be null');
+        }
+        $allowedValues = $this->getFormatAllowableValues();
+        if (!in_array($format, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'format', must be one of '%s'",
+                    $format,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['format'] = $format;
 
