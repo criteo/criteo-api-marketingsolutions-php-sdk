@@ -1,6 +1,6 @@
 <?php
 /**
- * AdaptiveWriteAttributes
+ * AdaptiveReadAttributes
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2025_04\ObjectSerializer;
 
 /**
- * AdaptiveWriteAttributes Class Doc Comment
+ * AdaptiveReadAttributes Class Doc Comment
  *
  * @category Class
- * @description The attributes specific to create or update an Adaptive creative
+ * @description The attributes specific to Adaptive creatives read
  * @package  criteo\api\marketingsolutions\v2025_04
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
+class AdaptiveReadAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'AdaptiveWriteAttributes';
+    protected static $openAPIModelName = 'AdaptiveReadAttributes';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -65,11 +65,11 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
         'headline_font' => 'string',
         'headline_text' => 'string',
         'image_display' => 'string',
-        'image_sets_base64' => '\criteo\api\marketingsolutions\v2025_04\Model\ImageSetBase64[]',
+        'image_sets' => '\criteo\api\marketingsolutions\v2025_04\Model\ImageSet[]',
         'landing_page_url' => 'string',
         'layouts' => 'string[]',
-        'logo_base64_string' => 'string',
-        'video_base64_strings' => 'string[]'
+        'logos' => '\criteo\api\marketingsolutions\v2025_04\Model\ImageShape[]',
+        'videos' => '\criteo\api\marketingsolutions\v2025_04\Model\VideoDetail[]'
     ];
 
     /**
@@ -87,11 +87,11 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
         'headline_font' => null,
         'headline_text' => null,
         'image_display' => null,
-        'image_sets_base64' => null,
+        'image_sets' => null,
         'landing_page_url' => 'uri',
         'layouts' => null,
-        'logo_base64_string' => null,
-        'video_base64_strings' => null
+        'logos' => null,
+        'videos' => null
     ];
 
     /**
@@ -100,18 +100,18 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'calls_to_action' => false,
+        'calls_to_action' => true,
 		'colors' => true,
-		'description_font' => false,
-		'description_text' => false,
-		'headline_font' => false,
-		'headline_text' => false,
+		'description_font' => true,
+		'description_text' => true,
+		'headline_font' => true,
+		'headline_text' => true,
 		'image_display' => true,
-		'image_sets_base64' => true,
-		'landing_page_url' => false,
-		'layouts' => false,
-		'logo_base64_string' => false,
-		'video_base64_strings' => true
+		'image_sets' => true,
+		'landing_page_url' => true,
+		'layouts' => true,
+		'logos' => true,
+		'videos' => true
     ];
 
     /**
@@ -207,11 +207,11 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
         'headline_font' => 'headlineFont',
         'headline_text' => 'headlineText',
         'image_display' => 'imageDisplay',
-        'image_sets_base64' => 'imageSetsBase64',
+        'image_sets' => 'imageSets',
         'landing_page_url' => 'landingPageUrl',
         'layouts' => 'layouts',
-        'logo_base64_string' => 'logoBase64String',
-        'video_base64_strings' => 'videoBase64Strings'
+        'logos' => 'logos',
+        'videos' => 'videos'
     ];
 
     /**
@@ -227,11 +227,11 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
         'headline_font' => 'setHeadlineFont',
         'headline_text' => 'setHeadlineText',
         'image_display' => 'setImageDisplay',
-        'image_sets_base64' => 'setImageSetsBase64',
+        'image_sets' => 'setImageSets',
         'landing_page_url' => 'setLandingPageUrl',
         'layouts' => 'setLayouts',
-        'logo_base64_string' => 'setLogoBase64String',
-        'video_base64_strings' => 'setVideoBase64Strings'
+        'logos' => 'setLogos',
+        'videos' => 'setVideos'
     ];
 
     /**
@@ -247,11 +247,11 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
         'headline_font' => 'getHeadlineFont',
         'headline_text' => 'getHeadlineText',
         'image_display' => 'getImageDisplay',
-        'image_sets_base64' => 'getImageSetsBase64',
+        'image_sets' => 'getImageSets',
         'landing_page_url' => 'getLandingPageUrl',
         'layouts' => 'getLayouts',
-        'logo_base64_string' => 'getLogoBase64String',
-        'video_base64_strings' => 'getVideoBase64Strings'
+        'logos' => 'getLogos',
+        'videos' => 'getVideos'
     ];
 
     /**
@@ -350,11 +350,11 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('headline_font', $data ?? [], null);
         $this->setIfExists('headline_text', $data ?? [], null);
         $this->setIfExists('image_display', $data ?? [], null);
-        $this->setIfExists('image_sets_base64', $data ?? [], null);
+        $this->setIfExists('image_sets', $data ?? [], null);
         $this->setIfExists('landing_page_url', $data ?? [], null);
         $this->setIfExists('layouts', $data ?? [], null);
-        $this->setIfExists('logo_base64_string', $data ?? [], null);
-        $this->setIfExists('video_base64_strings', $data ?? [], null);
+        $this->setIfExists('logos', $data ?? [], null);
+        $this->setIfExists('videos', $data ?? [], null);
     }
 
     /**
@@ -384,28 +384,6 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
-        if ($this->container['calls_to_action'] === null) {
-            $invalidProperties[] = "'calls_to_action' can't be null";
-        }
-        if ((count($this->container['calls_to_action']) < 1)) {
-            $invalidProperties[] = "invalid value for 'calls_to_action', number of items must be greater than or equal to 1.";
-        }
-
-        if ($this->container['colors'] === null) {
-            $invalidProperties[] = "'colors' can't be null";
-        }
-        if ($this->container['description_font'] === null) {
-            $invalidProperties[] = "'description_font' can't be null";
-        }
-        if ($this->container['description_text'] === null) {
-            $invalidProperties[] = "'description_text' can't be null";
-        }
-        if ($this->container['headline_font'] === null) {
-            $invalidProperties[] = "'headline_font' can't be null";
-        }
-        if ($this->container['headline_text'] === null) {
-            $invalidProperties[] = "'headline_text' can't be null";
-        }
         $allowedValues = $this->getImageDisplayAllowableValues();
         if (!is_null($this->container['image_display']) && !in_array($this->container['image_display'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -415,19 +393,6 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
             );
         }
 
-        if ($this->container['landing_page_url'] === null) {
-            $invalidProperties[] = "'landing_page_url' can't be null";
-        }
-        if ($this->container['layouts'] === null) {
-            $invalidProperties[] = "'layouts' can't be null";
-        }
-        if ((count($this->container['layouts']) < 1)) {
-            $invalidProperties[] = "invalid value for 'layouts', number of items must be greater than or equal to 1.";
-        }
-
-        if ($this->container['logo_base64_string'] === null) {
-            $invalidProperties[] = "'logo_base64_string' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -446,7 +411,7 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets calls_to_action
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getCallsToAction()
     {
@@ -456,19 +421,21 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets calls_to_action
      *
-     * @param string[] $calls_to_action A Call-to-Action (CTA) is an action-driven instruction to your audience intended to provoke an immediate  response, such as “Buy now” or “Go!”.
+     * @param string[]|null $calls_to_action A Call-to-Action (CTA) is an action-driven instruction to your audience intended to provoke an immediate  response, such as “Buy now” or “Go!”.
      *
      * @return self
      */
     public function setCallsToAction($calls_to_action)
     {
         if (is_null($calls_to_action)) {
-            throw new \InvalidArgumentException('non-nullable calls_to_action cannot be null');
-        }
-
-
-        if ((count($calls_to_action) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $calls_to_action when calling AdaptiveWriteAttributes., number of items must be greater than or equal to 1.');
+            array_push($this->openAPINullablesSetToNull, 'calls_to_action');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('calls_to_action', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['calls_to_action'] = $calls_to_action;
 
@@ -478,7 +445,7 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets colors
      *
-     * @return \criteo\api\marketingsolutions\v2025_04\Model\AdaptiveColors
+     * @return \criteo\api\marketingsolutions\v2025_04\Model\AdaptiveColors|null
      */
     public function getColors()
     {
@@ -488,7 +455,7 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets colors
      *
-     * @param \criteo\api\marketingsolutions\v2025_04\Model\AdaptiveColors $colors colors
+     * @param \criteo\api\marketingsolutions\v2025_04\Model\AdaptiveColors|null $colors colors
      *
      * @return self
      */
@@ -512,7 +479,7 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets description_font
      *
-     * @return string
+     * @return string|null
      */
     public function getDescriptionFont()
     {
@@ -522,14 +489,21 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets description_font
      *
-     * @param string $description_font Font of the description  Valid supported font like \"Arial\"
+     * @param string|null $description_font Font of the description  Valid supported font like \"Arial\"
      *
      * @return self
      */
     public function setDescriptionFont($description_font)
     {
         if (is_null($description_font)) {
-            throw new \InvalidArgumentException('non-nullable description_font cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'description_font');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description_font', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['description_font'] = $description_font;
 
@@ -539,7 +513,7 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets description_text
      *
-     * @return string
+     * @return string|null
      */
     public function getDescriptionText()
     {
@@ -549,14 +523,21 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets description_text
      *
-     * @param string $description_text The description text of the banner
+     * @param string|null $description_text The description text of the banner
      *
      * @return self
      */
     public function setDescriptionText($description_text)
     {
         if (is_null($description_text)) {
-            throw new \InvalidArgumentException('non-nullable description_text cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'description_text');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description_text', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['description_text'] = $description_text;
 
@@ -566,7 +547,7 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets headline_font
      *
-     * @return string
+     * @return string|null
      */
     public function getHeadlineFont()
     {
@@ -576,14 +557,21 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets headline_font
      *
-     * @param string $headline_font Font of the headline  Valid supported font like \"Arial\"
+     * @param string|null $headline_font Font of the headline  Valid supported font like \"Arial\"
      *
      * @return self
      */
     public function setHeadlineFont($headline_font)
     {
         if (is_null($headline_font)) {
-            throw new \InvalidArgumentException('non-nullable headline_font cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'headline_font');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('headline_font', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['headline_font'] = $headline_font;
 
@@ -593,7 +581,7 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets headline_text
      *
-     * @return string
+     * @return string|null
      */
     public function getHeadlineText()
     {
@@ -603,14 +591,21 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets headline_text
      *
-     * @param string $headline_text The headline text of the banner
+     * @param string|null $headline_text The headline text of the banner
      *
      * @return self
      */
     public function setHeadlineText($headline_text)
     {
         if (is_null($headline_text)) {
-            throw new \InvalidArgumentException('non-nullable headline_text cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'headline_text');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('headline_text', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['headline_text'] = $headline_text;
 
@@ -662,35 +657,35 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets image_sets_base64
+     * Gets image_sets
      *
-     * @return \criteo\api\marketingsolutions\v2025_04\Model\ImageSetBase64[]|null
+     * @return \criteo\api\marketingsolutions\v2025_04\Model\ImageSet[]|null
      */
-    public function getImageSetsBase64()
+    public function getImageSets()
     {
-        return $this->container['image_sets_base64'];
+        return $this->container['image_sets'];
     }
 
     /**
-     * Sets image_sets_base64
+     * Sets image_sets
      *
-     * @param \criteo\api\marketingsolutions\v2025_04\Model\ImageSetBase64[]|null $image_sets_base64 Multiple image sets, each image set consists of multiple images as a base-64 encoded string and a headline text.
+     * @param \criteo\api\marketingsolutions\v2025_04\Model\ImageSet[]|null $image_sets Multiple image sets, each image set consists of multiple images and a headline text.
      *
      * @return self
      */
-    public function setImageSetsBase64($image_sets_base64)
+    public function setImageSets($image_sets)
     {
-        if (is_null($image_sets_base64)) {
-            array_push($this->openAPINullablesSetToNull, 'image_sets_base64');
+        if (is_null($image_sets)) {
+            array_push($this->openAPINullablesSetToNull, 'image_sets');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('image_sets_base64', $nullablesSetToNull);
+            $index = array_search('image_sets', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['image_sets_base64'] = $image_sets_base64;
+        $this->container['image_sets'] = $image_sets;
 
         return $this;
     }
@@ -698,7 +693,7 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets landing_page_url
      *
-     * @return string
+     * @return string|null
      */
     public function getLandingPageUrl()
     {
@@ -708,14 +703,21 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets landing_page_url
      *
-     * @param string $landing_page_url Web redirection of the landing page url.
+     * @param string|null $landing_page_url Web redirection of the landing page url
      *
      * @return self
      */
     public function setLandingPageUrl($landing_page_url)
     {
         if (is_null($landing_page_url)) {
-            throw new \InvalidArgumentException('non-nullable landing_page_url cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'landing_page_url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('landing_page_url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['landing_page_url'] = $landing_page_url;
 
@@ -725,7 +727,7 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets layouts
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getLayouts()
     {
@@ -735,17 +737,24 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets layouts
      *
-     * @param string[] $layouts The Adaptive layouts that are enabled.  It can contain any of the following values: \"Editorial\", “Montage“, \"InBannerVideo\".
+     * @param string[]|null $layouts The Adaptive layouts that are enabled.  It can contain any of the following values: \"Editorial\", “Montage“, \"InBannerVideo\".
      *
      * @return self
      */
     public function setLayouts($layouts)
     {
         if (is_null($layouts)) {
-            throw new \InvalidArgumentException('non-nullable layouts cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'layouts');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('layouts', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getLayoutsAllowableValues();
-        if (array_diff($layouts, $allowedValues)) {
+        if (!is_null($layouts) && array_diff($layouts, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'layouts', must be one of '%s'",
@@ -753,73 +762,75 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
                 )
             );
         }
-
-
-        if ((count($layouts) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $layouts when calling AdaptiveWriteAttributes., number of items must be greater than or equal to 1.');
-        }
         $this->container['layouts'] = $layouts;
 
         return $this;
     }
 
     /**
-     * Gets logo_base64_string
+     * Gets logos
      *
-     * @return string
+     * @return \criteo\api\marketingsolutions\v2025_04\Model\ImageShape[]|null
      */
-    public function getLogoBase64String()
+    public function getLogos()
     {
-        return $this->container['logo_base64_string'];
+        return $this->container['logos'];
     }
 
     /**
-     * Sets logo_base64_string
+     * Sets logos
      *
-     * @param string $logo_base64_string Logo image as a base-64 encoded string
+     * @param \criteo\api\marketingsolutions\v2025_04\Model\ImageShape[]|null $logos Logo images uploaded on demostatic.criteo.com when deploying and then static.criteo.net
      *
      * @return self
      */
-    public function setLogoBase64String($logo_base64_string)
+    public function setLogos($logos)
     {
-        if (is_null($logo_base64_string)) {
-            throw new \InvalidArgumentException('non-nullable logo_base64_string cannot be null');
-        }
-        $this->container['logo_base64_string'] = $logo_base64_string;
-
-        return $this;
-    }
-
-    /**
-     * Gets video_base64_strings
-     *
-     * @return string[]|null
-     */
-    public function getVideoBase64Strings()
-    {
-        return $this->container['video_base64_strings'];
-    }
-
-    /**
-     * Sets video_base64_strings
-     *
-     * @param string[]|null $video_base64_strings Multiple videos potentially in different shapes, each video is a base-64 encoded string.
-     *
-     * @return self
-     */
-    public function setVideoBase64Strings($video_base64_strings)
-    {
-        if (is_null($video_base64_strings)) {
-            array_push($this->openAPINullablesSetToNull, 'video_base64_strings');
+        if (is_null($logos)) {
+            array_push($this->openAPINullablesSetToNull, 'logos');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('video_base64_strings', $nullablesSetToNull);
+            $index = array_search('logos', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['video_base64_strings'] = $video_base64_strings;
+        $this->container['logos'] = $logos;
+
+        return $this;
+    }
+
+    /**
+     * Gets videos
+     *
+     * @return \criteo\api\marketingsolutions\v2025_04\Model\VideoDetail[]|null
+     */
+    public function getVideos()
+    {
+        return $this->container['videos'];
+    }
+
+    /**
+     * Sets videos
+     *
+     * @param \criteo\api\marketingsolutions\v2025_04\Model\VideoDetail[]|null $videos Multiple videos potentially in different shapes.
+     *
+     * @return self
+     */
+    public function setVideos($videos)
+    {
+        if (is_null($videos)) {
+            array_push($this->openAPINullablesSetToNull, 'videos');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('videos', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['videos'] = $videos;
 
         return $this;
     }

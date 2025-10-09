@@ -4,13 +4,13 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiPortfolioGet()**](AdvertiserApi.md#apiPortfolioGet) | **GET** /2025-04/advertisers/me |  |
+| [**listAdvertisers()**](AdvertiserApi.md#listAdvertisers) | **GET** /2025-04/advertisers/me |  |
 
 
-## `apiPortfolioGet()`
+## `listAdvertisers()`
 
 ```php
-apiPortfolioGet(): \criteo\api\marketingsolutions\v2025_04\Model\GetPortfolioResponse
+listAdvertisers(): \criteo\api\marketingsolutions\v2025_04\Model\GetPortfolioResponse
 ```
 
 
@@ -39,10 +39,10 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AdvertiserApi(
 );
 
 try {
-    $result = $apiInstance->apiPortfolioGet();
+    $result = $apiInstance->listAdvertisers();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AdvertiserApi->apiPortfolioGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AdvertiserApi->listAdvertisers: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -61,7 +61,7 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`, `text/plain`, `text/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
