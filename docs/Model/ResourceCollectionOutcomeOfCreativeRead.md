@@ -1,10 +1,10 @@
-# # ResourceCollectionOutcomeOfCreative
+# # ResourceCollectionOutcomeOfCreativeRead
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\criteo\api\marketingsolutions\v2025_01\Model\ResourceOfCreative[]**](ResourceOfCreative.md) |  | [optional]
+**data** | [**\criteo\api\marketingsolutions\v2025_01\Model\ResourceOfCreativeRead[]**](ResourceOfCreativeRead.md) |  | [optional]
 **errors** | [**\criteo\api\marketingsolutions\v2025_01\Model\CommonProblem[]**](CommonProblem.md) |  | [optional] [readonly]
 **warnings** | [**\criteo\api\marketingsolutions\v2025_01\Model\CommonProblem[]**](CommonProblem.md) |  | [optional] [readonly]
 

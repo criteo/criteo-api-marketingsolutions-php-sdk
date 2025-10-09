@@ -4,27 +4,27 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createAdSetV24Q1()**](CampaignApi.md#createAdSetV24Q1) | **POST** /2025-01/marketing-solutions/ad-sets |  |
+| [**createAdSet()**](CampaignApi.md#createAdSet) | **POST** /2025-01/marketing-solutions/ad-sets |  |
 | [**createCampaign()**](CampaignApi.md#createCampaign) | **POST** /2025-01/marketing-solutions/campaigns |  |
-| [**getAdSetV24Q1()**](CampaignApi.md#getAdSetV24Q1) | **GET** /2025-01/marketing-solutions/ad-sets/{ad-set-id} |  |
-| [**getCampaignV23Q1()**](CampaignApi.md#getCampaignV23Q1) | **GET** /2025-01/marketing-solutions/campaigns/{campaign-id} |  |
-| [**getCategoryBidList()**](CampaignApi.md#getCategoryBidList) | **GET** /2025-01/marketing-solutions/ad-sets/{ad-set-id}/category-bids |  |
+| [**getAdSet()**](CampaignApi.md#getAdSet) | **GET** /2025-01/marketing-solutions/ad-sets/{ad-set-id} |  |
+| [**getAdSetCategoryBids()**](CampaignApi.md#getAdSetCategoryBids) | **GET** /2025-01/marketing-solutions/ad-sets/{ad-set-id}/category-bids |  |
+| [**getCampaign()**](CampaignApi.md#getCampaign) | **GET** /2025-01/marketing-solutions/campaigns/{campaign-id} |  |
 | [**getDisplayMultipliers()**](CampaignApi.md#getDisplayMultipliers) | **GET** /2025-01/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers |  |
-| [**patchAdSetsV24Q1()**](CampaignApi.md#patchAdSetsV24Q1) | **PATCH** /2025-01/marketing-solutions/ad-sets |  |
+| [**patchAdSetCategoryBids()**](CampaignApi.md#patchAdSetCategoryBids) | **PATCH** /2025-01/marketing-solutions/ad-sets/{ad-set-id}/category-bids |  |
+| [**patchAdSets()**](CampaignApi.md#patchAdSets) | **PATCH** /2025-01/marketing-solutions/ad-sets |  |
 | [**patchCampaigns()**](CampaignApi.md#patchCampaigns) | **PATCH** /2025-01/marketing-solutions/campaigns |  |
-| [**patchCategoryBidList()**](CampaignApi.md#patchCategoryBidList) | **PATCH** /2025-01/marketing-solutions/ad-sets/{ad-set-id}/category-bids |  |
 | [**patchDisplayMultipliers()**](CampaignApi.md#patchDisplayMultipliers) | **PATCH** /2025-01/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers |  |
-| [**searchAdSetsV24Q1()**](CampaignApi.md#searchAdSetsV24Q1) | **POST** /2025-01/marketing-solutions/ad-sets/search |  |
-| [**searchCampaignsV23Q1()**](CampaignApi.md#searchCampaignsV23Q1) | **POST** /2025-01/marketing-solutions/campaigns/search |  |
+| [**searchAdSets()**](CampaignApi.md#searchAdSets) | **POST** /2025-01/marketing-solutions/ad-sets/search |  |
+| [**searchCampaigns()**](CampaignApi.md#searchCampaigns) | **POST** /2025-01/marketing-solutions/campaigns/search |  |
 | [**startAdSets()**](CampaignApi.md#startAdSets) | **POST** /2025-01/marketing-solutions/ad-sets/start |  |
 | [**stopAdSets()**](CampaignApi.md#stopAdSets) | **POST** /2025-01/marketing-solutions/ad-sets/stop |  |
 | [**updateAdSetAudience()**](CampaignApi.md#updateAdSetAudience) | **PUT** /2025-01/marketing-solutions/ad-sets/{ad-set-id}/audience |  |
 
 
-## `createAdSetV24Q1()`
+## `createAdSet()`
 
 ```php
-createAdSetV24Q1($create_ad_set_v24_q1_request): \criteo\api\marketingsolutions\v2025_01\Model\ResponseReadAdSetV24Q1
+createAdSet($create_ad_set_v24_q1_request): \criteo\api\marketingsolutions\v2025_01\Model\ResponseReadAdSetV24Q1
 ```
 
 
@@ -54,10 +54,10 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_01\Api\CampaignApi(
 $create_ad_set_v24_q1_request = new \criteo\api\marketingsolutions\v2025_01\Model\CreateAdSetV24Q1Request(); // \criteo\api\marketingsolutions\v2025_01\Model\CreateAdSetV24Q1Request | the ad sets to create
 
 try {
-    $result = $apiInstance->createAdSetV24Q1($create_ad_set_v24_q1_request);
+    $result = $apiInstance->createAdSet($create_ad_set_v24_q1_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->createAdSetV24Q1: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CampaignApi->createAdSet: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -77,8 +77,8 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
-- **Accept**: `text/plain`, `application/json`, `text/json`
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -140,17 +140,17 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
-- **Accept**: `text/plain`, `application/json`, `text/json`
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getAdSetV24Q1()`
+## `getAdSet()`
 
 ```php
-getAdSetV24Q1($ad_set_id): \criteo\api\marketingsolutions\v2025_01\Model\ResponseReadAdSetV24Q1
+getAdSet($ad_set_id): \criteo\api\marketingsolutions\v2025_01\Model\ResponseReadAdSetV24Q1
 ```
 
 
@@ -180,10 +180,10 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_01\Api\CampaignApi(
 $ad_set_id = 'ad_set_id_example'; // string | Id of the ad set
 
 try {
-    $result = $apiInstance->getAdSetV24Q1($ad_set_id);
+    $result = $apiInstance->getAdSet($ad_set_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->getAdSetV24Q1: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CampaignApi->getAdSet: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -204,79 +204,16 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `text/plain`, `application/json`, `text/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getCampaignV23Q1()`
+## `getAdSetCategoryBids()`
 
 ```php
-getCampaignV23Q1($campaign_id): \criteo\api\marketingsolutions\v2025_01\Model\CampaignV23Q1Response
-```
-
-
-
-Get the data for the specified campaign
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\v2025_01\Api\CampaignApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$campaign_id = 'campaign_id_example'; // string | Id of the campaign
-
-try {
-    $result = $apiInstance->getCampaignV23Q1($campaign_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->getCampaignV23Q1: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **campaign_id** | **string**| Id of the campaign | |
-
-### Return type
-
-[**\criteo\api\marketingsolutions\v2025_01\Model\CampaignV23Q1Response**](../Model/CampaignV23Q1Response.md)
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `text/plain`, `application/json`, `text/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getCategoryBidList()`
-
-```php
-getCategoryBidList($ad_set_id): \criteo\api\marketingsolutions\v2025_01\Model\AdSetCategoryBidListResponse
+getAdSetCategoryBids($ad_set_id): \criteo\api\marketingsolutions\v2025_01\Model\AdSetCategoryBidListResponse
 ```
 
 
@@ -306,10 +243,10 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_01\Api\CampaignApi(
 $ad_set_id = 'ad_set_id_example'; // string | Id of the Ad Set
 
 try {
-    $result = $apiInstance->getCategoryBidList($ad_set_id);
+    $result = $apiInstance->getAdSetCategoryBids($ad_set_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->getCategoryBidList: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CampaignApi->getAdSetCategoryBids: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -330,7 +267,70 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `text/plain`, `application/json`, `text/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getCampaign()`
+
+```php
+getCampaign($campaign_id): \criteo\api\marketingsolutions\v2025_01\Model\CampaignV23Q1Response
+```
+
+
+
+Get the data for the specified campaign
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\v2025_01\Api\CampaignApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$campaign_id = 'campaign_id_example'; // string | Id of the campaign
+
+try {
+    $result = $apiInstance->getCampaign($campaign_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CampaignApi->getCampaign: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **campaign_id** | **string**| Id of the campaign | |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\v2025_01\Model\CampaignV23Q1Response**](../Model/CampaignV23Q1Response.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -393,16 +393,81 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `text/plain`, `application/json`, `text/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `patchAdSetsV24Q1()`
+## `patchAdSetCategoryBids()`
 
 ```php
-patchAdSetsV24Q1($requests_patch_ad_set_v24_q1): \criteo\api\marketingsolutions\v2025_01\Model\ResponsesAdSetIdV24Q1
+patchAdSetCategoryBids($ad_set_id, $patch_ad_set_category_bid_list_request): \criteo\api\marketingsolutions\v2025_01\Model\PatchAdSetCategoryBidResultListResponse
+```
+
+
+
+Patch Category Bids for one or more Categories in a single request. Partial success policy is followed.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\v2025_01\Api\CampaignApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$ad_set_id = 'ad_set_id_example'; // string | Id of the Ad Set
+$patch_ad_set_category_bid_list_request = new \criteo\api\marketingsolutions\v2025_01\Model\PatchAdSetCategoryBidListRequest(); // \criteo\api\marketingsolutions\v2025_01\Model\PatchAdSetCategoryBidListRequest
+
+try {
+    $result = $apiInstance->patchAdSetCategoryBids($ad_set_id, $patch_ad_set_category_bid_list_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CampaignApi->patchAdSetCategoryBids: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ad_set_id** | **string**| Id of the Ad Set | |
+| **patch_ad_set_category_bid_list_request** | [**\criteo\api\marketingsolutions\v2025_01\Model\PatchAdSetCategoryBidListRequest**](../Model/PatchAdSetCategoryBidListRequest.md)|  | [optional] |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\v2025_01\Model\PatchAdSetCategoryBidResultListResponse**](../Model/PatchAdSetCategoryBidResultListResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `patchAdSets()`
+
+```php
+patchAdSets($requests_patch_ad_set_v24_q1): \criteo\api\marketingsolutions\v2025_01\Model\ResponsesAdSetIdV24Q1
 ```
 
 
@@ -432,10 +497,10 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_01\Api\CampaignApi(
 $requests_patch_ad_set_v24_q1 = new \criteo\api\marketingsolutions\v2025_01\Model\RequestsPatchAdSetV24Q1(); // \criteo\api\marketingsolutions\v2025_01\Model\RequestsPatchAdSetV24Q1 | List of adsets to patch.
 
 try {
-    $result = $apiInstance->patchAdSetsV24Q1($requests_patch_ad_set_v24_q1);
+    $result = $apiInstance->patchAdSets($requests_patch_ad_set_v24_q1);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->patchAdSetsV24Q1: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CampaignApi->patchAdSets: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -455,8 +520,8 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
-- **Accept**: `text/plain`, `application/json`, `text/json`
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -518,73 +583,8 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
-- **Accept**: `text/plain`, `application/json`, `text/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `patchCategoryBidList()`
-
-```php
-patchCategoryBidList($ad_set_id, $patch_ad_set_category_bid_list_request): \criteo\api\marketingsolutions\v2025_01\Model\PatchAdSetCategoryBidResultListResponse
-```
-
-
-
-Patch Category Bids for one or more Categories in a single request. Partial success policy is followed.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\v2025_01\Api\CampaignApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$ad_set_id = 'ad_set_id_example'; // string | Id of the Ad Set
-$patch_ad_set_category_bid_list_request = new \criteo\api\marketingsolutions\v2025_01\Model\PatchAdSetCategoryBidListRequest(); // \criteo\api\marketingsolutions\v2025_01\Model\PatchAdSetCategoryBidListRequest
-
-try {
-    $result = $apiInstance->patchCategoryBidList($ad_set_id, $patch_ad_set_category_bid_list_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->patchCategoryBidList: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **ad_set_id** | **string**| Id of the Ad Set | |
-| **patch_ad_set_category_bid_list_request** | [**\criteo\api\marketingsolutions\v2025_01\Model\PatchAdSetCategoryBidListRequest**](../Model/PatchAdSetCategoryBidListRequest.md)|  | [optional] |
-
-### Return type
-
-[**\criteo\api\marketingsolutions\v2025_01\Model\PatchAdSetCategoryBidResultListResponse**](../Model/PatchAdSetCategoryBidResultListResponse.md)
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
-- **Accept**: `text/plain`, `application/json`, `text/json`
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -648,17 +648,17 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
-- **Accept**: `text/plain`, `application/json`, `text/json`
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `searchAdSetsV24Q1()`
+## `searchAdSets()`
 
 ```php
-searchAdSetsV24Q1($ad_set_search_request_v24_q1): \criteo\api\marketingsolutions\v2025_01\Model\ResponsesReadAdSetV24Q1
+searchAdSets($ad_set_search_request_v24_q1): \criteo\api\marketingsolutions\v2025_01\Model\ResponsesReadAdSetV24Q1
 ```
 
 
@@ -688,10 +688,10 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_01\Api\CampaignApi(
 $ad_set_search_request_v24_q1 = new \criteo\api\marketingsolutions\v2025_01\Model\AdSetSearchRequestV24Q1(); // \criteo\api\marketingsolutions\v2025_01\Model\AdSetSearchRequestV24Q1
 
 try {
-    $result = $apiInstance->searchAdSetsV24Q1($ad_set_search_request_v24_q1);
+    $result = $apiInstance->searchAdSets($ad_set_search_request_v24_q1);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->searchAdSetsV24Q1: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CampaignApi->searchAdSets: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -711,17 +711,17 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
-- **Accept**: `text/plain`, `application/json`, `text/json`
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `searchCampaignsV23Q1()`
+## `searchCampaigns()`
 
 ```php
-searchCampaignsV23Q1($campaign_search_request_v23_q1): \criteo\api\marketingsolutions\v2025_01\Model\CampaignV23Q1ListResponse
+searchCampaigns($campaign_search_request_v23_q1): \criteo\api\marketingsolutions\v2025_01\Model\CampaignV23Q1ListResponse
 ```
 
 
@@ -751,10 +751,10 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_01\Api\CampaignApi(
 $campaign_search_request_v23_q1 = new \criteo\api\marketingsolutions\v2025_01\Model\CampaignSearchRequestV23Q1(); // \criteo\api\marketingsolutions\v2025_01\Model\CampaignSearchRequestV23Q1 | filters on campaigns
 
 try {
-    $result = $apiInstance->searchCampaignsV23Q1($campaign_search_request_v23_q1);
+    $result = $apiInstance->searchCampaigns($campaign_search_request_v23_q1);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->searchCampaignsV23Q1: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CampaignApi->searchCampaigns: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -774,8 +774,8 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
-- **Accept**: `text/plain`, `application/json`, `text/json`
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -837,8 +837,8 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
-- **Accept**: `text/plain`, `application/json`, `text/json`
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -900,8 +900,8 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
-- **Accept**: `text/plain`, `application/json`, `text/json`
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -965,8 +965,8 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
-- **Accept**: `text/plain`, `application/json`, `text/json`
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

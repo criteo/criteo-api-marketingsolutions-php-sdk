@@ -1,6 +1,6 @@
 <?php
 /**
- * Outcome
+ * ResourceCollectionOutcomeOfCreativeRead
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2025_01\ObjectSerializer;
 
 /**
- * Outcome Class Doc Comment
+ * ResourceCollectionOutcomeOfCreativeRead Class Doc Comment
  *
  * @category Class
- * @description The outcome of an API call.
+ * @description A top-level object that encapsulates a Criteo API response for several entities.
  * @package  criteo\api\marketingsolutions\v2025_01
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
+class ResourceCollectionOutcomeOfCreativeRead implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Outcome';
+    protected static $openAPIModelName = 'ResourceCollectionOutcomeOfCreativeRead';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,6 +58,7 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'data' => '\criteo\api\marketingsolutions\v2025_01\Model\ResourceOfCreativeRead[]',
         'errors' => '\criteo\api\marketingsolutions\v2025_01\Model\CommonProblem[]',
         'warnings' => '\criteo\api\marketingsolutions\v2025_01\Model\CommonProblem[]'
     ];
@@ -70,6 +71,7 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'data' => null,
         'errors' => null,
         'warnings' => null
     ];
@@ -80,7 +82,8 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'errors' => true,
+        'data' => true,
+		'errors' => true,
 		'warnings' => true
     ];
 
@@ -170,6 +173,7 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'data' => 'data',
         'errors' => 'errors',
         'warnings' => 'warnings'
     ];
@@ -180,6 +184,7 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'data' => 'setData',
         'errors' => 'setErrors',
         'warnings' => 'setWarnings'
     ];
@@ -190,6 +195,7 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'data' => 'getData',
         'errors' => 'getErrors',
         'warnings' => 'getWarnings'
     ];
@@ -251,6 +257,7 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('data', $data ?? [], null);
         $this->setIfExists('errors', $data ?? [], null);
         $this->setIfExists('warnings', $data ?? [], null);
     }
@@ -298,6 +305,40 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
+     * Gets data
+     *
+     * @return \criteo\api\marketingsolutions\v2025_01\Model\ResourceOfCreativeRead[]|null
+     */
+    public function getData()
+    {
+        return $this->container['data'];
+    }
+
+    /**
+     * Sets data
+     *
+     * @param \criteo\api\marketingsolutions\v2025_01\Model\ResourceOfCreativeRead[]|null $data data
+     *
+     * @return self
+     */
+    public function setData($data)
+    {
+        if (is_null($data)) {
+            array_push($this->openAPINullablesSetToNull, 'data');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
      * Gets errors
      *
      * @return \criteo\api\marketingsolutions\v2025_01\Model\CommonProblem[]|null
@@ -310,7 +351,7 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets errors
      *
-     * @param \criteo\api\marketingsolutions\v2025_01\Model\CommonProblem[]|null $errors Errors that occured during this call.
+     * @param \criteo\api\marketingsolutions\v2025_01\Model\CommonProblem[]|null $errors errors
      *
      * @return self
      */
@@ -344,7 +385,7 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets warnings
      *
-     * @param \criteo\api\marketingsolutions\v2025_01\Model\CommonProblem[]|null $warnings Warnings that occured during this call.
+     * @param \criteo\api\marketingsolutions\v2025_01\Model\CommonProblem[]|null $warnings warnings
      *
      * @return self
      */
