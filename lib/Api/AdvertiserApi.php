@@ -71,10 +71,10 @@ class AdvertiserApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'apiPortfolioGet' => [
+        'listAdvertisers' => [
             'application/json',
         ],
-        'getDatasetList' => [
+        'listDatasetsByAdvertiser' => [
             'application/json',
         ],
         'listIndustries' => [
@@ -129,32 +129,32 @@ class AdvertiserApi
     }
 
     /**
-     * Operation apiPortfolioGet
+     * Operation listAdvertisers
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiPortfolioGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAdvertisers'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\GetPortfolioResponse
      */
-    public function apiPortfolioGet(string $contentType = self::contentTypes['apiPortfolioGet'][0])
+    public function listAdvertisers(string $contentType = self::contentTypes['listAdvertisers'][0])
     {
-        list($response) = $this->apiPortfolioGetWithHttpInfo($contentType);
+        list($response) = $this->listAdvertisersWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation apiPortfolioGetWithHttpInfo
+     * Operation listAdvertisersWithHttpInfo
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiPortfolioGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAdvertisers'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\GetPortfolioResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiPortfolioGetWithHttpInfo(string $contentType = self::contentTypes['apiPortfolioGet'][0])
+    public function listAdvertisersWithHttpInfo(string $contentType = self::contentTypes['listAdvertisers'][0])
     {
-        $request = $this->apiPortfolioGetRequest($contentType);
+        $request = $this->listAdvertisersRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -241,16 +241,16 @@ class AdvertiserApi
     }
 
     /**
-     * Operation apiPortfolioGetAsync
+     * Operation listAdvertisersAsync
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiPortfolioGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAdvertisers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiPortfolioGetAsync(string $contentType = self::contentTypes['apiPortfolioGet'][0])
+    public function listAdvertisersAsync(string $contentType = self::contentTypes['listAdvertisers'][0])
     {
-        return $this->apiPortfolioGetAsyncWithHttpInfo($contentType)
+        return $this->listAdvertisersAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -259,17 +259,17 @@ class AdvertiserApi
     }
 
     /**
-     * Operation apiPortfolioGetAsyncWithHttpInfo
+     * Operation listAdvertisersAsyncWithHttpInfo
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiPortfolioGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAdvertisers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiPortfolioGetAsyncWithHttpInfo(string $contentType = self::contentTypes['apiPortfolioGet'][0])
+    public function listAdvertisersAsyncWithHttpInfo(string $contentType = self::contentTypes['listAdvertisers'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\GetPortfolioResponse';
-        $request = $this->apiPortfolioGetRequest($contentType);
+        $request = $this->listAdvertisersRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -308,14 +308,14 @@ class AdvertiserApi
     }
 
     /**
-     * Create request for operation 'apiPortfolioGet'
+     * Create request for operation 'listAdvertisers'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiPortfolioGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAdvertisers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiPortfolioGetRequest(string $contentType = self::contentTypes['apiPortfolioGet'][0])
+    public function listAdvertisersRequest(string $contentType = self::contentTypes['listAdvertisers'][0])
     {
 
 
@@ -392,34 +392,34 @@ class AdvertiserApi
     }
 
     /**
-     * Operation getDatasetList
+     * Operation listDatasetsByAdvertiser
      *
      * @param  string $advertiser_id The id of the Advertiser for which Datasets are being retrieved. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatasetList'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDatasetsByAdvertiser'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\AdvertiserDatasetListResponse
      */
-    public function getDatasetList($advertiser_id, string $contentType = self::contentTypes['getDatasetList'][0])
+    public function listDatasetsByAdvertiser($advertiser_id, string $contentType = self::contentTypes['listDatasetsByAdvertiser'][0])
     {
-        list($response) = $this->getDatasetListWithHttpInfo($advertiser_id, $contentType);
+        list($response) = $this->listDatasetsByAdvertiserWithHttpInfo($advertiser_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getDatasetListWithHttpInfo
+     * Operation listDatasetsByAdvertiserWithHttpInfo
      *
      * @param  string $advertiser_id The id of the Advertiser for which Datasets are being retrieved. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatasetList'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDatasetsByAdvertiser'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\AdvertiserDatasetListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDatasetListWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getDatasetList'][0])
+    public function listDatasetsByAdvertiserWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['listDatasetsByAdvertiser'][0])
     {
-        $request = $this->getDatasetListRequest($advertiser_id, $contentType);
+        $request = $this->listDatasetsByAdvertiserRequest($advertiser_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -506,17 +506,17 @@ class AdvertiserApi
     }
 
     /**
-     * Operation getDatasetListAsync
+     * Operation listDatasetsByAdvertiserAsync
      *
      * @param  string $advertiser_id The id of the Advertiser for which Datasets are being retrieved. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatasetList'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDatasetsByAdvertiser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDatasetListAsync($advertiser_id, string $contentType = self::contentTypes['getDatasetList'][0])
+    public function listDatasetsByAdvertiserAsync($advertiser_id, string $contentType = self::contentTypes['listDatasetsByAdvertiser'][0])
     {
-        return $this->getDatasetListAsyncWithHttpInfo($advertiser_id, $contentType)
+        return $this->listDatasetsByAdvertiserAsyncWithHttpInfo($advertiser_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -525,18 +525,18 @@ class AdvertiserApi
     }
 
     /**
-     * Operation getDatasetListAsyncWithHttpInfo
+     * Operation listDatasetsByAdvertiserAsyncWithHttpInfo
      *
      * @param  string $advertiser_id The id of the Advertiser for which Datasets are being retrieved. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatasetList'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDatasetsByAdvertiser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDatasetListAsyncWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getDatasetList'][0])
+    public function listDatasetsByAdvertiserAsyncWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['listDatasetsByAdvertiser'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\AdvertiserDatasetListResponse';
-        $request = $this->getDatasetListRequest($advertiser_id, $contentType);
+        $request = $this->listDatasetsByAdvertiserRequest($advertiser_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -575,21 +575,21 @@ class AdvertiserApi
     }
 
     /**
-     * Create request for operation 'getDatasetList'
+     * Create request for operation 'listDatasetsByAdvertiser'
      *
      * @param  string $advertiser_id The id of the Advertiser for which Datasets are being retrieved. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatasetList'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDatasetsByAdvertiser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDatasetListRequest($advertiser_id, string $contentType = self::contentTypes['getDatasetList'][0])
+    public function listDatasetsByAdvertiserRequest($advertiser_id, string $contentType = self::contentTypes['listDatasetsByAdvertiser'][0])
     {
 
         // verify the required parameter 'advertiser_id' is set
         if ($advertiser_id === null || (is_array($advertiser_id) && count($advertiser_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $advertiser_id when calling getDatasetList'
+                'Missing the required parameter $advertiser_id when calling listDatasetsByAdvertiser'
             );
         }
 

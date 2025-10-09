@@ -4,13 +4,13 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV1RecoPost()**](OnSiteRecommendationApi.md#apiV1RecoPost) | **POST** /preview/recommendation/search |  |
+| [**searchRecommendedProducts()**](OnSiteRecommendationApi.md#searchRecommendedProducts) | **POST** /preview/recommendation/search |  |
 
 
-## `apiV1RecoPost()`
+## `searchRecommendedProducts()`
 
 ```php
-apiV1RecoPost($on_site_reco_request): \criteo\api\marketingsolutions\preview\Model\OnSiteRecoResponse
+searchRecommendedProducts($on_site_reco_request): \criteo\api\marketingsolutions\preview\Model\OnSiteRecoResponse
 ```
 
 
@@ -40,10 +40,10 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\OnSiteRecommendatio
 $on_site_reco_request = new \criteo\api\marketingsolutions\preview\Model\OnSiteRecoRequest(); // \criteo\api\marketingsolutions\preview\Model\OnSiteRecoRequest
 
 try {
-    $result = $apiInstance->apiV1RecoPost($on_site_reco_request);
+    $result = $apiInstance->searchRecommendedProducts($on_site_reco_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OnSiteRecommendationApi->apiV1RecoPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OnSiteRecommendationApi->searchRecommendedProducts: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

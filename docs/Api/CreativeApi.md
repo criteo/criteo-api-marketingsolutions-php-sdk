@@ -1004,7 +1004,7 @@ try {
 ## `getAdvertiserCreatives()`
 
 ```php
-getAdvertiserCreatives($advertiser_id, $limit, $offset): \criteo\api\marketingsolutions\preview\Model\ResourceCollectionOutcomeOfCreative
+getAdvertiserCreatives($advertiser_id, $limit, $offset): \criteo\api\marketingsolutions\preview\Model\ResourceCollectionOutcomeOfCreativeRead
 ```
 
 
@@ -1053,7 +1053,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\preview\Model\ResourceCollectionOutcomeOfCreative**](../Model/ResourceCollectionOutcomeOfCreative.md)
+[**\criteo\api\marketingsolutions\preview\Model\ResourceCollectionOutcomeOfCreativeRead**](../Model/ResourceCollectionOutcomeOfCreativeRead.md)
 
 ### Authorization
 

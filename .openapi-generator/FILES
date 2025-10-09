@@ -49,6 +49,7 @@ docs/Model/AdSetTargetingVideoPositioningSetResultResponse.md
 docs/Model/AdWrite.md
 docs/Model/AdaptiveAttributes.md
 docs/Model/AdaptiveColors.md
+docs/Model/AdaptiveReadAttributes.md
 docs/Model/AdaptiveWriteAttributes.md
 docs/Model/AdvertiserDatasetListResponse.md
 docs/Model/AlgebraNodeV1.md
@@ -166,6 +167,7 @@ docs/Model/CreateImageSlide.md
 docs/Model/CreateProductFilterRequest.md
 docs/Model/CreateProductSetRequest.md
 docs/Model/Creative.md
+docs/Model/CreativeRead.md
 docs/Model/CreativeWrite.md
 docs/Model/CriteoApiError.md
 docs/Model/CriteoApiWarning.md
@@ -312,7 +314,7 @@ docs/Model/RequestsAdSetId.md
 docs/Model/RequestsPatchAdSetV24Q3.md
 docs/Model/ResourceCollectionOutcomeOfAd.md
 docs/Model/ResourceCollectionOutcomeOfCoupon.md
-docs/Model/ResourceCollectionOutcomeOfCreative.md
+docs/Model/ResourceCollectionOutcomeOfCreativeRead.md
 docs/Model/ResourceCollectionOutcomeOfProductSet.md
 docs/Model/ResourceInputOfAdWrite.md
 docs/Model/ResourceInputOfCreateCoupon.md
@@ -324,6 +326,7 @@ docs/Model/ResourceOfCoupon.md
 docs/Model/ResourceOfCouponSupportedSizes.md
 docs/Model/ResourceOfCreateCoupon.md
 docs/Model/ResourceOfCreative.md
+docs/Model/ResourceOfCreativeRead.md
 docs/Model/ResourceOfCreativeWrite.md
 docs/Model/ResourceOfProductSet.md
 docs/Model/ResourceOfUpdateCoupon.md
@@ -426,6 +429,7 @@ lib/Model/AdSetTargetingVideoPositioningSetResultResponse.php
 lib/Model/AdWrite.php
 lib/Model/AdaptiveAttributes.php
 lib/Model/AdaptiveColors.php
+lib/Model/AdaptiveReadAttributes.php
 lib/Model/AdaptiveWriteAttributes.php
 lib/Model/AdvertiserDatasetListResponse.php
 lib/Model/AlgebraNodeV1.php
@@ -543,6 +547,7 @@ lib/Model/CreateImageSlide.php
 lib/Model/CreateProductFilterRequest.php
 lib/Model/CreateProductSetRequest.php
 lib/Model/Creative.php
+lib/Model/CreativeRead.php
 lib/Model/CreativeWrite.php
 lib/Model/CriteoApiError.php
 lib/Model/CriteoApiWarning.php
@@ -690,7 +695,7 @@ lib/Model/RequestsAdSetId.php
 lib/Model/RequestsPatchAdSetV24Q3.php
 lib/Model/ResourceCollectionOutcomeOfAd.php
 lib/Model/ResourceCollectionOutcomeOfCoupon.php
-lib/Model/ResourceCollectionOutcomeOfCreative.php
+lib/Model/ResourceCollectionOutcomeOfCreativeRead.php
 lib/Model/ResourceCollectionOutcomeOfProductSet.php
 lib/Model/ResourceInputOfAdWrite.php
 lib/Model/ResourceInputOfCreateCoupon.php
@@ -702,6 +707,7 @@ lib/Model/ResourceOfCoupon.php
 lib/Model/ResourceOfCouponSupportedSizes.php
 lib/Model/ResourceOfCreateCoupon.php
 lib/Model/ResourceOfCreative.php
+lib/Model/ResourceOfCreativeRead.php
 lib/Model/ResourceOfCreativeWrite.php
 lib/Model/ResourceOfProductSet.php
 lib/Model/ResourceOfUpdateCoupon.php

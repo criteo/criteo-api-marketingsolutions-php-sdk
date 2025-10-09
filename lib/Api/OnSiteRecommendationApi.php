@@ -71,7 +71,7 @@ class OnSiteRecommendationApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'apiV1RecoPost' => [
+        'searchRecommendedProducts' => [
             'application/json',
         ],
     ];
@@ -123,34 +123,34 @@ class OnSiteRecommendationApi
     }
 
     /**
-     * Operation apiV1RecoPost
+     * Operation searchRecommendedProducts
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\OnSiteRecoRequest $on_site_reco_request on_site_reco_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV1RecoPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRecommendedProducts'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\OnSiteRecoResponse
      */
-    public function apiV1RecoPost($on_site_reco_request = null, string $contentType = self::contentTypes['apiV1RecoPost'][0])
+    public function searchRecommendedProducts($on_site_reco_request = null, string $contentType = self::contentTypes['searchRecommendedProducts'][0])
     {
-        list($response) = $this->apiV1RecoPostWithHttpInfo($on_site_reco_request, $contentType);
+        list($response) = $this->searchRecommendedProductsWithHttpInfo($on_site_reco_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation apiV1RecoPostWithHttpInfo
+     * Operation searchRecommendedProductsWithHttpInfo
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\OnSiteRecoRequest $on_site_reco_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV1RecoPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRecommendedProducts'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\OnSiteRecoResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiV1RecoPostWithHttpInfo($on_site_reco_request = null, string $contentType = self::contentTypes['apiV1RecoPost'][0])
+    public function searchRecommendedProductsWithHttpInfo($on_site_reco_request = null, string $contentType = self::contentTypes['searchRecommendedProducts'][0])
     {
-        $request = $this->apiV1RecoPostRequest($on_site_reco_request, $contentType);
+        $request = $this->searchRecommendedProductsRequest($on_site_reco_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -237,17 +237,17 @@ class OnSiteRecommendationApi
     }
 
     /**
-     * Operation apiV1RecoPostAsync
+     * Operation searchRecommendedProductsAsync
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\OnSiteRecoRequest $on_site_reco_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV1RecoPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRecommendedProducts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV1RecoPostAsync($on_site_reco_request = null, string $contentType = self::contentTypes['apiV1RecoPost'][0])
+    public function searchRecommendedProductsAsync($on_site_reco_request = null, string $contentType = self::contentTypes['searchRecommendedProducts'][0])
     {
-        return $this->apiV1RecoPostAsyncWithHttpInfo($on_site_reco_request, $contentType)
+        return $this->searchRecommendedProductsAsyncWithHttpInfo($on_site_reco_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -256,18 +256,18 @@ class OnSiteRecommendationApi
     }
 
     /**
-     * Operation apiV1RecoPostAsyncWithHttpInfo
+     * Operation searchRecommendedProductsAsyncWithHttpInfo
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\OnSiteRecoRequest $on_site_reco_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV1RecoPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRecommendedProducts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV1RecoPostAsyncWithHttpInfo($on_site_reco_request = null, string $contentType = self::contentTypes['apiV1RecoPost'][0])
+    public function searchRecommendedProductsAsyncWithHttpInfo($on_site_reco_request = null, string $contentType = self::contentTypes['searchRecommendedProducts'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\OnSiteRecoResponse';
-        $request = $this->apiV1RecoPostRequest($on_site_reco_request, $contentType);
+        $request = $this->searchRecommendedProductsRequest($on_site_reco_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -306,15 +306,15 @@ class OnSiteRecommendationApi
     }
 
     /**
-     * Create request for operation 'apiV1RecoPost'
+     * Create request for operation 'searchRecommendedProducts'
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\OnSiteRecoRequest $on_site_reco_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV1RecoPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRecommendedProducts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiV1RecoPostRequest($on_site_reco_request = null, string $contentType = self::contentTypes['apiV1RecoPost'][0])
+    public function searchRecommendedProductsRequest($on_site_reco_request = null, string $contentType = self::contentTypes['searchRecommendedProducts'][0])
     {
 
 

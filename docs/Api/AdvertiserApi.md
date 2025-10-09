@@ -4,15 +4,15 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiPortfolioGet()**](AdvertiserApi.md#apiPortfolioGet) | **GET** /preview/advertisers/me |  |
-| [**getDatasetList()**](AdvertiserApi.md#getDatasetList) | **GET** /preview/advertisers/{advertiser-id}/datasets |  |
+| [**listAdvertisers()**](AdvertiserApi.md#listAdvertisers) | **GET** /preview/advertisers/me |  |
+| [**listDatasetsByAdvertiser()**](AdvertiserApi.md#listDatasetsByAdvertiser) | **GET** /preview/advertisers/{advertiser-id}/datasets |  |
 | [**listIndustries()**](AdvertiserApi.md#listIndustries) | **GET** /preview/industries |  |
 
 
-## `apiPortfolioGet()`
+## `listAdvertisers()`
 
 ```php
-apiPortfolioGet(): \criteo\api\marketingsolutions\preview\Model\GetPortfolioResponse
+listAdvertisers(): \criteo\api\marketingsolutions\preview\Model\GetPortfolioResponse
 ```
 
 
@@ -41,10 +41,10 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AdvertiserApi(
 );
 
 try {
-    $result = $apiInstance->apiPortfolioGet();
+    $result = $apiInstance->listAdvertisers();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AdvertiserApi->apiPortfolioGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AdvertiserApi->listAdvertisers: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -69,10 +69,10 @@ This endpoint does not need any parameter.
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getDatasetList()`
+## `listDatasetsByAdvertiser()`
 
 ```php
-getDatasetList($advertiser_id): \criteo\api\marketingsolutions\preview\Model\AdvertiserDatasetListResponse
+listDatasetsByAdvertiser($advertiser_id): \criteo\api\marketingsolutions\preview\Model\AdvertiserDatasetListResponse
 ```
 
 
@@ -102,10 +102,10 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AdvertiserApi(
 $advertiser_id = 'advertiser_id_example'; // string | The id of the Advertiser for which Datasets are being retrieved.
 
 try {
-    $result = $apiInstance->getDatasetList($advertiser_id);
+    $result = $apiInstance->listDatasetsByAdvertiser($advertiser_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AdvertiserApi->getDatasetList: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AdvertiserApi->listDatasetsByAdvertiser: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

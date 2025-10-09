@@ -4573,7 +4573,7 @@ class CreativeApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\ResourceCollectionOutcomeOfCreative
+     * @return \criteo\api\marketingsolutions\preview\Model\ResourceCollectionOutcomeOfCreativeRead
      */
     public function getAdvertiserCreatives($advertiser_id, $limit = null, $offset = null, string $contentType = self::contentTypes['getAdvertiserCreatives'][0])
     {
@@ -4591,7 +4591,7 @@ class CreativeApi
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\ResourceCollectionOutcomeOfCreative, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ResourceCollectionOutcomeOfCreativeRead, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAdvertiserCreativesWithHttpInfo($advertiser_id, $limit = null, $offset = null, string $contentType = self::contentTypes['getAdvertiserCreatives'][0])
     {
@@ -4634,23 +4634,23 @@ class CreativeApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ResourceCollectionOutcomeOfCreative' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\preview\Model\ResourceCollectionOutcomeOfCreativeRead' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ResourceCollectionOutcomeOfCreative' !== 'string') {
+                        if ('\criteo\api\marketingsolutions\preview\Model\ResourceCollectionOutcomeOfCreativeRead' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ResourceCollectionOutcomeOfCreative', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ResourceCollectionOutcomeOfCreativeRead', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\criteo\api\marketingsolutions\preview\Model\ResourceCollectionOutcomeOfCreative';
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\ResourceCollectionOutcomeOfCreativeRead';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4671,7 +4671,7 @@ class CreativeApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ResourceCollectionOutcomeOfCreative',
+                        '\criteo\api\marketingsolutions\preview\Model\ResourceCollectionOutcomeOfCreativeRead',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4715,7 +4715,7 @@ class CreativeApi
      */
     public function getAdvertiserCreativesAsyncWithHttpInfo($advertiser_id, $limit = null, $offset = null, string $contentType = self::contentTypes['getAdvertiserCreatives'][0])
     {
-        $returnType = '\criteo\api\marketingsolutions\preview\Model\ResourceCollectionOutcomeOfCreative';
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\ResourceCollectionOutcomeOfCreativeRead';
         $request = $this->getAdvertiserCreativesRequest($advertiser_id, $limit, $offset, $contentType);
 
         return $this->client
