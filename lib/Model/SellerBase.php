@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorCodeResponse
+ * SellerBase
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2025_07\ObjectSerializer;
 
 /**
- * ErrorCodeResponse Class Doc Comment
+ * SellerBase Class Doc Comment
  *
  * @category Class
- * @description Definition of the error code
+ * @description The seller represents the legal person selling products on your platform.
  * @package  criteo\api\marketingsolutions\v2025_07
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class SellerBase implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ErrorCodeResponse';
+    protected static $openAPIModelName = 'SellerBase';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,8 @@ class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'errors' => '\criteo\api\marketingsolutions\v2025_07\Model\AudienceError[]',
-        'warnings' => '\criteo\api\marketingsolutions\v2025_07\Model\AudienceWarning[]'
+        'id' => 'string',
+        'seller_name' => 'string'
     ];
 
     /**
@@ -70,8 +70,8 @@ class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'errors' => null,
-        'warnings' => null
+        'id' => null,
+        'seller_name' => null
     ];
 
     /**
@@ -80,8 +80,8 @@ class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'errors' => false,
-		'warnings' => true
+        'id' => false,
+		'seller_name' => false
     ];
 
     /**
@@ -170,8 +170,8 @@ class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'errors' => 'errors',
-        'warnings' => 'warnings'
+        'id' => 'id',
+        'seller_name' => 'sellerName'
     ];
 
     /**
@@ -180,8 +180,8 @@ class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'errors' => 'setErrors',
-        'warnings' => 'setWarnings'
+        'id' => 'setId',
+        'seller_name' => 'setSellerName'
     ];
 
     /**
@@ -190,8 +190,8 @@ class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'errors' => 'getErrors',
-        'warnings' => 'getWarnings'
+        'id' => 'getId',
+        'seller_name' => 'getSellerName'
     ];
 
     /**
@@ -251,8 +251,8 @@ class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('errors', $data ?? [], null);
-        $this->setIfExists('warnings', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('seller_name', $data ?? [], null);
     }
 
     /**
@@ -282,9 +282,6 @@ class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['errors'] === null) {
-            $invalidProperties[] = "'errors' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -301,62 +298,55 @@ class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets errors
+     * Gets id
      *
-     * @return \criteo\api\marketingsolutions\v2025_07\Model\AudienceError[]
+     * @return string|null
      */
-    public function getErrors()
+    public function getId()
     {
-        return $this->container['errors'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets errors
+     * Sets id
      *
-     * @param \criteo\api\marketingsolutions\v2025_07\Model\AudienceError[] $errors errors
+     * @param string|null $id id
      *
      * @return self
      */
-    public function setErrors($errors)
+    public function setId($id)
     {
-        if (is_null($errors)) {
-            throw new \InvalidArgumentException('non-nullable errors cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['errors'] = $errors;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets warnings
+     * Gets seller_name
      *
-     * @return \criteo\api\marketingsolutions\v2025_07\Model\AudienceWarning[]|null
+     * @return string|null
      */
-    public function getWarnings()
+    public function getSellerName()
     {
-        return $this->container['warnings'];
+        return $this->container['seller_name'];
     }
 
     /**
-     * Sets warnings
+     * Sets seller_name
      *
-     * @param \criteo\api\marketingsolutions\v2025_07\Model\AudienceWarning[]|null $warnings warnings
+     * @param string|null $seller_name seller_name
      *
      * @return self
      */
-    public function setWarnings($warnings)
+    public function setSellerName($seller_name)
     {
-        if (is_null($warnings)) {
-            array_push($this->openAPINullablesSetToNull, 'warnings');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('warnings', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($seller_name)) {
+            throw new \InvalidArgumentException('non-nullable seller_name cannot be null');
         }
-        $this->container['warnings'] = $warnings;
+        $this->container['seller_name'] = $seller_name;
 
         return $this;
     }

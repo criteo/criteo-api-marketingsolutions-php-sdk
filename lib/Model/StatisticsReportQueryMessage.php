@@ -315,6 +315,244 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     public const DIMENSIONS_GOAL = 'Goal';
     public const DIMENSIONS_AD_CHANNEL = 'AdChannel';
     public const DIMENSIONS_SOCIAL_PLATFORM = 'SocialPlatform';
+    public const FORMAT_CSV = 'csv';
+    public const FORMAT_EXCEL = 'excel';
+    public const FORMAT_XML = 'xml';
+    public const FORMAT_JSON = 'json';
+    public const METRICS_CLICKS = 'Clicks';
+    public const METRICS_DISPLAYS = 'Displays';
+    public const METRICS_ADVERTISER_COST = 'AdvertiserCost';
+    public const METRICS_SALES_PC30D_CLIENT_ATTRIBUTION = 'SalesPc30dClientAttribution';
+    public const METRICS_SALES_CLIENT_ATTRIBUTION = 'SalesClientAttribution';
+    public const METRICS_SALES_PC30D = 'SalesPc30d';
+    public const METRICS_SALES_ALL_PC30D_CLIENT_ATTRIBUTION = 'SalesAllPc30dClientAttribution';
+    public const METRICS_SALES_ALL_CLIENT_ATTRIBUTION = 'SalesAllClientAttribution';
+    public const METRICS_SALES_ALL_PC30D = 'SalesAllPc30d';
+    public const METRICS_SALES_PV24H = 'SalesPv24h';
+    public const METRICS_SALES_ALL_PV24H = 'SalesAllPv24h';
+    public const METRICS_SALES_PC30_PV24 = 'SalesPc30Pv24';
+    public const METRICS_SALES_ALL_PC30_PV24 = 'SalesAllPc30Pv24';
+    public const METRICS_SALES_PC30D_PV24H = 'SalesPc30dPv24h';
+    public const METRICS_SALES_ALL_PC30D_PV24H = 'SalesAllPc30dPv24h';
+    public const METRICS_SALES_PC7D_PV24 = 'SalesPc7dPv24';
+    public const METRICS_SALES_ALL_PC7D_PV24 = 'SalesAllPc7dPv24';
+    public const METRICS_SALES_PC7D_PV24H = 'SalesPc7dPv24h';
+    public const METRICS_SALES_ALL_PC7D_PV24H = 'SalesAllPc7dPv24h';
+    public const METRICS_SALES_LC = 'SalesLc';
+    public const METRICS_SALES_ALL_LC = 'SalesAllLc';
+    public const METRICS_SALES_PC7D = 'SalesPc7d';
+    public const METRICS_SALES_ALL_PC7D = 'SalesAllPc7d';
+    public const METRICS_SALES_PC1D = 'SalesPc1d';
+    public const METRICS_SALES_ALL_PC1D = 'SalesAllPc1d';
+    public const METRICS_SALES_PI_PC = 'SalesPiPc';
+    public const METRICS_SALES_PI_PV = 'SalesPiPv';
+    public const METRICS_SALES_PI_PC_PV = 'SalesPiPcPv';
+    public const METRICS_POST_INSTALL_SALES = 'PostInstallSales';
+    public const METRICS_SALES_OFFLINE_PC = 'SalesOfflinePc';
+    public const METRICS_SALES_OFFLINE_PV = 'SalesOfflinePv';
+    public const METRICS_SALES_OFFLINE_PC30D = 'SalesOfflinePc30d';
+    public const METRICS_SALES_OFFLINE_PV24H = 'SalesOfflinePv24h';
+    public const METRICS_REVENUE_GENERATED_PC30D_CLIENT_ATTRIBUTION = 'RevenueGeneratedPc30dClientAttribution';
+    public const METRICS_REVENUE_GENERATED_CLIENT_ATTRIBUTION = 'RevenueGeneratedClientAttribution';
+    public const METRICS_REVENUE_GENERATED_PC30D = 'RevenueGeneratedPc30d';
+    public const METRICS_REVENUE_GENERATED_ALL_PC30D_CLIENT_ATTRIBUTION = 'RevenueGeneratedAllPc30dClientAttribution';
+    public const METRICS_REVENUE_GENERATED_ALL_CLIENT_ATTRIBUTION = 'RevenueGeneratedAllClientAttribution';
+    public const METRICS_REVENUE_GENERATED_ALL_PC30D = 'RevenueGeneratedAllPc30d';
+    public const METRICS_REVENUE_GENERATED_PV24H = 'RevenueGeneratedPv24h';
+    public const METRICS_REVENUE_GENERATED_ALL_PV24H = 'RevenueGeneratedAllPv24h';
+    public const METRICS_REVENUE_GENERATED_PC30_PV24 = 'RevenueGeneratedPc30Pv24';
+    public const METRICS_REVENUE_GENERATED_ALL_PC30_PV24 = 'RevenueGeneratedAllPc30Pv24';
+    public const METRICS_REVENUE_GENERATED_PC30D_PV24H = 'RevenueGeneratedPc30dPv24h';
+    public const METRICS_REVENUE_GENERATED_ALL_PC30D_PV24H = 'RevenueGeneratedAllPc30dPv24h';
+    public const METRICS_REVENUE_GENERATED_PC7D_PV24H = 'RevenueGeneratedPc7dPv24h';
+    public const METRICS_REVENUE_GENERATED_ALL_PC7D_PV24H = 'RevenueGeneratedAllPc7dPv24h';
+    public const METRICS_REVENUE_GENERATED_PC7D_PV24 = 'RevenueGeneratedPc7dPv24';
+    public const METRICS_REVENUE_GENERATED_ALL_PC7D_PV24 = 'RevenueGeneratedAllPc7dPv24';
+    public const METRICS_REVENUE_GENERATED_LC = 'RevenueGeneratedLc';
+    public const METRICS_REVENUE_GENERATED_ALL_LC = 'RevenueGeneratedAllLc';
+    public const METRICS_REVENUE_GENERATED_PC7D = 'RevenueGeneratedPc7d';
+    public const METRICS_REVENUE_GENERATED_ALL_PC7D = 'RevenueGeneratedAllPc7d';
+    public const METRICS_REVENUE_GENERATED_PC1D = 'RevenueGeneratedPc1d';
+    public const METRICS_REVENUE_GENERATED_ALL_PC1D = 'RevenueGeneratedAllPc1d';
+    public const METRICS_REVENUE_GENERATED_OFFLINE_PC = 'RevenueGeneratedOfflinePc';
+    public const METRICS_REVENUE_GENERATED_OFFLINE_PV = 'RevenueGeneratedOfflinePv';
+    public const METRICS_REVENUE_GENERATED_OFFLINE_PC30D = 'RevenueGeneratedOfflinePc30d';
+    public const METRICS_REVENUE_GENERATED_OFFLINE_PV24H = 'RevenueGeneratedOfflinePv24h';
+    public const METRICS_CONVERSION_RATE_PC30D_CLIENT_ATTRIBUTION = 'ConversionRatePc30dClientAttribution';
+    public const METRICS_CONVERSION_RATE_CLIENT_ATTRIBUTION = 'ConversionRateClientAttribution';
+    public const METRICS_CONVERSION_RATE_PC30D = 'ConversionRatePc30d';
+    public const METRICS_CONVERSION_RATE_ALL_PC30D_CLIENT_ATTRIBUTION = 'ConversionRateAllPc30dClientAttribution';
+    public const METRICS_CONVERSION_RATE_ALL_CLIENT_ATTRIBUTION = 'ConversionRateAllClientAttribution';
+    public const METRICS_CONVERSION_RATE_ALL_PC30D = 'ConversionRateAllPc30d';
+    public const METRICS_CONVERSION_RATE_PV24H = 'ConversionRatePv24h';
+    public const METRICS_CONVERSION_RATE_ALL_PV24H = 'ConversionRateAllPv24h';
+    public const METRICS_CONVERSION_RATE_PC30_PV24 = 'ConversionRatePc30Pv24';
+    public const METRICS_CONVERSION_RATE_ALL_PC30_PV24 = 'ConversionRateAllPc30Pv24';
+    public const METRICS_CONVERSION_RATE_PC30D_PV24H = 'ConversionRatePc30dPv24h';
+    public const METRICS_CONVERSION_RATE_ALL_PC30D_PV24H = 'ConversionRateAllPc30dPv24h';
+    public const METRICS_CONVERSION_RATE_PC7D_PV24 = 'ConversionRatePc7dPv24';
+    public const METRICS_CONVERSION_RATE_ALL_PC7D_PV24 = 'ConversionRateAllPc7dPv24';
+    public const METRICS_CONVERSION_RATE_PC7D_PV24H = 'ConversionRatePc7dPv24h';
+    public const METRICS_CONVERSION_RATE_ALL_PC7D_PV24H = 'ConversionRateAllPc7dPv24h';
+    public const METRICS_CONVERSION_RATE_PC7D = 'ConversionRatePc7d';
+    public const METRICS_CONVERSION_RATE_ALL_PC7D = 'ConversionRateAllPc7d';
+    public const METRICS_CONVERSION_RATE_PC1D = 'ConversionRatePc1d';
+    public const METRICS_CONVERSION_RATE_ALL_PC1D = 'ConversionRateAllPc1d';
+    public const METRICS_CONVERSION_RATE_PI_PC_PV = 'ConversionRatePiPcPv';
+    public const METRICS_POST_INSTALL_CONVERSION_RATE = 'PostInstallConversionRate';
+    public const METRICS_E_COS_PC30D_CLIENT_ATTRIBUTION = 'ECosPc30dClientAttribution';
+    public const METRICS_E_COS_CLIENT_ATTRIBUTION = 'ECosClientAttribution';
+    public const METRICS_E_COS_PC30D = 'ECosPc30d';
+    public const METRICS_E_COS_ALL_PC30D_CLIENT_ATTRIBUTION = 'ECosAllPc30dClientAttribution';
+    public const METRICS_E_COS_ALL_CLIENT_ATTRIBUTION = 'ECosAllClientAttribution';
+    public const METRICS_E_COS_ALL_PC30D = 'ECosAllPc30d';
+    public const METRICS_E_COS_PV24H = 'ECosPv24h';
+    public const METRICS_E_COS_ALL_PV24H = 'ECosAllPv24h';
+    public const METRICS_E_COS_PC30_PV24 = 'ECosPc30Pv24';
+    public const METRICS_E_COS_ALL_PC30_PV24 = 'ECosAllPc30Pv24';
+    public const METRICS_E_COS_PC30D_PV24H = 'ECosPc30dPv24h';
+    public const METRICS_E_COS_ALL_PC30D_PV24H = 'ECosAllPc30dPv24h';
+    public const METRICS_E_COS_PC7D_PV24H = 'ECosPc7dPv24h';
+    public const METRICS_E_COS_ALL_PC7D_PV24H = 'ECosAllPc7dPv24h';
+    public const METRICS_E_COS_PC7D_PV24 = 'ECosPc7dPv24';
+    public const METRICS_E_COS_ALL_PC7D_PV24 = 'ECosAllPc7dPv24';
+    public const METRICS_E_COS_PC7D = 'ECosPc7d';
+    public const METRICS_E_COS_ALL_PC7D = 'ECosAllPc7d';
+    public const METRICS_E_COS_PC1D = 'ECosPc1d';
+    public const METRICS_E_COS_ALL_PC1D = 'ECosAllPc1d';
+    public const METRICS_COST_PER_ORDER_PC30D_CLIENT_ATTRIBUTION = 'CostPerOrderPc30dClientAttribution';
+    public const METRICS_COST_PER_ORDER_CLIENT_ATTRIBUTION = 'CostPerOrderClientAttribution';
+    public const METRICS_COST_PER_ORDER_PC30D = 'CostPerOrderPc30d';
+    public const METRICS_COST_PER_ORDER_ALL_PC30D_CLIENT_ATTRIBUTION = 'CostPerOrderAllPc30dClientAttribution';
+    public const METRICS_COST_PER_ORDER_ALL_CLIENT_ATTRIBUTION = 'CostPerOrderAllClientAttribution';
+    public const METRICS_COST_PER_ORDER_ALL_PC30D = 'CostPerOrderAllPc30d';
+    public const METRICS_COST_PER_ORDER_PV24H = 'CostPerOrderPv24h';
+    public const METRICS_COST_PER_ORDER_ALL_PV24H = 'CostPerOrderAllPv24h';
+    public const METRICS_COST_PER_ORDER_PC30_PV24 = 'CostPerOrderPc30Pv24';
+    public const METRICS_COST_PER_ORDER_ALL_PC30_PV24 = 'CostPerOrderAllPc30Pv24';
+    public const METRICS_COST_PER_ORDER_PC30D_PV24H = 'CostPerOrderPc30dPv24h';
+    public const METRICS_COST_PER_ORDER_ALL_PC30D_PV24H = 'CostPerOrderAllPc30dPv24h';
+    public const METRICS_COST_PER_ORDER_PC7D_PV24H = 'CostPerOrderPc7dPv24h';
+    public const METRICS_COST_PER_ORDER_ALL_PC7D_PV24H = 'CostPerOrderAllPc7dPv24h';
+    public const METRICS_COST_PER_ORDER_PC7D_PV24 = 'CostPerOrderPc7dPv24';
+    public const METRICS_COST_PER_ORDER_ALL_PC7D_PV24 = 'CostPerOrderAllPc7dPv24';
+    public const METRICS_COST_PER_ORDER_PC7D = 'CostPerOrderPc7d';
+    public const METRICS_COST_PER_ORDER_ALL_PC7D = 'CostPerOrderAllPc7d';
+    public const METRICS_COST_PER_ORDER_PC1D = 'CostPerOrderPc1d';
+    public const METRICS_COST_PER_ORDER_ALL_PC1D = 'CostPerOrderAllPc1d';
+    public const METRICS_EXPOSED_USERS = 'ExposedUsers';
+    public const METRICS_AUDIENCE = 'Audience';
+    public const METRICS_REACH = 'Reach';
+    public const METRICS_AVERAGE_CART_PC30D_CLIENT_ATTRIBUTION = 'AverageCartPc30dClientAttribution';
+    public const METRICS_AVERAGE_CART_ALL_PC30D_CLIENT_ATTRIBUTION = 'AverageCartAllPc30dClientAttribution';
+    public const METRICS_AVERAGE_CART_CLIENT_ATTRIBUTION = 'AverageCartClientAttribution';
+    public const METRICS_AVERAGE_CART_ALL_CLIENT_ATTRIBUTION = 'AverageCartAllClientAttribution';
+    public const METRICS_AVERAGE_CART_PC30D = 'AverageCartPc30d';
+    public const METRICS_AVERAGE_CART_ALL_PC30D = 'AverageCartAllPc30d';
+    public const METRICS_AVERAGE_CART_PV24H = 'AverageCartPv24h';
+    public const METRICS_AVERAGE_CART_ALL_PV24H = 'AverageCartAllPv24h';
+    public const METRICS_AVERAGE_CART_PC1D = 'AverageCartPc1d';
+    public const METRICS_AVERAGE_CART_ALL_PC1D = 'AverageCartAllPc1d';
+    public const METRICS_AVERAGE_CART_PC7D = 'AverageCartPc7d';
+    public const METRICS_AVERAGE_CART_ALL_PC7D = 'AverageCartAllPc7d';
+    public const METRICS_AVERAGE_CART_PC30_PV24 = 'AverageCartPc30Pv24';
+    public const METRICS_AVERAGE_CART_ALL_PC30_PV24 = 'AverageCartAllPc30Pv24';
+    public const METRICS_AVERAGE_CART_PC30D_PV24H = 'AverageCartPc30dPv24h';
+    public const METRICS_AVERAGE_CART_ALL_PC30D_PV24H = 'AverageCartAllPc30dPv24h';
+    public const METRICS_AVERAGE_CART_PC7D_PV24H = 'AverageCartPc7dPv24h';
+    public const METRICS_AVERAGE_CART_ALL_PC7D_PV24H = 'AverageCartAllPc7dPv24h';
+    public const METRICS_AVERAGE_CART_PC7D_PV24 = 'AverageCartPc7dPv24';
+    public const METRICS_AVERAGE_CART_ALL_PC7D_PV24 = 'AverageCartAllPc7dPv24';
+    public const METRICS_CLICK_THROUGH_RATE = 'ClickThroughRate';
+    public const METRICS_E_CPC = 'ECpc';
+    public const METRICS_CPC = 'Cpc';
+    public const METRICS_E_CPM = 'ECpm';
+    public const METRICS_RETURN_ON_ADVERTISING_SPENDING_CLIENT_ATTRIBUTION = 'ReturnOnAdvertisingSpendingClientAttribution';
+    public const METRICS_RETURN_ON_ADVERTISING_SPENDING_ALL_CLIENT_ATTRIBUTION = 'ReturnOnAdvertisingSpendingAllClientAttribution';
+    public const METRICS_ADVERTISER_VALUE = 'AdvertiserValue';
+    public const METRICS_ADVERTISER_ALL_VALUE = 'AdvertiserAllValue';
+    public const METRICS_COST_OF_ADVERTISER_VALUE = 'CostOfAdvertiserValue';
+    public const METRICS_COST_OF_ADVERTISER_VALUE_ALL = 'CostOfAdvertiserValueAll';
+    public const METRICS_APP_INSTALLS_PC_PV = 'AppInstallsPcPv';
+    public const METRICS_APP_INSTALLS = 'AppInstalls';
+    public const METRICS_QUALIFIED_VISITS = 'QualifiedVisits';
+    public const METRICS_VISITS = 'Visits';
+    public const METRICS_VISITS_PV1_D = 'VisitsPV1D';
+    public const METRICS_ORDER_VALUE_PI = 'OrderValuePi';
+    public const METRICS_POST_INSTALL_ORDER_VALUE = 'PostInstallOrderValue';
+    public const METRICS_BOUNCE_RATE = 'BounceRate';
+    public const METRICS_COST_PER_INSTALL_PC_PV = 'CostPerInstallPcPv';
+    public const METRICS_COST_PER_INSTALL = 'CostPerInstall';
+    public const METRICS_COST_PER_VISIT = 'CostPerVisit';
+    public const METRICS_COST_PER_VISIT_PV1_D = 'CostPerVisitPV1D';
+    public const METRICS_COST_PER_QUALIFIED_VISIT = 'CostPerQualifiedVisit';
+    public const METRICS_INSTALL_RATE_PC_PV = 'InstallRatePcPv';
+    public const METRICS_INSTALL_RATE = 'InstallRate';
+    public const METRICS_OMNICHANNEL_ROAS_PC30D = 'OmnichannelRoasPc30d';
+    public const METRICS_OMNICHANNEL_ROAS_ALL_PC30D = 'OmnichannelRoasAllPc30d';
+    public const METRICS_OMNICHANNEL_REVENUE_PC30D = 'OmnichannelRevenuePc30d';
+    public const METRICS_OMNICHANNEL_REVENUE_ALL_PC30D = 'OmnichannelRevenueAllPc30d';
+    public const METRICS_OMNICHANNEL_SALES_PC30D = 'OmnichannelSalesPc30d';
+    public const METRICS_OMNICHANNEL_SALES_ALL_PC30D = 'OmnichannelSalesAllPc30d';
+    public const METRICS_OMNICHANNEL_ROAS_ALL_PV24H = 'OmnichannelRoasAllPv24h';
+    public const METRICS_OMNICHANNEL_ROAS_PV24H = 'OmnichannelRoasPv24h';
+    public const METRICS_OMNICHANNEL_REVENUE_ALL_PV24H = 'OmnichannelRevenueAllPv24h';
+    public const METRICS_OMNICHANNEL_REVENUE_PV24H = 'OmnichannelRevenuePv24h';
+    public const METRICS_OMNICHANNEL_SALES_ALL_PV24H = 'OmnichannelSalesAllPv24h';
+    public const METRICS_OMNICHANNEL_SALES_PV24H = 'OmnichannelSalesPv24h';
+    public const METRICS_OMNICHANNEL_ROAS_CLIENT_ATTRIBUTION = 'OmnichannelRoasClientAttribution';
+    public const METRICS_OMNICHANNEL_REVENUE_CLIENT_ATTRIBUTION = 'OmnichannelRevenueClientAttribution';
+    public const METRICS_OMNICHANNEL_SALES_CLIENT_ATTRIBUTION = 'OmnichannelSalesClientAttribution';
+    public const METRICS_ROAS_ALL_PC30D_CLIENT_ATTRIBUTION = 'RoasAllPc30dClientAttribution';
+    public const METRICS_ROAS_PC30D_CLIENT_ATTRIBUTION = 'RoasPc30dClientAttribution';
+    public const METRICS_ROAS_ALL_CLIENT_ATTRIBUTION = 'RoasAllClientAttribution';
+    public const METRICS_ROAS_CLIENT_ATTRIBUTION = 'RoasClientAttribution';
+    public const METRICS_ROAS_ALL_PC30D = 'RoasAllPc30d';
+    public const METRICS_ROAS_PC30D = 'RoasPc30d';
+    public const METRICS_ROAS_ALL_PC7D = 'RoasAllPc7d';
+    public const METRICS_ROAS_PC7D = 'RoasPc7d';
+    public const METRICS_ROAS_ALL_PC1D = 'RoasAllPc1d';
+    public const METRICS_ROAS_PC1D = 'RoasPc1d';
+    public const METRICS_ROAS_ALL_PV24H = 'RoasAllPv24h';
+    public const METRICS_ROAS_PV24H = 'RoasPv24h';
+    public const METRICS_ROAS_PC30_PV24 = 'RoasPc30Pv24';
+    public const METRICS_ROAS_ALL_PC30_PV24 = 'RoasAllPc30Pv24';
+    public const METRICS_ROAS_PC30D_PV24H = 'RoasPc30dPv24h';
+    public const METRICS_ROAS_ALL_PC30D_PV24H = 'RoasAllPc30dPv24h';
+    public const METRICS_ROAS_PC7D_PV24 = 'RoasPc7dPv24';
+    public const METRICS_ROAS_ALL_PC7D_PV24 = 'RoasAllPc7dPv24';
+    public const METRICS_ROAS_PC7D_PV24H = 'RoasPc7dPv24h';
+    public const METRICS_ROAS_ALL_PC7D_PV24H = 'RoasAllPc7dPv24h';
+    public const METRICS_COST_OF_SALE_PI = 'CostOfSalePi';
+    public const METRICS_COST_PER_ORDER_PI = 'CostPerOrderPi';
+    public const METRICS_POST_INSTALL_COST_OF_SALE = 'PostInstallCostOfSale';
+    public const METRICS_POST_INSTALL_COST_PER_ORDER = 'PostInstallCostPerOrder';
+    public const METRICS_RETURN_ON_ADVERTISER_SPENDING_PI = 'ReturnOnAdvertiserSpendingPi';
+    public const METRICS_POST_INSTALL_ROAS = 'PostInstallRoas';
+    public const METRICS_RETURN_ON_ADVERTISER_SPENDING_OFFLINE_PC = 'ReturnOnAdvertiserSpendingOfflinePc';
+    public const METRICS_RETURN_ON_ADVERTISER_SPENDING_OFFLINE_PV = 'ReturnOnAdvertiserSpendingOfflinePv';
+    public const METRICS_ROAS_OFFLINE_PC30D = 'RoasOfflinePc30d';
+    public const METRICS_ROAS_OFFLINE_PV24H = 'RoasOfflinePv24h';
+    public const METRICS_POTENTIAL_DISPLAYS = 'PotentialDisplays';
+    public const METRICS_OVERALL_COMPETITION_WIN = 'OverallCompetitionWin';
+    public const METRICS_VIEWABLE_DISPLAYS = 'ViewableDisplays';
+    public const METRICS_NON_VIEWABLE_DISPLAYS = 'NonViewableDisplays';
+    public const METRICS_UNTRACKABLE_DISPLAYS = 'UntrackableDisplays';
+    public const METRICS_FREQUENCY = 'Frequency';
+    public const METRICS_INVALID_DISPLAYS = 'InvalidDisplays';
+    public const METRICS_INVALID_CLICKS = 'InvalidClicks';
+    public const METRICS_RESULT_TYPE = 'ResultType';
+    public const METRICS_VIDEO_STARTED = 'VideoStarted';
+    public const METRICS_VIDEO_FIRST_QUARTILE = 'VideoFirstQuartile';
+    public const METRICS_VIDEO_MIDPOINT = 'VideoMidpoint';
+    public const METRICS_VIDEO_THIRD_QUARTILE = 'VideoThirdQuartile';
+    public const METRICS_VIDEO_COMPLETED = 'VideoCompleted';
+    public const METRICS_VIDEO_AVOC = 'VideoAvoc';
+    public const METRICS_VIDEO_START_RATE = 'VideoStartRate';
+    public const METRICS_VIDEO_COMPLETION_RATE = 'VideoCompletionRate';
+    public const METRICS_VIDEO_AVERAGE_VIEW_RATE = 'VideoAverageViewRate';
+    public const METRICS_VIDEO_CPV = 'VideoCpv';
+    public const METRICS_VIDEO_CPCV = 'VideoCpcv';
 
     /**
      * Gets allowable values of the enum
@@ -354,6 +592,266 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     }
 
     /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFormatAllowableValues()
+    {
+        return [
+            self::FORMAT_CSV,
+            self::FORMAT_EXCEL,
+            self::FORMAT_XML,
+            self::FORMAT_JSON,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMetricsAllowableValues()
+    {
+        return [
+            self::METRICS_CLICKS,
+            self::METRICS_DISPLAYS,
+            self::METRICS_ADVERTISER_COST,
+            self::METRICS_SALES_PC30D_CLIENT_ATTRIBUTION,
+            self::METRICS_SALES_CLIENT_ATTRIBUTION,
+            self::METRICS_SALES_PC30D,
+            self::METRICS_SALES_ALL_PC30D_CLIENT_ATTRIBUTION,
+            self::METRICS_SALES_ALL_CLIENT_ATTRIBUTION,
+            self::METRICS_SALES_ALL_PC30D,
+            self::METRICS_SALES_PV24H,
+            self::METRICS_SALES_ALL_PV24H,
+            self::METRICS_SALES_PC30_PV24,
+            self::METRICS_SALES_ALL_PC30_PV24,
+            self::METRICS_SALES_PC30D_PV24H,
+            self::METRICS_SALES_ALL_PC30D_PV24H,
+            self::METRICS_SALES_PC7D_PV24,
+            self::METRICS_SALES_ALL_PC7D_PV24,
+            self::METRICS_SALES_PC7D_PV24H,
+            self::METRICS_SALES_ALL_PC7D_PV24H,
+            self::METRICS_SALES_LC,
+            self::METRICS_SALES_ALL_LC,
+            self::METRICS_SALES_PC7D,
+            self::METRICS_SALES_ALL_PC7D,
+            self::METRICS_SALES_PC1D,
+            self::METRICS_SALES_ALL_PC1D,
+            self::METRICS_SALES_PI_PC,
+            self::METRICS_SALES_PI_PV,
+            self::METRICS_SALES_PI_PC_PV,
+            self::METRICS_POST_INSTALL_SALES,
+            self::METRICS_SALES_OFFLINE_PC,
+            self::METRICS_SALES_OFFLINE_PV,
+            self::METRICS_SALES_OFFLINE_PC30D,
+            self::METRICS_SALES_OFFLINE_PV24H,
+            self::METRICS_REVENUE_GENERATED_PC30D_CLIENT_ATTRIBUTION,
+            self::METRICS_REVENUE_GENERATED_CLIENT_ATTRIBUTION,
+            self::METRICS_REVENUE_GENERATED_PC30D,
+            self::METRICS_REVENUE_GENERATED_ALL_PC30D_CLIENT_ATTRIBUTION,
+            self::METRICS_REVENUE_GENERATED_ALL_CLIENT_ATTRIBUTION,
+            self::METRICS_REVENUE_GENERATED_ALL_PC30D,
+            self::METRICS_REVENUE_GENERATED_PV24H,
+            self::METRICS_REVENUE_GENERATED_ALL_PV24H,
+            self::METRICS_REVENUE_GENERATED_PC30_PV24,
+            self::METRICS_REVENUE_GENERATED_ALL_PC30_PV24,
+            self::METRICS_REVENUE_GENERATED_PC30D_PV24H,
+            self::METRICS_REVENUE_GENERATED_ALL_PC30D_PV24H,
+            self::METRICS_REVENUE_GENERATED_PC7D_PV24H,
+            self::METRICS_REVENUE_GENERATED_ALL_PC7D_PV24H,
+            self::METRICS_REVENUE_GENERATED_PC7D_PV24,
+            self::METRICS_REVENUE_GENERATED_ALL_PC7D_PV24,
+            self::METRICS_REVENUE_GENERATED_LC,
+            self::METRICS_REVENUE_GENERATED_ALL_LC,
+            self::METRICS_REVENUE_GENERATED_PC7D,
+            self::METRICS_REVENUE_GENERATED_ALL_PC7D,
+            self::METRICS_REVENUE_GENERATED_PC1D,
+            self::METRICS_REVENUE_GENERATED_ALL_PC1D,
+            self::METRICS_REVENUE_GENERATED_OFFLINE_PC,
+            self::METRICS_REVENUE_GENERATED_OFFLINE_PV,
+            self::METRICS_REVENUE_GENERATED_OFFLINE_PC30D,
+            self::METRICS_REVENUE_GENERATED_OFFLINE_PV24H,
+            self::METRICS_CONVERSION_RATE_PC30D_CLIENT_ATTRIBUTION,
+            self::METRICS_CONVERSION_RATE_CLIENT_ATTRIBUTION,
+            self::METRICS_CONVERSION_RATE_PC30D,
+            self::METRICS_CONVERSION_RATE_ALL_PC30D_CLIENT_ATTRIBUTION,
+            self::METRICS_CONVERSION_RATE_ALL_CLIENT_ATTRIBUTION,
+            self::METRICS_CONVERSION_RATE_ALL_PC30D,
+            self::METRICS_CONVERSION_RATE_PV24H,
+            self::METRICS_CONVERSION_RATE_ALL_PV24H,
+            self::METRICS_CONVERSION_RATE_PC30_PV24,
+            self::METRICS_CONVERSION_RATE_ALL_PC30_PV24,
+            self::METRICS_CONVERSION_RATE_PC30D_PV24H,
+            self::METRICS_CONVERSION_RATE_ALL_PC30D_PV24H,
+            self::METRICS_CONVERSION_RATE_PC7D_PV24,
+            self::METRICS_CONVERSION_RATE_ALL_PC7D_PV24,
+            self::METRICS_CONVERSION_RATE_PC7D_PV24H,
+            self::METRICS_CONVERSION_RATE_ALL_PC7D_PV24H,
+            self::METRICS_CONVERSION_RATE_PC7D,
+            self::METRICS_CONVERSION_RATE_ALL_PC7D,
+            self::METRICS_CONVERSION_RATE_PC1D,
+            self::METRICS_CONVERSION_RATE_ALL_PC1D,
+            self::METRICS_CONVERSION_RATE_PI_PC_PV,
+            self::METRICS_POST_INSTALL_CONVERSION_RATE,
+            self::METRICS_E_COS_PC30D_CLIENT_ATTRIBUTION,
+            self::METRICS_E_COS_CLIENT_ATTRIBUTION,
+            self::METRICS_E_COS_PC30D,
+            self::METRICS_E_COS_ALL_PC30D_CLIENT_ATTRIBUTION,
+            self::METRICS_E_COS_ALL_CLIENT_ATTRIBUTION,
+            self::METRICS_E_COS_ALL_PC30D,
+            self::METRICS_E_COS_PV24H,
+            self::METRICS_E_COS_ALL_PV24H,
+            self::METRICS_E_COS_PC30_PV24,
+            self::METRICS_E_COS_ALL_PC30_PV24,
+            self::METRICS_E_COS_PC30D_PV24H,
+            self::METRICS_E_COS_ALL_PC30D_PV24H,
+            self::METRICS_E_COS_PC7D_PV24H,
+            self::METRICS_E_COS_ALL_PC7D_PV24H,
+            self::METRICS_E_COS_PC7D_PV24,
+            self::METRICS_E_COS_ALL_PC7D_PV24,
+            self::METRICS_E_COS_PC7D,
+            self::METRICS_E_COS_ALL_PC7D,
+            self::METRICS_E_COS_PC1D,
+            self::METRICS_E_COS_ALL_PC1D,
+            self::METRICS_COST_PER_ORDER_PC30D_CLIENT_ATTRIBUTION,
+            self::METRICS_COST_PER_ORDER_CLIENT_ATTRIBUTION,
+            self::METRICS_COST_PER_ORDER_PC30D,
+            self::METRICS_COST_PER_ORDER_ALL_PC30D_CLIENT_ATTRIBUTION,
+            self::METRICS_COST_PER_ORDER_ALL_CLIENT_ATTRIBUTION,
+            self::METRICS_COST_PER_ORDER_ALL_PC30D,
+            self::METRICS_COST_PER_ORDER_PV24H,
+            self::METRICS_COST_PER_ORDER_ALL_PV24H,
+            self::METRICS_COST_PER_ORDER_PC30_PV24,
+            self::METRICS_COST_PER_ORDER_ALL_PC30_PV24,
+            self::METRICS_COST_PER_ORDER_PC30D_PV24H,
+            self::METRICS_COST_PER_ORDER_ALL_PC30D_PV24H,
+            self::METRICS_COST_PER_ORDER_PC7D_PV24H,
+            self::METRICS_COST_PER_ORDER_ALL_PC7D_PV24H,
+            self::METRICS_COST_PER_ORDER_PC7D_PV24,
+            self::METRICS_COST_PER_ORDER_ALL_PC7D_PV24,
+            self::METRICS_COST_PER_ORDER_PC7D,
+            self::METRICS_COST_PER_ORDER_ALL_PC7D,
+            self::METRICS_COST_PER_ORDER_PC1D,
+            self::METRICS_COST_PER_ORDER_ALL_PC1D,
+            self::METRICS_EXPOSED_USERS,
+            self::METRICS_AUDIENCE,
+            self::METRICS_REACH,
+            self::METRICS_AVERAGE_CART_PC30D_CLIENT_ATTRIBUTION,
+            self::METRICS_AVERAGE_CART_ALL_PC30D_CLIENT_ATTRIBUTION,
+            self::METRICS_AVERAGE_CART_CLIENT_ATTRIBUTION,
+            self::METRICS_AVERAGE_CART_ALL_CLIENT_ATTRIBUTION,
+            self::METRICS_AVERAGE_CART_PC30D,
+            self::METRICS_AVERAGE_CART_ALL_PC30D,
+            self::METRICS_AVERAGE_CART_PV24H,
+            self::METRICS_AVERAGE_CART_ALL_PV24H,
+            self::METRICS_AVERAGE_CART_PC1D,
+            self::METRICS_AVERAGE_CART_ALL_PC1D,
+            self::METRICS_AVERAGE_CART_PC7D,
+            self::METRICS_AVERAGE_CART_ALL_PC7D,
+            self::METRICS_AVERAGE_CART_PC30_PV24,
+            self::METRICS_AVERAGE_CART_ALL_PC30_PV24,
+            self::METRICS_AVERAGE_CART_PC30D_PV24H,
+            self::METRICS_AVERAGE_CART_ALL_PC30D_PV24H,
+            self::METRICS_AVERAGE_CART_PC7D_PV24H,
+            self::METRICS_AVERAGE_CART_ALL_PC7D_PV24H,
+            self::METRICS_AVERAGE_CART_PC7D_PV24,
+            self::METRICS_AVERAGE_CART_ALL_PC7D_PV24,
+            self::METRICS_CLICK_THROUGH_RATE,
+            self::METRICS_E_CPC,
+            self::METRICS_CPC,
+            self::METRICS_E_CPM,
+            self::METRICS_RETURN_ON_ADVERTISING_SPENDING_CLIENT_ATTRIBUTION,
+            self::METRICS_RETURN_ON_ADVERTISING_SPENDING_ALL_CLIENT_ATTRIBUTION,
+            self::METRICS_ADVERTISER_VALUE,
+            self::METRICS_ADVERTISER_ALL_VALUE,
+            self::METRICS_COST_OF_ADVERTISER_VALUE,
+            self::METRICS_COST_OF_ADVERTISER_VALUE_ALL,
+            self::METRICS_APP_INSTALLS_PC_PV,
+            self::METRICS_APP_INSTALLS,
+            self::METRICS_QUALIFIED_VISITS,
+            self::METRICS_VISITS,
+            self::METRICS_VISITS_PV1_D,
+            self::METRICS_ORDER_VALUE_PI,
+            self::METRICS_POST_INSTALL_ORDER_VALUE,
+            self::METRICS_BOUNCE_RATE,
+            self::METRICS_COST_PER_INSTALL_PC_PV,
+            self::METRICS_COST_PER_INSTALL,
+            self::METRICS_COST_PER_VISIT,
+            self::METRICS_COST_PER_VISIT_PV1_D,
+            self::METRICS_COST_PER_QUALIFIED_VISIT,
+            self::METRICS_INSTALL_RATE_PC_PV,
+            self::METRICS_INSTALL_RATE,
+            self::METRICS_OMNICHANNEL_ROAS_PC30D,
+            self::METRICS_OMNICHANNEL_ROAS_ALL_PC30D,
+            self::METRICS_OMNICHANNEL_REVENUE_PC30D,
+            self::METRICS_OMNICHANNEL_REVENUE_ALL_PC30D,
+            self::METRICS_OMNICHANNEL_SALES_PC30D,
+            self::METRICS_OMNICHANNEL_SALES_ALL_PC30D,
+            self::METRICS_OMNICHANNEL_ROAS_ALL_PV24H,
+            self::METRICS_OMNICHANNEL_ROAS_PV24H,
+            self::METRICS_OMNICHANNEL_REVENUE_ALL_PV24H,
+            self::METRICS_OMNICHANNEL_REVENUE_PV24H,
+            self::METRICS_OMNICHANNEL_SALES_ALL_PV24H,
+            self::METRICS_OMNICHANNEL_SALES_PV24H,
+            self::METRICS_OMNICHANNEL_ROAS_CLIENT_ATTRIBUTION,
+            self::METRICS_OMNICHANNEL_REVENUE_CLIENT_ATTRIBUTION,
+            self::METRICS_OMNICHANNEL_SALES_CLIENT_ATTRIBUTION,
+            self::METRICS_ROAS_ALL_PC30D_CLIENT_ATTRIBUTION,
+            self::METRICS_ROAS_PC30D_CLIENT_ATTRIBUTION,
+            self::METRICS_ROAS_ALL_CLIENT_ATTRIBUTION,
+            self::METRICS_ROAS_CLIENT_ATTRIBUTION,
+            self::METRICS_ROAS_ALL_PC30D,
+            self::METRICS_ROAS_PC30D,
+            self::METRICS_ROAS_ALL_PC7D,
+            self::METRICS_ROAS_PC7D,
+            self::METRICS_ROAS_ALL_PC1D,
+            self::METRICS_ROAS_PC1D,
+            self::METRICS_ROAS_ALL_PV24H,
+            self::METRICS_ROAS_PV24H,
+            self::METRICS_ROAS_PC30_PV24,
+            self::METRICS_ROAS_ALL_PC30_PV24,
+            self::METRICS_ROAS_PC30D_PV24H,
+            self::METRICS_ROAS_ALL_PC30D_PV24H,
+            self::METRICS_ROAS_PC7D_PV24,
+            self::METRICS_ROAS_ALL_PC7D_PV24,
+            self::METRICS_ROAS_PC7D_PV24H,
+            self::METRICS_ROAS_ALL_PC7D_PV24H,
+            self::METRICS_COST_OF_SALE_PI,
+            self::METRICS_COST_PER_ORDER_PI,
+            self::METRICS_POST_INSTALL_COST_OF_SALE,
+            self::METRICS_POST_INSTALL_COST_PER_ORDER,
+            self::METRICS_RETURN_ON_ADVERTISER_SPENDING_PI,
+            self::METRICS_POST_INSTALL_ROAS,
+            self::METRICS_RETURN_ON_ADVERTISER_SPENDING_OFFLINE_PC,
+            self::METRICS_RETURN_ON_ADVERTISER_SPENDING_OFFLINE_PV,
+            self::METRICS_ROAS_OFFLINE_PC30D,
+            self::METRICS_ROAS_OFFLINE_PV24H,
+            self::METRICS_POTENTIAL_DISPLAYS,
+            self::METRICS_OVERALL_COMPETITION_WIN,
+            self::METRICS_VIEWABLE_DISPLAYS,
+            self::METRICS_NON_VIEWABLE_DISPLAYS,
+            self::METRICS_UNTRACKABLE_DISPLAYS,
+            self::METRICS_FREQUENCY,
+            self::METRICS_INVALID_DISPLAYS,
+            self::METRICS_INVALID_CLICKS,
+            self::METRICS_RESULT_TYPE,
+            self::METRICS_VIDEO_STARTED,
+            self::METRICS_VIDEO_FIRST_QUARTILE,
+            self::METRICS_VIDEO_MIDPOINT,
+            self::METRICS_VIDEO_THIRD_QUARTILE,
+            self::METRICS_VIDEO_COMPLETED,
+            self::METRICS_VIDEO_AVOC,
+            self::METRICS_VIDEO_START_RATE,
+            self::METRICS_VIDEO_COMPLETION_RATE,
+            self::METRICS_VIDEO_AVERAGE_VIEW_RATE,
+            self::METRICS_VIDEO_CPV,
+            self::METRICS_VIDEO_CPCV,
+        ];
+    }
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -375,7 +873,7 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
         $this->setIfExists('currency', $data ?? [], null);
         $this->setIfExists('dimensions', $data ?? [], null);
         $this->setIfExists('end_date', $data ?? [], null);
-        $this->setIfExists('format', $data ?? [], null);
+        $this->setIfExists('format', $data ?? [], 'json');
         $this->setIfExists('metrics', $data ?? [], null);
         $this->setIfExists('start_date', $data ?? [], null);
         $this->setIfExists('timezone', $data ?? [], 'UTC');
@@ -417,9 +915,15 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
         if ($this->container['end_date'] === null) {
             $invalidProperties[] = "'end_date' can't be null";
         }
-        if ($this->container['format'] === null) {
-            $invalidProperties[] = "'format' can't be null";
+        $allowedValues = $this->getFormatAllowableValues();
+        if (!is_null($this->container['format']) && !in_array($this->container['format'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'format', must be one of '%s'",
+                $this->container['format'],
+                implode("', '", $allowedValues)
+            );
         }
+
         if ($this->container['metrics'] === null) {
             $invalidProperties[] = "'metrics' can't be null";
         }
@@ -670,7 +1174,7 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets format
      *
-     * @return string
+     * @return string|null
      */
     public function getFormat()
     {
@@ -680,7 +1184,7 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets format
      *
-     * @param string $format The file format of the generated report: csv, xml, excel or json.
+     * @param string|null $format The file format of the generated report
      *
      * @return self
      */
@@ -688,6 +1192,16 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     {
         if (is_null($format)) {
             throw new \InvalidArgumentException('non-nullable format cannot be null');
+        }
+        $allowedValues = $this->getFormatAllowableValues();
+        if (!in_array($format, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'format', must be one of '%s'",
+                    $format,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['format'] = $format;
 
@@ -715,6 +1229,15 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     {
         if (is_null($metrics)) {
             throw new \InvalidArgumentException('non-nullable metrics cannot be null');
+        }
+        $allowedValues = $this->getMetricsAllowableValues();
+        if (array_diff($metrics, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'metrics', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['metrics'] = $metrics;
 

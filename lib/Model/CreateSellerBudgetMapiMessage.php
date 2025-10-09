@@ -1,6 +1,6 @@
 <?php
 /**
- * Outcome
+ * CreateSellerBudgetMapiMessage
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2025_07\ObjectSerializer;
 
 /**
- * Outcome Class Doc Comment
+ * CreateSellerBudgetMapiMessage Class Doc Comment
  *
  * @category Class
- * @description The outcome of an API call.
+ * @description Data used to create a seller&#39;s budget
  * @package  criteo\api\marketingsolutions\v2025_07
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateSellerBudgetMapiMessage implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Outcome';
+    protected static $openAPIModelName = 'CreateSellerBudgetMapiMessage';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,12 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'errors' => '\criteo\api\marketingsolutions\v2025_07\Model\CommonProblem[]',
-        'warnings' => '\criteo\api\marketingsolutions\v2025_07\Model\CommonProblem[]'
+        'amount' => 'string',
+        'budget_type' => 'string',
+        'campaign_ids' => 'int[]',
+        'end_date' => 'string',
+        'seller_id' => 'string',
+        'start_date' => '\DateTime'
     ];
 
     /**
@@ -70,8 +74,12 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'errors' => null,
-        'warnings' => null
+        'amount' => null,
+        'budget_type' => null,
+        'campaign_ids' => 'int32',
+        'end_date' => null,
+        'seller_id' => null,
+        'start_date' => 'date-time'
     ];
 
     /**
@@ -80,8 +88,12 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'errors' => true,
-		'warnings' => true
+        'amount' => false,
+		'budget_type' => false,
+		'campaign_ids' => false,
+		'end_date' => false,
+		'seller_id' => false,
+		'start_date' => false
     ];
 
     /**
@@ -170,8 +182,12 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'errors' => 'errors',
-        'warnings' => 'warnings'
+        'amount' => 'amount',
+        'budget_type' => 'budgetType',
+        'campaign_ids' => 'campaignIds',
+        'end_date' => 'endDate',
+        'seller_id' => 'sellerId',
+        'start_date' => 'startDate'
     ];
 
     /**
@@ -180,8 +196,12 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'errors' => 'setErrors',
-        'warnings' => 'setWarnings'
+        'amount' => 'setAmount',
+        'budget_type' => 'setBudgetType',
+        'campaign_ids' => 'setCampaignIds',
+        'end_date' => 'setEndDate',
+        'seller_id' => 'setSellerId',
+        'start_date' => 'setStartDate'
     ];
 
     /**
@@ -190,8 +210,12 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'errors' => 'getErrors',
-        'warnings' => 'getWarnings'
+        'amount' => 'getAmount',
+        'budget_type' => 'getBudgetType',
+        'campaign_ids' => 'getCampaignIds',
+        'end_date' => 'getEndDate',
+        'seller_id' => 'getSellerId',
+        'start_date' => 'getStartDate'
     ];
 
     /**
@@ -251,8 +275,12 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('errors', $data ?? [], null);
-        $this->setIfExists('warnings', $data ?? [], null);
+        $this->setIfExists('amount', $data ?? [], null);
+        $this->setIfExists('budget_type', $data ?? [], null);
+        $this->setIfExists('campaign_ids', $data ?? [], null);
+        $this->setIfExists('end_date', $data ?? [], null);
+        $this->setIfExists('seller_id', $data ?? [], null);
+        $this->setIfExists('start_date', $data ?? [], null);
     }
 
     /**
@@ -298,69 +326,163 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets errors
+     * Gets amount
      *
-     * @return \criteo\api\marketingsolutions\v2025_07\Model\CommonProblem[]|null
+     * @return string|null
      */
-    public function getErrors()
+    public function getAmount()
     {
-        return $this->container['errors'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets errors
+     * Sets amount
      *
-     * @param \criteo\api\marketingsolutions\v2025_07\Model\CommonProblem[]|null $errors Errors that occured during this call.
+     * @param string|null $amount amount
      *
      * @return self
      */
-    public function setErrors($errors)
+    public function setAmount($amount)
     {
-        if (is_null($errors)) {
-            array_push($this->openAPINullablesSetToNull, 'errors');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('errors', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($amount)) {
+            throw new \InvalidArgumentException('non-nullable amount cannot be null');
         }
-        $this->container['errors'] = $errors;
+        $this->container['amount'] = $amount;
 
         return $this;
     }
 
     /**
-     * Gets warnings
+     * Gets budget_type
      *
-     * @return \criteo\api\marketingsolutions\v2025_07\Model\CommonProblem[]|null
+     * @return string|null
      */
-    public function getWarnings()
+    public function getBudgetType()
     {
-        return $this->container['warnings'];
+        return $this->container['budget_type'];
     }
 
     /**
-     * Sets warnings
+     * Sets budget_type
      *
-     * @param \criteo\api\marketingsolutions\v2025_07\Model\CommonProblem[]|null $warnings Warnings that occured during this call.
+     * @param string|null $budget_type budget_type
      *
      * @return self
      */
-    public function setWarnings($warnings)
+    public function setBudgetType($budget_type)
     {
-        if (is_null($warnings)) {
-            array_push($this->openAPINullablesSetToNull, 'warnings');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('warnings', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($budget_type)) {
+            throw new \InvalidArgumentException('non-nullable budget_type cannot be null');
         }
-        $this->container['warnings'] = $warnings;
+        $this->container['budget_type'] = $budget_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaign_ids
+     *
+     * @return int[]|null
+     */
+    public function getCampaignIds()
+    {
+        return $this->container['campaign_ids'];
+    }
+
+    /**
+     * Sets campaign_ids
+     *
+     * @param int[]|null $campaign_ids campaign_ids
+     *
+     * @return self
+     */
+    public function setCampaignIds($campaign_ids)
+    {
+        if (is_null($campaign_ids)) {
+            throw new \InvalidArgumentException('non-nullable campaign_ids cannot be null');
+        }
+        $this->container['campaign_ids'] = $campaign_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_date
+     *
+     * @return string|null
+     */
+    public function getEndDate()
+    {
+        return $this->container['end_date'];
+    }
+
+    /**
+     * Sets end_date
+     *
+     * @param string|null $end_date end_date
+     *
+     * @return self
+     */
+    public function setEndDate($end_date)
+    {
+        if (is_null($end_date)) {
+            throw new \InvalidArgumentException('non-nullable end_date cannot be null');
+        }
+        $this->container['end_date'] = $end_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets seller_id
+     *
+     * @return string|null
+     */
+    public function getSellerId()
+    {
+        return $this->container['seller_id'];
+    }
+
+    /**
+     * Sets seller_id
+     *
+     * @param string|null $seller_id seller_id
+     *
+     * @return self
+     */
+    public function setSellerId($seller_id)
+    {
+        if (is_null($seller_id)) {
+            throw new \InvalidArgumentException('non-nullable seller_id cannot be null');
+        }
+        $this->container['seller_id'] = $seller_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_date
+     *
+     * @return \DateTime|null
+     */
+    public function getStartDate()
+    {
+        return $this->container['start_date'];
+    }
+
+    /**
+     * Sets start_date
+     *
+     * @param \DateTime|null $start_date start_date
+     *
+     * @return self
+     */
+    public function setStartDate($start_date)
+    {
+        if (is_null($start_date)) {
+            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
+        }
+        $this->container['start_date'] = $start_date;
 
         return $this;
     }

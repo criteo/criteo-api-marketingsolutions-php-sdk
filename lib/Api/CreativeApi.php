@@ -72,22 +72,13 @@ class CreativeApi
     /** @var string[] $contentTypes **/
     public const contentTypes = [
         'createAdvertiserAd' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'createAdvertiserCoupon' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'createAdvertiserCreative' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'deleteAd' => [
             'application/json',
@@ -99,16 +90,10 @@ class CreativeApi
             'application/json',
         ],
         'editAdvertiserCoupon' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'editCreative' => [
-            'application/json-patch+json',
             'application/json',
-            'text/json',
-            'application/*+json',
         ],
         'generateCreativePreview' => [
             'application/json',
@@ -420,7 +405,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -722,7 +707,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -1024,7 +1009,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -2053,7 +2038,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -2355,7 +2340,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -2675,7 +2660,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/html', 'application/json', 'text/json', ],
+            ['text/html', 'application/json', ],
             $contentType,
             $multipart
         );
@@ -2958,7 +2943,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -3271,7 +3256,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -3574,7 +3559,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -3907,7 +3892,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/html', 'application/json', 'text/json', ],
+            ['text/html', 'application/json', ],
             $contentType,
             $multipart
         );
@@ -4205,7 +4190,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -4518,7 +4503,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -4588,7 +4573,7 @@ class CreativeApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\v2025_07\Model\ResourceCollectionOutcomeOfCreative
+     * @return \criteo\api\marketingsolutions\v2025_07\Model\ResourceCollectionOutcomeOfCreativeRead
      */
     public function getAdvertiserCreatives($advertiser_id, $limit = null, $offset = null, string $contentType = self::contentTypes['getAdvertiserCreatives'][0])
     {
@@ -4606,7 +4591,7 @@ class CreativeApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\v2025_07\Model\ResourceCollectionOutcomeOfCreative, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\v2025_07\Model\ResourceCollectionOutcomeOfCreativeRead, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAdvertiserCreativesWithHttpInfo($advertiser_id, $limit = null, $offset = null, string $contentType = self::contentTypes['getAdvertiserCreatives'][0])
     {
@@ -4649,23 +4634,23 @@ class CreativeApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\criteo\api\marketingsolutions\v2025_07\Model\ResourceCollectionOutcomeOfCreative' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\v2025_07\Model\ResourceCollectionOutcomeOfCreativeRead' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\v2025_07\Model\ResourceCollectionOutcomeOfCreative' !== 'string') {
+                        if ('\criteo\api\marketingsolutions\v2025_07\Model\ResourceCollectionOutcomeOfCreativeRead' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_07\Model\ResourceCollectionOutcomeOfCreative', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_07\Model\ResourceCollectionOutcomeOfCreativeRead', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\ResourceCollectionOutcomeOfCreative';
+            $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\ResourceCollectionOutcomeOfCreativeRead';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4686,7 +4671,7 @@ class CreativeApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\v2025_07\Model\ResourceCollectionOutcomeOfCreative',
+                        '\criteo\api\marketingsolutions\v2025_07\Model\ResourceCollectionOutcomeOfCreativeRead',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4730,7 +4715,7 @@ class CreativeApi
      */
     public function getAdvertiserCreativesAsyncWithHttpInfo($advertiser_id, $limit = null, $offset = null, string $contentType = self::contentTypes['getAdvertiserCreatives'][0])
     {
-        $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\ResourceCollectionOutcomeOfCreative';
+        $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\ResourceCollectionOutcomeOfCreativeRead';
         $request = $this->getAdvertiserCreativesRequest($advertiser_id, $limit, $offset, $contentType);
 
         return $this->client
@@ -4831,7 +4816,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -5114,7 +5099,7 @@ class CreativeApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', 'application/json', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );

@@ -40,7 +40,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$statistics_report_query_message = {"advertiserIds":"123,456,789","adSetIds":["12345","54321"],"adSetNames":["myAdSet1","myAdSet2"],"adSetStatus":["Active"],"dimensions":["CampaignId","Campaign","AdsetId","Adset","AdvertiserId","Advertiser","AdId","Ad","CouponId","Coupon","CategoryId","Category","Hour","Day","Week","Month","Year","Os","Device"],"metrics":["Clicks","Displays","Cpc","Visits"],"currency":"EUR","format":"csv","timezone":"Europe/Paris","startDate":"2024-04-24T00:00:00.0000000+02:00","endDate":"2024-04-27T00:00:00.0000000+02:00"}; // \criteo\api\marketingsolutions\v2025_07\Model\StatisticsReportQueryMessage
+$statistics_report_query_message = {"advertiserIds":"123,456,789","adSetIds":["12345","54321"],"adSetNames":["myAdSet1","myAdSet2"],"adSetStatus":["Active"],"dimensions":["CampaignId","Campaign","AdsetId","Adset","AdvertiserId","Advertiser","AdId","Ad","CouponId","Coupon","CategoryId","Category","Hour","Day","Week","Month","Year","Os","Device"],"metrics":["Clicks","Displays","Cpc","Visits"],"currency":"EUR","format":"csv","timezone":"Europe/Paris","startDate":"2025-05-31T00:00:00.0000000+00:00","endDate":"2025-06-03T00:00:00.0000000+00:00"}; // \criteo\api\marketingsolutions\v2025_07\Model\StatisticsReportQueryMessage
 
 try {
     $result = $apiInstance->getAdsetReport($statistics_report_query_message);
@@ -66,8 +66,8 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
-- **Accept**: `text/plain`, `application/json`, `text/json`, `text/csv`, `text/xml`, `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`, `text/csv`, `text/xml`, `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -129,8 +129,8 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
-- **Accept**: `text/plain`, `application/json`, `text/json`, `text/csv`, `application/xml`, `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`, `text/xml`
+- **Content-Type**: `application/json`, `application/xml`, `text/xml`, `application/*+xml`
+- **Accept**: `application/json`, `text/csv`, `text/xml`, `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -192,8 +192,8 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
-- **Accept**: `text/plain`, `application/json`, `text/json`, `text/csv`, `text/xml`, `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`
+- **Content-Type**: `application/json`, `application/xml`, `text/xml`, `application/*+xml`
+- **Accept**: `application/json`, `text/csv`, `text/xml`, `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -230,7 +230,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\AnalyticsApi(
     $config
 );
 $advertiser_id = 56; // int | The advertiser id to fetch the transparency data.
-$transparency_query_message = {"shouldDisplayProductIds":false,"startDate":"2024-04-24T00:00:00.0000000+02:00","endDate":"2024-04-27T00:00:00.0000000+02:00"}; // \criteo\api\marketingsolutions\v2025_07\Model\TransparencyQueryMessage | The query message.
+$transparency_query_message = {"shouldDisplayProductIds":false,"startDate":"2025-05-31T00:00:00.0000000+00:00","endDate":"2025-06-03T00:00:00.0000000+00:00"}; // \criteo\api\marketingsolutions\v2025_07\Model\TransparencyQueryMessage | The query message.
 
 try {
     $result = $apiInstance->getTransparencyReport($advertiser_id, $transparency_query_message);
@@ -257,8 +257,8 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
-- **Accept**: `text/plain`, `application/json`, `text/json`, `application/xml`, `text/xml`
+- **Content-Type**: `application/json`, `application/xml`, `text/xml`, `application/*+xml`
+- **Accept**: `application/json`, `application/xml`, `text/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

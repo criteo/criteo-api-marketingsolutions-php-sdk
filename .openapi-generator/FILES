@@ -32,6 +32,7 @@ docs/Model/AdSetTargetingV24Q3FrequencyCapping.md
 docs/Model/AdWrite.md
 docs/Model/AdaptiveAttributes.md
 docs/Model/AdaptiveColors.md
+docs/Model/AdaptiveReadAttributes.md
 docs/Model/AdaptiveWriteAttributes.md
 docs/Model/AlgebraNodeV1.md
 docs/Model/ApplicationSummaryModel.md
@@ -138,7 +139,10 @@ docs/Model/CreateCampaignResource.md
 docs/Model/CreateCampaignSpendLimit.md
 docs/Model/CreateCoupon.md
 docs/Model/CreateImageSlide.md
+docs/Model/CreateSellerBudgetMapiMessage.md
+docs/Model/CreateSellerCampaignMessageMapi.md
 docs/Model/Creative.md
+docs/Model/CreativeRead.md
 docs/Model/CreativeWrite.md
 docs/Model/CriteoApiError.md
 docs/Model/CriteoApiWarning.md
@@ -146,7 +150,6 @@ docs/Model/DeleteAudienceContactListResponse.md
 docs/Model/DynamicAttributes.md
 docs/Model/DynamicWriteAttributes.md
 docs/Model/EntityOfPortfolioMessage.md
-docs/Model/ErrorCodeResponse.md
 docs/Model/GetPortfolioResponse.md
 docs/Model/HtmlTagAttributes.md
 docs/Model/HtmlTagWriteAttributes.md
@@ -181,7 +184,6 @@ docs/Model/NillableDecimal.md
 docs/Model/NillableGenderV1.md
 docs/Model/NillableInt32.md
 docs/Model/NillableString.md
-docs/Model/Outcome.md
 docs/Model/PatchAdSetAttributionConfigurationV24Q3.md
 docs/Model/PatchAdSetBiddingV24Q3.md
 docs/Model/PatchAdSetBudgetV24Q3.md
@@ -224,7 +226,7 @@ docs/Model/RequestsAdSetId.md
 docs/Model/RequestsPatchAdSetV24Q3.md
 docs/Model/ResourceCollectionOutcomeOfAd.md
 docs/Model/ResourceCollectionOutcomeOfCoupon.md
-docs/Model/ResourceCollectionOutcomeOfCreative.md
+docs/Model/ResourceCollectionOutcomeOfCreativeRead.md
 docs/Model/ResourceInputOfAdWrite.md
 docs/Model/ResourceInputOfCreateCoupon.md
 docs/Model/ResourceInputOfCreativeWrite.md
@@ -235,6 +237,7 @@ docs/Model/ResourceOfCoupon.md
 docs/Model/ResourceOfCouponSupportedSizes.md
 docs/Model/ResourceOfCreateCoupon.md
 docs/Model/ResourceOfCreative.md
+docs/Model/ResourceOfCreativeRead.md
 docs/Model/ResourceOfCreativeWrite.md
 docs/Model/ResourceOfUpdateCoupon.md
 docs/Model/ResourceOutcomeOfAd.md
@@ -248,6 +251,12 @@ docs/Model/ResponsesReadAdSetV24Q3.md
 docs/Model/RetargetingCreateV1.md
 docs/Model/RetargetingUpdateV1.md
 docs/Model/RetargetingV1.md
+docs/Model/SellerBase.md
+docs/Model/SellerBudgetMessage.md
+docs/Model/SellerBudgetStatusV2.md
+docs/Model/SellerCampaignMessage.md
+docs/Model/SellerCampaignSuspensionReason.md
+docs/Model/SellerCampaignUpdate.md
 docs/Model/Size.md
 docs/Model/StatisticsReportQueryMessage.md
 docs/Model/Tag.md
@@ -260,6 +269,8 @@ docs/Model/TransparencyReportFile.md
 docs/Model/TransparencyReportListResponse.md
 docs/Model/TransparencyReportResource.md
 docs/Model/UpdateCoupon.md
+docs/Model/UpdateSellerBudgetMessage.md
+docs/Model/UpdateSellerBudgetMessageBase.md
 docs/Model/VideoDetail.md
 docs/Model/WriteModelAdSetId.md
 docs/Model/WriteModelPatchAdSetV24Q3.md
@@ -297,6 +308,7 @@ lib/Model/AdSetTargetingV24Q3FrequencyCapping.php
 lib/Model/AdWrite.php
 lib/Model/AdaptiveAttributes.php
 lib/Model/AdaptiveColors.php
+lib/Model/AdaptiveReadAttributes.php
 lib/Model/AdaptiveWriteAttributes.php
 lib/Model/AlgebraNodeV1.php
 lib/Model/ApplicationSummaryModel.php
@@ -403,7 +415,10 @@ lib/Model/CreateCampaignResource.php
 lib/Model/CreateCampaignSpendLimit.php
 lib/Model/CreateCoupon.php
 lib/Model/CreateImageSlide.php
+lib/Model/CreateSellerBudgetMapiMessage.php
+lib/Model/CreateSellerCampaignMessageMapi.php
 lib/Model/Creative.php
+lib/Model/CreativeRead.php
 lib/Model/CreativeWrite.php
 lib/Model/CriteoApiError.php
 lib/Model/CriteoApiWarning.php
@@ -411,7 +426,6 @@ lib/Model/DeleteAudienceContactListResponse.php
 lib/Model/DynamicAttributes.php
 lib/Model/DynamicWriteAttributes.php
 lib/Model/EntityOfPortfolioMessage.php
-lib/Model/ErrorCodeResponse.php
 lib/Model/GetPortfolioResponse.php
 lib/Model/HtmlTagAttributes.php
 lib/Model/HtmlTagWriteAttributes.php
@@ -447,7 +461,6 @@ lib/Model/NillableDecimal.php
 lib/Model/NillableGenderV1.php
 lib/Model/NillableInt32.php
 lib/Model/NillableString.php
-lib/Model/Outcome.php
 lib/Model/PatchAdSetAttributionConfigurationV24Q3.php
 lib/Model/PatchAdSetBiddingV24Q3.php
 lib/Model/PatchAdSetBudgetV24Q3.php
@@ -490,7 +503,7 @@ lib/Model/RequestsAdSetId.php
 lib/Model/RequestsPatchAdSetV24Q3.php
 lib/Model/ResourceCollectionOutcomeOfAd.php
 lib/Model/ResourceCollectionOutcomeOfCoupon.php
-lib/Model/ResourceCollectionOutcomeOfCreative.php
+lib/Model/ResourceCollectionOutcomeOfCreativeRead.php
 lib/Model/ResourceInputOfAdWrite.php
 lib/Model/ResourceInputOfCreateCoupon.php
 lib/Model/ResourceInputOfCreativeWrite.php
@@ -501,6 +514,7 @@ lib/Model/ResourceOfCoupon.php
 lib/Model/ResourceOfCouponSupportedSizes.php
 lib/Model/ResourceOfCreateCoupon.php
 lib/Model/ResourceOfCreative.php
+lib/Model/ResourceOfCreativeRead.php
 lib/Model/ResourceOfCreativeWrite.php
 lib/Model/ResourceOfUpdateCoupon.php
 lib/Model/ResourceOutcomeOfAd.php
@@ -514,6 +528,12 @@ lib/Model/ResponsesReadAdSetV24Q3.php
 lib/Model/RetargetingCreateV1.php
 lib/Model/RetargetingUpdateV1.php
 lib/Model/RetargetingV1.php
+lib/Model/SellerBase.php
+lib/Model/SellerBudgetMessage.php
+lib/Model/SellerBudgetStatusV2.php
+lib/Model/SellerCampaignMessage.php
+lib/Model/SellerCampaignSuspensionReason.php
+lib/Model/SellerCampaignUpdate.php
 lib/Model/Size.php
 lib/Model/StatisticsReportQueryMessage.php
 lib/Model/Tag.php
@@ -526,6 +546,8 @@ lib/Model/TransparencyReportFile.php
 lib/Model/TransparencyReportListResponse.php
 lib/Model/TransparencyReportResource.php
 lib/Model/UpdateCoupon.php
+lib/Model/UpdateSellerBudgetMessage.php
+lib/Model/UpdateSellerBudgetMessageBase.php
 lib/Model/VideoDetail.php
 lib/Model/WriteModelAdSetId.php
 lib/Model/WriteModelPatchAdSetV24Q3.php

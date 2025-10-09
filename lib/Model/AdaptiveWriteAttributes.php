@@ -101,7 +101,7 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static array $openAPINullables = [
         'calls_to_action' => false,
-		'colors' => false,
+		'colors' => true,
 		'description_font' => false,
 		'description_text' => false,
 		'headline_font' => false,
@@ -495,7 +495,14 @@ class AdaptiveWriteAttributes implements ModelInterface, ArrayAccess, \JsonSeria
     public function setColors($colors)
     {
         if (is_null($colors)) {
-            throw new \InvalidArgumentException('non-nullable colors cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'colors');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('colors', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['colors'] = $colors;
 

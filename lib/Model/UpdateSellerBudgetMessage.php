@@ -1,6 +1,6 @@
 <?php
 /**
- * TransactionsReportQueryMessage
+ * UpdateSellerBudgetMessage
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2025_07\ObjectSerializer;
 
 /**
- * TransactionsReportQueryMessage Class Doc Comment
+ * UpdateSellerBudgetMessage Class Doc Comment
  *
  * @category Class
- * @description This is the message defining the query for Transaction report
+ * @description Data used to update a seller&#39;s budget
  * @package  criteo\api\marketingsolutions\v2025_07
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \JsonSerializable
+class UpdateSellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
       *
       * @var string
       */
-    protected static $openAPIModelName = 'TransactionsReportQueryMessage';
+    protected static $openAPIModelName = 'UpdateSellerBudgetMessage';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +58,12 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
-        'advertiser_ids' => 'string',
-        'currency' => 'string',
-        'end_date' => '\DateTime',
-        'event_type' => 'string',
-        'format' => 'string',
-        'start_date' => '\DateTime',
-        'timezone' => 'string'
+        'amount' => 'string',
+        'budget_id' => 'int',
+        'campaign_ids' => 'int[]',
+        'end_date' => 'string',
+        'is_suspended' => 'bool',
+        'start_date' => '\DateTime'
     ];
 
     /**
@@ -75,13 +74,12 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'advertiser_ids' => null,
-        'currency' => null,
-        'end_date' => 'date-time',
-        'event_type' => null,
-        'format' => null,
-        'start_date' => 'date-time',
-        'timezone' => null
+        'amount' => null,
+        'budget_id' => 'int64',
+        'campaign_ids' => 'int32',
+        'end_date' => null,
+        'is_suspended' => null,
+        'start_date' => 'date-time'
     ];
 
     /**
@@ -90,13 +88,12 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'advertiser_ids' => true,
-		'currency' => false,
+        'amount' => false,
+		'budget_id' => false,
+		'campaign_ids' => false,
 		'end_date' => false,
-		'event_type' => true,
-		'format' => false,
-		'start_date' => false,
-		'timezone' => true
+		'is_suspended' => false,
+		'start_date' => false
     ];
 
     /**
@@ -185,13 +182,12 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $attributeMap = [
-        'advertiser_ids' => 'advertiserIds',
-        'currency' => 'currency',
+        'amount' => 'amount',
+        'budget_id' => 'budgetId',
+        'campaign_ids' => 'campaignIds',
         'end_date' => 'endDate',
-        'event_type' => 'eventType',
-        'format' => 'format',
-        'start_date' => 'startDate',
-        'timezone' => 'timezone'
+        'is_suspended' => 'isSuspended',
+        'start_date' => 'startDate'
     ];
 
     /**
@@ -200,13 +196,12 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $setters = [
-        'advertiser_ids' => 'setAdvertiserIds',
-        'currency' => 'setCurrency',
+        'amount' => 'setAmount',
+        'budget_id' => 'setBudgetId',
+        'campaign_ids' => 'setCampaignIds',
         'end_date' => 'setEndDate',
-        'event_type' => 'setEventType',
-        'format' => 'setFormat',
-        'start_date' => 'setStartDate',
-        'timezone' => 'setTimezone'
+        'is_suspended' => 'setIsSuspended',
+        'start_date' => 'setStartDate'
     ];
 
     /**
@@ -215,13 +210,12 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $getters = [
-        'advertiser_ids' => 'getAdvertiserIds',
-        'currency' => 'getCurrency',
+        'amount' => 'getAmount',
+        'budget_id' => 'getBudgetId',
+        'campaign_ids' => 'getCampaignIds',
         'end_date' => 'getEndDate',
-        'event_type' => 'getEventType',
-        'format' => 'getFormat',
-        'start_date' => 'getStartDate',
-        'timezone' => 'getTimezone'
+        'is_suspended' => 'getIsSuspended',
+        'start_date' => 'getStartDate'
     ];
 
     /**
@@ -265,25 +259,6 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
         return self::$openAPIModelName;
     }
 
-    public const FORMAT_CSV = 'csv';
-    public const FORMAT_EXCEL = 'excel';
-    public const FORMAT_XML = 'xml';
-    public const FORMAT_JSON = 'json';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getFormatAllowableValues()
-    {
-        return [
-            self::FORMAT_CSV,
-            self::FORMAT_EXCEL,
-            self::FORMAT_XML,
-            self::FORMAT_JSON,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -300,13 +275,12 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('advertiser_ids', $data ?? [], null);
-        $this->setIfExists('currency', $data ?? [], null);
+        $this->setIfExists('amount', $data ?? [], null);
+        $this->setIfExists('budget_id', $data ?? [], null);
+        $this->setIfExists('campaign_ids', $data ?? [], null);
         $this->setIfExists('end_date', $data ?? [], null);
-        $this->setIfExists('event_type', $data ?? [], null);
-        $this->setIfExists('format', $data ?? [], 'json');
+        $this->setIfExists('is_suspended', $data ?? [], null);
         $this->setIfExists('start_date', $data ?? [], null);
-        $this->setIfExists('timezone', $data ?? [], 'UTC');
     }
 
     /**
@@ -336,24 +310,6 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
     {
         $invalidProperties = [];
 
-        if ($this->container['currency'] === null) {
-            $invalidProperties[] = "'currency' can't be null";
-        }
-        if ($this->container['end_date'] === null) {
-            $invalidProperties[] = "'end_date' can't be null";
-        }
-        $allowedValues = $this->getFormatAllowableValues();
-        if (!is_null($this->container['format']) && !in_array($this->container['format'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'format', must be one of '%s'",
-                $this->container['format'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['start_date'] === null) {
-            $invalidProperties[] = "'start_date' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -370,62 +326,82 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
 
 
     /**
-     * Gets advertiser_ids
+     * Gets amount
      *
      * @return string|null
      */
-    public function getAdvertiserIds()
+    public function getAmount()
     {
-        return $this->container['advertiser_ids'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets advertiser_ids
+     * Sets amount
      *
-     * @param string|null $advertiser_ids The comma-separated list of advertiser ids. If empty, all the advertisers in the portfolio will be used
+     * @param string|null $amount amount
      *
      * @return self
      */
-    public function setAdvertiserIds($advertiser_ids)
+    public function setAmount($amount)
     {
-        if (is_null($advertiser_ids)) {
-            array_push($this->openAPINullablesSetToNull, 'advertiser_ids');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('advertiser_ids', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($amount)) {
+            throw new \InvalidArgumentException('non-nullable amount cannot be null');
         }
-        $this->container['advertiser_ids'] = $advertiser_ids;
+        $this->container['amount'] = $amount;
 
         return $this;
     }
 
     /**
-     * Gets currency
+     * Gets budget_id
      *
-     * @return string
+     * @return int|null
      */
-    public function getCurrency()
+    public function getBudgetId()
     {
-        return $this->container['currency'];
+        return $this->container['budget_id'];
     }
 
     /**
-     * Sets currency
+     * Sets budget_id
      *
-     * @param string $currency The currency used for the report. ISO 4217 code (three-letter capitals).
+     * @param int|null $budget_id budget_id
      *
      * @return self
      */
-    public function setCurrency($currency)
+    public function setBudgetId($budget_id)
     {
-        if (is_null($currency)) {
-            throw new \InvalidArgumentException('non-nullable currency cannot be null');
+        if (is_null($budget_id)) {
+            throw new \InvalidArgumentException('non-nullable budget_id cannot be null');
         }
-        $this->container['currency'] = $currency;
+        $this->container['budget_id'] = $budget_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaign_ids
+     *
+     * @return int[]|null
+     */
+    public function getCampaignIds()
+    {
+        return $this->container['campaign_ids'];
+    }
+
+    /**
+     * Sets campaign_ids
+     *
+     * @param int[]|null $campaign_ids campaign_ids
+     *
+     * @return self
+     */
+    public function setCampaignIds($campaign_ids)
+    {
+        if (is_null($campaign_ids)) {
+            throw new \InvalidArgumentException('non-nullable campaign_ids cannot be null');
+        }
+        $this->container['campaign_ids'] = $campaign_ids;
 
         return $this;
     }
@@ -433,7 +409,7 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets end_date
      *
-     * @return \DateTime
+     * @return string|null
      */
     public function getEndDate()
     {
@@ -443,7 +419,7 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets end_date
      *
-     * @param \DateTime $end_date End date of the report. Date component of ISO 8061 format, any time or timezone component is ignored.
+     * @param string|null $end_date end_date
      *
      * @return self
      */
@@ -458,72 +434,28 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
     }
 
     /**
-     * Gets event_type
+     * Gets is_suspended
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getEventType()
+    public function getIsSuspended()
     {
-        return $this->container['event_type'];
+        return $this->container['is_suspended'];
     }
 
     /**
-     * Sets event_type
+     * Sets is_suspended
      *
-     * @param string|null $event_type Apply a filter on Event type .
+     * @param bool|null $is_suspended is_suspended
      *
      * @return self
      */
-    public function setEventType($event_type)
+    public function setIsSuspended($is_suspended)
     {
-        if (is_null($event_type)) {
-            array_push($this->openAPINullablesSetToNull, 'event_type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('event_type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($is_suspended)) {
+            throw new \InvalidArgumentException('non-nullable is_suspended cannot be null');
         }
-        $this->container['event_type'] = $event_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets format
-     *
-     * @return string|null
-     */
-    public function getFormat()
-    {
-        return $this->container['format'];
-    }
-
-    /**
-     * Sets format
-     *
-     * @param string|null $format The file format of the generated report
-     *
-     * @return self
-     */
-    public function setFormat($format)
-    {
-        if (is_null($format)) {
-            throw new \InvalidArgumentException('non-nullable format cannot be null');
-        }
-        $allowedValues = $this->getFormatAllowableValues();
-        if (!in_array($format, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'format', must be one of '%s'",
-                    $format,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['format'] = $format;
+        $this->container['is_suspended'] = $is_suspended;
 
         return $this;
     }
@@ -531,7 +463,7 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets start_date
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getStartDate()
     {
@@ -541,7 +473,7 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets start_date
      *
-     * @param \DateTime $start_date Start date of the report. Date component of ISO 8061 format, any time or timezone component is ignored.
+     * @param \DateTime|null $start_date start_date
      *
      * @return self
      */
@@ -551,40 +483,6 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
             throw new \InvalidArgumentException('non-nullable start_date cannot be null');
         }
         $this->container['start_date'] = $start_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets timezone
-     *
-     * @return string|null
-     */
-    public function getTimezone()
-    {
-        return $this->container['timezone'];
-    }
-
-    /**
-     * Sets timezone
-     *
-     * @param string|null $timezone The timezone used for the report. Timezone Database format (Tz).
-     *
-     * @return self
-     */
-    public function setTimezone($timezone)
-    {
-        if (is_null($timezone)) {
-            array_push($this->openAPINullablesSetToNull, 'timezone');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('timezone', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['timezone'] = $timezone;
 
         return $this;
     }

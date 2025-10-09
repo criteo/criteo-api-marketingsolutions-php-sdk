@@ -1,6 +1,6 @@
 <?php
 /**
- * ResourceCollectionOutcomeOfCreative
+ * CreateSellerCampaignMessageMapi
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2025_07\ObjectSerializer;
 
 /**
- * ResourceCollectionOutcomeOfCreative Class Doc Comment
+ * CreateSellerCampaignMessageMapi Class Doc Comment
  *
  * @category Class
- * @description A top-level object that encapsulates a Criteo API response for several entities.
+ * @description Data used to create a seller&#39;s campaign
  * @package  criteo\api\marketingsolutions\v2025_07
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ResourceCollectionOutcomeOfCreative implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateSellerCampaignMessageMapi implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ResourceCollectionOutcomeOfCreative implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ResourceCollectionOutcomeOfCreative';
+    protected static $openAPIModelName = 'CreateSellerCampaignMessageMapi';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,8 @@ class ResourceCollectionOutcomeOfCreative implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\criteo\api\marketingsolutions\v2025_07\Model\ResourceOfCreative[]',
-        'errors' => '\criteo\api\marketingsolutions\v2025_07\Model\CommonProblem[]',
-        'warnings' => '\criteo\api\marketingsolutions\v2025_07\Model\CommonProblem[]'
+        'bid' => 'float',
+        'campaign_id' => 'int'
     ];
 
     /**
@@ -71,9 +70,8 @@ class ResourceCollectionOutcomeOfCreative implements ModelInterface, ArrayAccess
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null,
-        'errors' => null,
-        'warnings' => null
+        'bid' => 'double',
+        'campaign_id' => 'int32'
     ];
 
     /**
@@ -82,9 +80,8 @@ class ResourceCollectionOutcomeOfCreative implements ModelInterface, ArrayAccess
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'data' => true,
-		'errors' => true,
-		'warnings' => true
+        'bid' => false,
+		'campaign_id' => false
     ];
 
     /**
@@ -173,9 +170,8 @@ class ResourceCollectionOutcomeOfCreative implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data',
-        'errors' => 'errors',
-        'warnings' => 'warnings'
+        'bid' => 'bid',
+        'campaign_id' => 'campaignId'
     ];
 
     /**
@@ -184,9 +180,8 @@ class ResourceCollectionOutcomeOfCreative implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData',
-        'errors' => 'setErrors',
-        'warnings' => 'setWarnings'
+        'bid' => 'setBid',
+        'campaign_id' => 'setCampaignId'
     ];
 
     /**
@@ -195,9 +190,8 @@ class ResourceCollectionOutcomeOfCreative implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData',
-        'errors' => 'getErrors',
-        'warnings' => 'getWarnings'
+        'bid' => 'getBid',
+        'campaign_id' => 'getCampaignId'
     ];
 
     /**
@@ -257,9 +251,8 @@ class ResourceCollectionOutcomeOfCreative implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('data', $data ?? [], null);
-        $this->setIfExists('errors', $data ?? [], null);
-        $this->setIfExists('warnings', $data ?? [], null);
+        $this->setIfExists('bid', $data ?? [], null);
+        $this->setIfExists('campaign_id', $data ?? [], null);
     }
 
     /**
@@ -305,103 +298,55 @@ class ResourceCollectionOutcomeOfCreative implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets data
+     * Gets bid
      *
-     * @return \criteo\api\marketingsolutions\v2025_07\Model\ResourceOfCreative[]|null
+     * @return float|null
      */
-    public function getData()
+    public function getBid()
     {
-        return $this->container['data'];
+        return $this->container['bid'];
     }
 
     /**
-     * Sets data
+     * Sets bid
      *
-     * @param \criteo\api\marketingsolutions\v2025_07\Model\ResourceOfCreative[]|null $data data
+     * @param float|null $bid bid
      *
      * @return self
      */
-    public function setData($data)
+    public function setBid($bid)
     {
-        if (is_null($data)) {
-            array_push($this->openAPINullablesSetToNull, 'data');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('data', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($bid)) {
+            throw new \InvalidArgumentException('non-nullable bid cannot be null');
         }
-        $this->container['data'] = $data;
+        $this->container['bid'] = $bid;
 
         return $this;
     }
 
     /**
-     * Gets errors
+     * Gets campaign_id
      *
-     * @return \criteo\api\marketingsolutions\v2025_07\Model\CommonProblem[]|null
+     * @return int|null
      */
-    public function getErrors()
+    public function getCampaignId()
     {
-        return $this->container['errors'];
+        return $this->container['campaign_id'];
     }
 
     /**
-     * Sets errors
+     * Sets campaign_id
      *
-     * @param \criteo\api\marketingsolutions\v2025_07\Model\CommonProblem[]|null $errors errors
+     * @param int|null $campaign_id campaign_id
      *
      * @return self
      */
-    public function setErrors($errors)
+    public function setCampaignId($campaign_id)
     {
-        if (is_null($errors)) {
-            array_push($this->openAPINullablesSetToNull, 'errors');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('errors', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($campaign_id)) {
+            throw new \InvalidArgumentException('non-nullable campaign_id cannot be null');
         }
-        $this->container['errors'] = $errors;
-
-        return $this;
-    }
-
-    /**
-     * Gets warnings
-     *
-     * @return \criteo\api\marketingsolutions\v2025_07\Model\CommonProblem[]|null
-     */
-    public function getWarnings()
-    {
-        return $this->container['warnings'];
-    }
-
-    /**
-     * Sets warnings
-     *
-     * @param \criteo\api\marketingsolutions\v2025_07\Model\CommonProblem[]|null $warnings warnings
-     *
-     * @return self
-     */
-    public function setWarnings($warnings)
-    {
-        if (is_null($warnings)) {
-            array_push($this->openAPINullablesSetToNull, 'warnings');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('warnings', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['warnings'] = $warnings;
+        $this->container['campaign_id'] = $campaign_id;
 
         return $this;
     }

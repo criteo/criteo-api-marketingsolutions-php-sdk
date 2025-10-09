@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **currency** | **string** | The currency used for the report. ISO 4217 code (three-letter capitals). |
 **dimensions** | **string[]** | The dimensions for the report. |
 **end_date** | **\DateTime** | End date of the report. Date component of ISO 8061 format, any time or timezone component is ignored. |
-**format** | **string** | The file format of the generated report: csv, xml, excel or json. |
+**format** | **string** | The file format of the generated report | [optional] [default to 'json']
 **metrics** | **string[]** | The list of metrics to report. |
 **start_date** | **\DateTime** | Start date of the report. Date component of ISO 8061 format, any time or timezone component is ignored. |
 **timezone** | **string** | The timezone used for the report. Timezone Database format (Tz). | [optional] [default to 'UTC']
