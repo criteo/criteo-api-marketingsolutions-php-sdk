@@ -71,7 +71,7 @@ class AdvertiserApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'apiPortfolioGet' => [
+        'listAdvertisers' => [
             'application/json',
         ],
     ];
@@ -123,32 +123,32 @@ class AdvertiserApi
     }
 
     /**
-     * Operation apiPortfolioGet
+     * Operation listAdvertisers
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiPortfolioGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAdvertisers'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2024_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\v2024_10\Model\GetPortfolioResponse|\criteo\api\marketingsolutions\v2024_10\Model\GetPortfolioResponse
+     * @return \criteo\api\marketingsolutions\v2024_10\Model\GetPortfolioResponse
      */
-    public function apiPortfolioGet(string $contentType = self::contentTypes['apiPortfolioGet'][0])
+    public function listAdvertisers(string $contentType = self::contentTypes['listAdvertisers'][0])
     {
-        list($response) = $this->apiPortfolioGetWithHttpInfo($contentType);
+        list($response) = $this->listAdvertisersWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation apiPortfolioGetWithHttpInfo
+     * Operation listAdvertisersWithHttpInfo
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiPortfolioGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAdvertisers'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2024_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\v2024_10\Model\GetPortfolioResponse|\criteo\api\marketingsolutions\v2024_10\Model\GetPortfolioResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\v2024_10\Model\GetPortfolioResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiPortfolioGetWithHttpInfo(string $contentType = self::contentTypes['apiPortfolioGet'][0])
+    public function listAdvertisersWithHttpInfo(string $contentType = self::contentTypes['listAdvertisers'][0])
     {
-        $request = $this->apiPortfolioGetRequest($contentType);
+        $request = $this->listAdvertisersRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -201,21 +201,6 @@ class AdvertiserApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 401:
-                    if ('\criteo\api\marketingsolutions\v2024_10\Model\GetPortfolioResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\v2024_10\Model\GetPortfolioResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2024_10\Model\GetPortfolioResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
             }
 
             $returnType = '\criteo\api\marketingsolutions\v2024_10\Model\GetPortfolioResponse';
@@ -244,30 +229,22 @@ class AdvertiserApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\v2024_10\Model\GetPortfolioResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
             }
             throw $e;
         }
     }
 
     /**
-     * Operation apiPortfolioGetAsync
+     * Operation listAdvertisersAsync
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiPortfolioGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAdvertisers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiPortfolioGetAsync(string $contentType = self::contentTypes['apiPortfolioGet'][0])
+    public function listAdvertisersAsync(string $contentType = self::contentTypes['listAdvertisers'][0])
     {
-        return $this->apiPortfolioGetAsyncWithHttpInfo($contentType)
+        return $this->listAdvertisersAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -276,17 +253,17 @@ class AdvertiserApi
     }
 
     /**
-     * Operation apiPortfolioGetAsyncWithHttpInfo
+     * Operation listAdvertisersAsyncWithHttpInfo
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiPortfolioGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAdvertisers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiPortfolioGetAsyncWithHttpInfo(string $contentType = self::contentTypes['apiPortfolioGet'][0])
+    public function listAdvertisersAsyncWithHttpInfo(string $contentType = self::contentTypes['listAdvertisers'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\v2024_10\Model\GetPortfolioResponse';
-        $request = $this->apiPortfolioGetRequest($contentType);
+        $request = $this->listAdvertisersRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -325,14 +302,14 @@ class AdvertiserApi
     }
 
     /**
-     * Create request for operation 'apiPortfolioGet'
+     * Create request for operation 'listAdvertisers'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiPortfolioGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAdvertisers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiPortfolioGetRequest(string $contentType = self::contentTypes['apiPortfolioGet'][0])
+    public function listAdvertisersRequest(string $contentType = self::contentTypes['listAdvertisers'][0])
     {
 
 
@@ -348,7 +325,7 @@ class AdvertiserApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', 'text/plain', 'text/json', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );

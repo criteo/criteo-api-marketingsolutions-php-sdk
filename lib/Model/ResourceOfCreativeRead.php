@@ -1,6 +1,6 @@
 <?php
 /**
- * Outcome
+ * ResourceOfCreativeRead
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2024_10\ObjectSerializer;
 
 /**
- * Outcome Class Doc Comment
+ * ResourceOfCreativeRead Class Doc Comment
  *
  * @category Class
- * @description The outcome of an API call.
+ * @description A class that represents a domain entity exposed by an API.
  * @package  criteo\api\marketingsolutions\v2024_10
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
+class ResourceOfCreativeRead implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Outcome';
+    protected static $openAPIModelName = 'ResourceOfCreativeRead';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,9 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'errors' => '\criteo\api\marketingsolutions\v2024_10\Model\CommonProblem[]',
-        'warnings' => '\criteo\api\marketingsolutions\v2024_10\Model\CommonProblem[]'
+        'attributes' => '\criteo\api\marketingsolutions\v2024_10\Model\CreativeRead',
+        'id' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -70,8 +71,9 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'errors' => null,
-        'warnings' => null
+        'attributes' => null,
+        'id' => null,
+        'type' => null
     ];
 
     /**
@@ -80,8 +82,9 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'errors' => true,
-		'warnings' => true
+        'attributes' => true,
+		'id' => true,
+		'type' => true
     ];
 
     /**
@@ -170,8 +173,9 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'errors' => 'errors',
-        'warnings' => 'warnings'
+        'attributes' => 'attributes',
+        'id' => 'id',
+        'type' => 'type'
     ];
 
     /**
@@ -180,8 +184,9 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'errors' => 'setErrors',
-        'warnings' => 'setWarnings'
+        'attributes' => 'setAttributes',
+        'id' => 'setId',
+        'type' => 'setType'
     ];
 
     /**
@@ -190,8 +195,9 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'errors' => 'getErrors',
-        'warnings' => 'getWarnings'
+        'attributes' => 'getAttributes',
+        'id' => 'getId',
+        'type' => 'getType'
     ];
 
     /**
@@ -251,8 +257,9 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('errors', $data ?? [], null);
-        $this->setIfExists('warnings', $data ?? [], null);
+        $this->setIfExists('attributes', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
     }
 
     /**
@@ -298,69 +305,103 @@ class Outcome implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets errors
+     * Gets attributes
      *
-     * @return \criteo\api\marketingsolutions\v2024_10\Model\CommonProblem[]|null
+     * @return \criteo\api\marketingsolutions\v2024_10\Model\CreativeRead|null
      */
-    public function getErrors()
+    public function getAttributes()
     {
-        return $this->container['errors'];
+        return $this->container['attributes'];
     }
 
     /**
-     * Sets errors
+     * Sets attributes
      *
-     * @param \criteo\api\marketingsolutions\v2024_10\Model\CommonProblem[]|null $errors Errors that occured during this call.
+     * @param \criteo\api\marketingsolutions\v2024_10\Model\CreativeRead|null $attributes attributes
      *
      * @return self
      */
-    public function setErrors($errors)
+    public function setAttributes($attributes)
     {
-        if (is_null($errors)) {
-            array_push($this->openAPINullablesSetToNull, 'errors');
+        if (is_null($attributes)) {
+            array_push($this->openAPINullablesSetToNull, 'attributes');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('errors', $nullablesSetToNull);
+            $index = array_search('attributes', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['errors'] = $errors;
+        $this->container['attributes'] = $attributes;
 
         return $this;
     }
 
     /**
-     * Gets warnings
+     * Gets id
      *
-     * @return \criteo\api\marketingsolutions\v2024_10\Model\CommonProblem[]|null
+     * @return string|null
      */
-    public function getWarnings()
+    public function getId()
     {
-        return $this->container['warnings'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets warnings
+     * Sets id
      *
-     * @param \criteo\api\marketingsolutions\v2024_10\Model\CommonProblem[]|null $warnings Warnings that occured during this call.
+     * @param string|null $id Unique identifier of this resource.
      *
      * @return self
      */
-    public function setWarnings($warnings)
+    public function setId($id)
     {
-        if (is_null($warnings)) {
-            array_push($this->openAPINullablesSetToNull, 'warnings');
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('warnings', $nullablesSetToNull);
+            $index = array_search('id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['warnings'] = $warnings;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type type
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }

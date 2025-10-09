@@ -265,6 +265,25 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
         return self::$openAPIModelName;
     }
 
+    public const FORMAT_CSV = 'csv';
+    public const FORMAT_EXCEL = 'excel';
+    public const FORMAT_XML = 'xml';
+    public const FORMAT_JSON = 'json';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFormatAllowableValues()
+    {
+        return [
+            self::FORMAT_CSV,
+            self::FORMAT_EXCEL,
+            self::FORMAT_XML,
+            self::FORMAT_JSON,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -285,7 +304,7 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
         $this->setIfExists('currency', $data ?? [], null);
         $this->setIfExists('end_date', $data ?? [], null);
         $this->setIfExists('event_type', $data ?? [], null);
-        $this->setIfExists('format', $data ?? [], null);
+        $this->setIfExists('format', $data ?? [], 'json');
         $this->setIfExists('start_date', $data ?? [], null);
         $this->setIfExists('timezone', $data ?? [], 'UTC');
     }
@@ -323,9 +342,15 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
         if ($this->container['end_date'] === null) {
             $invalidProperties[] = "'end_date' can't be null";
         }
-        if ($this->container['format'] === null) {
-            $invalidProperties[] = "'format' can't be null";
+        $allowedValues = $this->getFormatAllowableValues();
+        if (!is_null($this->container['format']) && !in_array($this->container['format'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'format', must be one of '%s'",
+                $this->container['format'],
+                implode("', '", $allowedValues)
+            );
         }
+
         if ($this->container['start_date'] === null) {
             $invalidProperties[] = "'start_date' can't be null";
         }
@@ -469,7 +494,7 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets format
      *
-     * @return string
+     * @return string|null
      */
     public function getFormat()
     {
@@ -479,7 +504,7 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets format
      *
-     * @param string $format The file format of the generated report: csv, xml, excel or json.
+     * @param string|null $format The file format of the generated report
      *
      * @return self
      */
@@ -487,6 +512,16 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
     {
         if (is_null($format)) {
             throw new \InvalidArgumentException('non-nullable format cannot be null');
+        }
+        $allowedValues = $this->getFormatAllowableValues();
+        if (!in_array($format, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'format', must be one of '%s'",
+                    $format,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['format'] = $format;
 

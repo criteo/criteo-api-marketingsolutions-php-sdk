@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorCodeResponse
+ * ResourceCollectionOutcomeOfCreativeRead
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2024_10\ObjectSerializer;
 
 /**
- * ErrorCodeResponse Class Doc Comment
+ * ResourceCollectionOutcomeOfCreativeRead Class Doc Comment
  *
  * @category Class
- * @description Definition of the error code
+ * @description A top-level object that encapsulates a Criteo API response for several entities.
  * @package  criteo\api\marketingsolutions\v2024_10
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class ResourceCollectionOutcomeOfCreativeRead implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ErrorCodeResponse';
+    protected static $openAPIModelName = 'ResourceCollectionOutcomeOfCreativeRead';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,9 @@ class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'errors' => '\criteo\api\marketingsolutions\v2024_10\Model\AudienceError[]',
-        'warnings' => '\criteo\api\marketingsolutions\v2024_10\Model\AudienceWarning[]'
+        'data' => '\criteo\api\marketingsolutions\v2024_10\Model\ResourceOfCreativeRead[]',
+        'errors' => '\criteo\api\marketingsolutions\v2024_10\Model\CommonProblem[]',
+        'warnings' => '\criteo\api\marketingsolutions\v2024_10\Model\CommonProblem[]'
     ];
 
     /**
@@ -70,6 +71,7 @@ class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'data' => null,
         'errors' => null,
         'warnings' => null
     ];
@@ -80,7 +82,8 @@ class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'errors' => false,
+        'data' => true,
+		'errors' => true,
 		'warnings' => true
     ];
 
@@ -170,6 +173,7 @@ class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
+        'data' => 'data',
         'errors' => 'errors',
         'warnings' => 'warnings'
     ];
@@ -180,6 +184,7 @@ class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
+        'data' => 'setData',
         'errors' => 'setErrors',
         'warnings' => 'setWarnings'
     ];
@@ -190,6 +195,7 @@ class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
+        'data' => 'getData',
         'errors' => 'getErrors',
         'warnings' => 'getWarnings'
     ];
@@ -251,6 +257,7 @@ class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('data', $data ?? [], null);
         $this->setIfExists('errors', $data ?? [], null);
         $this->setIfExists('warnings', $data ?? [], null);
     }
@@ -282,9 +289,6 @@ class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['errors'] === null) {
-            $invalidProperties[] = "'errors' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -301,9 +305,43 @@ class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
+     * Gets data
+     *
+     * @return \criteo\api\marketingsolutions\v2024_10\Model\ResourceOfCreativeRead[]|null
+     */
+    public function getData()
+    {
+        return $this->container['data'];
+    }
+
+    /**
+     * Sets data
+     *
+     * @param \criteo\api\marketingsolutions\v2024_10\Model\ResourceOfCreativeRead[]|null $data data
+     *
+     * @return self
+     */
+    public function setData($data)
+    {
+        if (is_null($data)) {
+            array_push($this->openAPINullablesSetToNull, 'data');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
      * Gets errors
      *
-     * @return \criteo\api\marketingsolutions\v2024_10\Model\AudienceError[]
+     * @return \criteo\api\marketingsolutions\v2024_10\Model\CommonProblem[]|null
      */
     public function getErrors()
     {
@@ -313,14 +351,21 @@ class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets errors
      *
-     * @param \criteo\api\marketingsolutions\v2024_10\Model\AudienceError[] $errors errors
+     * @param \criteo\api\marketingsolutions\v2024_10\Model\CommonProblem[]|null $errors errors
      *
      * @return self
      */
     public function setErrors($errors)
     {
         if (is_null($errors)) {
-            throw new \InvalidArgumentException('non-nullable errors cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'errors');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('errors', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['errors'] = $errors;
 
@@ -330,7 +375,7 @@ class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets warnings
      *
-     * @return \criteo\api\marketingsolutions\v2024_10\Model\AudienceWarning[]|null
+     * @return \criteo\api\marketingsolutions\v2024_10\Model\CommonProblem[]|null
      */
     public function getWarnings()
     {
@@ -340,7 +385,7 @@ class ErrorCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets warnings
      *
-     * @param \criteo\api\marketingsolutions\v2024_10\Model\AudienceWarning[]|null $warnings warnings
+     * @param \criteo\api\marketingsolutions\v2024_10\Model\CommonProblem[]|null $warnings warnings
      *
      * @return self
      */
