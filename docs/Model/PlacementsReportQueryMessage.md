@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **disclosed** | **bool** | Returns disclosed or undisclosed placements. | [optional] [default to true]
 **end_date** | **\DateTime** | End date of the report. Date component of ISO 8061 format, any time or timezone component is ignored. |
 **environment** | **string** | Type of environment: Web, Android or iOS. | [optional]
-**format** | **string** | The file format of the generated report: csv, xml, excel or json. |
+**format** | **string** | The file format of the generated report | [optional] [default to 'json']
 **metrics** | **string[]** | The list of metrics to report. |
 **placement** | **string** | Filter the value of the placement | [optional]
 **start_date** | **\DateTime** | Start date of the report. Date component of ISO 8061 format, any time or timezone component is ignored. |

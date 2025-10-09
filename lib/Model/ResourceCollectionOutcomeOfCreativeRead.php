@@ -1,6 +1,6 @@
 <?php
 /**
- * ResourceCollectionOutcomeOfCreative
+ * ResourceCollectionOutcomeOfCreativeRead
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2024_07\ObjectSerializer;
 
 /**
- * ResourceCollectionOutcomeOfCreative Class Doc Comment
+ * ResourceCollectionOutcomeOfCreativeRead Class Doc Comment
  *
  * @category Class
  * @description A top-level object that encapsulates a Criteo API response for several entities.
@@ -41,7 +41,7 @@ use \criteo\api\marketingsolutions\v2024_07\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ResourceCollectionOutcomeOfCreative implements ModelInterface, ArrayAccess, \JsonSerializable
+class ResourceCollectionOutcomeOfCreativeRead implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ResourceCollectionOutcomeOfCreative implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ResourceCollectionOutcomeOfCreative';
+    protected static $openAPIModelName = 'ResourceCollectionOutcomeOfCreativeRead';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,7 @@ class ResourceCollectionOutcomeOfCreative implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\criteo\api\marketingsolutions\v2024_07\Model\ResourceOfCreative[]',
+        'data' => '\criteo\api\marketingsolutions\v2024_07\Model\ResourceOfCreativeRead[]',
         'errors' => '\criteo\api\marketingsolutions\v2024_07\Model\CommonProblem[]',
         'warnings' => '\criteo\api\marketingsolutions\v2024_07\Model\CommonProblem[]'
     ];
@@ -307,7 +307,7 @@ class ResourceCollectionOutcomeOfCreative implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \criteo\api\marketingsolutions\v2024_07\Model\ResourceOfCreative[]|null
+     * @return \criteo\api\marketingsolutions\v2024_07\Model\ResourceOfCreativeRead[]|null
      */
     public function getData()
     {
@@ -317,7 +317,7 @@ class ResourceCollectionOutcomeOfCreative implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \criteo\api\marketingsolutions\v2024_07\Model\ResourceOfCreative[]|null $data data
+     * @param \criteo\api\marketingsolutions\v2024_07\Model\ResourceOfCreativeRead[]|null $data data
      *
      * @return self
      */
