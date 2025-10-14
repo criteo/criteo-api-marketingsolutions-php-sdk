@@ -71,34 +71,28 @@ class AudienceApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'bulkCreateAudienceSegments' => [
-            'application/json',
-        ],
-        'bulkCreateAudiences' => [
-            'application/json',
-        ],
-        'bulkDeleteAudienceSegments' => [
-            'application/json',
-        ],
-        'bulkDeleteAudiences' => [
-            'application/json',
-        ],
-        'bulkUpdateAudienceSegments' => [
-            'application/json',
-        ],
-        'bulkUpdateAudiences' => [
-            'application/json',
-        ],
         'computeAudienceSegmentsSizes' => [
             'application/json',
         ],
         'computeAudiencesSizes' => [
             'application/json',
         ],
-        'estimateAudienceSegmentSize' => [
+        'createAudienceSegments' => [
             'application/json',
         ],
-        'estimateAudienceSize' => [
+        'createAudiences' => [
+            'application/json',
+        ],
+        'deleteAudienceSegments' => [
+            'application/json',
+        ],
+        'deleteAudiences' => [
+            'application/json',
+        ],
+        'estimateAudienceSegmentsSizes' => [
+            'application/json',
+        ],
+        'estimateAudiencesSizes' => [
             'application/json',
         ],
         'getAudienceSegmentContactListStatistics' => [
@@ -123,6 +117,12 @@ class AudienceApi
             'application/json',
         ],
         'searchAudiences' => [
+            'application/json',
+        ],
+        'updateAudienceSegments' => [
+            'application/json',
+        ],
+        'updateAudiences' => [
             'application/json',
         ],
     ];
@@ -171,1698 +171,6 @@ class AudienceApi
     public function getConfig()
     {
         return $this->config;
-    }
-
-    /**
-     * Operation bulkCreateAudienceSegments
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkCreateInputV1 $audience_segment_bulk_create_input_v1 Segment creation parameter (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkCreateAudienceSegments'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse
-     */
-    public function bulkCreateAudienceSegments($audience_segment_bulk_create_input_v1, string $contentType = self::contentTypes['bulkCreateAudienceSegments'][0])
-    {
-        list($response) = $this->bulkCreateAudienceSegmentsWithHttpInfo($audience_segment_bulk_create_input_v1, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation bulkCreateAudienceSegmentsWithHttpInfo
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkCreateInputV1 $audience_segment_bulk_create_input_v1 Segment creation parameter (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkCreateAudienceSegments'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function bulkCreateAudienceSegmentsWithHttpInfo($audience_segment_bulk_create_input_v1, string $contentType = self::contentTypes['bulkCreateAudienceSegments'][0])
-    {
-        $request = $this->bulkCreateAudienceSegmentsRequest($audience_segment_bulk_create_input_v1, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation bulkCreateAudienceSegmentsAsync
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkCreateInputV1 $audience_segment_bulk_create_input_v1 Segment creation parameter (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkCreateAudienceSegments'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function bulkCreateAudienceSegmentsAsync($audience_segment_bulk_create_input_v1, string $contentType = self::contentTypes['bulkCreateAudienceSegments'][0])
-    {
-        return $this->bulkCreateAudienceSegmentsAsyncWithHttpInfo($audience_segment_bulk_create_input_v1, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation bulkCreateAudienceSegmentsAsyncWithHttpInfo
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkCreateInputV1 $audience_segment_bulk_create_input_v1 Segment creation parameter (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkCreateAudienceSegments'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function bulkCreateAudienceSegmentsAsyncWithHttpInfo($audience_segment_bulk_create_input_v1, string $contentType = self::contentTypes['bulkCreateAudienceSegments'][0])
-    {
-        $returnType = '\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse';
-        $request = $this->bulkCreateAudienceSegmentsRequest($audience_segment_bulk_create_input_v1, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'bulkCreateAudienceSegments'
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkCreateInputV1 $audience_segment_bulk_create_input_v1 Segment creation parameter (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkCreateAudienceSegments'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function bulkCreateAudienceSegmentsRequest($audience_segment_bulk_create_input_v1, string $contentType = self::contentTypes['bulkCreateAudienceSegments'][0])
-    {
-
-        // verify the required parameter 'audience_segment_bulk_create_input_v1' is set
-        if ($audience_segment_bulk_create_input_v1 === null || (is_array($audience_segment_bulk_create_input_v1) && count($audience_segment_bulk_create_input_v1) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $audience_segment_bulk_create_input_v1 when calling bulkCreateAudienceSegments'
-            );
-        }
-
-
-        $resourcePath = '/preview/marketing-solutions/audience-segments/create';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($audience_segment_bulk_create_input_v1)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($audience_segment_bulk_create_input_v1));
-            } else {
-                $httpBody = $audience_segment_bulk_create_input_v1;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation bulkCreateAudiences
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkCreateInputV1 $audience_bulk_create_input_v1  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkCreateAudiences'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse
-     */
-    public function bulkCreateAudiences($audience_bulk_create_input_v1, string $contentType = self::contentTypes['bulkCreateAudiences'][0])
-    {
-        list($response) = $this->bulkCreateAudiencesWithHttpInfo($audience_bulk_create_input_v1, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation bulkCreateAudiencesWithHttpInfo
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkCreateInputV1 $audience_bulk_create_input_v1  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkCreateAudiences'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function bulkCreateAudiencesWithHttpInfo($audience_bulk_create_input_v1, string $contentType = self::contentTypes['bulkCreateAudiences'][0])
-    {
-        $request = $this->bulkCreateAudiencesRequest($audience_bulk_create_input_v1, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation bulkCreateAudiencesAsync
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkCreateInputV1 $audience_bulk_create_input_v1  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkCreateAudiences'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function bulkCreateAudiencesAsync($audience_bulk_create_input_v1, string $contentType = self::contentTypes['bulkCreateAudiences'][0])
-    {
-        return $this->bulkCreateAudiencesAsyncWithHttpInfo($audience_bulk_create_input_v1, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation bulkCreateAudiencesAsyncWithHttpInfo
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkCreateInputV1 $audience_bulk_create_input_v1  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkCreateAudiences'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function bulkCreateAudiencesAsyncWithHttpInfo($audience_bulk_create_input_v1, string $contentType = self::contentTypes['bulkCreateAudiences'][0])
-    {
-        $returnType = '\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse';
-        $request = $this->bulkCreateAudiencesRequest($audience_bulk_create_input_v1, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'bulkCreateAudiences'
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkCreateInputV1 $audience_bulk_create_input_v1  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkCreateAudiences'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function bulkCreateAudiencesRequest($audience_bulk_create_input_v1, string $contentType = self::contentTypes['bulkCreateAudiences'][0])
-    {
-
-        // verify the required parameter 'audience_bulk_create_input_v1' is set
-        if ($audience_bulk_create_input_v1 === null || (is_array($audience_bulk_create_input_v1) && count($audience_bulk_create_input_v1) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $audience_bulk_create_input_v1 when calling bulkCreateAudiences'
-            );
-        }
-
-
-        $resourcePath = '/preview/marketing-solutions/audiences/create';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($audience_bulk_create_input_v1)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($audience_bulk_create_input_v1));
-            } else {
-                $httpBody = $audience_bulk_create_input_v1;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation bulkDeleteAudienceSegments
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkDeleteInputV1 $audience_segment_bulk_delete_input_v1 Segment delete request. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkDeleteAudienceSegments'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\AudienceSegmentIdEntityV1ListResponse
-     */
-    public function bulkDeleteAudienceSegments($audience_segment_bulk_delete_input_v1, string $contentType = self::contentTypes['bulkDeleteAudienceSegments'][0])
-    {
-        list($response) = $this->bulkDeleteAudienceSegmentsWithHttpInfo($audience_segment_bulk_delete_input_v1, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation bulkDeleteAudienceSegmentsWithHttpInfo
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkDeleteInputV1 $audience_segment_bulk_delete_input_v1 Segment delete request. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkDeleteAudienceSegments'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\AudienceSegmentIdEntityV1ListResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function bulkDeleteAudienceSegmentsWithHttpInfo($audience_segment_bulk_delete_input_v1, string $contentType = self::contentTypes['bulkDeleteAudienceSegments'][0])
-    {
-        $request = $this->bulkDeleteAudienceSegmentsRequest($audience_segment_bulk_delete_input_v1, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\criteo\api\marketingsolutions\preview\Model\AudienceSegmentIdEntityV1ListResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\AudienceSegmentIdEntityV1ListResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\AudienceSegmentIdEntityV1ListResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\criteo\api\marketingsolutions\preview\Model\AudienceSegmentIdEntityV1ListResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\AudienceSegmentIdEntityV1ListResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation bulkDeleteAudienceSegmentsAsync
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkDeleteInputV1 $audience_segment_bulk_delete_input_v1 Segment delete request. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkDeleteAudienceSegments'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function bulkDeleteAudienceSegmentsAsync($audience_segment_bulk_delete_input_v1, string $contentType = self::contentTypes['bulkDeleteAudienceSegments'][0])
-    {
-        return $this->bulkDeleteAudienceSegmentsAsyncWithHttpInfo($audience_segment_bulk_delete_input_v1, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation bulkDeleteAudienceSegmentsAsyncWithHttpInfo
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkDeleteInputV1 $audience_segment_bulk_delete_input_v1 Segment delete request. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkDeleteAudienceSegments'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function bulkDeleteAudienceSegmentsAsyncWithHttpInfo($audience_segment_bulk_delete_input_v1, string $contentType = self::contentTypes['bulkDeleteAudienceSegments'][0])
-    {
-        $returnType = '\criteo\api\marketingsolutions\preview\Model\AudienceSegmentIdEntityV1ListResponse';
-        $request = $this->bulkDeleteAudienceSegmentsRequest($audience_segment_bulk_delete_input_v1, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'bulkDeleteAudienceSegments'
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkDeleteInputV1 $audience_segment_bulk_delete_input_v1 Segment delete request. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkDeleteAudienceSegments'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function bulkDeleteAudienceSegmentsRequest($audience_segment_bulk_delete_input_v1, string $contentType = self::contentTypes['bulkDeleteAudienceSegments'][0])
-    {
-
-        // verify the required parameter 'audience_segment_bulk_delete_input_v1' is set
-        if ($audience_segment_bulk_delete_input_v1 === null || (is_array($audience_segment_bulk_delete_input_v1) && count($audience_segment_bulk_delete_input_v1) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $audience_segment_bulk_delete_input_v1 when calling bulkDeleteAudienceSegments'
-            );
-        }
-
-
-        $resourcePath = '/preview/marketing-solutions/audience-segments/delete';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($audience_segment_bulk_delete_input_v1)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($audience_segment_bulk_delete_input_v1));
-            } else {
-                $httpBody = $audience_segment_bulk_delete_input_v1;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation bulkDeleteAudiences
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkDeleteInputV1 $audience_bulk_delete_input_v1  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkDeleteAudiences'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\AudienceIdEntityV1ListResponse
-     */
-    public function bulkDeleteAudiences($audience_bulk_delete_input_v1, string $contentType = self::contentTypes['bulkDeleteAudiences'][0])
-    {
-        list($response) = $this->bulkDeleteAudiencesWithHttpInfo($audience_bulk_delete_input_v1, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation bulkDeleteAudiencesWithHttpInfo
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkDeleteInputV1 $audience_bulk_delete_input_v1  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkDeleteAudiences'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\AudienceIdEntityV1ListResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function bulkDeleteAudiencesWithHttpInfo($audience_bulk_delete_input_v1, string $contentType = self::contentTypes['bulkDeleteAudiences'][0])
-    {
-        $request = $this->bulkDeleteAudiencesRequest($audience_bulk_delete_input_v1, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\criteo\api\marketingsolutions\preview\Model\AudienceIdEntityV1ListResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\AudienceIdEntityV1ListResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\AudienceIdEntityV1ListResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\criteo\api\marketingsolutions\preview\Model\AudienceIdEntityV1ListResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\AudienceIdEntityV1ListResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation bulkDeleteAudiencesAsync
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkDeleteInputV1 $audience_bulk_delete_input_v1  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkDeleteAudiences'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function bulkDeleteAudiencesAsync($audience_bulk_delete_input_v1, string $contentType = self::contentTypes['bulkDeleteAudiences'][0])
-    {
-        return $this->bulkDeleteAudiencesAsyncWithHttpInfo($audience_bulk_delete_input_v1, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation bulkDeleteAudiencesAsyncWithHttpInfo
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkDeleteInputV1 $audience_bulk_delete_input_v1  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkDeleteAudiences'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function bulkDeleteAudiencesAsyncWithHttpInfo($audience_bulk_delete_input_v1, string $contentType = self::contentTypes['bulkDeleteAudiences'][0])
-    {
-        $returnType = '\criteo\api\marketingsolutions\preview\Model\AudienceIdEntityV1ListResponse';
-        $request = $this->bulkDeleteAudiencesRequest($audience_bulk_delete_input_v1, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'bulkDeleteAudiences'
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkDeleteInputV1 $audience_bulk_delete_input_v1  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkDeleteAudiences'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function bulkDeleteAudiencesRequest($audience_bulk_delete_input_v1, string $contentType = self::contentTypes['bulkDeleteAudiences'][0])
-    {
-
-        // verify the required parameter 'audience_bulk_delete_input_v1' is set
-        if ($audience_bulk_delete_input_v1 === null || (is_array($audience_bulk_delete_input_v1) && count($audience_bulk_delete_input_v1) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $audience_bulk_delete_input_v1 when calling bulkDeleteAudiences'
-            );
-        }
-
-
-        $resourcePath = '/preview/marketing-solutions/audiences/delete';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($audience_bulk_delete_input_v1)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($audience_bulk_delete_input_v1));
-            } else {
-                $httpBody = $audience_bulk_delete_input_v1;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation bulkUpdateAudienceSegments
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkUpdateInputV1 $audience_segment_bulk_update_input_v1 Segment Update request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkUpdateAudienceSegments'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse
-     */
-    public function bulkUpdateAudienceSegments($audience_segment_bulk_update_input_v1, string $contentType = self::contentTypes['bulkUpdateAudienceSegments'][0])
-    {
-        list($response) = $this->bulkUpdateAudienceSegmentsWithHttpInfo($audience_segment_bulk_update_input_v1, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation bulkUpdateAudienceSegmentsWithHttpInfo
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkUpdateInputV1 $audience_segment_bulk_update_input_v1 Segment Update request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkUpdateAudienceSegments'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function bulkUpdateAudienceSegmentsWithHttpInfo($audience_segment_bulk_update_input_v1, string $contentType = self::contentTypes['bulkUpdateAudienceSegments'][0])
-    {
-        $request = $this->bulkUpdateAudienceSegmentsRequest($audience_segment_bulk_update_input_v1, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation bulkUpdateAudienceSegmentsAsync
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkUpdateInputV1 $audience_segment_bulk_update_input_v1 Segment Update request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkUpdateAudienceSegments'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function bulkUpdateAudienceSegmentsAsync($audience_segment_bulk_update_input_v1, string $contentType = self::contentTypes['bulkUpdateAudienceSegments'][0])
-    {
-        return $this->bulkUpdateAudienceSegmentsAsyncWithHttpInfo($audience_segment_bulk_update_input_v1, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation bulkUpdateAudienceSegmentsAsyncWithHttpInfo
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkUpdateInputV1 $audience_segment_bulk_update_input_v1 Segment Update request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkUpdateAudienceSegments'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function bulkUpdateAudienceSegmentsAsyncWithHttpInfo($audience_segment_bulk_update_input_v1, string $contentType = self::contentTypes['bulkUpdateAudienceSegments'][0])
-    {
-        $returnType = '\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse';
-        $request = $this->bulkUpdateAudienceSegmentsRequest($audience_segment_bulk_update_input_v1, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'bulkUpdateAudienceSegments'
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkUpdateInputV1 $audience_segment_bulk_update_input_v1 Segment Update request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkUpdateAudienceSegments'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function bulkUpdateAudienceSegmentsRequest($audience_segment_bulk_update_input_v1, string $contentType = self::contentTypes['bulkUpdateAudienceSegments'][0])
-    {
-
-        // verify the required parameter 'audience_segment_bulk_update_input_v1' is set
-        if ($audience_segment_bulk_update_input_v1 === null || (is_array($audience_segment_bulk_update_input_v1) && count($audience_segment_bulk_update_input_v1) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $audience_segment_bulk_update_input_v1 when calling bulkUpdateAudienceSegments'
-            );
-        }
-
-
-        $resourcePath = '/preview/marketing-solutions/audience-segments';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($audience_segment_bulk_update_input_v1)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($audience_segment_bulk_update_input_v1));
-            } else {
-                $httpBody = $audience_segment_bulk_update_input_v1;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'PATCH',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation bulkUpdateAudiences
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkUpdateInputV1 $audience_bulk_update_input_v1  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkUpdateAudiences'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse
-     */
-    public function bulkUpdateAudiences($audience_bulk_update_input_v1, string $contentType = self::contentTypes['bulkUpdateAudiences'][0])
-    {
-        list($response) = $this->bulkUpdateAudiencesWithHttpInfo($audience_bulk_update_input_v1, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation bulkUpdateAudiencesWithHttpInfo
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkUpdateInputV1 $audience_bulk_update_input_v1  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkUpdateAudiences'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function bulkUpdateAudiencesWithHttpInfo($audience_bulk_update_input_v1, string $contentType = self::contentTypes['bulkUpdateAudiences'][0])
-    {
-        $request = $this->bulkUpdateAudiencesRequest($audience_bulk_update_input_v1, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation bulkUpdateAudiencesAsync
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkUpdateInputV1 $audience_bulk_update_input_v1  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkUpdateAudiences'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function bulkUpdateAudiencesAsync($audience_bulk_update_input_v1, string $contentType = self::contentTypes['bulkUpdateAudiences'][0])
-    {
-        return $this->bulkUpdateAudiencesAsyncWithHttpInfo($audience_bulk_update_input_v1, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation bulkUpdateAudiencesAsyncWithHttpInfo
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkUpdateInputV1 $audience_bulk_update_input_v1  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkUpdateAudiences'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function bulkUpdateAudiencesAsyncWithHttpInfo($audience_bulk_update_input_v1, string $contentType = self::contentTypes['bulkUpdateAudiences'][0])
-    {
-        $returnType = '\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse';
-        $request = $this->bulkUpdateAudiencesRequest($audience_bulk_update_input_v1, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'bulkUpdateAudiences'
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkUpdateInputV1 $audience_bulk_update_input_v1  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkUpdateAudiences'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function bulkUpdateAudiencesRequest($audience_bulk_update_input_v1, string $contentType = self::contentTypes['bulkUpdateAudiences'][0])
-    {
-
-        // verify the required parameter 'audience_bulk_update_input_v1' is set
-        if ($audience_bulk_update_input_v1 === null || (is_array($audience_bulk_update_input_v1) && count($audience_bulk_update_input_v1) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $audience_bulk_update_input_v1 when calling bulkUpdateAudiences'
-            );
-        }
-
-
-        $resourcePath = '/preview/marketing-solutions/audiences';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($audience_bulk_update_input_v1)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($audience_bulk_update_input_v1));
-            } else {
-                $httpBody = $audience_bulk_update_input_v1;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'PATCH',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
     }
 
     /**
@@ -2430,34 +738,1162 @@ class AudienceApi
     }
 
     /**
-     * Operation estimateAudienceSegmentSize
+     * Operation createAudienceSegments
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkCreateInputV1 $audience_segment_bulk_create_input_v1 Segment creation parameter (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAudienceSegments'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse
+     */
+    public function createAudienceSegments($audience_segment_bulk_create_input_v1, string $contentType = self::contentTypes['createAudienceSegments'][0])
+    {
+        list($response) = $this->createAudienceSegmentsWithHttpInfo($audience_segment_bulk_create_input_v1, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createAudienceSegmentsWithHttpInfo
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkCreateInputV1 $audience_segment_bulk_create_input_v1 Segment creation parameter (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAudienceSegments'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createAudienceSegmentsWithHttpInfo($audience_segment_bulk_create_input_v1, string $contentType = self::contentTypes['createAudienceSegments'][0])
+    {
+        $request = $this->createAudienceSegmentsRequest($audience_segment_bulk_create_input_v1, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createAudienceSegmentsAsync
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkCreateInputV1 $audience_segment_bulk_create_input_v1 Segment creation parameter (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAudienceSegments'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createAudienceSegmentsAsync($audience_segment_bulk_create_input_v1, string $contentType = self::contentTypes['createAudienceSegments'][0])
+    {
+        return $this->createAudienceSegmentsAsyncWithHttpInfo($audience_segment_bulk_create_input_v1, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createAudienceSegmentsAsyncWithHttpInfo
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkCreateInputV1 $audience_segment_bulk_create_input_v1 Segment creation parameter (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAudienceSegments'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createAudienceSegmentsAsyncWithHttpInfo($audience_segment_bulk_create_input_v1, string $contentType = self::contentTypes['createAudienceSegments'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse';
+        $request = $this->createAudienceSegmentsRequest($audience_segment_bulk_create_input_v1, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createAudienceSegments'
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkCreateInputV1 $audience_segment_bulk_create_input_v1 Segment creation parameter (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAudienceSegments'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createAudienceSegmentsRequest($audience_segment_bulk_create_input_v1, string $contentType = self::contentTypes['createAudienceSegments'][0])
+    {
+
+        // verify the required parameter 'audience_segment_bulk_create_input_v1' is set
+        if ($audience_segment_bulk_create_input_v1 === null || (is_array($audience_segment_bulk_create_input_v1) && count($audience_segment_bulk_create_input_v1) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $audience_segment_bulk_create_input_v1 when calling createAudienceSegments'
+            );
+        }
+
+
+        $resourcePath = '/preview/marketing-solutions/audience-segments/create';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($audience_segment_bulk_create_input_v1)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($audience_segment_bulk_create_input_v1));
+            } else {
+                $httpBody = $audience_segment_bulk_create_input_v1;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation createAudiences
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkCreateInputV1 $audience_bulk_create_input_v1  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAudiences'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse
+     */
+    public function createAudiences($audience_bulk_create_input_v1, string $contentType = self::contentTypes['createAudiences'][0])
+    {
+        list($response) = $this->createAudiencesWithHttpInfo($audience_bulk_create_input_v1, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createAudiencesWithHttpInfo
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkCreateInputV1 $audience_bulk_create_input_v1  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAudiences'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createAudiencesWithHttpInfo($audience_bulk_create_input_v1, string $contentType = self::contentTypes['createAudiences'][0])
+    {
+        $request = $this->createAudiencesRequest($audience_bulk_create_input_v1, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createAudiencesAsync
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkCreateInputV1 $audience_bulk_create_input_v1  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAudiences'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createAudiencesAsync($audience_bulk_create_input_v1, string $contentType = self::contentTypes['createAudiences'][0])
+    {
+        return $this->createAudiencesAsyncWithHttpInfo($audience_bulk_create_input_v1, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createAudiencesAsyncWithHttpInfo
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkCreateInputV1 $audience_bulk_create_input_v1  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAudiences'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createAudiencesAsyncWithHttpInfo($audience_bulk_create_input_v1, string $contentType = self::contentTypes['createAudiences'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse';
+        $request = $this->createAudiencesRequest($audience_bulk_create_input_v1, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createAudiences'
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkCreateInputV1 $audience_bulk_create_input_v1  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAudiences'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createAudiencesRequest($audience_bulk_create_input_v1, string $contentType = self::contentTypes['createAudiences'][0])
+    {
+
+        // verify the required parameter 'audience_bulk_create_input_v1' is set
+        if ($audience_bulk_create_input_v1 === null || (is_array($audience_bulk_create_input_v1) && count($audience_bulk_create_input_v1) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $audience_bulk_create_input_v1 when calling createAudiences'
+            );
+        }
+
+
+        $resourcePath = '/preview/marketing-solutions/audiences/create';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($audience_bulk_create_input_v1)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($audience_bulk_create_input_v1));
+            } else {
+                $httpBody = $audience_bulk_create_input_v1;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteAudienceSegments
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkDeleteInputV1 $audience_segment_bulk_delete_input_v1 Segment delete request. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAudienceSegments'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\AudienceSegmentIdEntityV1ListResponse
+     */
+    public function deleteAudienceSegments($audience_segment_bulk_delete_input_v1, string $contentType = self::contentTypes['deleteAudienceSegments'][0])
+    {
+        list($response) = $this->deleteAudienceSegmentsWithHttpInfo($audience_segment_bulk_delete_input_v1, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation deleteAudienceSegmentsWithHttpInfo
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkDeleteInputV1 $audience_segment_bulk_delete_input_v1 Segment delete request. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAudienceSegments'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\AudienceSegmentIdEntityV1ListResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteAudienceSegmentsWithHttpInfo($audience_segment_bulk_delete_input_v1, string $contentType = self::contentTypes['deleteAudienceSegments'][0])
+    {
+        $request = $this->deleteAudienceSegmentsRequest($audience_segment_bulk_delete_input_v1, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\AudienceSegmentIdEntityV1ListResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\preview\Model\AudienceSegmentIdEntityV1ListResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\AudienceSegmentIdEntityV1ListResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\AudienceSegmentIdEntityV1ListResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\AudienceSegmentIdEntityV1ListResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteAudienceSegmentsAsync
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkDeleteInputV1 $audience_segment_bulk_delete_input_v1 Segment delete request. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAudienceSegments'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteAudienceSegmentsAsync($audience_segment_bulk_delete_input_v1, string $contentType = self::contentTypes['deleteAudienceSegments'][0])
+    {
+        return $this->deleteAudienceSegmentsAsyncWithHttpInfo($audience_segment_bulk_delete_input_v1, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteAudienceSegmentsAsyncWithHttpInfo
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkDeleteInputV1 $audience_segment_bulk_delete_input_v1 Segment delete request. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAudienceSegments'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteAudienceSegmentsAsyncWithHttpInfo($audience_segment_bulk_delete_input_v1, string $contentType = self::contentTypes['deleteAudienceSegments'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\AudienceSegmentIdEntityV1ListResponse';
+        $request = $this->deleteAudienceSegmentsRequest($audience_segment_bulk_delete_input_v1, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteAudienceSegments'
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkDeleteInputV1 $audience_segment_bulk_delete_input_v1 Segment delete request. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAudienceSegments'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteAudienceSegmentsRequest($audience_segment_bulk_delete_input_v1, string $contentType = self::contentTypes['deleteAudienceSegments'][0])
+    {
+
+        // verify the required parameter 'audience_segment_bulk_delete_input_v1' is set
+        if ($audience_segment_bulk_delete_input_v1 === null || (is_array($audience_segment_bulk_delete_input_v1) && count($audience_segment_bulk_delete_input_v1) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $audience_segment_bulk_delete_input_v1 when calling deleteAudienceSegments'
+            );
+        }
+
+
+        $resourcePath = '/preview/marketing-solutions/audience-segments/delete';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($audience_segment_bulk_delete_input_v1)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($audience_segment_bulk_delete_input_v1));
+            } else {
+                $httpBody = $audience_segment_bulk_delete_input_v1;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteAudiences
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkDeleteInputV1 $audience_bulk_delete_input_v1  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAudiences'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\AudienceIdEntityV1ListResponse
+     */
+    public function deleteAudiences($audience_bulk_delete_input_v1, string $contentType = self::contentTypes['deleteAudiences'][0])
+    {
+        list($response) = $this->deleteAudiencesWithHttpInfo($audience_bulk_delete_input_v1, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation deleteAudiencesWithHttpInfo
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkDeleteInputV1 $audience_bulk_delete_input_v1  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAudiences'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\AudienceIdEntityV1ListResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteAudiencesWithHttpInfo($audience_bulk_delete_input_v1, string $contentType = self::contentTypes['deleteAudiences'][0])
+    {
+        $request = $this->deleteAudiencesRequest($audience_bulk_delete_input_v1, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\AudienceIdEntityV1ListResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\preview\Model\AudienceIdEntityV1ListResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\AudienceIdEntityV1ListResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\AudienceIdEntityV1ListResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\AudienceIdEntityV1ListResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteAudiencesAsync
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkDeleteInputV1 $audience_bulk_delete_input_v1  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAudiences'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteAudiencesAsync($audience_bulk_delete_input_v1, string $contentType = self::contentTypes['deleteAudiences'][0])
+    {
+        return $this->deleteAudiencesAsyncWithHttpInfo($audience_bulk_delete_input_v1, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteAudiencesAsyncWithHttpInfo
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkDeleteInputV1 $audience_bulk_delete_input_v1  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAudiences'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteAudiencesAsyncWithHttpInfo($audience_bulk_delete_input_v1, string $contentType = self::contentTypes['deleteAudiences'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\AudienceIdEntityV1ListResponse';
+        $request = $this->deleteAudiencesRequest($audience_bulk_delete_input_v1, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteAudiences'
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkDeleteInputV1 $audience_bulk_delete_input_v1  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAudiences'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteAudiencesRequest($audience_bulk_delete_input_v1, string $contentType = self::contentTypes['deleteAudiences'][0])
+    {
+
+        // verify the required parameter 'audience_bulk_delete_input_v1' is set
+        if ($audience_bulk_delete_input_v1 === null || (is_array($audience_bulk_delete_input_v1) && count($audience_bulk_delete_input_v1) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $audience_bulk_delete_input_v1 when calling deleteAudiences'
+            );
+        }
+
+
+        $resourcePath = '/preview/marketing-solutions/audiences/delete';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($audience_bulk_delete_input_v1)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($audience_bulk_delete_input_v1));
+            } else {
+                $httpBody = $audience_bulk_delete_input_v1;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation estimateAudienceSegmentsSizes
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEstimateSizeInputV1 $audience_segment_estimate_size_input_v1  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudienceSegmentSize'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudienceSegmentsSizes'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\AudienceSegmentSizeEstimationV1Response
      */
-    public function estimateAudienceSegmentSize($audience_segment_estimate_size_input_v1, string $contentType = self::contentTypes['estimateAudienceSegmentSize'][0])
+    public function estimateAudienceSegmentsSizes($audience_segment_estimate_size_input_v1, string $contentType = self::contentTypes['estimateAudienceSegmentsSizes'][0])
     {
-        list($response) = $this->estimateAudienceSegmentSizeWithHttpInfo($audience_segment_estimate_size_input_v1, $contentType);
+        list($response) = $this->estimateAudienceSegmentsSizesWithHttpInfo($audience_segment_estimate_size_input_v1, $contentType);
         return $response;
     }
 
     /**
-     * Operation estimateAudienceSegmentSizeWithHttpInfo
+     * Operation estimateAudienceSegmentsSizesWithHttpInfo
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEstimateSizeInputV1 $audience_segment_estimate_size_input_v1  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudienceSegmentSize'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudienceSegmentsSizes'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\AudienceSegmentSizeEstimationV1Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function estimateAudienceSegmentSizeWithHttpInfo($audience_segment_estimate_size_input_v1, string $contentType = self::contentTypes['estimateAudienceSegmentSize'][0])
+    public function estimateAudienceSegmentsSizesWithHttpInfo($audience_segment_estimate_size_input_v1, string $contentType = self::contentTypes['estimateAudienceSegmentsSizes'][0])
     {
-        $request = $this->estimateAudienceSegmentSizeRequest($audience_segment_estimate_size_input_v1, $contentType);
+        $request = $this->estimateAudienceSegmentsSizesRequest($audience_segment_estimate_size_input_v1, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2544,17 +1980,17 @@ class AudienceApi
     }
 
     /**
-     * Operation estimateAudienceSegmentSizeAsync
+     * Operation estimateAudienceSegmentsSizesAsync
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEstimateSizeInputV1 $audience_segment_estimate_size_input_v1  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudienceSegmentSize'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudienceSegmentsSizes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function estimateAudienceSegmentSizeAsync($audience_segment_estimate_size_input_v1, string $contentType = self::contentTypes['estimateAudienceSegmentSize'][0])
+    public function estimateAudienceSegmentsSizesAsync($audience_segment_estimate_size_input_v1, string $contentType = self::contentTypes['estimateAudienceSegmentsSizes'][0])
     {
-        return $this->estimateAudienceSegmentSizeAsyncWithHttpInfo($audience_segment_estimate_size_input_v1, $contentType)
+        return $this->estimateAudienceSegmentsSizesAsyncWithHttpInfo($audience_segment_estimate_size_input_v1, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2563,18 +1999,18 @@ class AudienceApi
     }
 
     /**
-     * Operation estimateAudienceSegmentSizeAsyncWithHttpInfo
+     * Operation estimateAudienceSegmentsSizesAsyncWithHttpInfo
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEstimateSizeInputV1 $audience_segment_estimate_size_input_v1  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudienceSegmentSize'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudienceSegmentsSizes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function estimateAudienceSegmentSizeAsyncWithHttpInfo($audience_segment_estimate_size_input_v1, string $contentType = self::contentTypes['estimateAudienceSegmentSize'][0])
+    public function estimateAudienceSegmentsSizesAsyncWithHttpInfo($audience_segment_estimate_size_input_v1, string $contentType = self::contentTypes['estimateAudienceSegmentsSizes'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\AudienceSegmentSizeEstimationV1Response';
-        $request = $this->estimateAudienceSegmentSizeRequest($audience_segment_estimate_size_input_v1, $contentType);
+        $request = $this->estimateAudienceSegmentsSizesRequest($audience_segment_estimate_size_input_v1, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2613,21 +2049,21 @@ class AudienceApi
     }
 
     /**
-     * Create request for operation 'estimateAudienceSegmentSize'
+     * Create request for operation 'estimateAudienceSegmentsSizes'
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEstimateSizeInputV1 $audience_segment_estimate_size_input_v1  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudienceSegmentSize'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudienceSegmentsSizes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function estimateAudienceSegmentSizeRequest($audience_segment_estimate_size_input_v1, string $contentType = self::contentTypes['estimateAudienceSegmentSize'][0])
+    public function estimateAudienceSegmentsSizesRequest($audience_segment_estimate_size_input_v1, string $contentType = self::contentTypes['estimateAudienceSegmentsSizes'][0])
     {
 
         // verify the required parameter 'audience_segment_estimate_size_input_v1' is set
         if ($audience_segment_estimate_size_input_v1 === null || (is_array($audience_segment_estimate_size_input_v1) && count($audience_segment_estimate_size_input_v1) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $audience_segment_estimate_size_input_v1 when calling estimateAudienceSegmentSize'
+                'Missing the required parameter $audience_segment_estimate_size_input_v1 when calling estimateAudienceSegmentsSizes'
             );
         }
 
@@ -2712,34 +2148,34 @@ class AudienceApi
     }
 
     /**
-     * Operation estimateAudienceSize
+     * Operation estimateAudiencesSizes
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\AudienceEstimateSizeInputV1 $audience_estimate_size_input_v1  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudienceSize'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudiencesSizes'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\AudienceSizeEstimationV1Response
      */
-    public function estimateAudienceSize($audience_estimate_size_input_v1, string $contentType = self::contentTypes['estimateAudienceSize'][0])
+    public function estimateAudiencesSizes($audience_estimate_size_input_v1, string $contentType = self::contentTypes['estimateAudiencesSizes'][0])
     {
-        list($response) = $this->estimateAudienceSizeWithHttpInfo($audience_estimate_size_input_v1, $contentType);
+        list($response) = $this->estimateAudiencesSizesWithHttpInfo($audience_estimate_size_input_v1, $contentType);
         return $response;
     }
 
     /**
-     * Operation estimateAudienceSizeWithHttpInfo
+     * Operation estimateAudiencesSizesWithHttpInfo
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\AudienceEstimateSizeInputV1 $audience_estimate_size_input_v1  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudienceSize'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudiencesSizes'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\AudienceSizeEstimationV1Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function estimateAudienceSizeWithHttpInfo($audience_estimate_size_input_v1, string $contentType = self::contentTypes['estimateAudienceSize'][0])
+    public function estimateAudiencesSizesWithHttpInfo($audience_estimate_size_input_v1, string $contentType = self::contentTypes['estimateAudiencesSizes'][0])
     {
-        $request = $this->estimateAudienceSizeRequest($audience_estimate_size_input_v1, $contentType);
+        $request = $this->estimateAudiencesSizesRequest($audience_estimate_size_input_v1, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2826,17 +2262,17 @@ class AudienceApi
     }
 
     /**
-     * Operation estimateAudienceSizeAsync
+     * Operation estimateAudiencesSizesAsync
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\AudienceEstimateSizeInputV1 $audience_estimate_size_input_v1  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudienceSize'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudiencesSizes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function estimateAudienceSizeAsync($audience_estimate_size_input_v1, string $contentType = self::contentTypes['estimateAudienceSize'][0])
+    public function estimateAudiencesSizesAsync($audience_estimate_size_input_v1, string $contentType = self::contentTypes['estimateAudiencesSizes'][0])
     {
-        return $this->estimateAudienceSizeAsyncWithHttpInfo($audience_estimate_size_input_v1, $contentType)
+        return $this->estimateAudiencesSizesAsyncWithHttpInfo($audience_estimate_size_input_v1, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2845,18 +2281,18 @@ class AudienceApi
     }
 
     /**
-     * Operation estimateAudienceSizeAsyncWithHttpInfo
+     * Operation estimateAudiencesSizesAsyncWithHttpInfo
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\AudienceEstimateSizeInputV1 $audience_estimate_size_input_v1  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudienceSize'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudiencesSizes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function estimateAudienceSizeAsyncWithHttpInfo($audience_estimate_size_input_v1, string $contentType = self::contentTypes['estimateAudienceSize'][0])
+    public function estimateAudiencesSizesAsyncWithHttpInfo($audience_estimate_size_input_v1, string $contentType = self::contentTypes['estimateAudiencesSizes'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\AudienceSizeEstimationV1Response';
-        $request = $this->estimateAudienceSizeRequest($audience_estimate_size_input_v1, $contentType);
+        $request = $this->estimateAudiencesSizesRequest($audience_estimate_size_input_v1, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2895,21 +2331,21 @@ class AudienceApi
     }
 
     /**
-     * Create request for operation 'estimateAudienceSize'
+     * Create request for operation 'estimateAudiencesSizes'
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\AudienceEstimateSizeInputV1 $audience_estimate_size_input_v1  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudienceSize'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudiencesSizes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function estimateAudienceSizeRequest($audience_estimate_size_input_v1, string $contentType = self::contentTypes['estimateAudienceSize'][0])
+    public function estimateAudiencesSizesRequest($audience_estimate_size_input_v1, string $contentType = self::contentTypes['estimateAudiencesSizes'][0])
     {
 
         // verify the required parameter 'audience_estimate_size_input_v1' is set
         if ($audience_estimate_size_input_v1 === null || (is_array($audience_estimate_size_input_v1) && count($audience_estimate_size_input_v1) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $audience_estimate_size_input_v1 when calling estimateAudienceSize'
+                'Missing the required parameter $audience_estimate_size_input_v1 when calling estimateAudiencesSizes'
             );
         }
 
@@ -5403,6 +4839,570 @@ class AudienceApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateAudienceSegments
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkUpdateInputV1 $audience_segment_bulk_update_input_v1 Segment Update request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAudienceSegments'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse
+     */
+    public function updateAudienceSegments($audience_segment_bulk_update_input_v1, string $contentType = self::contentTypes['updateAudienceSegments'][0])
+    {
+        list($response) = $this->updateAudienceSegmentsWithHttpInfo($audience_segment_bulk_update_input_v1, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation updateAudienceSegmentsWithHttpInfo
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkUpdateInputV1 $audience_segment_bulk_update_input_v1 Segment Update request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAudienceSegments'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateAudienceSegmentsWithHttpInfo($audience_segment_bulk_update_input_v1, string $contentType = self::contentTypes['updateAudienceSegments'][0])
+    {
+        $request = $this->updateAudienceSegmentsRequest($audience_segment_bulk_update_input_v1, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateAudienceSegmentsAsync
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkUpdateInputV1 $audience_segment_bulk_update_input_v1 Segment Update request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAudienceSegments'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateAudienceSegmentsAsync($audience_segment_bulk_update_input_v1, string $contentType = self::contentTypes['updateAudienceSegments'][0])
+    {
+        return $this->updateAudienceSegmentsAsyncWithHttpInfo($audience_segment_bulk_update_input_v1, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateAudienceSegmentsAsyncWithHttpInfo
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkUpdateInputV1 $audience_segment_bulk_update_input_v1 Segment Update request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAudienceSegments'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateAudienceSegmentsAsyncWithHttpInfo($audience_segment_bulk_update_input_v1, string $contentType = self::contentTypes['updateAudienceSegments'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse';
+        $request = $this->updateAudienceSegmentsRequest($audience_segment_bulk_update_input_v1, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateAudienceSegments'
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkUpdateInputV1 $audience_segment_bulk_update_input_v1 Segment Update request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAudienceSegments'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateAudienceSegmentsRequest($audience_segment_bulk_update_input_v1, string $contentType = self::contentTypes['updateAudienceSegments'][0])
+    {
+
+        // verify the required parameter 'audience_segment_bulk_update_input_v1' is set
+        if ($audience_segment_bulk_update_input_v1 === null || (is_array($audience_segment_bulk_update_input_v1) && count($audience_segment_bulk_update_input_v1) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $audience_segment_bulk_update_input_v1 when calling updateAudienceSegments'
+            );
+        }
+
+
+        $resourcePath = '/preview/marketing-solutions/audience-segments';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($audience_segment_bulk_update_input_v1)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($audience_segment_bulk_update_input_v1));
+            } else {
+                $httpBody = $audience_segment_bulk_update_input_v1;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateAudiences
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkUpdateInputV1 $audience_bulk_update_input_v1  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAudiences'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse
+     */
+    public function updateAudiences($audience_bulk_update_input_v1, string $contentType = self::contentTypes['updateAudiences'][0])
+    {
+        list($response) = $this->updateAudiencesWithHttpInfo($audience_bulk_update_input_v1, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation updateAudiencesWithHttpInfo
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkUpdateInputV1 $audience_bulk_update_input_v1  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAudiences'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateAudiencesWithHttpInfo($audience_bulk_update_input_v1, string $contentType = self::contentTypes['updateAudiences'][0])
+    {
+        $request = $this->updateAudiencesRequest($audience_bulk_update_input_v1, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateAudiencesAsync
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkUpdateInputV1 $audience_bulk_update_input_v1  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAudiences'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateAudiencesAsync($audience_bulk_update_input_v1, string $contentType = self::contentTypes['updateAudiences'][0])
+    {
+        return $this->updateAudiencesAsyncWithHttpInfo($audience_bulk_update_input_v1, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateAudiencesAsyncWithHttpInfo
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkUpdateInputV1 $audience_bulk_update_input_v1  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAudiences'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateAudiencesAsyncWithHttpInfo($audience_bulk_update_input_v1, string $contentType = self::contentTypes['updateAudiences'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse';
+        $request = $this->updateAudiencesRequest($audience_bulk_update_input_v1, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateAudiences'
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\AudienceBulkUpdateInputV1 $audience_bulk_update_input_v1  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAudiences'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateAudiencesRequest($audience_bulk_update_input_v1, string $contentType = self::contentTypes['updateAudiences'][0])
+    {
+
+        // verify the required parameter 'audience_bulk_update_input_v1' is set
+        if ($audience_bulk_update_input_v1 === null || (is_array($audience_bulk_update_input_v1) && count($audience_bulk_update_input_v1) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $audience_bulk_update_input_v1 when calling updateAudiences'
+            );
+        }
+
+
+        $resourcePath = '/preview/marketing-solutions/audiences';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($audience_bulk_update_input_v1)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($audience_bulk_update_input_v1));
+            } else {
+                $httpBody = $audience_bulk_update_input_v1;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

@@ -4,16 +4,14 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**bulkCreateAudienceSegments()**](AudienceApi.md#bulkCreateAudienceSegments) | **POST** /preview/marketing-solutions/audience-segments/create |  |
-| [**bulkCreateAudiences()**](AudienceApi.md#bulkCreateAudiences) | **POST** /preview/marketing-solutions/audiences/create |  |
-| [**bulkDeleteAudienceSegments()**](AudienceApi.md#bulkDeleteAudienceSegments) | **POST** /preview/marketing-solutions/audience-segments/delete |  |
-| [**bulkDeleteAudiences()**](AudienceApi.md#bulkDeleteAudiences) | **POST** /preview/marketing-solutions/audiences/delete |  |
-| [**bulkUpdateAudienceSegments()**](AudienceApi.md#bulkUpdateAudienceSegments) | **PATCH** /preview/marketing-solutions/audience-segments |  |
-| [**bulkUpdateAudiences()**](AudienceApi.md#bulkUpdateAudiences) | **PATCH** /preview/marketing-solutions/audiences |  |
 | [**computeAudienceSegmentsSizes()**](AudienceApi.md#computeAudienceSegmentsSizes) | **POST** /preview/marketing-solutions/audience-segments/compute-sizes |  |
 | [**computeAudiencesSizes()**](AudienceApi.md#computeAudiencesSizes) | **POST** /preview/marketing-solutions/audiences/compute-sizes |  |
-| [**estimateAudienceSegmentSize()**](AudienceApi.md#estimateAudienceSegmentSize) | **POST** /preview/marketing-solutions/audience-segments/estimate-size |  |
-| [**estimateAudienceSize()**](AudienceApi.md#estimateAudienceSize) | **POST** /preview/marketing-solutions/audiences/estimate-size |  |
+| [**createAudienceSegments()**](AudienceApi.md#createAudienceSegments) | **POST** /preview/marketing-solutions/audience-segments/create |  |
+| [**createAudiences()**](AudienceApi.md#createAudiences) | **POST** /preview/marketing-solutions/audiences/create |  |
+| [**deleteAudienceSegments()**](AudienceApi.md#deleteAudienceSegments) | **POST** /preview/marketing-solutions/audience-segments/delete |  |
+| [**deleteAudiences()**](AudienceApi.md#deleteAudiences) | **POST** /preview/marketing-solutions/audiences/delete |  |
+| [**estimateAudienceSegmentsSizes()**](AudienceApi.md#estimateAudienceSegmentsSizes) | **POST** /preview/marketing-solutions/audience-segments/estimate-size |  |
+| [**estimateAudiencesSizes()**](AudienceApi.md#estimateAudiencesSizes) | **POST** /preview/marketing-solutions/audiences/estimate-size |  |
 | [**getAudienceSegmentContactListStatistics()**](AudienceApi.md#getAudienceSegmentContactListStatistics) | **GET** /preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list |  |
 | [**getAudienceSegmentsInMarketBrands()**](AudienceApi.md#getAudienceSegmentsInMarketBrands) | **GET** /preview/marketing-solutions/audience-segments/in-market-brands |  |
 | [**getAudienceSegmentsInMarketInterests()**](AudienceApi.md#getAudienceSegmentsInMarketInterests) | **GET** /preview/marketing-solutions/audience-segments/in-market-interests |  |
@@ -22,385 +20,9 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 | [**previewMarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListPatch()**](AudienceApi.md#previewMarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListPatch) | **PATCH** /preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list |  |
 | [**searchAudienceSegments()**](AudienceApi.md#searchAudienceSegments) | **POST** /preview/marketing-solutions/audience-segments/search |  |
 | [**searchAudiences()**](AudienceApi.md#searchAudiences) | **POST** /preview/marketing-solutions/audiences/search |  |
+| [**updateAudienceSegments()**](AudienceApi.md#updateAudienceSegments) | **PATCH** /preview/marketing-solutions/audience-segments |  |
+| [**updateAudiences()**](AudienceApi.md#updateAudiences) | **PATCH** /preview/marketing-solutions/audiences |  |
 
-
-## `bulkCreateAudienceSegments()`
-
-```php
-bulkCreateAudienceSegments($audience_segment_bulk_create_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse
-```
-
-
-
-Creates all segments with a valid configuration, and returns their IDs. For those that cannot be created, one or multiple errors are returned.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$audience_segment_bulk_create_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkCreateInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkCreateInputV1 | Segment creation parameter
-
-try {
-    $result = $apiInstance->bulkCreateAudienceSegments($audience_segment_bulk_create_input_v1);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AudienceApi->bulkCreateAudienceSegments: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **audience_segment_bulk_create_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkCreateInputV1**](../Model/AudienceSegmentBulkCreateInputV1.md)| Segment creation parameter | |
-
-### Return type
-
-[**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse**](../Model/AudienceSegmentEntityV1ListResponse.md)
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `bulkCreateAudiences()`
-
-```php
-bulkCreateAudiences($audience_bulk_create_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse
-```
-
-
-
-Creates all audiences with a valid configuration, and returns their IDs. For those that cannot be created, one or multiple errors are returned.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$audience_bulk_create_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceBulkCreateInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceBulkCreateInputV1 | 
-
-try {
-    $result = $apiInstance->bulkCreateAudiences($audience_bulk_create_input_v1);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AudienceApi->bulkCreateAudiences: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **audience_bulk_create_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceBulkCreateInputV1**](../Model/AudienceBulkCreateInputV1.md)|  | |
-
-### Return type
-
-[**\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse**](../Model/AudienceEntityV1ListResponse.md)
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `bulkDeleteAudienceSegments()`
-
-```php
-bulkDeleteAudienceSegments($audience_segment_bulk_delete_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceSegmentIdEntityV1ListResponse
-```
-
-
-
-Delete the segments associated to the given audience IDs.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$audience_segment_bulk_delete_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkDeleteInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkDeleteInputV1 | Segment delete request.
-
-try {
-    $result = $apiInstance->bulkDeleteAudienceSegments($audience_segment_bulk_delete_input_v1);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AudienceApi->bulkDeleteAudienceSegments: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **audience_segment_bulk_delete_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkDeleteInputV1**](../Model/AudienceSegmentBulkDeleteInputV1.md)| Segment delete request. | |
-
-### Return type
-
-[**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentIdEntityV1ListResponse**](../Model/AudienceSegmentIdEntityV1ListResponse.md)
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `bulkDeleteAudiences()`
-
-```php
-bulkDeleteAudiences($audience_bulk_delete_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceIdEntityV1ListResponse
-```
-
-
-
-Deletes the audiences associated to the given audience IDs.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$audience_bulk_delete_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceBulkDeleteInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceBulkDeleteInputV1 | 
-
-try {
-    $result = $apiInstance->bulkDeleteAudiences($audience_bulk_delete_input_v1);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AudienceApi->bulkDeleteAudiences: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **audience_bulk_delete_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceBulkDeleteInputV1**](../Model/AudienceBulkDeleteInputV1.md)|  | |
-
-### Return type
-
-[**\criteo\api\marketingsolutions\preview\Model\AudienceIdEntityV1ListResponse**](../Model/AudienceIdEntityV1ListResponse.md)
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `bulkUpdateAudienceSegments()`
-
-```php
-bulkUpdateAudienceSegments($audience_segment_bulk_update_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse
-```
-
-
-
-Updates the properties of all segments with a valid configuration, and returns their IDs. For those that cannot be updated, one or multiple errors are returned.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$audience_segment_bulk_update_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkUpdateInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkUpdateInputV1 | Segment Update request
-
-try {
-    $result = $apiInstance->bulkUpdateAudienceSegments($audience_segment_bulk_update_input_v1);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AudienceApi->bulkUpdateAudienceSegments: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **audience_segment_bulk_update_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkUpdateInputV1**](../Model/AudienceSegmentBulkUpdateInputV1.md)| Segment Update request | |
-
-### Return type
-
-[**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse**](../Model/AudienceSegmentEntityV1ListResponse.md)
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `bulkUpdateAudiences()`
-
-```php
-bulkUpdateAudiences($audience_bulk_update_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse
-```
-
-
-
-Updates the properties of all audiences with a valid configuration, and returns their IDs. For those that cannot be updated, one or multiple errors are returned.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$audience_bulk_update_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceBulkUpdateInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceBulkUpdateInputV1 | 
-
-try {
-    $result = $apiInstance->bulkUpdateAudiences($audience_bulk_update_input_v1);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AudienceApi->bulkUpdateAudiences: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **audience_bulk_update_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceBulkUpdateInputV1**](../Model/AudienceBulkUpdateInputV1.md)|  | |
-
-### Return type
-
-[**\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse**](../Model/AudienceEntityV1ListResponse.md)
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
 
 ## `computeAudienceSegmentsSizes()`
 
@@ -528,10 +150,262 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `estimateAudienceSegmentSize()`
+## `createAudienceSegments()`
 
 ```php
-estimateAudienceSegmentSize($audience_segment_estimate_size_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceSegmentSizeEstimationV1Response
+createAudienceSegments($audience_segment_bulk_create_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse
+```
+
+
+
+Creates all segments with a valid configuration, and returns their IDs. For those that cannot be created, one or multiple errors are returned.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$audience_segment_bulk_create_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkCreateInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkCreateInputV1 | Segment creation parameter
+
+try {
+    $result = $apiInstance->createAudienceSegments($audience_segment_bulk_create_input_v1);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AudienceApi->createAudienceSegments: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **audience_segment_bulk_create_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkCreateInputV1**](../Model/AudienceSegmentBulkCreateInputV1.md)| Segment creation parameter | |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse**](../Model/AudienceSegmentEntityV1ListResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createAudiences()`
+
+```php
+createAudiences($audience_bulk_create_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse
+```
+
+
+
+Creates all audiences with a valid configuration, and returns their IDs. For those that cannot be created, one or multiple errors are returned.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$audience_bulk_create_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceBulkCreateInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceBulkCreateInputV1 | 
+
+try {
+    $result = $apiInstance->createAudiences($audience_bulk_create_input_v1);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AudienceApi->createAudiences: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **audience_bulk_create_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceBulkCreateInputV1**](../Model/AudienceBulkCreateInputV1.md)|  | |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse**](../Model/AudienceEntityV1ListResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteAudienceSegments()`
+
+```php
+deleteAudienceSegments($audience_segment_bulk_delete_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceSegmentIdEntityV1ListResponse
+```
+
+
+
+Delete the segments associated to the given audience IDs.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$audience_segment_bulk_delete_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkDeleteInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkDeleteInputV1 | Segment delete request.
+
+try {
+    $result = $apiInstance->deleteAudienceSegments($audience_segment_bulk_delete_input_v1);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AudienceApi->deleteAudienceSegments: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **audience_segment_bulk_delete_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkDeleteInputV1**](../Model/AudienceSegmentBulkDeleteInputV1.md)| Segment delete request. | |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentIdEntityV1ListResponse**](../Model/AudienceSegmentIdEntityV1ListResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteAudiences()`
+
+```php
+deleteAudiences($audience_bulk_delete_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceIdEntityV1ListResponse
+```
+
+
+
+Deletes the audiences associated to the given audience IDs.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$audience_bulk_delete_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceBulkDeleteInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceBulkDeleteInputV1 | 
+
+try {
+    $result = $apiInstance->deleteAudiences($audience_bulk_delete_input_v1);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AudienceApi->deleteAudiences: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **audience_bulk_delete_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceBulkDeleteInputV1**](../Model/AudienceBulkDeleteInputV1.md)|  | |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\AudienceIdEntityV1ListResponse**](../Model/AudienceIdEntityV1ListResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `estimateAudienceSegmentsSizes()`
+
+```php
+estimateAudienceSegmentsSizes($audience_segment_estimate_size_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceSegmentSizeEstimationV1Response
 ```
 
 
@@ -561,10 +435,10 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
 $audience_segment_estimate_size_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEstimateSizeInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEstimateSizeInputV1 | 
 
 try {
-    $result = $apiInstance->estimateAudienceSegmentSize($audience_segment_estimate_size_input_v1);
+    $result = $apiInstance->estimateAudienceSegmentsSizes($audience_segment_estimate_size_input_v1);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AudienceApi->estimateAudienceSegmentSize: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AudienceApi->estimateAudienceSegmentsSizes: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -591,10 +465,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `estimateAudienceSize()`
+## `estimateAudiencesSizes()`
 
 ```php
-estimateAudienceSize($audience_estimate_size_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceSizeEstimationV1Response
+estimateAudiencesSizes($audience_estimate_size_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceSizeEstimationV1Response
 ```
 
 
@@ -624,10 +498,10 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
 $audience_estimate_size_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceEstimateSizeInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceEstimateSizeInputV1 | 
 
 try {
-    $result = $apiInstance->estimateAudienceSize($audience_estimate_size_input_v1);
+    $result = $apiInstance->estimateAudiencesSizes($audience_estimate_size_input_v1);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AudienceApi->estimateAudienceSize: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AudienceApi->estimateAudiencesSizes: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -1160,6 +1034,132 @@ try {
 ### Return type
 
 [**\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1AudienceSearchMetadataV1ListResponse**](../Model/AudienceEntityV1AudienceSearchMetadataV1ListResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateAudienceSegments()`
+
+```php
+updateAudienceSegments($audience_segment_bulk_update_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse
+```
+
+
+
+Updates the properties of all segments with a valid configuration, and returns their IDs. For those that cannot be updated, one or multiple errors are returned.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$audience_segment_bulk_update_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkUpdateInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkUpdateInputV1 | Segment Update request
+
+try {
+    $result = $apiInstance->updateAudienceSegments($audience_segment_bulk_update_input_v1);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AudienceApi->updateAudienceSegments: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **audience_segment_bulk_update_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentBulkUpdateInputV1**](../Model/AudienceSegmentBulkUpdateInputV1.md)| Segment Update request | |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse**](../Model/AudienceSegmentEntityV1ListResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateAudiences()`
+
+```php
+updateAudiences($audience_bulk_update_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse
+```
+
+
+
+Updates the properties of all audiences with a valid configuration, and returns their IDs. For those that cannot be updated, one or multiple errors are returned.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$audience_bulk_update_input_v1 = new \criteo\api\marketingsolutions\preview\Model\AudienceBulkUpdateInputV1(); // \criteo\api\marketingsolutions\preview\Model\AudienceBulkUpdateInputV1 | 
+
+try {
+    $result = $apiInstance->updateAudiences($audience_bulk_update_input_v1);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AudienceApi->updateAudiences: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **audience_bulk_update_input_v1** | [**\criteo\api\marketingsolutions\preview\Model\AudienceBulkUpdateInputV1**](../Model/AudienceBulkUpdateInputV1.md)|  | |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse**](../Model/AudienceEntityV1ListResponse.md)
 
 ### Authorization
 
