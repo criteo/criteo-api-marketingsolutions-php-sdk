@@ -2632,7 +2632,7 @@ class AudienceApi
         }
 
 
-        $resourcePath = '/preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list';
+        $resourcePath = '/preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list/statistics';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

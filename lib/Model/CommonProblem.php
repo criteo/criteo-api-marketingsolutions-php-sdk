@@ -94,15 +94,15 @@ class CommonProblem implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'code' => false,
-		'detail' => false,
-		'instance' => false,
-		'source' => false,
-		'stack_trace' => false,
-		'title' => false,
-		'trace_id' => false,
-		'trace_identifier' => false,
-		'type' => false
+        'code' => true,
+		'detail' => true,
+		'instance' => true,
+		'source' => true,
+		'stack_trace' => true,
+		'title' => true,
+		'trace_id' => true,
+		'trace_identifier' => true,
+		'type' => true
     ];
 
     /**
@@ -402,7 +402,14 @@ class CommonProblem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCode($code)
     {
         if (is_null($code)) {
-            throw new \InvalidArgumentException('non-nullable code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['code'] = $code;
 
@@ -429,7 +436,14 @@ class CommonProblem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDetail($detail)
     {
         if (is_null($detail)) {
-            throw new \InvalidArgumentException('non-nullable detail cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'detail');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('detail', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['detail'] = $detail;
 
@@ -456,7 +470,14 @@ class CommonProblem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setInstance($instance)
     {
         if (is_null($instance)) {
-            throw new \InvalidArgumentException('non-nullable instance cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'instance');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('instance', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['instance'] = $instance;
 
@@ -483,7 +504,14 @@ class CommonProblem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSource($source)
     {
         if (is_null($source)) {
-            throw new \InvalidArgumentException('non-nullable source cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'source');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['source'] = $source;
 
@@ -510,7 +538,14 @@ class CommonProblem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setStackTrace($stack_trace)
     {
         if (is_null($stack_trace)) {
-            throw new \InvalidArgumentException('non-nullable stack_trace cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'stack_trace');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('stack_trace', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['stack_trace'] = $stack_trace;
 
@@ -537,7 +572,14 @@ class CommonProblem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTitle($title)
     {
         if (is_null($title)) {
-            throw new \InvalidArgumentException('non-nullable title cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'title');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('title', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['title'] = $title;
 
@@ -564,7 +606,14 @@ class CommonProblem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTraceId($trace_id)
     {
         if (is_null($trace_id)) {
-            throw new \InvalidArgumentException('non-nullable trace_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'trace_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('trace_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['trace_id'] = $trace_id;
 
@@ -591,7 +640,14 @@ class CommonProblem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTraceIdentifier($trace_identifier)
     {
         if (is_null($trace_identifier)) {
-            throw new \InvalidArgumentException('non-nullable trace_identifier cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'trace_identifier');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('trace_identifier', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['trace_identifier'] = $trace_identifier;
 
@@ -618,10 +674,17 @@ class CommonProblem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",
