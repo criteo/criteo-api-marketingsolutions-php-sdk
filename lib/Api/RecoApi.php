@@ -92,6 +92,9 @@ class RecoApi
         'fetchProductSets' => [
             'application/json',
         ],
+        'patchProductSet' => [
+            'application/json',
+        ],
         'removeProductSet' => [
             'application/json',
         ],
@@ -2124,6 +2127,302 @@ class RecoApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation patchProductSet
+     *
+     * @param  string $product_set_id ID of the product set (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfPatchProductSetRequest $value_resource_input_of_patch_product_set_request value_resource_input_of_patch_product_set_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProductSet'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\ResourceOutcomeOfProductSet
+     */
+    public function patchProductSet($product_set_id, $value_resource_input_of_patch_product_set_request = null, string $contentType = self::contentTypes['patchProductSet'][0])
+    {
+        list($response) = $this->patchProductSetWithHttpInfo($product_set_id, $value_resource_input_of_patch_product_set_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation patchProductSetWithHttpInfo
+     *
+     * @param  string $product_set_id ID of the product set (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfPatchProductSetRequest $value_resource_input_of_patch_product_set_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProductSet'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ResourceOutcomeOfProductSet, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function patchProductSetWithHttpInfo($product_set_id, $value_resource_input_of_patch_product_set_request = null, string $contentType = self::contentTypes['patchProductSet'][0])
+    {
+        $request = $this->patchProductSetRequest($product_set_id, $value_resource_input_of_patch_product_set_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\ResourceOutcomeOfProductSet' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\preview\Model\ResourceOutcomeOfProductSet' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ResourceOutcomeOfProductSet', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\ResourceOutcomeOfProductSet';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\ResourceOutcomeOfProductSet',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation patchProductSetAsync
+     *
+     * @param  string $product_set_id ID of the product set (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfPatchProductSetRequest $value_resource_input_of_patch_product_set_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProductSet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function patchProductSetAsync($product_set_id, $value_resource_input_of_patch_product_set_request = null, string $contentType = self::contentTypes['patchProductSet'][0])
+    {
+        return $this->patchProductSetAsyncWithHttpInfo($product_set_id, $value_resource_input_of_patch_product_set_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation patchProductSetAsyncWithHttpInfo
+     *
+     * @param  string $product_set_id ID of the product set (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfPatchProductSetRequest $value_resource_input_of_patch_product_set_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProductSet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function patchProductSetAsyncWithHttpInfo($product_set_id, $value_resource_input_of_patch_product_set_request = null, string $contentType = self::contentTypes['patchProductSet'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\ResourceOutcomeOfProductSet';
+        $request = $this->patchProductSetRequest($product_set_id, $value_resource_input_of_patch_product_set_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'patchProductSet'
+     *
+     * @param  string $product_set_id ID of the product set (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfPatchProductSetRequest $value_resource_input_of_patch_product_set_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProductSet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function patchProductSetRequest($product_set_id, $value_resource_input_of_patch_product_set_request = null, string $contentType = self::contentTypes['patchProductSet'][0])
+    {
+
+        // verify the required parameter 'product_set_id' is set
+        if ($product_set_id === null || (is_array($product_set_id) && count($product_set_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $product_set_id when calling patchProductSet'
+            );
+        }
+
+
+
+        $resourcePath = '/preview/product-sets/{product-set-id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($product_set_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'product-set-id' . '}',
+                ObjectSerializer::toPathValue($product_set_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($value_resource_input_of_patch_product_set_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($value_resource_input_of_patch_product_set_request));
+            } else {
+                $httpBody = $value_resource_input_of_patch_product_set_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

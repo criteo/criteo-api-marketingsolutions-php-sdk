@@ -11,6 +11,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 | [**fetchProductFilteringUsages()**](RecoApi.md#fetchProductFilteringUsages) | **GET** /preview/product-sets/{product-set-id}/product-filters |  |
 | [**fetchProductSet()**](RecoApi.md#fetchProductSet) | **GET** /preview/product-sets/{product-set-id} |  |
 | [**fetchProductSets()**](RecoApi.md#fetchProductSets) | **GET** /preview/product-sets/dataset/{dataset-id} |  |
+| [**patchProductSet()**](RecoApi.md#patchProductSet) | **PATCH** /preview/product-sets/{product-set-id} |  |
 | [**removeProductSet()**](RecoApi.md#removeProductSet) | **DELETE** /preview/product-sets/{product-set-id} |  |
 
 
@@ -451,6 +452,71 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `patchProductSet()`
+
+```php
+patchProductSet($product_set_id, $value_resource_input_of_patch_product_set_request): \criteo\api\marketingsolutions\preview\Model\ResourceOutcomeOfProductSet
+```
+
+
+
+Patch an existing product set
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\RecoApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$product_set_id = 'product_set_id_example'; // string | ID of the product set
+$value_resource_input_of_patch_product_set_request = new \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfPatchProductSetRequest(); // \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfPatchProductSetRequest
+
+try {
+    $result = $apiInstance->patchProductSet($product_set_id, $value_resource_input_of_patch_product_set_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling RecoApi->patchProductSet: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **product_set_id** | **string**| ID of the product set | |
+| **value_resource_input_of_patch_product_set_request** | [**\criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfPatchProductSetRequest**](../Model/ValueResourceInputOfPatchProductSetRequest.md)|  | [optional] |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\ResourceOutcomeOfProductSet**](../Model/ResourceOutcomeOfProductSet.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

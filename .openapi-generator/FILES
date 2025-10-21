@@ -271,6 +271,7 @@ docs/Model/PatchCampaignListRequest.md
 docs/Model/PatchCampaignSpendLimit.md
 docs/Model/PatchCampaignWriteResource.md
 docs/Model/PatchMarketingCampaignBudgetAutomation.md
+docs/Model/PatchProductSetRequest.md
 docs/Model/PatchResultCampaignListResponse.md
 docs/Model/PatchResultCampaignReadResource.md
 docs/Model/PlacementsReportQueryMessage.md
@@ -371,8 +372,10 @@ docs/Model/UserDef.md
 docs/Model/ValueResourceCollectionOutcomeOfProductFilterConfig.md
 docs/Model/ValueResourceInputOfCreateProductFilterRequest.md
 docs/Model/ValueResourceInputOfCreateProductSetRequest.md
+docs/Model/ValueResourceInputOfPatchProductSetRequest.md
 docs/Model/ValueResourceOfCreateProductFilterRequest.md
 docs/Model/ValueResourceOfCreateProductSetRequest.md
+docs/Model/ValueResourceOfPatchProductSetRequest.md
 docs/Model/ValueResourceOfProductFilterConfig.md
 docs/Model/ValueResourceOutcomeOfProductFilterConfig.md
 docs/Model/VideoDetail.md
@@ -652,6 +655,7 @@ lib/Model/PatchCampaignListRequest.php
 lib/Model/PatchCampaignSpendLimit.php
 lib/Model/PatchCampaignWriteResource.php
 lib/Model/PatchMarketingCampaignBudgetAutomation.php
+lib/Model/PatchProductSetRequest.php
 lib/Model/PatchResultCampaignListResponse.php
 lib/Model/PatchResultCampaignReadResource.php
 lib/Model/PlacementsReportQueryMessage.php
@@ -752,8 +756,10 @@ lib/Model/UserDef.php
 lib/Model/ValueResourceCollectionOutcomeOfProductFilterConfig.php
 lib/Model/ValueResourceInputOfCreateProductFilterRequest.php
 lib/Model/ValueResourceInputOfCreateProductSetRequest.php
+lib/Model/ValueResourceInputOfPatchProductSetRequest.php
 lib/Model/ValueResourceOfCreateProductFilterRequest.php
 lib/Model/ValueResourceOfCreateProductSetRequest.php
+lib/Model/ValueResourceOfPatchProductSetRequest.php
 lib/Model/ValueResourceOfProductFilterConfig.php
 lib/Model/ValueResourceOutcomeOfProductFilterConfig.php
 lib/Model/VideoDetail.php
