@@ -1,10 +1,10 @@
 <?php
-namespace criteo\api\marketingsolutions\v2025_04;
+namespace criteo\api\marketingsolutions\v2025_10;
 
-use criteo\api\marketingsolutions\v2025_04\ApiException;
-use criteo\api\marketingsolutions\v2025_04\Configuration;
-use criteo\api\marketingsolutions\v2025_04\ObjectSerializer;
-use criteo\api\marketingsolutions\v2025_04\ClientCredentialsClient\Token;
+use criteo\api\marketingsolutions\v2025_10\ApiException;
+use criteo\api\marketingsolutions\v2025_10\Configuration;
+use criteo\api\marketingsolutions\v2025_10\ObjectSerializer;
+use criteo\api\marketingsolutions\v2025_10\ClientCredentialsClient\Token;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\Request;

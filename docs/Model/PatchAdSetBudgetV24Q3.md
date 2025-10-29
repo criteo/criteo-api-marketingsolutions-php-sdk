@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**budget_amount** | [**\criteo\api\marketingsolutions\v2025_04\Model\NillableDecimal**](NillableDecimal.md) |  | [optional]
+**budget_amount** | [**\criteo\api\marketingsolutions\v2025_10\Model\NillableDecimal**](NillableDecimal.md) |  | [optional]
 **budget_delivery_smoothing** | **string** |  | [optional]
 **budget_delivery_week** | **string** |  | [optional]
 **budget_renewal** | **string** |  | [optional]

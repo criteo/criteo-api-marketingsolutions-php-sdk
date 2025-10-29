@@ -1,11 +1,11 @@
 <?php
-namespace criteo\api\marketingsolutions\v2025_04;
+namespace criteo\api\marketingsolutions\v2025_10;
 
-use criteo\api\marketingsolutions\v2025_04\Api\GatewayApi;
-use criteo\api\marketingsolutions\v2025_04\ClientCredentialsClient;
-use criteo\api\marketingsolutions\v2025_04\ApiException;
-use criteo\api\marketingsolutions\v2025_04\ObjectSerializer;
-use criteo\api\marketingsolutions\v2025_04\test\ExampleApplication;
+use criteo\api\marketingsolutions\v2025_10\Api\GatewayApi;
+use criteo\api\marketingsolutions\v2025_10\ClientCredentialsClient;
+use criteo\api\marketingsolutions\v2025_10\ApiException;
+use criteo\api\marketingsolutions\v2025_10\ObjectSerializer;
+use criteo\api\marketingsolutions\v2025_10\test\ExampleApplication;
 use Jchook\AssertThrows\AssertThrows;
 use PHPUnit\Framework\TestCase;
 require_once dirname(__FILE__) . '/../ExampleApplication.php';
@@ -92,7 +92,7 @@ class GatewayApiTest extends TestCase
             function($exception) {
                 $data = ObjectSerializer::deserialize(
                     $exception->getResponseBody(),
-                    '\criteo\api\marketingsolutions\v2025_04\Model\ApplicationSummaryModelResponse',
+                    '\criteo\api\marketingsolutions\v2025_10\Model\ApplicationSummaryModelResponse',
                     $exception->getResponseHeaders()
                 );
 

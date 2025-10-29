@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | [**\criteo\api\marketingsolutions\v2025_04\Model\PatchAdSetV24Q3**](PatchAdSetV24Q3.md) |  | [optional]
+**attributes** | [**\criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetV24Q3**](PatchAdSetV24Q3.md) |  | [optional]
 **id** | **string** | Id of the entity | [optional]
 **type** | **string** | Canonical type name of the entity | [optional]
 

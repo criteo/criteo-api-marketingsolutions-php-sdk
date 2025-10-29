@@ -1,34 +1,34 @@
-# criteo\api\marketingsolutions\v2025_04\AudienceApi
+# criteo\api\marketingsolutions\v2025_10\AudienceApi
 
 All URIs are relative to https://api.criteo.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**call04AudiencesAudienceSegmentIdContactlistDelete()**](AudienceApi.md#call04AudiencesAudienceSegmentIdContactlistDelete) | **DELETE** /2025-04/audiences/{audience-segment-id}/contactlist |  |
-| [**call04AudiencesAudienceSegmentIdContactlistPatch()**](AudienceApi.md#call04AudiencesAudienceSegmentIdContactlistPatch) | **PATCH** /2025-04/audiences/{audience-segment-id}/contactlist |  |
-| [**call04MarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListDelete()**](AudienceApi.md#call04MarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListDelete) | **DELETE** /2025-04/marketing-solutions/audience-segments/{audience-segment-id}/contact-list |  |
-| [**call04MarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListPatch()**](AudienceApi.md#call04MarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListPatch) | **PATCH** /2025-04/marketing-solutions/audience-segments/{audience-segment-id}/contact-list |  |
-| [**computeAudienceSegmentsSizes()**](AudienceApi.md#computeAudienceSegmentsSizes) | **POST** /2025-04/marketing-solutions/audience-segments/compute-sizes |  |
-| [**computeAudiencesSizes()**](AudienceApi.md#computeAudiencesSizes) | **POST** /2025-04/marketing-solutions/audiences/compute-sizes |  |
-| [**createAudienceSegments()**](AudienceApi.md#createAudienceSegments) | **POST** /2025-04/marketing-solutions/audience-segments/create |  |
-| [**createAudiences()**](AudienceApi.md#createAudiences) | **POST** /2025-04/marketing-solutions/audiences/create |  |
-| [**deleteAudienceSegments()**](AudienceApi.md#deleteAudienceSegments) | **POST** /2025-04/marketing-solutions/audience-segments/delete |  |
-| [**deleteAudiences()**](AudienceApi.md#deleteAudiences) | **POST** /2025-04/marketing-solutions/audiences/delete |  |
-| [**estimateAudienceSegmentsSizes()**](AudienceApi.md#estimateAudienceSegmentsSizes) | **POST** /2025-04/marketing-solutions/audience-segments/estimate-size |  |
-| [**estimateAudiencesSizes()**](AudienceApi.md#estimateAudiencesSizes) | **POST** /2025-04/marketing-solutions/audiences/estimate-size |  |
-| [**getAudienceSegmentContactListStatistics()**](AudienceApi.md#getAudienceSegmentContactListStatistics) | **GET** /2025-04/marketing-solutions/audience-segments/{audience-segment-id}/contact-list/statistics |  |
-| [**getAudienceSegmentsInMarketBrands()**](AudienceApi.md#getAudienceSegmentsInMarketBrands) | **GET** /2025-04/marketing-solutions/audience-segments/in-market-brands |  |
-| [**getAudienceSegmentsInMarketInterests()**](AudienceApi.md#getAudienceSegmentsInMarketInterests) | **GET** /2025-04/marketing-solutions/audience-segments/in-market-interests |  |
-| [**searchAudienceSegments()**](AudienceApi.md#searchAudienceSegments) | **POST** /2025-04/marketing-solutions/audience-segments/search |  |
-| [**searchAudiences()**](AudienceApi.md#searchAudiences) | **POST** /2025-04/marketing-solutions/audiences/search |  |
-| [**updateAudienceSegments()**](AudienceApi.md#updateAudienceSegments) | **PATCH** /2025-04/marketing-solutions/audience-segments |  |
-| [**updateAudiences()**](AudienceApi.md#updateAudiences) | **PATCH** /2025-04/marketing-solutions/audiences |  |
+| [**call10AudiencesAudienceSegmentIdContactlistDelete()**](AudienceApi.md#call10AudiencesAudienceSegmentIdContactlistDelete) | **DELETE** /2025-10/audiences/{audience-segment-id}/contactlist |  |
+| [**call10AudiencesAudienceSegmentIdContactlistPatch()**](AudienceApi.md#call10AudiencesAudienceSegmentIdContactlistPatch) | **PATCH** /2025-10/audiences/{audience-segment-id}/contactlist |  |
+| [**call10MarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListDelete()**](AudienceApi.md#call10MarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListDelete) | **DELETE** /2025-10/marketing-solutions/audience-segments/{audience-segment-id}/contact-list |  |
+| [**call10MarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListPatch()**](AudienceApi.md#call10MarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListPatch) | **PATCH** /2025-10/marketing-solutions/audience-segments/{audience-segment-id}/contact-list |  |
+| [**computeAudienceSegmentsSizes()**](AudienceApi.md#computeAudienceSegmentsSizes) | **POST** /2025-10/marketing-solutions/audience-segments/compute-sizes |  |
+| [**computeAudiencesSizes()**](AudienceApi.md#computeAudiencesSizes) | **POST** /2025-10/marketing-solutions/audiences/compute-sizes |  |
+| [**createAudienceSegments()**](AudienceApi.md#createAudienceSegments) | **POST** /2025-10/marketing-solutions/audience-segments/create |  |
+| [**createAudiences()**](AudienceApi.md#createAudiences) | **POST** /2025-10/marketing-solutions/audiences/create |  |
+| [**deleteAudienceSegments()**](AudienceApi.md#deleteAudienceSegments) | **POST** /2025-10/marketing-solutions/audience-segments/delete |  |
+| [**deleteAudiences()**](AudienceApi.md#deleteAudiences) | **POST** /2025-10/marketing-solutions/audiences/delete |  |
+| [**estimateAudienceSegmentsSizes()**](AudienceApi.md#estimateAudienceSegmentsSizes) | **POST** /2025-10/marketing-solutions/audience-segments/estimate-size |  |
+| [**estimateAudiencesSizes()**](AudienceApi.md#estimateAudiencesSizes) | **POST** /2025-10/marketing-solutions/audiences/estimate-size |  |
+| [**getAudienceSegmentContactListStatistics()**](AudienceApi.md#getAudienceSegmentContactListStatistics) | **GET** /2025-10/marketing-solutions/audience-segments/{audience-segment-id}/contact-list/statistics |  |
+| [**getAudienceSegmentsInMarketBrands()**](AudienceApi.md#getAudienceSegmentsInMarketBrands) | **GET** /2025-10/marketing-solutions/audience-segments/in-market-brands |  |
+| [**getAudienceSegmentsInMarketInterests()**](AudienceApi.md#getAudienceSegmentsInMarketInterests) | **GET** /2025-10/marketing-solutions/audience-segments/in-market-interests |  |
+| [**searchAudienceSegments()**](AudienceApi.md#searchAudienceSegments) | **POST** /2025-10/marketing-solutions/audience-segments/search |  |
+| [**searchAudiences()**](AudienceApi.md#searchAudiences) | **POST** /2025-10/marketing-solutions/audiences/search |  |
+| [**updateAudienceSegments()**](AudienceApi.md#updateAudienceSegments) | **PATCH** /2025-10/marketing-solutions/audience-segments |  |
+| [**updateAudiences()**](AudienceApi.md#updateAudiences) | **PATCH** /2025-10/marketing-solutions/audiences |  |
 
 
-## `call04AudiencesAudienceSegmentIdContactlistDelete()`
+## `call10AudiencesAudienceSegmentIdContactlistDelete()`
 
 ```php
-call04AudiencesAudienceSegmentIdContactlistDelete($audience_segment_id): \criteo\api\marketingsolutions\v2025_04\Model\DeleteAudienceContactListResponse
+call10AudiencesAudienceSegmentIdContactlistDelete($audience_segment_id): \criteo\api\marketingsolutions\v2025_10\Model\DeleteAudienceContactListResponse
 ```
 
 
@@ -43,13 +43,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AudienceApi(
+$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\AudienceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -58,10 +58,10 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AudienceApi(
 $audience_segment_id = 'audience_segment_id_example'; // string | The id of the contact list audience-segment to amend
 
 try {
-    $result = $apiInstance->call04AudiencesAudienceSegmentIdContactlistDelete($audience_segment_id);
+    $result = $apiInstance->call10AudiencesAudienceSegmentIdContactlistDelete($audience_segment_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AudienceApi->call04AudiencesAudienceSegmentIdContactlistDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AudienceApi->call10AudiencesAudienceSegmentIdContactlistDelete: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -73,7 +73,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_04\Model\DeleteAudienceContactListResponse**](../Model/DeleteAudienceContactListResponse.md)
+[**\criteo\api\marketingsolutions\v2025_10\Model\DeleteAudienceContactListResponse**](../Model/DeleteAudienceContactListResponse.md)
 
 ### Authorization
 
@@ -88,10 +88,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `call04AudiencesAudienceSegmentIdContactlistPatch()`
+## `call10AudiencesAudienceSegmentIdContactlistPatch()`
 
 ```php
-call04AudiencesAudienceSegmentIdContactlistPatch($audience_segment_id, $contactlist_amendment_request): \criteo\api\marketingsolutions\v2025_04\Model\ModifyAudienceResponse
+call10AudiencesAudienceSegmentIdContactlistPatch($audience_segment_id, $contactlist_amendment_request): \criteo\api\marketingsolutions\v2025_10\Model\ModifyAudienceResponse
 ```
 
 
@@ -106,26 +106,26 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AudienceApi(
+$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\AudienceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $audience_segment_id = 'audience_segment_id_example'; // string | The id of the contact list audience-segment to amend
-$contactlist_amendment_request = new \criteo\api\marketingsolutions\v2025_04\Model\ContactlistAmendmentRequest(); // \criteo\api\marketingsolutions\v2025_04\Model\ContactlistAmendmentRequest
+$contactlist_amendment_request = new \criteo\api\marketingsolutions\v2025_10\Model\ContactlistAmendmentRequest(); // \criteo\api\marketingsolutions\v2025_10\Model\ContactlistAmendmentRequest
 
 try {
-    $result = $apiInstance->call04AudiencesAudienceSegmentIdContactlistPatch($audience_segment_id, $contactlist_amendment_request);
+    $result = $apiInstance->call10AudiencesAudienceSegmentIdContactlistPatch($audience_segment_id, $contactlist_amendment_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AudienceApi->call04AudiencesAudienceSegmentIdContactlistPatch: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AudienceApi->call10AudiencesAudienceSegmentIdContactlistPatch: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -134,11 +134,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **audience_segment_id** | **string**| The id of the contact list audience-segment to amend | |
-| **contactlist_amendment_request** | [**\criteo\api\marketingsolutions\v2025_04\Model\ContactlistAmendmentRequest**](../Model/ContactlistAmendmentRequest.md)|  | |
+| **contactlist_amendment_request** | [**\criteo\api\marketingsolutions\v2025_10\Model\ContactlistAmendmentRequest**](../Model/ContactlistAmendmentRequest.md)|  | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_04\Model\ModifyAudienceResponse**](../Model/ModifyAudienceResponse.md)
+[**\criteo\api\marketingsolutions\v2025_10\Model\ModifyAudienceResponse**](../Model/ModifyAudienceResponse.md)
 
 ### Authorization
 
@@ -153,10 +153,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `call04MarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListDelete()`
+## `call10MarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListDelete()`
 
 ```php
-call04MarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListDelete($audience_segment_id): \criteo\api\marketingsolutions\v2025_04\Model\DeleteAudienceContactListResponse
+call10MarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListDelete($audience_segment_id): \criteo\api\marketingsolutions\v2025_10\Model\DeleteAudienceContactListResponse
 ```
 
 
@@ -171,13 +171,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AudienceApi(
+$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\AudienceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -186,10 +186,10 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AudienceApi(
 $audience_segment_id = 'audience_segment_id_example'; // string | The id of the contact list audience-segment to amend
 
 try {
-    $result = $apiInstance->call04MarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListDelete($audience_segment_id);
+    $result = $apiInstance->call10MarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListDelete($audience_segment_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AudienceApi->call04MarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AudienceApi->call10MarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListDelete: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -201,7 +201,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_04\Model\DeleteAudienceContactListResponse**](../Model/DeleteAudienceContactListResponse.md)
+[**\criteo\api\marketingsolutions\v2025_10\Model\DeleteAudienceContactListResponse**](../Model/DeleteAudienceContactListResponse.md)
 
 ### Authorization
 
@@ -216,10 +216,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `call04MarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListPatch()`
+## `call10MarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListPatch()`
 
 ```php
-call04MarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListPatch($audience_segment_id, $contactlist_amendment_request): \criteo\api\marketingsolutions\v2025_04\Model\ModifyAudienceResponse
+call10MarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListPatch($audience_segment_id, $contactlist_amendment_request): \criteo\api\marketingsolutions\v2025_10\Model\ModifyAudienceResponse
 ```
 
 
@@ -234,26 +234,26 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AudienceApi(
+$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\AudienceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $audience_segment_id = 'audience_segment_id_example'; // string | The id of the contact list audience-segment to amend
-$contactlist_amendment_request = new \criteo\api\marketingsolutions\v2025_04\Model\ContactlistAmendmentRequest(); // \criteo\api\marketingsolutions\v2025_04\Model\ContactlistAmendmentRequest
+$contactlist_amendment_request = new \criteo\api\marketingsolutions\v2025_10\Model\ContactlistAmendmentRequest(); // \criteo\api\marketingsolutions\v2025_10\Model\ContactlistAmendmentRequest
 
 try {
-    $result = $apiInstance->call04MarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListPatch($audience_segment_id, $contactlist_amendment_request);
+    $result = $apiInstance->call10MarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListPatch($audience_segment_id, $contactlist_amendment_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AudienceApi->call04MarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListPatch: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AudienceApi->call10MarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListPatch: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -262,11 +262,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **audience_segment_id** | **string**| The id of the contact list audience-segment to amend | |
-| **contactlist_amendment_request** | [**\criteo\api\marketingsolutions\v2025_04\Model\ContactlistAmendmentRequest**](../Model/ContactlistAmendmentRequest.md)|  | |
+| **contactlist_amendment_request** | [**\criteo\api\marketingsolutions\v2025_10\Model\ContactlistAmendmentRequest**](../Model/ContactlistAmendmentRequest.md)|  | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_04\Model\ModifyAudienceResponse**](../Model/ModifyAudienceResponse.md)
+[**\criteo\api\marketingsolutions\v2025_10\Model\ModifyAudienceResponse**](../Model/ModifyAudienceResponse.md)
 
 ### Authorization
 
@@ -284,7 +284,7 @@ try {
 ## `computeAudienceSegmentsSizes()`
 
 ```php
-computeAudienceSegmentsSizes($audience_segment_compute_sizes_input_v1): \criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentSizeEntityV1ListResponse
+computeAudienceSegmentsSizes($audience_segment_compute_sizes_input_v1): \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentSizeEntityV1ListResponse
 ```
 
 
@@ -299,19 +299,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AudienceApi(
+$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\AudienceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$audience_segment_compute_sizes_input_v1 = new \criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentComputeSizesInputV1(); // \criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentComputeSizesInputV1 | 
+$audience_segment_compute_sizes_input_v1 = new \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentComputeSizesInputV1(); // \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentComputeSizesInputV1 | 
 
 try {
     $result = $apiInstance->computeAudienceSegmentsSizes($audience_segment_compute_sizes_input_v1);
@@ -325,11 +325,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_segment_compute_sizes_input_v1** | [**\criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentComputeSizesInputV1**](../Model/AudienceSegmentComputeSizesInputV1.md)|  | |
+| **audience_segment_compute_sizes_input_v1** | [**\criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentComputeSizesInputV1**](../Model/AudienceSegmentComputeSizesInputV1.md)|  | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentSizeEntityV1ListResponse**](../Model/AudienceSegmentSizeEntityV1ListResponse.md)
+[**\criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentSizeEntityV1ListResponse**](../Model/AudienceSegmentSizeEntityV1ListResponse.md)
 
 ### Authorization
 
@@ -347,7 +347,7 @@ try {
 ## `computeAudiencesSizes()`
 
 ```php
-computeAudiencesSizes($audience_compute_sizes_input_v1): \criteo\api\marketingsolutions\v2025_04\Model\AudienceSizeEntityV1ListResponse
+computeAudiencesSizes($audience_compute_sizes_input_v1): \criteo\api\marketingsolutions\v2025_10\Model\AudienceSizeEntityV1ListResponse
 ```
 
 
@@ -362,19 +362,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AudienceApi(
+$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\AudienceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$audience_compute_sizes_input_v1 = new \criteo\api\marketingsolutions\v2025_04\Model\AudienceComputeSizesInputV1(); // \criteo\api\marketingsolutions\v2025_04\Model\AudienceComputeSizesInputV1 | 
+$audience_compute_sizes_input_v1 = new \criteo\api\marketingsolutions\v2025_10\Model\AudienceComputeSizesInputV1(); // \criteo\api\marketingsolutions\v2025_10\Model\AudienceComputeSizesInputV1 | 
 
 try {
     $result = $apiInstance->computeAudiencesSizes($audience_compute_sizes_input_v1);
@@ -388,11 +388,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_compute_sizes_input_v1** | [**\criteo\api\marketingsolutions\v2025_04\Model\AudienceComputeSizesInputV1**](../Model/AudienceComputeSizesInputV1.md)|  | |
+| **audience_compute_sizes_input_v1** | [**\criteo\api\marketingsolutions\v2025_10\Model\AudienceComputeSizesInputV1**](../Model/AudienceComputeSizesInputV1.md)|  | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_04\Model\AudienceSizeEntityV1ListResponse**](../Model/AudienceSizeEntityV1ListResponse.md)
+[**\criteo\api\marketingsolutions\v2025_10\Model\AudienceSizeEntityV1ListResponse**](../Model/AudienceSizeEntityV1ListResponse.md)
 
 ### Authorization
 
@@ -410,7 +410,7 @@ try {
 ## `createAudienceSegments()`
 
 ```php
-createAudienceSegments($audience_segment_bulk_create_input_v1): \criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentEntityV1ListResponse
+createAudienceSegments($audience_segment_bulk_create_input_v1): \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentEntityV1ListResponse
 ```
 
 
@@ -425,19 +425,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AudienceApi(
+$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\AudienceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$audience_segment_bulk_create_input_v1 = new \criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentBulkCreateInputV1(); // \criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentBulkCreateInputV1 | Segment creation parameter
+$audience_segment_bulk_create_input_v1 = new \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentBulkCreateInputV1(); // \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentBulkCreateInputV1 | Segment creation parameter
 
 try {
     $result = $apiInstance->createAudienceSegments($audience_segment_bulk_create_input_v1);
@@ -451,11 +451,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_segment_bulk_create_input_v1** | [**\criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentBulkCreateInputV1**](../Model/AudienceSegmentBulkCreateInputV1.md)| Segment creation parameter | |
+| **audience_segment_bulk_create_input_v1** | [**\criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentBulkCreateInputV1**](../Model/AudienceSegmentBulkCreateInputV1.md)| Segment creation parameter | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentEntityV1ListResponse**](../Model/AudienceSegmentEntityV1ListResponse.md)
+[**\criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentEntityV1ListResponse**](../Model/AudienceSegmentEntityV1ListResponse.md)
 
 ### Authorization
 
@@ -473,7 +473,7 @@ try {
 ## `createAudiences()`
 
 ```php
-createAudiences($audience_bulk_create_input_v1): \criteo\api\marketingsolutions\v2025_04\Model\AudienceEntityV1ListResponse
+createAudiences($audience_bulk_create_input_v1): \criteo\api\marketingsolutions\v2025_10\Model\AudienceEntityV1ListResponse
 ```
 
 
@@ -488,19 +488,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AudienceApi(
+$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\AudienceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$audience_bulk_create_input_v1 = new \criteo\api\marketingsolutions\v2025_04\Model\AudienceBulkCreateInputV1(); // \criteo\api\marketingsolutions\v2025_04\Model\AudienceBulkCreateInputV1 | 
+$audience_bulk_create_input_v1 = new \criteo\api\marketingsolutions\v2025_10\Model\AudienceBulkCreateInputV1(); // \criteo\api\marketingsolutions\v2025_10\Model\AudienceBulkCreateInputV1 | 
 
 try {
     $result = $apiInstance->createAudiences($audience_bulk_create_input_v1);
@@ -514,11 +514,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_bulk_create_input_v1** | [**\criteo\api\marketingsolutions\v2025_04\Model\AudienceBulkCreateInputV1**](../Model/AudienceBulkCreateInputV1.md)|  | |
+| **audience_bulk_create_input_v1** | [**\criteo\api\marketingsolutions\v2025_10\Model\AudienceBulkCreateInputV1**](../Model/AudienceBulkCreateInputV1.md)|  | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_04\Model\AudienceEntityV1ListResponse**](../Model/AudienceEntityV1ListResponse.md)
+[**\criteo\api\marketingsolutions\v2025_10\Model\AudienceEntityV1ListResponse**](../Model/AudienceEntityV1ListResponse.md)
 
 ### Authorization
 
@@ -536,7 +536,7 @@ try {
 ## `deleteAudienceSegments()`
 
 ```php
-deleteAudienceSegments($audience_segment_bulk_delete_input_v1): \criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentIdEntityV1ListResponse
+deleteAudienceSegments($audience_segment_bulk_delete_input_v1): \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentIdEntityV1ListResponse
 ```
 
 
@@ -551,19 +551,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AudienceApi(
+$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\AudienceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$audience_segment_bulk_delete_input_v1 = new \criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentBulkDeleteInputV1(); // \criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentBulkDeleteInputV1 | Segment delete request.
+$audience_segment_bulk_delete_input_v1 = new \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentBulkDeleteInputV1(); // \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentBulkDeleteInputV1 | Segment delete request.
 
 try {
     $result = $apiInstance->deleteAudienceSegments($audience_segment_bulk_delete_input_v1);
@@ -577,11 +577,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_segment_bulk_delete_input_v1** | [**\criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentBulkDeleteInputV1**](../Model/AudienceSegmentBulkDeleteInputV1.md)| Segment delete request. | |
+| **audience_segment_bulk_delete_input_v1** | [**\criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentBulkDeleteInputV1**](../Model/AudienceSegmentBulkDeleteInputV1.md)| Segment delete request. | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentIdEntityV1ListResponse**](../Model/AudienceSegmentIdEntityV1ListResponse.md)
+[**\criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentIdEntityV1ListResponse**](../Model/AudienceSegmentIdEntityV1ListResponse.md)
 
 ### Authorization
 
@@ -599,7 +599,7 @@ try {
 ## `deleteAudiences()`
 
 ```php
-deleteAudiences($audience_bulk_delete_input_v1): \criteo\api\marketingsolutions\v2025_04\Model\AudienceIdEntityV1ListResponse
+deleteAudiences($audience_bulk_delete_input_v1): \criteo\api\marketingsolutions\v2025_10\Model\AudienceIdEntityV1ListResponse
 ```
 
 
@@ -614,19 +614,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AudienceApi(
+$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\AudienceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$audience_bulk_delete_input_v1 = new \criteo\api\marketingsolutions\v2025_04\Model\AudienceBulkDeleteInputV1(); // \criteo\api\marketingsolutions\v2025_04\Model\AudienceBulkDeleteInputV1 | 
+$audience_bulk_delete_input_v1 = new \criteo\api\marketingsolutions\v2025_10\Model\AudienceBulkDeleteInputV1(); // \criteo\api\marketingsolutions\v2025_10\Model\AudienceBulkDeleteInputV1 | 
 
 try {
     $result = $apiInstance->deleteAudiences($audience_bulk_delete_input_v1);
@@ -640,11 +640,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_bulk_delete_input_v1** | [**\criteo\api\marketingsolutions\v2025_04\Model\AudienceBulkDeleteInputV1**](../Model/AudienceBulkDeleteInputV1.md)|  | |
+| **audience_bulk_delete_input_v1** | [**\criteo\api\marketingsolutions\v2025_10\Model\AudienceBulkDeleteInputV1**](../Model/AudienceBulkDeleteInputV1.md)|  | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_04\Model\AudienceIdEntityV1ListResponse**](../Model/AudienceIdEntityV1ListResponse.md)
+[**\criteo\api\marketingsolutions\v2025_10\Model\AudienceIdEntityV1ListResponse**](../Model/AudienceIdEntityV1ListResponse.md)
 
 ### Authorization
 
@@ -662,7 +662,7 @@ try {
 ## `estimateAudienceSegmentsSizes()`
 
 ```php
-estimateAudienceSegmentsSizes($audience_segment_estimate_size_input_v1): \criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentSizeEstimationV1Response
+estimateAudienceSegmentsSizes($audience_segment_estimate_size_input_v1): \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentSizeEstimationV1Response
 ```
 
 
@@ -677,19 +677,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AudienceApi(
+$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\AudienceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$audience_segment_estimate_size_input_v1 = new \criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentEstimateSizeInputV1(); // \criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentEstimateSizeInputV1 | 
+$audience_segment_estimate_size_input_v1 = new \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentEstimateSizeInputV1(); // \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentEstimateSizeInputV1 | 
 
 try {
     $result = $apiInstance->estimateAudienceSegmentsSizes($audience_segment_estimate_size_input_v1);
@@ -703,11 +703,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_segment_estimate_size_input_v1** | [**\criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentEstimateSizeInputV1**](../Model/AudienceSegmentEstimateSizeInputV1.md)|  | |
+| **audience_segment_estimate_size_input_v1** | [**\criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentEstimateSizeInputV1**](../Model/AudienceSegmentEstimateSizeInputV1.md)|  | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentSizeEstimationV1Response**](../Model/AudienceSegmentSizeEstimationV1Response.md)
+[**\criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentSizeEstimationV1Response**](../Model/AudienceSegmentSizeEstimationV1Response.md)
 
 ### Authorization
 
@@ -725,7 +725,7 @@ try {
 ## `estimateAudiencesSizes()`
 
 ```php
-estimateAudiencesSizes($audience_estimate_size_input_v1): \criteo\api\marketingsolutions\v2025_04\Model\AudienceSizeEstimationV1Response
+estimateAudiencesSizes($audience_estimate_size_input_v1): \criteo\api\marketingsolutions\v2025_10\Model\AudienceSizeEstimationV1Response
 ```
 
 
@@ -740,19 +740,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AudienceApi(
+$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\AudienceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$audience_estimate_size_input_v1 = new \criteo\api\marketingsolutions\v2025_04\Model\AudienceEstimateSizeInputV1(); // \criteo\api\marketingsolutions\v2025_04\Model\AudienceEstimateSizeInputV1 | 
+$audience_estimate_size_input_v1 = new \criteo\api\marketingsolutions\v2025_10\Model\AudienceEstimateSizeInputV1(); // \criteo\api\marketingsolutions\v2025_10\Model\AudienceEstimateSizeInputV1 | 
 
 try {
     $result = $apiInstance->estimateAudiencesSizes($audience_estimate_size_input_v1);
@@ -766,11 +766,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_estimate_size_input_v1** | [**\criteo\api\marketingsolutions\v2025_04\Model\AudienceEstimateSizeInputV1**](../Model/AudienceEstimateSizeInputV1.md)|  | |
+| **audience_estimate_size_input_v1** | [**\criteo\api\marketingsolutions\v2025_10\Model\AudienceEstimateSizeInputV1**](../Model/AudienceEstimateSizeInputV1.md)|  | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_04\Model\AudienceSizeEstimationV1Response**](../Model/AudienceSizeEstimationV1Response.md)
+[**\criteo\api\marketingsolutions\v2025_10\Model\AudienceSizeEstimationV1Response**](../Model/AudienceSizeEstimationV1Response.md)
 
 ### Authorization
 
@@ -788,7 +788,7 @@ try {
 ## `getAudienceSegmentContactListStatistics()`
 
 ```php
-getAudienceSegmentContactListStatistics($audience_segment_id): \criteo\api\marketingsolutions\v2025_04\Model\ContactListStatisticsEntityV1Response
+getAudienceSegmentContactListStatistics($audience_segment_id): \criteo\api\marketingsolutions\v2025_10\Model\ContactListStatisticsEntityV1Response
 ```
 
 
@@ -803,13 +803,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AudienceApi(
+$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\AudienceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -833,7 +833,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_04\Model\ContactListStatisticsEntityV1Response**](../Model/ContactListStatisticsEntityV1Response.md)
+[**\criteo\api\marketingsolutions\v2025_10\Model\ContactListStatisticsEntityV1Response**](../Model/ContactListStatisticsEntityV1Response.md)
 
 ### Authorization
 
@@ -851,7 +851,7 @@ try {
 ## `getAudienceSegmentsInMarketBrands()`
 
 ```php
-getAudienceSegmentsInMarketBrands($advertiser_id, $country): \criteo\api\marketingsolutions\v2025_04\Model\InMarketAudienceSegmentBrandEntityV1ListResponse
+getAudienceSegmentsInMarketBrands($advertiser_id, $country): \criteo\api\marketingsolutions\v2025_10\Model\InMarketAudienceSegmentBrandEntityV1ListResponse
 ```
 
 
@@ -866,13 +866,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AudienceApi(
+$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\AudienceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -898,7 +898,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_04\Model\InMarketAudienceSegmentBrandEntityV1ListResponse**](../Model/InMarketAudienceSegmentBrandEntityV1ListResponse.md)
+[**\criteo\api\marketingsolutions\v2025_10\Model\InMarketAudienceSegmentBrandEntityV1ListResponse**](../Model/InMarketAudienceSegmentBrandEntityV1ListResponse.md)
 
 ### Authorization
 
@@ -916,7 +916,7 @@ try {
 ## `getAudienceSegmentsInMarketInterests()`
 
 ```php
-getAudienceSegmentsInMarketInterests($advertiser_id, $country): \criteo\api\marketingsolutions\v2025_04\Model\InMarketAudienceSegmentInterestEntityV1ListResponse
+getAudienceSegmentsInMarketInterests($advertiser_id, $country): \criteo\api\marketingsolutions\v2025_10\Model\InMarketAudienceSegmentInterestEntityV1ListResponse
 ```
 
 
@@ -931,13 +931,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AudienceApi(
+$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\AudienceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -963,7 +963,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_04\Model\InMarketAudienceSegmentInterestEntityV1ListResponse**](../Model/InMarketAudienceSegmentInterestEntityV1ListResponse.md)
+[**\criteo\api\marketingsolutions\v2025_10\Model\InMarketAudienceSegmentInterestEntityV1ListResponse**](../Model/InMarketAudienceSegmentInterestEntityV1ListResponse.md)
 
 ### Authorization
 
@@ -981,7 +981,7 @@ try {
 ## `searchAudienceSegments()`
 
 ```php
-searchAudienceSegments($audience_segment_search_input_v1, $limit, $offset): \criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentEntityV1AudienceSegmentSearchMetadataV1ListResponse
+searchAudienceSegments($audience_segment_search_input_v1, $limit, $offset): \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentEntityV1AudienceSegmentSearchMetadataV1ListResponse
 ```
 
 
@@ -996,19 +996,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AudienceApi(
+$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\AudienceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$audience_segment_search_input_v1 = new \criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentSearchInputV1(); // \criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentSearchInputV1 | Segment search filters.
+$audience_segment_search_input_v1 = new \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentSearchInputV1(); // \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentSearchInputV1 | Segment search filters.
 $limit = 50; // int | The number of elements to be returned. The default is 50 and the maximum is 100.
 $offset = 0; // int | The (zero-based) offset into the collection. The default is 0.
 
@@ -1024,13 +1024,13 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_segment_search_input_v1** | [**\criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentSearchInputV1**](../Model/AudienceSegmentSearchInputV1.md)| Segment search filters. | |
+| **audience_segment_search_input_v1** | [**\criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentSearchInputV1**](../Model/AudienceSegmentSearchInputV1.md)| Segment search filters. | |
 | **limit** | **int**| The number of elements to be returned. The default is 50 and the maximum is 100. | [optional] [default to 50] |
 | **offset** | **int**| The (zero-based) offset into the collection. The default is 0. | [optional] [default to 0] |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentEntityV1AudienceSegmentSearchMetadataV1ListResponse**](../Model/AudienceSegmentEntityV1AudienceSegmentSearchMetadataV1ListResponse.md)
+[**\criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentEntityV1AudienceSegmentSearchMetadataV1ListResponse**](../Model/AudienceSegmentEntityV1AudienceSegmentSearchMetadataV1ListResponse.md)
 
 ### Authorization
 
@@ -1048,7 +1048,7 @@ try {
 ## `searchAudiences()`
 
 ```php
-searchAudiences($audience_search_input_v1, $limit, $offset): \criteo\api\marketingsolutions\v2025_04\Model\AudienceEntityV1AudienceSearchMetadataV1ListResponse
+searchAudiences($audience_search_input_v1, $limit, $offset): \criteo\api\marketingsolutions\v2025_10\Model\AudienceEntityV1AudienceSearchMetadataV1ListResponse
 ```
 
 
@@ -1063,19 +1063,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AudienceApi(
+$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\AudienceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$audience_search_input_v1 = new \criteo\api\marketingsolutions\v2025_04\Model\AudienceSearchInputV1(); // \criteo\api\marketingsolutions\v2025_04\Model\AudienceSearchInputV1 | Audience search filters.
+$audience_search_input_v1 = new \criteo\api\marketingsolutions\v2025_10\Model\AudienceSearchInputV1(); // \criteo\api\marketingsolutions\v2025_10\Model\AudienceSearchInputV1 | Audience search filters.
 $limit = 50; // int | The number of elements to be returned. The default is 50 and the maximum is 100.
 $offset = 0; // int | The (zero-based) offset into the collection. The default is 0.
 
@@ -1091,13 +1091,13 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_search_input_v1** | [**\criteo\api\marketingsolutions\v2025_04\Model\AudienceSearchInputV1**](../Model/AudienceSearchInputV1.md)| Audience search filters. | |
+| **audience_search_input_v1** | [**\criteo\api\marketingsolutions\v2025_10\Model\AudienceSearchInputV1**](../Model/AudienceSearchInputV1.md)| Audience search filters. | |
 | **limit** | **int**| The number of elements to be returned. The default is 50 and the maximum is 100. | [optional] [default to 50] |
 | **offset** | **int**| The (zero-based) offset into the collection. The default is 0. | [optional] [default to 0] |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_04\Model\AudienceEntityV1AudienceSearchMetadataV1ListResponse**](../Model/AudienceEntityV1AudienceSearchMetadataV1ListResponse.md)
+[**\criteo\api\marketingsolutions\v2025_10\Model\AudienceEntityV1AudienceSearchMetadataV1ListResponse**](../Model/AudienceEntityV1AudienceSearchMetadataV1ListResponse.md)
 
 ### Authorization
 
@@ -1115,7 +1115,7 @@ try {
 ## `updateAudienceSegments()`
 
 ```php
-updateAudienceSegments($audience_segment_bulk_update_input_v1): \criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentEntityV1ListResponse
+updateAudienceSegments($audience_segment_bulk_update_input_v1): \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentEntityV1ListResponse
 ```
 
 
@@ -1130,19 +1130,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AudienceApi(
+$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\AudienceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$audience_segment_bulk_update_input_v1 = new \criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentBulkUpdateInputV1(); // \criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentBulkUpdateInputV1 | Segment Update request
+$audience_segment_bulk_update_input_v1 = new \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentBulkUpdateInputV1(); // \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentBulkUpdateInputV1 | Segment Update request
 
 try {
     $result = $apiInstance->updateAudienceSegments($audience_segment_bulk_update_input_v1);
@@ -1156,11 +1156,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_segment_bulk_update_input_v1** | [**\criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentBulkUpdateInputV1**](../Model/AudienceSegmentBulkUpdateInputV1.md)| Segment Update request | |
+| **audience_segment_bulk_update_input_v1** | [**\criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentBulkUpdateInputV1**](../Model/AudienceSegmentBulkUpdateInputV1.md)| Segment Update request | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_04\Model\AudienceSegmentEntityV1ListResponse**](../Model/AudienceSegmentEntityV1ListResponse.md)
+[**\criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentEntityV1ListResponse**](../Model/AudienceSegmentEntityV1ListResponse.md)
 
 ### Authorization
 
@@ -1178,7 +1178,7 @@ try {
 ## `updateAudiences()`
 
 ```php
-updateAudiences($audience_bulk_update_input_v1): \criteo\api\marketingsolutions\v2025_04\Model\AudienceEntityV1ListResponse
+updateAudiences($audience_bulk_update_input_v1): \criteo\api\marketingsolutions\v2025_10\Model\AudienceEntityV1ListResponse
 ```
 
 
@@ -1193,19 +1193,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_04\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AudienceApi(
+$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\AudienceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$audience_bulk_update_input_v1 = new \criteo\api\marketingsolutions\v2025_04\Model\AudienceBulkUpdateInputV1(); // \criteo\api\marketingsolutions\v2025_04\Model\AudienceBulkUpdateInputV1 | 
+$audience_bulk_update_input_v1 = new \criteo\api\marketingsolutions\v2025_10\Model\AudienceBulkUpdateInputV1(); // \criteo\api\marketingsolutions\v2025_10\Model\AudienceBulkUpdateInputV1 | 
 
 try {
     $result = $apiInstance->updateAudiences($audience_bulk_update_input_v1);
@@ -1219,11 +1219,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_bulk_update_input_v1** | [**\criteo\api\marketingsolutions\v2025_04\Model\AudienceBulkUpdateInputV1**](../Model/AudienceBulkUpdateInputV1.md)|  | |
+| **audience_bulk_update_input_v1** | [**\criteo\api\marketingsolutions\v2025_10\Model\AudienceBulkUpdateInputV1**](../Model/AudienceBulkUpdateInputV1.md)|  | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_04\Model\AudienceEntityV1ListResponse**](../Model/AudienceEntityV1ListResponse.md)
+[**\criteo\api\marketingsolutions\v2025_10\Model\AudienceEntityV1ListResponse**](../Model/AudienceEntityV1ListResponse.md)
 
 ### Authorization
 
