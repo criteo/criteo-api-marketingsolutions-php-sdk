@@ -71,22 +71,16 @@ class CampaignApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'campaigns' => [
-            'application/json',
-        ],
         'createAdSet' => [
             'application/json',
         ],
         'createCampaign' => [
             'application/json',
         ],
-        'createSellerBudgets' => [
+        'createMarketplaceSellerBudgets' => [
             'application/json',
         ],
-        'createSellerCampaignsBySeller' => [
-            'application/json',
-        ],
-        'createSellers' => [
+        'createMarketplaceSellerCampaignsBySeller' => [
             'application/json',
         ],
         'getAdSet' => [
@@ -95,61 +89,73 @@ class CampaignApi
         'getAdSetCategoryBids' => [
             'application/json',
         ],
-        'getAdvertiser' => [
-            'application/json',
-        ],
-        'getAdvertiserAdsets' => [
-            'application/json',
-        ],
-        'getAdvertiserCampaigns' => [
-            'application/json',
-        ],
-        'getAdvertiserPreviewLimits' => [
-            'application/json',
-        ],
-        'getAdvertisers' => [
-            'application/json',
-        ],
-        'getBudgetsByAdvertiser' => [
-            'application/json',
-        ],
-        'getBudgetsBySeller' => [
-            'application/json',
-        ],
-        'getBudgetsBySellerCampaignId' => [
-            'application/json',
-        ],
         'getCampaign' => [
             'application/json',
         ],
         'getDisplayMultipliers' => [
             'application/json',
         ],
-        'getSeller' => [
+        'getMarketplaceAdSetsByAdvertiser' => [
             'application/json',
         ],
-        'getSellerAdDemo' => [
+        'getMarketplaceAdvertiser' => [
             'application/json',
         ],
-        'getSellerBudget' => [
+        'getMarketplaceAdvertiserPreviewLimits' => [
             'application/json',
         ],
-        'getSellerBudgets' => [
+        'getMarketplaceAdvertisers' => [
             'application/json',
         ],
-        'getSellerCampaign' => [
+        'getMarketplaceBudgetsByAdvertiser' => [
             'application/json',
         ],
-        'getSellerCampaigns' => [
+        'getMarketplaceBudgetsBySeller' => [
             'application/json',
         ],
-        'getSellerCampaignsByAdvertiser' => [
+        'getMarketplaceBudgetsBySellerCampaign' => [
             'application/json',
         ],
-        'getSellerCampaignsBySeller' => [
+        'getMarketplaceCampaignsByAdvertiser' => [
             'application/json',
         ],
-        'getSellers' => [
+        'getMarketplaceCampaignsStats' => [
+            'application/json',
+        ],
+        'getMarketplaceSeller' => [
+            'application/json',
+        ],
+        'getMarketplaceSellerAdPreview' => [
+            'application/json',
+        ],
+        'getMarketplaceSellerBudget' => [
+            'application/json',
+        ],
+        'getMarketplaceSellerBudgets' => [
+            'application/json',
+        ],
+        'getMarketplaceSellerCampaign' => [
+            'application/json',
+        ],
+        'getMarketplaceSellerCampaigns' => [
+            'application/json',
+        ],
+        'getMarketplaceSellerCampaignsByAdvertiser' => [
+            'application/json',
+        ],
+        'getMarketplaceSellerCampaignsBySeller' => [
+            'application/json',
+        ],
+        'getMarketplaceSellerCampaignsStats' => [
+            'application/json',
+        ],
+        'getMarketplaceSellers' => [
+            'application/json',
+        ],
+        'getMarketplaceSellersByAdvertiser' => [
+            'application/json',
+        ],
+        'getMarketplaceSellersStats' => [
             'application/json',
         ],
         'patchAdSetCategoryBids' => [
@@ -170,12 +176,6 @@ class CampaignApi
         'searchCampaigns' => [
             'application/json',
         ],
-        'sellerCampaigns' => [
-            'application/json',
-        ],
-        'sellers' => [
-            'application/json',
-        ],
         'startAdSets' => [
             'application/json',
         ],
@@ -185,16 +185,16 @@ class CampaignApi
         'updateAdSetAudience' => [
             'application/json',
         ],
-        'updateSellerBudget' => [
+        'updateMarketplaceSellerBudget' => [
             'application/json',
         ],
-        'updateSellerBudgets' => [
+        'updateMarketplaceSellerBudgets' => [
             'application/json',
         ],
-        'updateSellerCampaign' => [
+        'updateMarketplaceSellerCampaign' => [
             'application/json',
         ],
-        'updateSellerCampaigns' => [
+        'updateMarketplaceSellerCampaigns' => [
             'application/json',
         ],
     ];
@@ -243,382 +243,6 @@ class CampaignApi
     public function getConfig()
     {
         return $this->config;
-    }
-
-    /**
-     * Operation campaigns
-     *
-     * 
-     *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
-     * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
-     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
-     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
-     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
-     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
-     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['campaigns'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return string
-     */
-    public function campaigns($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $start_date = null, string $contentType = self::contentTypes['campaigns'][0])
-    {
-        list($response) = $this->campaignsWithHttpInfo($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation campaignsWithHttpInfo
-     *
-     * 
-     *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
-     * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
-     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
-     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
-     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
-     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
-     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['campaigns'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function campaignsWithHttpInfo($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $start_date = null, string $contentType = self::contentTypes['campaigns'][0])
-    {
-        $request = $this->campaignsRequest($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('string' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('string' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, 'string', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'string';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'string',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation campaignsAsync
-     *
-     * 
-     *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
-     * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
-     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
-     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
-     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
-     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
-     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['campaigns'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function campaignsAsync($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $start_date = null, string $contentType = self::contentTypes['campaigns'][0])
-    {
-        return $this->campaignsAsyncWithHttpInfo($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation campaignsAsyncWithHttpInfo
-     *
-     * 
-     *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
-     * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
-     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
-     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
-     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
-     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
-     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['campaigns'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function campaignsAsyncWithHttpInfo($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $start_date = null, string $contentType = self::contentTypes['campaigns'][0])
-    {
-        $returnType = 'string';
-        $request = $this->campaignsRequest($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'campaigns'
-     *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
-     * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
-     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
-     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
-     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
-     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
-     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['campaigns'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function campaignsRequest($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $start_date = null, string $contentType = self::contentTypes['campaigns'][0])
-    {
-
-
-
-
-
-
-
-
-
-        $resourcePath = '/2025-07/marketing-solutions/marketplace-performance-outcomes/stats/campaigns';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $advertiser_id,
-            'advertiserId', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $campaign_id,
-            'campaignId', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $click_attribution_policy,
-            'clickAttributionPolicy', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $count,
-            'count', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $end_date,
-            'endDate', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $interval_size,
-            'intervalSize', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $start_date,
-            'startDate', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
     }
 
     /**
@@ -1186,37 +810,37 @@ class CampaignApi
     }
 
     /**
-     * Operation createSellerBudgets
+     * Operation createMarketplaceSellerBudgets
      *
      * 
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CreateSellerBudgetMapiMessage[] $create_seller_budget_mapi_message  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSellerBudgets'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceSellerBudgets'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function createSellerBudgets($create_seller_budget_mapi_message = null, string $contentType = self::contentTypes['createSellerBudgets'][0])
+    public function createMarketplaceSellerBudgets($create_seller_budget_mapi_message = null, string $contentType = self::contentTypes['createMarketplaceSellerBudgets'][0])
     {
-        $this->createSellerBudgetsWithHttpInfo($create_seller_budget_mapi_message, $contentType);
+        $this->createMarketplaceSellerBudgetsWithHttpInfo($create_seller_budget_mapi_message, $contentType);
     }
 
     /**
-     * Operation createSellerBudgetsWithHttpInfo
+     * Operation createMarketplaceSellerBudgetsWithHttpInfo
      *
      * 
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CreateSellerBudgetMapiMessage[] $create_seller_budget_mapi_message  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSellerBudgets'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceSellerBudgets'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createSellerBudgetsWithHttpInfo($create_seller_budget_mapi_message = null, string $contentType = self::contentTypes['createSellerBudgets'][0])
+    public function createMarketplaceSellerBudgetsWithHttpInfo($create_seller_budget_mapi_message = null, string $contentType = self::contentTypes['createMarketplaceSellerBudgets'][0])
     {
-        $request = $this->createSellerBudgetsRequest($create_seller_budget_mapi_message, $contentType);
+        $request = $this->createMarketplaceSellerBudgetsRequest($create_seller_budget_mapi_message, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1263,19 +887,19 @@ class CampaignApi
     }
 
     /**
-     * Operation createSellerBudgetsAsync
+     * Operation createMarketplaceSellerBudgetsAsync
      *
      * 
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CreateSellerBudgetMapiMessage[] $create_seller_budget_mapi_message  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSellerBudgets'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceSellerBudgets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSellerBudgetsAsync($create_seller_budget_mapi_message = null, string $contentType = self::contentTypes['createSellerBudgets'][0])
+    public function createMarketplaceSellerBudgetsAsync($create_seller_budget_mapi_message = null, string $contentType = self::contentTypes['createMarketplaceSellerBudgets'][0])
     {
-        return $this->createSellerBudgetsAsyncWithHttpInfo($create_seller_budget_mapi_message, $contentType)
+        return $this->createMarketplaceSellerBudgetsAsyncWithHttpInfo($create_seller_budget_mapi_message, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1284,20 +908,20 @@ class CampaignApi
     }
 
     /**
-     * Operation createSellerBudgetsAsyncWithHttpInfo
+     * Operation createMarketplaceSellerBudgetsAsyncWithHttpInfo
      *
      * 
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CreateSellerBudgetMapiMessage[] $create_seller_budget_mapi_message  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSellerBudgets'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceSellerBudgets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSellerBudgetsAsyncWithHttpInfo($create_seller_budget_mapi_message = null, string $contentType = self::contentTypes['createSellerBudgets'][0])
+    public function createMarketplaceSellerBudgetsAsyncWithHttpInfo($create_seller_budget_mapi_message = null, string $contentType = self::contentTypes['createMarketplaceSellerBudgets'][0])
     {
         $returnType = '';
-        $request = $this->createSellerBudgetsRequest($create_seller_budget_mapi_message, $contentType);
+        $request = $this->createMarketplaceSellerBudgetsRequest($create_seller_budget_mapi_message, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1323,15 +947,15 @@ class CampaignApi
     }
 
     /**
-     * Create request for operation 'createSellerBudgets'
+     * Create request for operation 'createMarketplaceSellerBudgets'
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CreateSellerBudgetMapiMessage[] $create_seller_budget_mapi_message  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSellerBudgets'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceSellerBudgets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createSellerBudgetsRequest($create_seller_budget_mapi_message = null, string $contentType = self::contentTypes['createSellerBudgets'][0])
+    public function createMarketplaceSellerBudgetsRequest($create_seller_budget_mapi_message = null, string $contentType = self::contentTypes['createMarketplaceSellerBudgets'][0])
     {
 
 
@@ -1416,39 +1040,39 @@ class CampaignApi
     }
 
     /**
-     * Operation createSellerCampaignsBySeller
+     * Operation createMarketplaceSellerCampaignsBySeller
      *
      * 
      *
      * @param  string $seller_id Supply a generated Id of an existing Seller (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CreateSellerCampaignMessageMapi $create_seller_campaign_message_mapi Supply the campaign Id and bid to create the mapping (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSellerCampaignsBySeller'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceSellerCampaignsBySeller'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function createSellerCampaignsBySeller($seller_id, $create_seller_campaign_message_mapi = null, string $contentType = self::contentTypes['createSellerCampaignsBySeller'][0])
+    public function createMarketplaceSellerCampaignsBySeller($seller_id, $create_seller_campaign_message_mapi = null, string $contentType = self::contentTypes['createMarketplaceSellerCampaignsBySeller'][0])
     {
-        $this->createSellerCampaignsBySellerWithHttpInfo($seller_id, $create_seller_campaign_message_mapi, $contentType);
+        $this->createMarketplaceSellerCampaignsBySellerWithHttpInfo($seller_id, $create_seller_campaign_message_mapi, $contentType);
     }
 
     /**
-     * Operation createSellerCampaignsBySellerWithHttpInfo
+     * Operation createMarketplaceSellerCampaignsBySellerWithHttpInfo
      *
      * 
      *
      * @param  string $seller_id Supply a generated Id of an existing Seller (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CreateSellerCampaignMessageMapi $create_seller_campaign_message_mapi Supply the campaign Id and bid to create the mapping (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSellerCampaignsBySeller'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceSellerCampaignsBySeller'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createSellerCampaignsBySellerWithHttpInfo($seller_id, $create_seller_campaign_message_mapi = null, string $contentType = self::contentTypes['createSellerCampaignsBySeller'][0])
+    public function createMarketplaceSellerCampaignsBySellerWithHttpInfo($seller_id, $create_seller_campaign_message_mapi = null, string $contentType = self::contentTypes['createMarketplaceSellerCampaignsBySeller'][0])
     {
-        $request = $this->createSellerCampaignsBySellerRequest($seller_id, $create_seller_campaign_message_mapi, $contentType);
+        $request = $this->createMarketplaceSellerCampaignsBySellerRequest($seller_id, $create_seller_campaign_message_mapi, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1495,20 +1119,20 @@ class CampaignApi
     }
 
     /**
-     * Operation createSellerCampaignsBySellerAsync
+     * Operation createMarketplaceSellerCampaignsBySellerAsync
      *
      * 
      *
      * @param  string $seller_id Supply a generated Id of an existing Seller (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CreateSellerCampaignMessageMapi $create_seller_campaign_message_mapi Supply the campaign Id and bid to create the mapping (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSellerCampaignsBySeller'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceSellerCampaignsBySeller'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSellerCampaignsBySellerAsync($seller_id, $create_seller_campaign_message_mapi = null, string $contentType = self::contentTypes['createSellerCampaignsBySeller'][0])
+    public function createMarketplaceSellerCampaignsBySellerAsync($seller_id, $create_seller_campaign_message_mapi = null, string $contentType = self::contentTypes['createMarketplaceSellerCampaignsBySeller'][0])
     {
-        return $this->createSellerCampaignsBySellerAsyncWithHttpInfo($seller_id, $create_seller_campaign_message_mapi, $contentType)
+        return $this->createMarketplaceSellerCampaignsBySellerAsyncWithHttpInfo($seller_id, $create_seller_campaign_message_mapi, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1517,21 +1141,21 @@ class CampaignApi
     }
 
     /**
-     * Operation createSellerCampaignsBySellerAsyncWithHttpInfo
+     * Operation createMarketplaceSellerCampaignsBySellerAsyncWithHttpInfo
      *
      * 
      *
      * @param  string $seller_id Supply a generated Id of an existing Seller (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CreateSellerCampaignMessageMapi $create_seller_campaign_message_mapi Supply the campaign Id and bid to create the mapping (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSellerCampaignsBySeller'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceSellerCampaignsBySeller'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSellerCampaignsBySellerAsyncWithHttpInfo($seller_id, $create_seller_campaign_message_mapi = null, string $contentType = self::contentTypes['createSellerCampaignsBySeller'][0])
+    public function createMarketplaceSellerCampaignsBySellerAsyncWithHttpInfo($seller_id, $create_seller_campaign_message_mapi = null, string $contentType = self::contentTypes['createMarketplaceSellerCampaignsBySeller'][0])
     {
         $returnType = '';
-        $request = $this->createSellerCampaignsBySellerRequest($seller_id, $create_seller_campaign_message_mapi, $contentType);
+        $request = $this->createMarketplaceSellerCampaignsBySellerRequest($seller_id, $create_seller_campaign_message_mapi, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1557,22 +1181,22 @@ class CampaignApi
     }
 
     /**
-     * Create request for operation 'createSellerCampaignsBySeller'
+     * Create request for operation 'createMarketplaceSellerCampaignsBySeller'
      *
      * @param  string $seller_id Supply a generated Id of an existing Seller (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CreateSellerCampaignMessageMapi $create_seller_campaign_message_mapi Supply the campaign Id and bid to create the mapping (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSellerCampaignsBySeller'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceSellerCampaignsBySeller'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createSellerCampaignsBySellerRequest($seller_id, $create_seller_campaign_message_mapi = null, string $contentType = self::contentTypes['createSellerCampaignsBySeller'][0])
+    public function createMarketplaceSellerCampaignsBySellerRequest($seller_id, $create_seller_campaign_message_mapi = null, string $contentType = self::contentTypes['createMarketplaceSellerCampaignsBySeller'][0])
     {
 
         // verify the required parameter 'seller_id' is set
         if ($seller_id === null || (is_array($seller_id) && count($seller_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $seller_id when calling createSellerCampaignsBySeller'
+                'Missing the required parameter $seller_id when calling createMarketplaceSellerCampaignsBySeller'
             );
         }
 
@@ -1610,271 +1234,6 @@ class CampaignApi
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_seller_campaign_message_mapi));
             } else {
                 $httpBody = $create_seller_campaign_message_mapi;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation createSellers
-     *
-     * 
-     *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  int $partner_id Id of the partner (optional)
-     * @param  string[] $request_body Names of the sellers to associate with new Ids (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSellers'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function createSellers($advertiser_id, $partner_id = null, $request_body = null, string $contentType = self::contentTypes['createSellers'][0])
-    {
-        $this->createSellersWithHttpInfo($advertiser_id, $partner_id, $request_body, $contentType);
-    }
-
-    /**
-     * Operation createSellersWithHttpInfo
-     *
-     * 
-     *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  int $partner_id Id of the partner (optional)
-     * @param  string[] $request_body Names of the sellers to associate with new Ids (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSellers'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function createSellersWithHttpInfo($advertiser_id, $partner_id = null, $request_body = null, string $contentType = self::contentTypes['createSellers'][0])
-    {
-        $request = $this->createSellersRequest($advertiser_id, $partner_id, $request_body, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation createSellersAsync
-     *
-     * 
-     *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  int $partner_id Id of the partner (optional)
-     * @param  string[] $request_body Names of the sellers to associate with new Ids (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSellers'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function createSellersAsync($advertiser_id, $partner_id = null, $request_body = null, string $contentType = self::contentTypes['createSellers'][0])
-    {
-        return $this->createSellersAsyncWithHttpInfo($advertiser_id, $partner_id, $request_body, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation createSellersAsyncWithHttpInfo
-     *
-     * 
-     *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  int $partner_id Id of the partner (optional)
-     * @param  string[] $request_body Names of the sellers to associate with new Ids (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSellers'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function createSellersAsyncWithHttpInfo($advertiser_id, $partner_id = null, $request_body = null, string $contentType = self::contentTypes['createSellers'][0])
-    {
-        $returnType = '';
-        $request = $this->createSellersRequest($advertiser_id, $partner_id, $request_body, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'createSellers'
-     *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  int $partner_id Id of the partner (optional)
-     * @param  string[] $request_body Names of the sellers to associate with new Ids (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSellers'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function createSellersRequest($advertiser_id, $partner_id = null, $request_body = null, string $contentType = self::contentTypes['createSellers'][0])
-    {
-
-        // verify the required parameter 'advertiser_id' is set
-        if ($advertiser_id === null || (is_array($advertiser_id) && count($advertiser_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $advertiser_id when calling createSellers'
-            );
-        }
-
-
-
-
-        $resourcePath = '/2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/sellers';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $partner_id,
-            'partnerId', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-
-        // path params
-        if ($advertiser_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'advertiserId' . '}',
-                ObjectSerializer::toPathValue($advertiser_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            [],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($request_body)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($request_body));
-            } else {
-                $httpBody = $request_body;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2430,2285 +1789,6 @@ class CampaignApi
             $resourcePath = str_replace(
                 '{' . 'ad-set-id' . '}',
                 ObjectSerializer::toPathValue($ad_set_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getAdvertiser
-     *
-     * 
-     *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiser'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function getAdvertiser($advertiser_id, string $contentType = self::contentTypes['getAdvertiser'][0])
-    {
-        $this->getAdvertiserWithHttpInfo($advertiser_id, $contentType);
-    }
-
-    /**
-     * Operation getAdvertiserWithHttpInfo
-     *
-     * 
-     *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiser'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getAdvertiserWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getAdvertiser'][0])
-    {
-        $request = $this->getAdvertiserRequest($advertiser_id, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getAdvertiserAsync
-     *
-     * 
-     *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiser'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getAdvertiserAsync($advertiser_id, string $contentType = self::contentTypes['getAdvertiser'][0])
-    {
-        return $this->getAdvertiserAsyncWithHttpInfo($advertiser_id, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getAdvertiserAsyncWithHttpInfo
-     *
-     * 
-     *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiser'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getAdvertiserAsyncWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getAdvertiser'][0])
-    {
-        $returnType = '';
-        $request = $this->getAdvertiserRequest($advertiser_id, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getAdvertiser'
-     *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiser'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getAdvertiserRequest($advertiser_id, string $contentType = self::contentTypes['getAdvertiser'][0])
-    {
-
-        // verify the required parameter 'advertiser_id' is set
-        if ($advertiser_id === null || (is_array($advertiser_id) && count($advertiser_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $advertiser_id when calling getAdvertiser'
-            );
-        }
-
-
-        $resourcePath = '/2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($advertiser_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'advertiserId' . '}',
-                ObjectSerializer::toPathValue($advertiser_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            [],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getAdvertiserAdsets
-     *
-     * 
-     *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserAdsets'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function getAdvertiserAdsets($advertiser_id, string $contentType = self::contentTypes['getAdvertiserAdsets'][0])
-    {
-        $this->getAdvertiserAdsetsWithHttpInfo($advertiser_id, $contentType);
-    }
-
-    /**
-     * Operation getAdvertiserAdsetsWithHttpInfo
-     *
-     * 
-     *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserAdsets'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getAdvertiserAdsetsWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getAdvertiserAdsets'][0])
-    {
-        $request = $this->getAdvertiserAdsetsRequest($advertiser_id, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getAdvertiserAdsetsAsync
-     *
-     * 
-     *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserAdsets'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getAdvertiserAdsetsAsync($advertiser_id, string $contentType = self::contentTypes['getAdvertiserAdsets'][0])
-    {
-        return $this->getAdvertiserAdsetsAsyncWithHttpInfo($advertiser_id, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getAdvertiserAdsetsAsyncWithHttpInfo
-     *
-     * 
-     *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserAdsets'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getAdvertiserAdsetsAsyncWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getAdvertiserAdsets'][0])
-    {
-        $returnType = '';
-        $request = $this->getAdvertiserAdsetsRequest($advertiser_id, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getAdvertiserAdsets'
-     *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserAdsets'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getAdvertiserAdsetsRequest($advertiser_id, string $contentType = self::contentTypes['getAdvertiserAdsets'][0])
-    {
-
-        // verify the required parameter 'advertiser_id' is set
-        if ($advertiser_id === null || (is_array($advertiser_id) && count($advertiser_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $advertiser_id when calling getAdvertiserAdsets'
-            );
-        }
-
-
-        $resourcePath = '/2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/adsets';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($advertiser_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'advertiserId' . '}',
-                ObjectSerializer::toPathValue($advertiser_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            [],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getAdvertiserCampaigns
-     *
-     * 
-     *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserCampaigns'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function getAdvertiserCampaigns($advertiser_id, string $contentType = self::contentTypes['getAdvertiserCampaigns'][0])
-    {
-        $this->getAdvertiserCampaignsWithHttpInfo($advertiser_id, $contentType);
-    }
-
-    /**
-     * Operation getAdvertiserCampaignsWithHttpInfo
-     *
-     * 
-     *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserCampaigns'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getAdvertiserCampaignsWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getAdvertiserCampaigns'][0])
-    {
-        $request = $this->getAdvertiserCampaignsRequest($advertiser_id, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getAdvertiserCampaignsAsync
-     *
-     * 
-     *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserCampaigns'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getAdvertiserCampaignsAsync($advertiser_id, string $contentType = self::contentTypes['getAdvertiserCampaigns'][0])
-    {
-        return $this->getAdvertiserCampaignsAsyncWithHttpInfo($advertiser_id, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getAdvertiserCampaignsAsyncWithHttpInfo
-     *
-     * 
-     *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserCampaigns'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getAdvertiserCampaignsAsyncWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getAdvertiserCampaigns'][0])
-    {
-        $returnType = '';
-        $request = $this->getAdvertiserCampaignsRequest($advertiser_id, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getAdvertiserCampaigns'
-     *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserCampaigns'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getAdvertiserCampaignsRequest($advertiser_id, string $contentType = self::contentTypes['getAdvertiserCampaigns'][0])
-    {
-
-        // verify the required parameter 'advertiser_id' is set
-        if ($advertiser_id === null || (is_array($advertiser_id) && count($advertiser_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $advertiser_id when calling getAdvertiserCampaigns'
-            );
-        }
-
-
-        $resourcePath = '/2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/campaigns';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($advertiser_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'advertiserId' . '}',
-                ObjectSerializer::toPathValue($advertiser_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            [],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getAdvertiserPreviewLimits
-     *
-     * 
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserPreviewLimits'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function getAdvertiserPreviewLimits(string $contentType = self::contentTypes['getAdvertiserPreviewLimits'][0])
-    {
-        $this->getAdvertiserPreviewLimitsWithHttpInfo($contentType);
-    }
-
-    /**
-     * Operation getAdvertiserPreviewLimitsWithHttpInfo
-     *
-     * 
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserPreviewLimits'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getAdvertiserPreviewLimitsWithHttpInfo(string $contentType = self::contentTypes['getAdvertiserPreviewLimits'][0])
-    {
-        $request = $this->getAdvertiserPreviewLimitsRequest($contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getAdvertiserPreviewLimitsAsync
-     *
-     * 
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserPreviewLimits'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getAdvertiserPreviewLimitsAsync(string $contentType = self::contentTypes['getAdvertiserPreviewLimits'][0])
-    {
-        return $this->getAdvertiserPreviewLimitsAsyncWithHttpInfo($contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getAdvertiserPreviewLimitsAsyncWithHttpInfo
-     *
-     * 
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserPreviewLimits'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getAdvertiserPreviewLimitsAsyncWithHttpInfo(string $contentType = self::contentTypes['getAdvertiserPreviewLimits'][0])
-    {
-        $returnType = '';
-        $request = $this->getAdvertiserPreviewLimitsRequest($contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getAdvertiserPreviewLimits'
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserPreviewLimits'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getAdvertiserPreviewLimitsRequest(string $contentType = self::contentTypes['getAdvertiserPreviewLimits'][0])
-    {
-
-
-        $resourcePath = '/2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/preview-limit';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            [],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getAdvertisers
-     *
-     * 
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertisers'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function getAdvertisers(string $contentType = self::contentTypes['getAdvertisers'][0])
-    {
-        $this->getAdvertisersWithHttpInfo($contentType);
-    }
-
-    /**
-     * Operation getAdvertisersWithHttpInfo
-     *
-     * 
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertisers'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getAdvertisersWithHttpInfo(string $contentType = self::contentTypes['getAdvertisers'][0])
-    {
-        $request = $this->getAdvertisersRequest($contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getAdvertisersAsync
-     *
-     * 
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertisers'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getAdvertisersAsync(string $contentType = self::contentTypes['getAdvertisers'][0])
-    {
-        return $this->getAdvertisersAsyncWithHttpInfo($contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getAdvertisersAsyncWithHttpInfo
-     *
-     * 
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertisers'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getAdvertisersAsyncWithHttpInfo(string $contentType = self::contentTypes['getAdvertisers'][0])
-    {
-        $returnType = '';
-        $request = $this->getAdvertisersRequest($contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getAdvertisers'
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertisers'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getAdvertisersRequest(string $contentType = self::contentTypes['getAdvertisers'][0])
-    {
-
-
-        $resourcePath = '/2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            [],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getBudgetsByAdvertiser
-     *
-     * 
-     *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  int $budget_id Return only budgets with given Id (optional)
-     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
-     * @param  int $seller_id Return only budgets belonging to given sellerId (optional)
-     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
-     * @param  string $status Return only budgets with the given status. (optional)
-     * @param  string $type Return only budgets with the given budget type. (optional)
-     * @param  bool $with_balance Return only budgets with the given status. (optional)
-     * @param  bool $with_spend Return budgets with any positive spend. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetsByAdvertiser'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function getBudgetsByAdvertiser($advertiser_id, $budget_id = null, $end_after_date = null, $seller_id = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getBudgetsByAdvertiser'][0])
-    {
-        $this->getBudgetsByAdvertiserWithHttpInfo($advertiser_id, $budget_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
-    }
-
-    /**
-     * Operation getBudgetsByAdvertiserWithHttpInfo
-     *
-     * 
-     *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  int $budget_id Return only budgets with given Id (optional)
-     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
-     * @param  int $seller_id Return only budgets belonging to given sellerId (optional)
-     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
-     * @param  string $status Return only budgets with the given status. (optional)
-     * @param  string $type Return only budgets with the given budget type. (optional)
-     * @param  bool $with_balance Return only budgets with the given status. (optional)
-     * @param  bool $with_spend Return budgets with any positive spend. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetsByAdvertiser'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getBudgetsByAdvertiserWithHttpInfo($advertiser_id, $budget_id = null, $end_after_date = null, $seller_id = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getBudgetsByAdvertiser'][0])
-    {
-        $request = $this->getBudgetsByAdvertiserRequest($advertiser_id, $budget_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getBudgetsByAdvertiserAsync
-     *
-     * 
-     *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  int $budget_id Return only budgets with given Id (optional)
-     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
-     * @param  int $seller_id Return only budgets belonging to given sellerId (optional)
-     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
-     * @param  string $status Return only budgets with the given status. (optional)
-     * @param  string $type Return only budgets with the given budget type. (optional)
-     * @param  bool $with_balance Return only budgets with the given status. (optional)
-     * @param  bool $with_spend Return budgets with any positive spend. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetsByAdvertiser'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getBudgetsByAdvertiserAsync($advertiser_id, $budget_id = null, $end_after_date = null, $seller_id = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getBudgetsByAdvertiser'][0])
-    {
-        return $this->getBudgetsByAdvertiserAsyncWithHttpInfo($advertiser_id, $budget_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getBudgetsByAdvertiserAsyncWithHttpInfo
-     *
-     * 
-     *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  int $budget_id Return only budgets with given Id (optional)
-     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
-     * @param  int $seller_id Return only budgets belonging to given sellerId (optional)
-     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
-     * @param  string $status Return only budgets with the given status. (optional)
-     * @param  string $type Return only budgets with the given budget type. (optional)
-     * @param  bool $with_balance Return only budgets with the given status. (optional)
-     * @param  bool $with_spend Return budgets with any positive spend. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetsByAdvertiser'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getBudgetsByAdvertiserAsyncWithHttpInfo($advertiser_id, $budget_id = null, $end_after_date = null, $seller_id = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getBudgetsByAdvertiser'][0])
-    {
-        $returnType = '';
-        $request = $this->getBudgetsByAdvertiserRequest($advertiser_id, $budget_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getBudgetsByAdvertiser'
-     *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  int $budget_id Return only budgets with given Id (optional)
-     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
-     * @param  int $seller_id Return only budgets belonging to given sellerId (optional)
-     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
-     * @param  string $status Return only budgets with the given status. (optional)
-     * @param  string $type Return only budgets with the given budget type. (optional)
-     * @param  bool $with_balance Return only budgets with the given status. (optional)
-     * @param  bool $with_spend Return budgets with any positive spend. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetsByAdvertiser'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getBudgetsByAdvertiserRequest($advertiser_id, $budget_id = null, $end_after_date = null, $seller_id = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getBudgetsByAdvertiser'][0])
-    {
-
-        // verify the required parameter 'advertiser_id' is set
-        if ($advertiser_id === null || (is_array($advertiser_id) && count($advertiser_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $advertiser_id when calling getBudgetsByAdvertiser'
-            );
-        }
-
-
-
-
-
-
-
-
-
-
-        $resourcePath = '/2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/budgets';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $budget_id,
-            'budgetId', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $end_after_date,
-            'endAfterDate', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $seller_id,
-            'sellerId', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $start_before_date,
-            'startBeforeDate', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $status,
-            'status', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $type,
-            'type', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $with_balance,
-            'withBalance', // param base name
-            'boolean', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $with_spend,
-            'withSpend', // param base name
-            'boolean', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-
-        // path params
-        if ($advertiser_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'advertiserId' . '}',
-                ObjectSerializer::toPathValue($advertiser_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            [],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getBudgetsBySeller
-     *
-     * 
-     *
-     * @param  string $seller_id Return only budgets belonging to the given seller. (required)
-     * @param  int $campaign_id Return only budgets that pay for a given campaign. (optional)
-     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
-     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
-     * @param  string $status Return only budgets with the given status. (optional)
-     * @param  string $type Return only budgets with the given budget type. (optional)
-     * @param  bool $with_balance Return only budgets with the given status. (optional)
-     * @param  bool $with_spend Return budgets with any positive spend. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetsBySeller'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]
-     */
-    public function getBudgetsBySeller($seller_id, $campaign_id = null, $end_after_date = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getBudgetsBySeller'][0])
-    {
-        list($response) = $this->getBudgetsBySellerWithHttpInfo($seller_id, $campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation getBudgetsBySellerWithHttpInfo
-     *
-     * 
-     *
-     * @param  string $seller_id Return only budgets belonging to the given seller. (required)
-     * @param  int $campaign_id Return only budgets that pay for a given campaign. (optional)
-     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
-     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
-     * @param  string $status Return only budgets with the given status. (optional)
-     * @param  string $type Return only budgets with the given budget type. (optional)
-     * @param  bool $with_balance Return only budgets with the given status. (optional)
-     * @param  bool $with_spend Return budgets with any positive spend. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetsBySeller'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getBudgetsBySellerWithHttpInfo($seller_id, $campaign_id = null, $end_after_date = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getBudgetsBySeller'][0])
-    {
-        $request = $this->getBudgetsBySellerRequest($seller_id, $campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getBudgetsBySellerAsync
-     *
-     * 
-     *
-     * @param  string $seller_id Return only budgets belonging to the given seller. (required)
-     * @param  int $campaign_id Return only budgets that pay for a given campaign. (optional)
-     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
-     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
-     * @param  string $status Return only budgets with the given status. (optional)
-     * @param  string $type Return only budgets with the given budget type. (optional)
-     * @param  bool $with_balance Return only budgets with the given status. (optional)
-     * @param  bool $with_spend Return budgets with any positive spend. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetsBySeller'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getBudgetsBySellerAsync($seller_id, $campaign_id = null, $end_after_date = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getBudgetsBySeller'][0])
-    {
-        return $this->getBudgetsBySellerAsyncWithHttpInfo($seller_id, $campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getBudgetsBySellerAsyncWithHttpInfo
-     *
-     * 
-     *
-     * @param  string $seller_id Return only budgets belonging to the given seller. (required)
-     * @param  int $campaign_id Return only budgets that pay for a given campaign. (optional)
-     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
-     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
-     * @param  string $status Return only budgets with the given status. (optional)
-     * @param  string $type Return only budgets with the given budget type. (optional)
-     * @param  bool $with_balance Return only budgets with the given status. (optional)
-     * @param  bool $with_spend Return budgets with any positive spend. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetsBySeller'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getBudgetsBySellerAsyncWithHttpInfo($seller_id, $campaign_id = null, $end_after_date = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getBudgetsBySeller'][0])
-    {
-        $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]';
-        $request = $this->getBudgetsBySellerRequest($seller_id, $campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getBudgetsBySeller'
-     *
-     * @param  string $seller_id Return only budgets belonging to the given seller. (required)
-     * @param  int $campaign_id Return only budgets that pay for a given campaign. (optional)
-     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
-     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
-     * @param  string $status Return only budgets with the given status. (optional)
-     * @param  string $type Return only budgets with the given budget type. (optional)
-     * @param  bool $with_balance Return only budgets with the given status. (optional)
-     * @param  bool $with_spend Return budgets with any positive spend. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetsBySeller'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getBudgetsBySellerRequest($seller_id, $campaign_id = null, $end_after_date = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getBudgetsBySeller'][0])
-    {
-
-        // verify the required parameter 'seller_id' is set
-        if ($seller_id === null || (is_array($seller_id) && count($seller_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $seller_id when calling getBudgetsBySeller'
-            );
-        }
-
-
-
-
-
-
-
-
-
-        $resourcePath = '/2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/budgets';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $campaign_id,
-            'campaignId', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $end_after_date,
-            'endAfterDate', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $start_before_date,
-            'startBeforeDate', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $status,
-            'status', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $type,
-            'type', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $with_balance,
-            'withBalance', // param base name
-            'boolean', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $with_spend,
-            'withSpend', // param base name
-            'boolean', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-
-        // path params
-        if ($seller_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'sellerId' . '}',
-                ObjectSerializer::toPathValue($seller_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getBudgetsBySellerCampaignId
-     *
-     * 
-     *
-     * @param  string $seller_campaign_id Return only budgets belonging to the given seller campaign. (required)
-     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.               If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
-     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
-     * @param  string $status Return only budgets with the given status. (optional)
-     * @param  string $type Return only budgets with the given budget type. (optional)
-     * @param  bool $with_balance Return only budgets with a positive balance. (optional)
-     * @param  bool $with_spend Return budgets with a positive spend. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetsBySellerCampaignId'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]
-     */
-    public function getBudgetsBySellerCampaignId($seller_campaign_id, $end_after_date = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getBudgetsBySellerCampaignId'][0])
-    {
-        list($response) = $this->getBudgetsBySellerCampaignIdWithHttpInfo($seller_campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation getBudgetsBySellerCampaignIdWithHttpInfo
-     *
-     * 
-     *
-     * @param  string $seller_campaign_id Return only budgets belonging to the given seller campaign. (required)
-     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.               If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
-     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
-     * @param  string $status Return only budgets with the given status. (optional)
-     * @param  string $type Return only budgets with the given budget type. (optional)
-     * @param  bool $with_balance Return only budgets with a positive balance. (optional)
-     * @param  bool $with_spend Return budgets with a positive spend. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetsBySellerCampaignId'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getBudgetsBySellerCampaignIdWithHttpInfo($seller_campaign_id, $end_after_date = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getBudgetsBySellerCampaignId'][0])
-    {
-        $request = $this->getBudgetsBySellerCampaignIdRequest($seller_campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getBudgetsBySellerCampaignIdAsync
-     *
-     * 
-     *
-     * @param  string $seller_campaign_id Return only budgets belonging to the given seller campaign. (required)
-     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.               If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
-     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
-     * @param  string $status Return only budgets with the given status. (optional)
-     * @param  string $type Return only budgets with the given budget type. (optional)
-     * @param  bool $with_balance Return only budgets with a positive balance. (optional)
-     * @param  bool $with_spend Return budgets with a positive spend. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetsBySellerCampaignId'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getBudgetsBySellerCampaignIdAsync($seller_campaign_id, $end_after_date = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getBudgetsBySellerCampaignId'][0])
-    {
-        return $this->getBudgetsBySellerCampaignIdAsyncWithHttpInfo($seller_campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getBudgetsBySellerCampaignIdAsyncWithHttpInfo
-     *
-     * 
-     *
-     * @param  string $seller_campaign_id Return only budgets belonging to the given seller campaign. (required)
-     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.               If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
-     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
-     * @param  string $status Return only budgets with the given status. (optional)
-     * @param  string $type Return only budgets with the given budget type. (optional)
-     * @param  bool $with_balance Return only budgets with a positive balance. (optional)
-     * @param  bool $with_spend Return budgets with a positive spend. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetsBySellerCampaignId'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getBudgetsBySellerCampaignIdAsyncWithHttpInfo($seller_campaign_id, $end_after_date = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getBudgetsBySellerCampaignId'][0])
-    {
-        $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]';
-        $request = $this->getBudgetsBySellerCampaignIdRequest($seller_campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getBudgetsBySellerCampaignId'
-     *
-     * @param  string $seller_campaign_id Return only budgets belonging to the given seller campaign. (required)
-     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.               If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
-     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
-     * @param  string $status Return only budgets with the given status. (optional)
-     * @param  string $type Return only budgets with the given budget type. (optional)
-     * @param  bool $with_balance Return only budgets with a positive balance. (optional)
-     * @param  bool $with_spend Return budgets with a positive spend. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetsBySellerCampaignId'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getBudgetsBySellerCampaignIdRequest($seller_campaign_id, $end_after_date = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getBudgetsBySellerCampaignId'][0])
-    {
-
-        // verify the required parameter 'seller_campaign_id' is set
-        if ($seller_campaign_id === null || (is_array($seller_campaign_id) && count($seller_campaign_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $seller_campaign_id when calling getBudgetsBySellerCampaignId'
-            );
-        }
-
-
-
-
-
-
-
-
-        $resourcePath = '/2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns/{sellerCampaignId}/budgets';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $end_after_date,
-            'endAfterDate', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $start_before_date,
-            'startBeforeDate', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $status,
-            'status', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $type,
-            'type', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $with_balance,
-            'withBalance', // param base name
-            'boolean', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $with_spend,
-            'withSpend', // param base name
-            'boolean', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-
-        // path params
-        if ($seller_campaign_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'sellerCampaignId' . '}',
-                ObjectSerializer::toPathValue($seller_campaign_id),
                 $resourcePath
             );
         }
@@ -5342,38 +2422,1317 @@ class CampaignApi
     }
 
     /**
-     * Operation getSeller
+     * Operation getMarketplaceAdSetsByAdvertiser
      *
      * 
      *
-     * @param  string $seller_id Id of the seller. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSeller'] to see the possible values for this operation
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdSetsByAdvertiser'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\v2025_07\Model\SellerBase
+     * @return void
      */
-    public function getSeller($seller_id, string $contentType = self::contentTypes['getSeller'][0])
+    public function getMarketplaceAdSetsByAdvertiser($advertiser_id, string $contentType = self::contentTypes['getMarketplaceAdSetsByAdvertiser'][0])
     {
-        list($response) = $this->getSellerWithHttpInfo($seller_id, $contentType);
+        $this->getMarketplaceAdSetsByAdvertiserWithHttpInfo($advertiser_id, $contentType);
+    }
+
+    /**
+     * Operation getMarketplaceAdSetsByAdvertiserWithHttpInfo
+     *
+     * 
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdSetsByAdvertiser'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMarketplaceAdSetsByAdvertiserWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getMarketplaceAdSetsByAdvertiser'][0])
+    {
+        $request = $this->getMarketplaceAdSetsByAdvertiserRequest($advertiser_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMarketplaceAdSetsByAdvertiserAsync
+     *
+     * 
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdSetsByAdvertiser'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketplaceAdSetsByAdvertiserAsync($advertiser_id, string $contentType = self::contentTypes['getMarketplaceAdSetsByAdvertiser'][0])
+    {
+        return $this->getMarketplaceAdSetsByAdvertiserAsyncWithHttpInfo($advertiser_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getMarketplaceAdSetsByAdvertiserAsyncWithHttpInfo
+     *
+     * 
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdSetsByAdvertiser'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketplaceAdSetsByAdvertiserAsyncWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getMarketplaceAdSetsByAdvertiser'][0])
+    {
+        $returnType = '';
+        $request = $this->getMarketplaceAdSetsByAdvertiserRequest($advertiser_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getMarketplaceAdSetsByAdvertiser'
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdSetsByAdvertiser'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getMarketplaceAdSetsByAdvertiserRequest($advertiser_id, string $contentType = self::contentTypes['getMarketplaceAdSetsByAdvertiser'][0])
+    {
+
+        // verify the required parameter 'advertiser_id' is set
+        if ($advertiser_id === null || (is_array($advertiser_id) && count($advertiser_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $advertiser_id when calling getMarketplaceAdSetsByAdvertiser'
+            );
+        }
+
+
+        $resourcePath = '/2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/adsets';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($advertiser_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'advertiserId' . '}',
+                ObjectSerializer::toPathValue($advertiser_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            [],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getMarketplaceAdvertiser
+     *
+     * 
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertiser'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function getMarketplaceAdvertiser($advertiser_id, string $contentType = self::contentTypes['getMarketplaceAdvertiser'][0])
+    {
+        $this->getMarketplaceAdvertiserWithHttpInfo($advertiser_id, $contentType);
+    }
+
+    /**
+     * Operation getMarketplaceAdvertiserWithHttpInfo
+     *
+     * 
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertiser'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMarketplaceAdvertiserWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getMarketplaceAdvertiser'][0])
+    {
+        $request = $this->getMarketplaceAdvertiserRequest($advertiser_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMarketplaceAdvertiserAsync
+     *
+     * 
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertiser'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketplaceAdvertiserAsync($advertiser_id, string $contentType = self::contentTypes['getMarketplaceAdvertiser'][0])
+    {
+        return $this->getMarketplaceAdvertiserAsyncWithHttpInfo($advertiser_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getMarketplaceAdvertiserAsyncWithHttpInfo
+     *
+     * 
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertiser'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketplaceAdvertiserAsyncWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getMarketplaceAdvertiser'][0])
+    {
+        $returnType = '';
+        $request = $this->getMarketplaceAdvertiserRequest($advertiser_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getMarketplaceAdvertiser'
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertiser'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getMarketplaceAdvertiserRequest($advertiser_id, string $contentType = self::contentTypes['getMarketplaceAdvertiser'][0])
+    {
+
+        // verify the required parameter 'advertiser_id' is set
+        if ($advertiser_id === null || (is_array($advertiser_id) && count($advertiser_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $advertiser_id when calling getMarketplaceAdvertiser'
+            );
+        }
+
+
+        $resourcePath = '/2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($advertiser_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'advertiserId' . '}',
+                ObjectSerializer::toPathValue($advertiser_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            [],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getMarketplaceAdvertiserPreviewLimits
+     *
+     * 
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertiserPreviewLimits'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function getMarketplaceAdvertiserPreviewLimits(string $contentType = self::contentTypes['getMarketplaceAdvertiserPreviewLimits'][0])
+    {
+        $this->getMarketplaceAdvertiserPreviewLimitsWithHttpInfo($contentType);
+    }
+
+    /**
+     * Operation getMarketplaceAdvertiserPreviewLimitsWithHttpInfo
+     *
+     * 
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertiserPreviewLimits'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMarketplaceAdvertiserPreviewLimitsWithHttpInfo(string $contentType = self::contentTypes['getMarketplaceAdvertiserPreviewLimits'][0])
+    {
+        $request = $this->getMarketplaceAdvertiserPreviewLimitsRequest($contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMarketplaceAdvertiserPreviewLimitsAsync
+     *
+     * 
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertiserPreviewLimits'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketplaceAdvertiserPreviewLimitsAsync(string $contentType = self::contentTypes['getMarketplaceAdvertiserPreviewLimits'][0])
+    {
+        return $this->getMarketplaceAdvertiserPreviewLimitsAsyncWithHttpInfo($contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getMarketplaceAdvertiserPreviewLimitsAsyncWithHttpInfo
+     *
+     * 
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertiserPreviewLimits'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketplaceAdvertiserPreviewLimitsAsyncWithHttpInfo(string $contentType = self::contentTypes['getMarketplaceAdvertiserPreviewLimits'][0])
+    {
+        $returnType = '';
+        $request = $this->getMarketplaceAdvertiserPreviewLimitsRequest($contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getMarketplaceAdvertiserPreviewLimits'
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertiserPreviewLimits'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getMarketplaceAdvertiserPreviewLimitsRequest(string $contentType = self::contentTypes['getMarketplaceAdvertiserPreviewLimits'][0])
+    {
+
+
+        $resourcePath = '/2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/preview-limit';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            [],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getMarketplaceAdvertisers
+     *
+     * 
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertisers'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function getMarketplaceAdvertisers(string $contentType = self::contentTypes['getMarketplaceAdvertisers'][0])
+    {
+        $this->getMarketplaceAdvertisersWithHttpInfo($contentType);
+    }
+
+    /**
+     * Operation getMarketplaceAdvertisersWithHttpInfo
+     *
+     * 
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertisers'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMarketplaceAdvertisersWithHttpInfo(string $contentType = self::contentTypes['getMarketplaceAdvertisers'][0])
+    {
+        $request = $this->getMarketplaceAdvertisersRequest($contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMarketplaceAdvertisersAsync
+     *
+     * 
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertisers'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketplaceAdvertisersAsync(string $contentType = self::contentTypes['getMarketplaceAdvertisers'][0])
+    {
+        return $this->getMarketplaceAdvertisersAsyncWithHttpInfo($contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getMarketplaceAdvertisersAsyncWithHttpInfo
+     *
+     * 
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertisers'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketplaceAdvertisersAsyncWithHttpInfo(string $contentType = self::contentTypes['getMarketplaceAdvertisers'][0])
+    {
+        $returnType = '';
+        $request = $this->getMarketplaceAdvertisersRequest($contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getMarketplaceAdvertisers'
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertisers'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getMarketplaceAdvertisersRequest(string $contentType = self::contentTypes['getMarketplaceAdvertisers'][0])
+    {
+
+
+        $resourcePath = '/2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            [],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getMarketplaceBudgetsByAdvertiser
+     *
+     * 
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  int $budget_id Return only budgets with given Id (optional)
+     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
+     * @param  int $seller_id Return only budgets belonging to given sellerId (optional)
+     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
+     * @param  string $status Return only budgets with the given status. (optional)
+     * @param  string $type Return only budgets with the given budget type. (optional)
+     * @param  bool $with_balance Return only budgets with the given status. (optional)
+     * @param  bool $with_spend Return budgets with any positive spend. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceBudgetsByAdvertiser'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function getMarketplaceBudgetsByAdvertiser($advertiser_id, $budget_id = null, $end_after_date = null, $seller_id = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getMarketplaceBudgetsByAdvertiser'][0])
+    {
+        $this->getMarketplaceBudgetsByAdvertiserWithHttpInfo($advertiser_id, $budget_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
+    }
+
+    /**
+     * Operation getMarketplaceBudgetsByAdvertiserWithHttpInfo
+     *
+     * 
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  int $budget_id Return only budgets with given Id (optional)
+     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
+     * @param  int $seller_id Return only budgets belonging to given sellerId (optional)
+     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
+     * @param  string $status Return only budgets with the given status. (optional)
+     * @param  string $type Return only budgets with the given budget type. (optional)
+     * @param  bool $with_balance Return only budgets with the given status. (optional)
+     * @param  bool $with_spend Return budgets with any positive spend. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceBudgetsByAdvertiser'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMarketplaceBudgetsByAdvertiserWithHttpInfo($advertiser_id, $budget_id = null, $end_after_date = null, $seller_id = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getMarketplaceBudgetsByAdvertiser'][0])
+    {
+        $request = $this->getMarketplaceBudgetsByAdvertiserRequest($advertiser_id, $budget_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMarketplaceBudgetsByAdvertiserAsync
+     *
+     * 
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  int $budget_id Return only budgets with given Id (optional)
+     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
+     * @param  int $seller_id Return only budgets belonging to given sellerId (optional)
+     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
+     * @param  string $status Return only budgets with the given status. (optional)
+     * @param  string $type Return only budgets with the given budget type. (optional)
+     * @param  bool $with_balance Return only budgets with the given status. (optional)
+     * @param  bool $with_spend Return budgets with any positive spend. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceBudgetsByAdvertiser'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketplaceBudgetsByAdvertiserAsync($advertiser_id, $budget_id = null, $end_after_date = null, $seller_id = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getMarketplaceBudgetsByAdvertiser'][0])
+    {
+        return $this->getMarketplaceBudgetsByAdvertiserAsyncWithHttpInfo($advertiser_id, $budget_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getMarketplaceBudgetsByAdvertiserAsyncWithHttpInfo
+     *
+     * 
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  int $budget_id Return only budgets with given Id (optional)
+     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
+     * @param  int $seller_id Return only budgets belonging to given sellerId (optional)
+     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
+     * @param  string $status Return only budgets with the given status. (optional)
+     * @param  string $type Return only budgets with the given budget type. (optional)
+     * @param  bool $with_balance Return only budgets with the given status. (optional)
+     * @param  bool $with_spend Return budgets with any positive spend. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceBudgetsByAdvertiser'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketplaceBudgetsByAdvertiserAsyncWithHttpInfo($advertiser_id, $budget_id = null, $end_after_date = null, $seller_id = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getMarketplaceBudgetsByAdvertiser'][0])
+    {
+        $returnType = '';
+        $request = $this->getMarketplaceBudgetsByAdvertiserRequest($advertiser_id, $budget_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getMarketplaceBudgetsByAdvertiser'
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  int $budget_id Return only budgets with given Id (optional)
+     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
+     * @param  int $seller_id Return only budgets belonging to given sellerId (optional)
+     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
+     * @param  string $status Return only budgets with the given status. (optional)
+     * @param  string $type Return only budgets with the given budget type. (optional)
+     * @param  bool $with_balance Return only budgets with the given status. (optional)
+     * @param  bool $with_spend Return budgets with any positive spend. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceBudgetsByAdvertiser'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getMarketplaceBudgetsByAdvertiserRequest($advertiser_id, $budget_id = null, $end_after_date = null, $seller_id = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getMarketplaceBudgetsByAdvertiser'][0])
+    {
+
+        // verify the required parameter 'advertiser_id' is set
+        if ($advertiser_id === null || (is_array($advertiser_id) && count($advertiser_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $advertiser_id when calling getMarketplaceBudgetsByAdvertiser'
+            );
+        }
+
+
+
+
+
+
+
+
+
+
+        $resourcePath = '/2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/budgets';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $budget_id,
+            'budgetId', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $end_after_date,
+            'endAfterDate', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $seller_id,
+            'sellerId', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $start_before_date,
+            'startBeforeDate', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $status,
+            'status', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $type,
+            'type', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $with_balance,
+            'withBalance', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $with_spend,
+            'withSpend', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($advertiser_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'advertiserId' . '}',
+                ObjectSerializer::toPathValue($advertiser_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            [],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getMarketplaceBudgetsBySeller
+     *
+     * 
+     *
+     * @param  string $seller_id Return only budgets belonging to the given seller. (required)
+     * @param  int $campaign_id Return only budgets that pay for a given campaign. (optional)
+     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
+     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
+     * @param  string $status Return only budgets with the given status. (optional)
+     * @param  string $type Return only budgets with the given budget type. (optional)
+     * @param  bool $with_balance Return only budgets with the given status. (optional)
+     * @param  bool $with_spend Return budgets with any positive spend. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceBudgetsBySeller'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]
+     */
+    public function getMarketplaceBudgetsBySeller($seller_id, $campaign_id = null, $end_after_date = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getMarketplaceBudgetsBySeller'][0])
+    {
+        list($response) = $this->getMarketplaceBudgetsBySellerWithHttpInfo($seller_id, $campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
         return $response;
     }
 
     /**
-     * Operation getSellerWithHttpInfo
+     * Operation getMarketplaceBudgetsBySellerWithHttpInfo
      *
      * 
      *
-     * @param  string $seller_id Id of the seller. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSeller'] to see the possible values for this operation
+     * @param  string $seller_id Return only budgets belonging to the given seller. (required)
+     * @param  int $campaign_id Return only budgets that pay for a given campaign. (optional)
+     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
+     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
+     * @param  string $status Return only budgets with the given status. (optional)
+     * @param  string $type Return only budgets with the given budget type. (optional)
+     * @param  bool $with_balance Return only budgets with the given status. (optional)
+     * @param  bool $with_spend Return budgets with any positive spend. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceBudgetsBySeller'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\v2025_07\Model\SellerBase, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSellerWithHttpInfo($seller_id, string $contentType = self::contentTypes['getSeller'][0])
+    public function getMarketplaceBudgetsBySellerWithHttpInfo($seller_id, $campaign_id = null, $end_after_date = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getMarketplaceBudgetsBySeller'][0])
     {
-        $request = $this->getSellerRequest($seller_id, $contentType);
+        $request = $this->getMarketplaceBudgetsBySellerRequest($seller_id, $campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5412,23 +3771,23 @@ class CampaignApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\criteo\api\marketingsolutions\v2025_07\Model\SellerBase' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\v2025_07\Model\SellerBase' !== 'string') {
+                        if ('\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_07\Model\SellerBase', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\SellerBase';
+            $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5449,7 +3808,7 @@ class CampaignApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\v2025_07\Model\SellerBase',
+                        '\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5460,19 +3819,26 @@ class CampaignApi
     }
 
     /**
-     * Operation getSellerAsync
+     * Operation getMarketplaceBudgetsBySellerAsync
      *
      * 
      *
-     * @param  string $seller_id Id of the seller. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSeller'] to see the possible values for this operation
+     * @param  string $seller_id Return only budgets belonging to the given seller. (required)
+     * @param  int $campaign_id Return only budgets that pay for a given campaign. (optional)
+     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
+     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
+     * @param  string $status Return only budgets with the given status. (optional)
+     * @param  string $type Return only budgets with the given budget type. (optional)
+     * @param  bool $with_balance Return only budgets with the given status. (optional)
+     * @param  bool $with_spend Return budgets with any positive spend. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceBudgetsBySeller'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSellerAsync($seller_id, string $contentType = self::contentTypes['getSeller'][0])
+    public function getMarketplaceBudgetsBySellerAsync($seller_id, $campaign_id = null, $end_after_date = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getMarketplaceBudgetsBySeller'][0])
     {
-        return $this->getSellerAsyncWithHttpInfo($seller_id, $contentType)
+        return $this->getMarketplaceBudgetsBySellerAsyncWithHttpInfo($seller_id, $campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5481,20 +3847,27 @@ class CampaignApi
     }
 
     /**
-     * Operation getSellerAsyncWithHttpInfo
+     * Operation getMarketplaceBudgetsBySellerAsyncWithHttpInfo
      *
      * 
      *
-     * @param  string $seller_id Id of the seller. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSeller'] to see the possible values for this operation
+     * @param  string $seller_id Return only budgets belonging to the given seller. (required)
+     * @param  int $campaign_id Return only budgets that pay for a given campaign. (optional)
+     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
+     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
+     * @param  string $status Return only budgets with the given status. (optional)
+     * @param  string $type Return only budgets with the given budget type. (optional)
+     * @param  bool $with_balance Return only budgets with the given status. (optional)
+     * @param  bool $with_spend Return budgets with any positive spend. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceBudgetsBySeller'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSellerAsyncWithHttpInfo($seller_id, string $contentType = self::contentTypes['getSeller'][0])
+    public function getMarketplaceBudgetsBySellerAsyncWithHttpInfo($seller_id, $campaign_id = null, $end_after_date = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getMarketplaceBudgetsBySeller'][0])
     {
-        $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\SellerBase';
-        $request = $this->getSellerRequest($seller_id, $contentType);
+        $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]';
+        $request = $this->getMarketplaceBudgetsBySellerRequest($seller_id, $campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5533,32 +3906,109 @@ class CampaignApi
     }
 
     /**
-     * Create request for operation 'getSeller'
+     * Create request for operation 'getMarketplaceBudgetsBySeller'
      *
-     * @param  string $seller_id Id of the seller. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSeller'] to see the possible values for this operation
+     * @param  string $seller_id Return only budgets belonging to the given seller. (required)
+     * @param  int $campaign_id Return only budgets that pay for a given campaign. (optional)
+     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
+     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
+     * @param  string $status Return only budgets with the given status. (optional)
+     * @param  string $type Return only budgets with the given budget type. (optional)
+     * @param  bool $with_balance Return only budgets with the given status. (optional)
+     * @param  bool $with_spend Return budgets with any positive spend. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceBudgetsBySeller'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSellerRequest($seller_id, string $contentType = self::contentTypes['getSeller'][0])
+    public function getMarketplaceBudgetsBySellerRequest($seller_id, $campaign_id = null, $end_after_date = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getMarketplaceBudgetsBySeller'][0])
     {
 
         // verify the required parameter 'seller_id' is set
         if ($seller_id === null || (is_array($seller_id) && count($seller_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $seller_id when calling getSeller'
+                'Missing the required parameter $seller_id when calling getMarketplaceBudgetsBySeller'
             );
         }
 
 
-        $resourcePath = '/2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}';
+
+
+
+
+
+
+
+        $resourcePath = '/2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/budgets';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $campaign_id,
+            'campaignId', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $end_after_date,
+            'endAfterDate', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $start_before_date,
+            'startBeforeDate', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $status,
+            'status', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $type,
+            'type', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $with_balance,
+            'withBalance', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $with_spend,
+            'withSpend', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
         // path params
@@ -5633,46 +4083,668 @@ class CampaignApi
     }
 
     /**
-     * Operation getSellerAdDemo
+     * Operation getMarketplaceBudgetsBySellerCampaign
+     *
+     * 
+     *
+     * @param  string $seller_campaign_id Return only budgets belonging to the given seller campaign. (required)
+     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.               If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
+     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
+     * @param  string $status Return only budgets with the given status. (optional)
+     * @param  string $type Return only budgets with the given budget type. (optional)
+     * @param  bool $with_balance Return only budgets with a positive balance. (optional)
+     * @param  bool $with_spend Return budgets with a positive spend. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceBudgetsBySellerCampaign'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]
+     */
+    public function getMarketplaceBudgetsBySellerCampaign($seller_campaign_id, $end_after_date = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getMarketplaceBudgetsBySellerCampaign'][0])
+    {
+        list($response) = $this->getMarketplaceBudgetsBySellerCampaignWithHttpInfo($seller_campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getMarketplaceBudgetsBySellerCampaignWithHttpInfo
+     *
+     * 
+     *
+     * @param  string $seller_campaign_id Return only budgets belonging to the given seller campaign. (required)
+     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.               If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
+     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
+     * @param  string $status Return only budgets with the given status. (optional)
+     * @param  string $type Return only budgets with the given budget type. (optional)
+     * @param  bool $with_balance Return only budgets with a positive balance. (optional)
+     * @param  bool $with_spend Return budgets with a positive spend. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceBudgetsBySellerCampaign'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMarketplaceBudgetsBySellerCampaignWithHttpInfo($seller_campaign_id, $end_after_date = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getMarketplaceBudgetsBySellerCampaign'][0])
+    {
+        $request = $this->getMarketplaceBudgetsBySellerCampaignRequest($seller_campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMarketplaceBudgetsBySellerCampaignAsync
+     *
+     * 
+     *
+     * @param  string $seller_campaign_id Return only budgets belonging to the given seller campaign. (required)
+     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.               If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
+     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
+     * @param  string $status Return only budgets with the given status. (optional)
+     * @param  string $type Return only budgets with the given budget type. (optional)
+     * @param  bool $with_balance Return only budgets with a positive balance. (optional)
+     * @param  bool $with_spend Return budgets with a positive spend. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceBudgetsBySellerCampaign'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketplaceBudgetsBySellerCampaignAsync($seller_campaign_id, $end_after_date = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getMarketplaceBudgetsBySellerCampaign'][0])
+    {
+        return $this->getMarketplaceBudgetsBySellerCampaignAsyncWithHttpInfo($seller_campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getMarketplaceBudgetsBySellerCampaignAsyncWithHttpInfo
+     *
+     * 
+     *
+     * @param  string $seller_campaign_id Return only budgets belonging to the given seller campaign. (required)
+     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.               If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
+     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
+     * @param  string $status Return only budgets with the given status. (optional)
+     * @param  string $type Return only budgets with the given budget type. (optional)
+     * @param  bool $with_balance Return only budgets with a positive balance. (optional)
+     * @param  bool $with_spend Return budgets with a positive spend. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceBudgetsBySellerCampaign'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketplaceBudgetsBySellerCampaignAsyncWithHttpInfo($seller_campaign_id, $end_after_date = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getMarketplaceBudgetsBySellerCampaign'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]';
+        $request = $this->getMarketplaceBudgetsBySellerCampaignRequest($seller_campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getMarketplaceBudgetsBySellerCampaign'
+     *
+     * @param  string $seller_campaign_id Return only budgets belonging to the given seller campaign. (required)
+     * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.               If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
+     * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
+     * @param  string $status Return only budgets with the given status. (optional)
+     * @param  string $type Return only budgets with the given budget type. (optional)
+     * @param  bool $with_balance Return only budgets with a positive balance. (optional)
+     * @param  bool $with_spend Return budgets with a positive spend. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceBudgetsBySellerCampaign'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getMarketplaceBudgetsBySellerCampaignRequest($seller_campaign_id, $end_after_date = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getMarketplaceBudgetsBySellerCampaign'][0])
+    {
+
+        // verify the required parameter 'seller_campaign_id' is set
+        if ($seller_campaign_id === null || (is_array($seller_campaign_id) && count($seller_campaign_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $seller_campaign_id when calling getMarketplaceBudgetsBySellerCampaign'
+            );
+        }
+
+
+
+
+
+
+
+
+        $resourcePath = '/2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns/{sellerCampaignId}/budgets';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $end_after_date,
+            'endAfterDate', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $start_before_date,
+            'startBeforeDate', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $status,
+            'status', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $type,
+            'type', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $with_balance,
+            'withBalance', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $with_spend,
+            'withSpend', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($seller_campaign_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'sellerCampaignId' . '}',
+                ObjectSerializer::toPathValue($seller_campaign_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getMarketplaceCampaignsByAdvertiser
      *
      * 
      *
      * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  int $seller_id Id of the seller (required)
-     * @param  int $campaign_id Seller CampaignId (optional)
-     * @param  int $height Height of the ad to display (optional)
-     * @param  int $width Width of the ad to display (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerAdDemo'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceCampaignsByAdvertiser'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function getMarketplaceCampaignsByAdvertiser($advertiser_id, string $contentType = self::contentTypes['getMarketplaceCampaignsByAdvertiser'][0])
+    {
+        $this->getMarketplaceCampaignsByAdvertiserWithHttpInfo($advertiser_id, $contentType);
+    }
+
+    /**
+     * Operation getMarketplaceCampaignsByAdvertiserWithHttpInfo
+     *
+     * 
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceCampaignsByAdvertiser'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMarketplaceCampaignsByAdvertiserWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getMarketplaceCampaignsByAdvertiser'][0])
+    {
+        $request = $this->getMarketplaceCampaignsByAdvertiserRequest($advertiser_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMarketplaceCampaignsByAdvertiserAsync
+     *
+     * 
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceCampaignsByAdvertiser'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketplaceCampaignsByAdvertiserAsync($advertiser_id, string $contentType = self::contentTypes['getMarketplaceCampaignsByAdvertiser'][0])
+    {
+        return $this->getMarketplaceCampaignsByAdvertiserAsyncWithHttpInfo($advertiser_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getMarketplaceCampaignsByAdvertiserAsyncWithHttpInfo
+     *
+     * 
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceCampaignsByAdvertiser'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketplaceCampaignsByAdvertiserAsyncWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getMarketplaceCampaignsByAdvertiser'][0])
+    {
+        $returnType = '';
+        $request = $this->getMarketplaceCampaignsByAdvertiserRequest($advertiser_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getMarketplaceCampaignsByAdvertiser'
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceCampaignsByAdvertiser'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getMarketplaceCampaignsByAdvertiserRequest($advertiser_id, string $contentType = self::contentTypes['getMarketplaceCampaignsByAdvertiser'][0])
+    {
+
+        // verify the required parameter 'advertiser_id' is set
+        if ($advertiser_id === null || (is_array($advertiser_id) && count($advertiser_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $advertiser_id when calling getMarketplaceCampaignsByAdvertiser'
+            );
+        }
+
+
+        $resourcePath = '/2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/campaigns';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($advertiser_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'advertiserId' . '}',
+                ObjectSerializer::toPathValue($advertiser_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            [],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getMarketplaceCampaignsStats
+     *
+     * 
+     *
+     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
+     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
+     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
+     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
+     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
+     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceCampaignsStats'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function getSellerAdDemo($advertiser_id, $seller_id, $campaign_id = null, $height = null, $width = null, string $contentType = self::contentTypes['getSellerAdDemo'][0])
+    public function getMarketplaceCampaignsStats($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $start_date = null, string $contentType = self::contentTypes['getMarketplaceCampaignsStats'][0])
     {
-        list($response) = $this->getSellerAdDemoWithHttpInfo($advertiser_id, $seller_id, $campaign_id, $height, $width, $contentType);
+        list($response) = $this->getMarketplaceCampaignsStatsWithHttpInfo($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date, $contentType);
         return $response;
     }
 
     /**
-     * Operation getSellerAdDemoWithHttpInfo
+     * Operation getMarketplaceCampaignsStatsWithHttpInfo
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  int $seller_id Id of the seller (required)
-     * @param  int $campaign_id Seller CampaignId (optional)
-     * @param  int $height Height of the ad to display (optional)
-     * @param  int $width Width of the ad to display (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerAdDemo'] to see the possible values for this operation
+     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
+     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
+     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
+     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
+     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
+     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceCampaignsStats'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSellerAdDemoWithHttpInfo($advertiser_id, $seller_id, $campaign_id = null, $height = null, $width = null, string $contentType = self::contentTypes['getSellerAdDemo'][0])
+    public function getMarketplaceCampaignsStatsWithHttpInfo($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $start_date = null, string $contentType = self::contentTypes['getMarketplaceCampaignsStats'][0])
     {
-        $request = $this->getSellerAdDemoRequest($advertiser_id, $seller_id, $campaign_id, $height, $width, $contentType);
+        $request = $this->getMarketplaceCampaignsStatsRequest($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5759,23 +4831,25 @@ class CampaignApi
     }
 
     /**
-     * Operation getSellerAdDemoAsync
+     * Operation getMarketplaceCampaignsStatsAsync
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  int $seller_id Id of the seller (required)
-     * @param  int $campaign_id Seller CampaignId (optional)
-     * @param  int $height Height of the ad to display (optional)
-     * @param  int $width Width of the ad to display (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerAdDemo'] to see the possible values for this operation
+     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
+     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
+     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
+     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
+     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
+     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceCampaignsStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSellerAdDemoAsync($advertiser_id, $seller_id, $campaign_id = null, $height = null, $width = null, string $contentType = self::contentTypes['getSellerAdDemo'][0])
+    public function getMarketplaceCampaignsStatsAsync($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $start_date = null, string $contentType = self::contentTypes['getMarketplaceCampaignsStats'][0])
     {
-        return $this->getSellerAdDemoAsyncWithHttpInfo($advertiser_id, $seller_id, $campaign_id, $height, $width, $contentType)
+        return $this->getMarketplaceCampaignsStatsAsyncWithHttpInfo($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5784,24 +4858,26 @@ class CampaignApi
     }
 
     /**
-     * Operation getSellerAdDemoAsyncWithHttpInfo
+     * Operation getMarketplaceCampaignsStatsAsyncWithHttpInfo
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  int $seller_id Id of the seller (required)
-     * @param  int $campaign_id Seller CampaignId (optional)
-     * @param  int $height Height of the ad to display (optional)
-     * @param  int $width Width of the ad to display (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerAdDemo'] to see the possible values for this operation
+     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
+     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
+     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
+     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
+     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
+     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceCampaignsStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSellerAdDemoAsyncWithHttpInfo($advertiser_id, $seller_id, $campaign_id = null, $height = null, $width = null, string $contentType = self::contentTypes['getSellerAdDemo'][0])
+    public function getMarketplaceCampaignsStatsAsyncWithHttpInfo($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $start_date = null, string $contentType = self::contentTypes['getMarketplaceCampaignsStats'][0])
     {
         $returnType = 'string';
-        $request = $this->getSellerAdDemoRequest($advertiser_id, $seller_id, $campaign_id, $height, $width, $contentType);
+        $request = $this->getMarketplaceCampaignsStatsRequest($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5840,32 +4916,691 @@ class CampaignApi
     }
 
     /**
-     * Create request for operation 'getSellerAdDemo'
+     * Create request for operation 'getMarketplaceCampaignsStats'
+     *
+     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
+     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
+     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
+     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
+     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
+     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceCampaignsStats'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getMarketplaceCampaignsStatsRequest($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $start_date = null, string $contentType = self::contentTypes['getMarketplaceCampaignsStats'][0])
+    {
+
+
+
+
+
+
+
+
+
+        $resourcePath = '/2025-07/marketing-solutions/marketplace-performance-outcomes/stats/campaigns';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $advertiser_id,
+            'advertiserId', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $campaign_id,
+            'campaignId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $click_attribution_policy,
+            'clickAttributionPolicy', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $count,
+            'count', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $end_date,
+            'endDate', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $interval_size,
+            'intervalSize', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $start_date,
+            'startDate', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getMarketplaceSeller
+     *
+     * 
+     *
+     * @param  string $seller_id Id of the seller. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSeller'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\v2025_07\Model\SellerBase
+     */
+    public function getMarketplaceSeller($seller_id, string $contentType = self::contentTypes['getMarketplaceSeller'][0])
+    {
+        list($response) = $this->getMarketplaceSellerWithHttpInfo($seller_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getMarketplaceSellerWithHttpInfo
+     *
+     * 
+     *
+     * @param  string $seller_id Id of the seller. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSeller'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\v2025_07\Model\SellerBase, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMarketplaceSellerWithHttpInfo($seller_id, string $contentType = self::contentTypes['getMarketplaceSeller'][0])
+    {
+        $request = $this->getMarketplaceSellerRequest($seller_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\v2025_07\Model\SellerBase' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\v2025_07\Model\SellerBase' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_07\Model\SellerBase', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\SellerBase';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\v2025_07\Model\SellerBase',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMarketplaceSellerAsync
+     *
+     * 
+     *
+     * @param  string $seller_id Id of the seller. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSeller'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketplaceSellerAsync($seller_id, string $contentType = self::contentTypes['getMarketplaceSeller'][0])
+    {
+        return $this->getMarketplaceSellerAsyncWithHttpInfo($seller_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getMarketplaceSellerAsyncWithHttpInfo
+     *
+     * 
+     *
+     * @param  string $seller_id Id of the seller. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSeller'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketplaceSellerAsyncWithHttpInfo($seller_id, string $contentType = self::contentTypes['getMarketplaceSeller'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\SellerBase';
+        $request = $this->getMarketplaceSellerRequest($seller_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getMarketplaceSeller'
+     *
+     * @param  string $seller_id Id of the seller. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSeller'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getMarketplaceSellerRequest($seller_id, string $contentType = self::contentTypes['getMarketplaceSeller'][0])
+    {
+
+        // verify the required parameter 'seller_id' is set
+        if ($seller_id === null || (is_array($seller_id) && count($seller_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $seller_id when calling getMarketplaceSeller'
+            );
+        }
+
+
+        $resourcePath = '/2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($seller_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'sellerId' . '}',
+                ObjectSerializer::toPathValue($seller_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getMarketplaceSellerAdPreview
+     *
+     * 
      *
      * @param  int $advertiser_id Id of the advertiser (required)
      * @param  int $seller_id Id of the seller (required)
      * @param  int $campaign_id Seller CampaignId (optional)
      * @param  int $height Height of the ad to display (optional)
      * @param  int $width Width of the ad to display (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerAdDemo'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerAdPreview'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return string
+     */
+    public function getMarketplaceSellerAdPreview($advertiser_id, $seller_id, $campaign_id = null, $height = null, $width = null, string $contentType = self::contentTypes['getMarketplaceSellerAdPreview'][0])
+    {
+        list($response) = $this->getMarketplaceSellerAdPreviewWithHttpInfo($advertiser_id, $seller_id, $campaign_id, $height, $width, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getMarketplaceSellerAdPreviewWithHttpInfo
+     *
+     * 
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  int $seller_id Id of the seller (required)
+     * @param  int $campaign_id Seller CampaignId (optional)
+     * @param  int $height Height of the ad to display (optional)
+     * @param  int $width Width of the ad to display (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerAdPreview'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMarketplaceSellerAdPreviewWithHttpInfo($advertiser_id, $seller_id, $campaign_id = null, $height = null, $width = null, string $contentType = self::contentTypes['getMarketplaceSellerAdPreview'][0])
+    {
+        $request = $this->getMarketplaceSellerAdPreviewRequest($advertiser_id, $seller_id, $campaign_id, $height, $width, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('string' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('string' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'string', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'string';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMarketplaceSellerAdPreviewAsync
+     *
+     * 
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  int $seller_id Id of the seller (required)
+     * @param  int $campaign_id Seller CampaignId (optional)
+     * @param  int $height Height of the ad to display (optional)
+     * @param  int $width Width of the ad to display (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerAdPreview'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketplaceSellerAdPreviewAsync($advertiser_id, $seller_id, $campaign_id = null, $height = null, $width = null, string $contentType = self::contentTypes['getMarketplaceSellerAdPreview'][0])
+    {
+        return $this->getMarketplaceSellerAdPreviewAsyncWithHttpInfo($advertiser_id, $seller_id, $campaign_id, $height, $width, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getMarketplaceSellerAdPreviewAsyncWithHttpInfo
+     *
+     * 
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  int $seller_id Id of the seller (required)
+     * @param  int $campaign_id Seller CampaignId (optional)
+     * @param  int $height Height of the ad to display (optional)
+     * @param  int $width Width of the ad to display (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerAdPreview'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketplaceSellerAdPreviewAsyncWithHttpInfo($advertiser_id, $seller_id, $campaign_id = null, $height = null, $width = null, string $contentType = self::contentTypes['getMarketplaceSellerAdPreview'][0])
+    {
+        $returnType = 'string';
+        $request = $this->getMarketplaceSellerAdPreviewRequest($advertiser_id, $seller_id, $campaign_id, $height, $width, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getMarketplaceSellerAdPreview'
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  int $seller_id Id of the seller (required)
+     * @param  int $campaign_id Seller CampaignId (optional)
+     * @param  int $height Height of the ad to display (optional)
+     * @param  int $width Width of the ad to display (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerAdPreview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSellerAdDemoRequest($advertiser_id, $seller_id, $campaign_id = null, $height = null, $width = null, string $contentType = self::contentTypes['getSellerAdDemo'][0])
+    public function getMarketplaceSellerAdPreviewRequest($advertiser_id, $seller_id, $campaign_id = null, $height = null, $width = null, string $contentType = self::contentTypes['getMarketplaceSellerAdPreview'][0])
     {
 
         // verify the required parameter 'advertiser_id' is set
         if ($advertiser_id === null || (is_array($advertiser_id) && count($advertiser_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $advertiser_id when calling getSellerAdDemo'
+                'Missing the required parameter $advertiser_id when calling getMarketplaceSellerAdPreview'
             );
         }
 
         // verify the required parameter 'seller_id' is set
         if ($seller_id === null || (is_array($seller_id) && count($seller_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $seller_id when calling getSellerAdDemo'
+                'Missing the required parameter $seller_id when calling getMarketplaceSellerAdPreview'
             );
         }
 
@@ -5990,38 +5725,38 @@ class CampaignApi
     }
 
     /**
-     * Operation getSellerBudget
+     * Operation getMarketplaceSellerBudget
      *
      * 
      *
      * @param  int $budget_id Id of the budget. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerBudget'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerBudget'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage
      */
-    public function getSellerBudget($budget_id, string $contentType = self::contentTypes['getSellerBudget'][0])
+    public function getMarketplaceSellerBudget($budget_id, string $contentType = self::contentTypes['getMarketplaceSellerBudget'][0])
     {
-        list($response) = $this->getSellerBudgetWithHttpInfo($budget_id, $contentType);
+        list($response) = $this->getMarketplaceSellerBudgetWithHttpInfo($budget_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getSellerBudgetWithHttpInfo
+     * Operation getMarketplaceSellerBudgetWithHttpInfo
      *
      * 
      *
      * @param  int $budget_id Id of the budget. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerBudget'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerBudget'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSellerBudgetWithHttpInfo($budget_id, string $contentType = self::contentTypes['getSellerBudget'][0])
+    public function getMarketplaceSellerBudgetWithHttpInfo($budget_id, string $contentType = self::contentTypes['getMarketplaceSellerBudget'][0])
     {
-        $request = $this->getSellerBudgetRequest($budget_id, $contentType);
+        $request = $this->getMarketplaceSellerBudgetRequest($budget_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6108,19 +5843,19 @@ class CampaignApi
     }
 
     /**
-     * Operation getSellerBudgetAsync
+     * Operation getMarketplaceSellerBudgetAsync
      *
      * 
      *
      * @param  int $budget_id Id of the budget. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerBudget'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerBudget'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSellerBudgetAsync($budget_id, string $contentType = self::contentTypes['getSellerBudget'][0])
+    public function getMarketplaceSellerBudgetAsync($budget_id, string $contentType = self::contentTypes['getMarketplaceSellerBudget'][0])
     {
-        return $this->getSellerBudgetAsyncWithHttpInfo($budget_id, $contentType)
+        return $this->getMarketplaceSellerBudgetAsyncWithHttpInfo($budget_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6129,20 +5864,20 @@ class CampaignApi
     }
 
     /**
-     * Operation getSellerBudgetAsyncWithHttpInfo
+     * Operation getMarketplaceSellerBudgetAsyncWithHttpInfo
      *
      * 
      *
      * @param  int $budget_id Id of the budget. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerBudget'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerBudget'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSellerBudgetAsyncWithHttpInfo($budget_id, string $contentType = self::contentTypes['getSellerBudget'][0])
+    public function getMarketplaceSellerBudgetAsyncWithHttpInfo($budget_id, string $contentType = self::contentTypes['getMarketplaceSellerBudget'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage';
-        $request = $this->getSellerBudgetRequest($budget_id, $contentType);
+        $request = $this->getMarketplaceSellerBudgetRequest($budget_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6181,21 +5916,21 @@ class CampaignApi
     }
 
     /**
-     * Create request for operation 'getSellerBudget'
+     * Create request for operation 'getMarketplaceSellerBudget'
      *
      * @param  int $budget_id Id of the budget. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerBudget'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerBudget'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSellerBudgetRequest($budget_id, string $contentType = self::contentTypes['getSellerBudget'][0])
+    public function getMarketplaceSellerBudgetRequest($budget_id, string $contentType = self::contentTypes['getMarketplaceSellerBudget'][0])
     {
 
         // verify the required parameter 'budget_id' is set
         if ($budget_id === null || (is_array($budget_id) && count($budget_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $budget_id when calling getSellerBudget'
+                'Missing the required parameter $budget_id when calling getMarketplaceSellerBudget'
             );
         }
 
@@ -6281,7 +6016,7 @@ class CampaignApi
     }
 
     /**
-     * Operation getSellerBudgets
+     * Operation getMarketplaceSellerBudgets
      *
      * 
      *
@@ -6294,20 +6029,20 @@ class CampaignApi
      * @param  string $type Return only budgets with the given budget type. (optional)
      * @param  bool $with_balance Return only budgets with the given status. (optional)
      * @param  bool $with_spend Return budgets with any positive spend. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerBudgets'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerBudgets'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]
      */
-    public function getSellerBudgets($advertiser_id = null, $campaign_id = null, $end_after_date = null, $seller_id = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getSellerBudgets'][0])
+    public function getMarketplaceSellerBudgets($advertiser_id = null, $campaign_id = null, $end_after_date = null, $seller_id = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getMarketplaceSellerBudgets'][0])
     {
-        list($response) = $this->getSellerBudgetsWithHttpInfo($advertiser_id, $campaign_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
+        list($response) = $this->getMarketplaceSellerBudgetsWithHttpInfo($advertiser_id, $campaign_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
         return $response;
     }
 
     /**
-     * Operation getSellerBudgetsWithHttpInfo
+     * Operation getMarketplaceSellerBudgetsWithHttpInfo
      *
      * 
      *
@@ -6320,15 +6055,15 @@ class CampaignApi
      * @param  string $type Return only budgets with the given budget type. (optional)
      * @param  bool $with_balance Return only budgets with the given status. (optional)
      * @param  bool $with_spend Return budgets with any positive spend. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerBudgets'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerBudgets'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSellerBudgetsWithHttpInfo($advertiser_id = null, $campaign_id = null, $end_after_date = null, $seller_id = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getSellerBudgets'][0])
+    public function getMarketplaceSellerBudgetsWithHttpInfo($advertiser_id = null, $campaign_id = null, $end_after_date = null, $seller_id = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getMarketplaceSellerBudgets'][0])
     {
-        $request = $this->getSellerBudgetsRequest($advertiser_id, $campaign_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
+        $request = $this->getMarketplaceSellerBudgetsRequest($advertiser_id, $campaign_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6415,7 +6150,7 @@ class CampaignApi
     }
 
     /**
-     * Operation getSellerBudgetsAsync
+     * Operation getMarketplaceSellerBudgetsAsync
      *
      * 
      *
@@ -6428,14 +6163,14 @@ class CampaignApi
      * @param  string $type Return only budgets with the given budget type. (optional)
      * @param  bool $with_balance Return only budgets with the given status. (optional)
      * @param  bool $with_spend Return budgets with any positive spend. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerBudgets'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerBudgets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSellerBudgetsAsync($advertiser_id = null, $campaign_id = null, $end_after_date = null, $seller_id = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getSellerBudgets'][0])
+    public function getMarketplaceSellerBudgetsAsync($advertiser_id = null, $campaign_id = null, $end_after_date = null, $seller_id = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getMarketplaceSellerBudgets'][0])
     {
-        return $this->getSellerBudgetsAsyncWithHttpInfo($advertiser_id, $campaign_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType)
+        return $this->getMarketplaceSellerBudgetsAsyncWithHttpInfo($advertiser_id, $campaign_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6444,7 +6179,7 @@ class CampaignApi
     }
 
     /**
-     * Operation getSellerBudgetsAsyncWithHttpInfo
+     * Operation getMarketplaceSellerBudgetsAsyncWithHttpInfo
      *
      * 
      *
@@ -6457,15 +6192,15 @@ class CampaignApi
      * @param  string $type Return only budgets with the given budget type. (optional)
      * @param  bool $with_balance Return only budgets with the given status. (optional)
      * @param  bool $with_spend Return budgets with any positive spend. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerBudgets'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerBudgets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSellerBudgetsAsyncWithHttpInfo($advertiser_id = null, $campaign_id = null, $end_after_date = null, $seller_id = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getSellerBudgets'][0])
+    public function getMarketplaceSellerBudgetsAsyncWithHttpInfo($advertiser_id = null, $campaign_id = null, $end_after_date = null, $seller_id = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getMarketplaceSellerBudgets'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]';
-        $request = $this->getSellerBudgetsRequest($advertiser_id, $campaign_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
+        $request = $this->getMarketplaceSellerBudgetsRequest($advertiser_id, $campaign_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6504,7 +6239,7 @@ class CampaignApi
     }
 
     /**
-     * Create request for operation 'getSellerBudgets'
+     * Create request for operation 'getMarketplaceSellerBudgets'
      *
      * @param  int $advertiser_id Return only budgets belonging to the specified advertiser (optional)
      * @param  int $campaign_id Return only budgets that pay for a given campaign. (optional)
@@ -6515,12 +6250,12 @@ class CampaignApi
      * @param  string $type Return only budgets with the given budget type. (optional)
      * @param  bool $with_balance Return only budgets with the given status. (optional)
      * @param  bool $with_spend Return budgets with any positive spend. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerBudgets'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerBudgets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSellerBudgetsRequest($advertiser_id = null, $campaign_id = null, $end_after_date = null, $seller_id = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getSellerBudgets'][0])
+    public function getMarketplaceSellerBudgetsRequest($advertiser_id = null, $campaign_id = null, $end_after_date = null, $seller_id = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getMarketplaceSellerBudgets'][0])
     {
 
 
@@ -6687,38 +6422,38 @@ class CampaignApi
     }
 
     /**
-     * Operation getSellerCampaign
+     * Operation getMarketplaceSellerCampaign
      *
      * 
      *
      * @param  string $seller_campaign_id Id of the seller campaign. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerCampaign'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaign'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage
      */
-    public function getSellerCampaign($seller_campaign_id, string $contentType = self::contentTypes['getSellerCampaign'][0])
+    public function getMarketplaceSellerCampaign($seller_campaign_id, string $contentType = self::contentTypes['getMarketplaceSellerCampaign'][0])
     {
-        list($response) = $this->getSellerCampaignWithHttpInfo($seller_campaign_id, $contentType);
+        list($response) = $this->getMarketplaceSellerCampaignWithHttpInfo($seller_campaign_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getSellerCampaignWithHttpInfo
+     * Operation getMarketplaceSellerCampaignWithHttpInfo
      *
      * 
      *
      * @param  string $seller_campaign_id Id of the seller campaign. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerCampaign'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaign'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSellerCampaignWithHttpInfo($seller_campaign_id, string $contentType = self::contentTypes['getSellerCampaign'][0])
+    public function getMarketplaceSellerCampaignWithHttpInfo($seller_campaign_id, string $contentType = self::contentTypes['getMarketplaceSellerCampaign'][0])
     {
-        $request = $this->getSellerCampaignRequest($seller_campaign_id, $contentType);
+        $request = $this->getMarketplaceSellerCampaignRequest($seller_campaign_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6805,19 +6540,19 @@ class CampaignApi
     }
 
     /**
-     * Operation getSellerCampaignAsync
+     * Operation getMarketplaceSellerCampaignAsync
      *
      * 
      *
      * @param  string $seller_campaign_id Id of the seller campaign. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerCampaign'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSellerCampaignAsync($seller_campaign_id, string $contentType = self::contentTypes['getSellerCampaign'][0])
+    public function getMarketplaceSellerCampaignAsync($seller_campaign_id, string $contentType = self::contentTypes['getMarketplaceSellerCampaign'][0])
     {
-        return $this->getSellerCampaignAsyncWithHttpInfo($seller_campaign_id, $contentType)
+        return $this->getMarketplaceSellerCampaignAsyncWithHttpInfo($seller_campaign_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6826,20 +6561,20 @@ class CampaignApi
     }
 
     /**
-     * Operation getSellerCampaignAsyncWithHttpInfo
+     * Operation getMarketplaceSellerCampaignAsyncWithHttpInfo
      *
      * 
      *
      * @param  string $seller_campaign_id Id of the seller campaign. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerCampaign'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSellerCampaignAsyncWithHttpInfo($seller_campaign_id, string $contentType = self::contentTypes['getSellerCampaign'][0])
+    public function getMarketplaceSellerCampaignAsyncWithHttpInfo($seller_campaign_id, string $contentType = self::contentTypes['getMarketplaceSellerCampaign'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage';
-        $request = $this->getSellerCampaignRequest($seller_campaign_id, $contentType);
+        $request = $this->getMarketplaceSellerCampaignRequest($seller_campaign_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6878,21 +6613,21 @@ class CampaignApi
     }
 
     /**
-     * Create request for operation 'getSellerCampaign'
+     * Create request for operation 'getMarketplaceSellerCampaign'
      *
      * @param  string $seller_campaign_id Id of the seller campaign. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerCampaign'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSellerCampaignRequest($seller_campaign_id, string $contentType = self::contentTypes['getSellerCampaign'][0])
+    public function getMarketplaceSellerCampaignRequest($seller_campaign_id, string $contentType = self::contentTypes['getMarketplaceSellerCampaign'][0])
     {
 
         // verify the required parameter 'seller_campaign_id' is set
         if ($seller_campaign_id === null || (is_array($seller_campaign_id) && count($seller_campaign_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $seller_campaign_id when calling getSellerCampaign'
+                'Missing the required parameter $seller_campaign_id when calling getMarketplaceSellerCampaign'
             );
         }
 
@@ -6978,7 +6713,7 @@ class CampaignApi
     }
 
     /**
-     * Operation getSellerCampaigns
+     * Operation getMarketplaceSellerCampaigns
      *
      * 
      *
@@ -6987,20 +6722,20 @@ class CampaignApi
      * @param  int $campaign_id Return only seller campaigns associated with the given campaign. (optional)
      * @param  string $seller_id Return only seller campaigns belonging to the given seller. (optional)
      * @param  string $seller_status Return only seller campaigns for sellers with the given status. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerCampaigns'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaigns'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[]
      */
-    public function getSellerCampaigns($advertiser_id = null, $budget_status = null, $campaign_id = null, $seller_id = null, $seller_status = null, string $contentType = self::contentTypes['getSellerCampaigns'][0])
+    public function getMarketplaceSellerCampaigns($advertiser_id = null, $budget_status = null, $campaign_id = null, $seller_id = null, $seller_status = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaigns'][0])
     {
-        list($response) = $this->getSellerCampaignsWithHttpInfo($advertiser_id, $budget_status, $campaign_id, $seller_id, $seller_status, $contentType);
+        list($response) = $this->getMarketplaceSellerCampaignsWithHttpInfo($advertiser_id, $budget_status, $campaign_id, $seller_id, $seller_status, $contentType);
         return $response;
     }
 
     /**
-     * Operation getSellerCampaignsWithHttpInfo
+     * Operation getMarketplaceSellerCampaignsWithHttpInfo
      *
      * 
      *
@@ -7009,15 +6744,15 @@ class CampaignApi
      * @param  int $campaign_id Return only seller campaigns associated with the given campaign. (optional)
      * @param  string $seller_id Return only seller campaigns belonging to the given seller. (optional)
      * @param  string $seller_status Return only seller campaigns for sellers with the given status. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerCampaigns'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaigns'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSellerCampaignsWithHttpInfo($advertiser_id = null, $budget_status = null, $campaign_id = null, $seller_id = null, $seller_status = null, string $contentType = self::contentTypes['getSellerCampaigns'][0])
+    public function getMarketplaceSellerCampaignsWithHttpInfo($advertiser_id = null, $budget_status = null, $campaign_id = null, $seller_id = null, $seller_status = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaigns'][0])
     {
-        $request = $this->getSellerCampaignsRequest($advertiser_id, $budget_status, $campaign_id, $seller_id, $seller_status, $contentType);
+        $request = $this->getMarketplaceSellerCampaignsRequest($advertiser_id, $budget_status, $campaign_id, $seller_id, $seller_status, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7104,7 +6839,7 @@ class CampaignApi
     }
 
     /**
-     * Operation getSellerCampaignsAsync
+     * Operation getMarketplaceSellerCampaignsAsync
      *
      * 
      *
@@ -7113,14 +6848,14 @@ class CampaignApi
      * @param  int $campaign_id Return only seller campaigns associated with the given campaign. (optional)
      * @param  string $seller_id Return only seller campaigns belonging to the given seller. (optional)
      * @param  string $seller_status Return only seller campaigns for sellers with the given status. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerCampaigns'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSellerCampaignsAsync($advertiser_id = null, $budget_status = null, $campaign_id = null, $seller_id = null, $seller_status = null, string $contentType = self::contentTypes['getSellerCampaigns'][0])
+    public function getMarketplaceSellerCampaignsAsync($advertiser_id = null, $budget_status = null, $campaign_id = null, $seller_id = null, $seller_status = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaigns'][0])
     {
-        return $this->getSellerCampaignsAsyncWithHttpInfo($advertiser_id, $budget_status, $campaign_id, $seller_id, $seller_status, $contentType)
+        return $this->getMarketplaceSellerCampaignsAsyncWithHttpInfo($advertiser_id, $budget_status, $campaign_id, $seller_id, $seller_status, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7129,7 +6864,7 @@ class CampaignApi
     }
 
     /**
-     * Operation getSellerCampaignsAsyncWithHttpInfo
+     * Operation getMarketplaceSellerCampaignsAsyncWithHttpInfo
      *
      * 
      *
@@ -7138,15 +6873,15 @@ class CampaignApi
      * @param  int $campaign_id Return only seller campaigns associated with the given campaign. (optional)
      * @param  string $seller_id Return only seller campaigns belonging to the given seller. (optional)
      * @param  string $seller_status Return only seller campaigns for sellers with the given status. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerCampaigns'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSellerCampaignsAsyncWithHttpInfo($advertiser_id = null, $budget_status = null, $campaign_id = null, $seller_id = null, $seller_status = null, string $contentType = self::contentTypes['getSellerCampaigns'][0])
+    public function getMarketplaceSellerCampaignsAsyncWithHttpInfo($advertiser_id = null, $budget_status = null, $campaign_id = null, $seller_id = null, $seller_status = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaigns'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[]';
-        $request = $this->getSellerCampaignsRequest($advertiser_id, $budget_status, $campaign_id, $seller_id, $seller_status, $contentType);
+        $request = $this->getMarketplaceSellerCampaignsRequest($advertiser_id, $budget_status, $campaign_id, $seller_id, $seller_status, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7185,19 +6920,19 @@ class CampaignApi
     }
 
     /**
-     * Create request for operation 'getSellerCampaigns'
+     * Create request for operation 'getMarketplaceSellerCampaigns'
      *
      * @param  int $advertiser_id Return only seller belonging to the specified advertiser (optional)
      * @param  string $budget_status Return only seller campaigns whose budget has the given status. (optional)
      * @param  int $campaign_id Return only seller campaigns associated with the given campaign. (optional)
      * @param  string $seller_id Return only seller campaigns belonging to the given seller. (optional)
      * @param  string $seller_status Return only seller campaigns for sellers with the given status. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerCampaigns'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSellerCampaignsRequest($advertiser_id = null, $budget_status = null, $campaign_id = null, $seller_id = null, $seller_status = null, string $contentType = self::contentTypes['getSellerCampaigns'][0])
+    public function getMarketplaceSellerCampaignsRequest($advertiser_id = null, $budget_status = null, $campaign_id = null, $seller_id = null, $seller_status = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaigns'][0])
     {
 
 
@@ -7324,37 +7059,37 @@ class CampaignApi
     }
 
     /**
-     * Operation getSellerCampaignsByAdvertiser
+     * Operation getMarketplaceSellerCampaignsByAdvertiser
      *
      * 
      *
      * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerCampaignsByAdvertiser'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsByAdvertiser'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getSellerCampaignsByAdvertiser($advertiser_id, string $contentType = self::contentTypes['getSellerCampaignsByAdvertiser'][0])
+    public function getMarketplaceSellerCampaignsByAdvertiser($advertiser_id, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsByAdvertiser'][0])
     {
-        $this->getSellerCampaignsByAdvertiserWithHttpInfo($advertiser_id, $contentType);
+        $this->getMarketplaceSellerCampaignsByAdvertiserWithHttpInfo($advertiser_id, $contentType);
     }
 
     /**
-     * Operation getSellerCampaignsByAdvertiserWithHttpInfo
+     * Operation getMarketplaceSellerCampaignsByAdvertiserWithHttpInfo
      *
      * 
      *
      * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerCampaignsByAdvertiser'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsByAdvertiser'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSellerCampaignsByAdvertiserWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getSellerCampaignsByAdvertiser'][0])
+    public function getMarketplaceSellerCampaignsByAdvertiserWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsByAdvertiser'][0])
     {
-        $request = $this->getSellerCampaignsByAdvertiserRequest($advertiser_id, $contentType);
+        $request = $this->getMarketplaceSellerCampaignsByAdvertiserRequest($advertiser_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7401,19 +7136,19 @@ class CampaignApi
     }
 
     /**
-     * Operation getSellerCampaignsByAdvertiserAsync
+     * Operation getMarketplaceSellerCampaignsByAdvertiserAsync
      *
      * 
      *
      * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerCampaignsByAdvertiser'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsByAdvertiser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSellerCampaignsByAdvertiserAsync($advertiser_id, string $contentType = self::contentTypes['getSellerCampaignsByAdvertiser'][0])
+    public function getMarketplaceSellerCampaignsByAdvertiserAsync($advertiser_id, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsByAdvertiser'][0])
     {
-        return $this->getSellerCampaignsByAdvertiserAsyncWithHttpInfo($advertiser_id, $contentType)
+        return $this->getMarketplaceSellerCampaignsByAdvertiserAsyncWithHttpInfo($advertiser_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7422,20 +7157,20 @@ class CampaignApi
     }
 
     /**
-     * Operation getSellerCampaignsByAdvertiserAsyncWithHttpInfo
+     * Operation getMarketplaceSellerCampaignsByAdvertiserAsyncWithHttpInfo
      *
      * 
      *
      * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerCampaignsByAdvertiser'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsByAdvertiser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSellerCampaignsByAdvertiserAsyncWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getSellerCampaignsByAdvertiser'][0])
+    public function getMarketplaceSellerCampaignsByAdvertiserAsyncWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsByAdvertiser'][0])
     {
         $returnType = '';
-        $request = $this->getSellerCampaignsByAdvertiserRequest($advertiser_id, $contentType);
+        $request = $this->getMarketplaceSellerCampaignsByAdvertiserRequest($advertiser_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7461,21 +7196,21 @@ class CampaignApi
     }
 
     /**
-     * Create request for operation 'getSellerCampaignsByAdvertiser'
+     * Create request for operation 'getMarketplaceSellerCampaignsByAdvertiser'
      *
      * @param  int $advertiser_id Id of the advertiser (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerCampaignsByAdvertiser'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsByAdvertiser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSellerCampaignsByAdvertiserRequest($advertiser_id, string $contentType = self::contentTypes['getSellerCampaignsByAdvertiser'][0])
+    public function getMarketplaceSellerCampaignsByAdvertiserRequest($advertiser_id, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsByAdvertiser'][0])
     {
 
         // verify the required parameter 'advertiser_id' is set
         if ($advertiser_id === null || (is_array($advertiser_id) && count($advertiser_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $advertiser_id when calling getSellerCampaignsByAdvertiser'
+                'Missing the required parameter $advertiser_id when calling getMarketplaceSellerCampaignsByAdvertiser'
             );
         }
 
@@ -7561,7 +7296,7 @@ class CampaignApi
     }
 
     /**
-     * Operation getSellerCampaignsBySeller
+     * Operation getMarketplaceSellerCampaignsBySeller
      *
      * 
      *
@@ -7569,20 +7304,20 @@ class CampaignApi
      * @param  string $budget_status Return only seller campaigns whose budget has the given status. (optional)
      * @param  int $campaign_id Return only seller campaigns associated with the given campaign. (optional)
      * @param  string $seller_status Return only seller campaigns for sellers with the given status. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerCampaignsBySeller'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsBySeller'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[]
      */
-    public function getSellerCampaignsBySeller($seller_id, $budget_status = null, $campaign_id = null, $seller_status = null, string $contentType = self::contentTypes['getSellerCampaignsBySeller'][0])
+    public function getMarketplaceSellerCampaignsBySeller($seller_id, $budget_status = null, $campaign_id = null, $seller_status = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsBySeller'][0])
     {
-        list($response) = $this->getSellerCampaignsBySellerWithHttpInfo($seller_id, $budget_status, $campaign_id, $seller_status, $contentType);
+        list($response) = $this->getMarketplaceSellerCampaignsBySellerWithHttpInfo($seller_id, $budget_status, $campaign_id, $seller_status, $contentType);
         return $response;
     }
 
     /**
-     * Operation getSellerCampaignsBySellerWithHttpInfo
+     * Operation getMarketplaceSellerCampaignsBySellerWithHttpInfo
      *
      * 
      *
@@ -7590,15 +7325,15 @@ class CampaignApi
      * @param  string $budget_status Return only seller campaigns whose budget has the given status. (optional)
      * @param  int $campaign_id Return only seller campaigns associated with the given campaign. (optional)
      * @param  string $seller_status Return only seller campaigns for sellers with the given status. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerCampaignsBySeller'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsBySeller'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSellerCampaignsBySellerWithHttpInfo($seller_id, $budget_status = null, $campaign_id = null, $seller_status = null, string $contentType = self::contentTypes['getSellerCampaignsBySeller'][0])
+    public function getMarketplaceSellerCampaignsBySellerWithHttpInfo($seller_id, $budget_status = null, $campaign_id = null, $seller_status = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsBySeller'][0])
     {
-        $request = $this->getSellerCampaignsBySellerRequest($seller_id, $budget_status, $campaign_id, $seller_status, $contentType);
+        $request = $this->getMarketplaceSellerCampaignsBySellerRequest($seller_id, $budget_status, $campaign_id, $seller_status, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7685,7 +7420,7 @@ class CampaignApi
     }
 
     /**
-     * Operation getSellerCampaignsBySellerAsync
+     * Operation getMarketplaceSellerCampaignsBySellerAsync
      *
      * 
      *
@@ -7693,14 +7428,14 @@ class CampaignApi
      * @param  string $budget_status Return only seller campaigns whose budget has the given status. (optional)
      * @param  int $campaign_id Return only seller campaigns associated with the given campaign. (optional)
      * @param  string $seller_status Return only seller campaigns for sellers with the given status. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerCampaignsBySeller'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsBySeller'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSellerCampaignsBySellerAsync($seller_id, $budget_status = null, $campaign_id = null, $seller_status = null, string $contentType = self::contentTypes['getSellerCampaignsBySeller'][0])
+    public function getMarketplaceSellerCampaignsBySellerAsync($seller_id, $budget_status = null, $campaign_id = null, $seller_status = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsBySeller'][0])
     {
-        return $this->getSellerCampaignsBySellerAsyncWithHttpInfo($seller_id, $budget_status, $campaign_id, $seller_status, $contentType)
+        return $this->getMarketplaceSellerCampaignsBySellerAsyncWithHttpInfo($seller_id, $budget_status, $campaign_id, $seller_status, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7709,7 +7444,7 @@ class CampaignApi
     }
 
     /**
-     * Operation getSellerCampaignsBySellerAsyncWithHttpInfo
+     * Operation getMarketplaceSellerCampaignsBySellerAsyncWithHttpInfo
      *
      * 
      *
@@ -7717,15 +7452,15 @@ class CampaignApi
      * @param  string $budget_status Return only seller campaigns whose budget has the given status. (optional)
      * @param  int $campaign_id Return only seller campaigns associated with the given campaign. (optional)
      * @param  string $seller_status Return only seller campaigns for sellers with the given status. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerCampaignsBySeller'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsBySeller'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSellerCampaignsBySellerAsyncWithHttpInfo($seller_id, $budget_status = null, $campaign_id = null, $seller_status = null, string $contentType = self::contentTypes['getSellerCampaignsBySeller'][0])
+    public function getMarketplaceSellerCampaignsBySellerAsyncWithHttpInfo($seller_id, $budget_status = null, $campaign_id = null, $seller_status = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsBySeller'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[]';
-        $request = $this->getSellerCampaignsBySellerRequest($seller_id, $budget_status, $campaign_id, $seller_status, $contentType);
+        $request = $this->getMarketplaceSellerCampaignsBySellerRequest($seller_id, $budget_status, $campaign_id, $seller_status, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7764,24 +7499,24 @@ class CampaignApi
     }
 
     /**
-     * Create request for operation 'getSellerCampaignsBySeller'
+     * Create request for operation 'getMarketplaceSellerCampaignsBySeller'
      *
      * @param  string $seller_id Return only seller campaigns belonging to the given seller. (required)
      * @param  string $budget_status Return only seller campaigns whose budget has the given status. (optional)
      * @param  int $campaign_id Return only seller campaigns associated with the given campaign. (optional)
      * @param  string $seller_status Return only seller campaigns for sellers with the given status. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellerCampaignsBySeller'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsBySeller'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSellerCampaignsBySellerRequest($seller_id, $budget_status = null, $campaign_id = null, $seller_status = null, string $contentType = self::contentTypes['getSellerCampaignsBySeller'][0])
+    public function getMarketplaceSellerCampaignsBySellerRequest($seller_id, $budget_status = null, $campaign_id = null, $seller_status = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsBySeller'][0])
     {
 
         // verify the required parameter 'seller_id' is set
         if ($seller_id === null || (is_array($seller_id) && count($seller_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $seller_id when calling getSellerCampaignsBySeller'
+                'Missing the required parameter $seller_id when calling getMarketplaceSellerCampaignsBySeller'
             );
         }
 
@@ -7897,7 +7632,398 @@ class CampaignApi
     }
 
     /**
-     * Operation getSellers
+     * Operation getMarketplaceSellerCampaignsStats
+     *
+     * 
+     *
+     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
+     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
+     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
+     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
+     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
+     * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
+     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsStats'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return string
+     */
+    public function getMarketplaceSellerCampaignsStats($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsStats'][0])
+    {
+        list($response) = $this->getMarketplaceSellerCampaignsStatsWithHttpInfo($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getMarketplaceSellerCampaignsStatsWithHttpInfo
+     *
+     * 
+     *
+     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
+     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
+     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
+     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
+     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
+     * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
+     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsStats'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMarketplaceSellerCampaignsStatsWithHttpInfo($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsStats'][0])
+    {
+        $request = $this->getMarketplaceSellerCampaignsStatsRequest($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('string' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('string' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'string', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'string';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMarketplaceSellerCampaignsStatsAsync
+     *
+     * 
+     *
+     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
+     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
+     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
+     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
+     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
+     * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
+     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsStats'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketplaceSellerCampaignsStatsAsync($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsStats'][0])
+    {
+        return $this->getMarketplaceSellerCampaignsStatsAsyncWithHttpInfo($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getMarketplaceSellerCampaignsStatsAsyncWithHttpInfo
+     *
+     * 
+     *
+     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
+     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
+     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
+     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
+     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
+     * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
+     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsStats'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketplaceSellerCampaignsStatsAsyncWithHttpInfo($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsStats'][0])
+    {
+        $returnType = 'string';
+        $request = $this->getMarketplaceSellerCampaignsStatsRequest($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getMarketplaceSellerCampaignsStats'
+     *
+     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
+     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
+     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
+     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
+     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
+     * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
+     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsStats'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getMarketplaceSellerCampaignsStatsRequest($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsStats'][0])
+    {
+
+
+
+
+
+
+
+
+
+
+        $resourcePath = '/2025-07/marketing-solutions/marketplace-performance-outcomes/stats/seller-campaigns';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $advertiser_id,
+            'advertiserId', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $campaign_id,
+            'campaignId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $click_attribution_policy,
+            'clickAttributionPolicy', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $count,
+            'count', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $end_date,
+            'endDate', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $interval_size,
+            'intervalSize', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $seller_id,
+            'sellerId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $start_date,
+            'startDate', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getMarketplaceSellers
      *
      * 
      *
@@ -7907,20 +8033,20 @@ class CampaignApi
      * @param  string $seller_status Return only sellers with specific status. (optional)
      * @param  string $with_budget_status Return only sellers with specific budget status. (optional)
      * @param  bool $with_products Return only sellers with or without products in catalog. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellers'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellers'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]
      */
-    public function getSellers($advertiser_id = null, $campaign_id = null, $seller_name = null, $seller_status = null, $with_budget_status = null, $with_products = null, string $contentType = self::contentTypes['getSellers'][0])
+    public function getMarketplaceSellers($advertiser_id = null, $campaign_id = null, $seller_name = null, $seller_status = null, $with_budget_status = null, $with_products = null, string $contentType = self::contentTypes['getMarketplaceSellers'][0])
     {
-        list($response) = $this->getSellersWithHttpInfo($advertiser_id, $campaign_id, $seller_name, $seller_status, $with_budget_status, $with_products, $contentType);
+        list($response) = $this->getMarketplaceSellersWithHttpInfo($advertiser_id, $campaign_id, $seller_name, $seller_status, $with_budget_status, $with_products, $contentType);
         return $response;
     }
 
     /**
-     * Operation getSellersWithHttpInfo
+     * Operation getMarketplaceSellersWithHttpInfo
      *
      * 
      *
@@ -7930,15 +8056,15 @@ class CampaignApi
      * @param  string $seller_status Return only sellers with specific status. (optional)
      * @param  string $with_budget_status Return only sellers with specific budget status. (optional)
      * @param  bool $with_products Return only sellers with or without products in catalog. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellers'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellers'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSellersWithHttpInfo($advertiser_id = null, $campaign_id = null, $seller_name = null, $seller_status = null, $with_budget_status = null, $with_products = null, string $contentType = self::contentTypes['getSellers'][0])
+    public function getMarketplaceSellersWithHttpInfo($advertiser_id = null, $campaign_id = null, $seller_name = null, $seller_status = null, $with_budget_status = null, $with_products = null, string $contentType = self::contentTypes['getMarketplaceSellers'][0])
     {
-        $request = $this->getSellersRequest($advertiser_id, $campaign_id, $seller_name, $seller_status, $with_budget_status, $with_products, $contentType);
+        $request = $this->getMarketplaceSellersRequest($advertiser_id, $campaign_id, $seller_name, $seller_status, $with_budget_status, $with_products, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8025,7 +8151,7 @@ class CampaignApi
     }
 
     /**
-     * Operation getSellersAsync
+     * Operation getMarketplaceSellersAsync
      *
      * 
      *
@@ -8035,14 +8161,14 @@ class CampaignApi
      * @param  string $seller_status Return only sellers with specific status. (optional)
      * @param  string $with_budget_status Return only sellers with specific budget status. (optional)
      * @param  bool $with_products Return only sellers with or without products in catalog. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellers'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSellersAsync($advertiser_id = null, $campaign_id = null, $seller_name = null, $seller_status = null, $with_budget_status = null, $with_products = null, string $contentType = self::contentTypes['getSellers'][0])
+    public function getMarketplaceSellersAsync($advertiser_id = null, $campaign_id = null, $seller_name = null, $seller_status = null, $with_budget_status = null, $with_products = null, string $contentType = self::contentTypes['getMarketplaceSellers'][0])
     {
-        return $this->getSellersAsyncWithHttpInfo($advertiser_id, $campaign_id, $seller_name, $seller_status, $with_budget_status, $with_products, $contentType)
+        return $this->getMarketplaceSellersAsyncWithHttpInfo($advertiser_id, $campaign_id, $seller_name, $seller_status, $with_budget_status, $with_products, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8051,7 +8177,7 @@ class CampaignApi
     }
 
     /**
-     * Operation getSellersAsyncWithHttpInfo
+     * Operation getMarketplaceSellersAsyncWithHttpInfo
      *
      * 
      *
@@ -8061,15 +8187,15 @@ class CampaignApi
      * @param  string $seller_status Return only sellers with specific status. (optional)
      * @param  string $with_budget_status Return only sellers with specific budget status. (optional)
      * @param  bool $with_products Return only sellers with or without products in catalog. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellers'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSellersAsyncWithHttpInfo($advertiser_id = null, $campaign_id = null, $seller_name = null, $seller_status = null, $with_budget_status = null, $with_products = null, string $contentType = self::contentTypes['getSellers'][0])
+    public function getMarketplaceSellersAsyncWithHttpInfo($advertiser_id = null, $campaign_id = null, $seller_name = null, $seller_status = null, $with_budget_status = null, $with_products = null, string $contentType = self::contentTypes['getMarketplaceSellers'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]';
-        $request = $this->getSellersRequest($advertiser_id, $campaign_id, $seller_name, $seller_status, $with_budget_status, $with_products, $contentType);
+        $request = $this->getMarketplaceSellersRequest($advertiser_id, $campaign_id, $seller_name, $seller_status, $with_budget_status, $with_products, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8108,7 +8234,7 @@ class CampaignApi
     }
 
     /**
-     * Create request for operation 'getSellers'
+     * Create request for operation 'getMarketplaceSellers'
      *
      * @param  int $advertiser_id Return only sellers belonging to the specified advertiser (optional)
      * @param  int $campaign_id Return only sellers belonging to the specified campaign (optional)
@@ -8116,12 +8242,12 @@ class CampaignApi
      * @param  string $seller_status Return only sellers with specific status. (optional)
      * @param  string $with_budget_status Return only sellers with specific budget status. (optional)
      * @param  bool $with_products Return only sellers with or without products in catalog. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSellers'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSellersRequest($advertiser_id = null, $campaign_id = null, $seller_name = null, $seller_status = null, $with_budget_status = null, $with_products = null, string $contentType = self::contentTypes['getSellers'][0])
+    public function getMarketplaceSellersRequest($advertiser_id = null, $campaign_id = null, $seller_name = null, $seller_status = null, $with_budget_status = null, $with_products = null, string $contentType = self::contentTypes['getMarketplaceSellers'][0])
     {
 
 
@@ -8188,6 +8314,647 @@ class CampaignApi
             $with_products,
             'withProducts', // param base name
             'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getMarketplaceSellersByAdvertiser
+     *
+     * 
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  int $partner_id Id of the partner (optional)
+     * @param  string[] $request_body Names of the sellers to associate with new Ids (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellersByAdvertiser'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function getMarketplaceSellersByAdvertiser($advertiser_id, $partner_id = null, $request_body = null, string $contentType = self::contentTypes['getMarketplaceSellersByAdvertiser'][0])
+    {
+        $this->getMarketplaceSellersByAdvertiserWithHttpInfo($advertiser_id, $partner_id, $request_body, $contentType);
+    }
+
+    /**
+     * Operation getMarketplaceSellersByAdvertiserWithHttpInfo
+     *
+     * 
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  int $partner_id Id of the partner (optional)
+     * @param  string[] $request_body Names of the sellers to associate with new Ids (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellersByAdvertiser'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMarketplaceSellersByAdvertiserWithHttpInfo($advertiser_id, $partner_id = null, $request_body = null, string $contentType = self::contentTypes['getMarketplaceSellersByAdvertiser'][0])
+    {
+        $request = $this->getMarketplaceSellersByAdvertiserRequest($advertiser_id, $partner_id, $request_body, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMarketplaceSellersByAdvertiserAsync
+     *
+     * 
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  int $partner_id Id of the partner (optional)
+     * @param  string[] $request_body Names of the sellers to associate with new Ids (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellersByAdvertiser'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketplaceSellersByAdvertiserAsync($advertiser_id, $partner_id = null, $request_body = null, string $contentType = self::contentTypes['getMarketplaceSellersByAdvertiser'][0])
+    {
+        return $this->getMarketplaceSellersByAdvertiserAsyncWithHttpInfo($advertiser_id, $partner_id, $request_body, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getMarketplaceSellersByAdvertiserAsyncWithHttpInfo
+     *
+     * 
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  int $partner_id Id of the partner (optional)
+     * @param  string[] $request_body Names of the sellers to associate with new Ids (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellersByAdvertiser'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketplaceSellersByAdvertiserAsyncWithHttpInfo($advertiser_id, $partner_id = null, $request_body = null, string $contentType = self::contentTypes['getMarketplaceSellersByAdvertiser'][0])
+    {
+        $returnType = '';
+        $request = $this->getMarketplaceSellersByAdvertiserRequest($advertiser_id, $partner_id, $request_body, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getMarketplaceSellersByAdvertiser'
+     *
+     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  int $partner_id Id of the partner (optional)
+     * @param  string[] $request_body Names of the sellers to associate with new Ids (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellersByAdvertiser'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getMarketplaceSellersByAdvertiserRequest($advertiser_id, $partner_id = null, $request_body = null, string $contentType = self::contentTypes['getMarketplaceSellersByAdvertiser'][0])
+    {
+
+        // verify the required parameter 'advertiser_id' is set
+        if ($advertiser_id === null || (is_array($advertiser_id) && count($advertiser_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $advertiser_id when calling getMarketplaceSellersByAdvertiser'
+            );
+        }
+
+
+
+
+        $resourcePath = '/2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/sellers';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $partner_id,
+            'partnerId', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($advertiser_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'advertiserId' . '}',
+                ObjectSerializer::toPathValue($advertiser_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            [],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($request_body)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($request_body));
+            } else {
+                $httpBody = $request_body;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getMarketplaceSellersStats
+     *
+     * 
+     *
+     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
+     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
+     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
+     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
+     * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
+     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellersStats'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return string
+     */
+    public function getMarketplaceSellersStats($advertiser_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['getMarketplaceSellersStats'][0])
+    {
+        list($response) = $this->getMarketplaceSellersStatsWithHttpInfo($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getMarketplaceSellersStatsWithHttpInfo
+     *
+     * 
+     *
+     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
+     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
+     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
+     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
+     * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
+     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellersStats'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMarketplaceSellersStatsWithHttpInfo($advertiser_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['getMarketplaceSellersStats'][0])
+    {
+        $request = $this->getMarketplaceSellersStatsRequest($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('string' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('string' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'string', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'string';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMarketplaceSellersStatsAsync
+     *
+     * 
+     *
+     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
+     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
+     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
+     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
+     * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
+     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellersStats'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketplaceSellersStatsAsync($advertiser_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['getMarketplaceSellersStats'][0])
+    {
+        return $this->getMarketplaceSellersStatsAsyncWithHttpInfo($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getMarketplaceSellersStatsAsyncWithHttpInfo
+     *
+     * 
+     *
+     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
+     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
+     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
+     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
+     * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
+     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellersStats'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketplaceSellersStatsAsyncWithHttpInfo($advertiser_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['getMarketplaceSellersStats'][0])
+    {
+        $returnType = 'string';
+        $request = $this->getMarketplaceSellersStatsRequest($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getMarketplaceSellersStats'
+     *
+     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
+     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
+     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
+     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
+     * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
+     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellersStats'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getMarketplaceSellersStatsRequest($advertiser_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['getMarketplaceSellersStats'][0])
+    {
+
+
+
+
+
+
+
+
+
+        $resourcePath = '/2025-07/marketing-solutions/marketplace-performance-outcomes/stats/sellers';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $advertiser_id,
+            'advertiserId', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $click_attribution_policy,
+            'clickAttributionPolicy', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $count,
+            'count', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $end_date,
+            'endDate', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $interval_size,
+            'intervalSize', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $seller_id,
+            'sellerId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $start_date,
+            'startDate', // param base name
+            'string', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -9954,773 +10721,6 @@ class CampaignApi
     }
 
     /**
-     * Operation sellerCampaigns
-     *
-     * 
-     *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
-     * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
-     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
-     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
-     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
-     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
-     * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
-     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sellerCampaigns'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return string
-     */
-    public function sellerCampaigns($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['sellerCampaigns'][0])
-    {
-        list($response) = $this->sellerCampaignsWithHttpInfo($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation sellerCampaignsWithHttpInfo
-     *
-     * 
-     *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
-     * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
-     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
-     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
-     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
-     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
-     * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
-     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sellerCampaigns'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function sellerCampaignsWithHttpInfo($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['sellerCampaigns'][0])
-    {
-        $request = $this->sellerCampaignsRequest($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('string' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('string' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, 'string', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'string';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'string',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation sellerCampaignsAsync
-     *
-     * 
-     *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
-     * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
-     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
-     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
-     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
-     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
-     * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
-     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sellerCampaigns'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function sellerCampaignsAsync($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['sellerCampaigns'][0])
-    {
-        return $this->sellerCampaignsAsyncWithHttpInfo($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation sellerCampaignsAsyncWithHttpInfo
-     *
-     * 
-     *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
-     * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
-     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
-     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
-     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
-     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
-     * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
-     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sellerCampaigns'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function sellerCampaignsAsyncWithHttpInfo($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['sellerCampaigns'][0])
-    {
-        $returnType = 'string';
-        $request = $this->sellerCampaignsRequest($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'sellerCampaigns'
-     *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
-     * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
-     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
-     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
-     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
-     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
-     * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
-     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sellerCampaigns'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function sellerCampaignsRequest($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['sellerCampaigns'][0])
-    {
-
-
-
-
-
-
-
-
-
-
-        $resourcePath = '/2025-07/marketing-solutions/marketplace-performance-outcomes/stats/seller-campaigns';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $advertiser_id,
-            'advertiserId', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $campaign_id,
-            'campaignId', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $click_attribution_policy,
-            'clickAttributionPolicy', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $count,
-            'count', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $end_date,
-            'endDate', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $interval_size,
-            'intervalSize', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $seller_id,
-            'sellerId', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $start_date,
-            'startDate', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation sellers
-     *
-     * 
-     *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
-     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
-     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
-     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
-     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
-     * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
-     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sellers'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return string
-     */
-    public function sellers($advertiser_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['sellers'][0])
-    {
-        list($response) = $this->sellersWithHttpInfo($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation sellersWithHttpInfo
-     *
-     * 
-     *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
-     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
-     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
-     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
-     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
-     * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
-     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sellers'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function sellersWithHttpInfo($advertiser_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['sellers'][0])
-    {
-        $request = $this->sellersRequest($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('string' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('string' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, 'string', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'string';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'string',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation sellersAsync
-     *
-     * 
-     *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
-     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
-     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
-     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
-     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
-     * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
-     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sellers'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function sellersAsync($advertiser_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['sellers'][0])
-    {
-        return $this->sellersAsyncWithHttpInfo($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation sellersAsyncWithHttpInfo
-     *
-     * 
-     *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
-     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
-     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
-     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
-     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
-     * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
-     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sellers'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function sellersAsyncWithHttpInfo($advertiser_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['sellers'][0])
-    {
-        $returnType = 'string';
-        $request = $this->sellersRequest($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'sellers'
-     *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
-     * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
-     * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
-     * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
-     * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
-     * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
-     * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sellers'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function sellersRequest($advertiser_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['sellers'][0])
-    {
-
-
-
-
-
-
-
-
-
-        $resourcePath = '/2025-07/marketing-solutions/marketplace-performance-outcomes/stats/sellers';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $advertiser_id,
-            'advertiserId', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $click_attribution_policy,
-            'clickAttributionPolicy', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $count,
-            'count', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $end_date,
-            'endDate', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $interval_size,
-            'intervalSize', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $seller_id,
-            'sellerId', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $start_date,
-            'startDate', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation startAdSets
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\RequestsAdSetId $requests_ad_set_id All the ad sets to start (optional)
@@ -11575,39 +11575,39 @@ class CampaignApi
     }
 
     /**
-     * Operation updateSellerBudget
+     * Operation updateMarketplaceSellerBudget
      *
      * 
      *
      * @param  int $budget_id Id of the budget (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessageBase $update_seller_budget_message_base  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSellerBudget'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudget'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateSellerBudget($budget_id, $update_seller_budget_message_base = null, string $contentType = self::contentTypes['updateSellerBudget'][0])
+    public function updateMarketplaceSellerBudget($budget_id, $update_seller_budget_message_base = null, string $contentType = self::contentTypes['updateMarketplaceSellerBudget'][0])
     {
-        $this->updateSellerBudgetWithHttpInfo($budget_id, $update_seller_budget_message_base, $contentType);
+        $this->updateMarketplaceSellerBudgetWithHttpInfo($budget_id, $update_seller_budget_message_base, $contentType);
     }
 
     /**
-     * Operation updateSellerBudgetWithHttpInfo
+     * Operation updateMarketplaceSellerBudgetWithHttpInfo
      *
      * 
      *
      * @param  int $budget_id Id of the budget (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessageBase $update_seller_budget_message_base  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSellerBudget'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudget'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateSellerBudgetWithHttpInfo($budget_id, $update_seller_budget_message_base = null, string $contentType = self::contentTypes['updateSellerBudget'][0])
+    public function updateMarketplaceSellerBudgetWithHttpInfo($budget_id, $update_seller_budget_message_base = null, string $contentType = self::contentTypes['updateMarketplaceSellerBudget'][0])
     {
-        $request = $this->updateSellerBudgetRequest($budget_id, $update_seller_budget_message_base, $contentType);
+        $request = $this->updateMarketplaceSellerBudgetRequest($budget_id, $update_seller_budget_message_base, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11654,20 +11654,20 @@ class CampaignApi
     }
 
     /**
-     * Operation updateSellerBudgetAsync
+     * Operation updateMarketplaceSellerBudgetAsync
      *
      * 
      *
      * @param  int $budget_id Id of the budget (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessageBase $update_seller_budget_message_base  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSellerBudget'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudget'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSellerBudgetAsync($budget_id, $update_seller_budget_message_base = null, string $contentType = self::contentTypes['updateSellerBudget'][0])
+    public function updateMarketplaceSellerBudgetAsync($budget_id, $update_seller_budget_message_base = null, string $contentType = self::contentTypes['updateMarketplaceSellerBudget'][0])
     {
-        return $this->updateSellerBudgetAsyncWithHttpInfo($budget_id, $update_seller_budget_message_base, $contentType)
+        return $this->updateMarketplaceSellerBudgetAsyncWithHttpInfo($budget_id, $update_seller_budget_message_base, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11676,21 +11676,21 @@ class CampaignApi
     }
 
     /**
-     * Operation updateSellerBudgetAsyncWithHttpInfo
+     * Operation updateMarketplaceSellerBudgetAsyncWithHttpInfo
      *
      * 
      *
      * @param  int $budget_id Id of the budget (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessageBase $update_seller_budget_message_base  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSellerBudget'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudget'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSellerBudgetAsyncWithHttpInfo($budget_id, $update_seller_budget_message_base = null, string $contentType = self::contentTypes['updateSellerBudget'][0])
+    public function updateMarketplaceSellerBudgetAsyncWithHttpInfo($budget_id, $update_seller_budget_message_base = null, string $contentType = self::contentTypes['updateMarketplaceSellerBudget'][0])
     {
         $returnType = '';
-        $request = $this->updateSellerBudgetRequest($budget_id, $update_seller_budget_message_base, $contentType);
+        $request = $this->updateMarketplaceSellerBudgetRequest($budget_id, $update_seller_budget_message_base, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11716,22 +11716,22 @@ class CampaignApi
     }
 
     /**
-     * Create request for operation 'updateSellerBudget'
+     * Create request for operation 'updateMarketplaceSellerBudget'
      *
      * @param  int $budget_id Id of the budget (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessageBase $update_seller_budget_message_base  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSellerBudget'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudget'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateSellerBudgetRequest($budget_id, $update_seller_budget_message_base = null, string $contentType = self::contentTypes['updateSellerBudget'][0])
+    public function updateMarketplaceSellerBudgetRequest($budget_id, $update_seller_budget_message_base = null, string $contentType = self::contentTypes['updateMarketplaceSellerBudget'][0])
     {
 
         // verify the required parameter 'budget_id' is set
         if ($budget_id === null || (is_array($budget_id) && count($budget_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $budget_id when calling updateSellerBudget'
+                'Missing the required parameter $budget_id when calling updateMarketplaceSellerBudget'
             );
         }
 
@@ -11825,37 +11825,37 @@ class CampaignApi
     }
 
     /**
-     * Operation updateSellerBudgets
+     * Operation updateMarketplaceSellerBudgets
      *
      * 
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessage[] $update_seller_budget_message  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSellerBudgets'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudgets'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateSellerBudgets($update_seller_budget_message = null, string $contentType = self::contentTypes['updateSellerBudgets'][0])
+    public function updateMarketplaceSellerBudgets($update_seller_budget_message = null, string $contentType = self::contentTypes['updateMarketplaceSellerBudgets'][0])
     {
-        $this->updateSellerBudgetsWithHttpInfo($update_seller_budget_message, $contentType);
+        $this->updateMarketplaceSellerBudgetsWithHttpInfo($update_seller_budget_message, $contentType);
     }
 
     /**
-     * Operation updateSellerBudgetsWithHttpInfo
+     * Operation updateMarketplaceSellerBudgetsWithHttpInfo
      *
      * 
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessage[] $update_seller_budget_message  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSellerBudgets'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudgets'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateSellerBudgetsWithHttpInfo($update_seller_budget_message = null, string $contentType = self::contentTypes['updateSellerBudgets'][0])
+    public function updateMarketplaceSellerBudgetsWithHttpInfo($update_seller_budget_message = null, string $contentType = self::contentTypes['updateMarketplaceSellerBudgets'][0])
     {
-        $request = $this->updateSellerBudgetsRequest($update_seller_budget_message, $contentType);
+        $request = $this->updateMarketplaceSellerBudgetsRequest($update_seller_budget_message, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11902,19 +11902,19 @@ class CampaignApi
     }
 
     /**
-     * Operation updateSellerBudgetsAsync
+     * Operation updateMarketplaceSellerBudgetsAsync
      *
      * 
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessage[] $update_seller_budget_message  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSellerBudgets'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudgets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSellerBudgetsAsync($update_seller_budget_message = null, string $contentType = self::contentTypes['updateSellerBudgets'][0])
+    public function updateMarketplaceSellerBudgetsAsync($update_seller_budget_message = null, string $contentType = self::contentTypes['updateMarketplaceSellerBudgets'][0])
     {
-        return $this->updateSellerBudgetsAsyncWithHttpInfo($update_seller_budget_message, $contentType)
+        return $this->updateMarketplaceSellerBudgetsAsyncWithHttpInfo($update_seller_budget_message, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11923,20 +11923,20 @@ class CampaignApi
     }
 
     /**
-     * Operation updateSellerBudgetsAsyncWithHttpInfo
+     * Operation updateMarketplaceSellerBudgetsAsyncWithHttpInfo
      *
      * 
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessage[] $update_seller_budget_message  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSellerBudgets'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudgets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSellerBudgetsAsyncWithHttpInfo($update_seller_budget_message = null, string $contentType = self::contentTypes['updateSellerBudgets'][0])
+    public function updateMarketplaceSellerBudgetsAsyncWithHttpInfo($update_seller_budget_message = null, string $contentType = self::contentTypes['updateMarketplaceSellerBudgets'][0])
     {
         $returnType = '';
-        $request = $this->updateSellerBudgetsRequest($update_seller_budget_message, $contentType);
+        $request = $this->updateMarketplaceSellerBudgetsRequest($update_seller_budget_message, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11962,15 +11962,15 @@ class CampaignApi
     }
 
     /**
-     * Create request for operation 'updateSellerBudgets'
+     * Create request for operation 'updateMarketplaceSellerBudgets'
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessage[] $update_seller_budget_message  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSellerBudgets'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudgets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateSellerBudgetsRequest($update_seller_budget_message = null, string $contentType = self::contentTypes['updateSellerBudgets'][0])
+    public function updateMarketplaceSellerBudgetsRequest($update_seller_budget_message = null, string $contentType = self::contentTypes['updateMarketplaceSellerBudgets'][0])
     {
 
 
@@ -12055,40 +12055,40 @@ class CampaignApi
     }
 
     /**
-     * Operation updateSellerCampaign
+     * Operation updateMarketplaceSellerCampaign
      *
      * 
      *
      * @param  string $seller_campaign_id Id of the existing seller campaign to update (required)
      * @param  float $bid The new bid for the seller campaign. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSellerCampaign'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerCampaign'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage
      */
-    public function updateSellerCampaign($seller_campaign_id, $bid = null, string $contentType = self::contentTypes['updateSellerCampaign'][0])
+    public function updateMarketplaceSellerCampaign($seller_campaign_id, $bid = null, string $contentType = self::contentTypes['updateMarketplaceSellerCampaign'][0])
     {
-        list($response) = $this->updateSellerCampaignWithHttpInfo($seller_campaign_id, $bid, $contentType);
+        list($response) = $this->updateMarketplaceSellerCampaignWithHttpInfo($seller_campaign_id, $bid, $contentType);
         return $response;
     }
 
     /**
-     * Operation updateSellerCampaignWithHttpInfo
+     * Operation updateMarketplaceSellerCampaignWithHttpInfo
      *
      * 
      *
      * @param  string $seller_campaign_id Id of the existing seller campaign to update (required)
      * @param  float $bid The new bid for the seller campaign. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSellerCampaign'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerCampaign'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateSellerCampaignWithHttpInfo($seller_campaign_id, $bid = null, string $contentType = self::contentTypes['updateSellerCampaign'][0])
+    public function updateMarketplaceSellerCampaignWithHttpInfo($seller_campaign_id, $bid = null, string $contentType = self::contentTypes['updateMarketplaceSellerCampaign'][0])
     {
-        $request = $this->updateSellerCampaignRequest($seller_campaign_id, $bid, $contentType);
+        $request = $this->updateMarketplaceSellerCampaignRequest($seller_campaign_id, $bid, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12175,20 +12175,20 @@ class CampaignApi
     }
 
     /**
-     * Operation updateSellerCampaignAsync
+     * Operation updateMarketplaceSellerCampaignAsync
      *
      * 
      *
      * @param  string $seller_campaign_id Id of the existing seller campaign to update (required)
      * @param  float $bid The new bid for the seller campaign. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSellerCampaign'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSellerCampaignAsync($seller_campaign_id, $bid = null, string $contentType = self::contentTypes['updateSellerCampaign'][0])
+    public function updateMarketplaceSellerCampaignAsync($seller_campaign_id, $bid = null, string $contentType = self::contentTypes['updateMarketplaceSellerCampaign'][0])
     {
-        return $this->updateSellerCampaignAsyncWithHttpInfo($seller_campaign_id, $bid, $contentType)
+        return $this->updateMarketplaceSellerCampaignAsyncWithHttpInfo($seller_campaign_id, $bid, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12197,21 +12197,21 @@ class CampaignApi
     }
 
     /**
-     * Operation updateSellerCampaignAsyncWithHttpInfo
+     * Operation updateMarketplaceSellerCampaignAsyncWithHttpInfo
      *
      * 
      *
      * @param  string $seller_campaign_id Id of the existing seller campaign to update (required)
      * @param  float $bid The new bid for the seller campaign. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSellerCampaign'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSellerCampaignAsyncWithHttpInfo($seller_campaign_id, $bid = null, string $contentType = self::contentTypes['updateSellerCampaign'][0])
+    public function updateMarketplaceSellerCampaignAsyncWithHttpInfo($seller_campaign_id, $bid = null, string $contentType = self::contentTypes['updateMarketplaceSellerCampaign'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage';
-        $request = $this->updateSellerCampaignRequest($seller_campaign_id, $bid, $contentType);
+        $request = $this->updateMarketplaceSellerCampaignRequest($seller_campaign_id, $bid, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12250,22 +12250,22 @@ class CampaignApi
     }
 
     /**
-     * Create request for operation 'updateSellerCampaign'
+     * Create request for operation 'updateMarketplaceSellerCampaign'
      *
      * @param  string $seller_campaign_id Id of the existing seller campaign to update (required)
      * @param  float $bid The new bid for the seller campaign. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSellerCampaign'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateSellerCampaignRequest($seller_campaign_id, $bid = null, string $contentType = self::contentTypes['updateSellerCampaign'][0])
+    public function updateMarketplaceSellerCampaignRequest($seller_campaign_id, $bid = null, string $contentType = self::contentTypes['updateMarketplaceSellerCampaign'][0])
     {
 
         // verify the required parameter 'seller_campaign_id' is set
         if ($seller_campaign_id === null || (is_array($seller_campaign_id) && count($seller_campaign_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $seller_campaign_id when calling updateSellerCampaign'
+                'Missing the required parameter $seller_campaign_id when calling updateMarketplaceSellerCampaign'
             );
         }
 
@@ -12361,38 +12361,38 @@ class CampaignApi
     }
 
     /**
-     * Operation updateSellerCampaigns
+     * Operation updateMarketplaceSellerCampaigns
      *
      * 
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignUpdate[] $seller_campaign_update  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSellerCampaigns'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerCampaigns'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[]
      */
-    public function updateSellerCampaigns($seller_campaign_update = null, string $contentType = self::contentTypes['updateSellerCampaigns'][0])
+    public function updateMarketplaceSellerCampaigns($seller_campaign_update = null, string $contentType = self::contentTypes['updateMarketplaceSellerCampaigns'][0])
     {
-        list($response) = $this->updateSellerCampaignsWithHttpInfo($seller_campaign_update, $contentType);
+        list($response) = $this->updateMarketplaceSellerCampaignsWithHttpInfo($seller_campaign_update, $contentType);
         return $response;
     }
 
     /**
-     * Operation updateSellerCampaignsWithHttpInfo
+     * Operation updateMarketplaceSellerCampaignsWithHttpInfo
      *
      * 
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignUpdate[] $seller_campaign_update  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSellerCampaigns'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerCampaigns'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateSellerCampaignsWithHttpInfo($seller_campaign_update = null, string $contentType = self::contentTypes['updateSellerCampaigns'][0])
+    public function updateMarketplaceSellerCampaignsWithHttpInfo($seller_campaign_update = null, string $contentType = self::contentTypes['updateMarketplaceSellerCampaigns'][0])
     {
-        $request = $this->updateSellerCampaignsRequest($seller_campaign_update, $contentType);
+        $request = $this->updateMarketplaceSellerCampaignsRequest($seller_campaign_update, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12479,19 +12479,19 @@ class CampaignApi
     }
 
     /**
-     * Operation updateSellerCampaignsAsync
+     * Operation updateMarketplaceSellerCampaignsAsync
      *
      * 
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignUpdate[] $seller_campaign_update  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSellerCampaigns'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSellerCampaignsAsync($seller_campaign_update = null, string $contentType = self::contentTypes['updateSellerCampaigns'][0])
+    public function updateMarketplaceSellerCampaignsAsync($seller_campaign_update = null, string $contentType = self::contentTypes['updateMarketplaceSellerCampaigns'][0])
     {
-        return $this->updateSellerCampaignsAsyncWithHttpInfo($seller_campaign_update, $contentType)
+        return $this->updateMarketplaceSellerCampaignsAsyncWithHttpInfo($seller_campaign_update, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12500,20 +12500,20 @@ class CampaignApi
     }
 
     /**
-     * Operation updateSellerCampaignsAsyncWithHttpInfo
+     * Operation updateMarketplaceSellerCampaignsAsyncWithHttpInfo
      *
      * 
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignUpdate[] $seller_campaign_update  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSellerCampaigns'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSellerCampaignsAsyncWithHttpInfo($seller_campaign_update = null, string $contentType = self::contentTypes['updateSellerCampaigns'][0])
+    public function updateMarketplaceSellerCampaignsAsyncWithHttpInfo($seller_campaign_update = null, string $contentType = self::contentTypes['updateMarketplaceSellerCampaigns'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[]';
-        $request = $this->updateSellerCampaignsRequest($seller_campaign_update, $contentType);
+        $request = $this->updateMarketplaceSellerCampaignsRequest($seller_campaign_update, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12552,15 +12552,15 @@ class CampaignApi
     }
 
     /**
-     * Create request for operation 'updateSellerCampaigns'
+     * Create request for operation 'updateMarketplaceSellerCampaigns'
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignUpdate[] $seller_campaign_update  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSellerCampaigns'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateSellerCampaignsRequest($seller_campaign_update = null, string $contentType = self::contentTypes['updateSellerCampaigns'][0])
+    public function updateMarketplaceSellerCampaignsRequest($seller_campaign_update = null, string $contentType = self::contentTypes['updateMarketplaceSellerCampaigns'][0])
     {
 
 

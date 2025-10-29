@@ -4,124 +4,49 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**campaigns()**](CampaignApi.md#campaigns) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/stats/campaigns |  |
 | [**createAdSet()**](CampaignApi.md#createAdSet) | **POST** /2025-07/marketing-solutions/ad-sets |  |
 | [**createCampaign()**](CampaignApi.md#createCampaign) | **POST** /2025-07/marketing-solutions/campaigns |  |
-| [**createSellerBudgets()**](CampaignApi.md#createSellerBudgets) | **POST** /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets |  |
-| [**createSellerCampaignsBySeller()**](CampaignApi.md#createSellerCampaignsBySeller) | **POST** /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/seller-campaigns |  |
-| [**createSellers()**](CampaignApi.md#createSellers) | **POST** /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/sellers |  |
+| [**createMarketplaceSellerBudgets()**](CampaignApi.md#createMarketplaceSellerBudgets) | **POST** /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets |  |
+| [**createMarketplaceSellerCampaignsBySeller()**](CampaignApi.md#createMarketplaceSellerCampaignsBySeller) | **POST** /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/seller-campaigns |  |
 | [**getAdSet()**](CampaignApi.md#getAdSet) | **GET** /2025-07/marketing-solutions/ad-sets/{ad-set-id} |  |
 | [**getAdSetCategoryBids()**](CampaignApi.md#getAdSetCategoryBids) | **GET** /2025-07/marketing-solutions/ad-sets/{ad-set-id}/category-bids |  |
-| [**getAdvertiser()**](CampaignApi.md#getAdvertiser) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId} |  |
-| [**getAdvertiserAdsets()**](CampaignApi.md#getAdvertiserAdsets) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/adsets |  |
-| [**getAdvertiserCampaigns()**](CampaignApi.md#getAdvertiserCampaigns) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/campaigns |  |
-| [**getAdvertiserPreviewLimits()**](CampaignApi.md#getAdvertiserPreviewLimits) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/preview-limit |  |
-| [**getAdvertisers()**](CampaignApi.md#getAdvertisers) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers |  |
-| [**getBudgetsByAdvertiser()**](CampaignApi.md#getBudgetsByAdvertiser) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/budgets |  |
-| [**getBudgetsBySeller()**](CampaignApi.md#getBudgetsBySeller) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/budgets |  |
-| [**getBudgetsBySellerCampaignId()**](CampaignApi.md#getBudgetsBySellerCampaignId) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns/{sellerCampaignId}/budgets |  |
 | [**getCampaign()**](CampaignApi.md#getCampaign) | **GET** /2025-07/marketing-solutions/campaigns/{campaign-id} |  |
 | [**getDisplayMultipliers()**](CampaignApi.md#getDisplayMultipliers) | **GET** /2025-07/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers |  |
-| [**getSeller()**](CampaignApi.md#getSeller) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId} |  |
-| [**getSellerAdDemo()**](CampaignApi.md#getSellerAdDemo) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/ad-preview |  |
-| [**getSellerBudget()**](CampaignApi.md#getSellerBudget) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets/{budgetId} |  |
-| [**getSellerBudgets()**](CampaignApi.md#getSellerBudgets) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets |  |
-| [**getSellerCampaign()**](CampaignApi.md#getSellerCampaign) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns/{sellerCampaignId} |  |
-| [**getSellerCampaigns()**](CampaignApi.md#getSellerCampaigns) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns |  |
-| [**getSellerCampaignsByAdvertiser()**](CampaignApi.md#getSellerCampaignsByAdvertiser) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/seller-campaigns |  |
-| [**getSellerCampaignsBySeller()**](CampaignApi.md#getSellerCampaignsBySeller) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/seller-campaigns |  |
-| [**getSellers()**](CampaignApi.md#getSellers) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers |  |
+| [**getMarketplaceAdSetsByAdvertiser()**](CampaignApi.md#getMarketplaceAdSetsByAdvertiser) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/adsets |  |
+| [**getMarketplaceAdvertiser()**](CampaignApi.md#getMarketplaceAdvertiser) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId} |  |
+| [**getMarketplaceAdvertiserPreviewLimits()**](CampaignApi.md#getMarketplaceAdvertiserPreviewLimits) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/preview-limit |  |
+| [**getMarketplaceAdvertisers()**](CampaignApi.md#getMarketplaceAdvertisers) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers |  |
+| [**getMarketplaceBudgetsByAdvertiser()**](CampaignApi.md#getMarketplaceBudgetsByAdvertiser) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/budgets |  |
+| [**getMarketplaceBudgetsBySeller()**](CampaignApi.md#getMarketplaceBudgetsBySeller) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/budgets |  |
+| [**getMarketplaceBudgetsBySellerCampaign()**](CampaignApi.md#getMarketplaceBudgetsBySellerCampaign) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns/{sellerCampaignId}/budgets |  |
+| [**getMarketplaceCampaignsByAdvertiser()**](CampaignApi.md#getMarketplaceCampaignsByAdvertiser) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/campaigns |  |
+| [**getMarketplaceCampaignsStats()**](CampaignApi.md#getMarketplaceCampaignsStats) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/stats/campaigns |  |
+| [**getMarketplaceSeller()**](CampaignApi.md#getMarketplaceSeller) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId} |  |
+| [**getMarketplaceSellerAdPreview()**](CampaignApi.md#getMarketplaceSellerAdPreview) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/ad-preview |  |
+| [**getMarketplaceSellerBudget()**](CampaignApi.md#getMarketplaceSellerBudget) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets/{budgetId} |  |
+| [**getMarketplaceSellerBudgets()**](CampaignApi.md#getMarketplaceSellerBudgets) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets |  |
+| [**getMarketplaceSellerCampaign()**](CampaignApi.md#getMarketplaceSellerCampaign) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns/{sellerCampaignId} |  |
+| [**getMarketplaceSellerCampaigns()**](CampaignApi.md#getMarketplaceSellerCampaigns) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns |  |
+| [**getMarketplaceSellerCampaignsByAdvertiser()**](CampaignApi.md#getMarketplaceSellerCampaignsByAdvertiser) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/seller-campaigns |  |
+| [**getMarketplaceSellerCampaignsBySeller()**](CampaignApi.md#getMarketplaceSellerCampaignsBySeller) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/seller-campaigns |  |
+| [**getMarketplaceSellerCampaignsStats()**](CampaignApi.md#getMarketplaceSellerCampaignsStats) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/stats/seller-campaigns |  |
+| [**getMarketplaceSellers()**](CampaignApi.md#getMarketplaceSellers) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers |  |
+| [**getMarketplaceSellersByAdvertiser()**](CampaignApi.md#getMarketplaceSellersByAdvertiser) | **POST** /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/sellers |  |
+| [**getMarketplaceSellersStats()**](CampaignApi.md#getMarketplaceSellersStats) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/stats/sellers |  |
 | [**patchAdSetCategoryBids()**](CampaignApi.md#patchAdSetCategoryBids) | **PATCH** /2025-07/marketing-solutions/ad-sets/{ad-set-id}/category-bids |  |
 | [**patchAdSets()**](CampaignApi.md#patchAdSets) | **PATCH** /2025-07/marketing-solutions/ad-sets |  |
 | [**patchCampaigns()**](CampaignApi.md#patchCampaigns) | **PATCH** /2025-07/marketing-solutions/campaigns |  |
 | [**patchDisplayMultipliers()**](CampaignApi.md#patchDisplayMultipliers) | **PATCH** /2025-07/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers |  |
 | [**searchAdSets()**](CampaignApi.md#searchAdSets) | **POST** /2025-07/marketing-solutions/ad-sets/search |  |
 | [**searchCampaigns()**](CampaignApi.md#searchCampaigns) | **POST** /2025-07/marketing-solutions/campaigns/search |  |
-| [**sellerCampaigns()**](CampaignApi.md#sellerCampaigns) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/stats/seller-campaigns |  |
-| [**sellers()**](CampaignApi.md#sellers) | **GET** /2025-07/marketing-solutions/marketplace-performance-outcomes/stats/sellers |  |
 | [**startAdSets()**](CampaignApi.md#startAdSets) | **POST** /2025-07/marketing-solutions/ad-sets/start |  |
 | [**stopAdSets()**](CampaignApi.md#stopAdSets) | **POST** /2025-07/marketing-solutions/ad-sets/stop |  |
 | [**updateAdSetAudience()**](CampaignApi.md#updateAdSetAudience) | **PUT** /2025-07/marketing-solutions/ad-sets/{ad-set-id}/audience |  |
-| [**updateSellerBudget()**](CampaignApi.md#updateSellerBudget) | **PATCH** /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets/{budgetId} |  |
-| [**updateSellerBudgets()**](CampaignApi.md#updateSellerBudgets) | **PATCH** /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets |  |
-| [**updateSellerCampaign()**](CampaignApi.md#updateSellerCampaign) | **PATCH** /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns/{sellerCampaignId} |  |
-| [**updateSellerCampaigns()**](CampaignApi.md#updateSellerCampaigns) | **PATCH** /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns |  |
+| [**updateMarketplaceSellerBudget()**](CampaignApi.md#updateMarketplaceSellerBudget) | **PATCH** /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets/{budgetId} |  |
+| [**updateMarketplaceSellerBudgets()**](CampaignApi.md#updateMarketplaceSellerBudgets) | **PATCH** /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets |  |
+| [**updateMarketplaceSellerCampaign()**](CampaignApi.md#updateMarketplaceSellerCampaign) | **PATCH** /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns/{sellerCampaignId} |  |
+| [**updateMarketplaceSellerCampaigns()**](CampaignApi.md#updateMarketplaceSellerCampaigns) | **PATCH** /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns |  |
 
-
-## `campaigns()`
-
-```php
-campaigns($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date): string
-```
-
-
-
-## Dimensions                Get performance statistics aggregated for _campaigns_. The campaign id appears  in the output as the first column.                Aggregation can be done by `hour`, `day`, `month`, or `year`. The aggregation  interval size is controlled by `intervalSize`. The time interval appears in  the output as the second column.                ## Metrics                The metrics reported by this endpoint are                .  | Metric Group | Description  ---|--------------|------------  A | impressions | Number of times product is shown in a banner  B | clicks | Number of clicks on product  C | cost | Amount spent for clicks on products  D | saleUnits | Number of products sold attributed to clicks  E | revenue | Revenue generated by sales  F | CR = Conversion Rate | salesUnits / clicks  G | CPO = Cost Per Order | cost / salesUnits  H | COS = Cost of Sale | cost / revenue  I | ROAS = Return On Add Spend | revenue / cost                The last six metrics can be computed in two ways depending on the policy to count only  the sales that result from clicks on the same sellers product in a banner  (same-seller) or not (any-seller).  Reporting can be controlled by `clickAttributionPolicy`.                The 9 (or 15) metric values appear in the output as the final 9 (or 15) columns.                ## Filtering                The results can be filtered by campaign, date or count.                Filtering the results to events associated with a specific campaign is done by setting  the `campaignId` filter parameter to the desired value.                Filtering the results to events  that happened in a time interval is done by setting the `startDate` and  `endDate` filter parameters using the `yyyy-MM-DD` format. The start date  includes all events timestamped since the beginning of that day while the end  date includes events until the end of day. The maximum duration of the date  range is 1 year. If the aggregation interval is `hour`, then the maximum  duration of the date range is 31 days. Note that month and year aggregate values  may contain partial data for the interval if filtering by date.                Filtering the results to a maximum number of data rows is done by setting the  `count` filter parameter. When combined with startDate this can be used to perform  simple pagination.                ## Response Format                The representation format can be specified by MIME values in the Accept header.  For now the only supported values for the accept header is `application/json` and  `text/csv`.                ```json  {     \"columns\": [ \"campaignId\", \"month\", \"impressions\", \"clicks\", \"cost\", \"saleUnits\", \"revenue\", \"cr\", \"cpo\", \"cos\", \"roas\" ],     \"data\": [         [168423, \"2019-05-01\", 3969032, 13410, 1111.295, 985, 190758099, 0.073, 1.128, 0.000, 171653.880 ],         [168423, \"2019-06-01\", 8479603, 25619, 2190.705, 740, 152783656, 0.028, 2.960, 0.000, 69741.775 ]         ],     \"rows\": 2  }  ```                The JSON result is an object with three fields (`columns`, `data`, and `rows`). The  “columns” array acts as the header for the data rows. The categorical dimension  column comes first and consists of the campaign id.  The interval column comes next and defines the aggregation period.  The interval size is  determined by the `intervalSize` parameter. This is followed by either nine or  fifteen metrics columns. The first three metrics (impressions, clicks, and cost)  always appear. The remaining depend on the `clickAttributionPolicy` parameter.                The “data” array contains data rows whose values match the entries in the  “columns” array. Id dimensions are numbers while name and date dimensions are strings. The metrics are JSON objects  whose type is number. Some of these are natural numbers (e.g. clicks and  impressions) whereas others are decimal values. A divide by zero yields null. The  currency is assumed to be the local currency established by the advertiser.                The “row” value is a count of the number of rows in the data array, and can be  used to check the integrity of the data.                Further information on the campaign or seller (e.g. the seller name) can be  obtained from the existing V1 or V2 endpoints using the campaign and/or seller  ID values.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$advertiser_id = 56; // int | Show only metrics for this advertiser.
-$campaign_id = 'campaign_id_example'; // string | Show only metrics for this campaign (default all campaigns)
-$click_attribution_policy = 'AnySeller'; // string | Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS
-$count = 56; // int | Return up to the first count rows of data (default is all rows)
-$end_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter out all events that occur after date (default is today’s date)
-$interval_size = 'Day'; // string | Specify the aggregation interval for events used to compute stats (default is \"day\")
-$start_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter out all events that occur before date (default is the value of `endDate`)
-
-try {
-    $result = $apiInstance->campaigns($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->campaigns: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **int**| Show only metrics for this advertiser. | [optional] |
-| **campaign_id** | **string**| Show only metrics for this campaign (default all campaigns) | [optional] |
-| **click_attribution_policy** | **string**| Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS | [optional] [default to &#39;AnySeller&#39;] |
-| **count** | **int**| Return up to the first count rows of data (default is all rows) | [optional] |
-| **end_date** | **\DateTime**| Filter out all events that occur after date (default is today’s date) | [optional] |
-| **interval_size** | **string**| Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) | [optional] [default to &#39;Day&#39;] |
-| **start_date** | **\DateTime**| Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) | [optional] |
-
-### Return type
-
-**string**
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
 
 ## `createAdSet()`
 
@@ -249,10 +174,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `createSellerBudgets()`
+## `createMarketplaceSellerBudgets()`
 
 ```php
-createSellerBudgets($create_seller_budget_mapi_message)
+createMarketplaceSellerBudgets($create_seller_budget_mapi_message)
 ```
 
 
@@ -282,9 +207,9 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
 $create_seller_budget_mapi_message = array(new \criteo\api\marketingsolutions\v2025_07\Model\CreateSellerBudgetMapiMessage()); // \criteo\api\marketingsolutions\v2025_07\Model\CreateSellerBudgetMapiMessage[] | 
 
 try {
-    $apiInstance->createSellerBudgets($create_seller_budget_mapi_message);
+    $apiInstance->createMarketplaceSellerBudgets($create_seller_budget_mapi_message);
 } catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->createSellerBudgets: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CampaignApi->createMarketplaceSellerBudgets: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -311,10 +236,10 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `createSellerCampaignsBySeller()`
+## `createMarketplaceSellerCampaignsBySeller()`
 
 ```php
-createSellerCampaignsBySeller($seller_id, $create_seller_campaign_message_mapi)
+createMarketplaceSellerCampaignsBySeller($seller_id, $create_seller_campaign_message_mapi)
 ```
 
 
@@ -345,9 +270,9 @@ $seller_id = 'seller_id_example'; // string | Supply a generated Id of an existi
 $create_seller_campaign_message_mapi = new \criteo\api\marketingsolutions\v2025_07\Model\CreateSellerCampaignMessageMapi(); // \criteo\api\marketingsolutions\v2025_07\Model\CreateSellerCampaignMessageMapi | Supply the campaign Id and bid to create the mapping
 
 try {
-    $apiInstance->createSellerCampaignsBySeller($seller_id, $create_seller_campaign_message_mapi);
+    $apiInstance->createMarketplaceSellerCampaignsBySeller($seller_id, $create_seller_campaign_message_mapi);
 } catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->createSellerCampaignsBySeller: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CampaignApi->createMarketplaceSellerCampaignsBySeller: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -357,72 +282,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **seller_id** | **string**| Supply a generated Id of an existing Seller | |
 | **create_seller_campaign_message_mapi** | [**\criteo\api\marketingsolutions\v2025_07\Model\CreateSellerCampaignMessageMapi**](../Model/CreateSellerCampaignMessageMapi.md)| Supply the campaign Id and bid to create the mapping | [optional] |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `createSellers()`
-
-```php
-createSellers($advertiser_id, $partner_id, $request_body)
-```
-
-
-
-Create new sellers for an advertiser
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$advertiser_id = 56; // int | Id of the advertiser
-$partner_id = 56; // int | Id of the partner
-$request_body = array('request_body_example'); // string[] | Names of the sellers to associate with new Ids
-
-try {
-    $apiInstance->createSellers($advertiser_id, $partner_id, $request_body);
-} catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->createSellers: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **int**| Id of the advertiser | |
-| **partner_id** | **int**| Id of the partner | [optional] |
-| **request_body** | [**string[]**](../Model/string.md)| Names of the sellers to associate with new Ids | [optional] |
 
 ### Return type
 
@@ -567,540 +426,6 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getAdvertiser()`
-
-```php
-getAdvertiser($advertiser_id)
-```
-
-
-
-Get an advertiser.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$advertiser_id = 56; // int | Id of the advertiser
-
-try {
-    $apiInstance->getAdvertiser($advertiser_id);
-} catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->getAdvertiser: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **int**| Id of the advertiser | |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getAdvertiserAdsets()`
-
-```php
-getAdvertiserAdsets($advertiser_id)
-```
-
-
-
-Get the collection of adsets associated with the advertiserId.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$advertiser_id = 56; // int | Id of the advertiser
-
-try {
-    $apiInstance->getAdvertiserAdsets($advertiser_id);
-} catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->getAdvertiserAdsets: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **int**| Id of the advertiser | |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getAdvertiserCampaigns()`
-
-```php
-getAdvertiserCampaigns($advertiser_id)
-```
-
-
-
-Get the collection of CRP campaigns associated with the advertiserId.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$advertiser_id = 56; // int | Id of the advertiser
-
-try {
-    $apiInstance->getAdvertiserCampaigns($advertiser_id);
-} catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->getAdvertiserCampaigns: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **int**| Id of the advertiser | |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getAdvertiserPreviewLimits()`
-
-```php
-getAdvertiserPreviewLimits()
-```
-
-
-
-Get the collection of advertisers preview limits associated with the authorized user.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-
-try {
-    $apiInstance->getAdvertiserPreviewLimits();
-} catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->getAdvertiserPreviewLimits: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getAdvertisers()`
-
-```php
-getAdvertisers()
-```
-
-
-
-Get the collection of advertisers associated with the user.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-
-try {
-    $apiInstance->getAdvertisers();
-} catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->getAdvertisers: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getBudgetsByAdvertiser()`
-
-```php
-getBudgetsByAdvertiser($advertiser_id, $budget_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend)
-```
-
-
-
-Get CRP budgets for a specific advertiser
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$advertiser_id = 56; // int | Id of the advertiser
-$budget_id = 56; // int | Return only budgets with given Id
-$end_after_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Return budgets that end after the given date using the `yyyy-MM-DD` format.              If param is not provided, default behavior is to only return budgets that have not yet ended.
-$seller_id = 56; // int | Return only budgets belonging to given sellerId
-$start_before_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Return budgets that start on or before the given date using the `yyyy-MM-DD` format.
-$status = 'status_example'; // string | Return only budgets with the given status.
-$type = 'type_example'; // string | Return only budgets with the given budget type.
-$with_balance = True; // bool | Return only budgets with the given status.
-$with_spend = True; // bool | Return budgets with any positive spend.
-
-try {
-    $apiInstance->getBudgetsByAdvertiser($advertiser_id, $budget_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend);
-} catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->getBudgetsByAdvertiser: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **int**| Id of the advertiser | |
-| **budget_id** | **int**| Return only budgets with given Id | [optional] |
-| **end_after_date** | **\DateTime**| Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. | [optional] |
-| **seller_id** | **int**| Return only budgets belonging to given sellerId | [optional] |
-| **start_before_date** | **\DateTime**| Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. | [optional] |
-| **status** | **string**| Return only budgets with the given status. | [optional] |
-| **type** | **string**| Return only budgets with the given budget type. | [optional] |
-| **with_balance** | **bool**| Return only budgets with the given status. | [optional] |
-| **with_spend** | **bool**| Return budgets with any positive spend. | [optional] |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getBudgetsBySeller()`
-
-```php
-getBudgetsBySeller($seller_id, $campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend): \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]
-```
-
-
-
-Return a collection of budgets for this seller filtered by optional filter parameters.  If all parameters are omitted the entire collection to which the user has  access is returned, except those whose endDate is in the past. Returned budgets must satisfy all supplied filter  criteria if multiple parameters are used. See the budgets endpoint for additional details.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$seller_id = 'seller_id_example'; // string | Return only budgets belonging to the given seller.
-$campaign_id = 56; // int | Return only budgets that pay for a given campaign.
-$end_after_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Return budgets that end after the given date using the `yyyy-MM-DD` format.              If param is not provided, default behavior is to only return budgets that have not yet ended.
-$start_before_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Return budgets that start on or before the given date using the `yyyy-MM-DD` format.
-$status = 'status_example'; // string | Return only budgets with the given status.
-$type = 'type_example'; // string | Return only budgets with the given budget type.
-$with_balance = True; // bool | Return only budgets with the given status.
-$with_spend = True; // bool | Return budgets with any positive spend.
-
-try {
-    $result = $apiInstance->getBudgetsBySeller($seller_id, $campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->getBudgetsBySeller: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **seller_id** | **string**| Return only budgets belonging to the given seller. | |
-| **campaign_id** | **int**| Return only budgets that pay for a given campaign. | [optional] |
-| **end_after_date** | **\DateTime**| Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. | [optional] |
-| **start_before_date** | **\DateTime**| Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. | [optional] |
-| **status** | **string**| Return only budgets with the given status. | [optional] |
-| **type** | **string**| Return only budgets with the given budget type. | [optional] |
-| **with_balance** | **bool**| Return only budgets with the given status. | [optional] |
-| **with_spend** | **bool**| Return budgets with any positive spend. | [optional] |
-
-### Return type
-
-[**\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]**](../Model/SellerBudgetMessage.md)
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getBudgetsBySellerCampaignId()`
-
-```php
-getBudgetsBySellerCampaignId($seller_campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend): \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]
-```
-
-
-
-Return a collection of budgets for this seller campaign filtered by optional filter parameters.  If all parameters are omitted the entire collection to which the user has  access is returned, except those whose endDate is in the past. Returned budgets must satisfy all supplied filter  criteria if multiple parameters are used.                See the budgets endpoint for additional details.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$seller_campaign_id = 'seller_campaign_id_example'; // string | Return only budgets belonging to the given seller campaign.
-$end_after_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Return budgets that end after the given date using the `yyyy-MM-DD` format.               If param is not provided, default behavior is to only return budgets that have not yet ended.
-$start_before_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Return budgets that start on or before the given date using the `yyyy-MM-DD` format.
-$status = 'status_example'; // string | Return only budgets with the given status.
-$type = 'type_example'; // string | Return only budgets with the given budget type.
-$with_balance = True; // bool | Return only budgets with a positive balance.
-$with_spend = True; // bool | Return budgets with a positive spend.
-
-try {
-    $result = $apiInstance->getBudgetsBySellerCampaignId($seller_campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->getBudgetsBySellerCampaignId: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **seller_campaign_id** | **string**| Return only budgets belonging to the given seller campaign. | |
-| **end_after_date** | **\DateTime**| Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.               If param is not provided, default behavior is to only return budgets that have not yet ended. | [optional] |
-| **start_before_date** | **\DateTime**| Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. | [optional] |
-| **status** | **string**| Return only budgets with the given status. | [optional] |
-| **type** | **string**| Return only budgets with the given budget type. | [optional] |
-| **with_balance** | **bool**| Return only budgets with a positive balance. | [optional] |
-| **with_spend** | **bool**| Return budgets with a positive spend. | [optional] |
-
-### Return type
-
-[**\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]**](../Model/SellerBudgetMessage.md)
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `getCampaign()`
 
 ```php
@@ -1227,10 +552,619 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getSeller()`
+## `getMarketplaceAdSetsByAdvertiser()`
 
 ```php
-getSeller($seller_id): \criteo\api\marketingsolutions\v2025_07\Model\SellerBase
+getMarketplaceAdSetsByAdvertiser($advertiser_id)
+```
+
+
+
+Get the collection of adsets associated with the advertiserId.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$advertiser_id = 56; // int | Id of the advertiser
+
+try {
+    $apiInstance->getMarketplaceAdSetsByAdvertiser($advertiser_id);
+} catch (Exception $e) {
+    echo 'Exception when calling CampaignApi->getMarketplaceAdSetsByAdvertiser: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **int**| Id of the advertiser | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getMarketplaceAdvertiser()`
+
+```php
+getMarketplaceAdvertiser($advertiser_id)
+```
+
+
+
+Get an advertiser.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$advertiser_id = 56; // int | Id of the advertiser
+
+try {
+    $apiInstance->getMarketplaceAdvertiser($advertiser_id);
+} catch (Exception $e) {
+    echo 'Exception when calling CampaignApi->getMarketplaceAdvertiser: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **int**| Id of the advertiser | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getMarketplaceAdvertiserPreviewLimits()`
+
+```php
+getMarketplaceAdvertiserPreviewLimits()
+```
+
+
+
+Get the collection of advertisers preview limits associated with the authorized user.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $apiInstance->getMarketplaceAdvertiserPreviewLimits();
+} catch (Exception $e) {
+    echo 'Exception when calling CampaignApi->getMarketplaceAdvertiserPreviewLimits: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getMarketplaceAdvertisers()`
+
+```php
+getMarketplaceAdvertisers()
+```
+
+
+
+Get the collection of advertisers associated with the user.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $apiInstance->getMarketplaceAdvertisers();
+} catch (Exception $e) {
+    echo 'Exception when calling CampaignApi->getMarketplaceAdvertisers: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getMarketplaceBudgetsByAdvertiser()`
+
+```php
+getMarketplaceBudgetsByAdvertiser($advertiser_id, $budget_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend)
+```
+
+
+
+Get CRP budgets for a specific advertiser
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$advertiser_id = 56; // int | Id of the advertiser
+$budget_id = 56; // int | Return only budgets with given Id
+$end_after_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Return budgets that end after the given date using the `yyyy-MM-DD` format.              If param is not provided, default behavior is to only return budgets that have not yet ended.
+$seller_id = 56; // int | Return only budgets belonging to given sellerId
+$start_before_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Return budgets that start on or before the given date using the `yyyy-MM-DD` format.
+$status = 'status_example'; // string | Return only budgets with the given status.
+$type = 'type_example'; // string | Return only budgets with the given budget type.
+$with_balance = True; // bool | Return only budgets with the given status.
+$with_spend = True; // bool | Return budgets with any positive spend.
+
+try {
+    $apiInstance->getMarketplaceBudgetsByAdvertiser($advertiser_id, $budget_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend);
+} catch (Exception $e) {
+    echo 'Exception when calling CampaignApi->getMarketplaceBudgetsByAdvertiser: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **int**| Id of the advertiser | |
+| **budget_id** | **int**| Return only budgets with given Id | [optional] |
+| **end_after_date** | **\DateTime**| Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. | [optional] |
+| **seller_id** | **int**| Return only budgets belonging to given sellerId | [optional] |
+| **start_before_date** | **\DateTime**| Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. | [optional] |
+| **status** | **string**| Return only budgets with the given status. | [optional] |
+| **type** | **string**| Return only budgets with the given budget type. | [optional] |
+| **with_balance** | **bool**| Return only budgets with the given status. | [optional] |
+| **with_spend** | **bool**| Return budgets with any positive spend. | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getMarketplaceBudgetsBySeller()`
+
+```php
+getMarketplaceBudgetsBySeller($seller_id, $campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend): \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]
+```
+
+
+
+Return a collection of budgets for this seller filtered by optional filter parameters.  If all parameters are omitted the entire collection to which the user has  access is returned, except those whose endDate is in the past. Returned budgets must satisfy all supplied filter  criteria if multiple parameters are used. See the budgets endpoint for additional details.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$seller_id = 'seller_id_example'; // string | Return only budgets belonging to the given seller.
+$campaign_id = 56; // int | Return only budgets that pay for a given campaign.
+$end_after_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Return budgets that end after the given date using the `yyyy-MM-DD` format.              If param is not provided, default behavior is to only return budgets that have not yet ended.
+$start_before_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Return budgets that start on or before the given date using the `yyyy-MM-DD` format.
+$status = 'status_example'; // string | Return only budgets with the given status.
+$type = 'type_example'; // string | Return only budgets with the given budget type.
+$with_balance = True; // bool | Return only budgets with the given status.
+$with_spend = True; // bool | Return budgets with any positive spend.
+
+try {
+    $result = $apiInstance->getMarketplaceBudgetsBySeller($seller_id, $campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CampaignApi->getMarketplaceBudgetsBySeller: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **seller_id** | **string**| Return only budgets belonging to the given seller. | |
+| **campaign_id** | **int**| Return only budgets that pay for a given campaign. | [optional] |
+| **end_after_date** | **\DateTime**| Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. | [optional] |
+| **start_before_date** | **\DateTime**| Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. | [optional] |
+| **status** | **string**| Return only budgets with the given status. | [optional] |
+| **type** | **string**| Return only budgets with the given budget type. | [optional] |
+| **with_balance** | **bool**| Return only budgets with the given status. | [optional] |
+| **with_spend** | **bool**| Return budgets with any positive spend. | [optional] |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]**](../Model/SellerBudgetMessage.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getMarketplaceBudgetsBySellerCampaign()`
+
+```php
+getMarketplaceBudgetsBySellerCampaign($seller_campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend): \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]
+```
+
+
+
+Return a collection of budgets for this seller campaign filtered by optional filter parameters.  If all parameters are omitted the entire collection to which the user has  access is returned, except those whose endDate is in the past. Returned budgets must satisfy all supplied filter  criteria if multiple parameters are used.                See the budgets endpoint for additional details.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$seller_campaign_id = 'seller_campaign_id_example'; // string | Return only budgets belonging to the given seller campaign.
+$end_after_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Return budgets that end after the given date using the `yyyy-MM-DD` format.               If param is not provided, default behavior is to only return budgets that have not yet ended.
+$start_before_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Return budgets that start on or before the given date using the `yyyy-MM-DD` format.
+$status = 'status_example'; // string | Return only budgets with the given status.
+$type = 'type_example'; // string | Return only budgets with the given budget type.
+$with_balance = True; // bool | Return only budgets with a positive balance.
+$with_spend = True; // bool | Return budgets with a positive spend.
+
+try {
+    $result = $apiInstance->getMarketplaceBudgetsBySellerCampaign($seller_campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CampaignApi->getMarketplaceBudgetsBySellerCampaign: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **seller_campaign_id** | **string**| Return only budgets belonging to the given seller campaign. | |
+| **end_after_date** | **\DateTime**| Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.               If param is not provided, default behavior is to only return budgets that have not yet ended. | [optional] |
+| **start_before_date** | **\DateTime**| Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. | [optional] |
+| **status** | **string**| Return only budgets with the given status. | [optional] |
+| **type** | **string**| Return only budgets with the given budget type. | [optional] |
+| **with_balance** | **bool**| Return only budgets with a positive balance. | [optional] |
+| **with_spend** | **bool**| Return budgets with a positive spend. | [optional] |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]**](../Model/SellerBudgetMessage.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getMarketplaceCampaignsByAdvertiser()`
+
+```php
+getMarketplaceCampaignsByAdvertiser($advertiser_id)
+```
+
+
+
+Get the collection of CRP campaigns associated with the advertiserId.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$advertiser_id = 56; // int | Id of the advertiser
+
+try {
+    $apiInstance->getMarketplaceCampaignsByAdvertiser($advertiser_id);
+} catch (Exception $e) {
+    echo 'Exception when calling CampaignApi->getMarketplaceCampaignsByAdvertiser: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **int**| Id of the advertiser | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getMarketplaceCampaignsStats()`
+
+```php
+getMarketplaceCampaignsStats($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date): string
+```
+
+
+
+## Dimensions                Get performance statistics aggregated for _campaigns_. The campaign id appears  in the output as the first column.                Aggregation can be done by `hour`, `day`, `month`, or `year`. The aggregation  interval size is controlled by `intervalSize`. The time interval appears in  the output as the second column.                ## Metrics                The metrics reported by this endpoint are                .  | Metric Group | Description  ---|--------------|------------  A | impressions | Number of times product is shown in a banner  B | clicks | Number of clicks on product  C | cost | Amount spent for clicks on products  D | saleUnits | Number of products sold attributed to clicks  E | revenue | Revenue generated by sales  F | CR = Conversion Rate | salesUnits / clicks  G | CPO = Cost Per Order | cost / salesUnits  H | COS = Cost of Sale | cost / revenue  I | ROAS = Return On Add Spend | revenue / cost                The last six metrics can be computed in two ways depending on the policy to count only  the sales that result from clicks on the same sellers product in a banner  (same-seller) or not (any-seller).  Reporting can be controlled by `clickAttributionPolicy`.                The 9 (or 15) metric values appear in the output as the final 9 (or 15) columns.                ## Filtering                The results can be filtered by campaign, date or count.                Filtering the results to events associated with a specific campaign is done by setting  the `campaignId` filter parameter to the desired value.                Filtering the results to events  that happened in a time interval is done by setting the `startDate` and  `endDate` filter parameters using the `yyyy-MM-DD` format. The start date  includes all events timestamped since the beginning of that day while the end  date includes events until the end of day. The maximum duration of the date  range is 1 year. If the aggregation interval is `hour`, then the maximum  duration of the date range is 31 days. Note that month and year aggregate values  may contain partial data for the interval if filtering by date.                Filtering the results to a maximum number of data rows is done by setting the  `count` filter parameter. When combined with startDate this can be used to perform  simple pagination.                ## Response Format                The representation format can be specified by MIME values in the Accept header.  For now the only supported values for the accept header is `application/json` and  `text/csv`.                ```json  {     \"columns\": [ \"campaignId\", \"month\", \"impressions\", \"clicks\", \"cost\", \"saleUnits\", \"revenue\", \"cr\", \"cpo\", \"cos\", \"roas\" ],     \"data\": [         [168423, \"2019-05-01\", 3969032, 13410, 1111.295, 985, 190758099, 0.073, 1.128, 0.000, 171653.880 ],         [168423, \"2019-06-01\", 8479603, 25619, 2190.705, 740, 152783656, 0.028, 2.960, 0.000, 69741.775 ]         ],     \"rows\": 2  }  ```                The JSON result is an object with three fields (`columns`, `data`, and `rows`). The  “columns” array acts as the header for the data rows. The categorical dimension  column comes first and consists of the campaign id.  The interval column comes next and defines the aggregation period.  The interval size is  determined by the `intervalSize` parameter. This is followed by either nine or  fifteen metrics columns. The first three metrics (impressions, clicks, and cost)  always appear. The remaining depend on the `clickAttributionPolicy` parameter.                The “data” array contains data rows whose values match the entries in the  “columns” array. Id dimensions are numbers while name and date dimensions are strings. The metrics are JSON objects  whose type is number. Some of these are natural numbers (e.g. clicks and  impressions) whereas others are decimal values. A divide by zero yields null. The  currency is assumed to be the local currency established by the advertiser.                The “row” value is a count of the number of rows in the data array, and can be  used to check the integrity of the data.                Further information on the campaign or seller (e.g. the seller name) can be  obtained from the existing V1 or V2 endpoints using the campaign and/or seller  ID values.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$advertiser_id = 56; // int | Show only metrics for this advertiser.
+$campaign_id = 'campaign_id_example'; // string | Show only metrics for this campaign (default all campaigns)
+$click_attribution_policy = 'AnySeller'; // string | Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS
+$count = 56; // int | Return up to the first count rows of data (default is all rows)
+$end_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter out all events that occur after date (default is today’s date)
+$interval_size = 'Day'; // string | Specify the aggregation interval for events used to compute stats (default is \"day\")
+$start_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter out all events that occur before date (default is the value of `endDate`)
+
+try {
+    $result = $apiInstance->getMarketplaceCampaignsStats($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CampaignApi->getMarketplaceCampaignsStats: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **int**| Show only metrics for this advertiser. | [optional] |
+| **campaign_id** | **string**| Show only metrics for this campaign (default all campaigns) | [optional] |
+| **click_attribution_policy** | **string**| Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS | [optional] [default to &#39;AnySeller&#39;] |
+| **count** | **int**| Return up to the first count rows of data (default is all rows) | [optional] |
+| **end_date** | **\DateTime**| Filter out all events that occur after date (default is today’s date) | [optional] |
+| **interval_size** | **string**| Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) | [optional] [default to &#39;Day&#39;] |
+| **start_date** | **\DateTime**| Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) | [optional] |
+
+### Return type
+
+**string**
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getMarketplaceSeller()`
+
+```php
+getMarketplaceSeller($seller_id): \criteo\api\marketingsolutions\v2025_07\Model\SellerBase
 ```
 
 
@@ -1260,10 +1194,10 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
 $seller_id = 'seller_id_example'; // string | Id of the seller.
 
 try {
-    $result = $apiInstance->getSeller($seller_id);
+    $result = $apiInstance->getMarketplaceSeller($seller_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->getSeller: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CampaignApi->getMarketplaceSeller: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -1290,10 +1224,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getSellerAdDemo()`
+## `getMarketplaceSellerAdPreview()`
 
 ```php
-getSellerAdDemo($advertiser_id, $seller_id, $campaign_id, $height, $width): string
+getMarketplaceSellerAdPreview($advertiser_id, $seller_id, $campaign_id, $height, $width): string
 ```
 
 
@@ -1327,10 +1261,10 @@ $height = 56; // int | Height of the ad to display
 $width = 56; // int | Width of the ad to display
 
 try {
-    $result = $apiInstance->getSellerAdDemo($advertiser_id, $seller_id, $campaign_id, $height, $width);
+    $result = $apiInstance->getMarketplaceSellerAdPreview($advertiser_id, $seller_id, $campaign_id, $height, $width);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->getSellerAdDemo: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CampaignApi->getMarketplaceSellerAdPreview: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -1361,10 +1295,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getSellerBudget()`
+## `getMarketplaceSellerBudget()`
 
 ```php
-getSellerBudget($budget_id): \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage
+getMarketplaceSellerBudget($budget_id): \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage
 ```
 
 
@@ -1394,10 +1328,10 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
 $budget_id = 56; // int | Id of the budget.
 
 try {
-    $result = $apiInstance->getSellerBudget($budget_id);
+    $result = $apiInstance->getMarketplaceSellerBudget($budget_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->getSellerBudget: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CampaignApi->getMarketplaceSellerBudget: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -1424,10 +1358,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getSellerBudgets()`
+## `getMarketplaceSellerBudgets()`
 
 ```php
-getSellerBudgets($advertiser_id, $campaign_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend): \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]
+getMarketplaceSellerBudgets($advertiser_id, $campaign_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend): \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]
 ```
 
 
@@ -1465,10 +1399,10 @@ $with_balance = True; // bool | Return only budgets with the given status.
 $with_spend = True; // bool | Return budgets with any positive spend.
 
 try {
-    $result = $apiInstance->getSellerBudgets($advertiser_id, $campaign_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend);
+    $result = $apiInstance->getMarketplaceSellerBudgets($advertiser_id, $campaign_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->getSellerBudgets: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CampaignApi->getMarketplaceSellerBudgets: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -1503,10 +1437,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getSellerCampaign()`
+## `getMarketplaceSellerCampaign()`
 
 ```php
-getSellerCampaign($seller_campaign_id): \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage
+getMarketplaceSellerCampaign($seller_campaign_id): \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage
 ```
 
 
@@ -1536,10 +1470,10 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
 $seller_campaign_id = 'seller_campaign_id_example'; // string | Id of the seller campaign.
 
 try {
-    $result = $apiInstance->getSellerCampaign($seller_campaign_id);
+    $result = $apiInstance->getMarketplaceSellerCampaign($seller_campaign_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->getSellerCampaign: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CampaignApi->getMarketplaceSellerCampaign: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -1566,10 +1500,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getSellerCampaigns()`
+## `getMarketplaceSellerCampaigns()`
 
 ```php
-getSellerCampaigns($advertiser_id, $budget_status, $campaign_id, $seller_id, $seller_status): \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[]
+getMarketplaceSellerCampaigns($advertiser_id, $budget_status, $campaign_id, $seller_id, $seller_status): \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[]
 ```
 
 
@@ -1603,10 +1537,10 @@ $seller_id = 'seller_id_example'; // string | Return only seller campaigns belon
 $seller_status = 'seller_status_example'; // string | Return only seller campaigns for sellers with the given status.
 
 try {
-    $result = $apiInstance->getSellerCampaigns($advertiser_id, $budget_status, $campaign_id, $seller_id, $seller_status);
+    $result = $apiInstance->getMarketplaceSellerCampaigns($advertiser_id, $budget_status, $campaign_id, $seller_id, $seller_status);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->getSellerCampaigns: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CampaignApi->getMarketplaceSellerCampaigns: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -1637,10 +1571,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getSellerCampaignsByAdvertiser()`
+## `getMarketplaceSellerCampaignsByAdvertiser()`
 
 ```php
-getSellerCampaignsByAdvertiser($advertiser_id)
+getMarketplaceSellerCampaignsByAdvertiser($advertiser_id)
 ```
 
 
@@ -1670,9 +1604,9 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
 $advertiser_id = 56; // int | Id of the advertiser
 
 try {
-    $apiInstance->getSellerCampaignsByAdvertiser($advertiser_id);
+    $apiInstance->getMarketplaceSellerCampaignsByAdvertiser($advertiser_id);
 } catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->getSellerCampaignsByAdvertiser: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CampaignApi->getMarketplaceSellerCampaignsByAdvertiser: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -1699,10 +1633,10 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getSellerCampaignsBySeller()`
+## `getMarketplaceSellerCampaignsBySeller()`
 
 ```php
-getSellerCampaignsBySeller($seller_id, $budget_status, $campaign_id, $seller_status): \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[]
+getMarketplaceSellerCampaignsBySeller($seller_id, $budget_status, $campaign_id, $seller_status): \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[]
 ```
 
 
@@ -1735,10 +1669,10 @@ $campaign_id = 56; // int | Return only seller campaigns associated with the giv
 $seller_status = 'seller_status_example'; // string | Return only seller campaigns for sellers with the given status.
 
 try {
-    $result = $apiInstance->getSellerCampaignsBySeller($seller_id, $budget_status, $campaign_id, $seller_status);
+    $result = $apiInstance->getMarketplaceSellerCampaignsBySeller($seller_id, $budget_status, $campaign_id, $seller_status);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->getSellerCampaignsBySeller: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CampaignApi->getMarketplaceSellerCampaignsBySeller: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -1768,10 +1702,87 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getSellers()`
+## `getMarketplaceSellerCampaignsStats()`
 
 ```php
-getSellers($advertiser_id, $campaign_id, $seller_name, $seller_status, $with_budget_status, $with_products): \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]
+getMarketplaceSellerCampaignsStats($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date): string
+```
+
+
+
+## Dimensions                Get performance statistics aggregated for _seller campaigns_.The campaign id, seller id, and  seller name appear in the first three columns of the output. These are followed by the interval  size column.                Aggregation can be done by `hour`, `day`, `month`, or `year`. The aggregation  interval size is controlled by `intervalSize`. The remaining columns are metrics.                ## Metrics                The metrics reported by this endpoint are                .  | Metric Group | Description  ---|--------------|------------  A | impressions | Number of times product is shown in a banner  B | clicks | Number of clicks on product  C | cost | Amount spent for clicks on products  D | saleUnits | Number of products sold attributed to clicks  E | revenue | Revenue generated by sales  F | CR = Conversion Rate | salesUnits / clicks  G | CPO = Cost Per Order | cost / salesUnits  H | COS = Cost of Sale | cost / revenue  I | ROAS = Return On Add Spend | revenue / cost                The last six metrics can be computed in two ways depending on the policy to count only  the sales that result from clicks on the same sellers product in a banner  (same-seller) or not (any-seller).  Reporting can be controlled by `clickAttributionPolicy`.                The 9 (or 15) metric values appear in the output as the final 9 (or 15) columns.                ## Filtering                The results can be filtered by date or count.                Filtering the results to events associated with a specific campaign is done by setting  the `campaignId` filter parameter to the desired value.                Filtering the results to events associated with a specific seller is done by setting  the `sellerId` filter parameter to the desired value.                Filtering the results to events  that happened in a time interval is done by setting the `startDate` and  `endDate` filter parameters using the `yyyy-MM-DD` format. The start date  includes all events timestamped since the beginning of that day while the end  date includes events until the end of day. The maximum duration of the date  range is 1 year. If the aggregation interval is `hour`, then the maximum  duration of the date range is 31 days. Note that month and year aggregate values  may contain partial data for the interval if filtering by date.                Filtering the results to a maximum number of data rows is done by setting the  `count` filter parameter. When combined with startDate this can be used to perform  simple pagination.                ## Response Format                The representation format can be specified by MIME values in the Accept header.  For now the only supported values for the accept header is `application/json` and  `text/csv`.                ```json  {      \"columns\": [          \"campaignId\", \"sellerId\", \"sellerName\", \"month\", \"impressions\", \"clicks\", \"cost\", \"saleUnits\", \"revenue\", \"cr\", \"cpo\", \"cos\", \"roas\"      ],      \"data\": [          [168423, 1110222, \"118883955\", \"2019-05-01\", 14542, 48, 3.36, 0, 0.0, 0.0, null, null, 0.0],          [168423, 1110222, \"118883955\", \"2019-06-01\", 16619, 53, 3.71, 0, 0.0, 0.0, null, null, 0.0],          [168423, 1110225, \"117980027\", \"2019-05-01\", 12502, 48, 3.36, 0, 0.0, 0.0, null, null, 0.0],          [168423, 1110225, \"117980027\", \"2019-06-01\", 20266, 53, 3.71, 0, 0.0, 0.0, null, null, 0.0]      ],      \"rows\": 4  }  ```                The JSON result is an object with three fields (`columns`, `data`, and `rows`). The  “columns” array acts as the header for the data rows. The categorical dimension  columns come first and include the campaign id, seller id, and seller name.  The interval column comes next and defines the aggregation period. The interval size is  determined by the `intervalSize` parameter. This is followed by either nine or  fifteen metrics columns. The first three metrics (impressions, clicks, and cost)  always appear. The remaining depend on the `clickAttributionPolicy` parameter.                The “data” array contains data rows whose values match the entries in the  “columns” array. Id dimensions are numbers while name and date dimensions are strings. The metrics are JSON objects  whose type is number. Some of these are natural numbers (e.g. clicks and  impressions) whereas others are decimal values. A divide by zero yields null. The  currency is assumed to be the local currency established by the advertiser.                The “row” value is a count of the number of rows in the data array, and can be  used to check the integrity of the data.                Further information on the campaign or seller (e.g. the seller name) can be  obtained from the existing V1 or V2 endpoints using the campaign and/or seller  ID values.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$advertiser_id = 56; // int | Show only metrics for this advertiser.
+$campaign_id = 'campaign_id_example'; // string | Show only metrics for this campaign (default all campaigns)
+$click_attribution_policy = 'AnySeller'; // string | Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS
+$count = 56; // int | Return up to the first count rows of data (default is all rows)
+$end_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter out all events that occur after date (default is today’s date)
+$interval_size = 'Day'; // string | Specify the aggregation interval for events used to compute stats (default is \"day\")
+$seller_id = 'seller_id_example'; // string | Show only metrics for this seller (default all sellers)
+$start_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter out all events that occur before date (default is the value of `endDate`)
+
+try {
+    $result = $apiInstance->getMarketplaceSellerCampaignsStats($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CampaignApi->getMarketplaceSellerCampaignsStats: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **int**| Show only metrics for this advertiser. | [optional] |
+| **campaign_id** | **string**| Show only metrics for this campaign (default all campaigns) | [optional] |
+| **click_attribution_policy** | **string**| Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS | [optional] [default to &#39;AnySeller&#39;] |
+| **count** | **int**| Return up to the first count rows of data (default is all rows) | [optional] |
+| **end_date** | **\DateTime**| Filter out all events that occur after date (default is today’s date) | [optional] |
+| **interval_size** | **string**| Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) | [optional] [default to &#39;Day&#39;] |
+| **seller_id** | **string**| Show only metrics for this seller (default all sellers) | [optional] |
+| **start_date** | **\DateTime**| Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) | [optional] |
+
+### Return type
+
+**string**
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getMarketplaceSellers()`
+
+```php
+getMarketplaceSellers($advertiser_id, $campaign_id, $seller_name, $seller_status, $with_budget_status, $with_products): \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]
 ```
 
 
@@ -1806,10 +1817,10 @@ $with_budget_status = 'with_budget_status_example'; // string | Return only sell
 $with_products = True; // bool | Return only sellers with or without products in catalog.
 
 try {
-    $result = $apiInstance->getSellers($advertiser_id, $campaign_id, $seller_name, $seller_status, $with_budget_status, $with_products);
+    $result = $apiInstance->getMarketplaceSellers($advertiser_id, $campaign_id, $seller_name, $seller_status, $with_budget_status, $with_products);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->getSellers: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CampaignApi->getMarketplaceSellers: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -1827,6 +1838,147 @@ try {
 ### Return type
 
 [**\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]**](../Model/SellerBudgetMessage.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getMarketplaceSellersByAdvertiser()`
+
+```php
+getMarketplaceSellersByAdvertiser($advertiser_id, $partner_id, $request_body)
+```
+
+
+
+Create new sellers for an advertiser
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$advertiser_id = 56; // int | Id of the advertiser
+$partner_id = 56; // int | Id of the partner
+$request_body = array('request_body_example'); // string[] | Names of the sellers to associate with new Ids
+
+try {
+    $apiInstance->getMarketplaceSellersByAdvertiser($advertiser_id, $partner_id, $request_body);
+} catch (Exception $e) {
+    echo 'Exception when calling CampaignApi->getMarketplaceSellersByAdvertiser: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **int**| Id of the advertiser | |
+| **partner_id** | **int**| Id of the partner | [optional] |
+| **request_body** | [**string[]**](../Model/string.md)| Names of the sellers to associate with new Ids | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getMarketplaceSellersStats()`
+
+```php
+getMarketplaceSellersStats($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date): string
+```
+
+
+
+## Dimensions                Get performance statistics aggregated for _sellers_. The seller id appears  in the output in the first column and the seller name appears in the second.                Aggregation can be done by `hour`, `day`, `month`, or `year`. The aggregation  interval size is controlled by `intervalSize`. The time interval appears in  the output as the second column.                ## Metrics                The metrics reported by this endpoint are                .  | Metric Group | Description  ---|--------------|------------  A | impressions | Number of times product is shown in a banner  B | clicks | Number of clicks on product  C | cost | Amount spent for clicks on products  D | saleUnits | Number of products sold attributed to clicks  E | revenue | Revenue generated by sales  F | CR = Conversion Rate | salesUnits / clicks  G | CPO = Cost Per Order | cost / salesUnits  H | COS = Cost of Sale | cost / revenue  I | ROAS = Return On Add Spend | revenue / cost                The last six metrics can be computed in two ways depending on the policy to count only  the sales that result from clicks on the same sellers product in a banner  (same-seller) or not (any-seller).  Reporting can be controlled by `clickAttributionPolicy`.                The 9 (or 15) metric values appear in the output as the final 9 (or 15) columns.                ## Filtering                The results can be filtered by seller id, date or count.                Filtering the results to events associated with a specific seller is done by setting  the `sellerId` filter parameter to the desired value.                Filtering the results to events  that happened in a time interval is done by setting the `startDate` and  `endDate` filter parameters using the `yyyy-MM-DD` format. The start date  includes all events timestamped since the beginning of that day while the end  date includes events until the end of day. The maximum duration of the date  range is 1 year. If the aggregation interval is `hour`, then the maximum  duration of the date range is 31 days. Note that month and year aggregate values  may contain partial data for the interval if filtering by date.                Filtering the results to a maximum number of data rows is done by setting the  `count` filter parameter. When combined with startDate this can be used to perform  simple pagination.                ## Response Format                The representation format can be specified by MIME values in the Accept header.  For now the only supported values for the accept header is `application/json` and  `text/csv`.                ```json  {      \"columns\": [\"sellerId\", \"sellerName\", \"month\", \"impressions\", \"clicks\", \"cost\", \"saleUnits\", \"revenue\", \"cr\", \"cpo\", \"cos\", \"roas\"],      \"data\": [         [1200972, \"sellerA\", \"2019-05-01\", 14542, 48, 3.36, 0, 0.0, 0.0, null, null, 0.0],         [1200972, \"sellerA\", \"2019-06-01\", 16619, 53, 3.71, 0, 0.0, 0.0, null, null, 0.0],         [1200974, \"sellerB\", \"2019-05-01\", 10102, 47, 3.29, 3, 396000.0, 0.063, 1.096, 8.308E-6, 120364.741],         [1200974, \"sellerB\", \"2019-06-01\", 11576, 54, 3.78, 1, 132000.0, 0.018, 3.78, 2.863E-5, 34920.634]      ],      \"rows\": 4  }  ```                The JSON result is an object with three fields (`columns`, `data`, and `rows`). The  “columns” array acts as the header for the data rows. The categorical dimension  columns come first and include the seller id and seller name.  The interval column comes next and defines the aggregation period. The interval size is  determined by the `intervalSize` parameter. This is followed by either nine or  fifteen metrics columns. The first three metrics (impressions, clicks, and cost)  always appear. The remaining metrics depend on the `clickAttributionPolicy` parameter.                The “data” array contains data rows whose values match the entries in the  “columns” array. Id dimensions are numbers while name and date dimensions are strings. The metrics are JSON objects  whose type is number. Some of these are natural numbers (e.g. clicks and  impressions) whereas others are decimal values. A divide by zero yields null. The  currency is assumed to be the local currency established by the advertiser.                The “row” value is a count of the number of rows in the data array, and can be  used to check the integrity of the data.                Further information on the campaign or seller (e.g. the seller name) can be  obtained from the existing V1 or V2 endpoints using the campaign and/or seller  ID values.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$advertiser_id = 56; // int | Show only metrics for this advertiser.
+$click_attribution_policy = 'AnySeller'; // string | Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS
+$count = 56; // int | Return up to the first count rows of data (default is all rows)
+$end_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter out all events that occur after date (default is today’s date)
+$interval_size = 'Day'; // string | Specify the aggregation interval for events used to compute stats (default is \"day\")
+$seller_id = 'seller_id_example'; // string | Show only metrics for this seller (default all sellers)
+$start_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter out all events that occur before date (default is the value of `endDate`)
+
+try {
+    $result = $apiInstance->getMarketplaceSellersStats($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CampaignApi->getMarketplaceSellersStats: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **advertiser_id** | **int**| Show only metrics for this advertiser. | [optional] |
+| **click_attribution_policy** | **string**| Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS | [optional] [default to &#39;AnySeller&#39;] |
+| **count** | **int**| Return up to the first count rows of data (default is all rows) | [optional] |
+| **end_date** | **\DateTime**| Filter out all events that occur after date (default is today’s date) | [optional] |
+| **interval_size** | **string**| Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) | [optional] [default to &#39;Day&#39;] |
+| **seller_id** | **string**| Show only metrics for this seller (default all sellers) | [optional] |
+| **start_date** | **\DateTime**| Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) | [optional] |
+
+### Return type
+
+**string**
 
 ### Authorization
 
@@ -2223,158 +2375,6 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `sellerCampaigns()`
-
-```php
-sellerCampaigns($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date): string
-```
-
-
-
-## Dimensions                Get performance statistics aggregated for _seller campaigns_.The campaign id, seller id, and  seller name appear in the first three columns of the output. These are followed by the interval  size column.                Aggregation can be done by `hour`, `day`, `month`, or `year`. The aggregation  interval size is controlled by `intervalSize`. The remaining columns are metrics.                ## Metrics                The metrics reported by this endpoint are                .  | Metric Group | Description  ---|--------------|------------  A | impressions | Number of times product is shown in a banner  B | clicks | Number of clicks on product  C | cost | Amount spent for clicks on products  D | saleUnits | Number of products sold attributed to clicks  E | revenue | Revenue generated by sales  F | CR = Conversion Rate | salesUnits / clicks  G | CPO = Cost Per Order | cost / salesUnits  H | COS = Cost of Sale | cost / revenue  I | ROAS = Return On Add Spend | revenue / cost                The last six metrics can be computed in two ways depending on the policy to count only  the sales that result from clicks on the same sellers product in a banner  (same-seller) or not (any-seller).  Reporting can be controlled by `clickAttributionPolicy`.                The 9 (or 15) metric values appear in the output as the final 9 (or 15) columns.                ## Filtering                The results can be filtered by date or count.                Filtering the results to events associated with a specific campaign is done by setting  the `campaignId` filter parameter to the desired value.                Filtering the results to events associated with a specific seller is done by setting  the `sellerId` filter parameter to the desired value.                Filtering the results to events  that happened in a time interval is done by setting the `startDate` and  `endDate` filter parameters using the `yyyy-MM-DD` format. The start date  includes all events timestamped since the beginning of that day while the end  date includes events until the end of day. The maximum duration of the date  range is 1 year. If the aggregation interval is `hour`, then the maximum  duration of the date range is 31 days. Note that month and year aggregate values  may contain partial data for the interval if filtering by date.                Filtering the results to a maximum number of data rows is done by setting the  `count` filter parameter. When combined with startDate this can be used to perform  simple pagination.                ## Response Format                The representation format can be specified by MIME values in the Accept header.  For now the only supported values for the accept header is `application/json` and  `text/csv`.                ```json  {      \"columns\": [          \"campaignId\", \"sellerId\", \"sellerName\", \"month\", \"impressions\", \"clicks\", \"cost\", \"saleUnits\", \"revenue\", \"cr\", \"cpo\", \"cos\", \"roas\"      ],      \"data\": [          [168423, 1110222, \"118883955\", \"2019-05-01\", 14542, 48, 3.36, 0, 0.0, 0.0, null, null, 0.0],          [168423, 1110222, \"118883955\", \"2019-06-01\", 16619, 53, 3.71, 0, 0.0, 0.0, null, null, 0.0],          [168423, 1110225, \"117980027\", \"2019-05-01\", 12502, 48, 3.36, 0, 0.0, 0.0, null, null, 0.0],          [168423, 1110225, \"117980027\", \"2019-06-01\", 20266, 53, 3.71, 0, 0.0, 0.0, null, null, 0.0]      ],      \"rows\": 4  }  ```                The JSON result is an object with three fields (`columns`, `data`, and `rows`). The  “columns” array acts as the header for the data rows. The categorical dimension  columns come first and include the campaign id, seller id, and seller name.  The interval column comes next and defines the aggregation period. The interval size is  determined by the `intervalSize` parameter. This is followed by either nine or  fifteen metrics columns. The first three metrics (impressions, clicks, and cost)  always appear. The remaining depend on the `clickAttributionPolicy` parameter.                The “data” array contains data rows whose values match the entries in the  “columns” array. Id dimensions are numbers while name and date dimensions are strings. The metrics are JSON objects  whose type is number. Some of these are natural numbers (e.g. clicks and  impressions) whereas others are decimal values. A divide by zero yields null. The  currency is assumed to be the local currency established by the advertiser.                The “row” value is a count of the number of rows in the data array, and can be  used to check the integrity of the data.                Further information on the campaign or seller (e.g. the seller name) can be  obtained from the existing V1 or V2 endpoints using the campaign and/or seller  ID values.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$advertiser_id = 56; // int | Show only metrics for this advertiser.
-$campaign_id = 'campaign_id_example'; // string | Show only metrics for this campaign (default all campaigns)
-$click_attribution_policy = 'AnySeller'; // string | Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS
-$count = 56; // int | Return up to the first count rows of data (default is all rows)
-$end_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter out all events that occur after date (default is today’s date)
-$interval_size = 'Day'; // string | Specify the aggregation interval for events used to compute stats (default is \"day\")
-$seller_id = 'seller_id_example'; // string | Show only metrics for this seller (default all sellers)
-$start_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter out all events that occur before date (default is the value of `endDate`)
-
-try {
-    $result = $apiInstance->sellerCampaigns($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->sellerCampaigns: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **int**| Show only metrics for this advertiser. | [optional] |
-| **campaign_id** | **string**| Show only metrics for this campaign (default all campaigns) | [optional] |
-| **click_attribution_policy** | **string**| Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS | [optional] [default to &#39;AnySeller&#39;] |
-| **count** | **int**| Return up to the first count rows of data (default is all rows) | [optional] |
-| **end_date** | **\DateTime**| Filter out all events that occur after date (default is today’s date) | [optional] |
-| **interval_size** | **string**| Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) | [optional] [default to &#39;Day&#39;] |
-| **seller_id** | **string**| Show only metrics for this seller (default all sellers) | [optional] |
-| **start_date** | **\DateTime**| Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) | [optional] |
-
-### Return type
-
-**string**
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `sellers()`
-
-```php
-sellers($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date): string
-```
-
-
-
-## Dimensions                Get performance statistics aggregated for _sellers_. The seller id appears  in the output in the first column and the seller name appears in the second.                Aggregation can be done by `hour`, `day`, `month`, or `year`. The aggregation  interval size is controlled by `intervalSize`. The time interval appears in  the output as the second column.                ## Metrics                The metrics reported by this endpoint are                .  | Metric Group | Description  ---|--------------|------------  A | impressions | Number of times product is shown in a banner  B | clicks | Number of clicks on product  C | cost | Amount spent for clicks on products  D | saleUnits | Number of products sold attributed to clicks  E | revenue | Revenue generated by sales  F | CR = Conversion Rate | salesUnits / clicks  G | CPO = Cost Per Order | cost / salesUnits  H | COS = Cost of Sale | cost / revenue  I | ROAS = Return On Add Spend | revenue / cost                The last six metrics can be computed in two ways depending on the policy to count only  the sales that result from clicks on the same sellers product in a banner  (same-seller) or not (any-seller).  Reporting can be controlled by `clickAttributionPolicy`.                The 9 (or 15) metric values appear in the output as the final 9 (or 15) columns.                ## Filtering                The results can be filtered by seller id, date or count.                Filtering the results to events associated with a specific seller is done by setting  the `sellerId` filter parameter to the desired value.                Filtering the results to events  that happened in a time interval is done by setting the `startDate` and  `endDate` filter parameters using the `yyyy-MM-DD` format. The start date  includes all events timestamped since the beginning of that day while the end  date includes events until the end of day. The maximum duration of the date  range is 1 year. If the aggregation interval is `hour`, then the maximum  duration of the date range is 31 days. Note that month and year aggregate values  may contain partial data for the interval if filtering by date.                Filtering the results to a maximum number of data rows is done by setting the  `count` filter parameter. When combined with startDate this can be used to perform  simple pagination.                ## Response Format                The representation format can be specified by MIME values in the Accept header.  For now the only supported values for the accept header is `application/json` and  `text/csv`.                ```json  {      \"columns\": [\"sellerId\", \"sellerName\", \"month\", \"impressions\", \"clicks\", \"cost\", \"saleUnits\", \"revenue\", \"cr\", \"cpo\", \"cos\", \"roas\"],      \"data\": [         [1200972, \"sellerA\", \"2019-05-01\", 14542, 48, 3.36, 0, 0.0, 0.0, null, null, 0.0],         [1200972, \"sellerA\", \"2019-06-01\", 16619, 53, 3.71, 0, 0.0, 0.0, null, null, 0.0],         [1200974, \"sellerB\", \"2019-05-01\", 10102, 47, 3.29, 3, 396000.0, 0.063, 1.096, 8.308E-6, 120364.741],         [1200974, \"sellerB\", \"2019-06-01\", 11576, 54, 3.78, 1, 132000.0, 0.018, 3.78, 2.863E-5, 34920.634]      ],      \"rows\": 4  }  ```                The JSON result is an object with three fields (`columns`, `data`, and `rows`). The  “columns” array acts as the header for the data rows. The categorical dimension  columns come first and include the seller id and seller name.  The interval column comes next and defines the aggregation period. The interval size is  determined by the `intervalSize` parameter. This is followed by either nine or  fifteen metrics columns. The first three metrics (impressions, clicks, and cost)  always appear. The remaining metrics depend on the `clickAttributionPolicy` parameter.                The “data” array contains data rows whose values match the entries in the  “columns” array. Id dimensions are numbers while name and date dimensions are strings. The metrics are JSON objects  whose type is number. Some of these are natural numbers (e.g. clicks and  impressions) whereas others are decimal values. A divide by zero yields null. The  currency is assumed to be the local currency established by the advertiser.                The “row” value is a count of the number of rows in the data array, and can be  used to check the integrity of the data.                Further information on the campaign or seller (e.g. the seller name) can be  obtained from the existing V1 or V2 endpoints using the campaign and/or seller  ID values.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_07\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$advertiser_id = 56; // int | Show only metrics for this advertiser.
-$click_attribution_policy = 'AnySeller'; // string | Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS
-$count = 56; // int | Return up to the first count rows of data (default is all rows)
-$end_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter out all events that occur after date (default is today’s date)
-$interval_size = 'Day'; // string | Specify the aggregation interval for events used to compute stats (default is \"day\")
-$seller_id = 'seller_id_example'; // string | Show only metrics for this seller (default all sellers)
-$start_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter out all events that occur before date (default is the value of `endDate`)
-
-try {
-    $result = $apiInstance->sellers($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->sellers: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **int**| Show only metrics for this advertiser. | [optional] |
-| **click_attribution_policy** | **string**| Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS | [optional] [default to &#39;AnySeller&#39;] |
-| **count** | **int**| Return up to the first count rows of data (default is all rows) | [optional] |
-| **end_date** | **\DateTime**| Filter out all events that occur after date (default is today’s date) | [optional] |
-| **interval_size** | **string**| Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) | [optional] [default to &#39;Day&#39;] |
-| **seller_id** | **string**| Show only metrics for this seller (default all sellers) | [optional] |
-| **start_date** | **\DateTime**| Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) | [optional] |
-
-### Return type
-
-**string**
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `startAdSets()`
 
 ```php
@@ -2566,10 +2566,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `updateSellerBudget()`
+## `updateMarketplaceSellerBudget()`
 
 ```php
-updateSellerBudget($budget_id, $update_seller_budget_message_base)
+updateMarketplaceSellerBudget($budget_id, $update_seller_budget_message_base)
 ```
 
 
@@ -2600,9 +2600,9 @@ $budget_id = 56; // int | Id of the budget
 $update_seller_budget_message_base = new \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessageBase(); // \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessageBase | 
 
 try {
-    $apiInstance->updateSellerBudget($budget_id, $update_seller_budget_message_base);
+    $apiInstance->updateMarketplaceSellerBudget($budget_id, $update_seller_budget_message_base);
 } catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->updateSellerBudget: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CampaignApi->updateMarketplaceSellerBudget: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -2630,10 +2630,10 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `updateSellerBudgets()`
+## `updateMarketplaceSellerBudgets()`
 
 ```php
-updateSellerBudgets($update_seller_budget_message)
+updateMarketplaceSellerBudgets($update_seller_budget_message)
 ```
 
 
@@ -2663,9 +2663,9 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
 $update_seller_budget_message = array(new \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessage()); // \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessage[] | 
 
 try {
-    $apiInstance->updateSellerBudgets($update_seller_budget_message);
+    $apiInstance->updateMarketplaceSellerBudgets($update_seller_budget_message);
 } catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->updateSellerBudgets: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CampaignApi->updateMarketplaceSellerBudgets: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -2692,10 +2692,10 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `updateSellerCampaign()`
+## `updateMarketplaceSellerCampaign()`
 
 ```php
-updateSellerCampaign($seller_campaign_id, $bid): \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage
+updateMarketplaceSellerCampaign($seller_campaign_id, $bid): \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage
 ```
 
 
@@ -2726,10 +2726,10 @@ $seller_campaign_id = 'seller_campaign_id_example'; // string | Id of the existi
 $bid = 3.4; // float | The new bid for the seller campaign.
 
 try {
-    $result = $apiInstance->updateSellerCampaign($seller_campaign_id, $bid);
+    $result = $apiInstance->updateMarketplaceSellerCampaign($seller_campaign_id, $bid);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->updateSellerCampaign: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CampaignApi->updateMarketplaceSellerCampaign: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -2757,10 +2757,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `updateSellerCampaigns()`
+## `updateMarketplaceSellerCampaigns()`
 
 ```php
-updateSellerCampaigns($seller_campaign_update): \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[]
+updateMarketplaceSellerCampaigns($seller_campaign_update): \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[]
 ```
 
 
@@ -2790,10 +2790,10 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
 $seller_campaign_update = array(new \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignUpdate()); // \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignUpdate[] | 
 
 try {
-    $result = $apiInstance->updateSellerCampaigns($seller_campaign_update);
+    $result = $apiInstance->updateMarketplaceSellerCampaigns($seller_campaign_update);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->updateSellerCampaigns: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CampaignApi->updateMarketplaceSellerCampaigns: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
