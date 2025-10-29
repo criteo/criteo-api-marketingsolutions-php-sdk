@@ -15,9 +15,10 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 | [**getAudienceSegmentContactListStatistics()**](AudienceApi.md#getAudienceSegmentContactListStatistics) | **GET** /preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list/statistics |  |
 | [**getAudienceSegmentsInMarketBrands()**](AudienceApi.md#getAudienceSegmentsInMarketBrands) | **GET** /preview/marketing-solutions/audience-segments/in-market-brands |  |
 | [**getAudienceSegmentsInMarketInterests()**](AudienceApi.md#getAudienceSegmentsInMarketInterests) | **GET** /preview/marketing-solutions/audience-segments/in-market-interests |  |
-| [**modifyAudienceUsersWithAttributes()**](AudienceApi.md#modifyAudienceUsersWithAttributes) | **PATCH** /preview/audiences/{audience-id}/contactlist-attributes |  |
+| [**previewAudiencesAudienceIdContactlistAttributesPatch()**](AudienceApi.md#previewAudiencesAudienceIdContactlistAttributesPatch) | **PATCH** /preview/audiences/{audience-id}/contactlist-attributes |  |
 | [**previewMarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListDelete()**](AudienceApi.md#previewMarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListDelete) | **DELETE** /preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list |  |
 | [**previewMarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListPatch()**](AudienceApi.md#previewMarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListPatch) | **PATCH** /preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list |  |
+| [**previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatch()**](AudienceApi.md#previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatch) | **PATCH** /preview/marketing-solutions/audiences/{audience-id}/contactlist-attributes |  |
 | [**searchAudienceSegments()**](AudienceApi.md#searchAudienceSegments) | **POST** /preview/marketing-solutions/audience-segments/search |  |
 | [**searchAudiences()**](AudienceApi.md#searchAudiences) | **POST** /preview/marketing-solutions/audiences/search |  |
 | [**updateAudienceSegments()**](AudienceApi.md#updateAudienceSegments) | **PATCH** /preview/marketing-solutions/audience-segments |  |
@@ -721,10 +722,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `modifyAudienceUsersWithAttributes()`
+## `previewAudiencesAudienceIdContactlistAttributesPatch()`
 
 ```php
-modifyAudienceUsersWithAttributes($audience_id, $contactlist_with_attributes_amendment_request): \criteo\api\marketingsolutions\preview\Model\ModifyAudienceResponse
+previewAudiencesAudienceIdContactlistAttributesPatch($audience_id, $contactlist_with_attributes_amendment_request): \criteo\api\marketingsolutions\preview\Model\ModifyAudienceResponse
 ```
 
 
@@ -755,10 +756,10 @@ $audience_id = 'audience_id_example'; // string | The id of the contact list aud
 $contactlist_with_attributes_amendment_request = new \criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest(); // \criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest
 
 try {
-    $result = $apiInstance->modifyAudienceUsersWithAttributes($audience_id, $contactlist_with_attributes_amendment_request);
+    $result = $apiInstance->previewAudiencesAudienceIdContactlistAttributesPatch($audience_id, $contactlist_with_attributes_amendment_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AudienceApi->modifyAudienceUsersWithAttributes: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AudienceApi->previewAudiencesAudienceIdContactlistAttributesPatch: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -896,6 +897,71 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **audience_segment_id** | **string**| The id of the contact list audience-segment to amend | |
 | **contactlist_amendment_request** | [**\criteo\api\marketingsolutions\preview\Model\ContactlistAmendmentRequest**](../Model/ContactlistAmendmentRequest.md)|  | |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\ModifyAudienceResponse**](../Model/ModifyAudienceResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatch()`
+
+```php
+previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatch($audience_id, $contactlist_with_attributes_amendment_request): \criteo\api\marketingsolutions\preview\Model\ModifyAudienceResponse
+```
+
+
+
+Add/remove identifiers to or from a contact list.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$audience_id = 'audience_id_example'; // string | The id of the contact list audience-segment to amend
+$contactlist_with_attributes_amendment_request = new \criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest(); // \criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest
+
+try {
+    $result = $apiInstance->previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatch($audience_id, $contactlist_with_attributes_amendment_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AudienceApi->previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatch: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **audience_id** | **string**| The id of the contact list audience-segment to amend | |
+| **contactlist_with_attributes_amendment_request** | [**\criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest**](../Model/ContactlistWithAttributesAmendmentRequest.md)|  | |
 
 ### Return type
 

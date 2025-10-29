@@ -104,13 +104,16 @@ class AudienceApi
         'getAudienceSegmentsInMarketInterests' => [
             'application/json',
         ],
-        'modifyAudienceUsersWithAttributes' => [
+        'previewAudiencesAudienceIdContactlistAttributesPatch' => [
             'application/json',
         ],
         'previewMarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListDelete' => [
             'application/json',
         ],
         'previewMarketingSolutionsAudienceSegmentsAudienceSegmentIdContactListPatch' => [
+            'application/json',
+        ],
+        'previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatch' => [
             'application/json',
         ],
         'searchAudienceSegments' => [
@@ -3323,36 +3326,36 @@ class AudienceApi
     }
 
     /**
-     * Operation modifyAudienceUsersWithAttributes
+     * Operation previewAudiencesAudienceIdContactlistAttributesPatch
      *
      * @param  string $audience_id The id of the contact list audience-segment to amend (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest $contactlist_with_attributes_amendment_request contactlist_with_attributes_amendment_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['modifyAudienceUsersWithAttributes'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewAudiencesAudienceIdContactlistAttributesPatch'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\ModifyAudienceResponse
      */
-    public function modifyAudienceUsersWithAttributes($audience_id, $contactlist_with_attributes_amendment_request, string $contentType = self::contentTypes['modifyAudienceUsersWithAttributes'][0])
+    public function previewAudiencesAudienceIdContactlistAttributesPatch($audience_id, $contactlist_with_attributes_amendment_request, string $contentType = self::contentTypes['previewAudiencesAudienceIdContactlistAttributesPatch'][0])
     {
-        list($response) = $this->modifyAudienceUsersWithAttributesWithHttpInfo($audience_id, $contactlist_with_attributes_amendment_request, $contentType);
+        list($response) = $this->previewAudiencesAudienceIdContactlistAttributesPatchWithHttpInfo($audience_id, $contactlist_with_attributes_amendment_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation modifyAudienceUsersWithAttributesWithHttpInfo
+     * Operation previewAudiencesAudienceIdContactlistAttributesPatchWithHttpInfo
      *
      * @param  string $audience_id The id of the contact list audience-segment to amend (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest $contactlist_with_attributes_amendment_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['modifyAudienceUsersWithAttributes'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewAudiencesAudienceIdContactlistAttributesPatch'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\ModifyAudienceResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function modifyAudienceUsersWithAttributesWithHttpInfo($audience_id, $contactlist_with_attributes_amendment_request, string $contentType = self::contentTypes['modifyAudienceUsersWithAttributes'][0])
+    public function previewAudiencesAudienceIdContactlistAttributesPatchWithHttpInfo($audience_id, $contactlist_with_attributes_amendment_request, string $contentType = self::contentTypes['previewAudiencesAudienceIdContactlistAttributesPatch'][0])
     {
-        $request = $this->modifyAudienceUsersWithAttributesRequest($audience_id, $contactlist_with_attributes_amendment_request, $contentType);
+        $request = $this->previewAudiencesAudienceIdContactlistAttributesPatchRequest($audience_id, $contactlist_with_attributes_amendment_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3439,18 +3442,18 @@ class AudienceApi
     }
 
     /**
-     * Operation modifyAudienceUsersWithAttributesAsync
+     * Operation previewAudiencesAudienceIdContactlistAttributesPatchAsync
      *
      * @param  string $audience_id The id of the contact list audience-segment to amend (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest $contactlist_with_attributes_amendment_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['modifyAudienceUsersWithAttributes'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewAudiencesAudienceIdContactlistAttributesPatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function modifyAudienceUsersWithAttributesAsync($audience_id, $contactlist_with_attributes_amendment_request, string $contentType = self::contentTypes['modifyAudienceUsersWithAttributes'][0])
+    public function previewAudiencesAudienceIdContactlistAttributesPatchAsync($audience_id, $contactlist_with_attributes_amendment_request, string $contentType = self::contentTypes['previewAudiencesAudienceIdContactlistAttributesPatch'][0])
     {
-        return $this->modifyAudienceUsersWithAttributesAsyncWithHttpInfo($audience_id, $contactlist_with_attributes_amendment_request, $contentType)
+        return $this->previewAudiencesAudienceIdContactlistAttributesPatchAsyncWithHttpInfo($audience_id, $contactlist_with_attributes_amendment_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3459,19 +3462,19 @@ class AudienceApi
     }
 
     /**
-     * Operation modifyAudienceUsersWithAttributesAsyncWithHttpInfo
+     * Operation previewAudiencesAudienceIdContactlistAttributesPatchAsyncWithHttpInfo
      *
      * @param  string $audience_id The id of the contact list audience-segment to amend (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest $contactlist_with_attributes_amendment_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['modifyAudienceUsersWithAttributes'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewAudiencesAudienceIdContactlistAttributesPatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function modifyAudienceUsersWithAttributesAsyncWithHttpInfo($audience_id, $contactlist_with_attributes_amendment_request, string $contentType = self::contentTypes['modifyAudienceUsersWithAttributes'][0])
+    public function previewAudiencesAudienceIdContactlistAttributesPatchAsyncWithHttpInfo($audience_id, $contactlist_with_attributes_amendment_request, string $contentType = self::contentTypes['previewAudiencesAudienceIdContactlistAttributesPatch'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\ModifyAudienceResponse';
-        $request = $this->modifyAudienceUsersWithAttributesRequest($audience_id, $contactlist_with_attributes_amendment_request, $contentType);
+        $request = $this->previewAudiencesAudienceIdContactlistAttributesPatchRequest($audience_id, $contactlist_with_attributes_amendment_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3510,29 +3513,29 @@ class AudienceApi
     }
 
     /**
-     * Create request for operation 'modifyAudienceUsersWithAttributes'
+     * Create request for operation 'previewAudiencesAudienceIdContactlistAttributesPatch'
      *
      * @param  string $audience_id The id of the contact list audience-segment to amend (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest $contactlist_with_attributes_amendment_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['modifyAudienceUsersWithAttributes'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewAudiencesAudienceIdContactlistAttributesPatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function modifyAudienceUsersWithAttributesRequest($audience_id, $contactlist_with_attributes_amendment_request, string $contentType = self::contentTypes['modifyAudienceUsersWithAttributes'][0])
+    public function previewAudiencesAudienceIdContactlistAttributesPatchRequest($audience_id, $contactlist_with_attributes_amendment_request, string $contentType = self::contentTypes['previewAudiencesAudienceIdContactlistAttributesPatch'][0])
     {
 
         // verify the required parameter 'audience_id' is set
         if ($audience_id === null || (is_array($audience_id) && count($audience_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $audience_id when calling modifyAudienceUsersWithAttributes'
+                'Missing the required parameter $audience_id when calling previewAudiencesAudienceIdContactlistAttributesPatch'
             );
         }
 
         // verify the required parameter 'contactlist_with_attributes_amendment_request' is set
         if ($contactlist_with_attributes_amendment_request === null || (is_array($contactlist_with_attributes_amendment_request) && count($contactlist_with_attributes_amendment_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $contactlist_with_attributes_amendment_request when calling modifyAudienceUsersWithAttributes'
+                'Missing the required parameter $contactlist_with_attributes_amendment_request when calling previewAudiencesAudienceIdContactlistAttributesPatch'
             );
         }
 
@@ -4154,6 +4157,308 @@ class AudienceApi
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($contactlist_amendment_request));
             } else {
                 $httpBody = $contactlist_amendment_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatch
+     *
+     * @param  string $audience_id The id of the contact list audience-segment to amend (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest $contactlist_with_attributes_amendment_request contactlist_with_attributes_amendment_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatch'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\ModifyAudienceResponse
+     */
+    public function previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatch($audience_id, $contactlist_with_attributes_amendment_request, string $contentType = self::contentTypes['previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatch'][0])
+    {
+        list($response) = $this->previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatchWithHttpInfo($audience_id, $contactlist_with_attributes_amendment_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatchWithHttpInfo
+     *
+     * @param  string $audience_id The id of the contact list audience-segment to amend (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest $contactlist_with_attributes_amendment_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatch'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ModifyAudienceResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatchWithHttpInfo($audience_id, $contactlist_with_attributes_amendment_request, string $contentType = self::contentTypes['previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatch'][0])
+    {
+        $request = $this->previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatchRequest($audience_id, $contactlist_with_attributes_amendment_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\ModifyAudienceResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\preview\Model\ModifyAudienceResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ModifyAudienceResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\ModifyAudienceResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\ModifyAudienceResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatchAsync
+     *
+     * @param  string $audience_id The id of the contact list audience-segment to amend (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest $contactlist_with_attributes_amendment_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatchAsync($audience_id, $contactlist_with_attributes_amendment_request, string $contentType = self::contentTypes['previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatch'][0])
+    {
+        return $this->previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatchAsyncWithHttpInfo($audience_id, $contactlist_with_attributes_amendment_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatchAsyncWithHttpInfo
+     *
+     * @param  string $audience_id The id of the contact list audience-segment to amend (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest $contactlist_with_attributes_amendment_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatchAsyncWithHttpInfo($audience_id, $contactlist_with_attributes_amendment_request, string $contentType = self::contentTypes['previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatch'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\ModifyAudienceResponse';
+        $request = $this->previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatchRequest($audience_id, $contactlist_with_attributes_amendment_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatch'
+     *
+     * @param  string $audience_id The id of the contact list audience-segment to amend (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ContactlistWithAttributesAmendmentRequest $contactlist_with_attributes_amendment_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatchRequest($audience_id, $contactlist_with_attributes_amendment_request, string $contentType = self::contentTypes['previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatch'][0])
+    {
+
+        // verify the required parameter 'audience_id' is set
+        if ($audience_id === null || (is_array($audience_id) && count($audience_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $audience_id when calling previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatch'
+            );
+        }
+
+        // verify the required parameter 'contactlist_with_attributes_amendment_request' is set
+        if ($contactlist_with_attributes_amendment_request === null || (is_array($contactlist_with_attributes_amendment_request) && count($contactlist_with_attributes_amendment_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $contactlist_with_attributes_amendment_request when calling previewMarketingSolutionsAudiencesAudienceIdContactlistAttributesPatch'
+            );
+        }
+
+
+        $resourcePath = '/preview/marketing-solutions/audiences/{audience-id}/contactlist-attributes';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($audience_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'audience-id' . '}',
+                ObjectSerializer::toPathValue($audience_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($contactlist_with_attributes_amendment_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($contactlist_with_attributes_amendment_request));
+            } else {
+                $httpBody = $contactlist_with_attributes_amendment_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
