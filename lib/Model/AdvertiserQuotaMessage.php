@@ -1,6 +1,6 @@
 <?php
 /**
- * SellerBudgetMessage
+ * AdvertiserQuotaMessage
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2025_07\ObjectSerializer;
 
 /**
- * SellerBudgetMessage Class Doc Comment
+ * AdvertiserQuotaMessage Class Doc Comment
  *
  * @category Class
- * @description Budget are used to specify budget constraints for one or more Seller-Campaigns of the same Seller
+ * @description Data representing an advertiser&#39;s quota
  * @package  criteo\api\marketingsolutions\v2025_07
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializable
+class AdvertiserQuotaMessage implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SellerBudgetMessage';
+    protected static $openAPIModelName = 'AdvertiserQuotaMessage';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,16 +58,11 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'amount' => 'float',
-        'budget_type' => 'string',
-        'campaign_ids' => 'int[]',
-        'end_date' => 'string',
-        'id' => 'string',
-        'is_suspended' => 'bool',
-        'seller_id' => 'string',
-        'spend' => 'float',
-        'start_date' => '\DateTime',
-        'status' => '\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetStatusV2'
+        'advertiser_id' => 'int',
+        'quota_end_date' => '\DateTime',
+        'quota_limit' => 'int',
+        'quota_start_date' => '\DateTime',
+        'quota_used' => 'int'
     ];
 
     /**
@@ -78,16 +73,11 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'amount' => 'double',
-        'budget_type' => null,
-        'campaign_ids' => 'int32',
-        'end_date' => null,
-        'id' => null,
-        'is_suspended' => null,
-        'seller_id' => null,
-        'spend' => 'double',
-        'start_date' => 'date-time',
-        'status' => null
+        'advertiser_id' => 'int32',
+        'quota_end_date' => 'date-time',
+        'quota_limit' => 'int32',
+        'quota_start_date' => 'date-time',
+        'quota_used' => 'int32'
     ];
 
     /**
@@ -96,16 +86,11 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'amount' => true,
-		'budget_type' => false,
-		'campaign_ids' => false,
-		'end_date' => false,
-		'id' => false,
-		'is_suspended' => false,
-		'seller_id' => false,
-		'spend' => true,
-		'start_date' => false,
-		'status' => false
+        'advertiser_id' => true,
+		'quota_end_date' => true,
+		'quota_limit' => true,
+		'quota_start_date' => true,
+		'quota_used' => true
     ];
 
     /**
@@ -194,16 +179,11 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'amount' => 'amount',
-        'budget_type' => 'budgetType',
-        'campaign_ids' => 'campaignIds',
-        'end_date' => 'endDate',
-        'id' => 'id',
-        'is_suspended' => 'isSuspended',
-        'seller_id' => 'sellerId',
-        'spend' => 'spend',
-        'start_date' => 'startDate',
-        'status' => 'status'
+        'advertiser_id' => 'advertiserId',
+        'quota_end_date' => 'quotaEndDate',
+        'quota_limit' => 'quotaLimit',
+        'quota_start_date' => 'quotaStartDate',
+        'quota_used' => 'quotaUsed'
     ];
 
     /**
@@ -212,16 +192,11 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'amount' => 'setAmount',
-        'budget_type' => 'setBudgetType',
-        'campaign_ids' => 'setCampaignIds',
-        'end_date' => 'setEndDate',
-        'id' => 'setId',
-        'is_suspended' => 'setIsSuspended',
-        'seller_id' => 'setSellerId',
-        'spend' => 'setSpend',
-        'start_date' => 'setStartDate',
-        'status' => 'setStatus'
+        'advertiser_id' => 'setAdvertiserId',
+        'quota_end_date' => 'setQuotaEndDate',
+        'quota_limit' => 'setQuotaLimit',
+        'quota_start_date' => 'setQuotaStartDate',
+        'quota_used' => 'setQuotaUsed'
     ];
 
     /**
@@ -230,16 +205,11 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'amount' => 'getAmount',
-        'budget_type' => 'getBudgetType',
-        'campaign_ids' => 'getCampaignIds',
-        'end_date' => 'getEndDate',
-        'id' => 'getId',
-        'is_suspended' => 'getIsSuspended',
-        'seller_id' => 'getSellerId',
-        'spend' => 'getSpend',
-        'start_date' => 'getStartDate',
-        'status' => 'getStatus'
+        'advertiser_id' => 'getAdvertiserId',
+        'quota_end_date' => 'getQuotaEndDate',
+        'quota_limit' => 'getQuotaLimit',
+        'quota_start_date' => 'getQuotaStartDate',
+        'quota_used' => 'getQuotaUsed'
     ];
 
     /**
@@ -299,16 +269,11 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('budget_type', $data ?? [], null);
-        $this->setIfExists('campaign_ids', $data ?? [], null);
-        $this->setIfExists('end_date', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('is_suspended', $data ?? [], null);
-        $this->setIfExists('seller_id', $data ?? [], null);
-        $this->setIfExists('spend', $data ?? [], null);
-        $this->setIfExists('start_date', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('advertiser_id', $data ?? [], null);
+        $this->setIfExists('quota_end_date', $data ?? [], null);
+        $this->setIfExists('quota_limit', $data ?? [], null);
+        $this->setIfExists('quota_start_date', $data ?? [], null);
+        $this->setIfExists('quota_used', $data ?? [], null);
     }
 
     /**
@@ -354,285 +319,171 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets amount
+     * Gets advertiser_id
      *
-     * @return float|null
+     * @return int|null
      */
-    public function getAmount()
+    public function getAdvertiserId()
     {
-        return $this->container['amount'];
+        return $this->container['advertiser_id'];
     }
 
     /**
-     * Sets amount
+     * Sets advertiser_id
      *
-     * @param float|null $amount amount
+     * @param int|null $advertiser_id advertiser_id
      *
      * @return self
      */
-    public function setAmount($amount)
+    public function setAdvertiserId($advertiser_id)
     {
-        if (is_null($amount)) {
-            array_push($this->openAPINullablesSetToNull, 'amount');
+        if (is_null($advertiser_id)) {
+            array_push($this->openAPINullablesSetToNull, 'advertiser_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('amount', $nullablesSetToNull);
+            $index = array_search('advertiser_id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['amount'] = $amount;
+        $this->container['advertiser_id'] = $advertiser_id;
 
         return $this;
     }
 
     /**
-     * Gets budget_type
-     *
-     * @return string|null
-     */
-    public function getBudgetType()
-    {
-        return $this->container['budget_type'];
-    }
-
-    /**
-     * Sets budget_type
-     *
-     * @param string|null $budget_type budget_type
-     *
-     * @return self
-     */
-    public function setBudgetType($budget_type)
-    {
-        if (is_null($budget_type)) {
-            throw new \InvalidArgumentException('non-nullable budget_type cannot be null');
-        }
-        $this->container['budget_type'] = $budget_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets campaign_ids
-     *
-     * @return int[]|null
-     */
-    public function getCampaignIds()
-    {
-        return $this->container['campaign_ids'];
-    }
-
-    /**
-     * Sets campaign_ids
-     *
-     * @param int[]|null $campaign_ids campaign_ids
-     *
-     * @return self
-     */
-    public function setCampaignIds($campaign_ids)
-    {
-        if (is_null($campaign_ids)) {
-            throw new \InvalidArgumentException('non-nullable campaign_ids cannot be null');
-        }
-        $this->container['campaign_ids'] = $campaign_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets end_date
-     *
-     * @return string|null
-     */
-    public function getEndDate()
-    {
-        return $this->container['end_date'];
-    }
-
-    /**
-     * Sets end_date
-     *
-     * @param string|null $end_date end_date
-     *
-     * @return self
-     */
-    public function setEndDate($end_date)
-    {
-        if (is_null($end_date)) {
-            throw new \InvalidArgumentException('non-nullable end_date cannot be null');
-        }
-        $this->container['end_date'] = $end_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_suspended
-     *
-     * @return bool|null
-     */
-    public function getIsSuspended()
-    {
-        return $this->container['is_suspended'];
-    }
-
-    /**
-     * Sets is_suspended
-     *
-     * @param bool|null $is_suspended is_suspended
-     *
-     * @return self
-     */
-    public function setIsSuspended($is_suspended)
-    {
-        if (is_null($is_suspended)) {
-            throw new \InvalidArgumentException('non-nullable is_suspended cannot be null');
-        }
-        $this->container['is_suspended'] = $is_suspended;
-
-        return $this;
-    }
-
-    /**
-     * Gets seller_id
-     *
-     * @return string|null
-     */
-    public function getSellerId()
-    {
-        return $this->container['seller_id'];
-    }
-
-    /**
-     * Sets seller_id
-     *
-     * @param string|null $seller_id seller_id
-     *
-     * @return self
-     */
-    public function setSellerId($seller_id)
-    {
-        if (is_null($seller_id)) {
-            throw new \InvalidArgumentException('non-nullable seller_id cannot be null');
-        }
-        $this->container['seller_id'] = $seller_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets spend
-     *
-     * @return float|null
-     */
-    public function getSpend()
-    {
-        return $this->container['spend'];
-    }
-
-    /**
-     * Sets spend
-     *
-     * @param float|null $spend spend
-     *
-     * @return self
-     */
-    public function setSpend($spend)
-    {
-        if (is_null($spend)) {
-            array_push($this->openAPINullablesSetToNull, 'spend');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('spend', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['spend'] = $spend;
-
-        return $this;
-    }
-
-    /**
-     * Gets start_date
+     * Gets quota_end_date
      *
      * @return \DateTime|null
      */
-    public function getStartDate()
+    public function getQuotaEndDate()
     {
-        return $this->container['start_date'];
+        return $this->container['quota_end_date'];
     }
 
     /**
-     * Sets start_date
+     * Sets quota_end_date
      *
-     * @param \DateTime|null $start_date start_date
+     * @param \DateTime|null $quota_end_date quota_end_date
      *
      * @return self
      */
-    public function setStartDate($start_date)
+    public function setQuotaEndDate($quota_end_date)
     {
-        if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
+        if (is_null($quota_end_date)) {
+            array_push($this->openAPINullablesSetToNull, 'quota_end_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('quota_end_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['start_date'] = $start_date;
+        $this->container['quota_end_date'] = $quota_end_date;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets quota_limit
      *
-     * @return \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetStatusV2|null
+     * @return int|null
      */
-    public function getStatus()
+    public function getQuotaLimit()
     {
-        return $this->container['status'];
+        return $this->container['quota_limit'];
     }
 
     /**
-     * Sets status
+     * Sets quota_limit
      *
-     * @param \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetStatusV2|null $status status
+     * @param int|null $quota_limit quota_limit
      *
      * @return self
      */
-    public function setStatus($status)
+    public function setQuotaLimit($quota_limit)
     {
-        if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        if (is_null($quota_limit)) {
+            array_push($this->openAPINullablesSetToNull, 'quota_limit');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('quota_limit', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['status'] = $status;
+        $this->container['quota_limit'] = $quota_limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets quota_start_date
+     *
+     * @return \DateTime|null
+     */
+    public function getQuotaStartDate()
+    {
+        return $this->container['quota_start_date'];
+    }
+
+    /**
+     * Sets quota_start_date
+     *
+     * @param \DateTime|null $quota_start_date quota_start_date
+     *
+     * @return self
+     */
+    public function setQuotaStartDate($quota_start_date)
+    {
+        if (is_null($quota_start_date)) {
+            array_push($this->openAPINullablesSetToNull, 'quota_start_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('quota_start_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['quota_start_date'] = $quota_start_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets quota_used
+     *
+     * @return int|null
+     */
+    public function getQuotaUsed()
+    {
+        return $this->container['quota_used'];
+    }
+
+    /**
+     * Sets quota_used
+     *
+     * @param int|null $quota_used quota_used
+     *
+     * @return self
+     */
+    public function setQuotaUsed($quota_used)
+    {
+        if (is_null($quota_used)) {
+            array_push($this->openAPINullablesSetToNull, 'quota_used');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('quota_used', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['quota_used'] = $quota_used;
 
         return $this;
     }

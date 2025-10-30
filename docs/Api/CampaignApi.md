@@ -177,7 +177,7 @@ try {
 ## `createMarketplaceSellerBudgets()`
 
 ```php
-createMarketplaceSellerBudgets($create_seller_budget_mapi_message)
+createMarketplaceSellerBudgets($create_seller_budget_mapi_message): \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]
 ```
 
 
@@ -207,7 +207,8 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
 $create_seller_budget_mapi_message = array(new \criteo\api\marketingsolutions\v2025_07\Model\CreateSellerBudgetMapiMessage()); // \criteo\api\marketingsolutions\v2025_07\Model\CreateSellerBudgetMapiMessage[] | 
 
 try {
-    $apiInstance->createMarketplaceSellerBudgets($create_seller_budget_mapi_message);
+    $result = $apiInstance->createMarketplaceSellerBudgets($create_seller_budget_mapi_message);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignApi->createMarketplaceSellerBudgets: ', $e->getMessage(), PHP_EOL;
 }
@@ -221,7 +222,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]**](../Model/SellerBudgetMessage.md)
 
 ### Authorization
 
@@ -230,7 +231,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -239,7 +240,7 @@ void (empty response body)
 ## `createMarketplaceSellerCampaignsBySeller()`
 
 ```php
-createMarketplaceSellerCampaignsBySeller($seller_id, $create_seller_campaign_message_mapi)
+createMarketplaceSellerCampaignsBySeller($seller_id, $create_seller_campaign_message_mapi): \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage
 ```
 
 
@@ -270,7 +271,8 @@ $seller_id = 'seller_id_example'; // string | Supply a generated Id of an existi
 $create_seller_campaign_message_mapi = new \criteo\api\marketingsolutions\v2025_07\Model\CreateSellerCampaignMessageMapi(); // \criteo\api\marketingsolutions\v2025_07\Model\CreateSellerCampaignMessageMapi | Supply the campaign Id and bid to create the mapping
 
 try {
-    $apiInstance->createMarketplaceSellerCampaignsBySeller($seller_id, $create_seller_campaign_message_mapi);
+    $result = $apiInstance->createMarketplaceSellerCampaignsBySeller($seller_id, $create_seller_campaign_message_mapi);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignApi->createMarketplaceSellerCampaignsBySeller: ', $e->getMessage(), PHP_EOL;
 }
@@ -285,7 +287,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage**](../Model/SellerCampaignMessage.md)
 
 ### Authorization
 
@@ -294,7 +296,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -555,7 +557,7 @@ try {
 ## `getMarketplaceAdSetsByAdvertiser()`
 
 ```php
-getMarketplaceAdSetsByAdvertiser($advertiser_id)
+getMarketplaceAdSetsByAdvertiser($advertiser_id): \criteo\api\marketingsolutions\v2025_07\Model\AdvertiserAdsetMessage[]
 ```
 
 
@@ -585,7 +587,8 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
 $advertiser_id = 56; // int | Id of the advertiser
 
 try {
-    $apiInstance->getMarketplaceAdSetsByAdvertiser($advertiser_id);
+    $result = $apiInstance->getMarketplaceAdSetsByAdvertiser($advertiser_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignApi->getMarketplaceAdSetsByAdvertiser: ', $e->getMessage(), PHP_EOL;
 }
@@ -599,7 +602,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\criteo\api\marketingsolutions\v2025_07\Model\AdvertiserAdsetMessage[]**](../Model/AdvertiserAdsetMessage.md)
 
 ### Authorization
 
@@ -608,7 +611,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -617,7 +620,7 @@ void (empty response body)
 ## `getMarketplaceAdvertiser()`
 
 ```php
-getMarketplaceAdvertiser($advertiser_id)
+getMarketplaceAdvertiser($advertiser_id): \criteo\api\marketingsolutions\v2025_07\Model\AdvertiserInfoMessage
 ```
 
 
@@ -647,7 +650,8 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
 $advertiser_id = 56; // int | Id of the advertiser
 
 try {
-    $apiInstance->getMarketplaceAdvertiser($advertiser_id);
+    $result = $apiInstance->getMarketplaceAdvertiser($advertiser_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignApi->getMarketplaceAdvertiser: ', $e->getMessage(), PHP_EOL;
 }
@@ -661,7 +665,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\criteo\api\marketingsolutions\v2025_07\Model\AdvertiserInfoMessage**](../Model/AdvertiserInfoMessage.md)
 
 ### Authorization
 
@@ -670,7 +674,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -679,7 +683,7 @@ void (empty response body)
 ## `getMarketplaceAdvertiserPreviewLimits()`
 
 ```php
-getMarketplaceAdvertiserPreviewLimits()
+getMarketplaceAdvertiserPreviewLimits(): \criteo\api\marketingsolutions\v2025_07\Model\AdvertiserQuotaMessage[]
 ```
 
 
@@ -708,7 +712,8 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
 );
 
 try {
-    $apiInstance->getMarketplaceAdvertiserPreviewLimits();
+    $result = $apiInstance->getMarketplaceAdvertiserPreviewLimits();
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignApi->getMarketplaceAdvertiserPreviewLimits: ', $e->getMessage(), PHP_EOL;
 }
@@ -720,7 +725,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**\criteo\api\marketingsolutions\v2025_07\Model\AdvertiserQuotaMessage[]**](../Model/AdvertiserQuotaMessage.md)
 
 ### Authorization
 
@@ -729,7 +734,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -738,7 +743,7 @@ void (empty response body)
 ## `getMarketplaceAdvertisers()`
 
 ```php
-getMarketplaceAdvertisers()
+getMarketplaceAdvertisers(): \criteo\api\marketingsolutions\v2025_07\Model\AdvertiserInfoMessage[]
 ```
 
 
@@ -767,7 +772,8 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
 );
 
 try {
-    $apiInstance->getMarketplaceAdvertisers();
+    $result = $apiInstance->getMarketplaceAdvertisers();
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignApi->getMarketplaceAdvertisers: ', $e->getMessage(), PHP_EOL;
 }
@@ -779,7 +785,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**\criteo\api\marketingsolutions\v2025_07\Model\AdvertiserInfoMessage[]**](../Model/AdvertiserInfoMessage.md)
 
 ### Authorization
 
@@ -788,7 +794,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -797,7 +803,7 @@ void (empty response body)
 ## `getMarketplaceBudgetsByAdvertiser()`
 
 ```php
-getMarketplaceBudgetsByAdvertiser($advertiser_id, $budget_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend)
+getMarketplaceBudgetsByAdvertiser($advertiser_id, $budget_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend): \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]
 ```
 
 
@@ -835,7 +841,8 @@ $with_balance = True; // bool | Return only budgets with the given status.
 $with_spend = True; // bool | Return budgets with any positive spend.
 
 try {
-    $apiInstance->getMarketplaceBudgetsByAdvertiser($advertiser_id, $budget_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend);
+    $result = $apiInstance->getMarketplaceBudgetsByAdvertiser($advertiser_id, $budget_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignApi->getMarketplaceBudgetsByAdvertiser: ', $e->getMessage(), PHP_EOL;
 }
@@ -857,7 +864,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]**](../Model/SellerBudgetMessage.md)
 
 ### Authorization
 
@@ -866,7 +873,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -1027,7 +1034,7 @@ try {
 ## `getMarketplaceCampaignsByAdvertiser()`
 
 ```php
-getMarketplaceCampaignsByAdvertiser($advertiser_id)
+getMarketplaceCampaignsByAdvertiser($advertiser_id): \criteo\api\marketingsolutions\v2025_07\Model\AdvertiserCampaignMessage[]
 ```
 
 
@@ -1057,7 +1064,8 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
 $advertiser_id = 56; // int | Id of the advertiser
 
 try {
-    $apiInstance->getMarketplaceCampaignsByAdvertiser($advertiser_id);
+    $result = $apiInstance->getMarketplaceCampaignsByAdvertiser($advertiser_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignApi->getMarketplaceCampaignsByAdvertiser: ', $e->getMessage(), PHP_EOL;
 }
@@ -1071,7 +1079,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\criteo\api\marketingsolutions\v2025_07\Model\AdvertiserCampaignMessage[]**](../Model/AdvertiserCampaignMessage.md)
 
 ### Authorization
 
@@ -1080,7 +1088,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -1089,12 +1097,12 @@ void (empty response body)
 ## `getMarketplaceCampaignsStats()`
 
 ```php
-getMarketplaceCampaignsStats($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date): string
+getMarketplaceCampaignsStats($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date, $time_zone_id): string
 ```
 
 
 
-## Dimensions                Get performance statistics aggregated for _campaigns_. The campaign id appears  in the output as the first column.                Aggregation can be done by `hour`, `day`, `month`, or `year`. The aggregation  interval size is controlled by `intervalSize`. The time interval appears in  the output as the second column.                ## Metrics                The metrics reported by this endpoint are                .  | Metric Group | Description  ---|--------------|------------  A | impressions | Number of times product is shown in a banner  B | clicks | Number of clicks on product  C | cost | Amount spent for clicks on products  D | saleUnits | Number of products sold attributed to clicks  E | revenue | Revenue generated by sales  F | CR = Conversion Rate | salesUnits / clicks  G | CPO = Cost Per Order | cost / salesUnits  H | COS = Cost of Sale | cost / revenue  I | ROAS = Return On Add Spend | revenue / cost                The last six metrics can be computed in two ways depending on the policy to count only  the sales that result from clicks on the same sellers product in a banner  (same-seller) or not (any-seller).  Reporting can be controlled by `clickAttributionPolicy`.                The 9 (or 15) metric values appear in the output as the final 9 (or 15) columns.                ## Filtering                The results can be filtered by campaign, date or count.                Filtering the results to events associated with a specific campaign is done by setting  the `campaignId` filter parameter to the desired value.                Filtering the results to events  that happened in a time interval is done by setting the `startDate` and  `endDate` filter parameters using the `yyyy-MM-DD` format. The start date  includes all events timestamped since the beginning of that day while the end  date includes events until the end of day. The maximum duration of the date  range is 1 year. If the aggregation interval is `hour`, then the maximum  duration of the date range is 31 days. Note that month and year aggregate values  may contain partial data for the interval if filtering by date.                Filtering the results to a maximum number of data rows is done by setting the  `count` filter parameter. When combined with startDate this can be used to perform  simple pagination.                ## Response Format                The representation format can be specified by MIME values in the Accept header.  For now the only supported values for the accept header is `application/json` and  `text/csv`.                ```json  {     \"columns\": [ \"campaignId\", \"month\", \"impressions\", \"clicks\", \"cost\", \"saleUnits\", \"revenue\", \"cr\", \"cpo\", \"cos\", \"roas\" ],     \"data\": [         [168423, \"2019-05-01\", 3969032, 13410, 1111.295, 985, 190758099, 0.073, 1.128, 0.000, 171653.880 ],         [168423, \"2019-06-01\", 8479603, 25619, 2190.705, 740, 152783656, 0.028, 2.960, 0.000, 69741.775 ]         ],     \"rows\": 2  }  ```                The JSON result is an object with three fields (`columns`, `data`, and `rows`). The  “columns” array acts as the header for the data rows. The categorical dimension  column comes first and consists of the campaign id.  The interval column comes next and defines the aggregation period.  The interval size is  determined by the `intervalSize` parameter. This is followed by either nine or  fifteen metrics columns. The first three metrics (impressions, clicks, and cost)  always appear. The remaining depend on the `clickAttributionPolicy` parameter.                The “data” array contains data rows whose values match the entries in the  “columns” array. Id dimensions are numbers while name and date dimensions are strings. The metrics are JSON objects  whose type is number. Some of these are natural numbers (e.g. clicks and  impressions) whereas others are decimal values. A divide by zero yields null. The  currency is assumed to be the local currency established by the advertiser.                The “row” value is a count of the number of rows in the data array, and can be  used to check the integrity of the data.                Further information on the campaign or seller (e.g. the seller name) can be  obtained from the existing V1 or V2 endpoints using the campaign and/or seller  ID values.
+## Dimensions                Get performance statistics aggregated for _campaigns_. The campaign id appears  in the output as the first column.                Aggregation can be done by `hour`, `day`, `month`, or `year` aligned with the user timezone  if provided. The aggregation interval size is controlled by `intervalSize`. The time  interval appears in the output as the second column.                ## Metrics                The metrics reported by this endpoint are                .  | Metric Group | Description  ---|--------------|------------  A | impressions | Number of times product is shown in a banner  B | clicks | Number of clicks on product  C | cost | Amount spent for clicks on products  D | saleUnits | Number of products sold attributed to clicks  E | revenue | Revenue generated by sales  F | CR = Conversion Rate | salesUnits / clicks  G | CPO = Cost Per Order | cost / salesUnits  H | COS = Cost of Sale | cost / revenue  I | ROAS = Return On Add Spend | revenue / cost                The last six metrics can be computed in two ways depending on the policy to count only  the sales that result from clicks on the same sellers product in a banner  (same-seller) or not (any-seller).  Reporting can be controlled by `clickAttributionPolicy`.                The 9 (or 15) metric values appear in the output as the final 9 (or 15) columns.                ## Filtering                The results can be filtered by campaign, date or count.                Filtering the results to events associated with a specific campaign is done by setting  the `campaignId` filter parameter to the desired value.                Filtering the results to events  that happened in a time interval is done by setting the `startDate` and  `endDate` filter parameters using the `yyyy-MM-DD` format. The start date  includes all events timestamped since the beginning of that day while the end  date includes events until the end of day. The maximum duration of the date  range is 1 year. If the aggregation interval is `hour`, then the maximum  duration of the date range is 31 days. Note that month and year aggregate values  may contain partial data for the interval if filtering by date.                Filtering the results to a maximum number of data rows is done by setting the  `count` filter parameter. When combined with startDate this can be used to perform  simple pagination.                ## Response Format                The representation format can be specified by MIME values in the Accept header.  For now the only supported values for the accept header is `application/json` and  `text/csv`.                ```json  {     \"columns\": [ \"campaignId\", \"month\", \"impressions\", \"clicks\", \"cost\", \"saleUnits\", \"revenue\", \"cr\", \"cpo\", \"cos\", \"roas\" ],     \"data\": [         [168423, \"2019-05-01\", 3969032, 13410, 1111.295, 985, 190758099, 0.073, 1.128, 0.000, 171653.880 ],         [168423, \"2019-06-01\", 8479603, 25619, 2190.705, 740, 152783656, 0.028, 2.960, 0.000, 69741.775 ]         ],     \"rows\": 2  }  ```                The JSON result is an object with three fields (`columns`, `data`, and `rows`). The  “columns” array acts as the header for the data rows. The categorical dimension  column comes first and consists of the campaign id.  The interval column comes next and defines the aggregation period.  The interval size is  determined by the `intervalSize` parameter. This is followed by either nine or  fifteen metrics columns. The first three metrics (impressions, clicks, and cost)  always appear. The remaining depend on the `clickAttributionPolicy` parameter.                The “data” array contains data rows whose values match the entries in the  “columns” array. Id dimensions are numbers while name and date dimensions are strings. The metrics are JSON objects  whose type is number. Some of these are natural numbers (e.g. clicks and  impressions) whereas others are decimal values. A divide by zero yields null. The  currency is assumed to be the local currency established by the advertiser.                The “row” value is a count of the number of rows in the data array, and can be  used to check the integrity of the data.                Further information on the campaign or seller (e.g. the seller name) can be  obtained from the existing V1 or V2 endpoints using the campaign and/or seller  ID values.
 
 ### Example
 
@@ -1123,9 +1131,10 @@ $count = 56; // int | Return up to the first count rows of data (default is all 
 $end_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter out all events that occur after date (default is today’s date)
 $interval_size = 'Day'; // string | Specify the aggregation interval for events used to compute stats (default is \"day\")
 $start_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter out all events that occur before date (default is the value of `endDate`)
+$time_zone_id = 'time_zone_id_example'; // string | Specify the timezone used in the aggregations (IANA code).
 
 try {
-    $result = $apiInstance->getMarketplaceCampaignsStats($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date);
+    $result = $apiInstance->getMarketplaceCampaignsStats($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date, $time_zone_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignApi->getMarketplaceCampaignsStats: ', $e->getMessage(), PHP_EOL;
@@ -1143,6 +1152,7 @@ try {
 | **end_date** | **\DateTime**| Filter out all events that occur after date (default is today’s date) | [optional] |
 | **interval_size** | **string**| Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) | [optional] [default to &#39;Day&#39;] |
 | **start_date** | **\DateTime**| Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) | [optional] |
+| **time_zone_id** | **string**| Specify the timezone used in the aggregations (IANA code). | [optional] |
 
 ### Return type
 
@@ -1440,7 +1450,7 @@ try {
 ## `getMarketplaceSellerCampaign()`
 
 ```php
-getMarketplaceSellerCampaign($seller_campaign_id): \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage
+getMarketplaceSellerCampaign($seller_campaign_id): \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[]
 ```
 
 
@@ -1485,7 +1495,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage**](../Model/SellerCampaignMessage.md)
+[**\criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[]**](../Model/SellerCampaignMessage.md)
 
 ### Authorization
 
@@ -1574,7 +1584,7 @@ try {
 ## `getMarketplaceSellerCampaignsByAdvertiser()`
 
 ```php
-getMarketplaceSellerCampaignsByAdvertiser($advertiser_id)
+getMarketplaceSellerCampaignsByAdvertiser($advertiser_id): \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[]
 ```
 
 
@@ -1604,7 +1614,8 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
 $advertiser_id = 56; // int | Id of the advertiser
 
 try {
-    $apiInstance->getMarketplaceSellerCampaignsByAdvertiser($advertiser_id);
+    $result = $apiInstance->getMarketplaceSellerCampaignsByAdvertiser($advertiser_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignApi->getMarketplaceSellerCampaignsByAdvertiser: ', $e->getMessage(), PHP_EOL;
 }
@@ -1618,7 +1629,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[]**](../Model/SellerCampaignMessage.md)
 
 ### Authorization
 
@@ -1627,7 +1638,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -1705,12 +1716,12 @@ try {
 ## `getMarketplaceSellerCampaignsStats()`
 
 ```php
-getMarketplaceSellerCampaignsStats($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date): string
+getMarketplaceSellerCampaignsStats($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $time_zone_id): string
 ```
 
 
 
-## Dimensions                Get performance statistics aggregated for _seller campaigns_.The campaign id, seller id, and  seller name appear in the first three columns of the output. These are followed by the interval  size column.                Aggregation can be done by `hour`, `day`, `month`, or `year`. The aggregation  interval size is controlled by `intervalSize`. The remaining columns are metrics.                ## Metrics                The metrics reported by this endpoint are                .  | Metric Group | Description  ---|--------------|------------  A | impressions | Number of times product is shown in a banner  B | clicks | Number of clicks on product  C | cost | Amount spent for clicks on products  D | saleUnits | Number of products sold attributed to clicks  E | revenue | Revenue generated by sales  F | CR = Conversion Rate | salesUnits / clicks  G | CPO = Cost Per Order | cost / salesUnits  H | COS = Cost of Sale | cost / revenue  I | ROAS = Return On Add Spend | revenue / cost                The last six metrics can be computed in two ways depending on the policy to count only  the sales that result from clicks on the same sellers product in a banner  (same-seller) or not (any-seller).  Reporting can be controlled by `clickAttributionPolicy`.                The 9 (or 15) metric values appear in the output as the final 9 (or 15) columns.                ## Filtering                The results can be filtered by date or count.                Filtering the results to events associated with a specific campaign is done by setting  the `campaignId` filter parameter to the desired value.                Filtering the results to events associated with a specific seller is done by setting  the `sellerId` filter parameter to the desired value.                Filtering the results to events  that happened in a time interval is done by setting the `startDate` and  `endDate` filter parameters using the `yyyy-MM-DD` format. The start date  includes all events timestamped since the beginning of that day while the end  date includes events until the end of day. The maximum duration of the date  range is 1 year. If the aggregation interval is `hour`, then the maximum  duration of the date range is 31 days. Note that month and year aggregate values  may contain partial data for the interval if filtering by date.                Filtering the results to a maximum number of data rows is done by setting the  `count` filter parameter. When combined with startDate this can be used to perform  simple pagination.                ## Response Format                The representation format can be specified by MIME values in the Accept header.  For now the only supported values for the accept header is `application/json` and  `text/csv`.                ```json  {      \"columns\": [          \"campaignId\", \"sellerId\", \"sellerName\", \"month\", \"impressions\", \"clicks\", \"cost\", \"saleUnits\", \"revenue\", \"cr\", \"cpo\", \"cos\", \"roas\"      ],      \"data\": [          [168423, 1110222, \"118883955\", \"2019-05-01\", 14542, 48, 3.36, 0, 0.0, 0.0, null, null, 0.0],          [168423, 1110222, \"118883955\", \"2019-06-01\", 16619, 53, 3.71, 0, 0.0, 0.0, null, null, 0.0],          [168423, 1110225, \"117980027\", \"2019-05-01\", 12502, 48, 3.36, 0, 0.0, 0.0, null, null, 0.0],          [168423, 1110225, \"117980027\", \"2019-06-01\", 20266, 53, 3.71, 0, 0.0, 0.0, null, null, 0.0]      ],      \"rows\": 4  }  ```                The JSON result is an object with three fields (`columns`, `data`, and `rows`). The  “columns” array acts as the header for the data rows. The categorical dimension  columns come first and include the campaign id, seller id, and seller name.  The interval column comes next and defines the aggregation period. The interval size is  determined by the `intervalSize` parameter. This is followed by either nine or  fifteen metrics columns. The first three metrics (impressions, clicks, and cost)  always appear. The remaining depend on the `clickAttributionPolicy` parameter.                The “data” array contains data rows whose values match the entries in the  “columns” array. Id dimensions are numbers while name and date dimensions are strings. The metrics are JSON objects  whose type is number. Some of these are natural numbers (e.g. clicks and  impressions) whereas others are decimal values. A divide by zero yields null. The  currency is assumed to be the local currency established by the advertiser.                The “row” value is a count of the number of rows in the data array, and can be  used to check the integrity of the data.                Further information on the campaign or seller (e.g. the seller name) can be  obtained from the existing V1 or V2 endpoints using the campaign and/or seller  ID values.
+## Dimensions                Get performance statistics aggregated for _seller campaigns_.The campaign id, seller id, and  seller name appear in the first three columns of the output. These are followed by the interval  size column.                Aggregation can be done by `hour`, `day`, `month`, or `year` aligned with the user timezone if  provided. The aggregation interval size is controlled by `intervalSize`. The remaining columns  are metrics.                ## Metrics                The metrics reported by this endpoint are                .  | Metric Group | Description  ---|--------------|------------  A | impressions | Number of times product is shown in a banner  B | clicks | Number of clicks on product  C | cost | Amount spent for clicks on products  D | saleUnits | Number of products sold attributed to clicks  E | revenue | Revenue generated by sales  F | CR = Conversion Rate | salesUnits / clicks  G | CPO = Cost Per Order | cost / salesUnits  H | COS = Cost of Sale | cost / revenue  I | ROAS = Return On Add Spend | revenue / cost                The last six metrics can be computed in two ways depending on the policy to count only  the sales that result from clicks on the same sellers product in a banner  (same-seller) or not (any-seller).  Reporting can be controlled by `clickAttributionPolicy`.                The 9 (or 15) metric values appear in the output as the final 9 (or 15) columns.                ## Filtering                The results can be filtered by date or count.                Filtering the results to events associated with a specific campaign is done by setting  the `campaignId` filter parameter to the desired value.                Filtering the results to events associated with a specific seller is done by setting  the `sellerId` filter parameter to the desired value.                Filtering the results to events  that happened in a time interval is done by setting the `startDate` and  `endDate` filter parameters using the `yyyy-MM-DD` format. The start date  includes all events timestamped since the beginning of that day while the end  date includes events until the end of day. The maximum duration of the date  range is 1 year. If the aggregation interval is `hour`, then the maximum  duration of the date range is 31 days. Note that month and year aggregate values  may contain partial data for the interval if filtering by date.                Filtering the results to a maximum number of data rows is done by setting the  `count` filter parameter. When combined with startDate this can be used to perform  simple pagination.                ## Response Format                The representation format can be specified by MIME values in the Accept header.  For now the only supported values for the accept header is `application/json` and  `text/csv`.                ```json  {      \"columns\": [          \"campaignId\", \"sellerId\", \"sellerName\", \"month\", \"impressions\", \"clicks\", \"cost\", \"saleUnits\", \"revenue\", \"cr\", \"cpo\", \"cos\", \"roas\"      ],      \"data\": [          [168423, 1110222, \"118883955\", \"2019-05-01\", 14542, 48, 3.36, 0, 0.0, 0.0, null, null, 0.0],          [168423, 1110222, \"118883955\", \"2019-06-01\", 16619, 53, 3.71, 0, 0.0, 0.0, null, null, 0.0],          [168423, 1110225, \"117980027\", \"2019-05-01\", 12502, 48, 3.36, 0, 0.0, 0.0, null, null, 0.0],          [168423, 1110225, \"117980027\", \"2019-06-01\", 20266, 53, 3.71, 0, 0.0, 0.0, null, null, 0.0]      ],      \"rows\": 4  }  ```                The JSON result is an object with three fields (`columns`, `data`, and `rows`). The  “columns” array acts as the header for the data rows. The categorical dimension  columns come first and include the campaign id, seller id, and seller name.  The interval column comes next and defines the aggregation period. The interval size is  determined by the `intervalSize` parameter. This is followed by either nine or  fifteen metrics columns. The first three metrics (impressions, clicks, and cost)  always appear. The remaining depend on the `clickAttributionPolicy` parameter.                The “data” array contains data rows whose values match the entries in the  “columns” array. Id dimensions are numbers while name and date dimensions are strings. The metrics are JSON objects  whose type is number. Some of these are natural numbers (e.g. clicks and  impressions) whereas others are decimal values. A divide by zero yields null. The  currency is assumed to be the local currency established by the advertiser.                The “row” value is a count of the number of rows in the data array, and can be  used to check the integrity of the data.                Further information on the campaign or seller (e.g. the seller name) can be  obtained from the existing V1 or V2 endpoints using the campaign and/or seller  ID values.
 
 ### Example
 
@@ -1740,9 +1751,10 @@ $end_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter ou
 $interval_size = 'Day'; // string | Specify the aggregation interval for events used to compute stats (default is \"day\")
 $seller_id = 'seller_id_example'; // string | Show only metrics for this seller (default all sellers)
 $start_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter out all events that occur before date (default is the value of `endDate`)
+$time_zone_id = 'time_zone_id_example'; // string | Specify the timezone used in the aggregations (IANA code).
 
 try {
-    $result = $apiInstance->getMarketplaceSellerCampaignsStats($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date);
+    $result = $apiInstance->getMarketplaceSellerCampaignsStats($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $time_zone_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignApi->getMarketplaceSellerCampaignsStats: ', $e->getMessage(), PHP_EOL;
@@ -1761,6 +1773,7 @@ try {
 | **interval_size** | **string**| Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) | [optional] [default to &#39;Day&#39;] |
 | **seller_id** | **string**| Show only metrics for this seller (default all sellers) | [optional] |
 | **start_date** | **\DateTime**| Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) | [optional] |
+| **time_zone_id** | **string**| Specify the timezone used in the aggregations (IANA code). | [optional] |
 
 ### Return type
 
@@ -1782,7 +1795,7 @@ try {
 ## `getMarketplaceSellers()`
 
 ```php
-getMarketplaceSellers($advertiser_id, $campaign_id, $seller_name, $seller_status, $with_budget_status, $with_products): \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]
+getMarketplaceSellers($advertiser_id, $campaign_id, $seller_name, $seller_status, $with_budget_status, $with_products): \criteo\api\marketingsolutions\v2025_07\Model\SellerBase[]
 ```
 
 
@@ -1837,7 +1850,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]**](../Model/SellerBudgetMessage.md)
+[**\criteo\api\marketingsolutions\v2025_07\Model\SellerBase[]**](../Model/SellerBase.md)
 
 ### Authorization
 
@@ -1855,7 +1868,7 @@ try {
 ## `getMarketplaceSellersByAdvertiser()`
 
 ```php
-getMarketplaceSellersByAdvertiser($advertiser_id, $partner_id, $request_body)
+getMarketplaceSellersByAdvertiser($advertiser_id, $partner_id, $request_body): \criteo\api\marketingsolutions\v2025_07\Model\SellerBase[]
 ```
 
 
@@ -1887,7 +1900,8 @@ $partner_id = 56; // int | Id of the partner
 $request_body = array('request_body_example'); // string[] | Names of the sellers to associate with new Ids
 
 try {
-    $apiInstance->getMarketplaceSellersByAdvertiser($advertiser_id, $partner_id, $request_body);
+    $result = $apiInstance->getMarketplaceSellersByAdvertiser($advertiser_id, $partner_id, $request_body);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignApi->getMarketplaceSellersByAdvertiser: ', $e->getMessage(), PHP_EOL;
 }
@@ -1903,7 +1917,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\criteo\api\marketingsolutions\v2025_07\Model\SellerBase[]**](../Model/SellerBase.md)
 
 ### Authorization
 
@@ -1912,7 +1926,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -1921,12 +1935,12 @@ void (empty response body)
 ## `getMarketplaceSellersStats()`
 
 ```php
-getMarketplaceSellersStats($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date): string
+getMarketplaceSellersStats($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $time_zone_id): string
 ```
 
 
 
-## Dimensions                Get performance statistics aggregated for _sellers_. The seller id appears  in the output in the first column and the seller name appears in the second.                Aggregation can be done by `hour`, `day`, `month`, or `year`. The aggregation  interval size is controlled by `intervalSize`. The time interval appears in  the output as the second column.                ## Metrics                The metrics reported by this endpoint are                .  | Metric Group | Description  ---|--------------|------------  A | impressions | Number of times product is shown in a banner  B | clicks | Number of clicks on product  C | cost | Amount spent for clicks on products  D | saleUnits | Number of products sold attributed to clicks  E | revenue | Revenue generated by sales  F | CR = Conversion Rate | salesUnits / clicks  G | CPO = Cost Per Order | cost / salesUnits  H | COS = Cost of Sale | cost / revenue  I | ROAS = Return On Add Spend | revenue / cost                The last six metrics can be computed in two ways depending on the policy to count only  the sales that result from clicks on the same sellers product in a banner  (same-seller) or not (any-seller).  Reporting can be controlled by `clickAttributionPolicy`.                The 9 (or 15) metric values appear in the output as the final 9 (or 15) columns.                ## Filtering                The results can be filtered by seller id, date or count.                Filtering the results to events associated with a specific seller is done by setting  the `sellerId` filter parameter to the desired value.                Filtering the results to events  that happened in a time interval is done by setting the `startDate` and  `endDate` filter parameters using the `yyyy-MM-DD` format. The start date  includes all events timestamped since the beginning of that day while the end  date includes events until the end of day. The maximum duration of the date  range is 1 year. If the aggregation interval is `hour`, then the maximum  duration of the date range is 31 days. Note that month and year aggregate values  may contain partial data for the interval if filtering by date.                Filtering the results to a maximum number of data rows is done by setting the  `count` filter parameter. When combined with startDate this can be used to perform  simple pagination.                ## Response Format                The representation format can be specified by MIME values in the Accept header.  For now the only supported values for the accept header is `application/json` and  `text/csv`.                ```json  {      \"columns\": [\"sellerId\", \"sellerName\", \"month\", \"impressions\", \"clicks\", \"cost\", \"saleUnits\", \"revenue\", \"cr\", \"cpo\", \"cos\", \"roas\"],      \"data\": [         [1200972, \"sellerA\", \"2019-05-01\", 14542, 48, 3.36, 0, 0.0, 0.0, null, null, 0.0],         [1200972, \"sellerA\", \"2019-06-01\", 16619, 53, 3.71, 0, 0.0, 0.0, null, null, 0.0],         [1200974, \"sellerB\", \"2019-05-01\", 10102, 47, 3.29, 3, 396000.0, 0.063, 1.096, 8.308E-6, 120364.741],         [1200974, \"sellerB\", \"2019-06-01\", 11576, 54, 3.78, 1, 132000.0, 0.018, 3.78, 2.863E-5, 34920.634]      ],      \"rows\": 4  }  ```                The JSON result is an object with three fields (`columns`, `data`, and `rows`). The  “columns” array acts as the header for the data rows. The categorical dimension  columns come first and include the seller id and seller name.  The interval column comes next and defines the aggregation period. The interval size is  determined by the `intervalSize` parameter. This is followed by either nine or  fifteen metrics columns. The first three metrics (impressions, clicks, and cost)  always appear. The remaining metrics depend on the `clickAttributionPolicy` parameter.                The “data” array contains data rows whose values match the entries in the  “columns” array. Id dimensions are numbers while name and date dimensions are strings. The metrics are JSON objects  whose type is number. Some of these are natural numbers (e.g. clicks and  impressions) whereas others are decimal values. A divide by zero yields null. The  currency is assumed to be the local currency established by the advertiser.                The “row” value is a count of the number of rows in the data array, and can be  used to check the integrity of the data.                Further information on the campaign or seller (e.g. the seller name) can be  obtained from the existing V1 or V2 endpoints using the campaign and/or seller  ID values.
+## Dimensions                Get performance statistics aggregated for _sellers_. The seller id appears  in the output in the first column and the seller name appears in the second.                Aggregation can be done by `hour`, `day`, `month`, or `year` aligned with the user timezone  if provided. The aggregation interval size is controlled by `intervalSize`. The time interval  appears in the output as the second column.                ## Metrics                The metrics reported by this endpoint are                .  | Metric Group | Description  ---|--------------|------------  A | impressions | Number of times product is shown in a banner  B | clicks | Number of clicks on product  C | cost | Amount spent for clicks on products  D | saleUnits | Number of products sold attributed to clicks  E | revenue | Revenue generated by sales  F | CR = Conversion Rate | salesUnits / clicks  G | CPO = Cost Per Order | cost / salesUnits  H | COS = Cost of Sale | cost / revenue  I | ROAS = Return On Add Spend | revenue / cost                The last six metrics can be computed in two ways depending on the policy to count only  the sales that result from clicks on the same sellers product in a banner  (same-seller) or not (any-seller).  Reporting can be controlled by `clickAttributionPolicy`.                The 9 (or 15) metric values appear in the output as the final 9 (or 15) columns.                ## Filtering                The results can be filtered by seller id, date or count.                Filtering the results to events associated with a specific seller is done by setting  the `sellerId` filter parameter to the desired value.                Filtering the results to events  that happened in a time interval is done by setting the `startDate` and  `endDate` filter parameters using the `yyyy-MM-DD` format. The start date  includes all events timestamped since the beginning of that day while the end  date includes events until the end of day. The maximum duration of the date  range is 1 year. If the aggregation interval is `hour`, then the maximum  duration of the date range is 31 days. Note that month and year aggregate values  may contain partial data for the interval if filtering by date.                Filtering the results to a maximum number of data rows is done by setting the  `count` filter parameter. When combined with startDate this can be used to perform  simple pagination.                ## Response Format                The representation format can be specified by MIME values in the Accept header.  For now the only supported values for the accept header is `application/json` and  `text/csv`.                ```json  {      \"columns\": [\"sellerId\", \"sellerName\", \"month\", \"impressions\", \"clicks\", \"cost\", \"saleUnits\", \"revenue\", \"cr\", \"cpo\", \"cos\", \"roas\"],      \"data\": [         [1200972, \"sellerA\", \"2019-05-01\", 14542, 48, 3.36, 0, 0.0, 0.0, null, null, 0.0],         [1200972, \"sellerA\", \"2019-06-01\", 16619, 53, 3.71, 0, 0.0, 0.0, null, null, 0.0],         [1200974, \"sellerB\", \"2019-05-01\", 10102, 47, 3.29, 3, 396000.0, 0.063, 1.096, 8.308E-6, 120364.741],         [1200974, \"sellerB\", \"2019-06-01\", 11576, 54, 3.78, 1, 132000.0, 0.018, 3.78, 2.863E-5, 34920.634]      ],      \"rows\": 4  }  ```                The JSON result is an object with three fields (`columns`, `data`, and `rows`). The  “columns” array acts as the header for the data rows. The categorical dimension  columns come first and include the seller id and seller name.  The interval column comes next and defines the aggregation period. The interval size is  determined by the `intervalSize` parameter. This is followed by either nine or  fifteen metrics columns. The first three metrics (impressions, clicks, and cost)  always appear. The remaining metrics depend on the `clickAttributionPolicy` parameter.                The “data” array contains data rows whose values match the entries in the  “columns” array. Id dimensions are numbers while name and date dimensions are strings. The metrics are JSON objects  whose type is number. Some of these are natural numbers (e.g. clicks and  impressions) whereas others are decimal values. A divide by zero yields null. The  currency is assumed to be the local currency established by the advertiser.                The “row” value is a count of the number of rows in the data array, and can be  used to check the integrity of the data.                Further information on the campaign or seller (e.g. the seller name) can be  obtained from the existing V1 or V2 endpoints using the campaign and/or seller  ID values.
 
 ### Example
 
@@ -1955,9 +1969,10 @@ $end_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter ou
 $interval_size = 'Day'; // string | Specify the aggregation interval for events used to compute stats (default is \"day\")
 $seller_id = 'seller_id_example'; // string | Show only metrics for this seller (default all sellers)
 $start_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter out all events that occur before date (default is the value of `endDate`)
+$time_zone_id = 'time_zone_id_example'; // string | Specify the timezone used in the aggregations (IANA code).
 
 try {
-    $result = $apiInstance->getMarketplaceSellersStats($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date);
+    $result = $apiInstance->getMarketplaceSellersStats($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $time_zone_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignApi->getMarketplaceSellersStats: ', $e->getMessage(), PHP_EOL;
@@ -1975,6 +1990,7 @@ try {
 | **interval_size** | **string**| Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) | [optional] [default to &#39;Day&#39;] |
 | **seller_id** | **string**| Show only metrics for this seller (default all sellers) | [optional] |
 | **start_date** | **\DateTime**| Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) | [optional] |
+| **time_zone_id** | **string**| Specify the timezone used in the aggregations (IANA code). | [optional] |
 
 ### Return type
 
@@ -2569,7 +2585,7 @@ try {
 ## `updateMarketplaceSellerBudget()`
 
 ```php
-updateMarketplaceSellerBudget($budget_id, $update_seller_budget_message_base)
+updateMarketplaceSellerBudget($budget_id, $update_seller_budget_message_base): \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage
 ```
 
 
@@ -2600,7 +2616,8 @@ $budget_id = 56; // int | Id of the budget
 $update_seller_budget_message_base = new \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessageBase(); // \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessageBase | 
 
 try {
-    $apiInstance->updateMarketplaceSellerBudget($budget_id, $update_seller_budget_message_base);
+    $result = $apiInstance->updateMarketplaceSellerBudget($budget_id, $update_seller_budget_message_base);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignApi->updateMarketplaceSellerBudget: ', $e->getMessage(), PHP_EOL;
 }
@@ -2615,7 +2632,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage**](../Model/SellerBudgetMessage.md)
 
 ### Authorization
 
@@ -2624,7 +2641,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -2633,7 +2650,7 @@ void (empty response body)
 ## `updateMarketplaceSellerBudgets()`
 
 ```php
-updateMarketplaceSellerBudgets($update_seller_budget_message)
+updateMarketplaceSellerBudgets($update_seller_budget_message): \criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]
 ```
 
 
@@ -2663,7 +2680,8 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
 $update_seller_budget_message = array(new \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessage()); // \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessage[] | 
 
 try {
-    $apiInstance->updateMarketplaceSellerBudgets($update_seller_budget_message);
+    $result = $apiInstance->updateMarketplaceSellerBudgets($update_seller_budget_message);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignApi->updateMarketplaceSellerBudgets: ', $e->getMessage(), PHP_EOL;
 }
@@ -2677,7 +2695,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\criteo\api\marketingsolutions\v2025_07\Model\SellerBudgetMessage[]**](../Model/SellerBudgetMessage.md)
 
 ### Authorization
 
@@ -2686,7 +2704,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

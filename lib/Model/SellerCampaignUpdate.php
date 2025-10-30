@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\v2025_07\ObjectSerializer;
  * SellerCampaignUpdate Class Doc Comment
  *
  * @category Class
- * @description Data used to update a seller&#39;s campaign
+ * @description Date used to update a Seller-Campaign&#39;s Bid.
  * @package  criteo\api\marketingsolutions\v2025_07
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
