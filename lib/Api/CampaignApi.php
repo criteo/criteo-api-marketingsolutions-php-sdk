@@ -819,11 +819,12 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]
      */
     public function createMarketplaceSellerBudgets($create_seller_budget_mapi_message = null, string $contentType = self::contentTypes['createMarketplaceSellerBudgets'][0])
     {
-        $this->createMarketplaceSellerBudgetsWithHttpInfo($create_seller_budget_mapi_message, $contentType);
+        list($response) = $this->createMarketplaceSellerBudgetsWithHttpInfo($create_seller_budget_mapi_message, $contentType);
+        return $response;
     }
 
     /**
@@ -836,7 +837,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[], HTTP status code, HTTP response headers (array of strings)
      */
     public function createMarketplaceSellerBudgetsWithHttpInfo($create_seller_budget_mapi_message = null, string $contentType = self::contentTypes['createMarketplaceSellerBudgets'][0])
     {
@@ -877,10 +878,50 @@ class CampaignApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -920,14 +961,27 @@ class CampaignApi
      */
     public function createMarketplaceSellerBudgetsAsyncWithHttpInfo($create_seller_budget_mapi_message = null, string $contentType = self::contentTypes['createMarketplaceSellerBudgets'][0])
     {
-        $returnType = '';
+        $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]';
         $request = $this->createMarketplaceSellerBudgetsRequest($create_seller_budget_mapi_message, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -972,7 +1026,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            [],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -1050,11 +1104,12 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage
      */
     public function createMarketplaceSellerCampaignsBySeller($seller_id, $create_seller_campaign_message_mapi = null, string $contentType = self::contentTypes['createMarketplaceSellerCampaignsBySeller'][0])
     {
-        $this->createMarketplaceSellerCampaignsBySellerWithHttpInfo($seller_id, $create_seller_campaign_message_mapi, $contentType);
+        list($response) = $this->createMarketplaceSellerCampaignsBySellerWithHttpInfo($seller_id, $create_seller_campaign_message_mapi, $contentType);
+        return $response;
     }
 
     /**
@@ -1068,7 +1123,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage, HTTP status code, HTTP response headers (array of strings)
      */
     public function createMarketplaceSellerCampaignsBySellerWithHttpInfo($seller_id, $create_seller_campaign_message_mapi = null, string $contentType = self::contentTypes['createMarketplaceSellerCampaignsBySeller'][0])
     {
@@ -1109,10 +1164,50 @@ class CampaignApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -1154,14 +1249,27 @@ class CampaignApi
      */
     public function createMarketplaceSellerCampaignsBySellerAsyncWithHttpInfo($seller_id, $create_seller_campaign_message_mapi = null, string $contentType = self::contentTypes['createMarketplaceSellerCampaignsBySeller'][0])
     {
-        $returnType = '';
+        $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage';
         $request = $this->createMarketplaceSellerCampaignsBySellerRequest($seller_id, $create_seller_campaign_message_mapi, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -1222,7 +1330,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            [],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -2431,11 +2539,12 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \criteo\api\marketingsolutions\v2025_10\Model\AdvertiserAdsetMessage[]
      */
     public function getMarketplaceAdSetsByAdvertiser($advertiser_id, string $contentType = self::contentTypes['getMarketplaceAdSetsByAdvertiser'][0])
     {
-        $this->getMarketplaceAdSetsByAdvertiserWithHttpInfo($advertiser_id, $contentType);
+        list($response) = $this->getMarketplaceAdSetsByAdvertiserWithHttpInfo($advertiser_id, $contentType);
+        return $response;
     }
 
     /**
@@ -2448,7 +2557,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\v2025_10\Model\AdvertiserAdsetMessage[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getMarketplaceAdSetsByAdvertiserWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getMarketplaceAdSetsByAdvertiser'][0])
     {
@@ -2489,10 +2598,50 @@ class CampaignApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserAdsetMessage[]' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserAdsetMessage[]' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserAdsetMessage[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserAdsetMessage[]';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserAdsetMessage[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -2532,14 +2681,27 @@ class CampaignApi
      */
     public function getMarketplaceAdSetsByAdvertiserAsyncWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getMarketplaceAdSetsByAdvertiser'][0])
     {
-        $returnType = '';
+        $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserAdsetMessage[]';
         $request = $this->getMarketplaceAdSetsByAdvertiserRequest($advertiser_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -2598,7 +2760,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            [],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -2668,11 +2830,12 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \criteo\api\marketingsolutions\v2025_10\Model\AdvertiserInfoMessage
      */
     public function getMarketplaceAdvertiser($advertiser_id, string $contentType = self::contentTypes['getMarketplaceAdvertiser'][0])
     {
-        $this->getMarketplaceAdvertiserWithHttpInfo($advertiser_id, $contentType);
+        list($response) = $this->getMarketplaceAdvertiserWithHttpInfo($advertiser_id, $contentType);
+        return $response;
     }
 
     /**
@@ -2685,7 +2848,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\v2025_10\Model\AdvertiserInfoMessage, HTTP status code, HTTP response headers (array of strings)
      */
     public function getMarketplaceAdvertiserWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getMarketplaceAdvertiser'][0])
     {
@@ -2726,10 +2889,50 @@ class CampaignApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserInfoMessage' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserInfoMessage' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserInfoMessage', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserInfoMessage';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserInfoMessage',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -2769,14 +2972,27 @@ class CampaignApi
      */
     public function getMarketplaceAdvertiserAsyncWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getMarketplaceAdvertiser'][0])
     {
-        $returnType = '';
+        $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserInfoMessage';
         $request = $this->getMarketplaceAdvertiserRequest($advertiser_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -2835,7 +3051,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            [],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -2904,11 +3120,12 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \criteo\api\marketingsolutions\v2025_10\Model\AdvertiserQuotaMessage[]
      */
     public function getMarketplaceAdvertiserPreviewLimits(string $contentType = self::contentTypes['getMarketplaceAdvertiserPreviewLimits'][0])
     {
-        $this->getMarketplaceAdvertiserPreviewLimitsWithHttpInfo($contentType);
+        list($response) = $this->getMarketplaceAdvertiserPreviewLimitsWithHttpInfo($contentType);
+        return $response;
     }
 
     /**
@@ -2920,7 +3137,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\v2025_10\Model\AdvertiserQuotaMessage[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getMarketplaceAdvertiserPreviewLimitsWithHttpInfo(string $contentType = self::contentTypes['getMarketplaceAdvertiserPreviewLimits'][0])
     {
@@ -2961,10 +3178,50 @@ class CampaignApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserQuotaMessage[]' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserQuotaMessage[]' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserQuotaMessage[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserQuotaMessage[]';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserQuotaMessage[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -3002,14 +3259,27 @@ class CampaignApi
      */
     public function getMarketplaceAdvertiserPreviewLimitsAsyncWithHttpInfo(string $contentType = self::contentTypes['getMarketplaceAdvertiserPreviewLimits'][0])
     {
-        $returnType = '';
+        $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserQuotaMessage[]';
         $request = $this->getMarketplaceAdvertiserPreviewLimitsRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -3052,7 +3322,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            [],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -3121,11 +3391,12 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \criteo\api\marketingsolutions\v2025_10\Model\AdvertiserInfoMessage[]
      */
     public function getMarketplaceAdvertisers(string $contentType = self::contentTypes['getMarketplaceAdvertisers'][0])
     {
-        $this->getMarketplaceAdvertisersWithHttpInfo($contentType);
+        list($response) = $this->getMarketplaceAdvertisersWithHttpInfo($contentType);
+        return $response;
     }
 
     /**
@@ -3137,7 +3408,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\v2025_10\Model\AdvertiserInfoMessage[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getMarketplaceAdvertisersWithHttpInfo(string $contentType = self::contentTypes['getMarketplaceAdvertisers'][0])
     {
@@ -3178,10 +3449,50 @@ class CampaignApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserInfoMessage[]' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserInfoMessage[]' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserInfoMessage[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserInfoMessage[]';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserInfoMessage[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -3219,14 +3530,27 @@ class CampaignApi
      */
     public function getMarketplaceAdvertisersAsyncWithHttpInfo(string $contentType = self::contentTypes['getMarketplaceAdvertisers'][0])
     {
-        $returnType = '';
+        $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserInfoMessage[]';
         $request = $this->getMarketplaceAdvertisersRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -3269,7 +3593,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            [],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -3347,11 +3671,12 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]
      */
     public function getMarketplaceBudgetsByAdvertiser($advertiser_id, $budget_id = null, $end_after_date = null, $seller_id = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getMarketplaceBudgetsByAdvertiser'][0])
     {
-        $this->getMarketplaceBudgetsByAdvertiserWithHttpInfo($advertiser_id, $budget_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
+        list($response) = $this->getMarketplaceBudgetsByAdvertiserWithHttpInfo($advertiser_id, $budget_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
+        return $response;
     }
 
     /**
@@ -3372,7 +3697,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getMarketplaceBudgetsByAdvertiserWithHttpInfo($advertiser_id, $budget_id = null, $end_after_date = null, $seller_id = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getMarketplaceBudgetsByAdvertiser'][0])
     {
@@ -3413,10 +3738,50 @@ class CampaignApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -3472,14 +3837,27 @@ class CampaignApi
      */
     public function getMarketplaceBudgetsByAdvertiserAsyncWithHttpInfo($advertiser_id, $budget_id = null, $end_after_date = null, $seller_id = null, $start_before_date = null, $status = null, $type = null, $with_balance = null, $with_spend = null, string $contentType = self::contentTypes['getMarketplaceBudgetsByAdvertiser'][0])
     {
-        $returnType = '';
+        $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]';
         $request = $this->getMarketplaceBudgetsByAdvertiserRequest($advertiser_id, $budget_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -3626,7 +4004,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            [],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -4473,11 +4851,12 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \criteo\api\marketingsolutions\v2025_10\Model\AdvertiserCampaignMessage[]
      */
     public function getMarketplaceCampaignsByAdvertiser($advertiser_id, string $contentType = self::contentTypes['getMarketplaceCampaignsByAdvertiser'][0])
     {
-        $this->getMarketplaceCampaignsByAdvertiserWithHttpInfo($advertiser_id, $contentType);
+        list($response) = $this->getMarketplaceCampaignsByAdvertiserWithHttpInfo($advertiser_id, $contentType);
+        return $response;
     }
 
     /**
@@ -4490,7 +4869,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\v2025_10\Model\AdvertiserCampaignMessage[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getMarketplaceCampaignsByAdvertiserWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getMarketplaceCampaignsByAdvertiser'][0])
     {
@@ -4531,10 +4910,50 @@ class CampaignApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserCampaignMessage[]' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserCampaignMessage[]' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserCampaignMessage[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserCampaignMessage[]';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserCampaignMessage[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -4574,14 +4993,27 @@ class CampaignApi
      */
     public function getMarketplaceCampaignsByAdvertiserAsyncWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getMarketplaceCampaignsByAdvertiser'][0])
     {
-        $returnType = '';
+        $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserCampaignMessage[]';
         $request = $this->getMarketplaceCampaignsByAdvertiserRequest($advertiser_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -4640,7 +5072,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            [],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -4712,15 +5144,16 @@ class CampaignApi
      * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
      * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
      * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $time_zone_id Specify the timezone used in the aggregations (IANA code). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceCampaignsStats'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function getMarketplaceCampaignsStats($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $start_date = null, string $contentType = self::contentTypes['getMarketplaceCampaignsStats'][0])
+    public function getMarketplaceCampaignsStats($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $start_date = null, $time_zone_id = null, string $contentType = self::contentTypes['getMarketplaceCampaignsStats'][0])
     {
-        list($response) = $this->getMarketplaceCampaignsStatsWithHttpInfo($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date, $contentType);
+        list($response) = $this->getMarketplaceCampaignsStatsWithHttpInfo($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date, $time_zone_id, $contentType);
         return $response;
     }
 
@@ -4736,15 +5169,16 @@ class CampaignApi
      * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
      * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
      * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $time_zone_id Specify the timezone used in the aggregations (IANA code). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceCampaignsStats'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMarketplaceCampaignsStatsWithHttpInfo($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $start_date = null, string $contentType = self::contentTypes['getMarketplaceCampaignsStats'][0])
+    public function getMarketplaceCampaignsStatsWithHttpInfo($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $start_date = null, $time_zone_id = null, string $contentType = self::contentTypes['getMarketplaceCampaignsStats'][0])
     {
-        $request = $this->getMarketplaceCampaignsStatsRequest($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date, $contentType);
+        $request = $this->getMarketplaceCampaignsStatsRequest($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date, $time_zone_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4842,14 +5276,15 @@ class CampaignApi
      * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
      * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
      * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $time_zone_id Specify the timezone used in the aggregations (IANA code). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceCampaignsStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMarketplaceCampaignsStatsAsync($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $start_date = null, string $contentType = self::contentTypes['getMarketplaceCampaignsStats'][0])
+    public function getMarketplaceCampaignsStatsAsync($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $start_date = null, $time_zone_id = null, string $contentType = self::contentTypes['getMarketplaceCampaignsStats'][0])
     {
-        return $this->getMarketplaceCampaignsStatsAsyncWithHttpInfo($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date, $contentType)
+        return $this->getMarketplaceCampaignsStatsAsyncWithHttpInfo($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date, $time_zone_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4869,15 +5304,16 @@ class CampaignApi
      * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
      * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
      * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $time_zone_id Specify the timezone used in the aggregations (IANA code). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceCampaignsStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMarketplaceCampaignsStatsAsyncWithHttpInfo($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $start_date = null, string $contentType = self::contentTypes['getMarketplaceCampaignsStats'][0])
+    public function getMarketplaceCampaignsStatsAsyncWithHttpInfo($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $start_date = null, $time_zone_id = null, string $contentType = self::contentTypes['getMarketplaceCampaignsStats'][0])
     {
         $returnType = 'string';
-        $request = $this->getMarketplaceCampaignsStatsRequest($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date, $contentType);
+        $request = $this->getMarketplaceCampaignsStatsRequest($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date, $time_zone_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4925,13 +5361,15 @@ class CampaignApi
      * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
      * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
      * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $time_zone_id Specify the timezone used in the aggregations (IANA code). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceCampaignsStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getMarketplaceCampaignsStatsRequest($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $start_date = null, string $contentType = self::contentTypes['getMarketplaceCampaignsStats'][0])
+    public function getMarketplaceCampaignsStatsRequest($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $start_date = null, $time_zone_id = null, string $contentType = self::contentTypes['getMarketplaceCampaignsStats'][0])
     {
+
 
 
 
@@ -5006,6 +5444,15 @@ class CampaignApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $start_date,
             'startDate', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $time_zone_id,
+            'timeZoneId', // param base name
             'string', // openApiType
             'form', // style
             true, // explode
@@ -6431,7 +6878,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage
+     * @return \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[]
      */
     public function getMarketplaceSellerCampaign($seller_campaign_id, string $contentType = self::contentTypes['getMarketplaceSellerCampaign'][0])
     {
@@ -6449,7 +6896,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getMarketplaceSellerCampaignWithHttpInfo($seller_campaign_id, string $contentType = self::contentTypes['getMarketplaceSellerCampaign'][0])
     {
@@ -6492,23 +6939,23 @@ class CampaignApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[]' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage' !== 'string') {
+                        if ('\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[]' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage';
+            $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[]';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -6529,7 +6976,7 @@ class CampaignApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage',
+                        '\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6573,7 +7020,7 @@ class CampaignApi
      */
     public function getMarketplaceSellerCampaignAsyncWithHttpInfo($seller_campaign_id, string $contentType = self::contentTypes['getMarketplaceSellerCampaign'][0])
     {
-        $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage';
+        $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[]';
         $request = $this->getMarketplaceSellerCampaignRequest($seller_campaign_id, $contentType);
 
         return $this->client
@@ -7068,11 +7515,12 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[]
      */
     public function getMarketplaceSellerCampaignsByAdvertiser($advertiser_id, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsByAdvertiser'][0])
     {
-        $this->getMarketplaceSellerCampaignsByAdvertiserWithHttpInfo($advertiser_id, $contentType);
+        list($response) = $this->getMarketplaceSellerCampaignsByAdvertiserWithHttpInfo($advertiser_id, $contentType);
+        return $response;
     }
 
     /**
@@ -7085,7 +7533,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getMarketplaceSellerCampaignsByAdvertiserWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsByAdvertiser'][0])
     {
@@ -7126,10 +7574,50 @@ class CampaignApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[]' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[]' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[]';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -7169,14 +7657,27 @@ class CampaignApi
      */
     public function getMarketplaceSellerCampaignsByAdvertiserAsyncWithHttpInfo($advertiser_id, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsByAdvertiser'][0])
     {
-        $returnType = '';
+        $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[]';
         $request = $this->getMarketplaceSellerCampaignsByAdvertiserRequest($advertiser_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -7235,7 +7736,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            [],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -7644,15 +8145,16 @@ class CampaignApi
      * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
      * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
      * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $time_zone_id Specify the timezone used in the aggregations (IANA code). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsStats'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function getMarketplaceSellerCampaignsStats($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsStats'][0])
+    public function getMarketplaceSellerCampaignsStats($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, $time_zone_id = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsStats'][0])
     {
-        list($response) = $this->getMarketplaceSellerCampaignsStatsWithHttpInfo($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $contentType);
+        list($response) = $this->getMarketplaceSellerCampaignsStatsWithHttpInfo($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $time_zone_id, $contentType);
         return $response;
     }
 
@@ -7669,15 +8171,16 @@ class CampaignApi
      * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
      * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
      * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $time_zone_id Specify the timezone used in the aggregations (IANA code). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsStats'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMarketplaceSellerCampaignsStatsWithHttpInfo($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsStats'][0])
+    public function getMarketplaceSellerCampaignsStatsWithHttpInfo($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, $time_zone_id = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsStats'][0])
     {
-        $request = $this->getMarketplaceSellerCampaignsStatsRequest($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $contentType);
+        $request = $this->getMarketplaceSellerCampaignsStatsRequest($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $time_zone_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7776,14 +8279,15 @@ class CampaignApi
      * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
      * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
      * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $time_zone_id Specify the timezone used in the aggregations (IANA code). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMarketplaceSellerCampaignsStatsAsync($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsStats'][0])
+    public function getMarketplaceSellerCampaignsStatsAsync($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, $time_zone_id = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsStats'][0])
     {
-        return $this->getMarketplaceSellerCampaignsStatsAsyncWithHttpInfo($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $contentType)
+        return $this->getMarketplaceSellerCampaignsStatsAsyncWithHttpInfo($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $time_zone_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7804,15 +8308,16 @@ class CampaignApi
      * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
      * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
      * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $time_zone_id Specify the timezone used in the aggregations (IANA code). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMarketplaceSellerCampaignsStatsAsyncWithHttpInfo($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsStats'][0])
+    public function getMarketplaceSellerCampaignsStatsAsyncWithHttpInfo($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, $time_zone_id = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsStats'][0])
     {
         $returnType = 'string';
-        $request = $this->getMarketplaceSellerCampaignsStatsRequest($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $contentType);
+        $request = $this->getMarketplaceSellerCampaignsStatsRequest($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $time_zone_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7861,13 +8366,15 @@ class CampaignApi
      * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
      * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
      * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $time_zone_id Specify the timezone used in the aggregations (IANA code). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getMarketplaceSellerCampaignsStatsRequest($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsStats'][0])
+    public function getMarketplaceSellerCampaignsStatsRequest($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, $time_zone_id = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsStats'][0])
     {
+
 
 
 
@@ -7957,6 +8464,15 @@ class CampaignApi
             true, // explode
             false // required
         ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $time_zone_id,
+            'timeZoneId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
 
@@ -8037,7 +8553,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]
+     * @return \criteo\api\marketingsolutions\v2025_10\Model\SellerBase[]
      */
     public function getMarketplaceSellers($advertiser_id = null, $campaign_id = null, $seller_name = null, $seller_status = null, $with_budget_status = null, $with_products = null, string $contentType = self::contentTypes['getMarketplaceSellers'][0])
     {
@@ -8060,7 +8576,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\v2025_10\Model\SellerBase[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getMarketplaceSellersWithHttpInfo($advertiser_id = null, $campaign_id = null, $seller_name = null, $seller_status = null, $with_budget_status = null, $with_products = null, string $contentType = self::contentTypes['getMarketplaceSellers'][0])
     {
@@ -8103,23 +8619,23 @@ class CampaignApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\v2025_10\Model\SellerBase[]' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]' !== 'string') {
+                        if ('\criteo\api\marketingsolutions\v2025_10\Model\SellerBase[]' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_10\Model\SellerBase[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]';
+            $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerBase[]';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -8140,7 +8656,7 @@ class CampaignApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]',
+                        '\criteo\api\marketingsolutions\v2025_10\Model\SellerBase[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8194,7 +8710,7 @@ class CampaignApi
      */
     public function getMarketplaceSellersAsyncWithHttpInfo($advertiser_id = null, $campaign_id = null, $seller_name = null, $seller_status = null, $with_budget_status = null, $with_products = null, string $contentType = self::contentTypes['getMarketplaceSellers'][0])
     {
-        $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]';
+        $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerBase[]';
         $request = $this->getMarketplaceSellersRequest($advertiser_id, $campaign_id, $seller_name, $seller_status, $with_budget_status, $with_products, $contentType);
 
         return $this->client
@@ -8395,11 +8911,12 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \criteo\api\marketingsolutions\v2025_10\Model\SellerBase[]
      */
     public function getMarketplaceSellersByAdvertiser($advertiser_id, $partner_id = null, $request_body = null, string $contentType = self::contentTypes['getMarketplaceSellersByAdvertiser'][0])
     {
-        $this->getMarketplaceSellersByAdvertiserWithHttpInfo($advertiser_id, $partner_id, $request_body, $contentType);
+        list($response) = $this->getMarketplaceSellersByAdvertiserWithHttpInfo($advertiser_id, $partner_id, $request_body, $contentType);
+        return $response;
     }
 
     /**
@@ -8414,7 +8931,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\v2025_10\Model\SellerBase[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getMarketplaceSellersByAdvertiserWithHttpInfo($advertiser_id, $partner_id = null, $request_body = null, string $contentType = self::contentTypes['getMarketplaceSellersByAdvertiser'][0])
     {
@@ -8455,10 +8972,50 @@ class CampaignApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\v2025_10\Model\SellerBase[]' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\v2025_10\Model\SellerBase[]' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_10\Model\SellerBase[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerBase[]';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\v2025_10\Model\SellerBase[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -8502,14 +9059,27 @@ class CampaignApi
      */
     public function getMarketplaceSellersByAdvertiserAsyncWithHttpInfo($advertiser_id, $partner_id = null, $request_body = null, string $contentType = self::contentTypes['getMarketplaceSellersByAdvertiser'][0])
     {
-        $returnType = '';
+        $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerBase[]';
         $request = $this->getMarketplaceSellersByAdvertiserRequest($advertiser_id, $partner_id, $request_body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -8581,7 +9151,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            [],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -8660,15 +9230,16 @@ class CampaignApi
      * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
      * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
      * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $time_zone_id Specify the timezone used in the aggregations (IANA code). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellersStats'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function getMarketplaceSellersStats($advertiser_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['getMarketplaceSellersStats'][0])
+    public function getMarketplaceSellersStats($advertiser_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, $time_zone_id = null, string $contentType = self::contentTypes['getMarketplaceSellersStats'][0])
     {
-        list($response) = $this->getMarketplaceSellersStatsWithHttpInfo($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $contentType);
+        list($response) = $this->getMarketplaceSellersStatsWithHttpInfo($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $time_zone_id, $contentType);
         return $response;
     }
 
@@ -8684,15 +9255,16 @@ class CampaignApi
      * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
      * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
      * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $time_zone_id Specify the timezone used in the aggregations (IANA code). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellersStats'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMarketplaceSellersStatsWithHttpInfo($advertiser_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['getMarketplaceSellersStats'][0])
+    public function getMarketplaceSellersStatsWithHttpInfo($advertiser_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, $time_zone_id = null, string $contentType = self::contentTypes['getMarketplaceSellersStats'][0])
     {
-        $request = $this->getMarketplaceSellersStatsRequest($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $contentType);
+        $request = $this->getMarketplaceSellersStatsRequest($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $time_zone_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8790,14 +9362,15 @@ class CampaignApi
      * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
      * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
      * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $time_zone_id Specify the timezone used in the aggregations (IANA code). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellersStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMarketplaceSellersStatsAsync($advertiser_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['getMarketplaceSellersStats'][0])
+    public function getMarketplaceSellersStatsAsync($advertiser_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, $time_zone_id = null, string $contentType = self::contentTypes['getMarketplaceSellersStats'][0])
     {
-        return $this->getMarketplaceSellersStatsAsyncWithHttpInfo($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $contentType)
+        return $this->getMarketplaceSellersStatsAsyncWithHttpInfo($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $time_zone_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8817,15 +9390,16 @@ class CampaignApi
      * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
      * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
      * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $time_zone_id Specify the timezone used in the aggregations (IANA code). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellersStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMarketplaceSellersStatsAsyncWithHttpInfo($advertiser_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['getMarketplaceSellersStats'][0])
+    public function getMarketplaceSellersStatsAsyncWithHttpInfo($advertiser_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, $time_zone_id = null, string $contentType = self::contentTypes['getMarketplaceSellersStats'][0])
     {
         $returnType = 'string';
-        $request = $this->getMarketplaceSellersStatsRequest($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $contentType);
+        $request = $this->getMarketplaceSellersStatsRequest($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $time_zone_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8873,13 +9447,15 @@ class CampaignApi
      * @param  string $interval_size Specify the aggregation interval for events used to compute stats (default is \&quot;day\&quot;) (optional, default to 'Day')
      * @param  string $seller_id Show only metrics for this seller (default all sellers) (optional)
      * @param  \DateTime $start_date Filter out all events that occur before date (default is the value of &#x60;endDate&#x60;) (optional)
+     * @param  string $time_zone_id Specify the timezone used in the aggregations (IANA code). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellersStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getMarketplaceSellersStatsRequest($advertiser_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, string $contentType = self::contentTypes['getMarketplaceSellersStats'][0])
+    public function getMarketplaceSellersStatsRequest($advertiser_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, $time_zone_id = null, string $contentType = self::contentTypes['getMarketplaceSellersStats'][0])
     {
+
 
 
 
@@ -8954,6 +9530,15 @@ class CampaignApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $start_date,
             'startDate', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $time_zone_id,
+            'timeZoneId', // param base name
             'string', // openApiType
             'form', // style
             true, // explode
@@ -11585,11 +12170,12 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage
      */
     public function updateMarketplaceSellerBudget($budget_id, $update_seller_budget_message_base = null, string $contentType = self::contentTypes['updateMarketplaceSellerBudget'][0])
     {
-        $this->updateMarketplaceSellerBudgetWithHttpInfo($budget_id, $update_seller_budget_message_base, $contentType);
+        list($response) = $this->updateMarketplaceSellerBudgetWithHttpInfo($budget_id, $update_seller_budget_message_base, $contentType);
+        return $response;
     }
 
     /**
@@ -11603,7 +12189,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateMarketplaceSellerBudgetWithHttpInfo($budget_id, $update_seller_budget_message_base = null, string $contentType = self::contentTypes['updateMarketplaceSellerBudget'][0])
     {
@@ -11644,10 +12230,50 @@ class CampaignApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -11689,14 +12315,27 @@ class CampaignApi
      */
     public function updateMarketplaceSellerBudgetAsyncWithHttpInfo($budget_id, $update_seller_budget_message_base = null, string $contentType = self::contentTypes['updateMarketplaceSellerBudget'][0])
     {
-        $returnType = '';
+        $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage';
         $request = $this->updateMarketplaceSellerBudgetRequest($budget_id, $update_seller_budget_message_base, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -11757,7 +12396,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            [],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -11834,11 +12473,12 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]
      */
     public function updateMarketplaceSellerBudgets($update_seller_budget_message = null, string $contentType = self::contentTypes['updateMarketplaceSellerBudgets'][0])
     {
-        $this->updateMarketplaceSellerBudgetsWithHttpInfo($update_seller_budget_message, $contentType);
+        list($response) = $this->updateMarketplaceSellerBudgetsWithHttpInfo($update_seller_budget_message, $contentType);
+        return $response;
     }
 
     /**
@@ -11851,7 +12491,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[], HTTP status code, HTTP response headers (array of strings)
      */
     public function updateMarketplaceSellerBudgetsWithHttpInfo($update_seller_budget_message = null, string $contentType = self::contentTypes['updateMarketplaceSellerBudgets'][0])
     {
@@ -11892,10 +12532,50 @@ class CampaignApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -11935,14 +12615,27 @@ class CampaignApi
      */
     public function updateMarketplaceSellerBudgetsAsyncWithHttpInfo($update_seller_budget_message = null, string $contentType = self::contentTypes['updateMarketplaceSellerBudgets'][0])
     {
-        $returnType = '';
+        $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]';
         $request = $this->updateMarketplaceSellerBudgetsRequest($update_seller_budget_message, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -11987,7 +12680,7 @@ class CampaignApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            [],
+            ['application/json', ],
             $contentType,
             $multipart
         );

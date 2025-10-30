@@ -1,6 +1,6 @@
 <?php
 /**
- * SellerBudgetMessage
+ * AdvertiserCampaignMessage
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2025_10\ObjectSerializer;
 
 /**
- * SellerBudgetMessage Class Doc Comment
+ * AdvertiserCampaignMessage Class Doc Comment
  *
  * @category Class
- * @description Budget are used to specify budget constraints for one or more Seller-Campaigns of the same Seller
+ * @description Data representing an advertiser&#39;s adset
  * @package  criteo\api\marketingsolutions\v2025_10
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializable
+class AdvertiserCampaignMessage implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SellerBudgetMessage';
+    protected static $openAPIModelName = 'AdvertiserCampaignMessage';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,16 +58,10 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'amount' => 'float',
-        'budget_type' => 'string',
-        'campaign_ids' => 'int[]',
-        'end_date' => 'string',
-        'id' => 'string',
-        'is_suspended' => 'bool',
-        'seller_id' => 'string',
-        'spend' => 'float',
-        'start_date' => '\DateTime',
-        'status' => '\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetStatusV2'
+        'ad_set_delivery_status' => 'string',
+        'campaign_name' => 'string',
+        'id' => 'int',
+        'status' => 'int'
     ];
 
     /**
@@ -78,15 +72,9 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'amount' => 'double',
-        'budget_type' => null,
-        'campaign_ids' => 'int32',
-        'end_date' => null,
-        'id' => null,
-        'is_suspended' => null,
-        'seller_id' => null,
-        'spend' => 'double',
-        'start_date' => 'date-time',
+        'ad_set_delivery_status' => null,
+        'campaign_name' => null,
+        'id' => 'int32',
         'status' => null
     ];
 
@@ -96,16 +84,10 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'amount' => true,
-		'budget_type' => false,
-		'campaign_ids' => false,
-		'end_date' => false,
+        'ad_set_delivery_status' => false,
+		'campaign_name' => false,
 		'id' => false,
-		'is_suspended' => false,
-		'seller_id' => false,
-		'spend' => true,
-		'start_date' => false,
-		'status' => false
+		'status' => true
     ];
 
     /**
@@ -194,15 +176,9 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'amount' => 'amount',
-        'budget_type' => 'budgetType',
-        'campaign_ids' => 'campaignIds',
-        'end_date' => 'endDate',
+        'ad_set_delivery_status' => 'adSetDeliveryStatus',
+        'campaign_name' => 'campaignName',
         'id' => 'id',
-        'is_suspended' => 'isSuspended',
-        'seller_id' => 'sellerId',
-        'spend' => 'spend',
-        'start_date' => 'startDate',
         'status' => 'status'
     ];
 
@@ -212,15 +188,9 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'amount' => 'setAmount',
-        'budget_type' => 'setBudgetType',
-        'campaign_ids' => 'setCampaignIds',
-        'end_date' => 'setEndDate',
+        'ad_set_delivery_status' => 'setAdSetDeliveryStatus',
+        'campaign_name' => 'setCampaignName',
         'id' => 'setId',
-        'is_suspended' => 'setIsSuspended',
-        'seller_id' => 'setSellerId',
-        'spend' => 'setSpend',
-        'start_date' => 'setStartDate',
         'status' => 'setStatus'
     ];
 
@@ -230,15 +200,9 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'amount' => 'getAmount',
-        'budget_type' => 'getBudgetType',
-        'campaign_ids' => 'getCampaignIds',
-        'end_date' => 'getEndDate',
+        'ad_set_delivery_status' => 'getAdSetDeliveryStatus',
+        'campaign_name' => 'getCampaignName',
         'id' => 'getId',
-        'is_suspended' => 'getIsSuspended',
-        'seller_id' => 'getSellerId',
-        'spend' => 'getSpend',
-        'start_date' => 'getStartDate',
         'status' => 'getStatus'
     ];
 
@@ -283,6 +247,40 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         return self::$openAPIModelName;
     }
 
+    public const AD_SET_DELIVERY_STATUS_RUNNING = 'Running';
+    public const AD_SET_DELIVERY_STATUS_ARCHIVED = 'Archived';
+    public const AD_SET_DELIVERY_STATUS_NOT_RUNNING = 'NotRunning';
+    public const STATUS_0 = 0;
+    public const STATUS_1 = 1;
+    public const STATUS_2 = 2;
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAdSetDeliveryStatusAllowableValues()
+    {
+        return [
+            self::AD_SET_DELIVERY_STATUS_RUNNING,
+            self::AD_SET_DELIVERY_STATUS_ARCHIVED,
+            self::AD_SET_DELIVERY_STATUS_NOT_RUNNING,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_0,
+            self::STATUS_1,
+            self::STATUS_2,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -299,15 +297,9 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('budget_type', $data ?? [], null);
-        $this->setIfExists('campaign_ids', $data ?? [], null);
-        $this->setIfExists('end_date', $data ?? [], null);
+        $this->setIfExists('ad_set_delivery_status', $data ?? [], null);
+        $this->setIfExists('campaign_name', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('is_suspended', $data ?? [], null);
-        $this->setIfExists('seller_id', $data ?? [], null);
-        $this->setIfExists('spend', $data ?? [], null);
-        $this->setIfExists('start_date', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
     }
 
@@ -338,6 +330,24 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getAdSetDeliveryStatusAllowableValues();
+        if (!is_null($this->container['ad_set_delivery_status']) && !in_array($this->container['ad_set_delivery_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'ad_set_delivery_status', must be one of '%s'",
+                $this->container['ad_set_delivery_status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'status', must be one of '%s'",
+                $this->container['status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -354,116 +364,65 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets amount
-     *
-     * @return float|null
-     */
-    public function getAmount()
-    {
-        return $this->container['amount'];
-    }
-
-    /**
-     * Sets amount
-     *
-     * @param float|null $amount amount
-     *
-     * @return self
-     */
-    public function setAmount($amount)
-    {
-        if (is_null($amount)) {
-            array_push($this->openAPINullablesSetToNull, 'amount');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('amount', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['amount'] = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets budget_type
+     * Gets ad_set_delivery_status
      *
      * @return string|null
      */
-    public function getBudgetType()
+    public function getAdSetDeliveryStatus()
     {
-        return $this->container['budget_type'];
+        return $this->container['ad_set_delivery_status'];
     }
 
     /**
-     * Sets budget_type
+     * Sets ad_set_delivery_status
      *
-     * @param string|null $budget_type budget_type
+     * @param string|null $ad_set_delivery_status ad_set_delivery_status
      *
      * @return self
      */
-    public function setBudgetType($budget_type)
+    public function setAdSetDeliveryStatus($ad_set_delivery_status)
     {
-        if (is_null($budget_type)) {
-            throw new \InvalidArgumentException('non-nullable budget_type cannot be null');
+        if (is_null($ad_set_delivery_status)) {
+            throw new \InvalidArgumentException('non-nullable ad_set_delivery_status cannot be null');
         }
-        $this->container['budget_type'] = $budget_type;
+        $allowedValues = $this->getAdSetDeliveryStatusAllowableValues();
+        if (!in_array($ad_set_delivery_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'ad_set_delivery_status', must be one of '%s'",
+                    $ad_set_delivery_status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['ad_set_delivery_status'] = $ad_set_delivery_status;
 
         return $this;
     }
 
     /**
-     * Gets campaign_ids
-     *
-     * @return int[]|null
-     */
-    public function getCampaignIds()
-    {
-        return $this->container['campaign_ids'];
-    }
-
-    /**
-     * Sets campaign_ids
-     *
-     * @param int[]|null $campaign_ids campaign_ids
-     *
-     * @return self
-     */
-    public function setCampaignIds($campaign_ids)
-    {
-        if (is_null($campaign_ids)) {
-            throw new \InvalidArgumentException('non-nullable campaign_ids cannot be null');
-        }
-        $this->container['campaign_ids'] = $campaign_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets end_date
+     * Gets campaign_name
      *
      * @return string|null
      */
-    public function getEndDate()
+    public function getCampaignName()
     {
-        return $this->container['end_date'];
+        return $this->container['campaign_name'];
     }
 
     /**
-     * Sets end_date
+     * Sets campaign_name
      *
-     * @param string|null $end_date end_date
+     * @param string|null $campaign_name campaign_name
      *
      * @return self
      */
-    public function setEndDate($end_date)
+    public function setCampaignName($campaign_name)
     {
-        if (is_null($end_date)) {
-            throw new \InvalidArgumentException('non-nullable end_date cannot be null');
+        if (is_null($campaign_name)) {
+            throw new \InvalidArgumentException('non-nullable campaign_name cannot be null');
         }
-        $this->container['end_date'] = $end_date;
+        $this->container['campaign_name'] = $campaign_name;
 
         return $this;
     }
@@ -471,7 +430,7 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets id
      *
-     * @return string|null
+     * @return int|null
      */
     public function getId()
     {
@@ -481,7 +440,7 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param int|null $id id
      *
      * @return self
      */
@@ -496,124 +455,9 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets is_suspended
-     *
-     * @return bool|null
-     */
-    public function getIsSuspended()
-    {
-        return $this->container['is_suspended'];
-    }
-
-    /**
-     * Sets is_suspended
-     *
-     * @param bool|null $is_suspended is_suspended
-     *
-     * @return self
-     */
-    public function setIsSuspended($is_suspended)
-    {
-        if (is_null($is_suspended)) {
-            throw new \InvalidArgumentException('non-nullable is_suspended cannot be null');
-        }
-        $this->container['is_suspended'] = $is_suspended;
-
-        return $this;
-    }
-
-    /**
-     * Gets seller_id
-     *
-     * @return string|null
-     */
-    public function getSellerId()
-    {
-        return $this->container['seller_id'];
-    }
-
-    /**
-     * Sets seller_id
-     *
-     * @param string|null $seller_id seller_id
-     *
-     * @return self
-     */
-    public function setSellerId($seller_id)
-    {
-        if (is_null($seller_id)) {
-            throw new \InvalidArgumentException('non-nullable seller_id cannot be null');
-        }
-        $this->container['seller_id'] = $seller_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets spend
-     *
-     * @return float|null
-     */
-    public function getSpend()
-    {
-        return $this->container['spend'];
-    }
-
-    /**
-     * Sets spend
-     *
-     * @param float|null $spend spend
-     *
-     * @return self
-     */
-    public function setSpend($spend)
-    {
-        if (is_null($spend)) {
-            array_push($this->openAPINullablesSetToNull, 'spend');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('spend', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['spend'] = $spend;
-
-        return $this;
-    }
-
-    /**
-     * Gets start_date
-     *
-     * @return \DateTime|null
-     */
-    public function getStartDate()
-    {
-        return $this->container['start_date'];
-    }
-
-    /**
-     * Sets start_date
-     *
-     * @param \DateTime|null $start_date start_date
-     *
-     * @return self
-     */
-    public function setStartDate($start_date)
-    {
-        if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
-        }
-        $this->container['start_date'] = $start_date;
-
-        return $this;
-    }
-
-    /**
      * Gets status
      *
-     * @return \criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetStatusV2|null
+     * @return int|null
      */
     public function getStatus()
     {
@@ -623,14 +467,31 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets status
      *
-     * @param \criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetStatusV2|null $status status
+     * @param int|null $status status
      *
      * @return self
      */
     public function setStatus($status)
     {
         if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'status', must be one of '%s'",
+                    $status,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['status'] = $status;
 

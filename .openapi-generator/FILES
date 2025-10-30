@@ -20,6 +20,7 @@ docs/Model/AdSetCategoryBid.md
 docs/Model/AdSetCategoryBidListResponse.md
 docs/Model/AdSetCategoryBidResource.md
 docs/Model/AdSetDeliveryLimitationsV24Q3.md
+docs/Model/AdSetDeliveryStatus.md
 docs/Model/AdSetDisplayMultiplier.md
 docs/Model/AdSetDisplayMultiplierListResponse.md
 docs/Model/AdSetDisplayMultiplierResource.md
@@ -35,6 +36,10 @@ docs/Model/AdaptiveAttributes.md
 docs/Model/AdaptiveColors.md
 docs/Model/AdaptiveReadAttributes.md
 docs/Model/AdaptiveWriteAttributes.md
+docs/Model/AdvertiserAdsetMessage.md
+docs/Model/AdvertiserCampaignMessage.md
+docs/Model/AdvertiserInfoMessage.md
+docs/Model/AdvertiserQuotaMessage.md
 docs/Model/AlgebraNodeV1.md
 docs/Model/ApplicationSummaryModel.md
 docs/Model/ApplicationSummaryModelResource.md
@@ -316,6 +321,7 @@ lib/Model/AdSetCategoryBid.php
 lib/Model/AdSetCategoryBidListResponse.php
 lib/Model/AdSetCategoryBidResource.php
 lib/Model/AdSetDeliveryLimitationsV24Q3.php
+lib/Model/AdSetDeliveryStatus.php
 lib/Model/AdSetDisplayMultiplier.php
 lib/Model/AdSetDisplayMultiplierListResponse.php
 lib/Model/AdSetDisplayMultiplierResource.php
@@ -331,6 +337,10 @@ lib/Model/AdaptiveAttributes.php
 lib/Model/AdaptiveColors.php
 lib/Model/AdaptiveReadAttributes.php
 lib/Model/AdaptiveWriteAttributes.php
+lib/Model/AdvertiserAdsetMessage.php
+lib/Model/AdvertiserCampaignMessage.php
+lib/Model/AdvertiserInfoMessage.php
+lib/Model/AdvertiserQuotaMessage.php
 lib/Model/AlgebraNodeV1.php
 lib/Model/ApplicationSummaryModel.php
 lib/Model/ApplicationSummaryModelResource.php

@@ -1,6 +1,6 @@
 <?php
 /**
- * SellerBudgetStatusV2
+ * AdSetDeliveryStatus
  *
  * PHP version 7.4
  *
@@ -30,24 +30,24 @@ namespace criteo\api\marketingsolutions\v2025_10\Model;
 use \criteo\api\marketingsolutions\v2025_10\ObjectSerializer;
 
 /**
- * SellerBudgetStatusV2 Class Doc Comment
+ * AdSetDeliveryStatus Class Doc Comment
  *
  * @category Class
- * @description Status of a seller budget
+ * @description Status of an ad set&#39;s delivery
  * @package  criteo\api\marketingsolutions\v2025_10
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class SellerBudgetStatusV2
+class AdSetDeliveryStatus
 {
     /**
      * Possible values of this enum
      */
+    public const RUNNING = 'Running';
+
     public const ARCHIVED = 'Archived';
 
-    public const CURRENT = 'Current';
-
-    public const SCHEDULED = 'Scheduled';
+    public const NOT_RUNNING = 'NotRunning';
 
     /**
      * Gets allowable values of the enum
@@ -56,9 +56,9 @@ class SellerBudgetStatusV2
     public static function getAllowableEnumValues()
     {
         return [
+            self::RUNNING,
             self::ARCHIVED,
-            self::CURRENT,
-            self::SCHEDULED
+            self::NOT_RUNNING
         ];
     }
 }

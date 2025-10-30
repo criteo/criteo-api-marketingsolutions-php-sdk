@@ -74,7 +74,7 @@ class SellerCampaignMessage implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'bid' => 'decimal',
+        'bid' => 'double',
         'campaign_id' => 'int32',
         'id' => null,
         'seller_id' => null,

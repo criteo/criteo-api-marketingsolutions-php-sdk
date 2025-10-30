@@ -343,7 +343,7 @@ class RecoApi
 
 
 
-        $resourcePath = '/2025-10/product-sets';
+        $resourcePath = '/2025-10/marketing-solutions/product-sets';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -625,7 +625,7 @@ class RecoApi
         }
 
 
-        $resourcePath = '/2025-10/ads/{ad-id}/product-filter';
+        $resourcePath = '/2025-10/marketing-solutions/ads/{ad-id}/product-filter';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -914,7 +914,7 @@ class RecoApi
 
 
 
-        $resourcePath = '/2025-10/ads/{ad-id}/product-filter';
+        $resourcePath = '/2025-10/marketing-solutions/ads/{ad-id}/product-filter';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1204,7 +1204,7 @@ class RecoApi
         }
 
 
-        $resourcePath = '/2025-10/ads/{ad-id}/product-filter';
+        $resourcePath = '/2025-10/marketing-solutions/ads/{ad-id}/product-filter';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1487,7 +1487,7 @@ class RecoApi
         }
 
 
-        $resourcePath = '/2025-10/product-sets/{product-set-id}/product-filters';
+        $resourcePath = '/2025-10/marketing-solutions/product-sets/{product-set-id}/product-filters';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1770,7 +1770,7 @@ class RecoApi
         }
 
 
-        $resourcePath = '/2025-10/product-sets/{product-set-id}';
+        $resourcePath = '/2025-10/marketing-solutions/product-sets/{product-set-id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2053,7 +2053,7 @@ class RecoApi
         }
 
 
-        $resourcePath = '/2025-10/product-sets/dataset/{dataset-id}';
+        $resourcePath = '/2025-10/marketing-solutions/product-sets/dataset/{dataset-id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2342,7 +2342,7 @@ class RecoApi
 
 
 
-        $resourcePath = '/2025-10/product-sets/{product-set-id}';
+        $resourcePath = '/2025-10/marketing-solutions/product-sets/{product-set-id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2632,7 +2632,7 @@ class RecoApi
         }
 
 
-        $resourcePath = '/2025-10/product-sets/{product-set-id}';
+        $resourcePath = '/2025-10/marketing-solutions/product-sets/{product-set-id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
