@@ -125,7 +125,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **generate_statistics_report_request** | [**\criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportRequest**](../Model/GenerateStatisticsReportRequest.md)|  | [optional] |
+| **generate_statistics_report_request** | [**\criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportRequest**](../Model/GenerateStatisticsReportRequest.md)|  | |
 
 ### Return type
 
@@ -440,7 +440,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **generate_creatives_report_request_attributes_request** | [**\criteo\api\marketingsolutions\preview\Model\GenerateCreativesReportRequestAttributesRequest**](../Model/GenerateCreativesReportRequestAttributesRequest.md)|  | [optional] |
+| **generate_creatives_report_request_attributes_request** | [**\criteo\api\marketingsolutions\preview\Model\GenerateCreativesReportRequestAttributesRequest**](../Model/GenerateCreativesReportRequestAttributesRequest.md)|  | |
 
 ### Return type
 
@@ -629,7 +629,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **generate_top_products_report_request_attributes_request** | [**\criteo\api\marketingsolutions\preview\Model\GenerateTopProductsReportRequestAttributesRequest**](../Model/GenerateTopProductsReportRequestAttributesRequest.md)|  | [optional] |
+| **generate_top_products_report_request_attributes_request** | [**\criteo\api\marketingsolutions\preview\Model\GenerateTopProductsReportRequestAttributesRequest**](../Model/GenerateTopProductsReportRequestAttributesRequest.md)|  | |
 
 ### Return type
 

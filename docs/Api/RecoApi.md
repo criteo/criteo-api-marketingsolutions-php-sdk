@@ -59,7 +59,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **value_resource_input_of_create_product_set_request** | [**\criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfCreateProductSetRequest**](../Model/ValueResourceInputOfCreateProductSetRequest.md)|  | [optional] |
+| **value_resource_input_of_create_product_set_request** | [**\criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfCreateProductSetRequest**](../Model/ValueResourceInputOfCreateProductSetRequest.md)|  | |
 
 ### Return type
 
@@ -504,7 +504,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **product_set_id** | **string**| ID of the product set | |
-| **value_resource_input_of_patch_product_set_request** | [**\criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfPatchProductSetRequest**](../Model/ValueResourceInputOfPatchProductSetRequest.md)|  | [optional] |
+| **value_resource_input_of_patch_product_set_request** | [**\criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfPatchProductSetRequest**](../Model/ValueResourceInputOfPatchProductSetRequest.md)|  | |
 
 ### Return type
 

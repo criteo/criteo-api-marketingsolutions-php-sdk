@@ -1292,7 +1292,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **ad_set_id** | **string**| Id of the Ad Set | |
-| **patch_ad_set_category_bid_list_request** | [**\criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidListRequest**](../Model/PatchAdSetCategoryBidListRequest.md)|  | [optional] |
+| **patch_ad_set_category_bid_list_request** | [**\criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidListRequest**](../Model/PatchAdSetCategoryBidListRequest.md)|  | |
 
 ### Return type
 
@@ -1355,7 +1355,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **requests_patch_ad_set_v24_q3** | [**\criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSetV24Q3**](../Model/RequestsPatchAdSetV24Q3.md)| List of adsets to patch. | [optional] |
+| **requests_patch_ad_set_v24_q3** | [**\criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSetV24Q3**](../Model/RequestsPatchAdSetV24Q3.md)| List of adsets to patch. | |
 
 ### Return type
 
@@ -1418,7 +1418,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **patch_campaign_list_request** | [**\criteo\api\marketingsolutions\preview\Model\PatchCampaignListRequest**](../Model/PatchCampaignListRequest.md)| List of campaigns to patch. | [optional] |
+| **patch_campaign_list_request** | [**\criteo\api\marketingsolutions\preview\Model\PatchCampaignListRequest**](../Model/PatchCampaignListRequest.md)| List of campaigns to patch. | |
 
 ### Return type
 
@@ -1483,7 +1483,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **ad_set_id** | **string**| Id of the Ad Set | |
-| **patch_ad_set_display_multiplier_list_request** | [**\criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierListRequest**](../Model/PatchAdSetDisplayMultiplierListRequest.md)|  | [optional] |
+| **patch_ad_set_display_multiplier_list_request** | [**\criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierListRequest**](../Model/PatchAdSetDisplayMultiplierListRequest.md)|  | |
 
 ### Return type
 
@@ -1548,7 +1548,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **advertiser_id** | **int**| The advertiser id | |
-| **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Description of the targeting rule to setup | [optional] |
+| **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Description of the targeting rule to setup | |
 
 ### Return type
 
@@ -1613,7 +1613,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **advertiser_id** | **int**| The advertiser id | |
-| **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Description of the targeting rule to setup | [optional] |
+| **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Description of the targeting rule to setup | |
 
 ### Return type
 
@@ -1678,7 +1678,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **campaign_id** | **int**| The campaign id | |
-| **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Description of the targeting rule to setup | [optional] |
+| **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Description of the targeting rule to setup | |
 
 ### Return type
 
@@ -1743,7 +1743,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **campaign_id** | **int**| The campaign id | |
-| **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Description of the targeting rule to setup | [optional] |
+| **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Description of the targeting rule to setup | |
 
 ### Return type
 
@@ -1808,7 +1808,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **advertiser_id** | **int**| The advertiser id | |
-| **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Contains the list of items to add to the existing list | [optional] |
+| **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Contains the list of items to add to the existing list | |
 
 ### Return type
 
@@ -1873,7 +1873,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **advertiser_id** | **int**| The advertiser id | |
-| **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Contains the list of items to add to the existing list | [optional] |
+| **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Contains the list of items to add to the existing list | |
 
 ### Return type
 
@@ -1938,7 +1938,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **campaign_id** | **int**| The campaign id | |
-| **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Contains the list of items to add to the existing list | [optional] |
+| **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Contains the list of items to add to the existing list | |
 
 ### Return type
 
@@ -2003,7 +2003,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **campaign_id** | **int**| The campaign id | |
-| **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Contains the list of items to add to the existing list | [optional] |
+| **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Contains the list of items to add to the existing list | |
 
 ### Return type
 
@@ -2194,7 +2194,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **ad_set_id** | **string**| Id of the Ad Set | |
-| **set_ad_set_targeting_deal_ids_request** | [**\criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingDealIdsRequest**](../Model/SetAdSetTargetingDealIdsRequest.md)| the new Deal Id Targeting configuration | [optional] |
+| **set_ad_set_targeting_deal_ids_request** | [**\criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingDealIdsRequest**](../Model/SetAdSetTargetingDealIdsRequest.md)| the new Deal Id Targeting configuration | |
 
 ### Return type
 
@@ -2259,7 +2259,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **ad_set_id** | **string**| Id of the Ad Set | |
-| **set_ad_set_targeting_video_positioning_request** | [**\criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingVideoPositioningRequest**](../Model/SetAdSetTargetingVideoPositioningRequest.md)| the new Video Positioning Targeting configuration | [optional] |
+| **set_ad_set_targeting_video_positioning_request** | [**\criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingVideoPositioningRequest**](../Model/SetAdSetTargetingVideoPositioningRequest.md)| the new Video Positioning Targeting configuration | |
 
 ### Return type
 

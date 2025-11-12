@@ -183,6 +183,9 @@ docs/Model/EntityOfPortfolioMessage.md
 docs/Model/EntityV2OfDataset.md
 docs/Model/EntityV2OfObject.md
 docs/Model/EntityWrapperOfTargetingEntity.md
+docs/Model/ExamAdAudienceSegmentLink.md
+docs/Model/ExamAdAudienceSegmentLinkInput.md
+docs/Model/ExamAdAudienceSegmentLinkWrite.md
 docs/Model/ExportColumn.md
 docs/Model/ExportMetaData.md
 docs/Model/ExportResult.md
@@ -375,8 +378,11 @@ docs/Model/ValueResourceInputOfCreateProductSetRequest.md
 docs/Model/ValueResourceInputOfPatchProductSetRequest.md
 docs/Model/ValueResourceOfCreateProductFilterRequest.md
 docs/Model/ValueResourceOfCreateProductSetRequest.md
+docs/Model/ValueResourceOfExamAdAudienceSegmentLink.md
+docs/Model/ValueResourceOfExamAdAudienceSegmentLinkWrite.md
 docs/Model/ValueResourceOfPatchProductSetRequest.md
 docs/Model/ValueResourceOfProductFilterConfig.md
+docs/Model/ValueResourceOutcomeOfExamAdAudienceSegmentLink.md
 docs/Model/ValueResourceOutcomeOfProductFilterConfig.md
 docs/Model/VideoDetail.md
 docs/Model/WriteModelAdSetId.md
@@ -566,6 +572,9 @@ lib/Model/EntityOfPortfolioMessage.php
 lib/Model/EntityV2OfDataset.php
 lib/Model/EntityV2OfObject.php
 lib/Model/EntityWrapperOfTargetingEntity.php
+lib/Model/ExamAdAudienceSegmentLink.php
+lib/Model/ExamAdAudienceSegmentLinkInput.php
+lib/Model/ExamAdAudienceSegmentLinkWrite.php
 lib/Model/ExportColumn.php
 lib/Model/ExportMetaData.php
 lib/Model/ExportResult.php
@@ -759,8 +768,11 @@ lib/Model/ValueResourceInputOfCreateProductSetRequest.php
 lib/Model/ValueResourceInputOfPatchProductSetRequest.php
 lib/Model/ValueResourceOfCreateProductFilterRequest.php
 lib/Model/ValueResourceOfCreateProductSetRequest.php
+lib/Model/ValueResourceOfExamAdAudienceSegmentLink.php
+lib/Model/ValueResourceOfExamAdAudienceSegmentLinkWrite.php
 lib/Model/ValueResourceOfPatchProductSetRequest.php
 lib/Model/ValueResourceOfProductFilterConfig.php
+lib/Model/ValueResourceOutcomeOfExamAdAudienceSegmentLink.php
 lib/Model/ValueResourceOutcomeOfProductFilterConfig.php
 lib/Model/VideoDetail.php
 lib/Model/WriteModelAdSetId.php

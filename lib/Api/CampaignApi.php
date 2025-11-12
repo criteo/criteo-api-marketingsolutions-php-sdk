@@ -5644,14 +5644,14 @@ class CampaignApi
      * Operation patchAdSetCategoryBids
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request patch_ad_set_category_bid_list_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request patch_ad_set_category_bid_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSetCategoryBids'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidResultListResponse
      */
-    public function patchAdSetCategoryBids($ad_set_id, $patch_ad_set_category_bid_list_request = null, string $contentType = self::contentTypes['patchAdSetCategoryBids'][0])
+    public function patchAdSetCategoryBids($ad_set_id, $patch_ad_set_category_bid_list_request, string $contentType = self::contentTypes['patchAdSetCategoryBids'][0])
     {
         list($response) = $this->patchAdSetCategoryBidsWithHttpInfo($ad_set_id, $patch_ad_set_category_bid_list_request, $contentType);
         return $response;
@@ -5661,14 +5661,14 @@ class CampaignApi
      * Operation patchAdSetCategoryBidsWithHttpInfo
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSetCategoryBids'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidResultListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchAdSetCategoryBidsWithHttpInfo($ad_set_id, $patch_ad_set_category_bid_list_request = null, string $contentType = self::contentTypes['patchAdSetCategoryBids'][0])
+    public function patchAdSetCategoryBidsWithHttpInfo($ad_set_id, $patch_ad_set_category_bid_list_request, string $contentType = self::contentTypes['patchAdSetCategoryBids'][0])
     {
         $request = $this->patchAdSetCategoryBidsRequest($ad_set_id, $patch_ad_set_category_bid_list_request, $contentType);
 
@@ -5760,13 +5760,13 @@ class CampaignApi
      * Operation patchAdSetCategoryBidsAsync
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSetCategoryBids'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchAdSetCategoryBidsAsync($ad_set_id, $patch_ad_set_category_bid_list_request = null, string $contentType = self::contentTypes['patchAdSetCategoryBids'][0])
+    public function patchAdSetCategoryBidsAsync($ad_set_id, $patch_ad_set_category_bid_list_request, string $contentType = self::contentTypes['patchAdSetCategoryBids'][0])
     {
         return $this->patchAdSetCategoryBidsAsyncWithHttpInfo($ad_set_id, $patch_ad_set_category_bid_list_request, $contentType)
             ->then(
@@ -5780,13 +5780,13 @@ class CampaignApi
      * Operation patchAdSetCategoryBidsAsyncWithHttpInfo
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSetCategoryBids'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchAdSetCategoryBidsAsyncWithHttpInfo($ad_set_id, $patch_ad_set_category_bid_list_request = null, string $contentType = self::contentTypes['patchAdSetCategoryBids'][0])
+    public function patchAdSetCategoryBidsAsyncWithHttpInfo($ad_set_id, $patch_ad_set_category_bid_list_request, string $contentType = self::contentTypes['patchAdSetCategoryBids'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidResultListResponse';
         $request = $this->patchAdSetCategoryBidsRequest($ad_set_id, $patch_ad_set_category_bid_list_request, $contentType);
@@ -5831,13 +5831,13 @@ class CampaignApi
      * Create request for operation 'patchAdSetCategoryBids'
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSetCategoryBids'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchAdSetCategoryBidsRequest($ad_set_id, $patch_ad_set_category_bid_list_request = null, string $contentType = self::contentTypes['patchAdSetCategoryBids'][0])
+    public function patchAdSetCategoryBidsRequest($ad_set_id, $patch_ad_set_category_bid_list_request, string $contentType = self::contentTypes['patchAdSetCategoryBids'][0])
     {
 
         // verify the required parameter 'ad_set_id' is set
@@ -5847,6 +5847,12 @@ class CampaignApi
             );
         }
 
+        // verify the required parameter 'patch_ad_set_category_bid_list_request' is set
+        if ($patch_ad_set_category_bid_list_request === null || (is_array($patch_ad_set_category_bid_list_request) && count($patch_ad_set_category_bid_list_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $patch_ad_set_category_bid_list_request when calling patchAdSetCategoryBids'
+            );
+        }
 
 
         $resourcePath = '/preview/marketing-solutions/ad-sets/{ad-set-id}/category-bids';
@@ -5939,14 +5945,14 @@ class CampaignApi
     /**
      * Operation patchAdSets
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSetV24Q3 $requests_patch_ad_set_v24_q3 List of adsets to patch. (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSetV24Q3 $requests_patch_ad_set_v24_q3 List of adsets to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSets'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\ResponsesAdSetIdV24Q3
      */
-    public function patchAdSets($requests_patch_ad_set_v24_q3 = null, string $contentType = self::contentTypes['patchAdSets'][0])
+    public function patchAdSets($requests_patch_ad_set_v24_q3, string $contentType = self::contentTypes['patchAdSets'][0])
     {
         list($response) = $this->patchAdSetsWithHttpInfo($requests_patch_ad_set_v24_q3, $contentType);
         return $response;
@@ -5955,14 +5961,14 @@ class CampaignApi
     /**
      * Operation patchAdSetsWithHttpInfo
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSetV24Q3 $requests_patch_ad_set_v24_q3 List of adsets to patch. (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSetV24Q3 $requests_patch_ad_set_v24_q3 List of adsets to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSets'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\ResponsesAdSetIdV24Q3, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchAdSetsWithHttpInfo($requests_patch_ad_set_v24_q3 = null, string $contentType = self::contentTypes['patchAdSets'][0])
+    public function patchAdSetsWithHttpInfo($requests_patch_ad_set_v24_q3, string $contentType = self::contentTypes['patchAdSets'][0])
     {
         $request = $this->patchAdSetsRequest($requests_patch_ad_set_v24_q3, $contentType);
 
@@ -6053,13 +6059,13 @@ class CampaignApi
     /**
      * Operation patchAdSetsAsync
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSetV24Q3 $requests_patch_ad_set_v24_q3 List of adsets to patch. (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSetV24Q3 $requests_patch_ad_set_v24_q3 List of adsets to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchAdSetsAsync($requests_patch_ad_set_v24_q3 = null, string $contentType = self::contentTypes['patchAdSets'][0])
+    public function patchAdSetsAsync($requests_patch_ad_set_v24_q3, string $contentType = self::contentTypes['patchAdSets'][0])
     {
         return $this->patchAdSetsAsyncWithHttpInfo($requests_patch_ad_set_v24_q3, $contentType)
             ->then(
@@ -6072,13 +6078,13 @@ class CampaignApi
     /**
      * Operation patchAdSetsAsyncWithHttpInfo
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSetV24Q3 $requests_patch_ad_set_v24_q3 List of adsets to patch. (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSetV24Q3 $requests_patch_ad_set_v24_q3 List of adsets to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchAdSetsAsyncWithHttpInfo($requests_patch_ad_set_v24_q3 = null, string $contentType = self::contentTypes['patchAdSets'][0])
+    public function patchAdSetsAsyncWithHttpInfo($requests_patch_ad_set_v24_q3, string $contentType = self::contentTypes['patchAdSets'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\ResponsesAdSetIdV24Q3';
         $request = $this->patchAdSetsRequest($requests_patch_ad_set_v24_q3, $contentType);
@@ -6122,15 +6128,21 @@ class CampaignApi
     /**
      * Create request for operation 'patchAdSets'
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSetV24Q3 $requests_patch_ad_set_v24_q3 List of adsets to patch. (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSetV24Q3 $requests_patch_ad_set_v24_q3 List of adsets to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchAdSetsRequest($requests_patch_ad_set_v24_q3 = null, string $contentType = self::contentTypes['patchAdSets'][0])
+    public function patchAdSetsRequest($requests_patch_ad_set_v24_q3, string $contentType = self::contentTypes['patchAdSets'][0])
     {
 
+        // verify the required parameter 'requests_patch_ad_set_v24_q3' is set
+        if ($requests_patch_ad_set_v24_q3 === null || (is_array($requests_patch_ad_set_v24_q3) && count($requests_patch_ad_set_v24_q3) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $requests_patch_ad_set_v24_q3 when calling patchAdSets'
+            );
+        }
 
 
         $resourcePath = '/preview/marketing-solutions/ad-sets';
@@ -6215,14 +6227,14 @@ class CampaignApi
     /**
      * Operation patchCampaigns
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\PatchResultCampaignListResponse
      */
-    public function patchCampaigns($patch_campaign_list_request = null, string $contentType = self::contentTypes['patchCampaigns'][0])
+    public function patchCampaigns($patch_campaign_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
     {
         list($response) = $this->patchCampaignsWithHttpInfo($patch_campaign_list_request, $contentType);
         return $response;
@@ -6231,14 +6243,14 @@ class CampaignApi
     /**
      * Operation patchCampaignsWithHttpInfo
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\PatchResultCampaignListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchCampaignsWithHttpInfo($patch_campaign_list_request = null, string $contentType = self::contentTypes['patchCampaigns'][0])
+    public function patchCampaignsWithHttpInfo($patch_campaign_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
     {
         $request = $this->patchCampaignsRequest($patch_campaign_list_request, $contentType);
 
@@ -6329,13 +6341,13 @@ class CampaignApi
     /**
      * Operation patchCampaignsAsync
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCampaignsAsync($patch_campaign_list_request = null, string $contentType = self::contentTypes['patchCampaigns'][0])
+    public function patchCampaignsAsync($patch_campaign_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
     {
         return $this->patchCampaignsAsyncWithHttpInfo($patch_campaign_list_request, $contentType)
             ->then(
@@ -6348,13 +6360,13 @@ class CampaignApi
     /**
      * Operation patchCampaignsAsyncWithHttpInfo
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCampaignsAsyncWithHttpInfo($patch_campaign_list_request = null, string $contentType = self::contentTypes['patchCampaigns'][0])
+    public function patchCampaignsAsyncWithHttpInfo($patch_campaign_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\PatchResultCampaignListResponse';
         $request = $this->patchCampaignsRequest($patch_campaign_list_request, $contentType);
@@ -6398,15 +6410,21 @@ class CampaignApi
     /**
      * Create request for operation 'patchCampaigns'
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchCampaignsRequest($patch_campaign_list_request = null, string $contentType = self::contentTypes['patchCampaigns'][0])
+    public function patchCampaignsRequest($patch_campaign_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
     {
 
+        // verify the required parameter 'patch_campaign_list_request' is set
+        if ($patch_campaign_list_request === null || (is_array($patch_campaign_list_request) && count($patch_campaign_list_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $patch_campaign_list_request when calling patchCampaigns'
+            );
+        }
 
 
         $resourcePath = '/preview/marketing-solutions/campaigns';
@@ -6492,14 +6510,14 @@ class CampaignApi
      * Operation patchDisplayMultipliers
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request patch_ad_set_display_multiplier_list_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request patch_ad_set_display_multiplier_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDisplayMultipliers'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierResultListResponse
      */
-    public function patchDisplayMultipliers($ad_set_id, $patch_ad_set_display_multiplier_list_request = null, string $contentType = self::contentTypes['patchDisplayMultipliers'][0])
+    public function patchDisplayMultipliers($ad_set_id, $patch_ad_set_display_multiplier_list_request, string $contentType = self::contentTypes['patchDisplayMultipliers'][0])
     {
         list($response) = $this->patchDisplayMultipliersWithHttpInfo($ad_set_id, $patch_ad_set_display_multiplier_list_request, $contentType);
         return $response;
@@ -6509,14 +6527,14 @@ class CampaignApi
      * Operation patchDisplayMultipliersWithHttpInfo
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDisplayMultipliers'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierResultListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchDisplayMultipliersWithHttpInfo($ad_set_id, $patch_ad_set_display_multiplier_list_request = null, string $contentType = self::contentTypes['patchDisplayMultipliers'][0])
+    public function patchDisplayMultipliersWithHttpInfo($ad_set_id, $patch_ad_set_display_multiplier_list_request, string $contentType = self::contentTypes['patchDisplayMultipliers'][0])
     {
         $request = $this->patchDisplayMultipliersRequest($ad_set_id, $patch_ad_set_display_multiplier_list_request, $contentType);
 
@@ -6608,13 +6626,13 @@ class CampaignApi
      * Operation patchDisplayMultipliersAsync
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDisplayMultipliers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchDisplayMultipliersAsync($ad_set_id, $patch_ad_set_display_multiplier_list_request = null, string $contentType = self::contentTypes['patchDisplayMultipliers'][0])
+    public function patchDisplayMultipliersAsync($ad_set_id, $patch_ad_set_display_multiplier_list_request, string $contentType = self::contentTypes['patchDisplayMultipliers'][0])
     {
         return $this->patchDisplayMultipliersAsyncWithHttpInfo($ad_set_id, $patch_ad_set_display_multiplier_list_request, $contentType)
             ->then(
@@ -6628,13 +6646,13 @@ class CampaignApi
      * Operation patchDisplayMultipliersAsyncWithHttpInfo
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDisplayMultipliers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchDisplayMultipliersAsyncWithHttpInfo($ad_set_id, $patch_ad_set_display_multiplier_list_request = null, string $contentType = self::contentTypes['patchDisplayMultipliers'][0])
+    public function patchDisplayMultipliersAsyncWithHttpInfo($ad_set_id, $patch_ad_set_display_multiplier_list_request, string $contentType = self::contentTypes['patchDisplayMultipliers'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierResultListResponse';
         $request = $this->patchDisplayMultipliersRequest($ad_set_id, $patch_ad_set_display_multiplier_list_request, $contentType);
@@ -6679,13 +6697,13 @@ class CampaignApi
      * Create request for operation 'patchDisplayMultipliers'
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDisplayMultipliers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchDisplayMultipliersRequest($ad_set_id, $patch_ad_set_display_multiplier_list_request = null, string $contentType = self::contentTypes['patchDisplayMultipliers'][0])
+    public function patchDisplayMultipliersRequest($ad_set_id, $patch_ad_set_display_multiplier_list_request, string $contentType = self::contentTypes['patchDisplayMultipliers'][0])
     {
 
         // verify the required parameter 'ad_set_id' is set
@@ -6695,6 +6713,12 @@ class CampaignApi
             );
         }
 
+        // verify the required parameter 'patch_ad_set_display_multiplier_list_request' is set
+        if ($patch_ad_set_display_multiplier_list_request === null || (is_array($patch_ad_set_display_multiplier_list_request) && count($patch_ad_set_display_multiplier_list_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $patch_ad_set_display_multiplier_list_request when calling patchDisplayMultipliers'
+            );
+        }
 
 
         $resourcePath = '/preview/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers';
@@ -6788,14 +6812,14 @@ class CampaignApi
      * Operation postAdvertiserBundleRules
      *
      * @param  int $advertiser_id The advertiser id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postAdvertiserBundleRules'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
      */
-    public function postAdvertiserBundleRules($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['postAdvertiserBundleRules'][0])
+    public function postAdvertiserBundleRules($advertiser_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['postAdvertiserBundleRules'][0])
     {
         list($response) = $this->postAdvertiserBundleRulesWithHttpInfo($advertiser_id, $api_request_of_targeting_entity, $contentType);
         return $response;
@@ -6805,14 +6829,14 @@ class CampaignApi
      * Operation postAdvertiserBundleRulesWithHttpInfo
      *
      * @param  int $advertiser_id The advertiser id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postAdvertiserBundleRules'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postAdvertiserBundleRulesWithHttpInfo($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['postAdvertiserBundleRules'][0])
+    public function postAdvertiserBundleRulesWithHttpInfo($advertiser_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['postAdvertiserBundleRules'][0])
     {
         $request = $this->postAdvertiserBundleRulesRequest($advertiser_id, $api_request_of_targeting_entity, $contentType);
 
@@ -6904,13 +6928,13 @@ class CampaignApi
      * Operation postAdvertiserBundleRulesAsync
      *
      * @param  int $advertiser_id The advertiser id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postAdvertiserBundleRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postAdvertiserBundleRulesAsync($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['postAdvertiserBundleRules'][0])
+    public function postAdvertiserBundleRulesAsync($advertiser_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['postAdvertiserBundleRules'][0])
     {
         return $this->postAdvertiserBundleRulesAsyncWithHttpInfo($advertiser_id, $api_request_of_targeting_entity, $contentType)
             ->then(
@@ -6924,13 +6948,13 @@ class CampaignApi
      * Operation postAdvertiserBundleRulesAsyncWithHttpInfo
      *
      * @param  int $advertiser_id The advertiser id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postAdvertiserBundleRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postAdvertiserBundleRulesAsyncWithHttpInfo($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['postAdvertiserBundleRules'][0])
+    public function postAdvertiserBundleRulesAsyncWithHttpInfo($advertiser_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['postAdvertiserBundleRules'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity';
         $request = $this->postAdvertiserBundleRulesRequest($advertiser_id, $api_request_of_targeting_entity, $contentType);
@@ -6975,13 +6999,13 @@ class CampaignApi
      * Create request for operation 'postAdvertiserBundleRules'
      *
      * @param  int $advertiser_id The advertiser id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postAdvertiserBundleRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postAdvertiserBundleRulesRequest($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['postAdvertiserBundleRules'][0])
+    public function postAdvertiserBundleRulesRequest($advertiser_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['postAdvertiserBundleRules'][0])
     {
 
         // verify the required parameter 'advertiser_id' is set
@@ -6991,6 +7015,12 @@ class CampaignApi
             );
         }
 
+        // verify the required parameter 'api_request_of_targeting_entity' is set
+        if ($api_request_of_targeting_entity === null || (is_array($api_request_of_targeting_entity) && count($api_request_of_targeting_entity) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_request_of_targeting_entity when calling postAdvertiserBundleRules'
+            );
+        }
 
 
         $resourcePath = '/preview/advertisers/{advertiserId}/targeting/bundle-rules';
@@ -7084,14 +7114,14 @@ class CampaignApi
      * Operation postAdvertiserDomainRules
      *
      * @param  int $advertiser_id The advertiser id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postAdvertiserDomainRules'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
      */
-    public function postAdvertiserDomainRules($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['postAdvertiserDomainRules'][0])
+    public function postAdvertiserDomainRules($advertiser_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['postAdvertiserDomainRules'][0])
     {
         list($response) = $this->postAdvertiserDomainRulesWithHttpInfo($advertiser_id, $api_request_of_targeting_entity, $contentType);
         return $response;
@@ -7101,14 +7131,14 @@ class CampaignApi
      * Operation postAdvertiserDomainRulesWithHttpInfo
      *
      * @param  int $advertiser_id The advertiser id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postAdvertiserDomainRules'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postAdvertiserDomainRulesWithHttpInfo($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['postAdvertiserDomainRules'][0])
+    public function postAdvertiserDomainRulesWithHttpInfo($advertiser_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['postAdvertiserDomainRules'][0])
     {
         $request = $this->postAdvertiserDomainRulesRequest($advertiser_id, $api_request_of_targeting_entity, $contentType);
 
@@ -7200,13 +7230,13 @@ class CampaignApi
      * Operation postAdvertiserDomainRulesAsync
      *
      * @param  int $advertiser_id The advertiser id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postAdvertiserDomainRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postAdvertiserDomainRulesAsync($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['postAdvertiserDomainRules'][0])
+    public function postAdvertiserDomainRulesAsync($advertiser_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['postAdvertiserDomainRules'][0])
     {
         return $this->postAdvertiserDomainRulesAsyncWithHttpInfo($advertiser_id, $api_request_of_targeting_entity, $contentType)
             ->then(
@@ -7220,13 +7250,13 @@ class CampaignApi
      * Operation postAdvertiserDomainRulesAsyncWithHttpInfo
      *
      * @param  int $advertiser_id The advertiser id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postAdvertiserDomainRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postAdvertiserDomainRulesAsyncWithHttpInfo($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['postAdvertiserDomainRules'][0])
+    public function postAdvertiserDomainRulesAsyncWithHttpInfo($advertiser_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['postAdvertiserDomainRules'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity';
         $request = $this->postAdvertiserDomainRulesRequest($advertiser_id, $api_request_of_targeting_entity, $contentType);
@@ -7271,13 +7301,13 @@ class CampaignApi
      * Create request for operation 'postAdvertiserDomainRules'
      *
      * @param  int $advertiser_id The advertiser id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postAdvertiserDomainRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postAdvertiserDomainRulesRequest($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['postAdvertiserDomainRules'][0])
+    public function postAdvertiserDomainRulesRequest($advertiser_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['postAdvertiserDomainRules'][0])
     {
 
         // verify the required parameter 'advertiser_id' is set
@@ -7287,6 +7317,12 @@ class CampaignApi
             );
         }
 
+        // verify the required parameter 'api_request_of_targeting_entity' is set
+        if ($api_request_of_targeting_entity === null || (is_array($api_request_of_targeting_entity) && count($api_request_of_targeting_entity) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_request_of_targeting_entity when calling postAdvertiserDomainRules'
+            );
+        }
 
 
         $resourcePath = '/preview/advertisers/{advertiserId}/targeting/domain-rules';
@@ -7380,14 +7416,14 @@ class CampaignApi
      * Operation postCampaignBundleRules
      *
      * @param  int $campaign_id The campaign id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postCampaignBundleRules'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
      */
-    public function postCampaignBundleRules($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['postCampaignBundleRules'][0])
+    public function postCampaignBundleRules($campaign_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['postCampaignBundleRules'][0])
     {
         list($response) = $this->postCampaignBundleRulesWithHttpInfo($campaign_id, $api_request_of_targeting_entity, $contentType);
         return $response;
@@ -7397,14 +7433,14 @@ class CampaignApi
      * Operation postCampaignBundleRulesWithHttpInfo
      *
      * @param  int $campaign_id The campaign id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postCampaignBundleRules'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postCampaignBundleRulesWithHttpInfo($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['postCampaignBundleRules'][0])
+    public function postCampaignBundleRulesWithHttpInfo($campaign_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['postCampaignBundleRules'][0])
     {
         $request = $this->postCampaignBundleRulesRequest($campaign_id, $api_request_of_targeting_entity, $contentType);
 
@@ -7496,13 +7532,13 @@ class CampaignApi
      * Operation postCampaignBundleRulesAsync
      *
      * @param  int $campaign_id The campaign id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postCampaignBundleRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postCampaignBundleRulesAsync($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['postCampaignBundleRules'][0])
+    public function postCampaignBundleRulesAsync($campaign_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['postCampaignBundleRules'][0])
     {
         return $this->postCampaignBundleRulesAsyncWithHttpInfo($campaign_id, $api_request_of_targeting_entity, $contentType)
             ->then(
@@ -7516,13 +7552,13 @@ class CampaignApi
      * Operation postCampaignBundleRulesAsyncWithHttpInfo
      *
      * @param  int $campaign_id The campaign id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postCampaignBundleRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postCampaignBundleRulesAsyncWithHttpInfo($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['postCampaignBundleRules'][0])
+    public function postCampaignBundleRulesAsyncWithHttpInfo($campaign_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['postCampaignBundleRules'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity';
         $request = $this->postCampaignBundleRulesRequest($campaign_id, $api_request_of_targeting_entity, $contentType);
@@ -7567,13 +7603,13 @@ class CampaignApi
      * Create request for operation 'postCampaignBundleRules'
      *
      * @param  int $campaign_id The campaign id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postCampaignBundleRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postCampaignBundleRulesRequest($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['postCampaignBundleRules'][0])
+    public function postCampaignBundleRulesRequest($campaign_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['postCampaignBundleRules'][0])
     {
 
         // verify the required parameter 'campaign_id' is set
@@ -7583,6 +7619,12 @@ class CampaignApi
             );
         }
 
+        // verify the required parameter 'api_request_of_targeting_entity' is set
+        if ($api_request_of_targeting_entity === null || (is_array($api_request_of_targeting_entity) && count($api_request_of_targeting_entity) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_request_of_targeting_entity when calling postCampaignBundleRules'
+            );
+        }
 
 
         $resourcePath = '/preview/campaigns/{campaignId}/targeting/bundle-rules';
@@ -7676,14 +7718,14 @@ class CampaignApi
      * Operation postCampaignDomainRules
      *
      * @param  int $campaign_id The campaign id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postCampaignDomainRules'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
      */
-    public function postCampaignDomainRules($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['postCampaignDomainRules'][0])
+    public function postCampaignDomainRules($campaign_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['postCampaignDomainRules'][0])
     {
         list($response) = $this->postCampaignDomainRulesWithHttpInfo($campaign_id, $api_request_of_targeting_entity, $contentType);
         return $response;
@@ -7693,14 +7735,14 @@ class CampaignApi
      * Operation postCampaignDomainRulesWithHttpInfo
      *
      * @param  int $campaign_id The campaign id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postCampaignDomainRules'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postCampaignDomainRulesWithHttpInfo($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['postCampaignDomainRules'][0])
+    public function postCampaignDomainRulesWithHttpInfo($campaign_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['postCampaignDomainRules'][0])
     {
         $request = $this->postCampaignDomainRulesRequest($campaign_id, $api_request_of_targeting_entity, $contentType);
 
@@ -7792,13 +7834,13 @@ class CampaignApi
      * Operation postCampaignDomainRulesAsync
      *
      * @param  int $campaign_id The campaign id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postCampaignDomainRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postCampaignDomainRulesAsync($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['postCampaignDomainRules'][0])
+    public function postCampaignDomainRulesAsync($campaign_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['postCampaignDomainRules'][0])
     {
         return $this->postCampaignDomainRulesAsyncWithHttpInfo($campaign_id, $api_request_of_targeting_entity, $contentType)
             ->then(
@@ -7812,13 +7854,13 @@ class CampaignApi
      * Operation postCampaignDomainRulesAsyncWithHttpInfo
      *
      * @param  int $campaign_id The campaign id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postCampaignDomainRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postCampaignDomainRulesAsyncWithHttpInfo($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['postCampaignDomainRules'][0])
+    public function postCampaignDomainRulesAsyncWithHttpInfo($campaign_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['postCampaignDomainRules'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity';
         $request = $this->postCampaignDomainRulesRequest($campaign_id, $api_request_of_targeting_entity, $contentType);
@@ -7863,13 +7905,13 @@ class CampaignApi
      * Create request for operation 'postCampaignDomainRules'
      *
      * @param  int $campaign_id The campaign id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postCampaignDomainRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postCampaignDomainRulesRequest($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['postCampaignDomainRules'][0])
+    public function postCampaignDomainRulesRequest($campaign_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['postCampaignDomainRules'][0])
     {
 
         // verify the required parameter 'campaign_id' is set
@@ -7879,6 +7921,12 @@ class CampaignApi
             );
         }
 
+        // verify the required parameter 'api_request_of_targeting_entity' is set
+        if ($api_request_of_targeting_entity === null || (is_array($api_request_of_targeting_entity) && count($api_request_of_targeting_entity) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_request_of_targeting_entity when calling postCampaignDomainRules'
+            );
+        }
 
 
         $resourcePath = '/preview/campaigns/{campaignId}/targeting/domain-rules';
@@ -7972,14 +8020,14 @@ class CampaignApi
      * Operation putAdvertiserBundleRules
      *
      * @param  int $advertiser_id The advertiser id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putAdvertiserBundleRules'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
      */
-    public function putAdvertiserBundleRules($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putAdvertiserBundleRules'][0])
+    public function putAdvertiserBundleRules($advertiser_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['putAdvertiserBundleRules'][0])
     {
         list($response) = $this->putAdvertiserBundleRulesWithHttpInfo($advertiser_id, $api_request_of_targeting_entity, $contentType);
         return $response;
@@ -7989,14 +8037,14 @@ class CampaignApi
      * Operation putAdvertiserBundleRulesWithHttpInfo
      *
      * @param  int $advertiser_id The advertiser id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putAdvertiserBundleRules'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity, HTTP status code, HTTP response headers (array of strings)
      */
-    public function putAdvertiserBundleRulesWithHttpInfo($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putAdvertiserBundleRules'][0])
+    public function putAdvertiserBundleRulesWithHttpInfo($advertiser_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['putAdvertiserBundleRules'][0])
     {
         $request = $this->putAdvertiserBundleRulesRequest($advertiser_id, $api_request_of_targeting_entity, $contentType);
 
@@ -8088,13 +8136,13 @@ class CampaignApi
      * Operation putAdvertiserBundleRulesAsync
      *
      * @param  int $advertiser_id The advertiser id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putAdvertiserBundleRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putAdvertiserBundleRulesAsync($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putAdvertiserBundleRules'][0])
+    public function putAdvertiserBundleRulesAsync($advertiser_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['putAdvertiserBundleRules'][0])
     {
         return $this->putAdvertiserBundleRulesAsyncWithHttpInfo($advertiser_id, $api_request_of_targeting_entity, $contentType)
             ->then(
@@ -8108,13 +8156,13 @@ class CampaignApi
      * Operation putAdvertiserBundleRulesAsyncWithHttpInfo
      *
      * @param  int $advertiser_id The advertiser id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putAdvertiserBundleRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putAdvertiserBundleRulesAsyncWithHttpInfo($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putAdvertiserBundleRules'][0])
+    public function putAdvertiserBundleRulesAsyncWithHttpInfo($advertiser_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['putAdvertiserBundleRules'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity';
         $request = $this->putAdvertiserBundleRulesRequest($advertiser_id, $api_request_of_targeting_entity, $contentType);
@@ -8159,13 +8207,13 @@ class CampaignApi
      * Create request for operation 'putAdvertiserBundleRules'
      *
      * @param  int $advertiser_id The advertiser id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putAdvertiserBundleRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function putAdvertiserBundleRulesRequest($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putAdvertiserBundleRules'][0])
+    public function putAdvertiserBundleRulesRequest($advertiser_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['putAdvertiserBundleRules'][0])
     {
 
         // verify the required parameter 'advertiser_id' is set
@@ -8175,6 +8223,12 @@ class CampaignApi
             );
         }
 
+        // verify the required parameter 'api_request_of_targeting_entity' is set
+        if ($api_request_of_targeting_entity === null || (is_array($api_request_of_targeting_entity) && count($api_request_of_targeting_entity) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_request_of_targeting_entity when calling putAdvertiserBundleRules'
+            );
+        }
 
 
         $resourcePath = '/preview/advertisers/{advertiserId}/targeting/bundle-rules';
@@ -8268,14 +8322,14 @@ class CampaignApi
      * Operation putAdvertiserDomainRules
      *
      * @param  int $advertiser_id The advertiser id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putAdvertiserDomainRules'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
      */
-    public function putAdvertiserDomainRules($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putAdvertiserDomainRules'][0])
+    public function putAdvertiserDomainRules($advertiser_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['putAdvertiserDomainRules'][0])
     {
         list($response) = $this->putAdvertiserDomainRulesWithHttpInfo($advertiser_id, $api_request_of_targeting_entity, $contentType);
         return $response;
@@ -8285,14 +8339,14 @@ class CampaignApi
      * Operation putAdvertiserDomainRulesWithHttpInfo
      *
      * @param  int $advertiser_id The advertiser id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putAdvertiserDomainRules'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity, HTTP status code, HTTP response headers (array of strings)
      */
-    public function putAdvertiserDomainRulesWithHttpInfo($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putAdvertiserDomainRules'][0])
+    public function putAdvertiserDomainRulesWithHttpInfo($advertiser_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['putAdvertiserDomainRules'][0])
     {
         $request = $this->putAdvertiserDomainRulesRequest($advertiser_id, $api_request_of_targeting_entity, $contentType);
 
@@ -8384,13 +8438,13 @@ class CampaignApi
      * Operation putAdvertiserDomainRulesAsync
      *
      * @param  int $advertiser_id The advertiser id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putAdvertiserDomainRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putAdvertiserDomainRulesAsync($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putAdvertiserDomainRules'][0])
+    public function putAdvertiserDomainRulesAsync($advertiser_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['putAdvertiserDomainRules'][0])
     {
         return $this->putAdvertiserDomainRulesAsyncWithHttpInfo($advertiser_id, $api_request_of_targeting_entity, $contentType)
             ->then(
@@ -8404,13 +8458,13 @@ class CampaignApi
      * Operation putAdvertiserDomainRulesAsyncWithHttpInfo
      *
      * @param  int $advertiser_id The advertiser id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putAdvertiserDomainRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putAdvertiserDomainRulesAsyncWithHttpInfo($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putAdvertiserDomainRules'][0])
+    public function putAdvertiserDomainRulesAsyncWithHttpInfo($advertiser_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['putAdvertiserDomainRules'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity';
         $request = $this->putAdvertiserDomainRulesRequest($advertiser_id, $api_request_of_targeting_entity, $contentType);
@@ -8455,13 +8509,13 @@ class CampaignApi
      * Create request for operation 'putAdvertiserDomainRules'
      *
      * @param  int $advertiser_id The advertiser id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putAdvertiserDomainRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function putAdvertiserDomainRulesRequest($advertiser_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putAdvertiserDomainRules'][0])
+    public function putAdvertiserDomainRulesRequest($advertiser_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['putAdvertiserDomainRules'][0])
     {
 
         // verify the required parameter 'advertiser_id' is set
@@ -8471,6 +8525,12 @@ class CampaignApi
             );
         }
 
+        // verify the required parameter 'api_request_of_targeting_entity' is set
+        if ($api_request_of_targeting_entity === null || (is_array($api_request_of_targeting_entity) && count($api_request_of_targeting_entity) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_request_of_targeting_entity when calling putAdvertiserDomainRules'
+            );
+        }
 
 
         $resourcePath = '/preview/advertisers/{advertiserId}/targeting/domain-rules';
@@ -8564,14 +8624,14 @@ class CampaignApi
      * Operation putCampaignBundleRules
      *
      * @param  int $campaign_id The campaign id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putCampaignBundleRules'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
      */
-    public function putCampaignBundleRules($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putCampaignBundleRules'][0])
+    public function putCampaignBundleRules($campaign_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['putCampaignBundleRules'][0])
     {
         list($response) = $this->putCampaignBundleRulesWithHttpInfo($campaign_id, $api_request_of_targeting_entity, $contentType);
         return $response;
@@ -8581,14 +8641,14 @@ class CampaignApi
      * Operation putCampaignBundleRulesWithHttpInfo
      *
      * @param  int $campaign_id The campaign id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putCampaignBundleRules'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity, HTTP status code, HTTP response headers (array of strings)
      */
-    public function putCampaignBundleRulesWithHttpInfo($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putCampaignBundleRules'][0])
+    public function putCampaignBundleRulesWithHttpInfo($campaign_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['putCampaignBundleRules'][0])
     {
         $request = $this->putCampaignBundleRulesRequest($campaign_id, $api_request_of_targeting_entity, $contentType);
 
@@ -8680,13 +8740,13 @@ class CampaignApi
      * Operation putCampaignBundleRulesAsync
      *
      * @param  int $campaign_id The campaign id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putCampaignBundleRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putCampaignBundleRulesAsync($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putCampaignBundleRules'][0])
+    public function putCampaignBundleRulesAsync($campaign_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['putCampaignBundleRules'][0])
     {
         return $this->putCampaignBundleRulesAsyncWithHttpInfo($campaign_id, $api_request_of_targeting_entity, $contentType)
             ->then(
@@ -8700,13 +8760,13 @@ class CampaignApi
      * Operation putCampaignBundleRulesAsyncWithHttpInfo
      *
      * @param  int $campaign_id The campaign id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putCampaignBundleRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putCampaignBundleRulesAsyncWithHttpInfo($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putCampaignBundleRules'][0])
+    public function putCampaignBundleRulesAsyncWithHttpInfo($campaign_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['putCampaignBundleRules'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity';
         $request = $this->putCampaignBundleRulesRequest($campaign_id, $api_request_of_targeting_entity, $contentType);
@@ -8751,13 +8811,13 @@ class CampaignApi
      * Create request for operation 'putCampaignBundleRules'
      *
      * @param  int $campaign_id The campaign id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putCampaignBundleRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function putCampaignBundleRulesRequest($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putCampaignBundleRules'][0])
+    public function putCampaignBundleRulesRequest($campaign_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['putCampaignBundleRules'][0])
     {
 
         // verify the required parameter 'campaign_id' is set
@@ -8767,6 +8827,12 @@ class CampaignApi
             );
         }
 
+        // verify the required parameter 'api_request_of_targeting_entity' is set
+        if ($api_request_of_targeting_entity === null || (is_array($api_request_of_targeting_entity) && count($api_request_of_targeting_entity) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_request_of_targeting_entity when calling putCampaignBundleRules'
+            );
+        }
 
 
         $resourcePath = '/preview/campaigns/{campaignId}/targeting/bundle-rules';
@@ -8860,14 +8926,14 @@ class CampaignApi
      * Operation putCampaignDomainRules
      *
      * @param  int $campaign_id The campaign id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putCampaignDomainRules'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
      */
-    public function putCampaignDomainRules($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putCampaignDomainRules'][0])
+    public function putCampaignDomainRules($campaign_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['putCampaignDomainRules'][0])
     {
         list($response) = $this->putCampaignDomainRulesWithHttpInfo($campaign_id, $api_request_of_targeting_entity, $contentType);
         return $response;
@@ -8877,14 +8943,14 @@ class CampaignApi
      * Operation putCampaignDomainRulesWithHttpInfo
      *
      * @param  int $campaign_id The campaign id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putCampaignDomainRules'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity, HTTP status code, HTTP response headers (array of strings)
      */
-    public function putCampaignDomainRulesWithHttpInfo($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putCampaignDomainRules'][0])
+    public function putCampaignDomainRulesWithHttpInfo($campaign_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['putCampaignDomainRules'][0])
     {
         $request = $this->putCampaignDomainRulesRequest($campaign_id, $api_request_of_targeting_entity, $contentType);
 
@@ -8976,13 +9042,13 @@ class CampaignApi
      * Operation putCampaignDomainRulesAsync
      *
      * @param  int $campaign_id The campaign id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putCampaignDomainRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putCampaignDomainRulesAsync($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putCampaignDomainRules'][0])
+    public function putCampaignDomainRulesAsync($campaign_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['putCampaignDomainRules'][0])
     {
         return $this->putCampaignDomainRulesAsyncWithHttpInfo($campaign_id, $api_request_of_targeting_entity, $contentType)
             ->then(
@@ -8996,13 +9062,13 @@ class CampaignApi
      * Operation putCampaignDomainRulesAsyncWithHttpInfo
      *
      * @param  int $campaign_id The campaign id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putCampaignDomainRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putCampaignDomainRulesAsyncWithHttpInfo($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putCampaignDomainRules'][0])
+    public function putCampaignDomainRulesAsyncWithHttpInfo($campaign_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['putCampaignDomainRules'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity';
         $request = $this->putCampaignDomainRulesRequest($campaign_id, $api_request_of_targeting_entity, $contentType);
@@ -9047,13 +9113,13 @@ class CampaignApi
      * Create request for operation 'putCampaignDomainRules'
      *
      * @param  int $campaign_id The campaign id (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putCampaignDomainRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function putCampaignDomainRulesRequest($campaign_id, $api_request_of_targeting_entity = null, string $contentType = self::contentTypes['putCampaignDomainRules'][0])
+    public function putCampaignDomainRulesRequest($campaign_id, $api_request_of_targeting_entity, string $contentType = self::contentTypes['putCampaignDomainRules'][0])
     {
 
         // verify the required parameter 'campaign_id' is set
@@ -9063,6 +9129,12 @@ class CampaignApi
             );
         }
 
+        // verify the required parameter 'api_request_of_targeting_entity' is set
+        if ($api_request_of_targeting_entity === null || (is_array($api_request_of_targeting_entity) && count($api_request_of_targeting_entity) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_request_of_targeting_entity when calling putCampaignDomainRules'
+            );
+        }
 
 
         $resourcePath = '/preview/campaigns/{campaignId}/targeting/domain-rules';
@@ -9708,14 +9780,14 @@ class CampaignApi
      * Operation setAdSetTargetingDealIds
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingDealIdsRequest $set_ad_set_targeting_deal_ids_request the new Deal Id Targeting configuration (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingDealIdsRequest $set_ad_set_targeting_deal_ids_request the new Deal Id Targeting configuration (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setAdSetTargetingDealIds'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsSetResultResponse
      */
-    public function setAdSetTargetingDealIds($ad_set_id, $set_ad_set_targeting_deal_ids_request = null, string $contentType = self::contentTypes['setAdSetTargetingDealIds'][0])
+    public function setAdSetTargetingDealIds($ad_set_id, $set_ad_set_targeting_deal_ids_request, string $contentType = self::contentTypes['setAdSetTargetingDealIds'][0])
     {
         list($response) = $this->setAdSetTargetingDealIdsWithHttpInfo($ad_set_id, $set_ad_set_targeting_deal_ids_request, $contentType);
         return $response;
@@ -9725,14 +9797,14 @@ class CampaignApi
      * Operation setAdSetTargetingDealIdsWithHttpInfo
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingDealIdsRequest $set_ad_set_targeting_deal_ids_request the new Deal Id Targeting configuration (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingDealIdsRequest $set_ad_set_targeting_deal_ids_request the new Deal Id Targeting configuration (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setAdSetTargetingDealIds'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsSetResultResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function setAdSetTargetingDealIdsWithHttpInfo($ad_set_id, $set_ad_set_targeting_deal_ids_request = null, string $contentType = self::contentTypes['setAdSetTargetingDealIds'][0])
+    public function setAdSetTargetingDealIdsWithHttpInfo($ad_set_id, $set_ad_set_targeting_deal_ids_request, string $contentType = self::contentTypes['setAdSetTargetingDealIds'][0])
     {
         $request = $this->setAdSetTargetingDealIdsRequest($ad_set_id, $set_ad_set_targeting_deal_ids_request, $contentType);
 
@@ -9824,13 +9896,13 @@ class CampaignApi
      * Operation setAdSetTargetingDealIdsAsync
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingDealIdsRequest $set_ad_set_targeting_deal_ids_request the new Deal Id Targeting configuration (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingDealIdsRequest $set_ad_set_targeting_deal_ids_request the new Deal Id Targeting configuration (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setAdSetTargetingDealIds'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function setAdSetTargetingDealIdsAsync($ad_set_id, $set_ad_set_targeting_deal_ids_request = null, string $contentType = self::contentTypes['setAdSetTargetingDealIds'][0])
+    public function setAdSetTargetingDealIdsAsync($ad_set_id, $set_ad_set_targeting_deal_ids_request, string $contentType = self::contentTypes['setAdSetTargetingDealIds'][0])
     {
         return $this->setAdSetTargetingDealIdsAsyncWithHttpInfo($ad_set_id, $set_ad_set_targeting_deal_ids_request, $contentType)
             ->then(
@@ -9844,13 +9916,13 @@ class CampaignApi
      * Operation setAdSetTargetingDealIdsAsyncWithHttpInfo
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingDealIdsRequest $set_ad_set_targeting_deal_ids_request the new Deal Id Targeting configuration (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingDealIdsRequest $set_ad_set_targeting_deal_ids_request the new Deal Id Targeting configuration (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setAdSetTargetingDealIds'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function setAdSetTargetingDealIdsAsyncWithHttpInfo($ad_set_id, $set_ad_set_targeting_deal_ids_request = null, string $contentType = self::contentTypes['setAdSetTargetingDealIds'][0])
+    public function setAdSetTargetingDealIdsAsyncWithHttpInfo($ad_set_id, $set_ad_set_targeting_deal_ids_request, string $contentType = self::contentTypes['setAdSetTargetingDealIds'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsSetResultResponse';
         $request = $this->setAdSetTargetingDealIdsRequest($ad_set_id, $set_ad_set_targeting_deal_ids_request, $contentType);
@@ -9895,13 +9967,13 @@ class CampaignApi
      * Create request for operation 'setAdSetTargetingDealIds'
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingDealIdsRequest $set_ad_set_targeting_deal_ids_request the new Deal Id Targeting configuration (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingDealIdsRequest $set_ad_set_targeting_deal_ids_request the new Deal Id Targeting configuration (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setAdSetTargetingDealIds'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function setAdSetTargetingDealIdsRequest($ad_set_id, $set_ad_set_targeting_deal_ids_request = null, string $contentType = self::contentTypes['setAdSetTargetingDealIds'][0])
+    public function setAdSetTargetingDealIdsRequest($ad_set_id, $set_ad_set_targeting_deal_ids_request, string $contentType = self::contentTypes['setAdSetTargetingDealIds'][0])
     {
 
         // verify the required parameter 'ad_set_id' is set
@@ -9911,6 +9983,12 @@ class CampaignApi
             );
         }
 
+        // verify the required parameter 'set_ad_set_targeting_deal_ids_request' is set
+        if ($set_ad_set_targeting_deal_ids_request === null || (is_array($set_ad_set_targeting_deal_ids_request) && count($set_ad_set_targeting_deal_ids_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $set_ad_set_targeting_deal_ids_request when calling setAdSetTargetingDealIds'
+            );
+        }
 
 
         $resourcePath = '/preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids';
@@ -10004,14 +10082,14 @@ class CampaignApi
      * Operation setAdSetTargetingVideoPositioning
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingVideoPositioningRequest $set_ad_set_targeting_video_positioning_request the new Video Positioning Targeting configuration (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingVideoPositioningRequest $set_ad_set_targeting_video_positioning_request the new Video Positioning Targeting configuration (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setAdSetTargetingVideoPositioning'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningSetResultResponse
      */
-    public function setAdSetTargetingVideoPositioning($ad_set_id, $set_ad_set_targeting_video_positioning_request = null, string $contentType = self::contentTypes['setAdSetTargetingVideoPositioning'][0])
+    public function setAdSetTargetingVideoPositioning($ad_set_id, $set_ad_set_targeting_video_positioning_request, string $contentType = self::contentTypes['setAdSetTargetingVideoPositioning'][0])
     {
         list($response) = $this->setAdSetTargetingVideoPositioningWithHttpInfo($ad_set_id, $set_ad_set_targeting_video_positioning_request, $contentType);
         return $response;
@@ -10021,14 +10099,14 @@ class CampaignApi
      * Operation setAdSetTargetingVideoPositioningWithHttpInfo
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingVideoPositioningRequest $set_ad_set_targeting_video_positioning_request the new Video Positioning Targeting configuration (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingVideoPositioningRequest $set_ad_set_targeting_video_positioning_request the new Video Positioning Targeting configuration (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setAdSetTargetingVideoPositioning'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningSetResultResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function setAdSetTargetingVideoPositioningWithHttpInfo($ad_set_id, $set_ad_set_targeting_video_positioning_request = null, string $contentType = self::contentTypes['setAdSetTargetingVideoPositioning'][0])
+    public function setAdSetTargetingVideoPositioningWithHttpInfo($ad_set_id, $set_ad_set_targeting_video_positioning_request, string $contentType = self::contentTypes['setAdSetTargetingVideoPositioning'][0])
     {
         $request = $this->setAdSetTargetingVideoPositioningRequest($ad_set_id, $set_ad_set_targeting_video_positioning_request, $contentType);
 
@@ -10120,13 +10198,13 @@ class CampaignApi
      * Operation setAdSetTargetingVideoPositioningAsync
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingVideoPositioningRequest $set_ad_set_targeting_video_positioning_request the new Video Positioning Targeting configuration (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingVideoPositioningRequest $set_ad_set_targeting_video_positioning_request the new Video Positioning Targeting configuration (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setAdSetTargetingVideoPositioning'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function setAdSetTargetingVideoPositioningAsync($ad_set_id, $set_ad_set_targeting_video_positioning_request = null, string $contentType = self::contentTypes['setAdSetTargetingVideoPositioning'][0])
+    public function setAdSetTargetingVideoPositioningAsync($ad_set_id, $set_ad_set_targeting_video_positioning_request, string $contentType = self::contentTypes['setAdSetTargetingVideoPositioning'][0])
     {
         return $this->setAdSetTargetingVideoPositioningAsyncWithHttpInfo($ad_set_id, $set_ad_set_targeting_video_positioning_request, $contentType)
             ->then(
@@ -10140,13 +10218,13 @@ class CampaignApi
      * Operation setAdSetTargetingVideoPositioningAsyncWithHttpInfo
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingVideoPositioningRequest $set_ad_set_targeting_video_positioning_request the new Video Positioning Targeting configuration (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingVideoPositioningRequest $set_ad_set_targeting_video_positioning_request the new Video Positioning Targeting configuration (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setAdSetTargetingVideoPositioning'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function setAdSetTargetingVideoPositioningAsyncWithHttpInfo($ad_set_id, $set_ad_set_targeting_video_positioning_request = null, string $contentType = self::contentTypes['setAdSetTargetingVideoPositioning'][0])
+    public function setAdSetTargetingVideoPositioningAsyncWithHttpInfo($ad_set_id, $set_ad_set_targeting_video_positioning_request, string $contentType = self::contentTypes['setAdSetTargetingVideoPositioning'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningSetResultResponse';
         $request = $this->setAdSetTargetingVideoPositioningRequest($ad_set_id, $set_ad_set_targeting_video_positioning_request, $contentType);
@@ -10191,13 +10269,13 @@ class CampaignApi
      * Create request for operation 'setAdSetTargetingVideoPositioning'
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingVideoPositioningRequest $set_ad_set_targeting_video_positioning_request the new Video Positioning Targeting configuration (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingVideoPositioningRequest $set_ad_set_targeting_video_positioning_request the new Video Positioning Targeting configuration (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setAdSetTargetingVideoPositioning'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function setAdSetTargetingVideoPositioningRequest($ad_set_id, $set_ad_set_targeting_video_positioning_request = null, string $contentType = self::contentTypes['setAdSetTargetingVideoPositioning'][0])
+    public function setAdSetTargetingVideoPositioningRequest($ad_set_id, $set_ad_set_targeting_video_positioning_request, string $contentType = self::contentTypes['setAdSetTargetingVideoPositioning'][0])
     {
 
         // verify the required parameter 'ad_set_id' is set
@@ -10207,6 +10285,12 @@ class CampaignApi
             );
         }
 
+        // verify the required parameter 'set_ad_set_targeting_video_positioning_request' is set
+        if ($set_ad_set_targeting_video_positioning_request === null || (is_array($set_ad_set_targeting_video_positioning_request) && count($set_ad_set_targeting_video_positioning_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $set_ad_set_targeting_video_positioning_request when calling setAdSetTargetingVideoPositioning'
+            );
+        }
 
 
         $resourcePath = '/preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning';

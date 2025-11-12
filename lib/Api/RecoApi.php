@@ -149,14 +149,14 @@ class RecoApi
     /**
      * Operation createProductSet
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfCreateProductSetRequest $value_resource_input_of_create_product_set_request value_resource_input_of_create_product_set_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfCreateProductSetRequest $value_resource_input_of_create_product_set_request value_resource_input_of_create_product_set_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductSet'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\ResourceOutcomeOfProductSet
      */
-    public function createProductSet($value_resource_input_of_create_product_set_request = null, string $contentType = self::contentTypes['createProductSet'][0])
+    public function createProductSet($value_resource_input_of_create_product_set_request, string $contentType = self::contentTypes['createProductSet'][0])
     {
         list($response) = $this->createProductSetWithHttpInfo($value_resource_input_of_create_product_set_request, $contentType);
         return $response;
@@ -165,14 +165,14 @@ class RecoApi
     /**
      * Operation createProductSetWithHttpInfo
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfCreateProductSetRequest $value_resource_input_of_create_product_set_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfCreateProductSetRequest $value_resource_input_of_create_product_set_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductSet'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\ResourceOutcomeOfProductSet, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createProductSetWithHttpInfo($value_resource_input_of_create_product_set_request = null, string $contentType = self::contentTypes['createProductSet'][0])
+    public function createProductSetWithHttpInfo($value_resource_input_of_create_product_set_request, string $contentType = self::contentTypes['createProductSet'][0])
     {
         $request = $this->createProductSetRequest($value_resource_input_of_create_product_set_request, $contentType);
 
@@ -263,13 +263,13 @@ class RecoApi
     /**
      * Operation createProductSetAsync
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfCreateProductSetRequest $value_resource_input_of_create_product_set_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfCreateProductSetRequest $value_resource_input_of_create_product_set_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductSet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createProductSetAsync($value_resource_input_of_create_product_set_request = null, string $contentType = self::contentTypes['createProductSet'][0])
+    public function createProductSetAsync($value_resource_input_of_create_product_set_request, string $contentType = self::contentTypes['createProductSet'][0])
     {
         return $this->createProductSetAsyncWithHttpInfo($value_resource_input_of_create_product_set_request, $contentType)
             ->then(
@@ -282,13 +282,13 @@ class RecoApi
     /**
      * Operation createProductSetAsyncWithHttpInfo
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfCreateProductSetRequest $value_resource_input_of_create_product_set_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfCreateProductSetRequest $value_resource_input_of_create_product_set_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductSet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createProductSetAsyncWithHttpInfo($value_resource_input_of_create_product_set_request = null, string $contentType = self::contentTypes['createProductSet'][0])
+    public function createProductSetAsyncWithHttpInfo($value_resource_input_of_create_product_set_request, string $contentType = self::contentTypes['createProductSet'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\ResourceOutcomeOfProductSet';
         $request = $this->createProductSetRequest($value_resource_input_of_create_product_set_request, $contentType);
@@ -332,15 +332,21 @@ class RecoApi
     /**
      * Create request for operation 'createProductSet'
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfCreateProductSetRequest $value_resource_input_of_create_product_set_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfCreateProductSetRequest $value_resource_input_of_create_product_set_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductSet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createProductSetRequest($value_resource_input_of_create_product_set_request = null, string $contentType = self::contentTypes['createProductSet'][0])
+    public function createProductSetRequest($value_resource_input_of_create_product_set_request, string $contentType = self::contentTypes['createProductSet'][0])
     {
 
+        // verify the required parameter 'value_resource_input_of_create_product_set_request' is set
+        if ($value_resource_input_of_create_product_set_request === null || (is_array($value_resource_input_of_create_product_set_request) && count($value_resource_input_of_create_product_set_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $value_resource_input_of_create_product_set_request when calling createProductSet'
+            );
+        }
 
 
         $resourcePath = '/preview/product-sets';
@@ -2137,14 +2143,14 @@ class RecoApi
      * Operation patchProductSet
      *
      * @param  string $product_set_id ID of the product set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfPatchProductSetRequest $value_resource_input_of_patch_product_set_request value_resource_input_of_patch_product_set_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfPatchProductSetRequest $value_resource_input_of_patch_product_set_request value_resource_input_of_patch_product_set_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProductSet'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\ResourceOutcomeOfProductSet
      */
-    public function patchProductSet($product_set_id, $value_resource_input_of_patch_product_set_request = null, string $contentType = self::contentTypes['patchProductSet'][0])
+    public function patchProductSet($product_set_id, $value_resource_input_of_patch_product_set_request, string $contentType = self::contentTypes['patchProductSet'][0])
     {
         list($response) = $this->patchProductSetWithHttpInfo($product_set_id, $value_resource_input_of_patch_product_set_request, $contentType);
         return $response;
@@ -2154,14 +2160,14 @@ class RecoApi
      * Operation patchProductSetWithHttpInfo
      *
      * @param  string $product_set_id ID of the product set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfPatchProductSetRequest $value_resource_input_of_patch_product_set_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfPatchProductSetRequest $value_resource_input_of_patch_product_set_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProductSet'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\ResourceOutcomeOfProductSet, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchProductSetWithHttpInfo($product_set_id, $value_resource_input_of_patch_product_set_request = null, string $contentType = self::contentTypes['patchProductSet'][0])
+    public function patchProductSetWithHttpInfo($product_set_id, $value_resource_input_of_patch_product_set_request, string $contentType = self::contentTypes['patchProductSet'][0])
     {
         $request = $this->patchProductSetRequest($product_set_id, $value_resource_input_of_patch_product_set_request, $contentType);
 
@@ -2253,13 +2259,13 @@ class RecoApi
      * Operation patchProductSetAsync
      *
      * @param  string $product_set_id ID of the product set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfPatchProductSetRequest $value_resource_input_of_patch_product_set_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfPatchProductSetRequest $value_resource_input_of_patch_product_set_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProductSet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchProductSetAsync($product_set_id, $value_resource_input_of_patch_product_set_request = null, string $contentType = self::contentTypes['patchProductSet'][0])
+    public function patchProductSetAsync($product_set_id, $value_resource_input_of_patch_product_set_request, string $contentType = self::contentTypes['patchProductSet'][0])
     {
         return $this->patchProductSetAsyncWithHttpInfo($product_set_id, $value_resource_input_of_patch_product_set_request, $contentType)
             ->then(
@@ -2273,13 +2279,13 @@ class RecoApi
      * Operation patchProductSetAsyncWithHttpInfo
      *
      * @param  string $product_set_id ID of the product set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfPatchProductSetRequest $value_resource_input_of_patch_product_set_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfPatchProductSetRequest $value_resource_input_of_patch_product_set_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProductSet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchProductSetAsyncWithHttpInfo($product_set_id, $value_resource_input_of_patch_product_set_request = null, string $contentType = self::contentTypes['patchProductSet'][0])
+    public function patchProductSetAsyncWithHttpInfo($product_set_id, $value_resource_input_of_patch_product_set_request, string $contentType = self::contentTypes['patchProductSet'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\ResourceOutcomeOfProductSet';
         $request = $this->patchProductSetRequest($product_set_id, $value_resource_input_of_patch_product_set_request, $contentType);
@@ -2324,13 +2330,13 @@ class RecoApi
      * Create request for operation 'patchProductSet'
      *
      * @param  string $product_set_id ID of the product set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfPatchProductSetRequest $value_resource_input_of_patch_product_set_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfPatchProductSetRequest $value_resource_input_of_patch_product_set_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProductSet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchProductSetRequest($product_set_id, $value_resource_input_of_patch_product_set_request = null, string $contentType = self::contentTypes['patchProductSet'][0])
+    public function patchProductSetRequest($product_set_id, $value_resource_input_of_patch_product_set_request, string $contentType = self::contentTypes['patchProductSet'][0])
     {
 
         // verify the required parameter 'product_set_id' is set
@@ -2340,6 +2346,12 @@ class RecoApi
             );
         }
 
+        // verify the required parameter 'value_resource_input_of_patch_product_set_request' is set
+        if ($value_resource_input_of_patch_product_set_request === null || (is_array($value_resource_input_of_patch_product_set_request) && count($value_resource_input_of_patch_product_set_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $value_resource_input_of_patch_product_set_request when calling patchProductSet'
+            );
+        }
 
 
         $resourcePath = '/preview/product-sets/{product-set-id}';

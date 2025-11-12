@@ -461,14 +461,14 @@ class AnalyticsApi
     /**
      * Operation getAsyncAdsetReport
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportRequest $generate_statistics_report_request generate_statistics_report_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportRequest $generate_statistics_report_request generate_statistics_report_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAsyncAdsetReport'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse
      */
-    public function getAsyncAdsetReport($generate_statistics_report_request = null, string $contentType = self::contentTypes['getAsyncAdsetReport'][0])
+    public function getAsyncAdsetReport($generate_statistics_report_request, string $contentType = self::contentTypes['getAsyncAdsetReport'][0])
     {
         list($response) = $this->getAsyncAdsetReportWithHttpInfo($generate_statistics_report_request, $contentType);
         return $response;
@@ -477,14 +477,14 @@ class AnalyticsApi
     /**
      * Operation getAsyncAdsetReportWithHttpInfo
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportRequest $generate_statistics_report_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportRequest $generate_statistics_report_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAsyncAdsetReport'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAsyncAdsetReportWithHttpInfo($generate_statistics_report_request = null, string $contentType = self::contentTypes['getAsyncAdsetReport'][0])
+    public function getAsyncAdsetReportWithHttpInfo($generate_statistics_report_request, string $contentType = self::contentTypes['getAsyncAdsetReport'][0])
     {
         $request = $this->getAsyncAdsetReportRequest($generate_statistics_report_request, $contentType);
 
@@ -575,13 +575,13 @@ class AnalyticsApi
     /**
      * Operation getAsyncAdsetReportAsync
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportRequest $generate_statistics_report_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportRequest $generate_statistics_report_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAsyncAdsetReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAsyncAdsetReportAsync($generate_statistics_report_request = null, string $contentType = self::contentTypes['getAsyncAdsetReport'][0])
+    public function getAsyncAdsetReportAsync($generate_statistics_report_request, string $contentType = self::contentTypes['getAsyncAdsetReport'][0])
     {
         return $this->getAsyncAdsetReportAsyncWithHttpInfo($generate_statistics_report_request, $contentType)
             ->then(
@@ -594,13 +594,13 @@ class AnalyticsApi
     /**
      * Operation getAsyncAdsetReportAsyncWithHttpInfo
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportRequest $generate_statistics_report_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportRequest $generate_statistics_report_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAsyncAdsetReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAsyncAdsetReportAsyncWithHttpInfo($generate_statistics_report_request = null, string $contentType = self::contentTypes['getAsyncAdsetReport'][0])
+    public function getAsyncAdsetReportAsyncWithHttpInfo($generate_statistics_report_request, string $contentType = self::contentTypes['getAsyncAdsetReport'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse';
         $request = $this->getAsyncAdsetReportRequest($generate_statistics_report_request, $contentType);
@@ -644,15 +644,21 @@ class AnalyticsApi
     /**
      * Create request for operation 'getAsyncAdsetReport'
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportRequest $generate_statistics_report_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportRequest $generate_statistics_report_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAsyncAdsetReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAsyncAdsetReportRequest($generate_statistics_report_request = null, string $contentType = self::contentTypes['getAsyncAdsetReport'][0])
+    public function getAsyncAdsetReportRequest($generate_statistics_report_request, string $contentType = self::contentTypes['getAsyncAdsetReport'][0])
     {
 
+        // verify the required parameter 'generate_statistics_report_request' is set
+        if ($generate_statistics_report_request === null || (is_array($generate_statistics_report_request) && count($generate_statistics_report_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $generate_statistics_report_request when calling getAsyncAdsetReport'
+            );
+        }
 
 
         $resourcePath = '/preview/reports/async-statistics';
@@ -1855,14 +1861,14 @@ class AnalyticsApi
     /**
      * Operation getCreativesReport
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateCreativesReportRequestAttributesRequest $generate_creatives_report_request_attributes_request generate_creatives_report_request_attributes_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateCreativesReportRequestAttributesRequest $generate_creatives_report_request_attributes_request generate_creatives_report_request_attributes_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreativesReport'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\JsonReportRowsListResponse
      */
-    public function getCreativesReport($generate_creatives_report_request_attributes_request = null, string $contentType = self::contentTypes['getCreativesReport'][0])
+    public function getCreativesReport($generate_creatives_report_request_attributes_request, string $contentType = self::contentTypes['getCreativesReport'][0])
     {
         list($response) = $this->getCreativesReportWithHttpInfo($generate_creatives_report_request_attributes_request, $contentType);
         return $response;
@@ -1871,14 +1877,14 @@ class AnalyticsApi
     /**
      * Operation getCreativesReportWithHttpInfo
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateCreativesReportRequestAttributesRequest $generate_creatives_report_request_attributes_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateCreativesReportRequestAttributesRequest $generate_creatives_report_request_attributes_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreativesReport'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\JsonReportRowsListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCreativesReportWithHttpInfo($generate_creatives_report_request_attributes_request = null, string $contentType = self::contentTypes['getCreativesReport'][0])
+    public function getCreativesReportWithHttpInfo($generate_creatives_report_request_attributes_request, string $contentType = self::contentTypes['getCreativesReport'][0])
     {
         $request = $this->getCreativesReportRequest($generate_creatives_report_request_attributes_request, $contentType);
 
@@ -1969,13 +1975,13 @@ class AnalyticsApi
     /**
      * Operation getCreativesReportAsync
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateCreativesReportRequestAttributesRequest $generate_creatives_report_request_attributes_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateCreativesReportRequestAttributesRequest $generate_creatives_report_request_attributes_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreativesReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreativesReportAsync($generate_creatives_report_request_attributes_request = null, string $contentType = self::contentTypes['getCreativesReport'][0])
+    public function getCreativesReportAsync($generate_creatives_report_request_attributes_request, string $contentType = self::contentTypes['getCreativesReport'][0])
     {
         return $this->getCreativesReportAsyncWithHttpInfo($generate_creatives_report_request_attributes_request, $contentType)
             ->then(
@@ -1988,13 +1994,13 @@ class AnalyticsApi
     /**
      * Operation getCreativesReportAsyncWithHttpInfo
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateCreativesReportRequestAttributesRequest $generate_creatives_report_request_attributes_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateCreativesReportRequestAttributesRequest $generate_creatives_report_request_attributes_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreativesReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreativesReportAsyncWithHttpInfo($generate_creatives_report_request_attributes_request = null, string $contentType = self::contentTypes['getCreativesReport'][0])
+    public function getCreativesReportAsyncWithHttpInfo($generate_creatives_report_request_attributes_request, string $contentType = self::contentTypes['getCreativesReport'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\JsonReportRowsListResponse';
         $request = $this->getCreativesReportRequest($generate_creatives_report_request_attributes_request, $contentType);
@@ -2038,15 +2044,21 @@ class AnalyticsApi
     /**
      * Create request for operation 'getCreativesReport'
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateCreativesReportRequestAttributesRequest $generate_creatives_report_request_attributes_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateCreativesReportRequestAttributesRequest $generate_creatives_report_request_attributes_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreativesReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCreativesReportRequest($generate_creatives_report_request_attributes_request = null, string $contentType = self::contentTypes['getCreativesReport'][0])
+    public function getCreativesReportRequest($generate_creatives_report_request_attributes_request, string $contentType = self::contentTypes['getCreativesReport'][0])
     {
 
+        // verify the required parameter 'generate_creatives_report_request_attributes_request' is set
+        if ($generate_creatives_report_request_attributes_request === null || (is_array($generate_creatives_report_request_attributes_request) && count($generate_creatives_report_request_attributes_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $generate_creatives_report_request_attributes_request when calling getCreativesReport'
+            );
+        }
 
 
         $resourcePath = '/preview/reports/creatives';
@@ -2683,14 +2695,14 @@ class AnalyticsApi
     /**
      * Operation getTopProductsReport
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateTopProductsReportRequestAttributesRequest $generate_top_products_report_request_attributes_request generate_top_products_report_request_attributes_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateTopProductsReportRequestAttributesRequest $generate_top_products_report_request_attributes_request generate_top_products_report_request_attributes_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTopProductsReport'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\JsonReportRowsListResponse
      */
-    public function getTopProductsReport($generate_top_products_report_request_attributes_request = null, string $contentType = self::contentTypes['getTopProductsReport'][0])
+    public function getTopProductsReport($generate_top_products_report_request_attributes_request, string $contentType = self::contentTypes['getTopProductsReport'][0])
     {
         list($response) = $this->getTopProductsReportWithHttpInfo($generate_top_products_report_request_attributes_request, $contentType);
         return $response;
@@ -2699,14 +2711,14 @@ class AnalyticsApi
     /**
      * Operation getTopProductsReportWithHttpInfo
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateTopProductsReportRequestAttributesRequest $generate_top_products_report_request_attributes_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateTopProductsReportRequestAttributesRequest $generate_top_products_report_request_attributes_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTopProductsReport'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\JsonReportRowsListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTopProductsReportWithHttpInfo($generate_top_products_report_request_attributes_request = null, string $contentType = self::contentTypes['getTopProductsReport'][0])
+    public function getTopProductsReportWithHttpInfo($generate_top_products_report_request_attributes_request, string $contentType = self::contentTypes['getTopProductsReport'][0])
     {
         $request = $this->getTopProductsReportRequest($generate_top_products_report_request_attributes_request, $contentType);
 
@@ -2797,13 +2809,13 @@ class AnalyticsApi
     /**
      * Operation getTopProductsReportAsync
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateTopProductsReportRequestAttributesRequest $generate_top_products_report_request_attributes_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateTopProductsReportRequestAttributesRequest $generate_top_products_report_request_attributes_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTopProductsReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTopProductsReportAsync($generate_top_products_report_request_attributes_request = null, string $contentType = self::contentTypes['getTopProductsReport'][0])
+    public function getTopProductsReportAsync($generate_top_products_report_request_attributes_request, string $contentType = self::contentTypes['getTopProductsReport'][0])
     {
         return $this->getTopProductsReportAsyncWithHttpInfo($generate_top_products_report_request_attributes_request, $contentType)
             ->then(
@@ -2816,13 +2828,13 @@ class AnalyticsApi
     /**
      * Operation getTopProductsReportAsyncWithHttpInfo
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateTopProductsReportRequestAttributesRequest $generate_top_products_report_request_attributes_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateTopProductsReportRequestAttributesRequest $generate_top_products_report_request_attributes_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTopProductsReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTopProductsReportAsyncWithHttpInfo($generate_top_products_report_request_attributes_request = null, string $contentType = self::contentTypes['getTopProductsReport'][0])
+    public function getTopProductsReportAsyncWithHttpInfo($generate_top_products_report_request_attributes_request, string $contentType = self::contentTypes['getTopProductsReport'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\JsonReportRowsListResponse';
         $request = $this->getTopProductsReportRequest($generate_top_products_report_request_attributes_request, $contentType);
@@ -2866,15 +2878,21 @@ class AnalyticsApi
     /**
      * Create request for operation 'getTopProductsReport'
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateTopProductsReportRequestAttributesRequest $generate_top_products_report_request_attributes_request (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\GenerateTopProductsReportRequestAttributesRequest $generate_top_products_report_request_attributes_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTopProductsReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTopProductsReportRequest($generate_top_products_report_request_attributes_request = null, string $contentType = self::contentTypes['getTopProductsReport'][0])
+    public function getTopProductsReportRequest($generate_top_products_report_request_attributes_request, string $contentType = self::contentTypes['getTopProductsReport'][0])
     {
 
+        // verify the required parameter 'generate_top_products_report_request_attributes_request' is set
+        if ($generate_top_products_report_request_attributes_request === null || (is_array($generate_top_products_report_request_attributes_request) && count($generate_top_products_report_request_attributes_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $generate_top_products_report_request_attributes_request when calling getTopProductsReport'
+            );
+        }
 
 
         $resourcePath = '/preview/reports/top-products';

@@ -8,12 +8,14 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 | [**createAdvertiserCoupon()**](CreativeApi.md#createAdvertiserCoupon) | **POST** /preview/advertisers/{advertiser-id}/coupons |  |
 | [**createAdvertiserCreative()**](CreativeApi.md#createAdvertiserCreative) | **POST** /preview/advertisers/{advertiser-id}/creatives |  |
 | [**deleteAd()**](CreativeApi.md#deleteAd) | **DELETE** /preview/ads/{id} |  |
+| [**deleteAdSegmentLink()**](CreativeApi.md#deleteAdSegmentLink) | **DELETE** /preview/marketing-solutions/ads/{ad-id}/audience-segment |  |
 | [**deleteAdvertiserCoupon()**](CreativeApi.md#deleteAdvertiserCoupon) | **DELETE** /preview/advertisers/{advertiser-id}/coupons/{id} |  |
 | [**deleteCreative()**](CreativeApi.md#deleteCreative) | **DELETE** /preview/creatives/{id} |  |
 | [**editAdvertiserCoupon()**](CreativeApi.md#editAdvertiserCoupon) | **PUT** /preview/advertisers/{advertiser-id}/coupons/{id} |  |
 | [**editCreative()**](CreativeApi.md#editCreative) | **PUT** /preview/creatives/{id} |  |
 | [**generateCreativePreview()**](CreativeApi.md#generateCreativePreview) | **POST** /preview/creatives/{id}/preview |  |
 | [**getAd()**](CreativeApi.md#getAd) | **GET** /preview/ads/{id} |  |
+| [**getAdSegmentLink()**](CreativeApi.md#getAdSegmentLink) | **GET** /preview/marketing-solutions/ads/{ad-id}/audience-segment |  |
 | [**getAdvertiserAds()**](CreativeApi.md#getAdvertiserAds) | **GET** /preview/advertisers/{advertiser-id}/ads |  |
 | [**getAdvertiserCoupon()**](CreativeApi.md#getAdvertiserCoupon) | **GET** /preview/advertisers/{advertiser-id}/coupons/{id} |  |
 | [**getAdvertiserCouponPreview()**](CreativeApi.md#getAdvertiserCouponPreview) | **GET** /preview/advertisers/{advertiser-id}/coupons/{id}/preview |  |
@@ -21,6 +23,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 | [**getAdvertiserCoupons()**](CreativeApi.md#getAdvertiserCoupons) | **GET** /preview/advertisers/{advertiser-id}/coupons |  |
 | [**getAdvertiserCreatives()**](CreativeApi.md#getAdvertiserCreatives) | **GET** /preview/advertisers/{advertiser-id}/creatives |  |
 | [**getCreative()**](CreativeApi.md#getCreative) | **GET** /preview/creatives/{id} |  |
+| [**linkAdSegment()**](CreativeApi.md#linkAdSegment) | **PUT** /preview/marketing-solutions/ads/{ad-id}/audience-segment |  |
 
 
 ## `createAdvertiserAd()`
@@ -262,6 +265,68 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| The ad identifier to delete. | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteAdSegmentLink()`
+
+```php
+deleteAdSegmentLink($ad_id)
+```
+
+
+
+Delete the link between an Ad and an Audience Segment.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\CreativeApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$ad_id = 56; // int | The ad identifier.
+
+try {
+    $apiInstance->deleteAdSegmentLink($ad_id);
+} catch (Exception $e) {
+    echo 'Exception when calling CreativeApi->deleteAdSegmentLink: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ad_id** | **int**| The ad identifier. | |
 
 ### Return type
 
@@ -654,6 +719,69 @@ try {
 ### Return type
 
 [**\criteo\api\marketingsolutions\preview\Model\ResourceOutcomeOfAd**](../Model/ResourceOutcomeOfAd.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getAdSegmentLink()`
+
+```php
+getAdSegmentLink($ad_id): \criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfExamAdAudienceSegmentLink
+```
+
+
+
+Retrieve the Ad audience segment link.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\CreativeApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$ad_id = 56; // int | The ad identifier.
+
+try {
+    $result = $apiInstance->getAdSegmentLink($ad_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CreativeApi->getAdSegmentLink: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ad_id** | **int**| The ad identifier. | |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfExamAdAudienceSegmentLink**](../Model/ValueResourceOutcomeOfExamAdAudienceSegmentLink.md)
 
 ### Authorization
 
@@ -1125,6 +1253,71 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `linkAdSegment()`
+
+```php
+linkAdSegment($ad_id, $exam_ad_audience_segment_link_input): \criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfExamAdAudienceSegmentLink
+```
+
+
+
+Link an Ad with an Audience Segment. If a link already exists, its segment ID will be updated.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\CreativeApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$ad_id = 56; // int | The ad identifier.
+$exam_ad_audience_segment_link_input = new \criteo\api\marketingsolutions\preview\Model\ExamAdAudienceSegmentLinkInput(); // \criteo\api\marketingsolutions\preview\Model\ExamAdAudienceSegmentLinkInput | The audience segment link information.
+
+try {
+    $result = $apiInstance->linkAdSegment($ad_id, $exam_ad_audience_segment_link_input);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CreativeApi->linkAdSegment: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ad_id** | **int**| The ad identifier. | |
+| **exam_ad_audience_segment_link_input** | [**\criteo\api\marketingsolutions\preview\Model\ExamAdAudienceSegmentLinkInput**](../Model/ExamAdAudienceSegmentLinkInput.md)| The audience segment link information. | |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfExamAdAudienceSegmentLink**](../Model/ValueResourceOutcomeOfExamAdAudienceSegmentLink.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

@@ -83,6 +83,9 @@ class CreativeApi
         'deleteAd' => [
             'application/json',
         ],
+        'deleteAdSegmentLink' => [
+            'application/json',
+        ],
         'deleteAdvertiserCoupon' => [
             'application/json',
         ],
@@ -99,6 +102,9 @@ class CreativeApi
             'application/json',
         ],
         'getAd' => [
+            'application/json',
+        ],
+        'getAdSegmentLink' => [
             'application/json',
         ],
         'getAdvertiserAds' => [
@@ -120,6 +126,9 @@ class CreativeApi
             'application/json',
         ],
         'getCreative' => [
+            'application/json',
+        ],
+        'linkAdSegment' => [
             'application/json',
         ],
     ];
@@ -1239,6 +1248,235 @@ class CreativeApi
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
                 ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            [],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteAdSegmentLink
+     *
+     * @param  int $ad_id The ad identifier. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAdSegmentLink'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteAdSegmentLink($ad_id, string $contentType = self::contentTypes['deleteAdSegmentLink'][0])
+    {
+        $this->deleteAdSegmentLinkWithHttpInfo($ad_id, $contentType);
+    }
+
+    /**
+     * Operation deleteAdSegmentLinkWithHttpInfo
+     *
+     * @param  int $ad_id The ad identifier. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAdSegmentLink'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteAdSegmentLinkWithHttpInfo($ad_id, string $contentType = self::contentTypes['deleteAdSegmentLink'][0])
+    {
+        $request = $this->deleteAdSegmentLinkRequest($ad_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteAdSegmentLinkAsync
+     *
+     * @param  int $ad_id The ad identifier. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAdSegmentLink'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteAdSegmentLinkAsync($ad_id, string $contentType = self::contentTypes['deleteAdSegmentLink'][0])
+    {
+        return $this->deleteAdSegmentLinkAsyncWithHttpInfo($ad_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteAdSegmentLinkAsyncWithHttpInfo
+     *
+     * @param  int $ad_id The ad identifier. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAdSegmentLink'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteAdSegmentLinkAsyncWithHttpInfo($ad_id, string $contentType = self::contentTypes['deleteAdSegmentLink'][0])
+    {
+        $returnType = '';
+        $request = $this->deleteAdSegmentLinkRequest($ad_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteAdSegmentLink'
+     *
+     * @param  int $ad_id The ad identifier. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAdSegmentLink'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteAdSegmentLinkRequest($ad_id, string $contentType = self::contentTypes['deleteAdSegmentLink'][0])
+    {
+
+        // verify the required parameter 'ad_id' is set
+        if ($ad_id === null || (is_array($ad_id) && count($ad_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ad_id when calling deleteAdSegmentLink'
+            );
+        }
+
+
+        $resourcePath = '/preview/marketing-solutions/ads/{ad-id}/audience-segment';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($ad_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'ad-id' . '}',
+                ObjectSerializer::toPathValue($ad_id),
                 $resourcePath
             );
         }
@@ -2937,6 +3175,289 @@ class CreativeApi
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
                 ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getAdSegmentLink
+     *
+     * @param  int $ad_id The ad identifier. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSegmentLink'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfExamAdAudienceSegmentLink
+     */
+    public function getAdSegmentLink($ad_id, string $contentType = self::contentTypes['getAdSegmentLink'][0])
+    {
+        list($response) = $this->getAdSegmentLinkWithHttpInfo($ad_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getAdSegmentLinkWithHttpInfo
+     *
+     * @param  int $ad_id The ad identifier. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSegmentLink'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfExamAdAudienceSegmentLink, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAdSegmentLinkWithHttpInfo($ad_id, string $contentType = self::contentTypes['getAdSegmentLink'][0])
+    {
+        $request = $this->getAdSegmentLinkRequest($ad_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfExamAdAudienceSegmentLink' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfExamAdAudienceSegmentLink' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfExamAdAudienceSegmentLink', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfExamAdAudienceSegmentLink';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfExamAdAudienceSegmentLink',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAdSegmentLinkAsync
+     *
+     * @param  int $ad_id The ad identifier. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSegmentLink'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAdSegmentLinkAsync($ad_id, string $contentType = self::contentTypes['getAdSegmentLink'][0])
+    {
+        return $this->getAdSegmentLinkAsyncWithHttpInfo($ad_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAdSegmentLinkAsyncWithHttpInfo
+     *
+     * @param  int $ad_id The ad identifier. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSegmentLink'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAdSegmentLinkAsyncWithHttpInfo($ad_id, string $contentType = self::contentTypes['getAdSegmentLink'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfExamAdAudienceSegmentLink';
+        $request = $this->getAdSegmentLinkRequest($ad_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAdSegmentLink'
+     *
+     * @param  int $ad_id The ad identifier. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSegmentLink'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getAdSegmentLinkRequest($ad_id, string $contentType = self::contentTypes['getAdSegmentLink'][0])
+    {
+
+        // verify the required parameter 'ad_id' is set
+        if ($ad_id === null || (is_array($ad_id) && count($ad_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ad_id when calling getAdSegmentLink'
+            );
+        }
+
+
+        $resourcePath = '/preview/marketing-solutions/ads/{ad-id}/audience-segment';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($ad_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'ad-id' . '}',
+                ObjectSerializer::toPathValue($ad_id),
                 $resourcePath
             );
         }
@@ -5153,6 +5674,308 @@ class CreativeApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation linkAdSegment
+     *
+     * @param  int $ad_id The ad identifier. (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ExamAdAudienceSegmentLinkInput $exam_ad_audience_segment_link_input The audience segment link information. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['linkAdSegment'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfExamAdAudienceSegmentLink
+     */
+    public function linkAdSegment($ad_id, $exam_ad_audience_segment_link_input, string $contentType = self::contentTypes['linkAdSegment'][0])
+    {
+        list($response) = $this->linkAdSegmentWithHttpInfo($ad_id, $exam_ad_audience_segment_link_input, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation linkAdSegmentWithHttpInfo
+     *
+     * @param  int $ad_id The ad identifier. (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ExamAdAudienceSegmentLinkInput $exam_ad_audience_segment_link_input The audience segment link information. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['linkAdSegment'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfExamAdAudienceSegmentLink, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function linkAdSegmentWithHttpInfo($ad_id, $exam_ad_audience_segment_link_input, string $contentType = self::contentTypes['linkAdSegment'][0])
+    {
+        $request = $this->linkAdSegmentRequest($ad_id, $exam_ad_audience_segment_link_input, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 201:
+                    if ('\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfExamAdAudienceSegmentLink' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfExamAdAudienceSegmentLink' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfExamAdAudienceSegmentLink', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfExamAdAudienceSegmentLink';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfExamAdAudienceSegmentLink',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation linkAdSegmentAsync
+     *
+     * @param  int $ad_id The ad identifier. (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ExamAdAudienceSegmentLinkInput $exam_ad_audience_segment_link_input The audience segment link information. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['linkAdSegment'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function linkAdSegmentAsync($ad_id, $exam_ad_audience_segment_link_input, string $contentType = self::contentTypes['linkAdSegment'][0])
+    {
+        return $this->linkAdSegmentAsyncWithHttpInfo($ad_id, $exam_ad_audience_segment_link_input, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation linkAdSegmentAsyncWithHttpInfo
+     *
+     * @param  int $ad_id The ad identifier. (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ExamAdAudienceSegmentLinkInput $exam_ad_audience_segment_link_input The audience segment link information. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['linkAdSegment'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function linkAdSegmentAsyncWithHttpInfo($ad_id, $exam_ad_audience_segment_link_input, string $contentType = self::contentTypes['linkAdSegment'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfExamAdAudienceSegmentLink';
+        $request = $this->linkAdSegmentRequest($ad_id, $exam_ad_audience_segment_link_input, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'linkAdSegment'
+     *
+     * @param  int $ad_id The ad identifier. (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ExamAdAudienceSegmentLinkInput $exam_ad_audience_segment_link_input The audience segment link information. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['linkAdSegment'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function linkAdSegmentRequest($ad_id, $exam_ad_audience_segment_link_input, string $contentType = self::contentTypes['linkAdSegment'][0])
+    {
+
+        // verify the required parameter 'ad_id' is set
+        if ($ad_id === null || (is_array($ad_id) && count($ad_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ad_id when calling linkAdSegment'
+            );
+        }
+
+        // verify the required parameter 'exam_ad_audience_segment_link_input' is set
+        if ($exam_ad_audience_segment_link_input === null || (is_array($exam_ad_audience_segment_link_input) && count($exam_ad_audience_segment_link_input) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $exam_ad_audience_segment_link_input when calling linkAdSegment'
+            );
+        }
+
+
+        $resourcePath = '/preview/marketing-solutions/ads/{ad-id}/audience-segment';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($ad_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'ad-id' . '}',
+                ObjectSerializer::toPathValue($ad_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($exam_ad_audience_segment_link_input)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($exam_ad_audience_segment_link_input));
+            } else {
+                $httpBody = $exam_ad_audience_segment_link_input;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
