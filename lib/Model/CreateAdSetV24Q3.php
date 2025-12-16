@@ -102,7 +102,7 @@ class CreateAdSetV24Q3 implements ModelInterface, ArrayAccess, \JsonSerializable
 		'bidding' => false,
 		'budget' => false,
 		'campaign_id' => true,
-		'dataset_id' => true,
+		'dataset_id' => false,
 		'media_type' => false,
 		'name' => true,
 		'objective' => false,
@@ -588,14 +588,7 @@ class CreateAdSetV24Q3 implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDatasetId($dataset_id)
     {
         if (is_null($dataset_id)) {
-            array_push($this->openAPINullablesSetToNull, 'dataset_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('dataset_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable dataset_id cannot be null');
         }
         $this->container['dataset_id'] = $dataset_id;
 

@@ -71,13 +71,13 @@ class CatalogApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'previewCatalogProductsBatchPost' => [
+        'getCatalogMerchantStats' => [
             'application/json',
         ],
-        'previewCatalogProductsBatchReportOperationTokenGet' => [
+        'getCatalogProductsBatchReport' => [
             'application/json',
         ],
-        'previewCatalogStatsMerchantsMerchantIdGet' => [
+        'submitCatalogProductsBatch' => [
             'application/json',
         ],
     ];
@@ -129,601 +129,36 @@ class CatalogApi
     }
 
     /**
-     * Operation previewCatalogProductsBatchPost
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\ProductsCustomBatchRequest $products_custom_batch_request products_custom_batch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewCatalogProductsBatchPost'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\BatchAcceptedResponse
-     */
-    public function previewCatalogProductsBatchPost($products_custom_batch_request, string $contentType = self::contentTypes['previewCatalogProductsBatchPost'][0])
-    {
-        list($response) = $this->previewCatalogProductsBatchPostWithHttpInfo($products_custom_batch_request, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation previewCatalogProductsBatchPostWithHttpInfo
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\ProductsCustomBatchRequest $products_custom_batch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewCatalogProductsBatchPost'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\BatchAcceptedResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function previewCatalogProductsBatchPostWithHttpInfo($products_custom_batch_request, string $contentType = self::contentTypes['previewCatalogProductsBatchPost'][0])
-    {
-        $request = $this->previewCatalogProductsBatchPostRequest($products_custom_batch_request, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 202:
-                    if ('\criteo\api\marketingsolutions\preview\Model\BatchAcceptedResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\BatchAcceptedResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\BatchAcceptedResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\criteo\api\marketingsolutions\preview\Model\BatchAcceptedResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 202:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\BatchAcceptedResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation previewCatalogProductsBatchPostAsync
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\ProductsCustomBatchRequest $products_custom_batch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewCatalogProductsBatchPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function previewCatalogProductsBatchPostAsync($products_custom_batch_request, string $contentType = self::contentTypes['previewCatalogProductsBatchPost'][0])
-    {
-        return $this->previewCatalogProductsBatchPostAsyncWithHttpInfo($products_custom_batch_request, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation previewCatalogProductsBatchPostAsyncWithHttpInfo
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\ProductsCustomBatchRequest $products_custom_batch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewCatalogProductsBatchPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function previewCatalogProductsBatchPostAsyncWithHttpInfo($products_custom_batch_request, string $contentType = self::contentTypes['previewCatalogProductsBatchPost'][0])
-    {
-        $returnType = '\criteo\api\marketingsolutions\preview\Model\BatchAcceptedResponse';
-        $request = $this->previewCatalogProductsBatchPostRequest($products_custom_batch_request, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'previewCatalogProductsBatchPost'
-     *
-     * @param  \criteo\api\marketingsolutions\preview\Model\ProductsCustomBatchRequest $products_custom_batch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewCatalogProductsBatchPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function previewCatalogProductsBatchPostRequest($products_custom_batch_request, string $contentType = self::contentTypes['previewCatalogProductsBatchPost'][0])
-    {
-
-        // verify the required parameter 'products_custom_batch_request' is set
-        if ($products_custom_batch_request === null || (is_array($products_custom_batch_request) && count($products_custom_batch_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $products_custom_batch_request when calling previewCatalogProductsBatchPost'
-            );
-        }
-
-
-        $resourcePath = '/preview/catalog/products/batch';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($products_custom_batch_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($products_custom_batch_request));
-            } else {
-                $httpBody = $products_custom_batch_request;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation previewCatalogProductsBatchReportOperationTokenGet
-     *
-     * @param  string $operation_token The token returned by the batch endpoint. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewCatalogProductsBatchReportOperationTokenGet'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\ReportOkResponse
-     */
-    public function previewCatalogProductsBatchReportOperationTokenGet($operation_token, string $contentType = self::contentTypes['previewCatalogProductsBatchReportOperationTokenGet'][0])
-    {
-        list($response) = $this->previewCatalogProductsBatchReportOperationTokenGetWithHttpInfo($operation_token, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation previewCatalogProductsBatchReportOperationTokenGetWithHttpInfo
-     *
-     * @param  string $operation_token The token returned by the batch endpoint. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewCatalogProductsBatchReportOperationTokenGet'] to see the possible values for this operation
-     *
-     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\ReportOkResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function previewCatalogProductsBatchReportOperationTokenGetWithHttpInfo($operation_token, string $contentType = self::contentTypes['previewCatalogProductsBatchReportOperationTokenGet'][0])
-    {
-        $request = $this->previewCatalogProductsBatchReportOperationTokenGetRequest($operation_token, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\criteo\api\marketingsolutions\preview\Model\ReportOkResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\ReportOkResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ReportOkResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\criteo\api\marketingsolutions\preview\Model\ReportOkResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\ReportOkResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation previewCatalogProductsBatchReportOperationTokenGetAsync
-     *
-     * @param  string $operation_token The token returned by the batch endpoint. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewCatalogProductsBatchReportOperationTokenGet'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function previewCatalogProductsBatchReportOperationTokenGetAsync($operation_token, string $contentType = self::contentTypes['previewCatalogProductsBatchReportOperationTokenGet'][0])
-    {
-        return $this->previewCatalogProductsBatchReportOperationTokenGetAsyncWithHttpInfo($operation_token, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation previewCatalogProductsBatchReportOperationTokenGetAsyncWithHttpInfo
-     *
-     * @param  string $operation_token The token returned by the batch endpoint. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewCatalogProductsBatchReportOperationTokenGet'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function previewCatalogProductsBatchReportOperationTokenGetAsyncWithHttpInfo($operation_token, string $contentType = self::contentTypes['previewCatalogProductsBatchReportOperationTokenGet'][0])
-    {
-        $returnType = '\criteo\api\marketingsolutions\preview\Model\ReportOkResponse';
-        $request = $this->previewCatalogProductsBatchReportOperationTokenGetRequest($operation_token, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'previewCatalogProductsBatchReportOperationTokenGet'
-     *
-     * @param  string $operation_token The token returned by the batch endpoint. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewCatalogProductsBatchReportOperationTokenGet'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function previewCatalogProductsBatchReportOperationTokenGetRequest($operation_token, string $contentType = self::contentTypes['previewCatalogProductsBatchReportOperationTokenGet'][0])
-    {
-
-        // verify the required parameter 'operation_token' is set
-        if ($operation_token === null || (is_array($operation_token) && count($operation_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $operation_token when calling previewCatalogProductsBatchReportOperationTokenGet'
-            );
-        }
-
-
-        $resourcePath = '/preview/catalog/products/batch/report/{operation-token}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($operation_token !== null) {
-            $resourcePath = str_replace(
-                '{' . 'operation-token' . '}',
-                ObjectSerializer::toPathValue($operation_token),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation previewCatalogStatsMerchantsMerchantIdGet
+     * Operation getCatalogMerchantStats
      *
      * @param  int $merchant_id merchant-id to get (required)
      * @param  int $last_num_hours the last number of hours (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewCatalogStatsMerchantsMerchantIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogMerchantStats'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\preview\Model\StatisticsOkResponse
      */
-    public function previewCatalogStatsMerchantsMerchantIdGet($merchant_id, $last_num_hours = null, string $contentType = self::contentTypes['previewCatalogStatsMerchantsMerchantIdGet'][0])
+    public function getCatalogMerchantStats($merchant_id, $last_num_hours = null, string $contentType = self::contentTypes['getCatalogMerchantStats'][0])
     {
-        list($response) = $this->previewCatalogStatsMerchantsMerchantIdGetWithHttpInfo($merchant_id, $last_num_hours, $contentType);
+        list($response) = $this->getCatalogMerchantStatsWithHttpInfo($merchant_id, $last_num_hours, $contentType);
         return $response;
     }
 
     /**
-     * Operation previewCatalogStatsMerchantsMerchantIdGetWithHttpInfo
+     * Operation getCatalogMerchantStatsWithHttpInfo
      *
      * @param  int $merchant_id merchant-id to get (required)
      * @param  int $last_num_hours the last number of hours (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewCatalogStatsMerchantsMerchantIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogMerchantStats'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\preview\Model\StatisticsOkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function previewCatalogStatsMerchantsMerchantIdGetWithHttpInfo($merchant_id, $last_num_hours = null, string $contentType = self::contentTypes['previewCatalogStatsMerchantsMerchantIdGet'][0])
+    public function getCatalogMerchantStatsWithHttpInfo($merchant_id, $last_num_hours = null, string $contentType = self::contentTypes['getCatalogMerchantStats'][0])
     {
-        $request = $this->previewCatalogStatsMerchantsMerchantIdGetRequest($merchant_id, $last_num_hours, $contentType);
+        $request = $this->getCatalogMerchantStatsRequest($merchant_id, $last_num_hours, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -810,18 +245,18 @@ class CatalogApi
     }
 
     /**
-     * Operation previewCatalogStatsMerchantsMerchantIdGetAsync
+     * Operation getCatalogMerchantStatsAsync
      *
      * @param  int $merchant_id merchant-id to get (required)
      * @param  int $last_num_hours the last number of hours (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewCatalogStatsMerchantsMerchantIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogMerchantStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function previewCatalogStatsMerchantsMerchantIdGetAsync($merchant_id, $last_num_hours = null, string $contentType = self::contentTypes['previewCatalogStatsMerchantsMerchantIdGet'][0])
+    public function getCatalogMerchantStatsAsync($merchant_id, $last_num_hours = null, string $contentType = self::contentTypes['getCatalogMerchantStats'][0])
     {
-        return $this->previewCatalogStatsMerchantsMerchantIdGetAsyncWithHttpInfo($merchant_id, $last_num_hours, $contentType)
+        return $this->getCatalogMerchantStatsAsyncWithHttpInfo($merchant_id, $last_num_hours, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -830,19 +265,19 @@ class CatalogApi
     }
 
     /**
-     * Operation previewCatalogStatsMerchantsMerchantIdGetAsyncWithHttpInfo
+     * Operation getCatalogMerchantStatsAsyncWithHttpInfo
      *
      * @param  int $merchant_id merchant-id to get (required)
      * @param  int $last_num_hours the last number of hours (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewCatalogStatsMerchantsMerchantIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogMerchantStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function previewCatalogStatsMerchantsMerchantIdGetAsyncWithHttpInfo($merchant_id, $last_num_hours = null, string $contentType = self::contentTypes['previewCatalogStatsMerchantsMerchantIdGet'][0])
+    public function getCatalogMerchantStatsAsyncWithHttpInfo($merchant_id, $last_num_hours = null, string $contentType = self::contentTypes['getCatalogMerchantStats'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\preview\Model\StatisticsOkResponse';
-        $request = $this->previewCatalogStatsMerchantsMerchantIdGetRequest($merchant_id, $last_num_hours, $contentType);
+        $request = $this->getCatalogMerchantStatsRequest($merchant_id, $last_num_hours, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -881,22 +316,22 @@ class CatalogApi
     }
 
     /**
-     * Create request for operation 'previewCatalogStatsMerchantsMerchantIdGet'
+     * Create request for operation 'getCatalogMerchantStats'
      *
      * @param  int $merchant_id merchant-id to get (required)
      * @param  int $last_num_hours the last number of hours (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewCatalogStatsMerchantsMerchantIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogMerchantStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function previewCatalogStatsMerchantsMerchantIdGetRequest($merchant_id, $last_num_hours = null, string $contentType = self::contentTypes['previewCatalogStatsMerchantsMerchantIdGet'][0])
+    public function getCatalogMerchantStatsRequest($merchant_id, $last_num_hours = null, string $contentType = self::contentTypes['getCatalogMerchantStats'][0])
     {
 
         // verify the required parameter 'merchant_id' is set
         if ($merchant_id === null || (is_array($merchant_id) && count($merchant_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $merchant_id when calling previewCatalogStatsMerchantsMerchantIdGet'
+                'Missing the required parameter $merchant_id when calling getCatalogMerchantStats'
             );
         }
 
@@ -985,6 +420,571 @@ class CatalogApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getCatalogProductsBatchReport
+     *
+     * @param  string $operation_token The token returned by the batch endpoint. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogProductsBatchReport'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\ReportOkResponse
+     */
+    public function getCatalogProductsBatchReport($operation_token, string $contentType = self::contentTypes['getCatalogProductsBatchReport'][0])
+    {
+        list($response) = $this->getCatalogProductsBatchReportWithHttpInfo($operation_token, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getCatalogProductsBatchReportWithHttpInfo
+     *
+     * @param  string $operation_token The token returned by the batch endpoint. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogProductsBatchReport'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ReportOkResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCatalogProductsBatchReportWithHttpInfo($operation_token, string $contentType = self::contentTypes['getCatalogProductsBatchReport'][0])
+    {
+        $request = $this->getCatalogProductsBatchReportRequest($operation_token, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\ReportOkResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\preview\Model\ReportOkResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ReportOkResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\ReportOkResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\ReportOkResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getCatalogProductsBatchReportAsync
+     *
+     * @param  string $operation_token The token returned by the batch endpoint. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogProductsBatchReport'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCatalogProductsBatchReportAsync($operation_token, string $contentType = self::contentTypes['getCatalogProductsBatchReport'][0])
+    {
+        return $this->getCatalogProductsBatchReportAsyncWithHttpInfo($operation_token, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getCatalogProductsBatchReportAsyncWithHttpInfo
+     *
+     * @param  string $operation_token The token returned by the batch endpoint. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogProductsBatchReport'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCatalogProductsBatchReportAsyncWithHttpInfo($operation_token, string $contentType = self::contentTypes['getCatalogProductsBatchReport'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\ReportOkResponse';
+        $request = $this->getCatalogProductsBatchReportRequest($operation_token, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getCatalogProductsBatchReport'
+     *
+     * @param  string $operation_token The token returned by the batch endpoint. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogProductsBatchReport'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getCatalogProductsBatchReportRequest($operation_token, string $contentType = self::contentTypes['getCatalogProductsBatchReport'][0])
+    {
+
+        // verify the required parameter 'operation_token' is set
+        if ($operation_token === null || (is_array($operation_token) && count($operation_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $operation_token when calling getCatalogProductsBatchReport'
+            );
+        }
+
+
+        $resourcePath = '/preview/catalog/products/batch/report/{operation-token}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($operation_token !== null) {
+            $resourcePath = str_replace(
+                '{' . 'operation-token' . '}',
+                ObjectSerializer::toPathValue($operation_token),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation submitCatalogProductsBatch
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\ProductsCustomBatchRequest $products_custom_batch_request products_custom_batch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitCatalogProductsBatch'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\BatchAcceptedResponse
+     */
+    public function submitCatalogProductsBatch($products_custom_batch_request, string $contentType = self::contentTypes['submitCatalogProductsBatch'][0])
+    {
+        list($response) = $this->submitCatalogProductsBatchWithHttpInfo($products_custom_batch_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation submitCatalogProductsBatchWithHttpInfo
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\ProductsCustomBatchRequest $products_custom_batch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitCatalogProductsBatch'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\BatchAcceptedResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function submitCatalogProductsBatchWithHttpInfo($products_custom_batch_request, string $contentType = self::contentTypes['submitCatalogProductsBatch'][0])
+    {
+        $request = $this->submitCatalogProductsBatchRequest($products_custom_batch_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 202:
+                    if ('\criteo\api\marketingsolutions\preview\Model\BatchAcceptedResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\preview\Model\BatchAcceptedResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\BatchAcceptedResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\BatchAcceptedResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\BatchAcceptedResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation submitCatalogProductsBatchAsync
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\ProductsCustomBatchRequest $products_custom_batch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitCatalogProductsBatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function submitCatalogProductsBatchAsync($products_custom_batch_request, string $contentType = self::contentTypes['submitCatalogProductsBatch'][0])
+    {
+        return $this->submitCatalogProductsBatchAsyncWithHttpInfo($products_custom_batch_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation submitCatalogProductsBatchAsyncWithHttpInfo
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\ProductsCustomBatchRequest $products_custom_batch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitCatalogProductsBatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function submitCatalogProductsBatchAsyncWithHttpInfo($products_custom_batch_request, string $contentType = self::contentTypes['submitCatalogProductsBatch'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\BatchAcceptedResponse';
+        $request = $this->submitCatalogProductsBatchRequest($products_custom_batch_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'submitCatalogProductsBatch'
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\ProductsCustomBatchRequest $products_custom_batch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitCatalogProductsBatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function submitCatalogProductsBatchRequest($products_custom_batch_request, string $contentType = self::contentTypes['submitCatalogProductsBatch'][0])
+    {
+
+        // verify the required parameter 'products_custom_batch_request' is set
+        if ($products_custom_batch_request === null || (is_array($products_custom_batch_request) && count($products_custom_batch_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $products_custom_batch_request when calling submitCatalogProductsBatch'
+            );
+        }
+
+
+        $resourcePath = '/preview/catalog/products/batch';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($products_custom_batch_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($products_custom_batch_request));
+            } else {
+                $httpBody = $products_custom_batch_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

@@ -317,6 +317,21 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     public const FORMAT_EXCEL = 'excel';
     public const FORMAT_XML = 'xml';
     public const FORMAT_JSON = 'json';
+    public const METRICS_CLICKS = 'Clicks';
+    public const METRICS_DISPLAYS = 'Displays';
+    public const METRICS_COST = 'Cost';
+    public const METRICS_SALES_PC30D = 'SalesPc30d';
+    public const METRICS_REVENUE_PC30D = 'RevenuePc30d';
+    public const METRICS_COS_PC30D = 'CosPc30d';
+    public const METRICS_ROAS_PC30D = 'RoasPc30d';
+    public const METRICS_CPO_PC30D = 'CpoPc30d';
+    public const METRICS_CVR_PC30D = 'CvrPc30d';
+    public const METRICS_SALES_PV1D = 'SalesPv1d';
+    public const METRICS_REVENUE_PV1D = 'RevenuePv1d';
+    public const METRICS_COS_PV1D = 'CosPv1d';
+    public const METRICS_ROAS_PV1D = 'RoasPv1d';
+    public const METRICS_CPO_PV1D = 'CpoPv1d';
+    public const METRICS_CVR_PV1D = 'CvrPv1d';
 
     /**
      * Gets allowable values of the enum
@@ -353,6 +368,32 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
             self::FORMAT_EXCEL,
             self::FORMAT_XML,
             self::FORMAT_JSON,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMetricsAllowableValues()
+    {
+        return [
+            self::METRICS_CLICKS,
+            self::METRICS_DISPLAYS,
+            self::METRICS_COST,
+            self::METRICS_SALES_PC30D,
+            self::METRICS_REVENUE_PC30D,
+            self::METRICS_COS_PC30D,
+            self::METRICS_ROAS_PC30D,
+            self::METRICS_CPO_PC30D,
+            self::METRICS_CVR_PC30D,
+            self::METRICS_SALES_PV1D,
+            self::METRICS_REVENUE_PV1D,
+            self::METRICS_COS_PV1D,
+            self::METRICS_ROAS_PV1D,
+            self::METRICS_CPO_PV1D,
+            self::METRICS_CVR_PV1D,
         ];
     }
 
@@ -759,6 +800,15 @@ class PlacementsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     {
         if (is_null($metrics)) {
             throw new \InvalidArgumentException('non-nullable metrics cannot be null');
+        }
+        $allowedValues = $this->getMetricsAllowableValues();
+        if (array_diff($metrics, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'metrics', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['metrics'] = $metrics;
 

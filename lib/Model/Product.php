@@ -90,6 +90,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'expiration_date' => 'string',
         'external_seller_id' => 'string',
         'external_seller_name' => 'string',
+        'filters' => 'array<string,string[]>',
         'gender' => 'string',
         'google_product_category' => 'string',
         'gtin' => 'string',
@@ -182,6 +183,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'expiration_date' => null,
         'external_seller_id' => null,
         'external_seller_name' => null,
+        'filters' => null,
         'gender' => null,
         'google_product_category' => null,
         'gtin' => null,
@@ -272,6 +274,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
 		'expiration_date' => false,
 		'external_seller_id' => false,
 		'external_seller_name' => false,
+		'filters' => false,
 		'gender' => false,
 		'google_product_category' => false,
 		'gtin' => false,
@@ -442,6 +445,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'expiration_date' => 'expirationDate',
         'external_seller_id' => 'externalSellerId',
         'external_seller_name' => 'externalSellerName',
+        'filters' => 'filters',
         'gender' => 'gender',
         'google_product_category' => 'googleProductCategory',
         'gtin' => 'gtin',
@@ -532,6 +536,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'expiration_date' => 'setExpirationDate',
         'external_seller_id' => 'setExternalSellerId',
         'external_seller_name' => 'setExternalSellerName',
+        'filters' => 'setFilters',
         'gender' => 'setGender',
         'google_product_category' => 'setGoogleProductCategory',
         'gtin' => 'setGtin',
@@ -622,6 +627,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'expiration_date' => 'getExpirationDate',
         'external_seller_id' => 'getExternalSellerId',
         'external_seller_name' => 'getExternalSellerName',
+        'filters' => 'getFilters',
         'gender' => 'getGender',
         'google_product_category' => 'getGoogleProductCategory',
         'gtin' => 'getGtin',
@@ -776,6 +782,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('expiration_date', $data ?? [], null);
         $this->setIfExists('external_seller_id', $data ?? [], null);
         $this->setIfExists('external_seller_name', $data ?? [], null);
+        $this->setIfExists('filters', $data ?? [], null);
         $this->setIfExists('gender', $data ?? [], null);
         $this->setIfExists('google_product_category', $data ?? [], null);
         $this->setIfExists('gtin', $data ?? [], null);
@@ -1764,6 +1771,33 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable external_seller_name cannot be null');
         }
         $this->container['external_seller_name'] = $external_seller_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets filters
+     *
+     * @return array<string,string[]>|null
+     */
+    public function getFilters()
+    {
+        return $this->container['filters'];
+    }
+
+    /**
+     * Sets filters
+     *
+     * @param array<string,string[]>|null $filters Filter information of the product.
+     *
+     * @return self
+     */
+    public function setFilters($filters)
+    {
+        if (is_null($filters)) {
+            throw new \InvalidArgumentException('non-nullable filters cannot be null');
+        }
+        $this->container['filters'] = $filters;
 
         return $this;
     }
