@@ -47,7 +47,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 ## `createAdSet()`
 
 ```php
-createAdSet($create_ad_set_v24_q3_request): \criteo\api\marketingsolutions\preview\Model\ResponseReadAdSetV24Q3
+createAdSet($create_ad_set_v26_q1_request): \criteo\api\marketingsolutions\preview\Model\ResponseReadAdSetV26Q1
 ```
 
 
@@ -74,10 +74,10 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$create_ad_set_v24_q3_request = new \criteo\api\marketingsolutions\preview\Model\CreateAdSetV24Q3Request(); // \criteo\api\marketingsolutions\preview\Model\CreateAdSetV24Q3Request | the ad sets to create
+$create_ad_set_v26_q1_request = new \criteo\api\marketingsolutions\preview\Model\CreateAdSetV26Q1Request(); // \criteo\api\marketingsolutions\preview\Model\CreateAdSetV26Q1Request | the ad sets to create
 
 try {
-    $result = $apiInstance->createAdSet($create_ad_set_v24_q3_request);
+    $result = $apiInstance->createAdSet($create_ad_set_v26_q1_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignApi->createAdSet: ', $e->getMessage(), PHP_EOL;
@@ -88,11 +88,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_ad_set_v24_q3_request** | [**\criteo\api\marketingsolutions\preview\Model\CreateAdSetV24Q3Request**](../Model/CreateAdSetV24Q3Request.md)| the ad sets to create | |
+| **create_ad_set_v26_q1_request** | [**\criteo\api\marketingsolutions\preview\Model\CreateAdSetV26Q1Request**](../Model/CreateAdSetV26Q1Request.md)| the ad sets to create | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\preview\Model\ResponseReadAdSetV24Q3**](../Model/ResponseReadAdSetV24Q3.md)
+[**\criteo\api\marketingsolutions\preview\Model\ResponseReadAdSetV26Q1**](../Model/ResponseReadAdSetV26Q1.md)
 
 ### Authorization
 
@@ -559,7 +559,7 @@ try {
 ## `getAdSet()`
 
 ```php
-getAdSet($ad_set_id): \criteo\api\marketingsolutions\preview\Model\ResponseReadAdSetV24Q3
+getAdSet($ad_set_id): \criteo\api\marketingsolutions\preview\Model\ResponseReadAdSetV26Q1
 ```
 
 
@@ -604,7 +604,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\preview\Model\ResponseReadAdSetV24Q3**](../Model/ResponseReadAdSetV24Q3.md)
+[**\criteo\api\marketingsolutions\preview\Model\ResponseReadAdSetV26Q1**](../Model/ResponseReadAdSetV26Q1.md)
 
 ### Authorization
 
@@ -1314,7 +1314,7 @@ try {
 ## `patchAdSets()`
 
 ```php
-patchAdSets($requests_patch_ad_set_v24_q3): \criteo\api\marketingsolutions\preview\Model\ResponsesAdSetIdV24Q3
+patchAdSets($requests_patch_ad_set_v26_q1): \criteo\api\marketingsolutions\preview\Model\ResponsesAdSetIdV26Q1
 ```
 
 
@@ -1341,10 +1341,10 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$requests_patch_ad_set_v24_q3 = new \criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSetV24Q3(); // \criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSetV24Q3 | List of adsets to patch.
+$requests_patch_ad_set_v26_q1 = new \criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSetV26Q1(); // \criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSetV26Q1 | List of adsets to patch.
 
 try {
-    $result = $apiInstance->patchAdSets($requests_patch_ad_set_v24_q3);
+    $result = $apiInstance->patchAdSets($requests_patch_ad_set_v26_q1);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignApi->patchAdSets: ', $e->getMessage(), PHP_EOL;
@@ -1355,11 +1355,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **requests_patch_ad_set_v24_q3** | [**\criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSetV24Q3**](../Model/RequestsPatchAdSetV24Q3.md)| List of adsets to patch. | |
+| **requests_patch_ad_set_v26_q1** | [**\criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSetV26Q1**](../Model/RequestsPatchAdSetV26Q1.md)| List of adsets to patch. | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\preview\Model\ResponsesAdSetIdV24Q3**](../Model/ResponsesAdSetIdV24Q3.md)
+[**\criteo\api\marketingsolutions\preview\Model\ResponsesAdSetIdV26Q1**](../Model/ResponsesAdSetIdV26Q1.md)
 
 ### Authorization
 
@@ -2025,7 +2025,7 @@ try {
 ## `searchAdSets()`
 
 ```php
-searchAdSets($ad_set_search_request_v24_q3): \criteo\api\marketingsolutions\preview\Model\ResponsesReadAdSetV24Q3
+searchAdSets($ad_set_search_request_v26_q1): \criteo\api\marketingsolutions\preview\Model\ResponsesReadAdSetV26Q1
 ```
 
 
@@ -2052,10 +2052,10 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ad_set_search_request_v24_q3 = new \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestV24Q3(); // \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestV24Q3
+$ad_set_search_request_v26_q1 = new \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestV26Q1(); // \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestV26Q1
 
 try {
-    $result = $apiInstance->searchAdSets($ad_set_search_request_v24_q3);
+    $result = $apiInstance->searchAdSets($ad_set_search_request_v26_q1);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignApi->searchAdSets: ', $e->getMessage(), PHP_EOL;
@@ -2066,11 +2066,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **ad_set_search_request_v24_q3** | [**\criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestV24Q3**](../Model/AdSetSearchRequestV24Q3.md)|  | [optional] |
+| **ad_set_search_request_v26_q1** | [**\criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestV26Q1**](../Model/AdSetSearchRequestV26Q1.md)|  | [optional] |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\preview\Model\ResponsesReadAdSetV24Q3**](../Model/ResponsesReadAdSetV24Q3.md)
+[**\criteo\api\marketingsolutions\preview\Model\ResponsesReadAdSetV26Q1**](../Model/ResponsesReadAdSetV26Q1.md)
 
 ### Authorization
 
