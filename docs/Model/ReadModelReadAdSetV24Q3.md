@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | [**\criteo\api\marketingsolutions\v2025_10\Model\ReadAdSetV24Q3**](ReadAdSetV24Q3.md) |  | [optional]
+**attributes** | [**\criteo\api\marketingsolutions\v2026_01\Model\ReadAdSetV24Q3**](ReadAdSetV24Q3.md) |  | [optional]
 **id** | **string** | Id of the entity | [optional] [readonly]
 **type** | **string** |  | [optional] [readonly]
 

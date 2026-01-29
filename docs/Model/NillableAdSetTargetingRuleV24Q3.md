@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | [**\criteo\api\marketingsolutions\v2025_10\Model\NillableAdSetTargetingRuleV24Q3Value**](NillableAdSetTargetingRuleV24Q3Value.md) |  | [optional]
+**value** | [**\criteo\api\marketingsolutions\v2026_01\Model\NillableAdSetTargetingRuleV24Q3Value**](NillableAdSetTargetingRuleV24Q3Value.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

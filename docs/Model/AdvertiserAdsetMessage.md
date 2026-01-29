@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **advertiser_id** | **int** |  | [optional]
 **is_coa** | **bool** |  | [optional]
 **partner_id** | **int** |  | [optional]
-**status** | [**\criteo\api\marketingsolutions\v2025_10\Model\AdSetDeliveryStatus**](AdSetDeliveryStatus.md) |  | [optional]
+**status** | [**\criteo\api\marketingsolutions\v2026_01\Model\AdSetDeliveryStatus**](AdSetDeliveryStatus.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

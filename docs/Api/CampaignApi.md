@@ -1,57 +1,57 @@
-# criteo\api\marketingsolutions\v2025_10\CampaignApi
+# criteo\api\marketingsolutions\v2026_01\CampaignApi
 
 All URIs are relative to https://api.criteo.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createAdSet()**](CampaignApi.md#createAdSet) | **POST** /2025-10/marketing-solutions/ad-sets |  |
-| [**createCampaign()**](CampaignApi.md#createCampaign) | **POST** /2025-10/marketing-solutions/campaigns |  |
-| [**createMarketplaceSellerBudgets()**](CampaignApi.md#createMarketplaceSellerBudgets) | **POST** /2025-10/marketing-solutions/marketplace-performance-outcomes/budgets |  |
-| [**createMarketplaceSellerCampaignsBySeller()**](CampaignApi.md#createMarketplaceSellerCampaignsBySeller) | **POST** /2025-10/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/seller-campaigns |  |
-| [**getAdSet()**](CampaignApi.md#getAdSet) | **GET** /2025-10/marketing-solutions/ad-sets/{ad-set-id} |  |
-| [**getAdSetCategoryBids()**](CampaignApi.md#getAdSetCategoryBids) | **GET** /2025-10/marketing-solutions/ad-sets/{ad-set-id}/category-bids |  |
-| [**getCampaign()**](CampaignApi.md#getCampaign) | **GET** /2025-10/marketing-solutions/campaigns/{campaign-id} |  |
-| [**getDisplayMultipliers()**](CampaignApi.md#getDisplayMultipliers) | **GET** /2025-10/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers |  |
-| [**getMarketplaceAdSetsByAdvertiser()**](CampaignApi.md#getMarketplaceAdSetsByAdvertiser) | **GET** /2025-10/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/adsets |  |
-| [**getMarketplaceAdvertiser()**](CampaignApi.md#getMarketplaceAdvertiser) | **GET** /2025-10/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId} |  |
-| [**getMarketplaceAdvertiserPreviewLimits()**](CampaignApi.md#getMarketplaceAdvertiserPreviewLimits) | **GET** /2025-10/marketing-solutions/marketplace-performance-outcomes/advertisers/preview-limit |  |
-| [**getMarketplaceAdvertisers()**](CampaignApi.md#getMarketplaceAdvertisers) | **GET** /2025-10/marketing-solutions/marketplace-performance-outcomes/advertisers |  |
-| [**getMarketplaceBudgetsByAdvertiser()**](CampaignApi.md#getMarketplaceBudgetsByAdvertiser) | **GET** /2025-10/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/budgets |  |
-| [**getMarketplaceBudgetsBySeller()**](CampaignApi.md#getMarketplaceBudgetsBySeller) | **GET** /2025-10/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/budgets |  |
-| [**getMarketplaceBudgetsBySellerCampaign()**](CampaignApi.md#getMarketplaceBudgetsBySellerCampaign) | **GET** /2025-10/marketing-solutions/marketplace-performance-outcomes/seller-campaigns/{sellerCampaignId}/budgets |  |
-| [**getMarketplaceCampaignsByAdvertiser()**](CampaignApi.md#getMarketplaceCampaignsByAdvertiser) | **GET** /2025-10/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/campaigns |  |
-| [**getMarketplaceCampaignsStats()**](CampaignApi.md#getMarketplaceCampaignsStats) | **GET** /2025-10/marketing-solutions/marketplace-performance-outcomes/stats/campaigns |  |
-| [**getMarketplaceSeller()**](CampaignApi.md#getMarketplaceSeller) | **GET** /2025-10/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId} |  |
-| [**getMarketplaceSellerAdPreview()**](CampaignApi.md#getMarketplaceSellerAdPreview) | **GET** /2025-10/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/ad-preview |  |
-| [**getMarketplaceSellerBudget()**](CampaignApi.md#getMarketplaceSellerBudget) | **GET** /2025-10/marketing-solutions/marketplace-performance-outcomes/budgets/{budgetId} |  |
-| [**getMarketplaceSellerBudgets()**](CampaignApi.md#getMarketplaceSellerBudgets) | **GET** /2025-10/marketing-solutions/marketplace-performance-outcomes/budgets |  |
-| [**getMarketplaceSellerCampaign()**](CampaignApi.md#getMarketplaceSellerCampaign) | **GET** /2025-10/marketing-solutions/marketplace-performance-outcomes/seller-campaigns/{sellerCampaignId} |  |
-| [**getMarketplaceSellerCampaigns()**](CampaignApi.md#getMarketplaceSellerCampaigns) | **GET** /2025-10/marketing-solutions/marketplace-performance-outcomes/seller-campaigns |  |
-| [**getMarketplaceSellerCampaignsByAdvertiser()**](CampaignApi.md#getMarketplaceSellerCampaignsByAdvertiser) | **GET** /2025-10/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/seller-campaigns |  |
-| [**getMarketplaceSellerCampaignsBySeller()**](CampaignApi.md#getMarketplaceSellerCampaignsBySeller) | **GET** /2025-10/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/seller-campaigns |  |
-| [**getMarketplaceSellerCampaignsStats()**](CampaignApi.md#getMarketplaceSellerCampaignsStats) | **GET** /2025-10/marketing-solutions/marketplace-performance-outcomes/stats/seller-campaigns |  |
-| [**getMarketplaceSellers()**](CampaignApi.md#getMarketplaceSellers) | **GET** /2025-10/marketing-solutions/marketplace-performance-outcomes/sellers |  |
-| [**getMarketplaceSellersByAdvertiser()**](CampaignApi.md#getMarketplaceSellersByAdvertiser) | **POST** /2025-10/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/sellers |  |
-| [**getMarketplaceSellersStats()**](CampaignApi.md#getMarketplaceSellersStats) | **GET** /2025-10/marketing-solutions/marketplace-performance-outcomes/stats/sellers |  |
-| [**patchAdSetCategoryBids()**](CampaignApi.md#patchAdSetCategoryBids) | **PATCH** /2025-10/marketing-solutions/ad-sets/{ad-set-id}/category-bids |  |
-| [**patchAdSets()**](CampaignApi.md#patchAdSets) | **PATCH** /2025-10/marketing-solutions/ad-sets |  |
-| [**patchCampaigns()**](CampaignApi.md#patchCampaigns) | **PATCH** /2025-10/marketing-solutions/campaigns |  |
-| [**patchDisplayMultipliers()**](CampaignApi.md#patchDisplayMultipliers) | **PATCH** /2025-10/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers |  |
-| [**searchAdSets()**](CampaignApi.md#searchAdSets) | **POST** /2025-10/marketing-solutions/ad-sets/search |  |
-| [**searchCampaigns()**](CampaignApi.md#searchCampaigns) | **POST** /2025-10/marketing-solutions/campaigns/search |  |
-| [**startAdSets()**](CampaignApi.md#startAdSets) | **POST** /2025-10/marketing-solutions/ad-sets/start |  |
-| [**stopAdSets()**](CampaignApi.md#stopAdSets) | **POST** /2025-10/marketing-solutions/ad-sets/stop |  |
-| [**updateAdSetAudience()**](CampaignApi.md#updateAdSetAudience) | **PUT** /2025-10/marketing-solutions/ad-sets/{ad-set-id}/audience |  |
-| [**updateMarketplaceSellerBudget()**](CampaignApi.md#updateMarketplaceSellerBudget) | **PATCH** /2025-10/marketing-solutions/marketplace-performance-outcomes/budgets/{budgetId} |  |
-| [**updateMarketplaceSellerBudgets()**](CampaignApi.md#updateMarketplaceSellerBudgets) | **PATCH** /2025-10/marketing-solutions/marketplace-performance-outcomes/budgets |  |
-| [**updateMarketplaceSellerCampaign()**](CampaignApi.md#updateMarketplaceSellerCampaign) | **PATCH** /2025-10/marketing-solutions/marketplace-performance-outcomes/seller-campaigns/{sellerCampaignId} |  |
-| [**updateMarketplaceSellerCampaigns()**](CampaignApi.md#updateMarketplaceSellerCampaigns) | **PATCH** /2025-10/marketing-solutions/marketplace-performance-outcomes/seller-campaigns |  |
+| [**createAdSet()**](CampaignApi.md#createAdSet) | **POST** /2026-01/marketing-solutions/ad-sets |  |
+| [**createCampaign()**](CampaignApi.md#createCampaign) | **POST** /2026-01/marketing-solutions/campaigns |  |
+| [**createMarketplaceSellerBudgets()**](CampaignApi.md#createMarketplaceSellerBudgets) | **POST** /2026-01/marketing-solutions/marketplace-performance-outcomes/budgets |  |
+| [**createMarketplaceSellerCampaignsBySeller()**](CampaignApi.md#createMarketplaceSellerCampaignsBySeller) | **POST** /2026-01/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/seller-campaigns |  |
+| [**getAdSet()**](CampaignApi.md#getAdSet) | **GET** /2026-01/marketing-solutions/ad-sets/{ad-set-id} |  |
+| [**getAdSetCategoryBids()**](CampaignApi.md#getAdSetCategoryBids) | **GET** /2026-01/marketing-solutions/ad-sets/{ad-set-id}/category-bids |  |
+| [**getCampaign()**](CampaignApi.md#getCampaign) | **GET** /2026-01/marketing-solutions/campaigns/{campaign-id} |  |
+| [**getDisplayMultipliers()**](CampaignApi.md#getDisplayMultipliers) | **GET** /2026-01/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers |  |
+| [**getMarketplaceAdSetsByAdvertiser()**](CampaignApi.md#getMarketplaceAdSetsByAdvertiser) | **GET** /2026-01/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/adsets |  |
+| [**getMarketplaceAdvertiser()**](CampaignApi.md#getMarketplaceAdvertiser) | **GET** /2026-01/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId} |  |
+| [**getMarketplaceAdvertiserPreviewLimits()**](CampaignApi.md#getMarketplaceAdvertiserPreviewLimits) | **GET** /2026-01/marketing-solutions/marketplace-performance-outcomes/advertisers/preview-limit |  |
+| [**getMarketplaceAdvertisers()**](CampaignApi.md#getMarketplaceAdvertisers) | **GET** /2026-01/marketing-solutions/marketplace-performance-outcomes/advertisers |  |
+| [**getMarketplaceBudgetsByAdvertiser()**](CampaignApi.md#getMarketplaceBudgetsByAdvertiser) | **GET** /2026-01/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/budgets |  |
+| [**getMarketplaceBudgetsBySeller()**](CampaignApi.md#getMarketplaceBudgetsBySeller) | **GET** /2026-01/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/budgets |  |
+| [**getMarketplaceBudgetsBySellerCampaign()**](CampaignApi.md#getMarketplaceBudgetsBySellerCampaign) | **GET** /2026-01/marketing-solutions/marketplace-performance-outcomes/seller-campaigns/{sellerCampaignId}/budgets |  |
+| [**getMarketplaceCampaignsByAdvertiser()**](CampaignApi.md#getMarketplaceCampaignsByAdvertiser) | **GET** /2026-01/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/campaigns |  |
+| [**getMarketplaceCampaignsStats()**](CampaignApi.md#getMarketplaceCampaignsStats) | **GET** /2026-01/marketing-solutions/marketplace-performance-outcomes/stats/campaigns |  |
+| [**getMarketplaceSeller()**](CampaignApi.md#getMarketplaceSeller) | **GET** /2026-01/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId} |  |
+| [**getMarketplaceSellerAdPreview()**](CampaignApi.md#getMarketplaceSellerAdPreview) | **GET** /2026-01/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/ad-preview |  |
+| [**getMarketplaceSellerBudget()**](CampaignApi.md#getMarketplaceSellerBudget) | **GET** /2026-01/marketing-solutions/marketplace-performance-outcomes/budgets/{budgetId} |  |
+| [**getMarketplaceSellerBudgets()**](CampaignApi.md#getMarketplaceSellerBudgets) | **GET** /2026-01/marketing-solutions/marketplace-performance-outcomes/budgets |  |
+| [**getMarketplaceSellerCampaign()**](CampaignApi.md#getMarketplaceSellerCampaign) | **GET** /2026-01/marketing-solutions/marketplace-performance-outcomes/seller-campaigns/{sellerCampaignId} |  |
+| [**getMarketplaceSellerCampaigns()**](CampaignApi.md#getMarketplaceSellerCampaigns) | **GET** /2026-01/marketing-solutions/marketplace-performance-outcomes/seller-campaigns |  |
+| [**getMarketplaceSellerCampaignsByAdvertiser()**](CampaignApi.md#getMarketplaceSellerCampaignsByAdvertiser) | **GET** /2026-01/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/seller-campaigns |  |
+| [**getMarketplaceSellerCampaignsBySeller()**](CampaignApi.md#getMarketplaceSellerCampaignsBySeller) | **GET** /2026-01/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/seller-campaigns |  |
+| [**getMarketplaceSellerCampaignsStats()**](CampaignApi.md#getMarketplaceSellerCampaignsStats) | **GET** /2026-01/marketing-solutions/marketplace-performance-outcomes/stats/seller-campaigns |  |
+| [**getMarketplaceSellers()**](CampaignApi.md#getMarketplaceSellers) | **GET** /2026-01/marketing-solutions/marketplace-performance-outcomes/sellers |  |
+| [**getMarketplaceSellersByAdvertiser()**](CampaignApi.md#getMarketplaceSellersByAdvertiser) | **POST** /2026-01/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/sellers |  |
+| [**getMarketplaceSellersStats()**](CampaignApi.md#getMarketplaceSellersStats) | **GET** /2026-01/marketing-solutions/marketplace-performance-outcomes/stats/sellers |  |
+| [**patchAdSetCategoryBids()**](CampaignApi.md#patchAdSetCategoryBids) | **PATCH** /2026-01/marketing-solutions/ad-sets/{ad-set-id}/category-bids |  |
+| [**patchAdSets()**](CampaignApi.md#patchAdSets) | **PATCH** /2026-01/marketing-solutions/ad-sets |  |
+| [**patchCampaigns()**](CampaignApi.md#patchCampaigns) | **PATCH** /2026-01/marketing-solutions/campaigns |  |
+| [**patchDisplayMultipliers()**](CampaignApi.md#patchDisplayMultipliers) | **PATCH** /2026-01/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers |  |
+| [**searchAdSets()**](CampaignApi.md#searchAdSets) | **POST** /2026-01/marketing-solutions/ad-sets/search |  |
+| [**searchCampaigns()**](CampaignApi.md#searchCampaigns) | **POST** /2026-01/marketing-solutions/campaigns/search |  |
+| [**startAdSets()**](CampaignApi.md#startAdSets) | **POST** /2026-01/marketing-solutions/ad-sets/start |  |
+| [**stopAdSets()**](CampaignApi.md#stopAdSets) | **POST** /2026-01/marketing-solutions/ad-sets/stop |  |
+| [**updateAdSetAudience()**](CampaignApi.md#updateAdSetAudience) | **PUT** /2026-01/marketing-solutions/ad-sets/{ad-set-id}/audience |  |
+| [**updateMarketplaceSellerBudget()**](CampaignApi.md#updateMarketplaceSellerBudget) | **PATCH** /2026-01/marketing-solutions/marketplace-performance-outcomes/budgets/{budgetId} |  |
+| [**updateMarketplaceSellerBudgets()**](CampaignApi.md#updateMarketplaceSellerBudgets) | **PATCH** /2026-01/marketing-solutions/marketplace-performance-outcomes/budgets |  |
+| [**updateMarketplaceSellerCampaign()**](CampaignApi.md#updateMarketplaceSellerCampaign) | **PATCH** /2026-01/marketing-solutions/marketplace-performance-outcomes/seller-campaigns/{sellerCampaignId} |  |
+| [**updateMarketplaceSellerCampaigns()**](CampaignApi.md#updateMarketplaceSellerCampaigns) | **PATCH** /2026-01/marketing-solutions/marketplace-performance-outcomes/seller-campaigns |  |
 
 
 ## `createAdSet()`
 
 ```php
-createAdSet($create_ad_set_v24_q3_request): \criteo\api\marketingsolutions\v2025_10\Model\ResponseReadAdSetV24Q3
+createAdSet($create_ad_set_v24_q3_request): \criteo\api\marketingsolutions\v2026_01\Model\ResponseReadAdSetV24Q3
 ```
 
 
@@ -66,19 +66,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$create_ad_set_v24_q3_request = new \criteo\api\marketingsolutions\v2025_10\Model\CreateAdSetV24Q3Request(); // \criteo\api\marketingsolutions\v2025_10\Model\CreateAdSetV24Q3Request | the ad sets to create
+$create_ad_set_v24_q3_request = new \criteo\api\marketingsolutions\v2026_01\Model\CreateAdSetV24Q3Request(); // \criteo\api\marketingsolutions\v2026_01\Model\CreateAdSetV24Q3Request | the ad sets to create
 
 try {
     $result = $apiInstance->createAdSet($create_ad_set_v24_q3_request);
@@ -92,11 +92,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_ad_set_v24_q3_request** | [**\criteo\api\marketingsolutions\v2025_10\Model\CreateAdSetV24Q3Request**](../Model/CreateAdSetV24Q3Request.md)| the ad sets to create | |
+| **create_ad_set_v24_q3_request** | [**\criteo\api\marketingsolutions\v2026_01\Model\CreateAdSetV24Q3Request**](../Model/CreateAdSetV24Q3Request.md)| the ad sets to create | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\ResponseReadAdSetV24Q3**](../Model/ResponseReadAdSetV24Q3.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\ResponseReadAdSetV24Q3**](../Model/ResponseReadAdSetV24Q3.md)
 
 ### Authorization
 
@@ -114,7 +114,7 @@ try {
 ## `createCampaign()`
 
 ```php
-createCampaign($create_campaign_request): \criteo\api\marketingsolutions\v2025_10\Model\CampaignV23Q1Response
+createCampaign($create_campaign_request): \criteo\api\marketingsolutions\v2026_01\Model\CampaignV23Q1Response
 ```
 
 
@@ -129,19 +129,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$create_campaign_request = new \criteo\api\marketingsolutions\v2025_10\Model\CreateCampaignRequest(); // \criteo\api\marketingsolutions\v2025_10\Model\CreateCampaignRequest | the campaigns to create
+$create_campaign_request = new \criteo\api\marketingsolutions\v2026_01\Model\CreateCampaignRequest(); // \criteo\api\marketingsolutions\v2026_01\Model\CreateCampaignRequest | the campaigns to create
 
 try {
     $result = $apiInstance->createCampaign($create_campaign_request);
@@ -155,11 +155,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_campaign_request** | [**\criteo\api\marketingsolutions\v2025_10\Model\CreateCampaignRequest**](../Model/CreateCampaignRequest.md)| the campaigns to create | |
+| **create_campaign_request** | [**\criteo\api\marketingsolutions\v2026_01\Model\CreateCampaignRequest**](../Model/CreateCampaignRequest.md)| the campaigns to create | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\CampaignV23Q1Response**](../Model/CampaignV23Q1Response.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\CampaignV23Q1Response**](../Model/CampaignV23Q1Response.md)
 
 ### Authorization
 
@@ -177,7 +177,7 @@ try {
 ## `createMarketplaceSellerBudgets()`
 
 ```php
-createMarketplaceSellerBudgets($create_seller_budget_mapi_message): \criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]
+createMarketplaceSellerBudgets($create_seller_budget_mapi_message): \criteo\api\marketingsolutions\v2026_01\Model\SellerBudgetMessage[]
 ```
 
 
@@ -192,19 +192,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$create_seller_budget_mapi_message = array(new \criteo\api\marketingsolutions\v2025_10\Model\CreateSellerBudgetMapiMessage()); // \criteo\api\marketingsolutions\v2025_10\Model\CreateSellerBudgetMapiMessage[] | 
+$create_seller_budget_mapi_message = array(new \criteo\api\marketingsolutions\v2026_01\Model\CreateSellerBudgetMapiMessage()); // \criteo\api\marketingsolutions\v2026_01\Model\CreateSellerBudgetMapiMessage[] | 
 
 try {
     $result = $apiInstance->createMarketplaceSellerBudgets($create_seller_budget_mapi_message);
@@ -218,11 +218,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_seller_budget_mapi_message** | [**\criteo\api\marketingsolutions\v2025_10\Model\CreateSellerBudgetMapiMessage[]**](../Model/CreateSellerBudgetMapiMessage.md)|  | |
+| **create_seller_budget_mapi_message** | [**\criteo\api\marketingsolutions\v2026_01\Model\CreateSellerBudgetMapiMessage[]**](../Model/CreateSellerBudgetMapiMessage.md)|  | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]**](../Model/SellerBudgetMessage.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\SellerBudgetMessage[]**](../Model/SellerBudgetMessage.md)
 
 ### Authorization
 
@@ -240,7 +240,7 @@ try {
 ## `createMarketplaceSellerCampaignsBySeller()`
 
 ```php
-createMarketplaceSellerCampaignsBySeller($seller_id, $create_seller_campaign_message_mapi): \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage
+createMarketplaceSellerCampaignsBySeller($seller_id, $create_seller_campaign_message_mapi): \criteo\api\marketingsolutions\v2026_01\Model\SellerCampaignMessage
 ```
 
 
@@ -255,20 +255,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $seller_id = 'seller_id_example'; // string | Supply a generated Id of an existing Seller
-$create_seller_campaign_message_mapi = new \criteo\api\marketingsolutions\v2025_10\Model\CreateSellerCampaignMessageMapi(); // \criteo\api\marketingsolutions\v2025_10\Model\CreateSellerCampaignMessageMapi | Supply the campaign Id and bid to create the mapping
+$create_seller_campaign_message_mapi = new \criteo\api\marketingsolutions\v2026_01\Model\CreateSellerCampaignMessageMapi(); // \criteo\api\marketingsolutions\v2026_01\Model\CreateSellerCampaignMessageMapi | Supply the campaign Id and bid to create the mapping
 
 try {
     $result = $apiInstance->createMarketplaceSellerCampaignsBySeller($seller_id, $create_seller_campaign_message_mapi);
@@ -283,11 +283,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **seller_id** | **string**| Supply a generated Id of an existing Seller | |
-| **create_seller_campaign_message_mapi** | [**\criteo\api\marketingsolutions\v2025_10\Model\CreateSellerCampaignMessageMapi**](../Model/CreateSellerCampaignMessageMapi.md)| Supply the campaign Id and bid to create the mapping | |
+| **create_seller_campaign_message_mapi** | [**\criteo\api\marketingsolutions\v2026_01\Model\CreateSellerCampaignMessageMapi**](../Model/CreateSellerCampaignMessageMapi.md)| Supply the campaign Id and bid to create the mapping | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage**](../Model/SellerCampaignMessage.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\SellerCampaignMessage**](../Model/SellerCampaignMessage.md)
 
 ### Authorization
 
@@ -305,7 +305,7 @@ try {
 ## `getAdSet()`
 
 ```php
-getAdSet($ad_set_id): \criteo\api\marketingsolutions\v2025_10\Model\ResponseReadAdSetV24Q3
+getAdSet($ad_set_id): \criteo\api\marketingsolutions\v2026_01\Model\ResponseReadAdSetV24Q3
 ```
 
 
@@ -320,13 +320,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -350,7 +350,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\ResponseReadAdSetV24Q3**](../Model/ResponseReadAdSetV24Q3.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\ResponseReadAdSetV24Q3**](../Model/ResponseReadAdSetV24Q3.md)
 
 ### Authorization
 
@@ -368,7 +368,7 @@ try {
 ## `getAdSetCategoryBids()`
 
 ```php
-getAdSetCategoryBids($ad_set_id): \criteo\api\marketingsolutions\v2025_10\Model\AdSetCategoryBidListResponse
+getAdSetCategoryBids($ad_set_id): \criteo\api\marketingsolutions\v2026_01\Model\AdSetCategoryBidListResponse
 ```
 
 
@@ -383,13 +383,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -413,7 +413,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\AdSetCategoryBidListResponse**](../Model/AdSetCategoryBidListResponse.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\AdSetCategoryBidListResponse**](../Model/AdSetCategoryBidListResponse.md)
 
 ### Authorization
 
@@ -431,7 +431,7 @@ try {
 ## `getCampaign()`
 
 ```php
-getCampaign($campaign_id): \criteo\api\marketingsolutions\v2025_10\Model\CampaignV23Q1Response
+getCampaign($campaign_id): \criteo\api\marketingsolutions\v2026_01\Model\CampaignV23Q1Response
 ```
 
 
@@ -446,13 +446,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -476,7 +476,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\CampaignV23Q1Response**](../Model/CampaignV23Q1Response.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\CampaignV23Q1Response**](../Model/CampaignV23Q1Response.md)
 
 ### Authorization
 
@@ -494,7 +494,7 @@ try {
 ## `getDisplayMultipliers()`
 
 ```php
-getDisplayMultipliers($ad_set_id): \criteo\api\marketingsolutions\v2025_10\Model\AdSetDisplayMultiplierListResponse
+getDisplayMultipliers($ad_set_id): \criteo\api\marketingsolutions\v2026_01\Model\AdSetDisplayMultiplierListResponse
 ```
 
 
@@ -509,13 +509,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -539,7 +539,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\AdSetDisplayMultiplierListResponse**](../Model/AdSetDisplayMultiplierListResponse.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\AdSetDisplayMultiplierListResponse**](../Model/AdSetDisplayMultiplierListResponse.md)
 
 ### Authorization
 
@@ -557,7 +557,7 @@ try {
 ## `getMarketplaceAdSetsByAdvertiser()`
 
 ```php
-getMarketplaceAdSetsByAdvertiser($advertiser_id): \criteo\api\marketingsolutions\v2025_10\Model\AdvertiserAdsetMessage[]
+getMarketplaceAdSetsByAdvertiser($advertiser_id): \criteo\api\marketingsolutions\v2026_01\Model\AdvertiserAdsetMessage[]
 ```
 
 
@@ -572,13 +572,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -602,7 +602,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserAdsetMessage[]**](../Model/AdvertiserAdsetMessage.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\AdvertiserAdsetMessage[]**](../Model/AdvertiserAdsetMessage.md)
 
 ### Authorization
 
@@ -620,7 +620,7 @@ try {
 ## `getMarketplaceAdvertiser()`
 
 ```php
-getMarketplaceAdvertiser($advertiser_id): \criteo\api\marketingsolutions\v2025_10\Model\AdvertiserInfoMessage
+getMarketplaceAdvertiser($advertiser_id): \criteo\api\marketingsolutions\v2026_01\Model\AdvertiserInfoMessage
 ```
 
 
@@ -635,13 +635,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -665,7 +665,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserInfoMessage**](../Model/AdvertiserInfoMessage.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\AdvertiserInfoMessage**](../Model/AdvertiserInfoMessage.md)
 
 ### Authorization
 
@@ -683,7 +683,7 @@ try {
 ## `getMarketplaceAdvertiserPreviewLimits()`
 
 ```php
-getMarketplaceAdvertiserPreviewLimits(): \criteo\api\marketingsolutions\v2025_10\Model\AdvertiserQuotaMessage[]
+getMarketplaceAdvertiserPreviewLimits(): \criteo\api\marketingsolutions\v2026_01\Model\AdvertiserQuotaMessage[]
 ```
 
 
@@ -698,13 +698,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -725,7 +725,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserQuotaMessage[]**](../Model/AdvertiserQuotaMessage.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\AdvertiserQuotaMessage[]**](../Model/AdvertiserQuotaMessage.md)
 
 ### Authorization
 
@@ -743,7 +743,7 @@ This endpoint does not need any parameter.
 ## `getMarketplaceAdvertisers()`
 
 ```php
-getMarketplaceAdvertisers(): \criteo\api\marketingsolutions\v2025_10\Model\AdvertiserInfoMessage[]
+getMarketplaceAdvertisers(): \criteo\api\marketingsolutions\v2026_01\Model\AdvertiserInfoMessage[]
 ```
 
 
@@ -758,13 +758,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -785,7 +785,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserInfoMessage[]**](../Model/AdvertiserInfoMessage.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\AdvertiserInfoMessage[]**](../Model/AdvertiserInfoMessage.md)
 
 ### Authorization
 
@@ -803,7 +803,7 @@ This endpoint does not need any parameter.
 ## `getMarketplaceBudgetsByAdvertiser()`
 
 ```php
-getMarketplaceBudgetsByAdvertiser($advertiser_id, $budget_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend): \criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]
+getMarketplaceBudgetsByAdvertiser($advertiser_id, $budget_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend): \criteo\api\marketingsolutions\v2026_01\Model\SellerBudgetMessage[]
 ```
 
 
@@ -818,13 +818,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -864,7 +864,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]**](../Model/SellerBudgetMessage.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\SellerBudgetMessage[]**](../Model/SellerBudgetMessage.md)
 
 ### Authorization
 
@@ -882,7 +882,7 @@ try {
 ## `getMarketplaceBudgetsBySeller()`
 
 ```php
-getMarketplaceBudgetsBySeller($seller_id, $campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend): \criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]
+getMarketplaceBudgetsBySeller($seller_id, $campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend): \criteo\api\marketingsolutions\v2026_01\Model\SellerBudgetMessage[]
 ```
 
 
@@ -897,13 +897,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -941,7 +941,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]**](../Model/SellerBudgetMessage.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\SellerBudgetMessage[]**](../Model/SellerBudgetMessage.md)
 
 ### Authorization
 
@@ -959,7 +959,7 @@ try {
 ## `getMarketplaceBudgetsBySellerCampaign()`
 
 ```php
-getMarketplaceBudgetsBySellerCampaign($seller_campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend): \criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]
+getMarketplaceBudgetsBySellerCampaign($seller_campaign_id, $end_after_date, $start_before_date, $status, $type, $with_balance, $with_spend): \criteo\api\marketingsolutions\v2026_01\Model\SellerBudgetMessage[]
 ```
 
 
@@ -974,13 +974,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1016,7 +1016,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]**](../Model/SellerBudgetMessage.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\SellerBudgetMessage[]**](../Model/SellerBudgetMessage.md)
 
 ### Authorization
 
@@ -1034,7 +1034,7 @@ try {
 ## `getMarketplaceCampaignsByAdvertiser()`
 
 ```php
-getMarketplaceCampaignsByAdvertiser($advertiser_id): \criteo\api\marketingsolutions\v2025_10\Model\AdvertiserCampaignMessage[]
+getMarketplaceCampaignsByAdvertiser($advertiser_id): \criteo\api\marketingsolutions\v2026_01\Model\AdvertiserCampaignMessage[]
 ```
 
 
@@ -1049,13 +1049,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1079,7 +1079,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\AdvertiserCampaignMessage[]**](../Model/AdvertiserCampaignMessage.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\AdvertiserCampaignMessage[]**](../Model/AdvertiserCampaignMessage.md)
 
 ### Authorization
 
@@ -1112,13 +1112,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1174,7 +1174,7 @@ try {
 ## `getMarketplaceSeller()`
 
 ```php
-getMarketplaceSeller($seller_id): \criteo\api\marketingsolutions\v2025_10\Model\SellerBase
+getMarketplaceSeller($seller_id): \criteo\api\marketingsolutions\v2026_01\Model\SellerBase
 ```
 
 
@@ -1189,13 +1189,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1219,7 +1219,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\SellerBase**](../Model/SellerBase.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\SellerBase**](../Model/SellerBase.md)
 
 ### Authorization
 
@@ -1252,13 +1252,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1308,7 +1308,7 @@ try {
 ## `getMarketplaceSellerBudget()`
 
 ```php
-getMarketplaceSellerBudget($budget_id): \criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage
+getMarketplaceSellerBudget($budget_id): \criteo\api\marketingsolutions\v2026_01\Model\SellerBudgetMessage
 ```
 
 
@@ -1323,13 +1323,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1353,7 +1353,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage**](../Model/SellerBudgetMessage.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\SellerBudgetMessage**](../Model/SellerBudgetMessage.md)
 
 ### Authorization
 
@@ -1371,7 +1371,7 @@ try {
 ## `getMarketplaceSellerBudgets()`
 
 ```php
-getMarketplaceSellerBudgets($advertiser_id, $campaign_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend): \criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]
+getMarketplaceSellerBudgets($advertiser_id, $campaign_id, $end_after_date, $seller_id, $start_before_date, $status, $type, $with_balance, $with_spend): \criteo\api\marketingsolutions\v2026_01\Model\SellerBudgetMessage[]
 ```
 
 
@@ -1386,13 +1386,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1432,7 +1432,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]**](../Model/SellerBudgetMessage.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\SellerBudgetMessage[]**](../Model/SellerBudgetMessage.md)
 
 ### Authorization
 
@@ -1450,7 +1450,7 @@ try {
 ## `getMarketplaceSellerCampaign()`
 
 ```php
-getMarketplaceSellerCampaign($seller_campaign_id): \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[]
+getMarketplaceSellerCampaign($seller_campaign_id): \criteo\api\marketingsolutions\v2026_01\Model\SellerCampaignMessage[]
 ```
 
 
@@ -1465,13 +1465,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1495,7 +1495,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[]**](../Model/SellerCampaignMessage.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\SellerCampaignMessage[]**](../Model/SellerCampaignMessage.md)
 
 ### Authorization
 
@@ -1513,7 +1513,7 @@ try {
 ## `getMarketplaceSellerCampaigns()`
 
 ```php
-getMarketplaceSellerCampaigns($advertiser_id, $budget_status, $campaign_id, $seller_id, $seller_status): \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[]
+getMarketplaceSellerCampaigns($advertiser_id, $budget_status, $campaign_id, $seller_id, $seller_status): \criteo\api\marketingsolutions\v2026_01\Model\SellerCampaignMessage[]
 ```
 
 
@@ -1528,13 +1528,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1566,7 +1566,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[]**](../Model/SellerCampaignMessage.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\SellerCampaignMessage[]**](../Model/SellerCampaignMessage.md)
 
 ### Authorization
 
@@ -1584,7 +1584,7 @@ try {
 ## `getMarketplaceSellerCampaignsByAdvertiser()`
 
 ```php
-getMarketplaceSellerCampaignsByAdvertiser($advertiser_id): \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[]
+getMarketplaceSellerCampaignsByAdvertiser($advertiser_id): \criteo\api\marketingsolutions\v2026_01\Model\SellerCampaignMessage[]
 ```
 
 
@@ -1599,13 +1599,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1629,7 +1629,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[]**](../Model/SellerCampaignMessage.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\SellerCampaignMessage[]**](../Model/SellerCampaignMessage.md)
 
 ### Authorization
 
@@ -1647,7 +1647,7 @@ try {
 ## `getMarketplaceSellerCampaignsBySeller()`
 
 ```php
-getMarketplaceSellerCampaignsBySeller($seller_id, $budget_status, $campaign_id, $seller_status): \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[]
+getMarketplaceSellerCampaignsBySeller($seller_id, $budget_status, $campaign_id, $seller_status): \criteo\api\marketingsolutions\v2026_01\Model\SellerCampaignMessage[]
 ```
 
 
@@ -1662,13 +1662,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1698,7 +1698,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[]**](../Model/SellerCampaignMessage.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\SellerCampaignMessage[]**](../Model/SellerCampaignMessage.md)
 
 ### Authorization
 
@@ -1731,13 +1731,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1795,7 +1795,7 @@ try {
 ## `getMarketplaceSellers()`
 
 ```php
-getMarketplaceSellers($advertiser_id, $campaign_id, $seller_name, $seller_status, $with_budget_status, $with_products): \criteo\api\marketingsolutions\v2025_10\Model\SellerBase[]
+getMarketplaceSellers($advertiser_id, $campaign_id, $seller_name, $seller_status, $with_budget_status, $with_products): \criteo\api\marketingsolutions\v2026_01\Model\SellerBase[]
 ```
 
 
@@ -1810,13 +1810,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1850,7 +1850,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\SellerBase[]**](../Model/SellerBase.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\SellerBase[]**](../Model/SellerBase.md)
 
 ### Authorization
 
@@ -1868,7 +1868,7 @@ try {
 ## `getMarketplaceSellersByAdvertiser()`
 
 ```php
-getMarketplaceSellersByAdvertiser($advertiser_id, $request_body, $partner_id): \criteo\api\marketingsolutions\v2025_10\Model\SellerBase[]
+getMarketplaceSellersByAdvertiser($advertiser_id, $request_body, $partner_id): \criteo\api\marketingsolutions\v2026_01\Model\SellerBase[]
 ```
 
 
@@ -1883,13 +1883,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1917,7 +1917,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\SellerBase[]**](../Model/SellerBase.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\SellerBase[]**](../Model/SellerBase.md)
 
 ### Authorization
 
@@ -1950,13 +1950,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2012,7 +2012,7 @@ try {
 ## `patchAdSetCategoryBids()`
 
 ```php
-patchAdSetCategoryBids($ad_set_id, $patch_ad_set_category_bid_list_request): \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidResultListResponse
+patchAdSetCategoryBids($ad_set_id, $patch_ad_set_category_bid_list_request): \criteo\api\marketingsolutions\v2026_01\Model\PatchAdSetCategoryBidResultListResponse
 ```
 
 
@@ -2027,20 +2027,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $ad_set_id = 'ad_set_id_example'; // string | Id of the Ad Set
-$patch_ad_set_category_bid_list_request = new \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidListRequest(); // \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidListRequest
+$patch_ad_set_category_bid_list_request = new \criteo\api\marketingsolutions\v2026_01\Model\PatchAdSetCategoryBidListRequest(); // \criteo\api\marketingsolutions\v2026_01\Model\PatchAdSetCategoryBidListRequest
 
 try {
     $result = $apiInstance->patchAdSetCategoryBids($ad_set_id, $patch_ad_set_category_bid_list_request);
@@ -2055,11 +2055,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **ad_set_id** | **string**| Id of the Ad Set | |
-| **patch_ad_set_category_bid_list_request** | [**\criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidListRequest**](../Model/PatchAdSetCategoryBidListRequest.md)|  | |
+| **patch_ad_set_category_bid_list_request** | [**\criteo\api\marketingsolutions\v2026_01\Model\PatchAdSetCategoryBidListRequest**](../Model/PatchAdSetCategoryBidListRequest.md)|  | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidResultListResponse**](../Model/PatchAdSetCategoryBidResultListResponse.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\PatchAdSetCategoryBidResultListResponse**](../Model/PatchAdSetCategoryBidResultListResponse.md)
 
 ### Authorization
 
@@ -2077,7 +2077,7 @@ try {
 ## `patchAdSets()`
 
 ```php
-patchAdSets($requests_patch_ad_set_v24_q3): \criteo\api\marketingsolutions\v2025_10\Model\ResponsesAdSetIdV24Q3
+patchAdSets($requests_patch_ad_set_v24_q3): \criteo\api\marketingsolutions\v2026_01\Model\ResponsesAdSetIdV24Q3
 ```
 
 
@@ -2092,19 +2092,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$requests_patch_ad_set_v24_q3 = new \criteo\api\marketingsolutions\v2025_10\Model\RequestsPatchAdSetV24Q3(); // \criteo\api\marketingsolutions\v2025_10\Model\RequestsPatchAdSetV24Q3 | List of adsets to patch.
+$requests_patch_ad_set_v24_q3 = new \criteo\api\marketingsolutions\v2026_01\Model\RequestsPatchAdSetV24Q3(); // \criteo\api\marketingsolutions\v2026_01\Model\RequestsPatchAdSetV24Q3 | List of adsets to patch.
 
 try {
     $result = $apiInstance->patchAdSets($requests_patch_ad_set_v24_q3);
@@ -2118,11 +2118,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **requests_patch_ad_set_v24_q3** | [**\criteo\api\marketingsolutions\v2025_10\Model\RequestsPatchAdSetV24Q3**](../Model/RequestsPatchAdSetV24Q3.md)| List of adsets to patch. | |
+| **requests_patch_ad_set_v24_q3** | [**\criteo\api\marketingsolutions\v2026_01\Model\RequestsPatchAdSetV24Q3**](../Model/RequestsPatchAdSetV24Q3.md)| List of adsets to patch. | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\ResponsesAdSetIdV24Q3**](../Model/ResponsesAdSetIdV24Q3.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\ResponsesAdSetIdV24Q3**](../Model/ResponsesAdSetIdV24Q3.md)
 
 ### Authorization
 
@@ -2140,7 +2140,7 @@ try {
 ## `patchCampaigns()`
 
 ```php
-patchCampaigns($patch_campaign_list_request): \criteo\api\marketingsolutions\v2025_10\Model\PatchResultCampaignListResponse
+patchCampaigns($patch_campaign_list_request): \criteo\api\marketingsolutions\v2026_01\Model\PatchResultCampaignListResponse
 ```
 
 
@@ -2155,19 +2155,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$patch_campaign_list_request = new \criteo\api\marketingsolutions\v2025_10\Model\PatchCampaignListRequest(); // \criteo\api\marketingsolutions\v2025_10\Model\PatchCampaignListRequest | List of campaigns to patch.
+$patch_campaign_list_request = new \criteo\api\marketingsolutions\v2026_01\Model\PatchCampaignListRequest(); // \criteo\api\marketingsolutions\v2026_01\Model\PatchCampaignListRequest | List of campaigns to patch.
 
 try {
     $result = $apiInstance->patchCampaigns($patch_campaign_list_request);
@@ -2181,11 +2181,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **patch_campaign_list_request** | [**\criteo\api\marketingsolutions\v2025_10\Model\PatchCampaignListRequest**](../Model/PatchCampaignListRequest.md)| List of campaigns to patch. | |
+| **patch_campaign_list_request** | [**\criteo\api\marketingsolutions\v2026_01\Model\PatchCampaignListRequest**](../Model/PatchCampaignListRequest.md)| List of campaigns to patch. | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\PatchResultCampaignListResponse**](../Model/PatchResultCampaignListResponse.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\PatchResultCampaignListResponse**](../Model/PatchResultCampaignListResponse.md)
 
 ### Authorization
 
@@ -2203,7 +2203,7 @@ try {
 ## `patchDisplayMultipliers()`
 
 ```php
-patchDisplayMultipliers($ad_set_id, $patch_ad_set_display_multiplier_list_request): \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierResultListResponse
+patchDisplayMultipliers($ad_set_id, $patch_ad_set_display_multiplier_list_request): \criteo\api\marketingsolutions\v2026_01\Model\PatchAdSetDisplayMultiplierResultListResponse
 ```
 
 
@@ -2218,20 +2218,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $ad_set_id = 'ad_set_id_example'; // string | Id of the Ad Set
-$patch_ad_set_display_multiplier_list_request = new \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierListRequest(); // \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierListRequest
+$patch_ad_set_display_multiplier_list_request = new \criteo\api\marketingsolutions\v2026_01\Model\PatchAdSetDisplayMultiplierListRequest(); // \criteo\api\marketingsolutions\v2026_01\Model\PatchAdSetDisplayMultiplierListRequest
 
 try {
     $result = $apiInstance->patchDisplayMultipliers($ad_set_id, $patch_ad_set_display_multiplier_list_request);
@@ -2246,11 +2246,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **ad_set_id** | **string**| Id of the Ad Set | |
-| **patch_ad_set_display_multiplier_list_request** | [**\criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierListRequest**](../Model/PatchAdSetDisplayMultiplierListRequest.md)|  | |
+| **patch_ad_set_display_multiplier_list_request** | [**\criteo\api\marketingsolutions\v2026_01\Model\PatchAdSetDisplayMultiplierListRequest**](../Model/PatchAdSetDisplayMultiplierListRequest.md)|  | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierResultListResponse**](../Model/PatchAdSetDisplayMultiplierResultListResponse.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\PatchAdSetDisplayMultiplierResultListResponse**](../Model/PatchAdSetDisplayMultiplierResultListResponse.md)
 
 ### Authorization
 
@@ -2268,7 +2268,7 @@ try {
 ## `searchAdSets()`
 
 ```php
-searchAdSets($ad_set_search_request_v24_q3): \criteo\api\marketingsolutions\v2025_10\Model\ResponsesReadAdSetV24Q3
+searchAdSets($ad_set_search_request_v24_q3): \criteo\api\marketingsolutions\v2026_01\Model\ResponsesReadAdSetV24Q3
 ```
 
 
@@ -2283,19 +2283,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$ad_set_search_request_v24_q3 = new \criteo\api\marketingsolutions\v2025_10\Model\AdSetSearchRequestV24Q3(); // \criteo\api\marketingsolutions\v2025_10\Model\AdSetSearchRequestV24Q3
+$ad_set_search_request_v24_q3 = new \criteo\api\marketingsolutions\v2026_01\Model\AdSetSearchRequestV24Q3(); // \criteo\api\marketingsolutions\v2026_01\Model\AdSetSearchRequestV24Q3
 
 try {
     $result = $apiInstance->searchAdSets($ad_set_search_request_v24_q3);
@@ -2309,11 +2309,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **ad_set_search_request_v24_q3** | [**\criteo\api\marketingsolutions\v2025_10\Model\AdSetSearchRequestV24Q3**](../Model/AdSetSearchRequestV24Q3.md)|  | [optional] |
+| **ad_set_search_request_v24_q3** | [**\criteo\api\marketingsolutions\v2026_01\Model\AdSetSearchRequestV24Q3**](../Model/AdSetSearchRequestV24Q3.md)|  | [optional] |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\ResponsesReadAdSetV24Q3**](../Model/ResponsesReadAdSetV24Q3.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\ResponsesReadAdSetV24Q3**](../Model/ResponsesReadAdSetV24Q3.md)
 
 ### Authorization
 
@@ -2331,7 +2331,7 @@ try {
 ## `searchCampaigns()`
 
 ```php
-searchCampaigns($campaign_search_request_v23_q1): \criteo\api\marketingsolutions\v2025_10\Model\CampaignV23Q1ListResponse
+searchCampaigns($campaign_search_request_v23_q1): \criteo\api\marketingsolutions\v2026_01\Model\CampaignV23Q1ListResponse
 ```
 
 
@@ -2346,19 +2346,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_search_request_v23_q1 = new \criteo\api\marketingsolutions\v2025_10\Model\CampaignSearchRequestV23Q1(); // \criteo\api\marketingsolutions\v2025_10\Model\CampaignSearchRequestV23Q1 | filters on campaigns
+$campaign_search_request_v23_q1 = new \criteo\api\marketingsolutions\v2026_01\Model\CampaignSearchRequestV23Q1(); // \criteo\api\marketingsolutions\v2026_01\Model\CampaignSearchRequestV23Q1 | filters on campaigns
 
 try {
     $result = $apiInstance->searchCampaigns($campaign_search_request_v23_q1);
@@ -2372,11 +2372,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_search_request_v23_q1** | [**\criteo\api\marketingsolutions\v2025_10\Model\CampaignSearchRequestV23Q1**](../Model/CampaignSearchRequestV23Q1.md)| filters on campaigns | [optional] |
+| **campaign_search_request_v23_q1** | [**\criteo\api\marketingsolutions\v2026_01\Model\CampaignSearchRequestV23Q1**](../Model/CampaignSearchRequestV23Q1.md)| filters on campaigns | [optional] |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\CampaignV23Q1ListResponse**](../Model/CampaignV23Q1ListResponse.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\CampaignV23Q1ListResponse**](../Model/CampaignV23Q1ListResponse.md)
 
 ### Authorization
 
@@ -2394,7 +2394,7 @@ try {
 ## `startAdSets()`
 
 ```php
-startAdSets($requests_ad_set_id): \criteo\api\marketingsolutions\v2025_10\Model\ResponsesAdSetId
+startAdSets($requests_ad_set_id): \criteo\api\marketingsolutions\v2026_01\Model\ResponsesAdSetId
 ```
 
 
@@ -2409,19 +2409,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$requests_ad_set_id = new \criteo\api\marketingsolutions\v2025_10\Model\RequestsAdSetId(); // \criteo\api\marketingsolutions\v2025_10\Model\RequestsAdSetId | All the ad sets to start
+$requests_ad_set_id = new \criteo\api\marketingsolutions\v2026_01\Model\RequestsAdSetId(); // \criteo\api\marketingsolutions\v2026_01\Model\RequestsAdSetId | All the ad sets to start
 
 try {
     $result = $apiInstance->startAdSets($requests_ad_set_id);
@@ -2435,11 +2435,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **requests_ad_set_id** | [**\criteo\api\marketingsolutions\v2025_10\Model\RequestsAdSetId**](../Model/RequestsAdSetId.md)| All the ad sets to start | [optional] |
+| **requests_ad_set_id** | [**\criteo\api\marketingsolutions\v2026_01\Model\RequestsAdSetId**](../Model/RequestsAdSetId.md)| All the ad sets to start | [optional] |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\ResponsesAdSetId**](../Model/ResponsesAdSetId.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\ResponsesAdSetId**](../Model/ResponsesAdSetId.md)
 
 ### Authorization
 
@@ -2457,7 +2457,7 @@ try {
 ## `stopAdSets()`
 
 ```php
-stopAdSets($requests_ad_set_id): \criteo\api\marketingsolutions\v2025_10\Model\ResponsesAdSetId
+stopAdSets($requests_ad_set_id): \criteo\api\marketingsolutions\v2026_01\Model\ResponsesAdSetId
 ```
 
 
@@ -2472,19 +2472,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$requests_ad_set_id = new \criteo\api\marketingsolutions\v2025_10\Model\RequestsAdSetId(); // \criteo\api\marketingsolutions\v2025_10\Model\RequestsAdSetId | All the ad sets to stop
+$requests_ad_set_id = new \criteo\api\marketingsolutions\v2026_01\Model\RequestsAdSetId(); // \criteo\api\marketingsolutions\v2026_01\Model\RequestsAdSetId | All the ad sets to stop
 
 try {
     $result = $apiInstance->stopAdSets($requests_ad_set_id);
@@ -2498,11 +2498,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **requests_ad_set_id** | [**\criteo\api\marketingsolutions\v2025_10\Model\RequestsAdSetId**](../Model/RequestsAdSetId.md)| All the ad sets to stop | [optional] |
+| **requests_ad_set_id** | [**\criteo\api\marketingsolutions\v2026_01\Model\RequestsAdSetId**](../Model/RequestsAdSetId.md)| All the ad sets to stop | [optional] |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\ResponsesAdSetId**](../Model/ResponsesAdSetId.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\ResponsesAdSetId**](../Model/ResponsesAdSetId.md)
 
 ### Authorization
 
@@ -2520,7 +2520,7 @@ try {
 ## `updateAdSetAudience()`
 
 ```php
-updateAdSetAudience($ad_set_id, $ad_set_audience_link_input_entity_v1): \criteo\api\marketingsolutions\v2025_10\Model\AdSetAudienceLinkEntityV1Response
+updateAdSetAudience($ad_set_id, $ad_set_audience_link_input_entity_v1): \criteo\api\marketingsolutions\v2026_01\Model\AdSetAudienceLinkEntityV1Response
 ```
 
 
@@ -2535,20 +2535,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $ad_set_id = 'ad_set_id_example'; // string | The ad set ID.
-$ad_set_audience_link_input_entity_v1 = new \criteo\api\marketingsolutions\v2025_10\Model\AdSetAudienceLinkInputEntityV1(); // \criteo\api\marketingsolutions\v2025_10\Model\AdSetAudienceLinkInputEntityV1 | Ad set-Audience update request.
+$ad_set_audience_link_input_entity_v1 = new \criteo\api\marketingsolutions\v2026_01\Model\AdSetAudienceLinkInputEntityV1(); // \criteo\api\marketingsolutions\v2026_01\Model\AdSetAudienceLinkInputEntityV1 | Ad set-Audience update request.
 
 try {
     $result = $apiInstance->updateAdSetAudience($ad_set_id, $ad_set_audience_link_input_entity_v1);
@@ -2563,11 +2563,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **ad_set_id** | **string**| The ad set ID. | |
-| **ad_set_audience_link_input_entity_v1** | [**\criteo\api\marketingsolutions\v2025_10\Model\AdSetAudienceLinkInputEntityV1**](../Model/AdSetAudienceLinkInputEntityV1.md)| Ad set-Audience update request. | |
+| **ad_set_audience_link_input_entity_v1** | [**\criteo\api\marketingsolutions\v2026_01\Model\AdSetAudienceLinkInputEntityV1**](../Model/AdSetAudienceLinkInputEntityV1.md)| Ad set-Audience update request. | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\AdSetAudienceLinkEntityV1Response**](../Model/AdSetAudienceLinkEntityV1Response.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\AdSetAudienceLinkEntityV1Response**](../Model/AdSetAudienceLinkEntityV1Response.md)
 
 ### Authorization
 
@@ -2585,7 +2585,7 @@ try {
 ## `updateMarketplaceSellerBudget()`
 
 ```php
-updateMarketplaceSellerBudget($budget_id, $update_seller_budget_message_base): \criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage
+updateMarketplaceSellerBudget($budget_id, $update_seller_budget_message_base): \criteo\api\marketingsolutions\v2026_01\Model\SellerBudgetMessage
 ```
 
 
@@ -2600,20 +2600,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $budget_id = 56; // int | Id of the budget
-$update_seller_budget_message_base = new \criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessageBase(); // \criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessageBase | 
+$update_seller_budget_message_base = new \criteo\api\marketingsolutions\v2026_01\Model\UpdateSellerBudgetMessageBase(); // \criteo\api\marketingsolutions\v2026_01\Model\UpdateSellerBudgetMessageBase | 
 
 try {
     $result = $apiInstance->updateMarketplaceSellerBudget($budget_id, $update_seller_budget_message_base);
@@ -2628,11 +2628,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **budget_id** | **int**| Id of the budget | |
-| **update_seller_budget_message_base** | [**\criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessageBase**](../Model/UpdateSellerBudgetMessageBase.md)|  | |
+| **update_seller_budget_message_base** | [**\criteo\api\marketingsolutions\v2026_01\Model\UpdateSellerBudgetMessageBase**](../Model/UpdateSellerBudgetMessageBase.md)|  | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage**](../Model/SellerBudgetMessage.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\SellerBudgetMessage**](../Model/SellerBudgetMessage.md)
 
 ### Authorization
 
@@ -2650,7 +2650,7 @@ try {
 ## `updateMarketplaceSellerBudgets()`
 
 ```php
-updateMarketplaceSellerBudgets($update_seller_budget_message): \criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]
+updateMarketplaceSellerBudgets($update_seller_budget_message): \criteo\api\marketingsolutions\v2026_01\Model\SellerBudgetMessage[]
 ```
 
 
@@ -2665,19 +2665,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$update_seller_budget_message = array(new \criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessage()); // \criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessage[] | 
+$update_seller_budget_message = array(new \criteo\api\marketingsolutions\v2026_01\Model\UpdateSellerBudgetMessage()); // \criteo\api\marketingsolutions\v2026_01\Model\UpdateSellerBudgetMessage[] | 
 
 try {
     $result = $apiInstance->updateMarketplaceSellerBudgets($update_seller_budget_message);
@@ -2691,11 +2691,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **update_seller_budget_message** | [**\criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessage[]**](../Model/UpdateSellerBudgetMessage.md)|  | |
+| **update_seller_budget_message** | [**\criteo\api\marketingsolutions\v2026_01\Model\UpdateSellerBudgetMessage[]**](../Model/UpdateSellerBudgetMessage.md)|  | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]**](../Model/SellerBudgetMessage.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\SellerBudgetMessage[]**](../Model/SellerBudgetMessage.md)
 
 ### Authorization
 
@@ -2713,7 +2713,7 @@ try {
 ## `updateMarketplaceSellerCampaign()`
 
 ```php
-updateMarketplaceSellerCampaign($seller_campaign_id, $bid): \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage
+updateMarketplaceSellerCampaign($seller_campaign_id, $bid): \criteo\api\marketingsolutions\v2026_01\Model\SellerCampaignMessage
 ```
 
 
@@ -2728,13 +2728,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2760,7 +2760,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage**](../Model/SellerCampaignMessage.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\SellerCampaignMessage**](../Model/SellerCampaignMessage.md)
 
 ### Authorization
 
@@ -2778,7 +2778,7 @@ try {
 ## `updateMarketplaceSellerCampaigns()`
 
 ```php
-updateMarketplaceSellerCampaigns($seller_campaign_update): \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[]
+updateMarketplaceSellerCampaigns($seller_campaign_update): \criteo\api\marketingsolutions\v2026_01\Model\SellerCampaignMessage[]
 ```
 
 
@@ -2793,19 +2793,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$seller_campaign_update = array(new \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignUpdate()); // \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignUpdate[] | 
+$seller_campaign_update = array(new \criteo\api\marketingsolutions\v2026_01\Model\SellerCampaignUpdate()); // \criteo\api\marketingsolutions\v2026_01\Model\SellerCampaignUpdate[] | 
 
 try {
     $result = $apiInstance->updateMarketplaceSellerCampaigns($seller_campaign_update);
@@ -2819,11 +2819,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **seller_campaign_update** | [**\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignUpdate[]**](../Model/SellerCampaignUpdate.md)|  | |
+| **seller_campaign_update** | [**\criteo\api\marketingsolutions\v2026_01\Model\SellerCampaignUpdate[]**](../Model/SellerCampaignUpdate.md)|  | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[]**](../Model/SellerCampaignMessage.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\SellerCampaignMessage[]**](../Model/SellerCampaignMessage.md)
 
 ### Authorization
 

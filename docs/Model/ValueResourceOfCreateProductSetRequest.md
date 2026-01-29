@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | [**\criteo\api\marketingsolutions\v2025_10\Model\CreateProductSetRequest**](CreateProductSetRequest.md) |  | [optional]
+**attributes** | [**\criteo\api\marketingsolutions\v2026_01\Model\CreateProductSetRequest**](CreateProductSetRequest.md) |  | [optional]
 **type** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

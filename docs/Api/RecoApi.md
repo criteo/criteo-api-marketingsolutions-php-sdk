@@ -1,24 +1,24 @@
-# criteo\api\marketingsolutions\v2025_10\RecoApi
+# criteo\api\marketingsolutions\v2026_01\RecoApi
 
 All URIs are relative to https://api.criteo.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createProductSet()**](RecoApi.md#createProductSet) | **POST** /2025-10/marketing-solutions/product-sets |  |
-| [**disableProductFiltering()**](RecoApi.md#disableProductFiltering) | **DELETE** /2025-10/marketing-solutions/ads/{ad-id}/product-filter |  |
-| [**enableProductFiltering()**](RecoApi.md#enableProductFiltering) | **POST** /2025-10/marketing-solutions/ads/{ad-id}/product-filter |  |
-| [**fetchProductFilteringConfig()**](RecoApi.md#fetchProductFilteringConfig) | **GET** /2025-10/marketing-solutions/ads/{ad-id}/product-filter |  |
-| [**fetchProductFilteringUsages()**](RecoApi.md#fetchProductFilteringUsages) | **GET** /2025-10/marketing-solutions/product-sets/{product-set-id}/product-filters |  |
-| [**fetchProductSet()**](RecoApi.md#fetchProductSet) | **GET** /2025-10/marketing-solutions/product-sets/{product-set-id} |  |
-| [**fetchProductSets()**](RecoApi.md#fetchProductSets) | **GET** /2025-10/marketing-solutions/product-sets/dataset/{dataset-id} |  |
-| [**patchProductSet()**](RecoApi.md#patchProductSet) | **PATCH** /2025-10/marketing-solutions/product-sets/{product-set-id} |  |
-| [**removeProductSet()**](RecoApi.md#removeProductSet) | **DELETE** /2025-10/marketing-solutions/product-sets/{product-set-id} |  |
+| [**createProductSet()**](RecoApi.md#createProductSet) | **POST** /2026-01/marketing-solutions/product-sets |  |
+| [**disableProductFiltering()**](RecoApi.md#disableProductFiltering) | **DELETE** /2026-01/marketing-solutions/ads/{ad-id}/product-filter |  |
+| [**enableProductFiltering()**](RecoApi.md#enableProductFiltering) | **POST** /2026-01/marketing-solutions/ads/{ad-id}/product-filter |  |
+| [**fetchProductFilteringConfig()**](RecoApi.md#fetchProductFilteringConfig) | **GET** /2026-01/marketing-solutions/ads/{ad-id}/product-filter |  |
+| [**fetchProductFilteringUsages()**](RecoApi.md#fetchProductFilteringUsages) | **GET** /2026-01/marketing-solutions/product-sets/{product-set-id}/product-filters |  |
+| [**fetchProductSet()**](RecoApi.md#fetchProductSet) | **GET** /2026-01/marketing-solutions/product-sets/{product-set-id} |  |
+| [**fetchProductSets()**](RecoApi.md#fetchProductSets) | **GET** /2026-01/marketing-solutions/product-sets/dataset/{dataset-id} |  |
+| [**patchProductSet()**](RecoApi.md#patchProductSet) | **PATCH** /2026-01/marketing-solutions/product-sets/{product-set-id} |  |
+| [**removeProductSet()**](RecoApi.md#removeProductSet) | **DELETE** /2026-01/marketing-solutions/product-sets/{product-set-id} |  |
 
 
 ## `createProductSet()`
 
 ```php
-createProductSet($value_resource_input_of_create_product_set_request): \criteo\api\marketingsolutions\v2025_10\Model\ResourceOutcomeOfProductSet
+createProductSet($value_resource_input_of_create_product_set_request): \criteo\api\marketingsolutions\v2026_01\Model\ResourceOutcomeOfProductSet
 ```
 
 
@@ -33,19 +33,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\RecoApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\RecoApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$value_resource_input_of_create_product_set_request = new \criteo\api\marketingsolutions\v2025_10\Model\ValueResourceInputOfCreateProductSetRequest(); // \criteo\api\marketingsolutions\v2025_10\Model\ValueResourceInputOfCreateProductSetRequest
+$value_resource_input_of_create_product_set_request = new \criteo\api\marketingsolutions\v2026_01\Model\ValueResourceInputOfCreateProductSetRequest(); // \criteo\api\marketingsolutions\v2026_01\Model\ValueResourceInputOfCreateProductSetRequest
 
 try {
     $result = $apiInstance->createProductSet($value_resource_input_of_create_product_set_request);
@@ -59,11 +59,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **value_resource_input_of_create_product_set_request** | [**\criteo\api\marketingsolutions\v2025_10\Model\ValueResourceInputOfCreateProductSetRequest**](../Model/ValueResourceInputOfCreateProductSetRequest.md)|  | |
+| **value_resource_input_of_create_product_set_request** | [**\criteo\api\marketingsolutions\v2026_01\Model\ValueResourceInputOfCreateProductSetRequest**](../Model/ValueResourceInputOfCreateProductSetRequest.md)|  | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\ResourceOutcomeOfProductSet**](../Model/ResourceOutcomeOfProductSet.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\ResourceOutcomeOfProductSet**](../Model/ResourceOutcomeOfProductSet.md)
 
 ### Authorization
 
@@ -81,7 +81,7 @@ try {
 ## `disableProductFiltering()`
 
 ```php
-disableProductFiltering($ad_id): \criteo\api\marketingsolutions\v2025_10\Model\ValueResourceOutcomeOfProductFilterConfig
+disableProductFiltering($ad_id): \criteo\api\marketingsolutions\v2026_01\Model\ValueResourceOutcomeOfProductFilterConfig
 ```
 
 
@@ -96,13 +96,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\RecoApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\RecoApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -126,7 +126,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\ValueResourceOutcomeOfProductFilterConfig**](../Model/ValueResourceOutcomeOfProductFilterConfig.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\ValueResourceOutcomeOfProductFilterConfig**](../Model/ValueResourceOutcomeOfProductFilterConfig.md)
 
 ### Authorization
 
@@ -144,7 +144,7 @@ try {
 ## `enableProductFiltering()`
 
 ```php
-enableProductFiltering($ad_id, $value_resource_input_of_create_product_filter_request): \criteo\api\marketingsolutions\v2025_10\Model\ValueResourceOutcomeOfProductFilterConfig
+enableProductFiltering($ad_id, $value_resource_input_of_create_product_filter_request): \criteo\api\marketingsolutions\v2026_01\Model\ValueResourceOutcomeOfProductFilterConfig
 ```
 
 
@@ -159,20 +159,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\RecoApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\RecoApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $ad_id = 'ad_id_example'; // string | ID of the ad
-$value_resource_input_of_create_product_filter_request = new \criteo\api\marketingsolutions\v2025_10\Model\ValueResourceInputOfCreateProductFilterRequest(); // \criteo\api\marketingsolutions\v2025_10\Model\ValueResourceInputOfCreateProductFilterRequest
+$value_resource_input_of_create_product_filter_request = new \criteo\api\marketingsolutions\v2026_01\Model\ValueResourceInputOfCreateProductFilterRequest(); // \criteo\api\marketingsolutions\v2026_01\Model\ValueResourceInputOfCreateProductFilterRequest
 
 try {
     $result = $apiInstance->enableProductFiltering($ad_id, $value_resource_input_of_create_product_filter_request);
@@ -187,11 +187,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **ad_id** | **string**| ID of the ad | |
-| **value_resource_input_of_create_product_filter_request** | [**\criteo\api\marketingsolutions\v2025_10\Model\ValueResourceInputOfCreateProductFilterRequest**](../Model/ValueResourceInputOfCreateProductFilterRequest.md)|  | [optional] |
+| **value_resource_input_of_create_product_filter_request** | [**\criteo\api\marketingsolutions\v2026_01\Model\ValueResourceInputOfCreateProductFilterRequest**](../Model/ValueResourceInputOfCreateProductFilterRequest.md)|  | [optional] |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\ValueResourceOutcomeOfProductFilterConfig**](../Model/ValueResourceOutcomeOfProductFilterConfig.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\ValueResourceOutcomeOfProductFilterConfig**](../Model/ValueResourceOutcomeOfProductFilterConfig.md)
 
 ### Authorization
 
@@ -209,7 +209,7 @@ try {
 ## `fetchProductFilteringConfig()`
 
 ```php
-fetchProductFilteringConfig($ad_id): \criteo\api\marketingsolutions\v2025_10\Model\ValueResourceOutcomeOfProductFilterConfig
+fetchProductFilteringConfig($ad_id): \criteo\api\marketingsolutions\v2026_01\Model\ValueResourceOutcomeOfProductFilterConfig
 ```
 
 
@@ -224,13 +224,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\RecoApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\RecoApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -254,7 +254,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\ValueResourceOutcomeOfProductFilterConfig**](../Model/ValueResourceOutcomeOfProductFilterConfig.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\ValueResourceOutcomeOfProductFilterConfig**](../Model/ValueResourceOutcomeOfProductFilterConfig.md)
 
 ### Authorization
 
@@ -272,7 +272,7 @@ try {
 ## `fetchProductFilteringUsages()`
 
 ```php
-fetchProductFilteringUsages($product_set_id): \criteo\api\marketingsolutions\v2025_10\Model\ValueResourceCollectionOutcomeOfProductFilterConfig
+fetchProductFilteringUsages($product_set_id): \criteo\api\marketingsolutions\v2026_01\Model\ValueResourceCollectionOutcomeOfProductFilterConfig
 ```
 
 
@@ -287,13 +287,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\RecoApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\RecoApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -317,7 +317,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\ValueResourceCollectionOutcomeOfProductFilterConfig**](../Model/ValueResourceCollectionOutcomeOfProductFilterConfig.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\ValueResourceCollectionOutcomeOfProductFilterConfig**](../Model/ValueResourceCollectionOutcomeOfProductFilterConfig.md)
 
 ### Authorization
 
@@ -335,7 +335,7 @@ try {
 ## `fetchProductSet()`
 
 ```php
-fetchProductSet($product_set_id): \criteo\api\marketingsolutions\v2025_10\Model\ResourceOutcomeOfProductSet
+fetchProductSet($product_set_id): \criteo\api\marketingsolutions\v2026_01\Model\ResourceOutcomeOfProductSet
 ```
 
 
@@ -350,13 +350,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\RecoApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\RecoApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -380,7 +380,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\ResourceOutcomeOfProductSet**](../Model/ResourceOutcomeOfProductSet.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\ResourceOutcomeOfProductSet**](../Model/ResourceOutcomeOfProductSet.md)
 
 ### Authorization
 
@@ -398,7 +398,7 @@ try {
 ## `fetchProductSets()`
 
 ```php
-fetchProductSets($dataset_id): \criteo\api\marketingsolutions\v2025_10\Model\ResourceCollectionOutcomeOfProductSet
+fetchProductSets($dataset_id): \criteo\api\marketingsolutions\v2026_01\Model\ResourceCollectionOutcomeOfProductSet
 ```
 
 
@@ -413,13 +413,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\RecoApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\RecoApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -443,7 +443,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\ResourceCollectionOutcomeOfProductSet**](../Model/ResourceCollectionOutcomeOfProductSet.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\ResourceCollectionOutcomeOfProductSet**](../Model/ResourceCollectionOutcomeOfProductSet.md)
 
 ### Authorization
 
@@ -461,7 +461,7 @@ try {
 ## `patchProductSet()`
 
 ```php
-patchProductSet($product_set_id, $value_resource_input_of_patch_product_set_request): \criteo\api\marketingsolutions\v2025_10\Model\ResourceOutcomeOfProductSet
+patchProductSet($product_set_id, $value_resource_input_of_patch_product_set_request): \criteo\api\marketingsolutions\v2026_01\Model\ResourceOutcomeOfProductSet
 ```
 
 
@@ -476,20 +476,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\RecoApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\RecoApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $product_set_id = 'product_set_id_example'; // string | ID of the product set
-$value_resource_input_of_patch_product_set_request = new \criteo\api\marketingsolutions\v2025_10\Model\ValueResourceInputOfPatchProductSetRequest(); // \criteo\api\marketingsolutions\v2025_10\Model\ValueResourceInputOfPatchProductSetRequest
+$value_resource_input_of_patch_product_set_request = new \criteo\api\marketingsolutions\v2026_01\Model\ValueResourceInputOfPatchProductSetRequest(); // \criteo\api\marketingsolutions\v2026_01\Model\ValueResourceInputOfPatchProductSetRequest
 
 try {
     $result = $apiInstance->patchProductSet($product_set_id, $value_resource_input_of_patch_product_set_request);
@@ -504,11 +504,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **product_set_id** | **string**| ID of the product set | |
-| **value_resource_input_of_patch_product_set_request** | [**\criteo\api\marketingsolutions\v2025_10\Model\ValueResourceInputOfPatchProductSetRequest**](../Model/ValueResourceInputOfPatchProductSetRequest.md)|  | |
+| **value_resource_input_of_patch_product_set_request** | [**\criteo\api\marketingsolutions\v2026_01\Model\ValueResourceInputOfPatchProductSetRequest**](../Model/ValueResourceInputOfPatchProductSetRequest.md)|  | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\ResourceOutcomeOfProductSet**](../Model/ResourceOutcomeOfProductSet.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\ResourceOutcomeOfProductSet**](../Model/ResourceOutcomeOfProductSet.md)
 
 ### Authorization
 
@@ -526,7 +526,7 @@ try {
 ## `removeProductSet()`
 
 ```php
-removeProductSet($product_set_id): \criteo\api\marketingsolutions\v2025_10\Model\Outcome
+removeProductSet($product_set_id): \criteo\api\marketingsolutions\v2026_01\Model\Outcome
 ```
 
 
@@ -541,13 +541,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_10\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = criteo\api\marketingsolutions\v2026_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\RecoApi(
+$apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\RecoApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -571,7 +571,7 @@ try {
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\v2025_10\Model\Outcome**](../Model/Outcome.md)
+[**\criteo\api\marketingsolutions\v2026_01\Model\Outcome**](../Model/Outcome.md)
 
 ### Authorization
 

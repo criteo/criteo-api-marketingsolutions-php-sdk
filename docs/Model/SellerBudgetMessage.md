@@ -13,6 +13,6 @@ Name | Type | Description | Notes
 **seller_id** | **string** |  | [optional]
 **spend** | **float** |  | [optional]
 **start_date** | **\DateTime** |  | [optional]
-**status** | [**\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetStatusV2**](SellerBudgetStatusV2.md) |  | [optional]
+**status** | [**\criteo\api\marketingsolutions\v2026_01\Model\SellerBudgetStatusV2**](SellerBudgetStatusV2.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
