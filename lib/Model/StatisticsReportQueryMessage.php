@@ -336,8 +336,6 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     public const METRICS_SALES_ALL_PC30D_PV24H = 'SalesAllPc30dPv24h';
     public const METRICS_SALES_PC7D_PV24 = 'SalesPc7dPv24';
     public const METRICS_SALES_ALL_PC7D_PV24 = 'SalesAllPc7dPv24';
-    public const METRICS_SALES_PC7D_PV24H = 'SalesPc7dPv24h';
-    public const METRICS_SALES_ALL_PC7D_PV24H = 'SalesAllPc7dPv24h';
     public const METRICS_SALES_LC = 'SalesLc';
     public const METRICS_SALES_ALL_LC = 'SalesAllLc';
     public const METRICS_SALES_PC7D = 'SalesPc7d';
@@ -364,8 +362,6 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     public const METRICS_REVENUE_GENERATED_ALL_PC30_PV24 = 'RevenueGeneratedAllPc30Pv24';
     public const METRICS_REVENUE_GENERATED_PC30D_PV24H = 'RevenueGeneratedPc30dPv24h';
     public const METRICS_REVENUE_GENERATED_ALL_PC30D_PV24H = 'RevenueGeneratedAllPc30dPv24h';
-    public const METRICS_REVENUE_GENERATED_PC7D_PV24H = 'RevenueGeneratedPc7dPv24h';
-    public const METRICS_REVENUE_GENERATED_ALL_PC7D_PV24H = 'RevenueGeneratedAllPc7dPv24h';
     public const METRICS_REVENUE_GENERATED_PC7D_PV24 = 'RevenueGeneratedPc7dPv24';
     public const METRICS_REVENUE_GENERATED_ALL_PC7D_PV24 = 'RevenueGeneratedAllPc7dPv24';
     public const METRICS_REVENUE_GENERATED_LC = 'RevenueGeneratedLc';
@@ -392,8 +388,6 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     public const METRICS_CONVERSION_RATE_ALL_PC30D_PV24H = 'ConversionRateAllPc30dPv24h';
     public const METRICS_CONVERSION_RATE_PC7D_PV24 = 'ConversionRatePc7dPv24';
     public const METRICS_CONVERSION_RATE_ALL_PC7D_PV24 = 'ConversionRateAllPc7dPv24';
-    public const METRICS_CONVERSION_RATE_PC7D_PV24H = 'ConversionRatePc7dPv24h';
-    public const METRICS_CONVERSION_RATE_ALL_PC7D_PV24H = 'ConversionRateAllPc7dPv24h';
     public const METRICS_CONVERSION_RATE_PC7D = 'ConversionRatePc7d';
     public const METRICS_CONVERSION_RATE_ALL_PC7D = 'ConversionRateAllPc7d';
     public const METRICS_CONVERSION_RATE_PC1D = 'ConversionRatePc1d';
@@ -412,8 +406,6 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     public const METRICS_E_COS_ALL_PC30_PV24 = 'ECosAllPc30Pv24';
     public const METRICS_E_COS_PC30D_PV24H = 'ECosPc30dPv24h';
     public const METRICS_E_COS_ALL_PC30D_PV24H = 'ECosAllPc30dPv24h';
-    public const METRICS_E_COS_PC7D_PV24H = 'ECosPc7dPv24h';
-    public const METRICS_E_COS_ALL_PC7D_PV24H = 'ECosAllPc7dPv24h';
     public const METRICS_E_COS_PC7D_PV24 = 'ECosPc7dPv24';
     public const METRICS_E_COS_ALL_PC7D_PV24 = 'ECosAllPc7dPv24';
     public const METRICS_E_COS_PC7D = 'ECosPc7d';
@@ -432,8 +424,6 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     public const METRICS_COST_PER_ORDER_ALL_PC30_PV24 = 'CostPerOrderAllPc30Pv24';
     public const METRICS_COST_PER_ORDER_PC30D_PV24H = 'CostPerOrderPc30dPv24h';
     public const METRICS_COST_PER_ORDER_ALL_PC30D_PV24H = 'CostPerOrderAllPc30dPv24h';
-    public const METRICS_COST_PER_ORDER_PC7D_PV24H = 'CostPerOrderPc7dPv24h';
-    public const METRICS_COST_PER_ORDER_ALL_PC7D_PV24H = 'CostPerOrderAllPc7dPv24h';
     public const METRICS_COST_PER_ORDER_PC7D_PV24 = 'CostPerOrderPc7dPv24';
     public const METRICS_COST_PER_ORDER_ALL_PC7D_PV24 = 'CostPerOrderAllPc7dPv24';
     public const METRICS_COST_PER_ORDER_PC7D = 'CostPerOrderPc7d';
@@ -459,8 +449,6 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     public const METRICS_AVERAGE_CART_ALL_PC30_PV24 = 'AverageCartAllPc30Pv24';
     public const METRICS_AVERAGE_CART_PC30D_PV24H = 'AverageCartPc30dPv24h';
     public const METRICS_AVERAGE_CART_ALL_PC30D_PV24H = 'AverageCartAllPc30dPv24h';
-    public const METRICS_AVERAGE_CART_PC7D_PV24H = 'AverageCartPc7dPv24h';
-    public const METRICS_AVERAGE_CART_ALL_PC7D_PV24H = 'AverageCartAllPc7dPv24h';
     public const METRICS_AVERAGE_CART_PC7D_PV24 = 'AverageCartPc7dPv24';
     public const METRICS_AVERAGE_CART_ALL_PC7D_PV24 = 'AverageCartAllPc7dPv24';
     public const METRICS_CLICK_THROUGH_RATE = 'ClickThroughRate';
@@ -521,13 +509,22 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     public const METRICS_ROAS_ALL_PC30D_PV24H = 'RoasAllPc30dPv24h';
     public const METRICS_ROAS_PC7D_PV24 = 'RoasPc7dPv24';
     public const METRICS_ROAS_ALL_PC7D_PV24 = 'RoasAllPc7dPv24';
-    public const METRICS_ROAS_PC7D_PV24H = 'RoasPc7dPv24h';
-    public const METRICS_ROAS_ALL_PC7D_PV24H = 'RoasAllPc7dPv24h';
     public const METRICS_COST_OF_SALE_PI = 'CostOfSalePi';
     public const METRICS_COST_PER_ORDER_PI = 'CostPerOrderPi';
     public const METRICS_POST_INSTALL_COST_OF_SALE = 'PostInstallCostOfSale';
     public const METRICS_POST_INSTALL_COST_PER_ORDER = 'PostInstallCostPerOrder';
     public const METRICS_RETURN_ON_ADVERTISER_SPENDING_PI = 'ReturnOnAdvertiserSpendingPi';
+    public const METRICS_CAC_CLIENT_ATTRIBUTION = 'CacClientAttribution';
+    public const METRICS_CAC_PC30D = 'CacPc30d';
+    public const METRICS_CAC_PC7D = 'CacPc7d';
+    public const METRICS_CAC_PC1D = 'CacPc1d';
+    public const METRICS_CAC_PV24H = 'CacPv24h';
+    public const METRICS_CAC_PV7D = 'CacPv7d';
+    public const METRICS_CAC_PV14D = 'CacPv14d';
+    public const METRICS_CAC_PV30D = 'CacPv30d';
+    public const METRICS_CAC_PC30_PV24H = 'CacPc30Pv24h';
+    public const METRICS_CAC_PC7D_PV24H = 'CacPc7dPv24h';
+    public const METRICS_CAC_LC30D = 'CacLc30d';
     public const METRICS_POST_INSTALL_ROAS = 'PostInstallRoas';
     public const METRICS_RETURN_ON_ADVERTISER_SPENDING_OFFLINE_PC = 'ReturnOnAdvertiserSpendingOfflinePc';
     public const METRICS_RETURN_ON_ADVERTISER_SPENDING_OFFLINE_PV = 'ReturnOnAdvertiserSpendingOfflinePv';
@@ -631,8 +628,6 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
             self::METRICS_SALES_ALL_PC30D_PV24H,
             self::METRICS_SALES_PC7D_PV24,
             self::METRICS_SALES_ALL_PC7D_PV24,
-            self::METRICS_SALES_PC7D_PV24H,
-            self::METRICS_SALES_ALL_PC7D_PV24H,
             self::METRICS_SALES_LC,
             self::METRICS_SALES_ALL_LC,
             self::METRICS_SALES_PC7D,
@@ -659,8 +654,6 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
             self::METRICS_REVENUE_GENERATED_ALL_PC30_PV24,
             self::METRICS_REVENUE_GENERATED_PC30D_PV24H,
             self::METRICS_REVENUE_GENERATED_ALL_PC30D_PV24H,
-            self::METRICS_REVENUE_GENERATED_PC7D_PV24H,
-            self::METRICS_REVENUE_GENERATED_ALL_PC7D_PV24H,
             self::METRICS_REVENUE_GENERATED_PC7D_PV24,
             self::METRICS_REVENUE_GENERATED_ALL_PC7D_PV24,
             self::METRICS_REVENUE_GENERATED_LC,
@@ -687,8 +680,6 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
             self::METRICS_CONVERSION_RATE_ALL_PC30D_PV24H,
             self::METRICS_CONVERSION_RATE_PC7D_PV24,
             self::METRICS_CONVERSION_RATE_ALL_PC7D_PV24,
-            self::METRICS_CONVERSION_RATE_PC7D_PV24H,
-            self::METRICS_CONVERSION_RATE_ALL_PC7D_PV24H,
             self::METRICS_CONVERSION_RATE_PC7D,
             self::METRICS_CONVERSION_RATE_ALL_PC7D,
             self::METRICS_CONVERSION_RATE_PC1D,
@@ -707,8 +698,6 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
             self::METRICS_E_COS_ALL_PC30_PV24,
             self::METRICS_E_COS_PC30D_PV24H,
             self::METRICS_E_COS_ALL_PC30D_PV24H,
-            self::METRICS_E_COS_PC7D_PV24H,
-            self::METRICS_E_COS_ALL_PC7D_PV24H,
             self::METRICS_E_COS_PC7D_PV24,
             self::METRICS_E_COS_ALL_PC7D_PV24,
             self::METRICS_E_COS_PC7D,
@@ -727,8 +716,6 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
             self::METRICS_COST_PER_ORDER_ALL_PC30_PV24,
             self::METRICS_COST_PER_ORDER_PC30D_PV24H,
             self::METRICS_COST_PER_ORDER_ALL_PC30D_PV24H,
-            self::METRICS_COST_PER_ORDER_PC7D_PV24H,
-            self::METRICS_COST_PER_ORDER_ALL_PC7D_PV24H,
             self::METRICS_COST_PER_ORDER_PC7D_PV24,
             self::METRICS_COST_PER_ORDER_ALL_PC7D_PV24,
             self::METRICS_COST_PER_ORDER_PC7D,
@@ -754,8 +741,6 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
             self::METRICS_AVERAGE_CART_ALL_PC30_PV24,
             self::METRICS_AVERAGE_CART_PC30D_PV24H,
             self::METRICS_AVERAGE_CART_ALL_PC30D_PV24H,
-            self::METRICS_AVERAGE_CART_PC7D_PV24H,
-            self::METRICS_AVERAGE_CART_ALL_PC7D_PV24H,
             self::METRICS_AVERAGE_CART_PC7D_PV24,
             self::METRICS_AVERAGE_CART_ALL_PC7D_PV24,
             self::METRICS_CLICK_THROUGH_RATE,
@@ -816,13 +801,22 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
             self::METRICS_ROAS_ALL_PC30D_PV24H,
             self::METRICS_ROAS_PC7D_PV24,
             self::METRICS_ROAS_ALL_PC7D_PV24,
-            self::METRICS_ROAS_PC7D_PV24H,
-            self::METRICS_ROAS_ALL_PC7D_PV24H,
             self::METRICS_COST_OF_SALE_PI,
             self::METRICS_COST_PER_ORDER_PI,
             self::METRICS_POST_INSTALL_COST_OF_SALE,
             self::METRICS_POST_INSTALL_COST_PER_ORDER,
             self::METRICS_RETURN_ON_ADVERTISER_SPENDING_PI,
+            self::METRICS_CAC_CLIENT_ATTRIBUTION,
+            self::METRICS_CAC_PC30D,
+            self::METRICS_CAC_PC7D,
+            self::METRICS_CAC_PC1D,
+            self::METRICS_CAC_PV24H,
+            self::METRICS_CAC_PV7D,
+            self::METRICS_CAC_PV14D,
+            self::METRICS_CAC_PV30D,
+            self::METRICS_CAC_PC30_PV24H,
+            self::METRICS_CAC_PC7D_PV24H,
+            self::METRICS_CAC_LC30D,
             self::METRICS_POST_INSTALL_ROAS,
             self::METRICS_RETURN_ON_ADVERTISER_SPENDING_OFFLINE_PC,
             self::METRICS_RETURN_ON_ADVERTISER_SPENDING_OFFLINE_PV,

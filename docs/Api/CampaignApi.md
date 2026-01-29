@@ -4,85 +4,18 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createAdSet()**](CampaignApi.md#createAdSet) | **POST** /2025-01/marketing-solutions/ad-sets |  |
 | [**createCampaign()**](CampaignApi.md#createCampaign) | **POST** /2025-01/marketing-solutions/campaigns |  |
-| [**getAdSet()**](CampaignApi.md#getAdSet) | **GET** /2025-01/marketing-solutions/ad-sets/{ad-set-id} |  |
 | [**getAdSetCategoryBids()**](CampaignApi.md#getAdSetCategoryBids) | **GET** /2025-01/marketing-solutions/ad-sets/{ad-set-id}/category-bids |  |
 | [**getCampaign()**](CampaignApi.md#getCampaign) | **GET** /2025-01/marketing-solutions/campaigns/{campaign-id} |  |
 | [**getDisplayMultipliers()**](CampaignApi.md#getDisplayMultipliers) | **GET** /2025-01/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers |  |
 | [**patchAdSetCategoryBids()**](CampaignApi.md#patchAdSetCategoryBids) | **PATCH** /2025-01/marketing-solutions/ad-sets/{ad-set-id}/category-bids |  |
-| [**patchAdSets()**](CampaignApi.md#patchAdSets) | **PATCH** /2025-01/marketing-solutions/ad-sets |  |
 | [**patchCampaigns()**](CampaignApi.md#patchCampaigns) | **PATCH** /2025-01/marketing-solutions/campaigns |  |
 | [**patchDisplayMultipliers()**](CampaignApi.md#patchDisplayMultipliers) | **PATCH** /2025-01/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers |  |
-| [**searchAdSets()**](CampaignApi.md#searchAdSets) | **POST** /2025-01/marketing-solutions/ad-sets/search |  |
 | [**searchCampaigns()**](CampaignApi.md#searchCampaigns) | **POST** /2025-01/marketing-solutions/campaigns/search |  |
 | [**startAdSets()**](CampaignApi.md#startAdSets) | **POST** /2025-01/marketing-solutions/ad-sets/start |  |
 | [**stopAdSets()**](CampaignApi.md#stopAdSets) | **POST** /2025-01/marketing-solutions/ad-sets/stop |  |
 | [**updateAdSetAudience()**](CampaignApi.md#updateAdSetAudience) | **PUT** /2025-01/marketing-solutions/ad-sets/{ad-set-id}/audience |  |
 
-
-## `createAdSet()`
-
-```php
-createAdSet($create_ad_set_v24_q1_request): \criteo\api\marketingsolutions\v2025_01\Model\ResponseReadAdSetV24Q1
-```
-
-
-
-Create the specified ad set
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\v2025_01\Api\CampaignApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$create_ad_set_v24_q1_request = new \criteo\api\marketingsolutions\v2025_01\Model\CreateAdSetV24Q1Request(); // \criteo\api\marketingsolutions\v2025_01\Model\CreateAdSetV24Q1Request | the ad sets to create
-
-try {
-    $result = $apiInstance->createAdSet($create_ad_set_v24_q1_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->createAdSet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **create_ad_set_v24_q1_request** | [**\criteo\api\marketingsolutions\v2025_01\Model\CreateAdSetV24Q1Request**](../Model/CreateAdSetV24Q1Request.md)| the ad sets to create | |
-
-### Return type
-
-[**\criteo\api\marketingsolutions\v2025_01\Model\ResponseReadAdSetV24Q1**](../Model/ResponseReadAdSetV24Q1.md)
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
 
 ## `createCampaign()`
 
@@ -141,69 +74,6 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getAdSet()`
-
-```php
-getAdSet($ad_set_id): \criteo\api\marketingsolutions\v2025_01\Model\ResponseReadAdSetV24Q1
-```
-
-
-
-Get the data for the specified ad set
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\v2025_01\Api\CampaignApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$ad_set_id = 'ad_set_id_example'; // string | Id of the ad set
-
-try {
-    $result = $apiInstance->getAdSet($ad_set_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->getAdSet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **ad_set_id** | **string**| Id of the ad set | |
-
-### Return type
-
-[**\criteo\api\marketingsolutions\v2025_01\Model\ResponseReadAdSetV24Q1**](../Model/ResponseReadAdSetV24Q1.md)
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -445,74 +315,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **ad_set_id** | **string**| Id of the Ad Set | |
-| **patch_ad_set_category_bid_list_request** | [**\criteo\api\marketingsolutions\v2025_01\Model\PatchAdSetCategoryBidListRequest**](../Model/PatchAdSetCategoryBidListRequest.md)|  | [optional] |
+| **patch_ad_set_category_bid_list_request** | [**\criteo\api\marketingsolutions\v2025_01\Model\PatchAdSetCategoryBidListRequest**](../Model/PatchAdSetCategoryBidListRequest.md)|  | |
 
 ### Return type
 
 [**\criteo\api\marketingsolutions\v2025_01\Model\PatchAdSetCategoryBidResultListResponse**](../Model/PatchAdSetCategoryBidResultListResponse.md)
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `patchAdSets()`
-
-```php
-patchAdSets($requests_patch_ad_set_v24_q1): \criteo\api\marketingsolutions\v2025_01\Model\ResponsesAdSetIdV24Q1
-```
-
-
-
-Patch a list of AdSets.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\v2025_01\Api\CampaignApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$requests_patch_ad_set_v24_q1 = new \criteo\api\marketingsolutions\v2025_01\Model\RequestsPatchAdSetV24Q1(); // \criteo\api\marketingsolutions\v2025_01\Model\RequestsPatchAdSetV24Q1 | List of adsets to patch.
-
-try {
-    $result = $apiInstance->patchAdSets($requests_patch_ad_set_v24_q1);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->patchAdSets: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **requests_patch_ad_set_v24_q1** | [**\criteo\api\marketingsolutions\v2025_01\Model\RequestsPatchAdSetV24Q1**](../Model/RequestsPatchAdSetV24Q1.md)| List of adsets to patch. | [optional] |
-
-### Return type
-
-[**\criteo\api\marketingsolutions\v2025_01\Model\ResponsesAdSetIdV24Q1**](../Model/ResponsesAdSetIdV24Q1.md)
 
 ### Authorization
 
@@ -571,7 +378,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **patch_campaign_list_request** | [**\criteo\api\marketingsolutions\v2025_01\Model\PatchCampaignListRequest**](../Model/PatchCampaignListRequest.md)| List of campaigns to patch. | [optional] |
+| **patch_campaign_list_request** | [**\criteo\api\marketingsolutions\v2025_01\Model\PatchCampaignListRequest**](../Model/PatchCampaignListRequest.md)| List of campaigns to patch. | |
 
 ### Return type
 
@@ -636,74 +443,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **ad_set_id** | **string**| Id of the Ad Set | |
-| **patch_ad_set_display_multiplier_list_request** | [**\criteo\api\marketingsolutions\v2025_01\Model\PatchAdSetDisplayMultiplierListRequest**](../Model/PatchAdSetDisplayMultiplierListRequest.md)|  | [optional] |
+| **patch_ad_set_display_multiplier_list_request** | [**\criteo\api\marketingsolutions\v2025_01\Model\PatchAdSetDisplayMultiplierListRequest**](../Model/PatchAdSetDisplayMultiplierListRequest.md)|  | |
 
 ### Return type
 
 [**\criteo\api\marketingsolutions\v2025_01\Model\PatchAdSetDisplayMultiplierResultListResponse**](../Model/PatchAdSetDisplayMultiplierResultListResponse.md)
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `searchAdSets()`
-
-```php
-searchAdSets($ad_set_search_request_v24_q1): \criteo\api\marketingsolutions\v2025_01\Model\ResponsesReadAdSetV24Q1
-```
-
-
-
-Search for ad sets
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\v2025_01\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\v2025_01\Api\CampaignApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$ad_set_search_request_v24_q1 = new \criteo\api\marketingsolutions\v2025_01\Model\AdSetSearchRequestV24Q1(); // \criteo\api\marketingsolutions\v2025_01\Model\AdSetSearchRequestV24Q1
-
-try {
-    $result = $apiInstance->searchAdSets($ad_set_search_request_v24_q1);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CampaignApi->searchAdSets: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **ad_set_search_request_v24_q1** | [**\criteo\api\marketingsolutions\v2025_01\Model\AdSetSearchRequestV24Q1**](../Model/AdSetSearchRequestV24Q1.md)|  | [optional] |
-
-### Return type
-
-[**\criteo\api\marketingsolutions\v2025_01\Model\ResponsesReadAdSetV24Q1**](../Model/ResponsesReadAdSetV24Q1.md)
 
 ### Authorization
 
