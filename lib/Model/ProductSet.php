@@ -62,6 +62,7 @@ class ProductSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'creation_date' => 'string',
         'dataset_id' => 'string',
         'id' => 'string',
+        'is_fallback_allowed' => 'bool',
         'keep_variant_products' => 'bool',
         'minimum_number_of_products' => 'int',
         'name' => 'string',
@@ -82,6 +83,7 @@ class ProductSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'creation_date' => null,
         'dataset_id' => null,
         'id' => null,
+        'is_fallback_allowed' => null,
         'keep_variant_products' => null,
         'minimum_number_of_products' => 'int32',
         'name' => null,
@@ -100,6 +102,7 @@ class ProductSet implements ModelInterface, ArrayAccess, \JsonSerializable
 		'creation_date' => false,
 		'dataset_id' => false,
 		'id' => true,
+		'is_fallback_allowed' => false,
 		'keep_variant_products' => false,
 		'minimum_number_of_products' => false,
 		'name' => false,
@@ -198,6 +201,7 @@ class ProductSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'creation_date' => 'creationDate',
         'dataset_id' => 'datasetId',
         'id' => 'id',
+        'is_fallback_allowed' => 'isFallbackAllowed',
         'keep_variant_products' => 'keepVariantProducts',
         'minimum_number_of_products' => 'minimumNumberOfProducts',
         'name' => 'name',
@@ -216,6 +220,7 @@ class ProductSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'creation_date' => 'setCreationDate',
         'dataset_id' => 'setDatasetId',
         'id' => 'setId',
+        'is_fallback_allowed' => 'setIsFallbackAllowed',
         'keep_variant_products' => 'setKeepVariantProducts',
         'minimum_number_of_products' => 'setMinimumNumberOfProducts',
         'name' => 'setName',
@@ -234,6 +239,7 @@ class ProductSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'creation_date' => 'getCreationDate',
         'dataset_id' => 'getDatasetId',
         'id' => 'getId',
+        'is_fallback_allowed' => 'getIsFallbackAllowed',
         'keep_variant_products' => 'getKeepVariantProducts',
         'minimum_number_of_products' => 'getMinimumNumberOfProducts',
         'name' => 'getName',
@@ -343,6 +349,7 @@ class ProductSet implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('creation_date', $data ?? [], null);
         $this->setIfExists('dataset_id', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('is_fallback_allowed', $data ?? [], null);
         $this->setIfExists('keep_variant_products', $data ?? [], null);
         $this->setIfExists('minimum_number_of_products', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
@@ -564,6 +571,33 @@ class ProductSet implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets is_fallback_allowed
+     *
+     * @return bool|null
+     */
+    public function getIsFallbackAllowed()
+    {
+        return $this->container['is_fallback_allowed'];
+    }
+
+    /**
+     * Sets is_fallback_allowed
+     *
+     * @param bool|null $is_fallback_allowed is_fallback_allowed
+     *
+     * @return self
+     */
+    public function setIsFallbackAllowed($is_fallback_allowed)
+    {
+        if (is_null($is_fallback_allowed)) {
+            throw new \InvalidArgumentException('non-nullable is_fallback_allowed cannot be null');
+        }
+        $this->container['is_fallback_allowed'] = $is_fallback_allowed;
+
+        return $this;
+    }
+
+    /**
      * Gets keep_variant_products
      *
      * @return bool
@@ -657,7 +691,7 @@ class ProductSet implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets number_of_products
      *
-     * @param int $number_of_products The number of product matching the product set.  Can be null for newly created product set.
+     * @param int $number_of_products The number of products matching the product set.  Can be null for newly created product set.
      *
      * @return self
      */

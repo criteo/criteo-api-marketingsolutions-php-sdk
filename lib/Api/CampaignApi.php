@@ -814,14 +814,14 @@ class CampaignApi
      *
      * 
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CreateSellerBudgetMapiMessage[] $create_seller_budget_mapi_message  (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CreateSellerBudgetMapiMessage[] $create_seller_budget_mapi_message  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceSellerBudgets'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]
      */
-    public function createMarketplaceSellerBudgets($create_seller_budget_mapi_message = null, string $contentType = self::contentTypes['createMarketplaceSellerBudgets'][0])
+    public function createMarketplaceSellerBudgets($create_seller_budget_mapi_message, string $contentType = self::contentTypes['createMarketplaceSellerBudgets'][0])
     {
         list($response) = $this->createMarketplaceSellerBudgetsWithHttpInfo($create_seller_budget_mapi_message, $contentType);
         return $response;
@@ -832,14 +832,14 @@ class CampaignApi
      *
      * 
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CreateSellerBudgetMapiMessage[] $create_seller_budget_mapi_message  (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CreateSellerBudgetMapiMessage[] $create_seller_budget_mapi_message  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceSellerBudgets'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function createMarketplaceSellerBudgetsWithHttpInfo($create_seller_budget_mapi_message = null, string $contentType = self::contentTypes['createMarketplaceSellerBudgets'][0])
+    public function createMarketplaceSellerBudgetsWithHttpInfo($create_seller_budget_mapi_message, string $contentType = self::contentTypes['createMarketplaceSellerBudgets'][0])
     {
         $request = $this->createMarketplaceSellerBudgetsRequest($create_seller_budget_mapi_message, $contentType);
 
@@ -932,13 +932,13 @@ class CampaignApi
      *
      * 
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CreateSellerBudgetMapiMessage[] $create_seller_budget_mapi_message  (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CreateSellerBudgetMapiMessage[] $create_seller_budget_mapi_message  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceSellerBudgets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createMarketplaceSellerBudgetsAsync($create_seller_budget_mapi_message = null, string $contentType = self::contentTypes['createMarketplaceSellerBudgets'][0])
+    public function createMarketplaceSellerBudgetsAsync($create_seller_budget_mapi_message, string $contentType = self::contentTypes['createMarketplaceSellerBudgets'][0])
     {
         return $this->createMarketplaceSellerBudgetsAsyncWithHttpInfo($create_seller_budget_mapi_message, $contentType)
             ->then(
@@ -953,13 +953,13 @@ class CampaignApi
      *
      * 
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CreateSellerBudgetMapiMessage[] $create_seller_budget_mapi_message  (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CreateSellerBudgetMapiMessage[] $create_seller_budget_mapi_message  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceSellerBudgets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createMarketplaceSellerBudgetsAsyncWithHttpInfo($create_seller_budget_mapi_message = null, string $contentType = self::contentTypes['createMarketplaceSellerBudgets'][0])
+    public function createMarketplaceSellerBudgetsAsyncWithHttpInfo($create_seller_budget_mapi_message, string $contentType = self::contentTypes['createMarketplaceSellerBudgets'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]';
         $request = $this->createMarketplaceSellerBudgetsRequest($create_seller_budget_mapi_message, $contentType);
@@ -1003,15 +1003,21 @@ class CampaignApi
     /**
      * Create request for operation 'createMarketplaceSellerBudgets'
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CreateSellerBudgetMapiMessage[] $create_seller_budget_mapi_message  (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CreateSellerBudgetMapiMessage[] $create_seller_budget_mapi_message  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceSellerBudgets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createMarketplaceSellerBudgetsRequest($create_seller_budget_mapi_message = null, string $contentType = self::contentTypes['createMarketplaceSellerBudgets'][0])
+    public function createMarketplaceSellerBudgetsRequest($create_seller_budget_mapi_message, string $contentType = self::contentTypes['createMarketplaceSellerBudgets'][0])
     {
 
+        // verify the required parameter 'create_seller_budget_mapi_message' is set
+        if ($create_seller_budget_mapi_message === null || (is_array($create_seller_budget_mapi_message) && count($create_seller_budget_mapi_message) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $create_seller_budget_mapi_message when calling createMarketplaceSellerBudgets'
+            );
+        }
 
 
         $resourcePath = '/2025-10/marketing-solutions/marketplace-performance-outcomes/budgets';
@@ -1099,14 +1105,14 @@ class CampaignApi
      * 
      *
      * @param  string $seller_id Supply a generated Id of an existing Seller (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CreateSellerCampaignMessageMapi $create_seller_campaign_message_mapi Supply the campaign Id and bid to create the mapping (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CreateSellerCampaignMessageMapi $create_seller_campaign_message_mapi Supply the campaign Id and bid to create the mapping (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceSellerCampaignsBySeller'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage
      */
-    public function createMarketplaceSellerCampaignsBySeller($seller_id, $create_seller_campaign_message_mapi = null, string $contentType = self::contentTypes['createMarketplaceSellerCampaignsBySeller'][0])
+    public function createMarketplaceSellerCampaignsBySeller($seller_id, $create_seller_campaign_message_mapi, string $contentType = self::contentTypes['createMarketplaceSellerCampaignsBySeller'][0])
     {
         list($response) = $this->createMarketplaceSellerCampaignsBySellerWithHttpInfo($seller_id, $create_seller_campaign_message_mapi, $contentType);
         return $response;
@@ -1118,14 +1124,14 @@ class CampaignApi
      * 
      *
      * @param  string $seller_id Supply a generated Id of an existing Seller (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CreateSellerCampaignMessageMapi $create_seller_campaign_message_mapi Supply the campaign Id and bid to create the mapping (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CreateSellerCampaignMessageMapi $create_seller_campaign_message_mapi Supply the campaign Id and bid to create the mapping (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceSellerCampaignsBySeller'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createMarketplaceSellerCampaignsBySellerWithHttpInfo($seller_id, $create_seller_campaign_message_mapi = null, string $contentType = self::contentTypes['createMarketplaceSellerCampaignsBySeller'][0])
+    public function createMarketplaceSellerCampaignsBySellerWithHttpInfo($seller_id, $create_seller_campaign_message_mapi, string $contentType = self::contentTypes['createMarketplaceSellerCampaignsBySeller'][0])
     {
         $request = $this->createMarketplaceSellerCampaignsBySellerRequest($seller_id, $create_seller_campaign_message_mapi, $contentType);
 
@@ -1219,13 +1225,13 @@ class CampaignApi
      * 
      *
      * @param  string $seller_id Supply a generated Id of an existing Seller (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CreateSellerCampaignMessageMapi $create_seller_campaign_message_mapi Supply the campaign Id and bid to create the mapping (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CreateSellerCampaignMessageMapi $create_seller_campaign_message_mapi Supply the campaign Id and bid to create the mapping (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceSellerCampaignsBySeller'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createMarketplaceSellerCampaignsBySellerAsync($seller_id, $create_seller_campaign_message_mapi = null, string $contentType = self::contentTypes['createMarketplaceSellerCampaignsBySeller'][0])
+    public function createMarketplaceSellerCampaignsBySellerAsync($seller_id, $create_seller_campaign_message_mapi, string $contentType = self::contentTypes['createMarketplaceSellerCampaignsBySeller'][0])
     {
         return $this->createMarketplaceSellerCampaignsBySellerAsyncWithHttpInfo($seller_id, $create_seller_campaign_message_mapi, $contentType)
             ->then(
@@ -1241,13 +1247,13 @@ class CampaignApi
      * 
      *
      * @param  string $seller_id Supply a generated Id of an existing Seller (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CreateSellerCampaignMessageMapi $create_seller_campaign_message_mapi Supply the campaign Id and bid to create the mapping (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CreateSellerCampaignMessageMapi $create_seller_campaign_message_mapi Supply the campaign Id and bid to create the mapping (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceSellerCampaignsBySeller'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createMarketplaceSellerCampaignsBySellerAsyncWithHttpInfo($seller_id, $create_seller_campaign_message_mapi = null, string $contentType = self::contentTypes['createMarketplaceSellerCampaignsBySeller'][0])
+    public function createMarketplaceSellerCampaignsBySellerAsyncWithHttpInfo($seller_id, $create_seller_campaign_message_mapi, string $contentType = self::contentTypes['createMarketplaceSellerCampaignsBySeller'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage';
         $request = $this->createMarketplaceSellerCampaignsBySellerRequest($seller_id, $create_seller_campaign_message_mapi, $contentType);
@@ -1292,13 +1298,13 @@ class CampaignApi
      * Create request for operation 'createMarketplaceSellerCampaignsBySeller'
      *
      * @param  string $seller_id Supply a generated Id of an existing Seller (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CreateSellerCampaignMessageMapi $create_seller_campaign_message_mapi Supply the campaign Id and bid to create the mapping (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CreateSellerCampaignMessageMapi $create_seller_campaign_message_mapi Supply the campaign Id and bid to create the mapping (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceSellerCampaignsBySeller'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createMarketplaceSellerCampaignsBySellerRequest($seller_id, $create_seller_campaign_message_mapi = null, string $contentType = self::contentTypes['createMarketplaceSellerCampaignsBySeller'][0])
+    public function createMarketplaceSellerCampaignsBySellerRequest($seller_id, $create_seller_campaign_message_mapi, string $contentType = self::contentTypes['createMarketplaceSellerCampaignsBySeller'][0])
     {
 
         // verify the required parameter 'seller_id' is set
@@ -1308,6 +1314,12 @@ class CampaignApi
             );
         }
 
+        // verify the required parameter 'create_seller_campaign_message_mapi' is set
+        if ($create_seller_campaign_message_mapi === null || (is_array($create_seller_campaign_message_mapi) && count($create_seller_campaign_message_mapi) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $create_seller_campaign_message_mapi when calling createMarketplaceSellerCampaignsBySeller'
+            );
+        }
 
 
         $resourcePath = '/2025-10/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/seller-campaigns';
@@ -8905,17 +8917,17 @@ class CampaignApi
      * 
      *
      * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string[] $request_body Names of the sellers to associate with new Ids (required)
      * @param  int $partner_id Id of the partner (optional)
-     * @param  string[] $request_body Names of the sellers to associate with new Ids (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellersByAdvertiser'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\v2025_10\Model\SellerBase[]
      */
-    public function getMarketplaceSellersByAdvertiser($advertiser_id, $partner_id = null, $request_body = null, string $contentType = self::contentTypes['getMarketplaceSellersByAdvertiser'][0])
+    public function getMarketplaceSellersByAdvertiser($advertiser_id, $request_body, $partner_id = null, string $contentType = self::contentTypes['getMarketplaceSellersByAdvertiser'][0])
     {
-        list($response) = $this->getMarketplaceSellersByAdvertiserWithHttpInfo($advertiser_id, $partner_id, $request_body, $contentType);
+        list($response) = $this->getMarketplaceSellersByAdvertiserWithHttpInfo($advertiser_id, $request_body, $partner_id, $contentType);
         return $response;
     }
 
@@ -8925,17 +8937,17 @@ class CampaignApi
      * 
      *
      * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string[] $request_body Names of the sellers to associate with new Ids (required)
      * @param  int $partner_id Id of the partner (optional)
-     * @param  string[] $request_body Names of the sellers to associate with new Ids (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellersByAdvertiser'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\v2025_10\Model\SellerBase[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMarketplaceSellersByAdvertiserWithHttpInfo($advertiser_id, $partner_id = null, $request_body = null, string $contentType = self::contentTypes['getMarketplaceSellersByAdvertiser'][0])
+    public function getMarketplaceSellersByAdvertiserWithHttpInfo($advertiser_id, $request_body, $partner_id = null, string $contentType = self::contentTypes['getMarketplaceSellersByAdvertiser'][0])
     {
-        $request = $this->getMarketplaceSellersByAdvertiserRequest($advertiser_id, $partner_id, $request_body, $contentType);
+        $request = $this->getMarketplaceSellersByAdvertiserRequest($advertiser_id, $request_body, $partner_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9027,16 +9039,16 @@ class CampaignApi
      * 
      *
      * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string[] $request_body Names of the sellers to associate with new Ids (required)
      * @param  int $partner_id Id of the partner (optional)
-     * @param  string[] $request_body Names of the sellers to associate with new Ids (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellersByAdvertiser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMarketplaceSellersByAdvertiserAsync($advertiser_id, $partner_id = null, $request_body = null, string $contentType = self::contentTypes['getMarketplaceSellersByAdvertiser'][0])
+    public function getMarketplaceSellersByAdvertiserAsync($advertiser_id, $request_body, $partner_id = null, string $contentType = self::contentTypes['getMarketplaceSellersByAdvertiser'][0])
     {
-        return $this->getMarketplaceSellersByAdvertiserAsyncWithHttpInfo($advertiser_id, $partner_id, $request_body, $contentType)
+        return $this->getMarketplaceSellersByAdvertiserAsyncWithHttpInfo($advertiser_id, $request_body, $partner_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9050,17 +9062,17 @@ class CampaignApi
      * 
      *
      * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string[] $request_body Names of the sellers to associate with new Ids (required)
      * @param  int $partner_id Id of the partner (optional)
-     * @param  string[] $request_body Names of the sellers to associate with new Ids (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellersByAdvertiser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMarketplaceSellersByAdvertiserAsyncWithHttpInfo($advertiser_id, $partner_id = null, $request_body = null, string $contentType = self::contentTypes['getMarketplaceSellersByAdvertiser'][0])
+    public function getMarketplaceSellersByAdvertiserAsyncWithHttpInfo($advertiser_id, $request_body, $partner_id = null, string $contentType = self::contentTypes['getMarketplaceSellersByAdvertiser'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerBase[]';
-        $request = $this->getMarketplaceSellersByAdvertiserRequest($advertiser_id, $partner_id, $request_body, $contentType);
+        $request = $this->getMarketplaceSellersByAdvertiserRequest($advertiser_id, $request_body, $partner_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9102,14 +9114,14 @@ class CampaignApi
      * Create request for operation 'getMarketplaceSellersByAdvertiser'
      *
      * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string[] $request_body Names of the sellers to associate with new Ids (required)
      * @param  int $partner_id Id of the partner (optional)
-     * @param  string[] $request_body Names of the sellers to associate with new Ids (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellersByAdvertiser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getMarketplaceSellersByAdvertiserRequest($advertiser_id, $partner_id = null, $request_body = null, string $contentType = self::contentTypes['getMarketplaceSellersByAdvertiser'][0])
+    public function getMarketplaceSellersByAdvertiserRequest($advertiser_id, $request_body, $partner_id = null, string $contentType = self::contentTypes['getMarketplaceSellersByAdvertiser'][0])
     {
 
         // verify the required parameter 'advertiser_id' is set
@@ -9119,6 +9131,12 @@ class CampaignApi
             );
         }
 
+        // verify the required parameter 'request_body' is set
+        if ($request_body === null || (is_array($request_body) && count($request_body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $request_body when calling getMarketplaceSellersByAdvertiser'
+            );
+        }
 
 
 
@@ -9613,14 +9631,14 @@ class CampaignApi
      * Operation patchAdSetCategoryBids
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request patch_ad_set_category_bid_list_request (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request patch_ad_set_category_bid_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSetCategoryBids'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidResultListResponse
      */
-    public function patchAdSetCategoryBids($ad_set_id, $patch_ad_set_category_bid_list_request = null, string $contentType = self::contentTypes['patchAdSetCategoryBids'][0])
+    public function patchAdSetCategoryBids($ad_set_id, $patch_ad_set_category_bid_list_request, string $contentType = self::contentTypes['patchAdSetCategoryBids'][0])
     {
         list($response) = $this->patchAdSetCategoryBidsWithHttpInfo($ad_set_id, $patch_ad_set_category_bid_list_request, $contentType);
         return $response;
@@ -9630,14 +9648,14 @@ class CampaignApi
      * Operation patchAdSetCategoryBidsWithHttpInfo
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSetCategoryBids'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidResultListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchAdSetCategoryBidsWithHttpInfo($ad_set_id, $patch_ad_set_category_bid_list_request = null, string $contentType = self::contentTypes['patchAdSetCategoryBids'][0])
+    public function patchAdSetCategoryBidsWithHttpInfo($ad_set_id, $patch_ad_set_category_bid_list_request, string $contentType = self::contentTypes['patchAdSetCategoryBids'][0])
     {
         $request = $this->patchAdSetCategoryBidsRequest($ad_set_id, $patch_ad_set_category_bid_list_request, $contentType);
 
@@ -9729,13 +9747,13 @@ class CampaignApi
      * Operation patchAdSetCategoryBidsAsync
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSetCategoryBids'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchAdSetCategoryBidsAsync($ad_set_id, $patch_ad_set_category_bid_list_request = null, string $contentType = self::contentTypes['patchAdSetCategoryBids'][0])
+    public function patchAdSetCategoryBidsAsync($ad_set_id, $patch_ad_set_category_bid_list_request, string $contentType = self::contentTypes['patchAdSetCategoryBids'][0])
     {
         return $this->patchAdSetCategoryBidsAsyncWithHttpInfo($ad_set_id, $patch_ad_set_category_bid_list_request, $contentType)
             ->then(
@@ -9749,13 +9767,13 @@ class CampaignApi
      * Operation patchAdSetCategoryBidsAsyncWithHttpInfo
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSetCategoryBids'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchAdSetCategoryBidsAsyncWithHttpInfo($ad_set_id, $patch_ad_set_category_bid_list_request = null, string $contentType = self::contentTypes['patchAdSetCategoryBids'][0])
+    public function patchAdSetCategoryBidsAsyncWithHttpInfo($ad_set_id, $patch_ad_set_category_bid_list_request, string $contentType = self::contentTypes['patchAdSetCategoryBids'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidResultListResponse';
         $request = $this->patchAdSetCategoryBidsRequest($ad_set_id, $patch_ad_set_category_bid_list_request, $contentType);
@@ -9800,13 +9818,13 @@ class CampaignApi
      * Create request for operation 'patchAdSetCategoryBids'
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSetCategoryBids'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchAdSetCategoryBidsRequest($ad_set_id, $patch_ad_set_category_bid_list_request = null, string $contentType = self::contentTypes['patchAdSetCategoryBids'][0])
+    public function patchAdSetCategoryBidsRequest($ad_set_id, $patch_ad_set_category_bid_list_request, string $contentType = self::contentTypes['patchAdSetCategoryBids'][0])
     {
 
         // verify the required parameter 'ad_set_id' is set
@@ -9816,6 +9834,12 @@ class CampaignApi
             );
         }
 
+        // verify the required parameter 'patch_ad_set_category_bid_list_request' is set
+        if ($patch_ad_set_category_bid_list_request === null || (is_array($patch_ad_set_category_bid_list_request) && count($patch_ad_set_category_bid_list_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $patch_ad_set_category_bid_list_request when calling patchAdSetCategoryBids'
+            );
+        }
 
 
         $resourcePath = '/2025-10/marketing-solutions/ad-sets/{ad-set-id}/category-bids';
@@ -9908,14 +9932,14 @@ class CampaignApi
     /**
      * Operation patchAdSets
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\RequestsPatchAdSetV24Q3 $requests_patch_ad_set_v24_q3 List of adsets to patch. (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\RequestsPatchAdSetV24Q3 $requests_patch_ad_set_v24_q3 List of adsets to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSets'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\v2025_10\Model\ResponsesAdSetIdV24Q3
      */
-    public function patchAdSets($requests_patch_ad_set_v24_q3 = null, string $contentType = self::contentTypes['patchAdSets'][0])
+    public function patchAdSets($requests_patch_ad_set_v24_q3, string $contentType = self::contentTypes['patchAdSets'][0])
     {
         list($response) = $this->patchAdSetsWithHttpInfo($requests_patch_ad_set_v24_q3, $contentType);
         return $response;
@@ -9924,14 +9948,14 @@ class CampaignApi
     /**
      * Operation patchAdSetsWithHttpInfo
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\RequestsPatchAdSetV24Q3 $requests_patch_ad_set_v24_q3 List of adsets to patch. (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\RequestsPatchAdSetV24Q3 $requests_patch_ad_set_v24_q3 List of adsets to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSets'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\v2025_10\Model\ResponsesAdSetIdV24Q3, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchAdSetsWithHttpInfo($requests_patch_ad_set_v24_q3 = null, string $contentType = self::contentTypes['patchAdSets'][0])
+    public function patchAdSetsWithHttpInfo($requests_patch_ad_set_v24_q3, string $contentType = self::contentTypes['patchAdSets'][0])
     {
         $request = $this->patchAdSetsRequest($requests_patch_ad_set_v24_q3, $contentType);
 
@@ -10022,13 +10046,13 @@ class CampaignApi
     /**
      * Operation patchAdSetsAsync
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\RequestsPatchAdSetV24Q3 $requests_patch_ad_set_v24_q3 List of adsets to patch. (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\RequestsPatchAdSetV24Q3 $requests_patch_ad_set_v24_q3 List of adsets to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchAdSetsAsync($requests_patch_ad_set_v24_q3 = null, string $contentType = self::contentTypes['patchAdSets'][0])
+    public function patchAdSetsAsync($requests_patch_ad_set_v24_q3, string $contentType = self::contentTypes['patchAdSets'][0])
     {
         return $this->patchAdSetsAsyncWithHttpInfo($requests_patch_ad_set_v24_q3, $contentType)
             ->then(
@@ -10041,13 +10065,13 @@ class CampaignApi
     /**
      * Operation patchAdSetsAsyncWithHttpInfo
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\RequestsPatchAdSetV24Q3 $requests_patch_ad_set_v24_q3 List of adsets to patch. (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\RequestsPatchAdSetV24Q3 $requests_patch_ad_set_v24_q3 List of adsets to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchAdSetsAsyncWithHttpInfo($requests_patch_ad_set_v24_q3 = null, string $contentType = self::contentTypes['patchAdSets'][0])
+    public function patchAdSetsAsyncWithHttpInfo($requests_patch_ad_set_v24_q3, string $contentType = self::contentTypes['patchAdSets'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\ResponsesAdSetIdV24Q3';
         $request = $this->patchAdSetsRequest($requests_patch_ad_set_v24_q3, $contentType);
@@ -10091,15 +10115,21 @@ class CampaignApi
     /**
      * Create request for operation 'patchAdSets'
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\RequestsPatchAdSetV24Q3 $requests_patch_ad_set_v24_q3 List of adsets to patch. (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\RequestsPatchAdSetV24Q3 $requests_patch_ad_set_v24_q3 List of adsets to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchAdSetsRequest($requests_patch_ad_set_v24_q3 = null, string $contentType = self::contentTypes['patchAdSets'][0])
+    public function patchAdSetsRequest($requests_patch_ad_set_v24_q3, string $contentType = self::contentTypes['patchAdSets'][0])
     {
 
+        // verify the required parameter 'requests_patch_ad_set_v24_q3' is set
+        if ($requests_patch_ad_set_v24_q3 === null || (is_array($requests_patch_ad_set_v24_q3) && count($requests_patch_ad_set_v24_q3) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $requests_patch_ad_set_v24_q3 when calling patchAdSets'
+            );
+        }
 
 
         $resourcePath = '/2025-10/marketing-solutions/ad-sets';
@@ -10184,14 +10214,14 @@ class CampaignApi
     /**
      * Operation patchCampaigns
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\v2025_10\Model\PatchResultCampaignListResponse
      */
-    public function patchCampaigns($patch_campaign_list_request = null, string $contentType = self::contentTypes['patchCampaigns'][0])
+    public function patchCampaigns($patch_campaign_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
     {
         list($response) = $this->patchCampaignsWithHttpInfo($patch_campaign_list_request, $contentType);
         return $response;
@@ -10200,14 +10230,14 @@ class CampaignApi
     /**
      * Operation patchCampaignsWithHttpInfo
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\v2025_10\Model\PatchResultCampaignListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchCampaignsWithHttpInfo($patch_campaign_list_request = null, string $contentType = self::contentTypes['patchCampaigns'][0])
+    public function patchCampaignsWithHttpInfo($patch_campaign_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
     {
         $request = $this->patchCampaignsRequest($patch_campaign_list_request, $contentType);
 
@@ -10298,13 +10328,13 @@ class CampaignApi
     /**
      * Operation patchCampaignsAsync
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCampaignsAsync($patch_campaign_list_request = null, string $contentType = self::contentTypes['patchCampaigns'][0])
+    public function patchCampaignsAsync($patch_campaign_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
     {
         return $this->patchCampaignsAsyncWithHttpInfo($patch_campaign_list_request, $contentType)
             ->then(
@@ -10317,13 +10347,13 @@ class CampaignApi
     /**
      * Operation patchCampaignsAsyncWithHttpInfo
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCampaignsAsyncWithHttpInfo($patch_campaign_list_request = null, string $contentType = self::contentTypes['patchCampaigns'][0])
+    public function patchCampaignsAsyncWithHttpInfo($patch_campaign_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\PatchResultCampaignListResponse';
         $request = $this->patchCampaignsRequest($patch_campaign_list_request, $contentType);
@@ -10367,15 +10397,21 @@ class CampaignApi
     /**
      * Create request for operation 'patchCampaigns'
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchCampaignsRequest($patch_campaign_list_request = null, string $contentType = self::contentTypes['patchCampaigns'][0])
+    public function patchCampaignsRequest($patch_campaign_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
     {
 
+        // verify the required parameter 'patch_campaign_list_request' is set
+        if ($patch_campaign_list_request === null || (is_array($patch_campaign_list_request) && count($patch_campaign_list_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $patch_campaign_list_request when calling patchCampaigns'
+            );
+        }
 
 
         $resourcePath = '/2025-10/marketing-solutions/campaigns';
@@ -10461,14 +10497,14 @@ class CampaignApi
      * Operation patchDisplayMultipliers
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request patch_ad_set_display_multiplier_list_request (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request patch_ad_set_display_multiplier_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDisplayMultipliers'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierResultListResponse
      */
-    public function patchDisplayMultipliers($ad_set_id, $patch_ad_set_display_multiplier_list_request = null, string $contentType = self::contentTypes['patchDisplayMultipliers'][0])
+    public function patchDisplayMultipliers($ad_set_id, $patch_ad_set_display_multiplier_list_request, string $contentType = self::contentTypes['patchDisplayMultipliers'][0])
     {
         list($response) = $this->patchDisplayMultipliersWithHttpInfo($ad_set_id, $patch_ad_set_display_multiplier_list_request, $contentType);
         return $response;
@@ -10478,14 +10514,14 @@ class CampaignApi
      * Operation patchDisplayMultipliersWithHttpInfo
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDisplayMultipliers'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierResultListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchDisplayMultipliersWithHttpInfo($ad_set_id, $patch_ad_set_display_multiplier_list_request = null, string $contentType = self::contentTypes['patchDisplayMultipliers'][0])
+    public function patchDisplayMultipliersWithHttpInfo($ad_set_id, $patch_ad_set_display_multiplier_list_request, string $contentType = self::contentTypes['patchDisplayMultipliers'][0])
     {
         $request = $this->patchDisplayMultipliersRequest($ad_set_id, $patch_ad_set_display_multiplier_list_request, $contentType);
 
@@ -10577,13 +10613,13 @@ class CampaignApi
      * Operation patchDisplayMultipliersAsync
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDisplayMultipliers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchDisplayMultipliersAsync($ad_set_id, $patch_ad_set_display_multiplier_list_request = null, string $contentType = self::contentTypes['patchDisplayMultipliers'][0])
+    public function patchDisplayMultipliersAsync($ad_set_id, $patch_ad_set_display_multiplier_list_request, string $contentType = self::contentTypes['patchDisplayMultipliers'][0])
     {
         return $this->patchDisplayMultipliersAsyncWithHttpInfo($ad_set_id, $patch_ad_set_display_multiplier_list_request, $contentType)
             ->then(
@@ -10597,13 +10633,13 @@ class CampaignApi
      * Operation patchDisplayMultipliersAsyncWithHttpInfo
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDisplayMultipliers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchDisplayMultipliersAsyncWithHttpInfo($ad_set_id, $patch_ad_set_display_multiplier_list_request = null, string $contentType = self::contentTypes['patchDisplayMultipliers'][0])
+    public function patchDisplayMultipliersAsyncWithHttpInfo($ad_set_id, $patch_ad_set_display_multiplier_list_request, string $contentType = self::contentTypes['patchDisplayMultipliers'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierResultListResponse';
         $request = $this->patchDisplayMultipliersRequest($ad_set_id, $patch_ad_set_display_multiplier_list_request, $contentType);
@@ -10648,13 +10684,13 @@ class CampaignApi
      * Create request for operation 'patchDisplayMultipliers'
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDisplayMultipliers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchDisplayMultipliersRequest($ad_set_id, $patch_ad_set_display_multiplier_list_request = null, string $contentType = self::contentTypes['patchDisplayMultipliers'][0])
+    public function patchDisplayMultipliersRequest($ad_set_id, $patch_ad_set_display_multiplier_list_request, string $contentType = self::contentTypes['patchDisplayMultipliers'][0])
     {
 
         // verify the required parameter 'ad_set_id' is set
@@ -10664,6 +10700,12 @@ class CampaignApi
             );
         }
 
+        // verify the required parameter 'patch_ad_set_display_multiplier_list_request' is set
+        if ($patch_ad_set_display_multiplier_list_request === null || (is_array($patch_ad_set_display_multiplier_list_request) && count($patch_ad_set_display_multiplier_list_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $patch_ad_set_display_multiplier_list_request when calling patchDisplayMultipliers'
+            );
+        }
 
 
         $resourcePath = '/2025-10/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers';
@@ -12165,14 +12207,14 @@ class CampaignApi
      * 
      *
      * @param  int $budget_id Id of the budget (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessageBase $update_seller_budget_message_base  (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessageBase $update_seller_budget_message_base  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudget'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage
      */
-    public function updateMarketplaceSellerBudget($budget_id, $update_seller_budget_message_base = null, string $contentType = self::contentTypes['updateMarketplaceSellerBudget'][0])
+    public function updateMarketplaceSellerBudget($budget_id, $update_seller_budget_message_base, string $contentType = self::contentTypes['updateMarketplaceSellerBudget'][0])
     {
         list($response) = $this->updateMarketplaceSellerBudgetWithHttpInfo($budget_id, $update_seller_budget_message_base, $contentType);
         return $response;
@@ -12184,14 +12226,14 @@ class CampaignApi
      * 
      *
      * @param  int $budget_id Id of the budget (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessageBase $update_seller_budget_message_base  (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessageBase $update_seller_budget_message_base  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudget'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateMarketplaceSellerBudgetWithHttpInfo($budget_id, $update_seller_budget_message_base = null, string $contentType = self::contentTypes['updateMarketplaceSellerBudget'][0])
+    public function updateMarketplaceSellerBudgetWithHttpInfo($budget_id, $update_seller_budget_message_base, string $contentType = self::contentTypes['updateMarketplaceSellerBudget'][0])
     {
         $request = $this->updateMarketplaceSellerBudgetRequest($budget_id, $update_seller_budget_message_base, $contentType);
 
@@ -12285,13 +12327,13 @@ class CampaignApi
      * 
      *
      * @param  int $budget_id Id of the budget (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessageBase $update_seller_budget_message_base  (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessageBase $update_seller_budget_message_base  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudget'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateMarketplaceSellerBudgetAsync($budget_id, $update_seller_budget_message_base = null, string $contentType = self::contentTypes['updateMarketplaceSellerBudget'][0])
+    public function updateMarketplaceSellerBudgetAsync($budget_id, $update_seller_budget_message_base, string $contentType = self::contentTypes['updateMarketplaceSellerBudget'][0])
     {
         return $this->updateMarketplaceSellerBudgetAsyncWithHttpInfo($budget_id, $update_seller_budget_message_base, $contentType)
             ->then(
@@ -12307,13 +12349,13 @@ class CampaignApi
      * 
      *
      * @param  int $budget_id Id of the budget (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessageBase $update_seller_budget_message_base  (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessageBase $update_seller_budget_message_base  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudget'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateMarketplaceSellerBudgetAsyncWithHttpInfo($budget_id, $update_seller_budget_message_base = null, string $contentType = self::contentTypes['updateMarketplaceSellerBudget'][0])
+    public function updateMarketplaceSellerBudgetAsyncWithHttpInfo($budget_id, $update_seller_budget_message_base, string $contentType = self::contentTypes['updateMarketplaceSellerBudget'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage';
         $request = $this->updateMarketplaceSellerBudgetRequest($budget_id, $update_seller_budget_message_base, $contentType);
@@ -12358,13 +12400,13 @@ class CampaignApi
      * Create request for operation 'updateMarketplaceSellerBudget'
      *
      * @param  int $budget_id Id of the budget (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessageBase $update_seller_budget_message_base  (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessageBase $update_seller_budget_message_base  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudget'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateMarketplaceSellerBudgetRequest($budget_id, $update_seller_budget_message_base = null, string $contentType = self::contentTypes['updateMarketplaceSellerBudget'][0])
+    public function updateMarketplaceSellerBudgetRequest($budget_id, $update_seller_budget_message_base, string $contentType = self::contentTypes['updateMarketplaceSellerBudget'][0])
     {
 
         // verify the required parameter 'budget_id' is set
@@ -12374,6 +12416,12 @@ class CampaignApi
             );
         }
 
+        // verify the required parameter 'update_seller_budget_message_base' is set
+        if ($update_seller_budget_message_base === null || (is_array($update_seller_budget_message_base) && count($update_seller_budget_message_base) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $update_seller_budget_message_base when calling updateMarketplaceSellerBudget'
+            );
+        }
 
 
         $resourcePath = '/2025-10/marketing-solutions/marketplace-performance-outcomes/budgets/{budgetId}';
@@ -12468,14 +12516,14 @@ class CampaignApi
      *
      * 
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessage[] $update_seller_budget_message  (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessage[] $update_seller_budget_message  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudgets'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]
      */
-    public function updateMarketplaceSellerBudgets($update_seller_budget_message = null, string $contentType = self::contentTypes['updateMarketplaceSellerBudgets'][0])
+    public function updateMarketplaceSellerBudgets($update_seller_budget_message, string $contentType = self::contentTypes['updateMarketplaceSellerBudgets'][0])
     {
         list($response) = $this->updateMarketplaceSellerBudgetsWithHttpInfo($update_seller_budget_message, $contentType);
         return $response;
@@ -12486,14 +12534,14 @@ class CampaignApi
      *
      * 
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessage[] $update_seller_budget_message  (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessage[] $update_seller_budget_message  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudgets'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateMarketplaceSellerBudgetsWithHttpInfo($update_seller_budget_message = null, string $contentType = self::contentTypes['updateMarketplaceSellerBudgets'][0])
+    public function updateMarketplaceSellerBudgetsWithHttpInfo($update_seller_budget_message, string $contentType = self::contentTypes['updateMarketplaceSellerBudgets'][0])
     {
         $request = $this->updateMarketplaceSellerBudgetsRequest($update_seller_budget_message, $contentType);
 
@@ -12586,13 +12634,13 @@ class CampaignApi
      *
      * 
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessage[] $update_seller_budget_message  (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessage[] $update_seller_budget_message  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudgets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateMarketplaceSellerBudgetsAsync($update_seller_budget_message = null, string $contentType = self::contentTypes['updateMarketplaceSellerBudgets'][0])
+    public function updateMarketplaceSellerBudgetsAsync($update_seller_budget_message, string $contentType = self::contentTypes['updateMarketplaceSellerBudgets'][0])
     {
         return $this->updateMarketplaceSellerBudgetsAsyncWithHttpInfo($update_seller_budget_message, $contentType)
             ->then(
@@ -12607,13 +12655,13 @@ class CampaignApi
      *
      * 
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessage[] $update_seller_budget_message  (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessage[] $update_seller_budget_message  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudgets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateMarketplaceSellerBudgetsAsyncWithHttpInfo($update_seller_budget_message = null, string $contentType = self::contentTypes['updateMarketplaceSellerBudgets'][0])
+    public function updateMarketplaceSellerBudgetsAsyncWithHttpInfo($update_seller_budget_message, string $contentType = self::contentTypes['updateMarketplaceSellerBudgets'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerBudgetMessage[]';
         $request = $this->updateMarketplaceSellerBudgetsRequest($update_seller_budget_message, $contentType);
@@ -12657,15 +12705,21 @@ class CampaignApi
     /**
      * Create request for operation 'updateMarketplaceSellerBudgets'
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessage[] $update_seller_budget_message  (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessage[] $update_seller_budget_message  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudgets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateMarketplaceSellerBudgetsRequest($update_seller_budget_message = null, string $contentType = self::contentTypes['updateMarketplaceSellerBudgets'][0])
+    public function updateMarketplaceSellerBudgetsRequest($update_seller_budget_message, string $contentType = self::contentTypes['updateMarketplaceSellerBudgets'][0])
     {
 
+        // verify the required parameter 'update_seller_budget_message' is set
+        if ($update_seller_budget_message === null || (is_array($update_seller_budget_message) && count($update_seller_budget_message) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $update_seller_budget_message when calling updateMarketplaceSellerBudgets'
+            );
+        }
 
 
         $resourcePath = '/2025-10/marketing-solutions/marketplace-performance-outcomes/budgets';
@@ -13058,14 +13112,14 @@ class CampaignApi
      *
      * 
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignUpdate[] $seller_campaign_update  (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignUpdate[] $seller_campaign_update  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerCampaigns'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[]
      */
-    public function updateMarketplaceSellerCampaigns($seller_campaign_update = null, string $contentType = self::contentTypes['updateMarketplaceSellerCampaigns'][0])
+    public function updateMarketplaceSellerCampaigns($seller_campaign_update, string $contentType = self::contentTypes['updateMarketplaceSellerCampaigns'][0])
     {
         list($response) = $this->updateMarketplaceSellerCampaignsWithHttpInfo($seller_campaign_update, $contentType);
         return $response;
@@ -13076,14 +13130,14 @@ class CampaignApi
      *
      * 
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignUpdate[] $seller_campaign_update  (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignUpdate[] $seller_campaign_update  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerCampaigns'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateMarketplaceSellerCampaignsWithHttpInfo($seller_campaign_update = null, string $contentType = self::contentTypes['updateMarketplaceSellerCampaigns'][0])
+    public function updateMarketplaceSellerCampaignsWithHttpInfo($seller_campaign_update, string $contentType = self::contentTypes['updateMarketplaceSellerCampaigns'][0])
     {
         $request = $this->updateMarketplaceSellerCampaignsRequest($seller_campaign_update, $contentType);
 
@@ -13176,13 +13230,13 @@ class CampaignApi
      *
      * 
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignUpdate[] $seller_campaign_update  (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignUpdate[] $seller_campaign_update  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateMarketplaceSellerCampaignsAsync($seller_campaign_update = null, string $contentType = self::contentTypes['updateMarketplaceSellerCampaigns'][0])
+    public function updateMarketplaceSellerCampaignsAsync($seller_campaign_update, string $contentType = self::contentTypes['updateMarketplaceSellerCampaigns'][0])
     {
         return $this->updateMarketplaceSellerCampaignsAsyncWithHttpInfo($seller_campaign_update, $contentType)
             ->then(
@@ -13197,13 +13251,13 @@ class CampaignApi
      *
      * 
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignUpdate[] $seller_campaign_update  (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignUpdate[] $seller_campaign_update  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateMarketplaceSellerCampaignsAsyncWithHttpInfo($seller_campaign_update = null, string $contentType = self::contentTypes['updateMarketplaceSellerCampaigns'][0])
+    public function updateMarketplaceSellerCampaignsAsyncWithHttpInfo($seller_campaign_update, string $contentType = self::contentTypes['updateMarketplaceSellerCampaigns'][0])
     {
         $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignMessage[]';
         $request = $this->updateMarketplaceSellerCampaignsRequest($seller_campaign_update, $contentType);
@@ -13247,15 +13301,21 @@ class CampaignApi
     /**
      * Create request for operation 'updateMarketplaceSellerCampaigns'
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignUpdate[] $seller_campaign_update  (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignUpdate[] $seller_campaign_update  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateMarketplaceSellerCampaignsRequest($seller_campaign_update = null, string $contentType = self::contentTypes['updateMarketplaceSellerCampaigns'][0])
+    public function updateMarketplaceSellerCampaignsRequest($seller_campaign_update, string $contentType = self::contentTypes['updateMarketplaceSellerCampaigns'][0])
     {
 
+        // verify the required parameter 'seller_campaign_update' is set
+        if ($seller_campaign_update === null || (is_array($seller_campaign_update) && count($seller_campaign_update) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $seller_campaign_update when calling updateMarketplaceSellerCampaigns'
+            );
+        }
 
 
         $resourcePath = '/2025-10/marketing-solutions/marketplace-performance-outcomes/seller-campaigns';

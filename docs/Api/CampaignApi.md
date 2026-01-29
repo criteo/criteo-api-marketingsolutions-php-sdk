@@ -218,7 +218,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_seller_budget_mapi_message** | [**\criteo\api\marketingsolutions\v2025_10\Model\CreateSellerBudgetMapiMessage[]**](../Model/CreateSellerBudgetMapiMessage.md)|  | [optional] |
+| **create_seller_budget_mapi_message** | [**\criteo\api\marketingsolutions\v2025_10\Model\CreateSellerBudgetMapiMessage[]**](../Model/CreateSellerBudgetMapiMessage.md)|  | |
 
 ### Return type
 
@@ -283,7 +283,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **seller_id** | **string**| Supply a generated Id of an existing Seller | |
-| **create_seller_campaign_message_mapi** | [**\criteo\api\marketingsolutions\v2025_10\Model\CreateSellerCampaignMessageMapi**](../Model/CreateSellerCampaignMessageMapi.md)| Supply the campaign Id and bid to create the mapping | [optional] |
+| **create_seller_campaign_message_mapi** | [**\criteo\api\marketingsolutions\v2025_10\Model\CreateSellerCampaignMessageMapi**](../Model/CreateSellerCampaignMessageMapi.md)| Supply the campaign Id and bid to create the mapping | |
 
 ### Return type
 
@@ -1868,7 +1868,7 @@ try {
 ## `getMarketplaceSellersByAdvertiser()`
 
 ```php
-getMarketplaceSellersByAdvertiser($advertiser_id, $partner_id, $request_body): \criteo\api\marketingsolutions\v2025_10\Model\SellerBase[]
+getMarketplaceSellersByAdvertiser($advertiser_id, $request_body, $partner_id): \criteo\api\marketingsolutions\v2025_10\Model\SellerBase[]
 ```
 
 
@@ -1896,11 +1896,11 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\CampaignApi(
     $config
 );
 $advertiser_id = 56; // int | Id of the advertiser
-$partner_id = 56; // int | Id of the partner
 $request_body = array('request_body_example'); // string[] | Names of the sellers to associate with new Ids
+$partner_id = 56; // int | Id of the partner
 
 try {
-    $result = $apiInstance->getMarketplaceSellersByAdvertiser($advertiser_id, $partner_id, $request_body);
+    $result = $apiInstance->getMarketplaceSellersByAdvertiser($advertiser_id, $request_body, $partner_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignApi->getMarketplaceSellersByAdvertiser: ', $e->getMessage(), PHP_EOL;
@@ -1912,8 +1912,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **advertiser_id** | **int**| Id of the advertiser | |
+| **request_body** | [**string[]**](../Model/string.md)| Names of the sellers to associate with new Ids | |
 | **partner_id** | **int**| Id of the partner | [optional] |
-| **request_body** | [**string[]**](../Model/string.md)| Names of the sellers to associate with new Ids | [optional] |
 
 ### Return type
 
@@ -2055,7 +2055,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **ad_set_id** | **string**| Id of the Ad Set | |
-| **patch_ad_set_category_bid_list_request** | [**\criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidListRequest**](../Model/PatchAdSetCategoryBidListRequest.md)|  | [optional] |
+| **patch_ad_set_category_bid_list_request** | [**\criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidListRequest**](../Model/PatchAdSetCategoryBidListRequest.md)|  | |
 
 ### Return type
 
@@ -2118,7 +2118,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **requests_patch_ad_set_v24_q3** | [**\criteo\api\marketingsolutions\v2025_10\Model\RequestsPatchAdSetV24Q3**](../Model/RequestsPatchAdSetV24Q3.md)| List of adsets to patch. | [optional] |
+| **requests_patch_ad_set_v24_q3** | [**\criteo\api\marketingsolutions\v2025_10\Model\RequestsPatchAdSetV24Q3**](../Model/RequestsPatchAdSetV24Q3.md)| List of adsets to patch. | |
 
 ### Return type
 
@@ -2181,7 +2181,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **patch_campaign_list_request** | [**\criteo\api\marketingsolutions\v2025_10\Model\PatchCampaignListRequest**](../Model/PatchCampaignListRequest.md)| List of campaigns to patch. | [optional] |
+| **patch_campaign_list_request** | [**\criteo\api\marketingsolutions\v2025_10\Model\PatchCampaignListRequest**](../Model/PatchCampaignListRequest.md)| List of campaigns to patch. | |
 
 ### Return type
 
@@ -2246,7 +2246,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **ad_set_id** | **string**| Id of the Ad Set | |
-| **patch_ad_set_display_multiplier_list_request** | [**\criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierListRequest**](../Model/PatchAdSetDisplayMultiplierListRequest.md)|  | [optional] |
+| **patch_ad_set_display_multiplier_list_request** | [**\criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierListRequest**](../Model/PatchAdSetDisplayMultiplierListRequest.md)|  | |
 
 ### Return type
 
@@ -2628,7 +2628,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **budget_id** | **int**| Id of the budget | |
-| **update_seller_budget_message_base** | [**\criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessageBase**](../Model/UpdateSellerBudgetMessageBase.md)|  | [optional] |
+| **update_seller_budget_message_base** | [**\criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessageBase**](../Model/UpdateSellerBudgetMessageBase.md)|  | |
 
 ### Return type
 
@@ -2691,7 +2691,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **update_seller_budget_message** | [**\criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessage[]**](../Model/UpdateSellerBudgetMessage.md)|  | [optional] |
+| **update_seller_budget_message** | [**\criteo\api\marketingsolutions\v2025_10\Model\UpdateSellerBudgetMessage[]**](../Model/UpdateSellerBudgetMessage.md)|  | |
 
 ### Return type
 
@@ -2819,7 +2819,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **seller_campaign_update** | [**\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignUpdate[]**](../Model/SellerCampaignUpdate.md)|  | [optional] |
+| **seller_campaign_update** | [**\criteo\api\marketingsolutions\v2025_10\Model\SellerCampaignUpdate[]**](../Model/SellerCampaignUpdate.md)|  | |
 
 ### Return type
 
