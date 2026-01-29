@@ -40,7 +40,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$statistics_report_query_message = {"advertiserIds":"123,456,789","adSetIds":["12345","54321"],"adSetNames":["myAdSet1","myAdSet2"],"adSetStatus":["Active"],"dimensions":["CampaignId","Campaign","AdsetId","Adset","AdvertiserId","Advertiser","AdId","Ad","CouponId","Coupon","CategoryId","Category","Hour","Day","Week","Month","Year","Os","Device"],"metrics":["Clicks","Displays","Cpc","Visits"],"currency":"EUR","format":"csv","timezone":"Europe/Paris","startDate":"2025-05-31T00:00:00.0000000+00:00","endDate":"2025-06-03T00:00:00.0000000+00:00"}; // \criteo\api\marketingsolutions\v2025_04\Model\StatisticsReportQueryMessage
+$statistics_report_query_message = {"advertiserIds":"123,456,789","adSetIds":["12345","54321"],"adSetNames":["myAdSet1","myAdSet2"],"adSetStatus":["Active"],"dimensions":["CampaignId","Campaign","AdsetId","Adset","AdvertiserId","Advertiser","AdId","Ad","CouponId","Coupon","CategoryId","Category","Hour","Day","Week","Month","Year","Os","Device"],"metrics":["Clicks","Displays","Cpc","Visits"],"currency":"EUR","format":"csv","timezone":"Europe/Paris","startDate":"2025-08-11T00:00:00.0000000+00:00","endDate":"2025-08-14T00:00:00.0000000+00:00"}; // \criteo\api\marketingsolutions\v2025_04\Model\StatisticsReportQueryMessage
 
 try {
     $result = $apiInstance->getAdsetReport($statistics_report_query_message);
@@ -230,7 +230,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AnalyticsApi(
     $config
 );
 $advertiser_id = 56; // int | The advertiser id to fetch the transparency data.
-$transparency_query_message = {"shouldDisplayProductIds":false,"startDate":"2025-05-31T00:00:00.0000000+00:00","endDate":"2025-06-03T00:00:00.0000000+00:00"}; // \criteo\api\marketingsolutions\v2025_04\Model\TransparencyQueryMessage | The query message.
+$transparency_query_message = {"shouldDisplayProductIds":false,"startDate":"2025-08-11T00:00:00.0000000+00:00","endDate":"2025-08-14T00:00:00.0000000+00:00"}; // \criteo\api\marketingsolutions\v2025_04\Model\TransparencyQueryMessage | The query message.
 
 try {
     $result = $apiInstance->getTransparencyReport($advertiser_id, $transparency_query_message);

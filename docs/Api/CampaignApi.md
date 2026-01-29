@@ -445,7 +445,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **ad_set_id** | **string**| Id of the Ad Set | |
-| **patch_ad_set_category_bid_list_request** | [**\criteo\api\marketingsolutions\v2025_04\Model\PatchAdSetCategoryBidListRequest**](../Model/PatchAdSetCategoryBidListRequest.md)|  | [optional] |
+| **patch_ad_set_category_bid_list_request** | [**\criteo\api\marketingsolutions\v2025_04\Model\PatchAdSetCategoryBidListRequest**](../Model/PatchAdSetCategoryBidListRequest.md)|  | |
 
 ### Return type
 
@@ -508,7 +508,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **requests_patch_ad_set_v24_q3** | [**\criteo\api\marketingsolutions\v2025_04\Model\RequestsPatchAdSetV24Q3**](../Model/RequestsPatchAdSetV24Q3.md)| List of adsets to patch. | [optional] |
+| **requests_patch_ad_set_v24_q3** | [**\criteo\api\marketingsolutions\v2025_04\Model\RequestsPatchAdSetV24Q3**](../Model/RequestsPatchAdSetV24Q3.md)| List of adsets to patch. | |
 
 ### Return type
 
@@ -571,7 +571,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **patch_campaign_list_request** | [**\criteo\api\marketingsolutions\v2025_04\Model\PatchCampaignListRequest**](../Model/PatchCampaignListRequest.md)| List of campaigns to patch. | [optional] |
+| **patch_campaign_list_request** | [**\criteo\api\marketingsolutions\v2025_04\Model\PatchCampaignListRequest**](../Model/PatchCampaignListRequest.md)| List of campaigns to patch. | |
 
 ### Return type
 
@@ -636,7 +636,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **ad_set_id** | **string**| Id of the Ad Set | |
-| **patch_ad_set_display_multiplier_list_request** | [**\criteo\api\marketingsolutions\v2025_04\Model\PatchAdSetDisplayMultiplierListRequest**](../Model/PatchAdSetDisplayMultiplierListRequest.md)|  | [optional] |
+| **patch_ad_set_display_multiplier_list_request** | [**\criteo\api\marketingsolutions\v2025_04\Model\PatchAdSetDisplayMultiplierListRequest**](../Model/PatchAdSetDisplayMultiplierListRequest.md)|  | |
 
 ### Return type
 
