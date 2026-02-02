@@ -621,7 +621,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AudienceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$audience_segment_id = 56; // int | The segment ID.
+$audience_segment_id = 'audience_segment_id_example'; // string | The segment ID.
 
 try {
     $result = $apiInstance->getAudienceSegmentContactListStatistics($audience_segment_id);
@@ -635,7 +635,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audience_segment_id** | **int**| The segment ID. | |
+| **audience_segment_id** | **string**| The segment ID. | |
 
 ### Return type
 

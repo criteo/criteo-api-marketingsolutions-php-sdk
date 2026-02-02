@@ -1088,7 +1088,7 @@ class CreativeApi
     /**
      * Operation deleteAd
      *
-     * @param  int $id The ad identifier to delete. (required)
+     * @param  string $id The ad identifier to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAd'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -1103,7 +1103,7 @@ class CreativeApi
     /**
      * Operation deleteAdWithHttpInfo
      *
-     * @param  int $id The ad identifier to delete. (required)
+     * @param  string $id The ad identifier to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAd'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -1161,7 +1161,7 @@ class CreativeApi
     /**
      * Operation deleteAdAsync
      *
-     * @param  int $id The ad identifier to delete. (required)
+     * @param  string $id The ad identifier to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAd'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1180,7 +1180,7 @@ class CreativeApi
     /**
      * Operation deleteAdAsyncWithHttpInfo
      *
-     * @param  int $id The ad identifier to delete. (required)
+     * @param  string $id The ad identifier to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAd'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1217,7 +1217,7 @@ class CreativeApi
     /**
      * Create request for operation 'deleteAd'
      *
-     * @param  int $id The ad identifier to delete. (required)
+     * @param  string $id The ad identifier to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAd'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1317,7 +1317,7 @@ class CreativeApi
     /**
      * Operation deleteAdSegmentLink
      *
-     * @param  int $ad_id The ad identifier. (required)
+     * @param  string $ad_id The ad identifier. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAdSegmentLink'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -1332,7 +1332,7 @@ class CreativeApi
     /**
      * Operation deleteAdSegmentLinkWithHttpInfo
      *
-     * @param  int $ad_id The ad identifier. (required)
+     * @param  string $ad_id The ad identifier. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAdSegmentLink'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -1390,7 +1390,7 @@ class CreativeApi
     /**
      * Operation deleteAdSegmentLinkAsync
      *
-     * @param  int $ad_id The ad identifier. (required)
+     * @param  string $ad_id The ad identifier. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAdSegmentLink'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1409,7 +1409,7 @@ class CreativeApi
     /**
      * Operation deleteAdSegmentLinkAsyncWithHttpInfo
      *
-     * @param  int $ad_id The ad identifier. (required)
+     * @param  string $ad_id The ad identifier. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAdSegmentLink'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1446,7 +1446,7 @@ class CreativeApi
     /**
      * Create request for operation 'deleteAdSegmentLink'
      *
-     * @param  int $ad_id The ad identifier. (required)
+     * @param  string $ad_id The ad identifier. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAdSegmentLink'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2961,7 +2961,7 @@ class CreativeApi
     /**
      * Operation getAd
      *
-     * @param  int $id The ad identifier to retrieve. (required)
+     * @param  string $id The ad identifier to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAd'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -2977,7 +2977,7 @@ class CreativeApi
     /**
      * Operation getAdWithHttpInfo
      *
-     * @param  int $id The ad identifier to retrieve. (required)
+     * @param  string $id The ad identifier to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAd'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -3075,7 +3075,7 @@ class CreativeApi
     /**
      * Operation getAdAsync
      *
-     * @param  int $id The ad identifier to retrieve. (required)
+     * @param  string $id The ad identifier to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAd'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3094,7 +3094,7 @@ class CreativeApi
     /**
      * Operation getAdAsyncWithHttpInfo
      *
-     * @param  int $id The ad identifier to retrieve. (required)
+     * @param  string $id The ad identifier to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAd'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3144,7 +3144,7 @@ class CreativeApi
     /**
      * Create request for operation 'getAd'
      *
-     * @param  int $id The ad identifier to retrieve. (required)
+     * @param  string $id The ad identifier to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAd'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3244,7 +3244,7 @@ class CreativeApi
     /**
      * Operation getAdSegmentLink
      *
-     * @param  int $ad_id The ad identifier. (required)
+     * @param  string $ad_id The ad identifier. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSegmentLink'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -3260,7 +3260,7 @@ class CreativeApi
     /**
      * Operation getAdSegmentLinkWithHttpInfo
      *
-     * @param  int $ad_id The ad identifier. (required)
+     * @param  string $ad_id The ad identifier. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSegmentLink'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -3358,7 +3358,7 @@ class CreativeApi
     /**
      * Operation getAdSegmentLinkAsync
      *
-     * @param  int $ad_id The ad identifier. (required)
+     * @param  string $ad_id The ad identifier. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSegmentLink'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3377,7 +3377,7 @@ class CreativeApi
     /**
      * Operation getAdSegmentLinkAsyncWithHttpInfo
      *
-     * @param  int $ad_id The ad identifier. (required)
+     * @param  string $ad_id The ad identifier. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSegmentLink'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3427,7 +3427,7 @@ class CreativeApi
     /**
      * Create request for operation 'getAdSegmentLink'
      *
-     * @param  int $ad_id The ad identifier. (required)
+     * @param  string $ad_id The ad identifier. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSegmentLink'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5683,7 +5683,7 @@ class CreativeApi
     /**
      * Operation linkAdSegment
      *
-     * @param  int $ad_id The ad identifier. (required)
+     * @param  string $ad_id The ad identifier. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ExamAdAudienceSegmentLinkInput $exam_ad_audience_segment_link_input The audience segment link information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['linkAdSegment'] to see the possible values for this operation
      *
@@ -5700,7 +5700,7 @@ class CreativeApi
     /**
      * Operation linkAdSegmentWithHttpInfo
      *
-     * @param  int $ad_id The ad identifier. (required)
+     * @param  string $ad_id The ad identifier. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ExamAdAudienceSegmentLinkInput $exam_ad_audience_segment_link_input The audience segment link information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['linkAdSegment'] to see the possible values for this operation
      *
@@ -5799,7 +5799,7 @@ class CreativeApi
     /**
      * Operation linkAdSegmentAsync
      *
-     * @param  int $ad_id The ad identifier. (required)
+     * @param  string $ad_id The ad identifier. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ExamAdAudienceSegmentLinkInput $exam_ad_audience_segment_link_input The audience segment link information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['linkAdSegment'] to see the possible values for this operation
      *
@@ -5819,7 +5819,7 @@ class CreativeApi
     /**
      * Operation linkAdSegmentAsyncWithHttpInfo
      *
-     * @param  int $ad_id The ad identifier. (required)
+     * @param  string $ad_id The ad identifier. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ExamAdAudienceSegmentLinkInput $exam_ad_audience_segment_link_input The audience segment link information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['linkAdSegment'] to see the possible values for this operation
      *
@@ -5870,7 +5870,7 @@ class CreativeApi
     /**
      * Create request for operation 'linkAdSegment'
      *
-     * @param  int $ad_id The ad identifier. (required)
+     * @param  string $ad_id The ad identifier. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ExamAdAudienceSegmentLinkInput $exam_ad_audience_segment_link_input The audience segment link information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['linkAdSegment'] to see the possible values for this operation
      *

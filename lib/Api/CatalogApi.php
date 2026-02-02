@@ -131,7 +131,7 @@ class CatalogApi
     /**
      * Operation getCatalogMerchantStats
      *
-     * @param  int $merchant_id merchant-id to get (required)
+     * @param  string $merchant_id merchant-id to get (required)
      * @param  int $last_num_hours the last number of hours (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogMerchantStats'] to see the possible values for this operation
      *
@@ -148,7 +148,7 @@ class CatalogApi
     /**
      * Operation getCatalogMerchantStatsWithHttpInfo
      *
-     * @param  int $merchant_id merchant-id to get (required)
+     * @param  string $merchant_id merchant-id to get (required)
      * @param  int $last_num_hours the last number of hours (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogMerchantStats'] to see the possible values for this operation
      *
@@ -247,7 +247,7 @@ class CatalogApi
     /**
      * Operation getCatalogMerchantStatsAsync
      *
-     * @param  int $merchant_id merchant-id to get (required)
+     * @param  string $merchant_id merchant-id to get (required)
      * @param  int $last_num_hours the last number of hours (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogMerchantStats'] to see the possible values for this operation
      *
@@ -267,7 +267,7 @@ class CatalogApi
     /**
      * Operation getCatalogMerchantStatsAsyncWithHttpInfo
      *
-     * @param  int $merchant_id merchant-id to get (required)
+     * @param  string $merchant_id merchant-id to get (required)
      * @param  int $last_num_hours the last number of hours (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogMerchantStats'] to see the possible values for this operation
      *
@@ -318,7 +318,7 @@ class CatalogApi
     /**
      * Create request for operation 'getCatalogMerchantStats'
      *
-     * @param  int $merchant_id merchant-id to get (required)
+     * @param  string $merchant_id merchant-id to get (required)
      * @param  int $last_num_hours the last number of hours (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogMerchantStats'] to see the possible values for this operation
      *

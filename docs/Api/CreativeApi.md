@@ -251,7 +251,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CreativeApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | The ad identifier to delete.
+$id = 'id_example'; // string | The ad identifier to delete.
 
 try {
     $apiInstance->deleteAd($id);
@@ -264,7 +264,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| The ad identifier to delete. | |
+| **id** | **string**| The ad identifier to delete. | |
 
 ### Return type
 
@@ -313,7 +313,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CreativeApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ad_id = 56; // int | The ad identifier.
+$ad_id = 'ad_id_example'; // string | The ad identifier.
 
 try {
     $apiInstance->deleteAdSegmentLink($ad_id);
@@ -326,7 +326,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **ad_id** | **int**| The ad identifier. | |
+| **ad_id** | **string**| The ad identifier. | |
 
 ### Return type
 
@@ -700,7 +700,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CreativeApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | The ad identifier to retrieve.
+$id = 'id_example'; // string | The ad identifier to retrieve.
 
 try {
     $result = $apiInstance->getAd($id);
@@ -714,7 +714,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| The ad identifier to retrieve. | |
+| **id** | **string**| The ad identifier to retrieve. | |
 
 ### Return type
 
@@ -763,7 +763,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CreativeApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ad_id = 56; // int | The ad identifier.
+$ad_id = 'ad_id_example'; // string | The ad identifier.
 
 try {
     $result = $apiInstance->getAdSegmentLink($ad_id);
@@ -777,7 +777,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **ad_id** | **int**| The ad identifier. | |
+| **ad_id** | **string**| The ad identifier. | |
 
 ### Return type
 
@@ -1289,7 +1289,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CreativeApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ad_id = 56; // int | The ad identifier.
+$ad_id = 'ad_id_example'; // string | The ad identifier.
 $exam_ad_audience_segment_link_input = new \criteo\api\marketingsolutions\preview\Model\ExamAdAudienceSegmentLinkInput(); // \criteo\api\marketingsolutions\preview\Model\ExamAdAudienceSegmentLinkInput | The audience segment link information.
 
 try {
@@ -1304,7 +1304,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **ad_id** | **int**| The ad identifier. | |
+| **ad_id** | **string**| The ad identifier. | |
 | **exam_ad_audience_segment_link_input** | [**\criteo\api\marketingsolutions\preview\Model\ExamAdAudienceSegmentLinkInput**](../Model/ExamAdAudienceSegmentLinkInput.md)| The audience segment link information. | |
 
 ### Return type

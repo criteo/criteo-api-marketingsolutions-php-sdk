@@ -39,7 +39,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CatalogApi(
     new GuzzleHttp\Client(),
     $config
 );
-$merchant_id = 56; // int | merchant-id to get
+$merchant_id = 'merchant_id_example'; // string | merchant-id to get
 $last_num_hours = 56; // int | the last number of hours
 
 try {
@@ -54,7 +54,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **merchant_id** | **int**| merchant-id to get | |
+| **merchant_id** | **string**| merchant-id to get | |
 | **last_num_hours** | **int**| the last number of hours | [optional] |
 
 ### Return type

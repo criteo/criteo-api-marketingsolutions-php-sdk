@@ -200,7 +200,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$advertiser_id = 56; // int | The advertiser id
+$advertiser_id = 'advertiser_id_example'; // string | The advertiser id
 $api_request_of_targeting_entity = new \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity(); // \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity | Contains the list of items to delete from the list
 
 try {
@@ -215,7 +215,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **int**| The advertiser id | |
+| **advertiser_id** | **string**| The advertiser id | |
 | **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Contains the list of items to delete from the list | [optional] |
 
 ### Return type
@@ -265,7 +265,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$advertiser_id = 56; // int | The advertiser id
+$advertiser_id = 'advertiser_id_example'; // string | The advertiser id
 $api_request_of_targeting_entity = new \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity(); // \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity | Contains the list of items to delete from the list
 
 try {
@@ -280,7 +280,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **int**| The advertiser id | |
+| **advertiser_id** | **string**| The advertiser id | |
 | **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Contains the list of items to delete from the list | [optional] |
 
 ### Return type
@@ -330,7 +330,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_id = 56; // int | The campaign id
+$campaign_id = 'campaign_id_example'; // string | The campaign id
 $api_request_of_targeting_entity = new \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity(); // \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity | Contains the list of items to delete from the list
 
 try {
@@ -345,7 +345,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_id** | **int**| The campaign id | |
+| **campaign_id** | **string**| The campaign id | |
 | **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Contains the list of items to delete from the list | [optional] |
 
 ### Return type
@@ -395,7 +395,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_id = 56; // int | The campaign id
+$campaign_id = 'campaign_id_example'; // string | The campaign id
 $api_request_of_targeting_entity = new \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity(); // \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity | Contains the list of items to delete from the list
 
 try {
@@ -410,7 +410,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_id** | **int**| The campaign id | |
+| **campaign_id** | **string**| The campaign id | |
 | **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Contains the list of items to delete from the list | [optional] |
 
 ### Return type
@@ -838,7 +838,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$advertiser_id = 56; // int | The advertiser id
+$advertiser_id = 'advertiser_id_example'; // string | The advertiser id
 
 try {
     $result = $apiInstance->getAdvertiserBundleRules($advertiser_id);
@@ -852,7 +852,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **int**| The advertiser id | |
+| **advertiser_id** | **string**| The advertiser id | |
 
 ### Return type
 
@@ -901,7 +901,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$advertiser_id = 56; // int | The advertiser id
+$advertiser_id = 'advertiser_id_example'; // string | The advertiser id
 
 try {
     $result = $apiInstance->getAdvertiserDomainRules($advertiser_id);
@@ -915,7 +915,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **int**| The advertiser id | |
+| **advertiser_id** | **string**| The advertiser id | |
 
 ### Return type
 
@@ -1027,7 +1027,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_id = 56; // int | The campaign id
+$campaign_id = 'campaign_id_example'; // string | The campaign id
 
 try {
     $result = $apiInstance->getCampaignBundleRules($campaign_id);
@@ -1041,7 +1041,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_id** | **int**| The campaign id | |
+| **campaign_id** | **string**| The campaign id | |
 
 ### Return type
 
@@ -1090,7 +1090,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_id = 56; // int | The campaign id
+$campaign_id = 'campaign_id_example'; // string | The campaign id
 
 try {
     $result = $apiInstance->getCampaignDomainRules($campaign_id);
@@ -1104,7 +1104,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_id** | **int**| The campaign id | |
+| **campaign_id** | **string**| The campaign id | |
 
 ### Return type
 
@@ -1532,7 +1532,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$advertiser_id = 56; // int | The advertiser id
+$advertiser_id = 'advertiser_id_example'; // string | The advertiser id
 $api_request_of_targeting_entity = new \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity(); // \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity | Description of the targeting rule to setup
 
 try {
@@ -1547,7 +1547,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **int**| The advertiser id | |
+| **advertiser_id** | **string**| The advertiser id | |
 | **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Description of the targeting rule to setup | |
 
 ### Return type
@@ -1597,7 +1597,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$advertiser_id = 56; // int | The advertiser id
+$advertiser_id = 'advertiser_id_example'; // string | The advertiser id
 $api_request_of_targeting_entity = new \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity(); // \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity | Description of the targeting rule to setup
 
 try {
@@ -1612,7 +1612,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **int**| The advertiser id | |
+| **advertiser_id** | **string**| The advertiser id | |
 | **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Description of the targeting rule to setup | |
 
 ### Return type
@@ -1662,7 +1662,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_id = 56; // int | The campaign id
+$campaign_id = 'campaign_id_example'; // string | The campaign id
 $api_request_of_targeting_entity = new \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity(); // \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity | Description of the targeting rule to setup
 
 try {
@@ -1677,7 +1677,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_id** | **int**| The campaign id | |
+| **campaign_id** | **string**| The campaign id | |
 | **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Description of the targeting rule to setup | |
 
 ### Return type
@@ -1727,7 +1727,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_id = 56; // int | The campaign id
+$campaign_id = 'campaign_id_example'; // string | The campaign id
 $api_request_of_targeting_entity = new \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity(); // \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity | Description of the targeting rule to setup
 
 try {
@@ -1742,7 +1742,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_id** | **int**| The campaign id | |
+| **campaign_id** | **string**| The campaign id | |
 | **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Description of the targeting rule to setup | |
 
 ### Return type
@@ -1792,7 +1792,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$advertiser_id = 56; // int | The advertiser id
+$advertiser_id = 'advertiser_id_example'; // string | The advertiser id
 $api_request_of_targeting_entity = new \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity(); // \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity | Contains the list of items to add to the existing list
 
 try {
@@ -1807,7 +1807,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **int**| The advertiser id | |
+| **advertiser_id** | **string**| The advertiser id | |
 | **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Contains the list of items to add to the existing list | |
 
 ### Return type
@@ -1857,7 +1857,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$advertiser_id = 56; // int | The advertiser id
+$advertiser_id = 'advertiser_id_example'; // string | The advertiser id
 $api_request_of_targeting_entity = new \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity(); // \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity | Contains the list of items to add to the existing list
 
 try {
@@ -1872,7 +1872,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **int**| The advertiser id | |
+| **advertiser_id** | **string**| The advertiser id | |
 | **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Contains the list of items to add to the existing list | |
 
 ### Return type
@@ -1922,7 +1922,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_id = 56; // int | The campaign id
+$campaign_id = 'campaign_id_example'; // string | The campaign id
 $api_request_of_targeting_entity = new \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity(); // \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity | Contains the list of items to add to the existing list
 
 try {
@@ -1937,7 +1937,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_id** | **int**| The campaign id | |
+| **campaign_id** | **string**| The campaign id | |
 | **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Contains the list of items to add to the existing list | |
 
 ### Return type
@@ -1987,7 +1987,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_id = 56; // int | The campaign id
+$campaign_id = 'campaign_id_example'; // string | The campaign id
 $api_request_of_targeting_entity = new \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity(); // \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity | Contains the list of items to add to the existing list
 
 try {
@@ -2002,7 +2002,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_id** | **int**| The campaign id | |
+| **campaign_id** | **string**| The campaign id | |
 | **api_request_of_targeting_entity** | [**\criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity**](../Model/ApiRequestOfTargetingEntity.md)| Contains the list of items to add to the existing list | |
 
 ### Return type

@@ -2715,7 +2715,7 @@ class AudienceApi
     /**
      * Operation getAudienceSegmentContactListStatistics
      *
-     * @param  int $audience_segment_id The segment ID. (required)
+     * @param  string $audience_segment_id The segment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAudienceSegmentContactListStatistics'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -2731,7 +2731,7 @@ class AudienceApi
     /**
      * Operation getAudienceSegmentContactListStatisticsWithHttpInfo
      *
-     * @param  int $audience_segment_id The segment ID. (required)
+     * @param  string $audience_segment_id The segment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAudienceSegmentContactListStatistics'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -2829,7 +2829,7 @@ class AudienceApi
     /**
      * Operation getAudienceSegmentContactListStatisticsAsync
      *
-     * @param  int $audience_segment_id The segment ID. (required)
+     * @param  string $audience_segment_id The segment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAudienceSegmentContactListStatistics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2848,7 +2848,7 @@ class AudienceApi
     /**
      * Operation getAudienceSegmentContactListStatisticsAsyncWithHttpInfo
      *
-     * @param  int $audience_segment_id The segment ID. (required)
+     * @param  string $audience_segment_id The segment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAudienceSegmentContactListStatistics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2898,7 +2898,7 @@ class AudienceApi
     /**
      * Create request for operation 'getAudienceSegmentContactListStatistics'
      *
-     * @param  int $audience_segment_id The segment ID. (required)
+     * @param  string $audience_segment_id The segment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAudienceSegmentContactListStatistics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
