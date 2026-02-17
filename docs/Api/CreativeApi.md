@@ -248,7 +248,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CreativeApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | The ad identifier to delete.
+$id = 'id_example'; // string | The ad identifier to delete.
 
 try {
     $apiInstance->deleteAd($id);
@@ -261,7 +261,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| The ad identifier to delete. | |
+| **id** | **string**| The ad identifier to delete. | |
 
 ### Return type
 
@@ -635,7 +635,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CreativeApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | The ad identifier to retrieve.
+$id = 'id_example'; // string | The ad identifier to retrieve.
 
 try {
     $result = $apiInstance->getAd($id);
@@ -649,7 +649,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| The ad identifier to retrieve. | |
+| **id** | **string**| The ad identifier to retrieve. | |
 
 ### Return type
 

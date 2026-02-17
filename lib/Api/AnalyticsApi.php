@@ -971,7 +971,7 @@ class AnalyticsApi
     /**
      * Operation getTransparencyReport
      *
-     * @param  int $advertiser_id The advertiser id to fetch the transparency data. (required)
+     * @param  string $advertiser_id The advertiser id to fetch the transparency data. (required)
      * @param  \criteo\api\marketingsolutions\v2026_01\Model\TransparencyQueryMessage $transparency_query_message The query message. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransparencyReport'] to see the possible values for this operation
      *
@@ -988,7 +988,7 @@ class AnalyticsApi
     /**
      * Operation getTransparencyReportWithHttpInfo
      *
-     * @param  int $advertiser_id The advertiser id to fetch the transparency data. (required)
+     * @param  string $advertiser_id The advertiser id to fetch the transparency data. (required)
      * @param  \criteo\api\marketingsolutions\v2026_01\Model\TransparencyQueryMessage $transparency_query_message The query message. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransparencyReport'] to see the possible values for this operation
      *
@@ -1087,7 +1087,7 @@ class AnalyticsApi
     /**
      * Operation getTransparencyReportAsync
      *
-     * @param  int $advertiser_id The advertiser id to fetch the transparency data. (required)
+     * @param  string $advertiser_id The advertiser id to fetch the transparency data. (required)
      * @param  \criteo\api\marketingsolutions\v2026_01\Model\TransparencyQueryMessage $transparency_query_message The query message. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransparencyReport'] to see the possible values for this operation
      *
@@ -1107,7 +1107,7 @@ class AnalyticsApi
     /**
      * Operation getTransparencyReportAsyncWithHttpInfo
      *
-     * @param  int $advertiser_id The advertiser id to fetch the transparency data. (required)
+     * @param  string $advertiser_id The advertiser id to fetch the transparency data. (required)
      * @param  \criteo\api\marketingsolutions\v2026_01\Model\TransparencyQueryMessage $transparency_query_message The query message. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransparencyReport'] to see the possible values for this operation
      *
@@ -1158,7 +1158,7 @@ class AnalyticsApi
     /**
      * Create request for operation 'getTransparencyReport'
      *
-     * @param  int $advertiser_id The advertiser id to fetch the transparency data. (required)
+     * @param  string $advertiser_id The advertiser id to fetch the transparency data. (required)
      * @param  \criteo\api\marketingsolutions\v2026_01\Model\TransparencyQueryMessage $transparency_query_message The query message. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransparencyReport'] to see the possible values for this operation
      *

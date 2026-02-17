@@ -584,7 +584,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$advertiser_id = 56; // int | Id of the advertiser
+$advertiser_id = 'advertiser_id_example'; // string | Id of the advertiser
 
 try {
     $result = $apiInstance->getMarketplaceAdSetsByAdvertiser($advertiser_id);
@@ -598,7 +598,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **int**| Id of the advertiser | |
+| **advertiser_id** | **string**| Id of the advertiser | |
 
 ### Return type
 
@@ -647,7 +647,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$advertiser_id = 56; // int | Id of the advertiser
+$advertiser_id = 'advertiser_id_example'; // string | Id of the advertiser
 
 try {
     $result = $apiInstance->getMarketplaceAdvertiser($advertiser_id);
@@ -661,7 +661,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **int**| Id of the advertiser | |
+| **advertiser_id** | **string**| Id of the advertiser | |
 
 ### Return type
 
@@ -830,7 +830,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$advertiser_id = 56; // int | Id of the advertiser
+$advertiser_id = 'advertiser_id_example'; // string | Id of the advertiser
 $budget_id = 56; // int | Return only budgets with given Id
 $end_after_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Return budgets that end after the given date using the `yyyy-MM-DD` format.              If param is not provided, default behavior is to only return budgets that have not yet ended.
 $seller_id = 56; // int | Return only budgets belonging to given sellerId
@@ -852,7 +852,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **int**| Id of the advertiser | |
+| **advertiser_id** | **string**| Id of the advertiser | |
 | **budget_id** | **int**| Return only budgets with given Id | [optional] |
 | **end_after_date** | **\DateTime**| Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. | [optional] |
 | **seller_id** | **int**| Return only budgets belonging to given sellerId | [optional] |
@@ -1061,7 +1061,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$advertiser_id = 56; // int | Id of the advertiser
+$advertiser_id = 'advertiser_id_example'; // string | Id of the advertiser
 
 try {
     $result = $apiInstance->getMarketplaceCampaignsByAdvertiser($advertiser_id);
@@ -1075,7 +1075,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **int**| Id of the advertiser | |
+| **advertiser_id** | **string**| Id of the advertiser | |
 
 ### Return type
 
@@ -1264,7 +1264,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$advertiser_id = 56; // int | Id of the advertiser
+$advertiser_id = 'advertiser_id_example'; // string | Id of the advertiser
 $seller_id = 56; // int | Id of the seller
 $campaign_id = 56; // int | Seller CampaignId
 $height = 56; // int | Height of the ad to display
@@ -1282,7 +1282,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **int**| Id of the advertiser | |
+| **advertiser_id** | **string**| Id of the advertiser | |
 | **seller_id** | **int**| Id of the seller | |
 | **campaign_id** | **int**| Seller CampaignId | [optional] |
 | **height** | **int**| Height of the ad to display | [optional] |
@@ -1335,7 +1335,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$budget_id = 56; // int | Id of the budget.
+$budget_id = 'budget_id_example'; // string | Id of the budget.
 
 try {
     $result = $apiInstance->getMarketplaceSellerBudget($budget_id);
@@ -1349,7 +1349,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **budget_id** | **int**| Id of the budget. | |
+| **budget_id** | **string**| Id of the budget. | |
 
 ### Return type
 
@@ -1611,7 +1611,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$advertiser_id = 56; // int | Id of the advertiser
+$advertiser_id = 'advertiser_id_example'; // string | Id of the advertiser
 
 try {
     $result = $apiInstance->getMarketplaceSellerCampaignsByAdvertiser($advertiser_id);
@@ -1625,7 +1625,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **int**| Id of the advertiser | |
+| **advertiser_id** | **string**| Id of the advertiser | |
 
 ### Return type
 
@@ -1895,7 +1895,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$advertiser_id = 56; // int | Id of the advertiser
+$advertiser_id = 'advertiser_id_example'; // string | Id of the advertiser
 $request_body = array('request_body_example'); // string[] | Names of the sellers to associate with new Ids
 $partner_id = 56; // int | Id of the partner
 
@@ -1911,7 +1911,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **int**| Id of the advertiser | |
+| **advertiser_id** | **string**| Id of the advertiser | |
 | **request_body** | [**string[]**](../Model/string.md)| Names of the sellers to associate with new Ids | |
 | **partner_id** | **int**| Id of the partner | [optional] |
 
@@ -2612,7 +2612,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2026_01\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$budget_id = 56; // int | Id of the budget
+$budget_id = 'budget_id_example'; // string | Id of the budget
 $update_seller_budget_message_base = new \criteo\api\marketingsolutions\v2026_01\Model\UpdateSellerBudgetMessageBase(); // \criteo\api\marketingsolutions\v2026_01\Model\UpdateSellerBudgetMessageBase | 
 
 try {
@@ -2627,7 +2627,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **budget_id** | **int**| Id of the budget | |
+| **budget_id** | **string**| Id of the budget | |
 | **update_seller_budget_message_base** | [**\criteo\api\marketingsolutions\v2026_01\Model\UpdateSellerBudgetMessageBase**](../Model/UpdateSellerBudgetMessageBase.md)|  | |
 
 ### Return type
