@@ -2546,7 +2546,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdSetsByAdvertiser'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
@@ -2564,7 +2564,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdSetsByAdvertiser'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
@@ -2664,7 +2664,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdSetsByAdvertiser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2685,7 +2685,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdSetsByAdvertiser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2735,7 +2735,7 @@ class CampaignApi
     /**
      * Create request for operation 'getMarketplaceAdSetsByAdvertiser'
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdSetsByAdvertiser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2837,7 +2837,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertiser'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
@@ -2855,7 +2855,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertiser'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
@@ -2955,7 +2955,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertiser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2976,7 +2976,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertiser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3026,7 +3026,7 @@ class CampaignApi
     /**
      * Create request for operation 'getMarketplaceAdvertiser'
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertiser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3670,7 +3670,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  int $budget_id Return only budgets with given Id (optional)
      * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
      * @param  int $seller_id Return only budgets belonging to given sellerId (optional)
@@ -3696,7 +3696,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  int $budget_id Return only budgets with given Id (optional)
      * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
      * @param  int $seller_id Return only budgets belonging to given sellerId (optional)
@@ -3804,7 +3804,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  int $budget_id Return only budgets with given Id (optional)
      * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
      * @param  int $seller_id Return only budgets belonging to given sellerId (optional)
@@ -3833,7 +3833,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  int $budget_id Return only budgets with given Id (optional)
      * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
      * @param  int $seller_id Return only budgets belonging to given sellerId (optional)
@@ -3891,7 +3891,7 @@ class CampaignApi
     /**
      * Create request for operation 'getMarketplaceBudgetsByAdvertiser'
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  int $budget_id Return only budgets with given Id (optional)
      * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.              If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
      * @param  int $seller_id Return only budgets belonging to given sellerId (optional)
@@ -4858,7 +4858,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceCampaignsByAdvertiser'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
@@ -4876,7 +4876,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceCampaignsByAdvertiser'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
@@ -4976,7 +4976,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceCampaignsByAdvertiser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4997,7 +4997,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceCampaignsByAdvertiser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5047,7 +5047,7 @@ class CampaignApi
     /**
      * Create request for operation 'getMarketplaceCampaignsByAdvertiser'
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceCampaignsByAdvertiser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5831,7 +5831,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  int $seller_id Id of the seller (required)
      * @param  int $campaign_id Seller CampaignId (optional)
      * @param  int $height Height of the ad to display (optional)
@@ -5853,7 +5853,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  int $seller_id Id of the seller (required)
      * @param  int $campaign_id Seller CampaignId (optional)
      * @param  int $height Height of the ad to display (optional)
@@ -5957,7 +5957,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  int $seller_id Id of the seller (required)
      * @param  int $campaign_id Seller CampaignId (optional)
      * @param  int $height Height of the ad to display (optional)
@@ -5982,7 +5982,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  int $seller_id Id of the seller (required)
      * @param  int $campaign_id Seller CampaignId (optional)
      * @param  int $height Height of the ad to display (optional)
@@ -6036,7 +6036,7 @@ class CampaignApi
     /**
      * Create request for operation 'getMarketplaceSellerAdPreview'
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  int $seller_id Id of the seller (required)
      * @param  int $campaign_id Seller CampaignId (optional)
      * @param  int $height Height of the ad to display (optional)
@@ -6188,7 +6188,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $budget_id Id of the budget. (required)
+     * @param  string $budget_id Id of the budget. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerBudget'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
@@ -6206,7 +6206,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $budget_id Id of the budget. (required)
+     * @param  string $budget_id Id of the budget. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerBudget'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
@@ -6306,7 +6306,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $budget_id Id of the budget. (required)
+     * @param  string $budget_id Id of the budget. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerBudget'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6327,7 +6327,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $budget_id Id of the budget. (required)
+     * @param  string $budget_id Id of the budget. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerBudget'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6377,7 +6377,7 @@ class CampaignApi
     /**
      * Create request for operation 'getMarketplaceSellerBudget'
      *
-     * @param  int $budget_id Id of the budget. (required)
+     * @param  string $budget_id Id of the budget. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerBudget'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7522,7 +7522,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsByAdvertiser'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
@@ -7540,7 +7540,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsByAdvertiser'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
@@ -7640,7 +7640,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsByAdvertiser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7661,7 +7661,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsByAdvertiser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7711,7 +7711,7 @@ class CampaignApi
     /**
      * Create request for operation 'getMarketplaceSellerCampaignsByAdvertiser'
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsByAdvertiser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8916,7 +8916,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string[] $request_body Names of the sellers to associate with new Ids (required)
      * @param  int $partner_id Id of the partner (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellersByAdvertiser'] to see the possible values for this operation
@@ -8936,7 +8936,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string[] $request_body Names of the sellers to associate with new Ids (required)
      * @param  int $partner_id Id of the partner (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellersByAdvertiser'] to see the possible values for this operation
@@ -9038,7 +9038,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string[] $request_body Names of the sellers to associate with new Ids (required)
      * @param  int $partner_id Id of the partner (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellersByAdvertiser'] to see the possible values for this operation
@@ -9061,7 +9061,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string[] $request_body Names of the sellers to associate with new Ids (required)
      * @param  int $partner_id Id of the partner (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellersByAdvertiser'] to see the possible values for this operation
@@ -9113,7 +9113,7 @@ class CampaignApi
     /**
      * Create request for operation 'getMarketplaceSellersByAdvertiser'
      *
-     * @param  int $advertiser_id Id of the advertiser (required)
+     * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string[] $request_body Names of the sellers to associate with new Ids (required)
      * @param  int $partner_id Id of the partner (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellersByAdvertiser'] to see the possible values for this operation
@@ -12206,7 +12206,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $budget_id Id of the budget (required)
+     * @param  string $budget_id Id of the budget (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessageBase $update_seller_budget_message_base  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudget'] to see the possible values for this operation
      *
@@ -12225,7 +12225,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $budget_id Id of the budget (required)
+     * @param  string $budget_id Id of the budget (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessageBase $update_seller_budget_message_base  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudget'] to see the possible values for this operation
      *
@@ -12326,7 +12326,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $budget_id Id of the budget (required)
+     * @param  string $budget_id Id of the budget (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessageBase $update_seller_budget_message_base  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudget'] to see the possible values for this operation
      *
@@ -12348,7 +12348,7 @@ class CampaignApi
      *
      * 
      *
-     * @param  int $budget_id Id of the budget (required)
+     * @param  string $budget_id Id of the budget (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessageBase $update_seller_budget_message_base  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudget'] to see the possible values for this operation
      *
@@ -12399,7 +12399,7 @@ class CampaignApi
     /**
      * Create request for operation 'updateMarketplaceSellerBudget'
      *
-     * @param  int $budget_id Id of the budget (required)
+     * @param  string $budget_id Id of the budget (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessageBase $update_seller_budget_message_base  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudget'] to see the possible values for this operation
      *

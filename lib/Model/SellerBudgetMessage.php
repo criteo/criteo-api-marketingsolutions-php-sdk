@@ -86,7 +86,7 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         'is_suspended' => null,
         'seller_id' => null,
         'spend' => 'double',
-        'start_date' => 'date-time',
+        'start_date' => 'date',
         'status' => null
     ];
 
