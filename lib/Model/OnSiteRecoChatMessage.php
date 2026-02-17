@@ -1,6 +1,6 @@
 <?php
 /**
- * AdSetSearchRequestV26Q1
+ * OnSiteRecoChatMessage
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * AdSetSearchRequestV26Q1 Class Doc Comment
+ * OnSiteRecoChatMessage Class Doc Comment
  *
  * @category Class
- * @description request payload of the search endpoint
+ * @description Chat message of conversation
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
+class OnSiteRecoChatMessage implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'AdSetSearchRequestV26Q1';
+    protected static $openAPIModelName = 'OnSiteRecoChatMessage';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,8 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'filters' => '\criteo\api\marketingsolutions\preview\Model\AdSetSearchFilterV26Q1',
-        'meta' => '\criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestMetadataV26Q1'
+        'content' => 'string',
+        'role' => 'string'
     ];
 
     /**
@@ -70,8 +70,8 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'filters' => null,
-        'meta' => null
+        'content' => null,
+        'role' => null
     ];
 
     /**
@@ -80,8 +80,8 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'filters' => false,
-		'meta' => false
+        'content' => false,
+		'role' => false
     ];
 
     /**
@@ -170,8 +170,8 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'filters' => 'filters',
-        'meta' => 'meta'
+        'content' => 'content',
+        'role' => 'role'
     ];
 
     /**
@@ -180,8 +180,8 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'filters' => 'setFilters',
-        'meta' => 'setMeta'
+        'content' => 'setContent',
+        'role' => 'setRole'
     ];
 
     /**
@@ -190,8 +190,8 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'filters' => 'getFilters',
-        'meta' => 'getMeta'
+        'content' => 'getContent',
+        'role' => 'getRole'
     ];
 
     /**
@@ -251,8 +251,8 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('filters', $data ?? [], null);
-        $this->setIfExists('meta', $data ?? [], null);
+        $this->setIfExists('content', $data ?? [], null);
+        $this->setIfExists('role', $data ?? [], null);
     }
 
     /**
@@ -298,55 +298,55 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets filters
+     * Gets content
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\AdSetSearchFilterV26Q1|null
+     * @return string|null
      */
-    public function getFilters()
+    public function getContent()
     {
-        return $this->container['filters'];
+        return $this->container['content'];
     }
 
     /**
-     * Sets filters
+     * Sets content
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\AdSetSearchFilterV26Q1|null $filters filters
+     * @param string|null $content content
      *
      * @return self
      */
-    public function setFilters($filters)
+    public function setContent($content)
     {
-        if (is_null($filters)) {
-            throw new \InvalidArgumentException('non-nullable filters cannot be null');
+        if (is_null($content)) {
+            throw new \InvalidArgumentException('non-nullable content cannot be null');
         }
-        $this->container['filters'] = $filters;
+        $this->container['content'] = $content;
 
         return $this;
     }
 
     /**
-     * Gets meta
+     * Gets role
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestMetadataV26Q1|null
+     * @return string|null
      */
-    public function getMeta()
+    public function getRole()
     {
-        return $this->container['meta'];
+        return $this->container['role'];
     }
 
     /**
-     * Sets meta
+     * Sets role
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestMetadataV26Q1|null $meta meta
+     * @param string|null $role role
      *
      * @return self
      */
-    public function setMeta($meta)
+    public function setRole($role)
     {
-        if (is_null($meta)) {
-            throw new \InvalidArgumentException('non-nullable meta cannot be null');
+        if (is_null($role)) {
+            throw new \InvalidArgumentException('non-nullable role cannot be null');
         }
-        $this->container['meta'] = $meta;
+        $this->container['role'] = $role;
 
         return $this;
     }

@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * OnSiteRecoResponse Class Doc Comment
  *
  * @category Class
- * @description Recommendation response.
+ * @description Recommendation response
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

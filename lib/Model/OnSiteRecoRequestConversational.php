@@ -1,6 +1,6 @@
 <?php
 /**
- * AdSetSearchRequestV26Q1
+ * OnSiteRecoRequestConversational
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * AdSetSearchRequestV26Q1 Class Doc Comment
+ * OnSiteRecoRequestConversational Class Doc Comment
  *
  * @category Class
- * @description request payload of the search endpoint
+ * @description Conversational recommendation request parameters
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
+class OnSiteRecoRequestConversational implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'AdSetSearchRequestV26Q1';
+    protected static $openAPIModelName = 'OnSiteRecoRequestConversational';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,13 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'filters' => '\criteo\api\marketingsolutions\preview\Model\AdSetSearchFilterV26Q1',
-        'meta' => '\criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestMetadataV26Q1'
+        'ad_id' => 'int',
+        'ad_set_id' => 'int',
+        'conversation' => '\criteo\api\marketingsolutions\preview\Model\OnSiteRecoChatMessage[]',
+        'nb_requested_products' => 'int',
+        'partner_id' => 'int',
+        'product' => '\criteo\api\marketingsolutions\preview\Model\OnSiteRecoProductContext',
+        'user_id' => 'string'
     ];
 
     /**
@@ -70,8 +75,13 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'filters' => null,
-        'meta' => null
+        'ad_id' => 'int32',
+        'ad_set_id' => 'int32',
+        'conversation' => null,
+        'nb_requested_products' => 'int32',
+        'partner_id' => 'int32',
+        'product' => null,
+        'user_id' => null
     ];
 
     /**
@@ -80,8 +90,13 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'filters' => false,
-		'meta' => false
+        'ad_id' => false,
+		'ad_set_id' => false,
+		'conversation' => false,
+		'nb_requested_products' => false,
+		'partner_id' => false,
+		'product' => false,
+		'user_id' => false
     ];
 
     /**
@@ -170,8 +185,13 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'filters' => 'filters',
-        'meta' => 'meta'
+        'ad_id' => 'adId',
+        'ad_set_id' => 'adSetId',
+        'conversation' => 'conversation',
+        'nb_requested_products' => 'nbRequestedProducts',
+        'partner_id' => 'partnerId',
+        'product' => 'product',
+        'user_id' => 'userId'
     ];
 
     /**
@@ -180,8 +200,13 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'filters' => 'setFilters',
-        'meta' => 'setMeta'
+        'ad_id' => 'setAdId',
+        'ad_set_id' => 'setAdSetId',
+        'conversation' => 'setConversation',
+        'nb_requested_products' => 'setNbRequestedProducts',
+        'partner_id' => 'setPartnerId',
+        'product' => 'setProduct',
+        'user_id' => 'setUserId'
     ];
 
     /**
@@ -190,8 +215,13 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'filters' => 'getFilters',
-        'meta' => 'getMeta'
+        'ad_id' => 'getAdId',
+        'ad_set_id' => 'getAdSetId',
+        'conversation' => 'getConversation',
+        'nb_requested_products' => 'getNbRequestedProducts',
+        'partner_id' => 'getPartnerId',
+        'product' => 'getProduct',
+        'user_id' => 'getUserId'
     ];
 
     /**
@@ -251,8 +281,13 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('filters', $data ?? [], null);
-        $this->setIfExists('meta', $data ?? [], null);
+        $this->setIfExists('ad_id', $data ?? [], null);
+        $this->setIfExists('ad_set_id', $data ?? [], null);
+        $this->setIfExists('conversation', $data ?? [], null);
+        $this->setIfExists('nb_requested_products', $data ?? [], null);
+        $this->setIfExists('partner_id', $data ?? [], null);
+        $this->setIfExists('product', $data ?? [], null);
+        $this->setIfExists('user_id', $data ?? [], null);
     }
 
     /**
@@ -282,6 +317,21 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
+        if ($this->container['ad_set_id'] === null) {
+            $invalidProperties[] = "'ad_set_id' can't be null";
+        }
+        if ($this->container['conversation'] === null) {
+            $invalidProperties[] = "'conversation' can't be null";
+        }
+        if ($this->container['nb_requested_products'] === null) {
+            $invalidProperties[] = "'nb_requested_products' can't be null";
+        }
+        if ($this->container['partner_id'] === null) {
+            $invalidProperties[] = "'partner_id' can't be null";
+        }
+        if ($this->container['user_id'] === null) {
+            $invalidProperties[] = "'user_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -298,55 +348,190 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets filters
+     * Gets ad_id
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\AdSetSearchFilterV26Q1|null
+     * @return int|null
      */
-    public function getFilters()
+    public function getAdId()
     {
-        return $this->container['filters'];
+        return $this->container['ad_id'];
     }
 
     /**
-     * Sets filters
+     * Sets ad_id
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\AdSetSearchFilterV26Q1|null $filters filters
+     * @param int|null $ad_id Id of the Ad. This field is optional, it allows to setup Reco controls at Ad level.
      *
      * @return self
      */
-    public function setFilters($filters)
+    public function setAdId($ad_id)
     {
-        if (is_null($filters)) {
-            throw new \InvalidArgumentException('non-nullable filters cannot be null');
+        if (is_null($ad_id)) {
+            throw new \InvalidArgumentException('non-nullable ad_id cannot be null');
         }
-        $this->container['filters'] = $filters;
+        $this->container['ad_id'] = $ad_id;
 
         return $this;
     }
 
     /**
-     * Gets meta
+     * Gets ad_set_id
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestMetadataV26Q1|null
+     * @return int
      */
-    public function getMeta()
+    public function getAdSetId()
     {
-        return $this->container['meta'];
+        return $this->container['ad_set_id'];
     }
 
     /**
-     * Sets meta
+     * Sets ad_set_id
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestMetadataV26Q1|null $meta meta
+     * @param int $ad_set_id Id of the AdSet. This field is optional and is resolved automatically for adsets previously configured.
      *
      * @return self
      */
-    public function setMeta($meta)
+    public function setAdSetId($ad_set_id)
     {
-        if (is_null($meta)) {
-            throw new \InvalidArgumentException('non-nullable meta cannot be null');
+        if (is_null($ad_set_id)) {
+            throw new \InvalidArgumentException('non-nullable ad_set_id cannot be null');
         }
-        $this->container['meta'] = $meta;
+        $this->container['ad_set_id'] = $ad_set_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets conversation
+     *
+     * @return \criteo\api\marketingsolutions\preview\Model\OnSiteRecoChatMessage[]
+     */
+    public function getConversation()
+    {
+        return $this->container['conversation'];
+    }
+
+    /**
+     * Sets conversation
+     *
+     * @param \criteo\api\marketingsolutions\preview\Model\OnSiteRecoChatMessage[] $conversation Conversation between the user and the agent.
+     *
+     * @return self
+     */
+    public function setConversation($conversation)
+    {
+        if (is_null($conversation)) {
+            throw new \InvalidArgumentException('non-nullable conversation cannot be null');
+        }
+        $this->container['conversation'] = $conversation;
+
+        return $this;
+    }
+
+    /**
+     * Gets nb_requested_products
+     *
+     * @return int
+     */
+    public function getNbRequestedProducts()
+    {
+        return $this->container['nb_requested_products'];
+    }
+
+    /**
+     * Sets nb_requested_products
+     *
+     * @param int $nb_requested_products Amount of products to recommend.
+     *
+     * @return self
+     */
+    public function setNbRequestedProducts($nb_requested_products)
+    {
+        if (is_null($nb_requested_products)) {
+            throw new \InvalidArgumentException('non-nullable nb_requested_products cannot be null');
+        }
+        $this->container['nb_requested_products'] = $nb_requested_products;
+
+        return $this;
+    }
+
+    /**
+     * Gets partner_id
+     *
+     * @return int
+     */
+    public function getPartnerId()
+    {
+        return $this->container['partner_id'];
+    }
+
+    /**
+     * Sets partner_id
+     *
+     * @param int $partner_id Id of the partner.
+     *
+     * @return self
+     */
+    public function setPartnerId($partner_id)
+    {
+        if (is_null($partner_id)) {
+            throw new \InvalidArgumentException('non-nullable partner_id cannot be null');
+        }
+        $this->container['partner_id'] = $partner_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets product
+     *
+     * @return \criteo\api\marketingsolutions\preview\Model\OnSiteRecoProductContext|null
+     */
+    public function getProduct()
+    {
+        return $this->container['product'];
+    }
+
+    /**
+     * Sets product
+     *
+     * @param \criteo\api\marketingsolutions\preview\Model\OnSiteRecoProductContext|null $product product
+     *
+     * @return self
+     */
+    public function setProduct($product)
+    {
+        if (is_null($product)) {
+            throw new \InvalidArgumentException('non-nullable product cannot be null');
+        }
+        $this->container['product'] = $product;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_id
+     *
+     * @return string
+     */
+    public function getUserId()
+    {
+        return $this->container['user_id'];
+    }
+
+    /**
+     * Sets user_id
+     *
+     * @param string $user_id Used to retrieve user events from Criteo trackers.
+     *
+     * @return self
+     */
+    public function setUserId($user_id)
+    {
+        if (is_null($user_id)) {
+            throw new \InvalidArgumentException('non-nullable user_id cannot be null');
+        }
+        $this->container['user_id'] = $user_id;
 
         return $this;
     }

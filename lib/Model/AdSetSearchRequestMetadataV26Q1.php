@@ -1,6 +1,6 @@
 <?php
 /**
- * AdSetSearchRequestV26Q1
+ * AdSetSearchRequestMetadataV26Q1
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * AdSetSearchRequestV26Q1 Class Doc Comment
+ * AdSetSearchRequestMetadataV26Q1 Class Doc Comment
  *
  * @category Class
- * @description request payload of the search endpoint
+ * @description Optional metadata for searching ad sets
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
+class AdSetSearchRequestMetadataV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'AdSetSearchRequestV26Q1';
+    protected static $openAPIModelName = 'AdSetSearchRequestMetadataV26Q1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,7 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'filters' => '\criteo\api\marketingsolutions\preview\Model\AdSetSearchFilterV26Q1',
-        'meta' => '\criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestMetadataV26Q1'
+        'fields' => 'string[]'
     ];
 
     /**
@@ -70,8 +69,7 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'filters' => null,
-        'meta' => null
+        'fields' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'filters' => false,
-		'meta' => false
+        'fields' => true
     ];
 
     /**
@@ -170,8 +167,7 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'filters' => 'filters',
-        'meta' => 'meta'
+        'fields' => 'fields'
     ];
 
     /**
@@ -180,8 +176,7 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'filters' => 'setFilters',
-        'meta' => 'setMeta'
+        'fields' => 'setFields'
     ];
 
     /**
@@ -190,8 +185,7 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'filters' => 'getFilters',
-        'meta' => 'getMeta'
+        'fields' => 'getFields'
     ];
 
     /**
@@ -235,6 +229,43 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
         return self::$openAPIModelName;
     }
 
+    public const FIELDS_NAME = 'Name';
+    public const FIELDS_ADVERTISER_ID = 'AdvertiserId';
+    public const FIELDS_DATASET_ID = 'DatasetId';
+    public const FIELDS_CAMPAIGN_ID = 'CampaignId';
+    public const FIELDS_DESTINATION_ENVIRONMENT = 'DestinationEnvironment';
+    public const FIELDS_OBJECTIVE = 'Objective';
+    public const FIELDS_SCHEDULE = 'Schedule';
+    public const FIELDS_BIDDING = 'Bidding';
+    public const FIELDS_TARGETING = 'Targeting';
+    public const FIELDS_BUDGET = 'Budget';
+    public const FIELDS_MEDIA_TYPE = 'MediaType';
+    public const FIELDS_VIDEO_CHANNEL = 'VideoChannel';
+    public const FIELDS_ATTRIBUTION_CONFIGURATION = 'AttributionConfiguration';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFieldsAllowableValues()
+    {
+        return [
+            self::FIELDS_NAME,
+            self::FIELDS_ADVERTISER_ID,
+            self::FIELDS_DATASET_ID,
+            self::FIELDS_CAMPAIGN_ID,
+            self::FIELDS_DESTINATION_ENVIRONMENT,
+            self::FIELDS_OBJECTIVE,
+            self::FIELDS_SCHEDULE,
+            self::FIELDS_BIDDING,
+            self::FIELDS_TARGETING,
+            self::FIELDS_BUDGET,
+            self::FIELDS_MEDIA_TYPE,
+            self::FIELDS_VIDEO_CHANNEL,
+            self::FIELDS_ATTRIBUTION_CONFIGURATION,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -251,8 +282,7 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('filters', $data ?? [], null);
-        $this->setIfExists('meta', $data ?? [], null);
+        $this->setIfExists('fields', $data ?? [], null);
     }
 
     /**
@@ -298,55 +328,44 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets filters
+     * Gets fields
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\AdSetSearchFilterV26Q1|null
+     * @return string[]|null
      */
-    public function getFilters()
+    public function getFields()
     {
-        return $this->container['filters'];
+        return $this->container['fields'];
     }
 
     /**
-     * Sets filters
+     * Sets fields
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\AdSetSearchFilterV26Q1|null $filters filters
+     * @param string[]|null $fields fields
      *
      * @return self
      */
-    public function setFilters($filters)
+    public function setFields($fields)
     {
-        if (is_null($filters)) {
-            throw new \InvalidArgumentException('non-nullable filters cannot be null');
+        if (is_null($fields)) {
+            array_push($this->openAPINullablesSetToNull, 'fields');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('fields', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['filters'] = $filters;
-
-        return $this;
-    }
-
-    /**
-     * Gets meta
-     *
-     * @return \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestMetadataV26Q1|null
-     */
-    public function getMeta()
-    {
-        return $this->container['meta'];
-    }
-
-    /**
-     * Sets meta
-     *
-     * @param \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestMetadataV26Q1|null $meta meta
-     *
-     * @return self
-     */
-    public function setMeta($meta)
-    {
-        if (is_null($meta)) {
-            throw new \InvalidArgumentException('non-nullable meta cannot be null');
+        $allowedValues = $this->getFieldsAllowableValues();
+        if (!is_null($fields) && array_diff($fields, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'fields', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
         }
-        $this->container['meta'] = $meta;
+        $this->container['fields'] = $fields;
 
         return $this;
     }

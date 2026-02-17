@@ -28,6 +28,7 @@ docs/Model/AdSetDisplayMultiplierResource.md
 docs/Model/AdSetFrequencyCappingV26Q1.md
 docs/Model/AdSetGeoLocationV26Q1.md
 docs/Model/AdSetSearchFilterV26Q1.md
+docs/Model/AdSetSearchRequestMetadataV26Q1.md
 docs/Model/AdSetSearchRequestV26Q1.md
 docs/Model/AdSetTargetingDealIds.md
 docs/Model/AdSetTargetingDealIdsDisableResultResource.md
@@ -251,7 +252,11 @@ docs/Model/NillableDecimal.md
 docs/Model/NillableGenderV1.md
 docs/Model/NillableInt32.md
 docs/Model/NillableString.md
+docs/Model/OnSiteRecoChatMessage.md
+docs/Model/OnSiteRecoPrice.md
+docs/Model/OnSiteRecoProductContext.md
 docs/Model/OnSiteRecoRequest.md
+docs/Model/OnSiteRecoRequestConversational.md
 docs/Model/OnSiteRecoResponse.md
 docs/Model/Outcome.md
 docs/Model/PatchAdSetAttributionConfigurationV26Q1.md
@@ -417,6 +422,7 @@ lib/Model/AdSetDisplayMultiplierResource.php
 lib/Model/AdSetFrequencyCappingV26Q1.php
 lib/Model/AdSetGeoLocationV26Q1.php
 lib/Model/AdSetSearchFilterV26Q1.php
+lib/Model/AdSetSearchRequestMetadataV26Q1.php
 lib/Model/AdSetSearchRequestV26Q1.php
 lib/Model/AdSetTargetingDealIds.php
 lib/Model/AdSetTargetingDealIdsDisableResultResource.php
@@ -641,7 +647,11 @@ lib/Model/NillableDecimal.php
 lib/Model/NillableGenderV1.php
 lib/Model/NillableInt32.php
 lib/Model/NillableString.php
+lib/Model/OnSiteRecoChatMessage.php
+lib/Model/OnSiteRecoPrice.php
+lib/Model/OnSiteRecoProductContext.php
 lib/Model/OnSiteRecoRequest.php
+lib/Model/OnSiteRecoRequestConversational.php
 lib/Model/OnSiteRecoResponse.php
 lib/Model/Outcome.php
 lib/Model/PatchAdSetAttributionConfigurationV26Q1.php

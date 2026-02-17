@@ -1,6 +1,6 @@
 <?php
 /**
- * AdSetSearchRequestV26Q1
+ * OnSiteRecoProductContext
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * AdSetSearchRequestV26Q1 Class Doc Comment
+ * OnSiteRecoProductContext Class Doc Comment
  *
  * @category Class
- * @description request payload of the search endpoint
+ * @description Information about a product used as context for conversational recommendation
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
+class OnSiteRecoProductContext implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'AdSetSearchRequestV26Q1';
+    protected static $openAPIModelName = 'OnSiteRecoProductContext';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,14 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'filters' => '\criteo\api\marketingsolutions\preview\Model\AdSetSearchFilterV26Q1',
-        'meta' => '\criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestMetadataV26Q1'
+        'brand' => 'string',
+        'category' => 'string',
+        'color' => 'string',
+        'description' => 'string',
+        'name' => 'string',
+        'price' => '\criteo\api\marketingsolutions\preview\Model\OnSiteRecoPrice',
+        'product_id' => 'string',
+        'size' => 'string'
     ];
 
     /**
@@ -70,8 +76,14 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'filters' => null,
-        'meta' => null
+        'brand' => null,
+        'category' => null,
+        'color' => null,
+        'description' => null,
+        'name' => null,
+        'price' => null,
+        'product_id' => null,
+        'size' => null
     ];
 
     /**
@@ -80,8 +92,14 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'filters' => false,
-		'meta' => false
+        'brand' => false,
+		'category' => false,
+		'color' => false,
+		'description' => false,
+		'name' => false,
+		'price' => false,
+		'product_id' => false,
+		'size' => false
     ];
 
     /**
@@ -170,8 +188,14 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'filters' => 'filters',
-        'meta' => 'meta'
+        'brand' => 'brand',
+        'category' => 'category',
+        'color' => 'color',
+        'description' => 'description',
+        'name' => 'name',
+        'price' => 'price',
+        'product_id' => 'productId',
+        'size' => 'size'
     ];
 
     /**
@@ -180,8 +204,14 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'filters' => 'setFilters',
-        'meta' => 'setMeta'
+        'brand' => 'setBrand',
+        'category' => 'setCategory',
+        'color' => 'setColor',
+        'description' => 'setDescription',
+        'name' => 'setName',
+        'price' => 'setPrice',
+        'product_id' => 'setProductId',
+        'size' => 'setSize'
     ];
 
     /**
@@ -190,8 +220,14 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'filters' => 'getFilters',
-        'meta' => 'getMeta'
+        'brand' => 'getBrand',
+        'category' => 'getCategory',
+        'color' => 'getColor',
+        'description' => 'getDescription',
+        'name' => 'getName',
+        'price' => 'getPrice',
+        'product_id' => 'getProductId',
+        'size' => 'getSize'
     ];
 
     /**
@@ -251,8 +287,14 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('filters', $data ?? [], null);
-        $this->setIfExists('meta', $data ?? [], null);
+        $this->setIfExists('brand', $data ?? [], null);
+        $this->setIfExists('category', $data ?? [], null);
+        $this->setIfExists('color', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('price', $data ?? [], null);
+        $this->setIfExists('product_id', $data ?? [], null);
+        $this->setIfExists('size', $data ?? [], null);
     }
 
     /**
@@ -298,55 +340,217 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets filters
+     * Gets brand
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\AdSetSearchFilterV26Q1|null
+     * @return string|null
      */
-    public function getFilters()
+    public function getBrand()
     {
-        return $this->container['filters'];
+        return $this->container['brand'];
     }
 
     /**
-     * Sets filters
+     * Sets brand
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\AdSetSearchFilterV26Q1|null $filters filters
+     * @param string|null $brand Product brand.
      *
      * @return self
      */
-    public function setFilters($filters)
+    public function setBrand($brand)
     {
-        if (is_null($filters)) {
-            throw new \InvalidArgumentException('non-nullable filters cannot be null');
+        if (is_null($brand)) {
+            throw new \InvalidArgumentException('non-nullable brand cannot be null');
         }
-        $this->container['filters'] = $filters;
+        $this->container['brand'] = $brand;
 
         return $this;
     }
 
     /**
-     * Gets meta
+     * Gets category
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestMetadataV26Q1|null
+     * @return string|null
      */
-    public function getMeta()
+    public function getCategory()
     {
-        return $this->container['meta'];
+        return $this->container['category'];
     }
 
     /**
-     * Sets meta
+     * Sets category
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestMetadataV26Q1|null $meta meta
+     * @param string|null $category Google product category.
      *
      * @return self
      */
-    public function setMeta($meta)
+    public function setCategory($category)
     {
-        if (is_null($meta)) {
-            throw new \InvalidArgumentException('non-nullable meta cannot be null');
+        if (is_null($category)) {
+            throw new \InvalidArgumentException('non-nullable category cannot be null');
         }
-        $this->container['meta'] = $meta;
+        $this->container['category'] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Gets color
+     *
+     * @return string|null
+     */
+    public function getColor()
+    {
+        return $this->container['color'];
+    }
+
+    /**
+     * Sets color
+     *
+     * @param string|null $color Product color.
+     *
+     * @return self
+     */
+    public function setColor($color)
+    {
+        if (is_null($color)) {
+            throw new \InvalidArgumentException('non-nullable color cannot be null');
+        }
+        $this->container['color'] = $color;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description Product description.
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
+        }
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name Product name.
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets price
+     *
+     * @return \criteo\api\marketingsolutions\preview\Model\OnSiteRecoPrice|null
+     */
+    public function getPrice()
+    {
+        return $this->container['price'];
+    }
+
+    /**
+     * Sets price
+     *
+     * @param \criteo\api\marketingsolutions\preview\Model\OnSiteRecoPrice|null $price price
+     *
+     * @return self
+     */
+    public function setPrice($price)
+    {
+        if (is_null($price)) {
+            throw new \InvalidArgumentException('non-nullable price cannot be null');
+        }
+        $this->container['price'] = $price;
+
+        return $this;
+    }
+
+    /**
+     * Gets product_id
+     *
+     * @return string|null
+     */
+    public function getProductId()
+    {
+        return $this->container['product_id'];
+    }
+
+    /**
+     * Sets product_id
+     *
+     * @param string|null $product_id Unique identifier of the product matching Criteo Catalog Integration
+     *
+     * @return self
+     */
+    public function setProductId($product_id)
+    {
+        if (is_null($product_id)) {
+            throw new \InvalidArgumentException('non-nullable product_id cannot be null');
+        }
+        $this->container['product_id'] = $product_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets size
+     *
+     * @return string|null
+     */
+    public function getSize()
+    {
+        return $this->container['size'];
+    }
+
+    /**
+     * Sets size
+     *
+     * @param string|null $size Product size (e.g., M, 42, 500ml).
+     *
+     * @return self
+     */
+    public function setSize($size)
+    {
+        if (is_null($size)) {
+            throw new \InvalidArgumentException('non-nullable size cannot be null');
+        }
+        $this->container['size'] = $size;
 
         return $this;
     }

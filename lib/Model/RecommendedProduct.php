@@ -66,7 +66,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         'name' => 'string',
         'price' => 'float',
         'product_external_id' => 'string',
-        'retailprice' => 'float'
+        'retail_price' => 'float'
     ];
 
     /**
@@ -85,7 +85,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         'name' => null,
         'price' => 'double',
         'product_external_id' => null,
-        'retailprice' => 'double'
+        'retail_price' => 'double'
     ];
 
     /**
@@ -102,7 +102,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
 		'name' => true,
 		'price' => true,
 		'product_external_id' => true,
-		'retailprice' => true
+		'retail_price' => true
     ];
 
     /**
@@ -199,7 +199,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         'name' => 'name',
         'price' => 'price',
         'product_external_id' => 'productExternalId',
-        'retailprice' => 'retailprice'
+        'retail_price' => 'retailPrice'
     ];
 
     /**
@@ -216,7 +216,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         'name' => 'setName',
         'price' => 'setPrice',
         'product_external_id' => 'setProductExternalId',
-        'retailprice' => 'setRetailprice'
+        'retail_price' => 'setRetailPrice'
     ];
 
     /**
@@ -233,7 +233,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         'name' => 'getName',
         'price' => 'getPrice',
         'product_external_id' => 'getProductExternalId',
-        'retailprice' => 'getRetailprice'
+        'retail_price' => 'getRetailPrice'
     ];
 
     /**
@@ -301,7 +301,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('price', $data ?? [], null);
         $this->setIfExists('product_external_id', $data ?? [], null);
-        $this->setIfExists('retailprice', $data ?? [], null);
+        $this->setIfExists('retail_price', $data ?? [], null);
     }
 
     /**
@@ -393,7 +393,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets click_url
      *
-     * @param string|null $click_url Url leading to product details page and also used to track user click. It's relying on the default product URL field in the catalog.
+     * @param string|null $click_url Url leading to product details page and also used to track user click
      *
      * @return self
      */
@@ -529,7 +529,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets name
      *
-     * @param string|null $name Product name.
+     * @param string|null $name Product name
      *
      * @return self
      */
@@ -597,7 +597,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets product_external_id
      *
-     * @param string|null $product_external_id Product external id. Same id than what is used in user events.
+     * @param string|null $product_external_id Product external id. Same id than what is used in user events
      *
      * @return self
      */
@@ -619,35 +619,35 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets retailprice
+     * Gets retail_price
      *
      * @return float|null
      */
-    public function getRetailprice()
+    public function getRetailPrice()
     {
-        return $this->container['retailprice'];
+        return $this->container['retail_price'];
     }
 
     /**
-     * Sets retailprice
+     * Sets retail_price
      *
-     * @param float|null $retailprice Product retail price.
+     * @param float|null $retail_price Product retail price.
      *
      * @return self
      */
-    public function setRetailprice($retailprice)
+    public function setRetailPrice($retail_price)
     {
-        if (is_null($retailprice)) {
-            array_push($this->openAPINullablesSetToNull, 'retailprice');
+        if (is_null($retail_price)) {
+            array_push($this->openAPINullablesSetToNull, 'retail_price');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('retailprice', $nullablesSetToNull);
+            $index = array_search('retail_price', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['retailprice'] = $retailprice;
+        $this->container['retail_price'] = $retail_price;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * AdSetSearchRequestV26Q1
+ * OnSiteRecoPrice
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * AdSetSearchRequestV26Q1 Class Doc Comment
+ * OnSiteRecoPrice Class Doc Comment
  *
  * @category Class
- * @description request payload of the search endpoint
+ * @description Price information
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
+class OnSiteRecoPrice implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'AdSetSearchRequestV26Q1';
+    protected static $openAPIModelName = 'OnSiteRecoPrice';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,8 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'filters' => '\criteo\api\marketingsolutions\preview\Model\AdSetSearchFilterV26Q1',
-        'meta' => '\criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestMetadataV26Q1'
+        'amount' => 'float',
+        'currency' => 'string'
     ];
 
     /**
@@ -70,8 +70,8 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'filters' => null,
-        'meta' => null
+        'amount' => 'float',
+        'currency' => null
     ];
 
     /**
@@ -80,8 +80,8 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'filters' => false,
-		'meta' => false
+        'amount' => false,
+		'currency' => false
     ];
 
     /**
@@ -170,8 +170,8 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'filters' => 'filters',
-        'meta' => 'meta'
+        'amount' => 'amount',
+        'currency' => 'currency'
     ];
 
     /**
@@ -180,8 +180,8 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'filters' => 'setFilters',
-        'meta' => 'setMeta'
+        'amount' => 'setAmount',
+        'currency' => 'setCurrency'
     ];
 
     /**
@@ -190,8 +190,8 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'filters' => 'getFilters',
-        'meta' => 'getMeta'
+        'amount' => 'getAmount',
+        'currency' => 'getCurrency'
     ];
 
     /**
@@ -251,8 +251,8 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('filters', $data ?? [], null);
-        $this->setIfExists('meta', $data ?? [], null);
+        $this->setIfExists('amount', $data ?? [], null);
+        $this->setIfExists('currency', $data ?? [], null);
     }
 
     /**
@@ -298,55 +298,55 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets filters
+     * Gets amount
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\AdSetSearchFilterV26Q1|null
+     * @return float|null
      */
-    public function getFilters()
+    public function getAmount()
     {
-        return $this->container['filters'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets filters
+     * Sets amount
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\AdSetSearchFilterV26Q1|null $filters filters
+     * @param float|null $amount Price amount.
      *
      * @return self
      */
-    public function setFilters($filters)
+    public function setAmount($amount)
     {
-        if (is_null($filters)) {
-            throw new \InvalidArgumentException('non-nullable filters cannot be null');
+        if (is_null($amount)) {
+            throw new \InvalidArgumentException('non-nullable amount cannot be null');
         }
-        $this->container['filters'] = $filters;
+        $this->container['amount'] = $amount;
 
         return $this;
     }
 
     /**
-     * Gets meta
+     * Gets currency
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestMetadataV26Q1|null
+     * @return string|null
      */
-    public function getMeta()
+    public function getCurrency()
     {
-        return $this->container['meta'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets meta
+     * Sets currency
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestMetadataV26Q1|null $meta meta
+     * @param string|null $currency Price currency in ISO 4217 format.
      *
      * @return self
      */
-    public function setMeta($meta)
+    public function setCurrency($currency)
     {
-        if (is_null($meta)) {
-            throw new \InvalidArgumentException('non-nullable meta cannot be null');
+        if (is_null($currency)) {
+            throw new \InvalidArgumentException('non-nullable currency cannot be null');
         }
-        $this->container['meta'] = $meta;
+        $this->container['currency'] = $currency;
 
         return $this;
     }

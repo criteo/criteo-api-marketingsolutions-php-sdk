@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * OnSiteRecoRequest Class Doc Comment
  *
  * @category Class
- * @description Recommendation request parameters.
+ * @description Recommendation request parameters
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -262,6 +262,7 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     public const IDENTITY_TYPE_CTO_BUNDLE = 'CtoBundle';
     public const IDENTITY_TYPE_IDFA = 'Idfa';
     public const IDENTITY_TYPE_GAID = 'Gaid';
+    public const IDENTITY_TYPE_INTERNAL_USER_ID = 'InternalUserId';
 
     /**
      * Gets allowable values of the enum
@@ -274,6 +275,7 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
             self::IDENTITY_TYPE_CTO_BUNDLE,
             self::IDENTITY_TYPE_IDFA,
             self::IDENTITY_TYPE_GAID,
+            self::IDENTITY_TYPE_INTERNAL_USER_ID,
         ];
     }
 
@@ -424,7 +426,7 @@ class OnSiteRecoRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets identity_type
      *
-     * @param string|null $identity_type Type of the user identifier (CtoBundle, Idfa, Gaid...)  Optional if its type is CtoBundle
+     * @param string|null $identity_type Type of the user identifier (CtoBundle, Idfa, Gaid...) Optional if its type is CtoBundle
      *
      * @return self
      */
