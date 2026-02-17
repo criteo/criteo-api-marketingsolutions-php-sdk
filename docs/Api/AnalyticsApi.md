@@ -229,7 +229,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$advertiser_id = 56; // int | The advertiser id to fetch the transparency data.
+$advertiser_id = 'advertiser_id_example'; // string | The advertiser id to fetch the transparency data.
 $transparency_query_message = {"shouldDisplayProductIds":false,"startDate":"2025-08-11T00:00:00.0000000+00:00","endDate":"2025-08-14T00:00:00.0000000+00:00"}; // \criteo\api\marketingsolutions\v2025_04\Model\TransparencyQueryMessage | The query message.
 
 try {
@@ -244,7 +244,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **int**| The advertiser id to fetch the transparency data. | |
+| **advertiser_id** | **string**| The advertiser id to fetch the transparency data. | |
 | **transparency_query_message** | [**\criteo\api\marketingsolutions\v2025_04\Model\TransparencyQueryMessage**](../Model/TransparencyQueryMessage.md)| The query message. | [optional] |
 
 ### Return type

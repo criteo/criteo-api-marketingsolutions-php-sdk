@@ -1079,7 +1079,7 @@ class CreativeApi
     /**
      * Operation deleteAd
      *
-     * @param  int $id The ad identifier to delete. (required)
+     * @param  string $id The ad identifier to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAd'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_04\ApiException on non-2xx response
@@ -1094,7 +1094,7 @@ class CreativeApi
     /**
      * Operation deleteAdWithHttpInfo
      *
-     * @param  int $id The ad identifier to delete. (required)
+     * @param  string $id The ad identifier to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAd'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_04\ApiException on non-2xx response
@@ -1152,7 +1152,7 @@ class CreativeApi
     /**
      * Operation deleteAdAsync
      *
-     * @param  int $id The ad identifier to delete. (required)
+     * @param  string $id The ad identifier to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAd'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1171,7 +1171,7 @@ class CreativeApi
     /**
      * Operation deleteAdAsyncWithHttpInfo
      *
-     * @param  int $id The ad identifier to delete. (required)
+     * @param  string $id The ad identifier to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAd'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1208,7 +1208,7 @@ class CreativeApi
     /**
      * Create request for operation 'deleteAd'
      *
-     * @param  int $id The ad identifier to delete. (required)
+     * @param  string $id The ad identifier to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAd'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2723,7 +2723,7 @@ class CreativeApi
     /**
      * Operation getAd
      *
-     * @param  int $id The ad identifier to retrieve. (required)
+     * @param  string $id The ad identifier to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAd'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_04\ApiException on non-2xx response
@@ -2739,7 +2739,7 @@ class CreativeApi
     /**
      * Operation getAdWithHttpInfo
      *
-     * @param  int $id The ad identifier to retrieve. (required)
+     * @param  string $id The ad identifier to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAd'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_04\ApiException on non-2xx response
@@ -2837,7 +2837,7 @@ class CreativeApi
     /**
      * Operation getAdAsync
      *
-     * @param  int $id The ad identifier to retrieve. (required)
+     * @param  string $id The ad identifier to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAd'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2856,7 +2856,7 @@ class CreativeApi
     /**
      * Operation getAdAsyncWithHttpInfo
      *
-     * @param  int $id The ad identifier to retrieve. (required)
+     * @param  string $id The ad identifier to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAd'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2906,7 +2906,7 @@ class CreativeApi
     /**
      * Create request for operation 'getAd'
      *
-     * @param  int $id The ad identifier to retrieve. (required)
+     * @param  string $id The ad identifier to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAd'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
