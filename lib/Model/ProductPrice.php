@@ -1,6 +1,6 @@
 <?php
 /**
- * OnSiteRecoProductContext
+ * ProductPrice
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * OnSiteRecoProductContext Class Doc Comment
+ * ProductPrice Class Doc Comment
  *
  * @category Class
- * @description Information about a product used as context for conversational recommendation
+ * @description Price information
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class OnSiteRecoProductContext implements ModelInterface, ArrayAccess, \JsonSerializable
+class ProductPrice implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class OnSiteRecoProductContext implements ModelInterface, ArrayAccess, \JsonSeri
       *
       * @var string
       */
-    protected static $openAPIModelName = 'OnSiteRecoProductContext';
+    protected static $openAPIModelName = 'ProductPrice';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,14 +58,8 @@ class OnSiteRecoProductContext implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'brand' => 'string',
-        'category' => 'string',
-        'color' => 'string',
-        'description' => 'string',
-        'name' => 'string',
-        'price' => '\criteo\api\marketingsolutions\preview\Model\OnSiteRecoPrice',
-        'product_id' => 'string',
-        'size' => 'string'
+        'amount' => 'float',
+        'currency' => 'string'
     ];
 
     /**
@@ -76,14 +70,8 @@ class OnSiteRecoProductContext implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'brand' => null,
-        'category' => null,
-        'color' => null,
-        'description' => null,
-        'name' => null,
-        'price' => null,
-        'product_id' => null,
-        'size' => null
+        'amount' => 'float',
+        'currency' => null
     ];
 
     /**
@@ -92,14 +80,8 @@ class OnSiteRecoProductContext implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'brand' => false,
-		'category' => false,
-		'color' => false,
-		'description' => false,
-		'name' => false,
-		'price' => false,
-		'product_id' => false,
-		'size' => false
+        'amount' => false,
+		'currency' => false
     ];
 
     /**
@@ -188,14 +170,8 @@ class OnSiteRecoProductContext implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'brand' => 'brand',
-        'category' => 'category',
-        'color' => 'color',
-        'description' => 'description',
-        'name' => 'name',
-        'price' => 'price',
-        'product_id' => 'productId',
-        'size' => 'size'
+        'amount' => 'amount',
+        'currency' => 'currency'
     ];
 
     /**
@@ -204,14 +180,8 @@ class OnSiteRecoProductContext implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'brand' => 'setBrand',
-        'category' => 'setCategory',
-        'color' => 'setColor',
-        'description' => 'setDescription',
-        'name' => 'setName',
-        'price' => 'setPrice',
-        'product_id' => 'setProductId',
-        'size' => 'setSize'
+        'amount' => 'setAmount',
+        'currency' => 'setCurrency'
     ];
 
     /**
@@ -220,14 +190,8 @@ class OnSiteRecoProductContext implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'brand' => 'getBrand',
-        'category' => 'getCategory',
-        'color' => 'getColor',
-        'description' => 'getDescription',
-        'name' => 'getName',
-        'price' => 'getPrice',
-        'product_id' => 'getProductId',
-        'size' => 'getSize'
+        'amount' => 'getAmount',
+        'currency' => 'getCurrency'
     ];
 
     /**
@@ -287,14 +251,8 @@ class OnSiteRecoProductContext implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('brand', $data ?? [], null);
-        $this->setIfExists('category', $data ?? [], null);
-        $this->setIfExists('color', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('price', $data ?? [], null);
-        $this->setIfExists('product_id', $data ?? [], null);
-        $this->setIfExists('size', $data ?? [], null);
+        $this->setIfExists('amount', $data ?? [], null);
+        $this->setIfExists('currency', $data ?? [], null);
     }
 
     /**
@@ -340,217 +298,55 @@ class OnSiteRecoProductContext implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
-     * Gets brand
+     * Gets amount
      *
-     * @return string|null
+     * @return float|null
      */
-    public function getBrand()
+    public function getAmount()
     {
-        return $this->container['brand'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets brand
+     * Sets amount
      *
-     * @param string|null $brand Product brand.
+     * @param float|null $amount Price amount.
      *
      * @return self
      */
-    public function setBrand($brand)
+    public function setAmount($amount)
     {
-        if (is_null($brand)) {
-            throw new \InvalidArgumentException('non-nullable brand cannot be null');
+        if (is_null($amount)) {
+            throw new \InvalidArgumentException('non-nullable amount cannot be null');
         }
-        $this->container['brand'] = $brand;
+        $this->container['amount'] = $amount;
 
         return $this;
     }
 
     /**
-     * Gets category
+     * Gets currency
      *
      * @return string|null
      */
-    public function getCategory()
+    public function getCurrency()
     {
-        return $this->container['category'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets category
+     * Sets currency
      *
-     * @param string|null $category Google product category.
+     * @param string|null $currency Price currency in ISO 4217 format.
      *
      * @return self
      */
-    public function setCategory($category)
+    public function setCurrency($currency)
     {
-        if (is_null($category)) {
-            throw new \InvalidArgumentException('non-nullable category cannot be null');
+        if (is_null($currency)) {
+            throw new \InvalidArgumentException('non-nullable currency cannot be null');
         }
-        $this->container['category'] = $category;
-
-        return $this;
-    }
-
-    /**
-     * Gets color
-     *
-     * @return string|null
-     */
-    public function getColor()
-    {
-        return $this->container['color'];
-    }
-
-    /**
-     * Sets color
-     *
-     * @param string|null $color Product color.
-     *
-     * @return self
-     */
-    public function setColor($color)
-    {
-        if (is_null($color)) {
-            throw new \InvalidArgumentException('non-nullable color cannot be null');
-        }
-        $this->container['color'] = $color;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description Product description.
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
-        }
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name Product name.
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets price
-     *
-     * @return \criteo\api\marketingsolutions\preview\Model\OnSiteRecoPrice|null
-     */
-    public function getPrice()
-    {
-        return $this->container['price'];
-    }
-
-    /**
-     * Sets price
-     *
-     * @param \criteo\api\marketingsolutions\preview\Model\OnSiteRecoPrice|null $price price
-     *
-     * @return self
-     */
-    public function setPrice($price)
-    {
-        if (is_null($price)) {
-            throw new \InvalidArgumentException('non-nullable price cannot be null');
-        }
-        $this->container['price'] = $price;
-
-        return $this;
-    }
-
-    /**
-     * Gets product_id
-     *
-     * @return string|null
-     */
-    public function getProductId()
-    {
-        return $this->container['product_id'];
-    }
-
-    /**
-     * Sets product_id
-     *
-     * @param string|null $product_id Unique identifier of the product matching Criteo Catalog Integration
-     *
-     * @return self
-     */
-    public function setProductId($product_id)
-    {
-        if (is_null($product_id)) {
-            throw new \InvalidArgumentException('non-nullable product_id cannot be null');
-        }
-        $this->container['product_id'] = $product_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets size
-     *
-     * @return string|null
-     */
-    public function getSize()
-    {
-        return $this->container['size'];
-    }
-
-    /**
-     * Sets size
-     *
-     * @param string|null $size Product size (e.g., M, 42, 500ml).
-     *
-     * @return self
-     */
-    public function setSize($size)
-    {
-        if (is_null($size)) {
-            throw new \InvalidArgumentException('non-nullable size cannot be null');
-        }
-        $this->container['size'] = $size;
+        $this->container['currency'] = $currency;
 
         return $this;
     }

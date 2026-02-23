@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **conversation** | [**\criteo\api\marketingsolutions\preview\Model\OnSiteRecoChatMessage[]**](OnSiteRecoChatMessage.md) | Conversation between the user and the agent. |
 **nb_requested_products** | **int** | Amount of products to recommend. |
 **partner_id** | **int** | Id of the partner. |
-**product** | [**\criteo\api\marketingsolutions\preview\Model\OnSiteRecoProductContext**](OnSiteRecoProductContext.md) |  | [optional]
+**product** | [**\criteo\api\marketingsolutions\preview\Model\ProductContext**](ProductContext.md) |  | [optional]
 **user_id** | **string** | Used to retrieve user events from Criteo trackers. |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

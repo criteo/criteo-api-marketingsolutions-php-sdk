@@ -63,7 +63,7 @@ class OnSiteRecoRequestConversational implements ModelInterface, ArrayAccess, \J
         'conversation' => '\criteo\api\marketingsolutions\preview\Model\OnSiteRecoChatMessage[]',
         'nb_requested_products' => 'int',
         'partner_id' => 'int',
-        'product' => '\criteo\api\marketingsolutions\preview\Model\OnSiteRecoProductContext',
+        'product' => '\criteo\api\marketingsolutions\preview\Model\ProductContext',
         'user_id' => 'string'
     ];
 
@@ -485,7 +485,7 @@ class OnSiteRecoRequestConversational implements ModelInterface, ArrayAccess, \J
     /**
      * Gets product
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\OnSiteRecoProductContext|null
+     * @return \criteo\api\marketingsolutions\preview\Model\ProductContext|null
      */
     public function getProduct()
     {
@@ -495,7 +495,7 @@ class OnSiteRecoRequestConversational implements ModelInterface, ArrayAccess, \J
     /**
      * Sets product
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\OnSiteRecoProductContext|null $product product
+     * @param \criteo\api\marketingsolutions\preview\Model\ProductContext|null $product product
      *
      * @return self
      */

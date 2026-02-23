@@ -253,8 +253,6 @@ docs/Model/NillableGenderV1.md
 docs/Model/NillableInt32.md
 docs/Model/NillableString.md
 docs/Model/OnSiteRecoChatMessage.md
-docs/Model/OnSiteRecoPrice.md
-docs/Model/OnSiteRecoProductContext.md
 docs/Model/OnSiteRecoRequest.md
 docs/Model/OnSiteRecoRequestConversational.md
 docs/Model/OnSiteRecoResponse.md
@@ -289,9 +287,11 @@ docs/Model/PointOfInterestV1.md
 docs/Model/PortfolioMessage.md
 docs/Model/Price.md
 docs/Model/Product.md
+docs/Model/ProductContext.md
 docs/Model/ProductFilterConfig.md
 docs/Model/ProductImporterError.md
 docs/Model/ProductImporterWarning.md
+docs/Model/ProductPrice.md
 docs/Model/ProductSet.md
 docs/Model/ProductSetRule.md
 docs/Model/ProductShipping.md
@@ -648,8 +648,6 @@ lib/Model/NillableGenderV1.php
 lib/Model/NillableInt32.php
 lib/Model/NillableString.php
 lib/Model/OnSiteRecoChatMessage.php
-lib/Model/OnSiteRecoPrice.php
-lib/Model/OnSiteRecoProductContext.php
 lib/Model/OnSiteRecoRequest.php
 lib/Model/OnSiteRecoRequestConversational.php
 lib/Model/OnSiteRecoResponse.php
@@ -684,9 +682,11 @@ lib/Model/PointOfInterestV1.php
 lib/Model/PortfolioMessage.php
 lib/Model/Price.php
 lib/Model/Product.php
+lib/Model/ProductContext.php
 lib/Model/ProductFilterConfig.php
 lib/Model/ProductImporterError.php
 lib/Model/ProductImporterWarning.php
+lib/Model/ProductPrice.php
 lib/Model/ProductSet.php
 lib/Model/ProductSetRule.php
 lib/Model/ProductShipping.php

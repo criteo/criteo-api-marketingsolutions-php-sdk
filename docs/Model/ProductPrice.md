@@ -1,4 +1,4 @@
-# # OnSiteRecoPrice
+# # ProductPrice
 
 ## Properties
 

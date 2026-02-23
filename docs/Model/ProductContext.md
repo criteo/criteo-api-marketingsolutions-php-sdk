@@ -1,4 +1,4 @@
-# # OnSiteRecoProductContext
+# # ProductContext
 
 ## Properties
 
@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **color** | **string** | Product color. | [optional]
 **description** | **string** | Product description. | [optional]
 **name** | **string** | Product name. | [optional]
-**price** | [**\criteo\api\marketingsolutions\preview\Model\OnSiteRecoPrice**](OnSiteRecoPrice.md) |  | [optional]
+**price** | [**\criteo\api\marketingsolutions\preview\Model\ProductPrice**](ProductPrice.md) |  | [optional]
 **product_id** | **string** | Unique identifier of the product matching Criteo Catalog Integration | [optional]
 **size** | **string** | Product size (e.g., M, 42, 500ml). | [optional]
 
