@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **name** | **string** | Product name | [optional]
 **price** | **float** | Product price. | [optional]
 **product_external_id** | **string** | Product external id. Same id than what is used in user events | [optional]
+**relevancy_score** | **float** | Product Relevancy score | [optional]
 **retail_price** | **float** | Product retail price. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

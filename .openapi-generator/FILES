@@ -191,6 +191,8 @@ docs/Model/ExportColumn.md
 docs/Model/ExportMetaData.md
 docs/Model/ExportResult.md
 docs/Model/ExportResultData.md
+docs/Model/FileStreamResultResource.md
+docs/Model/FileStreamResultResponse.md
 docs/Model/GenerateAudiencePerformanceReport.md
 docs/Model/GenerateAudiencePerformanceReportRequest.md
 docs/Model/GenerateAudiencePerformanceReportResource.md
@@ -313,6 +315,12 @@ docs/Model/ReadAdSetV26Q1.md
 docs/Model/ReadModelAdSetId.md
 docs/Model/ReadModelAdSetIdV26Q1.md
 docs/Model/ReadModelReadAdSetV26Q1.md
+docs/Model/RealTimeProductReportJob.md
+docs/Model/RealTimeProductReportJobRequest.md
+docs/Model/RealTimeProductReportJobResource.md
+docs/Model/RealTimeProductReportJobStatus.md
+docs/Model/RealTimeProductReportJobStatusResource.md
+docs/Model/RealTimeProductReportJobStatusResponse.md
 docs/Model/RecommendedProduct.md
 docs/Model/ReportDetailError.md
 docs/Model/ReportDetailErrors.md
@@ -585,6 +593,8 @@ lib/Model/ExportColumn.php
 lib/Model/ExportMetaData.php
 lib/Model/ExportResult.php
 lib/Model/ExportResultData.php
+lib/Model/FileStreamResultResource.php
+lib/Model/FileStreamResultResponse.php
 lib/Model/GenerateAudiencePerformanceReport.php
 lib/Model/GenerateAudiencePerformanceReportRequest.php
 lib/Model/GenerateAudiencePerformanceReportResource.php
@@ -708,6 +718,12 @@ lib/Model/ReadAdSetV26Q1.php
 lib/Model/ReadModelAdSetId.php
 lib/Model/ReadModelAdSetIdV26Q1.php
 lib/Model/ReadModelReadAdSetV26Q1.php
+lib/Model/RealTimeProductReportJob.php
+lib/Model/RealTimeProductReportJobRequest.php
+lib/Model/RealTimeProductReportJobResource.php
+lib/Model/RealTimeProductReportJobStatus.php
+lib/Model/RealTimeProductReportJobStatusResource.php
+lib/Model/RealTimeProductReportJobStatusResponse.php
 lib/Model/RecommendedProduct.php
 lib/Model/ReportDetailError.php
 lib/Model/ReportDetailErrors.php

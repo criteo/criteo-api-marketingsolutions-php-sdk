@@ -66,6 +66,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         'name' => 'string',
         'price' => 'float',
         'product_external_id' => 'string',
+        'relevancy_score' => 'float',
         'retail_price' => 'float'
     ];
 
@@ -85,6 +86,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         'name' => null,
         'price' => 'double',
         'product_external_id' => null,
+        'relevancy_score' => 'double',
         'retail_price' => 'double'
     ];
 
@@ -102,6 +104,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
 		'name' => true,
 		'price' => true,
 		'product_external_id' => true,
+		'relevancy_score' => true,
 		'retail_price' => true
     ];
 
@@ -199,6 +202,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         'name' => 'name',
         'price' => 'price',
         'product_external_id' => 'productExternalId',
+        'relevancy_score' => 'relevancyScore',
         'retail_price' => 'retailPrice'
     ];
 
@@ -216,6 +220,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         'name' => 'setName',
         'price' => 'setPrice',
         'product_external_id' => 'setProductExternalId',
+        'relevancy_score' => 'setRelevancyScore',
         'retail_price' => 'setRetailPrice'
     ];
 
@@ -233,6 +238,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         'name' => 'getName',
         'price' => 'getPrice',
         'product_external_id' => 'getProductExternalId',
+        'relevancy_score' => 'getRelevancyScore',
         'retail_price' => 'getRetailPrice'
     ];
 
@@ -301,6 +307,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('price', $data ?? [], null);
         $this->setIfExists('product_external_id', $data ?? [], null);
+        $this->setIfExists('relevancy_score', $data ?? [], null);
         $this->setIfExists('retail_price', $data ?? [], null);
     }
 
@@ -614,6 +621,40 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
             }
         }
         $this->container['product_external_id'] = $product_external_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets relevancy_score
+     *
+     * @return float|null
+     */
+    public function getRelevancyScore()
+    {
+        return $this->container['relevancy_score'];
+    }
+
+    /**
+     * Sets relevancy_score
+     *
+     * @param float|null $relevancy_score Product Relevancy score
+     *
+     * @return self
+     */
+    public function setRelevancyScore($relevancy_score)
+    {
+        if (is_null($relevancy_score)) {
+            array_push($this->openAPINullablesSetToNull, 'relevancy_score');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('relevancy_score', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['relevancy_score'] = $relevancy_score;
 
         return $this;
     }

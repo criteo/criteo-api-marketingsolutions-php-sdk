@@ -4,6 +4,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**createRealtimeProductReport()**](AnalyticsApi.md#createRealtimeProductReport) | **POST** /preview/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/export |  |
 | [**getAdsetReport()**](AnalyticsApi.md#getAdsetReport) | **POST** /preview/statistics/report |  |
 | [**getAsyncAdsetReport()**](AnalyticsApi.md#getAsyncAdsetReport) | **POST** /preview/reports/async-statistics |  |
 | [**getAsyncAudienceReport()**](AnalyticsApi.md#getAsyncAudienceReport) | **POST** /preview/reports/async-audience-performance |  |
@@ -12,11 +13,76 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 | [**getCategoriesReport()**](AnalyticsApi.md#getCategoriesReport) | **POST** /preview/categories/report |  |
 | [**getCreativesReport()**](AnalyticsApi.md#getCreativesReport) | **POST** /preview/reports/creatives |  |
 | [**getPlacementsReport()**](AnalyticsApi.md#getPlacementsReport) | **POST** /preview/placements/report |  |
+| [**getRealtimeProduct()**](AnalyticsApi.md#getRealtimeProduct) | **GET** /preview/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/{reportId} |  |
+| [**getRealtimeProductJob()**](AnalyticsApi.md#getRealtimeProductJob) | **GET** /preview/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId} |  |
 | [**getRealtimeStatisticsReport()**](AnalyticsApi.md#getRealtimeStatisticsReport) | **POST** /preview/reports/realtime |  |
 | [**getTopProductsReport()**](AnalyticsApi.md#getTopProductsReport) | **POST** /preview/reports/top-products |  |
 | [**getTransactionsReport()**](AnalyticsApi.md#getTransactionsReport) | **POST** /preview/transactions/report |  |
 | [**getTransparencyReport()**](AnalyticsApi.md#getTransparencyReport) | **POST** /preview/log-level/advertisers/{advertiser-id}/report |  |
 
+
+## `createRealtimeProductReport()`
+
+```php
+createRealtimeProductReport($real_time_product_report_job_request): \criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobStatusResponse
+```
+
+
+
+This endpoint is subject to specific rate limits.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$real_time_product_report_job_request = new \criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobRequest(); // \criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobRequest
+
+try {
+    $result = $apiInstance->createRealtimeProductReport($real_time_product_report_job_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AnalyticsApi->createRealtimeProductReport: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **real_time_product_report_job_request** | [**\criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobRequest**](../Model/RealTimeProductReportJobRequest.md)|  | [optional] |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobStatusResponse**](../Model/RealTimeProductReportJobStatusResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`, `text/xml`, `application/*+xml`
+- **Accept**: `application/json`, `application/xml`, `text/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `getAdsetReport()`
 
@@ -517,6 +583,132 @@ try {
 
 - **Content-Type**: `application/json`, `application/xml`, `text/xml`, `application/*+xml`
 - **Accept**: `application/json`, `text/csv`, `text/xml`, `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getRealtimeProduct()`
+
+```php
+getRealtimeProduct($report_id): \criteo\api\marketingsolutions\preview\Model\FileStreamResultResponse
+```
+
+
+
+This endpoint is subject to specific rate limits.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$report_id = 'report_id_example'; // string
+
+try {
+    $result = $apiInstance->getRealtimeProduct($report_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AnalyticsApi->getRealtimeProduct: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **report_id** | **string**|  | |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\FileStreamResultResponse**](../Model/FileStreamResultResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`, `text/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getRealtimeProductJob()`
+
+```php
+getRealtimeProductJob($report_id): \criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobStatusResponse
+```
+
+
+
+This endpoint is subject to specific rate limits.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$report_id = 'report_id_example'; // string
+
+try {
+    $result = $apiInstance->getRealtimeProductJob($report_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AnalyticsApi->getRealtimeProductJob: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **report_id** | **string**|  | |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobStatusResponse**](../Model/RealTimeProductReportJobStatusResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`, `text/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

@@ -71,6 +71,12 @@ class AnalyticsApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
+        'createRealtimeProductReport' => [
+            'application/json',
+            'application/xml',
+            'text/xml',
+            'application/*+xml',
+        ],
         'getAdsetReport' => [
             'application/json',
         ],
@@ -109,6 +115,12 @@ class AnalyticsApi
             'application/xml',
             'text/xml',
             'application/*+xml',
+        ],
+        'getRealtimeProduct' => [
+            'application/json',
+        ],
+        'getRealtimeProductJob' => [
+            'application/json',
         ],
         'getRealtimeStatisticsReport' => [
             'application/json',
@@ -180,6 +192,282 @@ class AnalyticsApi
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * Operation createRealtimeProductReport
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobRequest $real_time_product_report_job_request real_time_product_report_job_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRealtimeProductReport'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobStatusResponse
+     */
+    public function createRealtimeProductReport($real_time_product_report_job_request = null, string $contentType = self::contentTypes['createRealtimeProductReport'][0])
+    {
+        list($response) = $this->createRealtimeProductReportWithHttpInfo($real_time_product_report_job_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createRealtimeProductReportWithHttpInfo
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobRequest $real_time_product_report_job_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRealtimeProductReport'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobStatusResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createRealtimeProductReportWithHttpInfo($real_time_product_report_job_request = null, string $contentType = self::contentTypes['createRealtimeProductReport'][0])
+    {
+        $request = $this->createRealtimeProductReportRequest($real_time_product_report_job_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobStatusResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobStatusResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobStatusResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobStatusResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobStatusResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createRealtimeProductReportAsync
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobRequest $real_time_product_report_job_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRealtimeProductReport'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createRealtimeProductReportAsync($real_time_product_report_job_request = null, string $contentType = self::contentTypes['createRealtimeProductReport'][0])
+    {
+        return $this->createRealtimeProductReportAsyncWithHttpInfo($real_time_product_report_job_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createRealtimeProductReportAsyncWithHttpInfo
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobRequest $real_time_product_report_job_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRealtimeProductReport'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createRealtimeProductReportAsyncWithHttpInfo($real_time_product_report_job_request = null, string $contentType = self::contentTypes['createRealtimeProductReport'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobStatusResponse';
+        $request = $this->createRealtimeProductReportRequest($real_time_product_report_job_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createRealtimeProductReport'
+     *
+     * @param  \criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobRequest $real_time_product_report_job_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRealtimeProductReport'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createRealtimeProductReportRequest($real_time_product_report_job_request = null, string $contentType = self::contentTypes['createRealtimeProductReport'][0])
+    {
+
+
+
+        $resourcePath = '/preview/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/export';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', 'text/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($real_time_product_report_job_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($real_time_product_report_job_request));
+            } else {
+                $httpBody = $real_time_product_report_job_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**
@@ -2410,6 +2698,572 @@ class AnalyticsApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getRealtimeProduct
+     *
+     * @param  string $report_id report_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRealtimeProduct'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\FileStreamResultResponse
+     */
+    public function getRealtimeProduct($report_id, string $contentType = self::contentTypes['getRealtimeProduct'][0])
+    {
+        list($response) = $this->getRealtimeProductWithHttpInfo($report_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getRealtimeProductWithHttpInfo
+     *
+     * @param  string $report_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRealtimeProduct'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\FileStreamResultResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getRealtimeProductWithHttpInfo($report_id, string $contentType = self::contentTypes['getRealtimeProduct'][0])
+    {
+        $request = $this->getRealtimeProductRequest($report_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\FileStreamResultResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\preview\Model\FileStreamResultResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\FileStreamResultResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\FileStreamResultResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\FileStreamResultResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getRealtimeProductAsync
+     *
+     * @param  string $report_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRealtimeProduct'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getRealtimeProductAsync($report_id, string $contentType = self::contentTypes['getRealtimeProduct'][0])
+    {
+        return $this->getRealtimeProductAsyncWithHttpInfo($report_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getRealtimeProductAsyncWithHttpInfo
+     *
+     * @param  string $report_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRealtimeProduct'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getRealtimeProductAsyncWithHttpInfo($report_id, string $contentType = self::contentTypes['getRealtimeProduct'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\FileStreamResultResponse';
+        $request = $this->getRealtimeProductRequest($report_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getRealtimeProduct'
+     *
+     * @param  string $report_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRealtimeProduct'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getRealtimeProductRequest($report_id, string $contentType = self::contentTypes['getRealtimeProduct'][0])
+    {
+
+        // verify the required parameter 'report_id' is set
+        if ($report_id === null || (is_array($report_id) && count($report_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $report_id when calling getRealtimeProduct'
+            );
+        }
+
+
+        $resourcePath = '/preview/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/{reportId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($report_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'reportId' . '}',
+                ObjectSerializer::toPathValue($report_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', 'text/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getRealtimeProductJob
+     *
+     * @param  string $report_id report_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRealtimeProductJob'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobStatusResponse
+     */
+    public function getRealtimeProductJob($report_id, string $contentType = self::contentTypes['getRealtimeProductJob'][0])
+    {
+        list($response) = $this->getRealtimeProductJobWithHttpInfo($report_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getRealtimeProductJobWithHttpInfo
+     *
+     * @param  string $report_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRealtimeProductJob'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobStatusResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getRealtimeProductJobWithHttpInfo($report_id, string $contentType = self::contentTypes['getRealtimeProductJob'][0])
+    {
+        $request = $this->getRealtimeProductJobRequest($report_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobStatusResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobStatusResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobStatusResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobStatusResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobStatusResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getRealtimeProductJobAsync
+     *
+     * @param  string $report_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRealtimeProductJob'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getRealtimeProductJobAsync($report_id, string $contentType = self::contentTypes['getRealtimeProductJob'][0])
+    {
+        return $this->getRealtimeProductJobAsyncWithHttpInfo($report_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getRealtimeProductJobAsyncWithHttpInfo
+     *
+     * @param  string $report_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRealtimeProductJob'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getRealtimeProductJobAsyncWithHttpInfo($report_id, string $contentType = self::contentTypes['getRealtimeProductJob'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobStatusResponse';
+        $request = $this->getRealtimeProductJobRequest($report_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getRealtimeProductJob'
+     *
+     * @param  string $report_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRealtimeProductJob'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getRealtimeProductJobRequest($report_id, string $contentType = self::contentTypes['getRealtimeProductJob'][0])
+    {
+
+        // verify the required parameter 'report_id' is set
+        if ($report_id === null || (is_array($report_id) && count($report_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $report_id when calling getRealtimeProductJob'
+            );
+        }
+
+
+        $resourcePath = '/preview/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($report_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'reportId' . '}',
+                ObjectSerializer::toPathValue($report_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', 'text/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
