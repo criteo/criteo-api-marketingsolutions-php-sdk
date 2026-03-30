@@ -479,7 +479,7 @@ class ReadAdSetBudgetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets budget_delivery_smoothing
      *
-     * @param string|null $budget_delivery_smoothing budget_delivery_smoothing
+     * @param string|null $budget_delivery_smoothing Pacing strategy for spending the budget within a renewal period. Only applicable when budgetStrategy is \"capped\".  - \"accelerated\": spend pacing is based on delivery efficiency rather than the full budget period.  - \"standard\": spread spending evenly over the renewal period.  When budgetStrategy is \"uncapped\", this field is not set (null in read responses, omit in create/patch requests).
      *
      * @return self
      */
@@ -523,7 +523,7 @@ class ReadAdSetBudgetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets budget_delivery_week
      *
-     * @param string|null $budget_delivery_week budget_delivery_week
+     * @param string|null $budget_delivery_week Defines which day-of-week boundaries are used for weekly budget renewal. Only applicable when budgetStrategy is \"capped\", budgetRenewal is \"weekly\", and budgetDeliverySmoothing is \"standard\".  - \"mondayToSunday\", \"tuesdayToMonday\", etc.: the day range over which the weekly budget is paced. Changing this value on the active budget also propagates to all scheduled budgets of the same ad set.  - \"undefined\": used when budgetStrategy is \"uncapped\", when budgetRenewal is not \"weekly\", or when budgetDeliverySmoothing is \"accelerated\".
      *
      * @return self
      */
@@ -567,7 +567,7 @@ class ReadAdSetBudgetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets budget_renewal
      *
-     * @param string|null $budget_renewal budget_renewal
+     * @param string|null $budget_renewal The period over which the budget is spent.  - \"daily\", \"monthly\", \"weekly\": budget resets at the start of each period.  - \"lifetime\": budget covers the entire ad set duration without resetting.  - \"undefined\": only used when budgetStrategy is \"uncapped\" (no renewal applies). Required for capped budgets (must not be \"undefined\").
      *
      * @return self
      */
@@ -611,7 +611,7 @@ class ReadAdSetBudgetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets budget_strategy
      *
-     * @param string|null $budget_strategy budget_strategy
+     * @param string|null $budget_strategy Controls whether the ad set has a spending limit.  - \"capped\": spending is limited to budgetAmount. Requires budgetAmount (non-null), budgetRenewal (not \"undefined\"), and budgetDeliverySmoothing (not null).  - \"uncapped\": no spending limit. budgetAmount is null, budgetRenewal is \"undefined\", and budgetDeliverySmoothing is null.
      *
      * @return self
      */

@@ -4,9 +4,14 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**createBoostedAdAssociation()**](RecoApi.md#createBoostedAdAssociation) | **POST** /preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id} |  |
 | [**createProductSet()**](RecoApi.md#createProductSet) | **POST** /preview/product-sets |  |
+| [**deleteBoostedAdAssociation()**](RecoApi.md#deleteBoostedAdAssociation) | **DELETE** /preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id} |  |
 | [**disableProductFiltering()**](RecoApi.md#disableProductFiltering) | **DELETE** /preview/ads/{ad-id}/product-filter |  |
 | [**enableProductFiltering()**](RecoApi.md#enableProductFiltering) | **POST** /preview/ads/{ad-id}/product-filter |  |
+| [**fetchBoostedAdAssociation()**](RecoApi.md#fetchBoostedAdAssociation) | **GET** /preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id} |  |
+| [**fetchBoostedAdAssociationByPartnerId()**](RecoApi.md#fetchBoostedAdAssociationByPartnerId) | **GET** /preview/marketing-solutions/dataset/{dataset-id}/product-boost |  |
+| [**fetchBoostedAdAssociations()**](RecoApi.md#fetchBoostedAdAssociations) | **GET** /preview/marketing-solutions/ads/{ad-id}/product-boost |  |
 | [**fetchProductFilteringConfig()**](RecoApi.md#fetchProductFilteringConfig) | **GET** /preview/ads/{ad-id}/product-filter |  |
 | [**fetchProductFilteringUsages()**](RecoApi.md#fetchProductFilteringUsages) | **GET** /preview/product-sets/{product-set-id}/product-filters |  |
 | [**fetchProductSet()**](RecoApi.md#fetchProductSet) | **GET** /preview/product-sets/{product-set-id} |  |
@@ -14,6 +19,73 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 | [**patchProductSet()**](RecoApi.md#patchProductSet) | **PATCH** /preview/product-sets/{product-set-id} |  |
 | [**removeProductSet()**](RecoApi.md#removeProductSet) | **DELETE** /preview/product-sets/{product-set-id} |  |
 
+
+## `createBoostedAdAssociation()`
+
+```php
+createBoostedAdAssociation($ad_id, $product_set_id, $value_resource_input_of_boosting_configuration_request): \criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet
+```
+
+
+
+Create or update product boosting configuration
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\RecoApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$ad_id = 'ad_id_example'; // string | ID of the ad
+$product_set_id = 'product_set_id_example'; // string | ID of the product set
+$value_resource_input_of_boosting_configuration_request = new \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfBoostingConfigurationRequest(); // \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfBoostingConfigurationRequest
+
+try {
+    $result = $apiInstance->createBoostedAdAssociation($ad_id, $product_set_id, $value_resource_input_of_boosting_configuration_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling RecoApi->createBoostedAdAssociation: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ad_id** | **string**| ID of the ad | |
+| **product_set_id** | **string**| ID of the product set | |
+| **value_resource_input_of_boosting_configuration_request** | [**\criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfBoostingConfigurationRequest**](../Model/ValueResourceInputOfBoostingConfigurationRequest.md)|  | [optional] |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet**](../Model/ValueResourceOutcomeOfBoostedAdProductSet.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `createProductSet()`
 
@@ -72,6 +144,71 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteBoostedAdAssociation()`
+
+```php
+deleteBoostedAdAssociation($ad_id, $product_set_id): \criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet
+```
+
+
+
+Delete association and configuration.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\RecoApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$ad_id = 'ad_id_example'; // string | ID of the ad
+$product_set_id = 'product_set_id_example'; // string | ID of the product set
+
+try {
+    $result = $apiInstance->deleteBoostedAdAssociation($ad_id, $product_set_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling RecoApi->deleteBoostedAdAssociation: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ad_id** | **string**| ID of the ad | |
+| **product_set_id** | **string**| ID of the product set | |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet**](../Model/ValueResourceOutcomeOfBoostedAdProductSet.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -200,6 +337,199 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `fetchBoostedAdAssociation()`
+
+```php
+fetchBoostedAdAssociation($ad_id, $product_set_id): \criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet
+```
+
+
+
+Fetch boosting association and configuration
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\RecoApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$ad_id = 'ad_id_example'; // string | ID of the ad
+$product_set_id = 'product_set_id_example'; // string | ID of the product set
+
+try {
+    $result = $apiInstance->fetchBoostedAdAssociation($ad_id, $product_set_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling RecoApi->fetchBoostedAdAssociation: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ad_id** | **string**| ID of the ad | |
+| **product_set_id** | **string**| ID of the product set | |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet**](../Model/ValueResourceOutcomeOfBoostedAdProductSet.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `fetchBoostedAdAssociationByPartnerId()`
+
+```php
+fetchBoostedAdAssociationByPartnerId($dataset_id, $client_type): \criteo\api\marketingsolutions\preview\Model\ValueResourceCollectionOutcomeOfBoostedAdProductSet
+```
+
+
+
+Fetch boosting association and configuration for a given partner
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\RecoApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$dataset_id = 'dataset_id_example'; // string | ID of the dataset
+$client_type = 'client_type_example'; // string | Client type filter
+
+try {
+    $result = $apiInstance->fetchBoostedAdAssociationByPartnerId($dataset_id, $client_type);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling RecoApi->fetchBoostedAdAssociationByPartnerId: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **dataset_id** | **string**| ID of the dataset | |
+| **client_type** | **string**| Client type filter | [optional] |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\ValueResourceCollectionOutcomeOfBoostedAdProductSet**](../Model/ValueResourceCollectionOutcomeOfBoostedAdProductSet.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `fetchBoostedAdAssociations()`
+
+```php
+fetchBoostedAdAssociations($ad_id): \criteo\api\marketingsolutions\preview\Model\ValueResourceCollectionOutcomeOfBoostedAdProductSet
+```
+
+
+
+Fetch all boosting associations and configurations
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\RecoApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$ad_id = 'ad_id_example'; // string | ID of the ad
+
+try {
+    $result = $apiInstance->fetchBoostedAdAssociations($ad_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling RecoApi->fetchBoostedAdAssociations: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ad_id** | **string**| ID of the ad | |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\ValueResourceCollectionOutcomeOfBoostedAdProductSet**](../Model/ValueResourceCollectionOutcomeOfBoostedAdProductSet.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attribution_configuration** | [**\criteo\api\marketingsolutions\preview\Model\CreateAdSetAttributionConfigurationV26Q1**](CreateAdSetAttributionConfigurationV26Q1.md) |  | [optional]
 **bidding** | [**\criteo\api\marketingsolutions\preview\Model\CreateAdSetBiddingV26Q1**](CreateAdSetBiddingV26Q1.md) |  |
-**budget** | [**\criteo\api\marketingsolutions\preview\Model\CreateAdSetBudgetV26Q1**](CreateAdSetBudgetV26Q1.md) |  | [optional]
+**budget** | [**\criteo\api\marketingsolutions\preview\Model\CreateAdSetBudgetV26Q1**](CreateAdSetBudgetV26Q1.md) |  |
 **campaign_id** | **string** | Campaign id this ad set belongs to |
 **dataset_id** | **string** | Dataset id of this ad set |
 **media_type** | **string** | Media type for the ad set |

@@ -71,13 +71,28 @@ class RecoApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
+        'createBoostedAdAssociation' => [
+            'application/json',
+        ],
         'createProductSet' => [
+            'application/json',
+        ],
+        'deleteBoostedAdAssociation' => [
             'application/json',
         ],
         'disableProductFiltering' => [
             'application/json',
         ],
         'enableProductFiltering' => [
+            'application/json',
+        ],
+        'fetchBoostedAdAssociation' => [
+            'application/json',
+        ],
+        'fetchBoostedAdAssociationByPartnerId' => [
+            'application/json',
+        ],
+        'fetchBoostedAdAssociations' => [
             'application/json',
         ],
         'fetchProductFilteringConfig' => [
@@ -144,6 +159,345 @@ class RecoApi
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * Operation createBoostedAdAssociation
+     *
+     * @param  string $ad_id ID of the ad (required)
+     * @param  string $product_set_id ID of the product set (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfBoostingConfigurationRequest $value_resource_input_of_boosting_configuration_request value_resource_input_of_boosting_configuration_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBoostedAdAssociation'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet|\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet
+     */
+    public function createBoostedAdAssociation($ad_id, $product_set_id, $value_resource_input_of_boosting_configuration_request = null, string $contentType = self::contentTypes['createBoostedAdAssociation'][0])
+    {
+        list($response) = $this->createBoostedAdAssociationWithHttpInfo($ad_id, $product_set_id, $value_resource_input_of_boosting_configuration_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createBoostedAdAssociationWithHttpInfo
+     *
+     * @param  string $ad_id ID of the ad (required)
+     * @param  string $product_set_id ID of the product set (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfBoostingConfigurationRequest $value_resource_input_of_boosting_configuration_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBoostedAdAssociation'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet|\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createBoostedAdAssociationWithHttpInfo($ad_id, $product_set_id, $value_resource_input_of_boosting_configuration_request = null, string $contentType = self::contentTypes['createBoostedAdAssociation'][0])
+    {
+        $request = $this->createBoostedAdAssociationRequest($ad_id, $product_set_id, $value_resource_input_of_boosting_configuration_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 201:
+                    if ('\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createBoostedAdAssociationAsync
+     *
+     * @param  string $ad_id ID of the ad (required)
+     * @param  string $product_set_id ID of the product set (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfBoostingConfigurationRequest $value_resource_input_of_boosting_configuration_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBoostedAdAssociation'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createBoostedAdAssociationAsync($ad_id, $product_set_id, $value_resource_input_of_boosting_configuration_request = null, string $contentType = self::contentTypes['createBoostedAdAssociation'][0])
+    {
+        return $this->createBoostedAdAssociationAsyncWithHttpInfo($ad_id, $product_set_id, $value_resource_input_of_boosting_configuration_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createBoostedAdAssociationAsyncWithHttpInfo
+     *
+     * @param  string $ad_id ID of the ad (required)
+     * @param  string $product_set_id ID of the product set (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfBoostingConfigurationRequest $value_resource_input_of_boosting_configuration_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBoostedAdAssociation'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createBoostedAdAssociationAsyncWithHttpInfo($ad_id, $product_set_id, $value_resource_input_of_boosting_configuration_request = null, string $contentType = self::contentTypes['createBoostedAdAssociation'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet';
+        $request = $this->createBoostedAdAssociationRequest($ad_id, $product_set_id, $value_resource_input_of_boosting_configuration_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createBoostedAdAssociation'
+     *
+     * @param  string $ad_id ID of the ad (required)
+     * @param  string $product_set_id ID of the product set (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfBoostingConfigurationRequest $value_resource_input_of_boosting_configuration_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBoostedAdAssociation'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createBoostedAdAssociationRequest($ad_id, $product_set_id, $value_resource_input_of_boosting_configuration_request = null, string $contentType = self::contentTypes['createBoostedAdAssociation'][0])
+    {
+
+        // verify the required parameter 'ad_id' is set
+        if ($ad_id === null || (is_array($ad_id) && count($ad_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ad_id when calling createBoostedAdAssociation'
+            );
+        }
+
+        // verify the required parameter 'product_set_id' is set
+        if ($product_set_id === null || (is_array($product_set_id) && count($product_set_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $product_set_id when calling createBoostedAdAssociation'
+            );
+        }
+
+
+
+        $resourcePath = '/preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($ad_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'ad-id' . '}',
+                ObjectSerializer::toPathValue($ad_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($product_set_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'product-set-id' . '}',
+                ObjectSerializer::toPathValue($product_set_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($value_resource_input_of_boosting_configuration_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($value_resource_input_of_boosting_configuration_request));
+            } else {
+                $httpBody = $value_resource_input_of_boosting_configuration_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**
@@ -422,6 +776,309 @@ class RecoApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteBoostedAdAssociation
+     *
+     * @param  string $ad_id ID of the ad (required)
+     * @param  string $product_set_id ID of the product set (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBoostedAdAssociation'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet
+     */
+    public function deleteBoostedAdAssociation($ad_id, $product_set_id, string $contentType = self::contentTypes['deleteBoostedAdAssociation'][0])
+    {
+        list($response) = $this->deleteBoostedAdAssociationWithHttpInfo($ad_id, $product_set_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation deleteBoostedAdAssociationWithHttpInfo
+     *
+     * @param  string $ad_id ID of the ad (required)
+     * @param  string $product_set_id ID of the product set (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBoostedAdAssociation'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteBoostedAdAssociationWithHttpInfo($ad_id, $product_set_id, string $contentType = self::contentTypes['deleteBoostedAdAssociation'][0])
+    {
+        $request = $this->deleteBoostedAdAssociationRequest($ad_id, $product_set_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteBoostedAdAssociationAsync
+     *
+     * @param  string $ad_id ID of the ad (required)
+     * @param  string $product_set_id ID of the product set (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBoostedAdAssociation'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteBoostedAdAssociationAsync($ad_id, $product_set_id, string $contentType = self::contentTypes['deleteBoostedAdAssociation'][0])
+    {
+        return $this->deleteBoostedAdAssociationAsyncWithHttpInfo($ad_id, $product_set_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteBoostedAdAssociationAsyncWithHttpInfo
+     *
+     * @param  string $ad_id ID of the ad (required)
+     * @param  string $product_set_id ID of the product set (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBoostedAdAssociation'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteBoostedAdAssociationAsyncWithHttpInfo($ad_id, $product_set_id, string $contentType = self::contentTypes['deleteBoostedAdAssociation'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet';
+        $request = $this->deleteBoostedAdAssociationRequest($ad_id, $product_set_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteBoostedAdAssociation'
+     *
+     * @param  string $ad_id ID of the ad (required)
+     * @param  string $product_set_id ID of the product set (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBoostedAdAssociation'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteBoostedAdAssociationRequest($ad_id, $product_set_id, string $contentType = self::contentTypes['deleteBoostedAdAssociation'][0])
+    {
+
+        // verify the required parameter 'ad_id' is set
+        if ($ad_id === null || (is_array($ad_id) && count($ad_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ad_id when calling deleteBoostedAdAssociation'
+            );
+        }
+
+        // verify the required parameter 'product_set_id' is set
+        if ($product_set_id === null || (is_array($product_set_id) && count($product_set_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $product_set_id when calling deleteBoostedAdAssociation'
+            );
+        }
+
+
+        $resourcePath = '/preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($ad_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'ad-id' . '}',
+                ObjectSerializer::toPathValue($ad_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($product_set_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'product-set-id' . '}',
+                ObjectSerializer::toPathValue($product_set_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -1001,6 +1658,890 @@ class RecoApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation fetchBoostedAdAssociation
+     *
+     * @param  string $ad_id ID of the ad (required)
+     * @param  string $product_set_id ID of the product set (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBoostedAdAssociation'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet
+     */
+    public function fetchBoostedAdAssociation($ad_id, $product_set_id, string $contentType = self::contentTypes['fetchBoostedAdAssociation'][0])
+    {
+        list($response) = $this->fetchBoostedAdAssociationWithHttpInfo($ad_id, $product_set_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation fetchBoostedAdAssociationWithHttpInfo
+     *
+     * @param  string $ad_id ID of the ad (required)
+     * @param  string $product_set_id ID of the product set (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBoostedAdAssociation'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function fetchBoostedAdAssociationWithHttpInfo($ad_id, $product_set_id, string $contentType = self::contentTypes['fetchBoostedAdAssociation'][0])
+    {
+        $request = $this->fetchBoostedAdAssociationRequest($ad_id, $product_set_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation fetchBoostedAdAssociationAsync
+     *
+     * @param  string $ad_id ID of the ad (required)
+     * @param  string $product_set_id ID of the product set (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBoostedAdAssociation'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function fetchBoostedAdAssociationAsync($ad_id, $product_set_id, string $contentType = self::contentTypes['fetchBoostedAdAssociation'][0])
+    {
+        return $this->fetchBoostedAdAssociationAsyncWithHttpInfo($ad_id, $product_set_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation fetchBoostedAdAssociationAsyncWithHttpInfo
+     *
+     * @param  string $ad_id ID of the ad (required)
+     * @param  string $product_set_id ID of the product set (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBoostedAdAssociation'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function fetchBoostedAdAssociationAsyncWithHttpInfo($ad_id, $product_set_id, string $contentType = self::contentTypes['fetchBoostedAdAssociation'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet';
+        $request = $this->fetchBoostedAdAssociationRequest($ad_id, $product_set_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'fetchBoostedAdAssociation'
+     *
+     * @param  string $ad_id ID of the ad (required)
+     * @param  string $product_set_id ID of the product set (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBoostedAdAssociation'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function fetchBoostedAdAssociationRequest($ad_id, $product_set_id, string $contentType = self::contentTypes['fetchBoostedAdAssociation'][0])
+    {
+
+        // verify the required parameter 'ad_id' is set
+        if ($ad_id === null || (is_array($ad_id) && count($ad_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ad_id when calling fetchBoostedAdAssociation'
+            );
+        }
+
+        // verify the required parameter 'product_set_id' is set
+        if ($product_set_id === null || (is_array($product_set_id) && count($product_set_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $product_set_id when calling fetchBoostedAdAssociation'
+            );
+        }
+
+
+        $resourcePath = '/preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($ad_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'ad-id' . '}',
+                ObjectSerializer::toPathValue($ad_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($product_set_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'product-set-id' . '}',
+                ObjectSerializer::toPathValue($product_set_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation fetchBoostedAdAssociationByPartnerId
+     *
+     * @param  string $dataset_id ID of the dataset (required)
+     * @param  string $client_type Client type filter (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBoostedAdAssociationByPartnerId'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\ValueResourceCollectionOutcomeOfBoostedAdProductSet
+     */
+    public function fetchBoostedAdAssociationByPartnerId($dataset_id, $client_type = null, string $contentType = self::contentTypes['fetchBoostedAdAssociationByPartnerId'][0])
+    {
+        list($response) = $this->fetchBoostedAdAssociationByPartnerIdWithHttpInfo($dataset_id, $client_type, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation fetchBoostedAdAssociationByPartnerIdWithHttpInfo
+     *
+     * @param  string $dataset_id ID of the dataset (required)
+     * @param  string $client_type Client type filter (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBoostedAdAssociationByPartnerId'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ValueResourceCollectionOutcomeOfBoostedAdProductSet, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function fetchBoostedAdAssociationByPartnerIdWithHttpInfo($dataset_id, $client_type = null, string $contentType = self::contentTypes['fetchBoostedAdAssociationByPartnerId'][0])
+    {
+        $request = $this->fetchBoostedAdAssociationByPartnerIdRequest($dataset_id, $client_type, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\ValueResourceCollectionOutcomeOfBoostedAdProductSet' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\preview\Model\ValueResourceCollectionOutcomeOfBoostedAdProductSet' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ValueResourceCollectionOutcomeOfBoostedAdProductSet', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\ValueResourceCollectionOutcomeOfBoostedAdProductSet';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\ValueResourceCollectionOutcomeOfBoostedAdProductSet',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation fetchBoostedAdAssociationByPartnerIdAsync
+     *
+     * @param  string $dataset_id ID of the dataset (required)
+     * @param  string $client_type Client type filter (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBoostedAdAssociationByPartnerId'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function fetchBoostedAdAssociationByPartnerIdAsync($dataset_id, $client_type = null, string $contentType = self::contentTypes['fetchBoostedAdAssociationByPartnerId'][0])
+    {
+        return $this->fetchBoostedAdAssociationByPartnerIdAsyncWithHttpInfo($dataset_id, $client_type, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation fetchBoostedAdAssociationByPartnerIdAsyncWithHttpInfo
+     *
+     * @param  string $dataset_id ID of the dataset (required)
+     * @param  string $client_type Client type filter (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBoostedAdAssociationByPartnerId'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function fetchBoostedAdAssociationByPartnerIdAsyncWithHttpInfo($dataset_id, $client_type = null, string $contentType = self::contentTypes['fetchBoostedAdAssociationByPartnerId'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\ValueResourceCollectionOutcomeOfBoostedAdProductSet';
+        $request = $this->fetchBoostedAdAssociationByPartnerIdRequest($dataset_id, $client_type, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'fetchBoostedAdAssociationByPartnerId'
+     *
+     * @param  string $dataset_id ID of the dataset (required)
+     * @param  string $client_type Client type filter (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBoostedAdAssociationByPartnerId'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function fetchBoostedAdAssociationByPartnerIdRequest($dataset_id, $client_type = null, string $contentType = self::contentTypes['fetchBoostedAdAssociationByPartnerId'][0])
+    {
+
+        // verify the required parameter 'dataset_id' is set
+        if ($dataset_id === null || (is_array($dataset_id) && count($dataset_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $dataset_id when calling fetchBoostedAdAssociationByPartnerId'
+            );
+        }
+
+
+
+        $resourcePath = '/preview/marketing-solutions/dataset/{dataset-id}/product-boost';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $client_type,
+            'client-type', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($dataset_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'dataset-id' . '}',
+                ObjectSerializer::toPathValue($dataset_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation fetchBoostedAdAssociations
+     *
+     * @param  string $ad_id ID of the ad (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBoostedAdAssociations'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\preview\Model\ValueResourceCollectionOutcomeOfBoostedAdProductSet
+     */
+    public function fetchBoostedAdAssociations($ad_id, string $contentType = self::contentTypes['fetchBoostedAdAssociations'][0])
+    {
+        list($response) = $this->fetchBoostedAdAssociationsWithHttpInfo($ad_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation fetchBoostedAdAssociationsWithHttpInfo
+     *
+     * @param  string $ad_id ID of the ad (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBoostedAdAssociations'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\preview\Model\ValueResourceCollectionOutcomeOfBoostedAdProductSet, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function fetchBoostedAdAssociationsWithHttpInfo($ad_id, string $contentType = self::contentTypes['fetchBoostedAdAssociations'][0])
+    {
+        $request = $this->fetchBoostedAdAssociationsRequest($ad_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\preview\Model\ValueResourceCollectionOutcomeOfBoostedAdProductSet' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\preview\Model\ValueResourceCollectionOutcomeOfBoostedAdProductSet' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\ValueResourceCollectionOutcomeOfBoostedAdProductSet', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\ValueResourceCollectionOutcomeOfBoostedAdProductSet';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\preview\Model\ValueResourceCollectionOutcomeOfBoostedAdProductSet',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation fetchBoostedAdAssociationsAsync
+     *
+     * @param  string $ad_id ID of the ad (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBoostedAdAssociations'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function fetchBoostedAdAssociationsAsync($ad_id, string $contentType = self::contentTypes['fetchBoostedAdAssociations'][0])
+    {
+        return $this->fetchBoostedAdAssociationsAsyncWithHttpInfo($ad_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation fetchBoostedAdAssociationsAsyncWithHttpInfo
+     *
+     * @param  string $ad_id ID of the ad (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBoostedAdAssociations'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function fetchBoostedAdAssociationsAsyncWithHttpInfo($ad_id, string $contentType = self::contentTypes['fetchBoostedAdAssociations'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\ValueResourceCollectionOutcomeOfBoostedAdProductSet';
+        $request = $this->fetchBoostedAdAssociationsRequest($ad_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'fetchBoostedAdAssociations'
+     *
+     * @param  string $ad_id ID of the ad (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBoostedAdAssociations'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function fetchBoostedAdAssociationsRequest($ad_id, string $contentType = self::contentTypes['fetchBoostedAdAssociations'][0])
+    {
+
+        // verify the required parameter 'ad_id' is set
+        if ($ad_id === null || (is_array($ad_id) && count($ad_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ad_id when calling fetchBoostedAdAssociations'
+            );
+        }
+
+
+        $resourcePath = '/preview/marketing-solutions/ads/{ad-id}/product-boost';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($ad_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'ad-id' . '}',
+                ObjectSerializer::toPathValue($ad_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

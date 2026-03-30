@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * PatchAdSetBudgetV26Q1 Class Doc Comment
  *
  * @category Class
- * @description ad set budget patch model
+ * @description Budget patch model for an ad set. Only provided fields are updated; omitted fields are left unchanged.  Switching to \&quot;uncapped\&quot;: set budgetStrategy to \&quot;uncapped\&quot; and budgetAmount.value to null. Other budget fields (budgetRenewal, budgetDeliverySmoothing, budgetDeliveryWeek) are automatically cleared.  Switching to \&quot;capped\&quot;: set budgetStrategy to \&quot;capped\&quot;, budgetAmount.value to a positive number, budgetRenewal to a period, and budgetDeliverySmoothing to a pacing strategy.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -479,7 +479,7 @@ class PatchAdSetBudgetV26Q1 implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets budget_delivery_smoothing
      *
-     * @param string|null $budget_delivery_smoothing budget_delivery_smoothing
+     * @param string|null $budget_delivery_smoothing Pacing strategy for spending the budget within a renewal period. Only applicable when budgetStrategy is \"capped\".  - \"accelerated\": spend pacing is based on delivery efficiency rather than the full budget period.  - \"standard\": spread spending evenly over the renewal period.  When budgetStrategy is \"uncapped\", this field is not set (null in read responses, omit in create/patch requests).
      *
      * @return self
      */
@@ -523,7 +523,7 @@ class PatchAdSetBudgetV26Q1 implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets budget_delivery_week
      *
-     * @param string|null $budget_delivery_week budget_delivery_week
+     * @param string|null $budget_delivery_week Defines which day-of-week boundaries are used for weekly budget renewal. Only applicable when budgetStrategy is \"capped\", budgetRenewal is \"weekly\", and budgetDeliverySmoothing is \"standard\".  - \"mondayToSunday\", \"tuesdayToMonday\", etc.: the day range over which the weekly budget is paced. Changing this value on the active budget also propagates to all scheduled budgets of the same ad set.  - \"undefined\": used when budgetStrategy is \"uncapped\", when budgetRenewal is not \"weekly\", or when budgetDeliverySmoothing is \"accelerated\".
      *
      * @return self
      */
@@ -567,7 +567,7 @@ class PatchAdSetBudgetV26Q1 implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets budget_renewal
      *
-     * @param string|null $budget_renewal budget_renewal
+     * @param string|null $budget_renewal The period over which the budget is spent.  - \"daily\", \"monthly\", \"weekly\": budget resets at the start of each period.  - \"lifetime\": budget covers the entire ad set duration without resetting.  - \"undefined\": only used when budgetStrategy is \"uncapped\" (no renewal applies). Required for capped budgets (must not be \"undefined\").
      *
      * @return self
      */
@@ -611,7 +611,7 @@ class PatchAdSetBudgetV26Q1 implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets budget_strategy
      *
-     * @param string|null $budget_strategy budget_strategy
+     * @param string|null $budget_strategy Controls whether the ad set has a spending limit.  - \"capped\": spending is limited to budgetAmount. Requires budgetAmount (non-null), budgetRenewal (not \"undefined\"), and budgetDeliverySmoothing (not null).  - \"uncapped\": no spending limit. budgetAmount is null, budgetRenewal is \"undefined\", and budgetDeliverySmoothing is null.
      *
      * @return self
      */
