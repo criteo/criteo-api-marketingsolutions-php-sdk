@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * CreateAdSetBudgetV26Q1 Class Doc Comment
  *
  * @category Class
- * @description ad set budget create model
+ * @description Budget create model for an ad set.  For \&quot;capped\&quot;: budgetAmount (required, non-null), budgetRenewal (required, not \&quot;undefined\&quot;), and budgetDeliverySmoothing (required) must all be provided.  For \&quot;uncapped\&quot;: budgetAmount must be null, budgetRenewal must be \&quot;undefined\&quot;, budgetDeliverySmoothing and budgetDeliveryWeek must be omitted or \&quot;undefined\&quot;.  For marketing campaigns with budget automation enabled, omit this object.  In that case, the ad set budget is initialized from the marketing campaign spend limit amount and renewal period.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -448,7 +448,7 @@ class CreateAdSetBudgetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets budget_amount
      *
-     * @param float|null $budget_amount budget_amount
+     * @param float|null $budget_amount Maximum budget amount in the advertiser's currency per renewal period. Required non-null when capped. Must be null when uncapped.
      *
      * @return self
      */

@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * PatchAdSetBudgetV26Q1 Class Doc Comment
  *
  * @category Class
- * @description Budget patch model for an ad set. Only provided fields are updated; omitted fields are left unchanged.  Switching to \&quot;uncapped\&quot;: set budgetStrategy to \&quot;uncapped\&quot; and budgetAmount.value to null. Other budget fields (budgetRenewal, budgetDeliverySmoothing, budgetDeliveryWeek) are automatically cleared.  Switching to \&quot;capped\&quot;: set budgetStrategy to \&quot;capped\&quot;, budgetAmount.value to a positive number, budgetRenewal to a period, and budgetDeliverySmoothing to a pacing strategy.
+ * @description Budget patch model for an ad set. Only provided fields are updated; omitted fields are left unchanged.  Switching to \&quot;uncapped\&quot;: set budgetStrategy to \&quot;uncapped\&quot; and budgetAmount.value to null. Other budget fields (budgetRenewal, budgetDeliverySmoothing, budgetDeliveryWeek) are automatically cleared.  Switching to \&quot;capped\&quot;: set budgetStrategy to \&quot;capped\&quot;, budgetAmount.value to a positive number, budgetRenewal to a period, and budgetDeliverySmoothing to a pacing strategy.  Manual budget updates are not supported when the linked marketing campaign has budget automation enabled.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

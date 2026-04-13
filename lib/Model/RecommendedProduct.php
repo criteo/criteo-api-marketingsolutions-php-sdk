@@ -59,6 +59,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPITypes = [
         'alternative_click_url' => 'string',
+        'brand' => 'string',
         'click_url' => 'string',
         'description' => 'string',
         'google_category' => 'string',
@@ -79,6 +80,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPIFormats = [
         'alternative_click_url' => null,
+        'brand' => null,
         'click_url' => null,
         'description' => null,
         'google_category' => null,
@@ -97,6 +99,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static array $openAPINullables = [
         'alternative_click_url' => true,
+		'brand' => true,
 		'click_url' => true,
 		'description' => true,
 		'google_category' => true,
@@ -195,6 +198,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $attributeMap = [
         'alternative_click_url' => 'alternativeClickUrl',
+        'brand' => 'brand',
         'click_url' => 'clickUrl',
         'description' => 'description',
         'google_category' => 'googleCategory',
@@ -213,6 +217,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $setters = [
         'alternative_click_url' => 'setAlternativeClickUrl',
+        'brand' => 'setBrand',
         'click_url' => 'setClickUrl',
         'description' => 'setDescription',
         'google_category' => 'setGoogleCategory',
@@ -231,6 +236,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $getters = [
         'alternative_click_url' => 'getAlternativeClickUrl',
+        'brand' => 'getBrand',
         'click_url' => 'getClickUrl',
         'description' => 'getDescription',
         'google_category' => 'getGoogleCategory',
@@ -300,6 +306,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
     public function __construct(array $data = null)
     {
         $this->setIfExists('alternative_click_url', $data ?? [], null);
+        $this->setIfExists('brand', $data ?? [], null);
         $this->setIfExists('click_url', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('google_category', $data ?? [], null);
@@ -383,6 +390,40 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
             }
         }
         $this->container['alternative_click_url'] = $alternative_click_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets brand
+     *
+     * @return string|null
+     */
+    public function getBrand()
+    {
+        return $this->container['brand'];
+    }
+
+    /**
+     * Sets brand
+     *
+     * @param string|null $brand Product brand.
+     *
+     * @return self
+     */
+    public function setBrand($brand)
+    {
+        if (is_null($brand)) {
+            array_push($this->openAPINullablesSetToNull, 'brand');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('brand', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['brand'] = $brand;
 
         return $this;
     }

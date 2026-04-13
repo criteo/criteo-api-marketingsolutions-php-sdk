@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **alternative_click_url** | **string** | Url leading to product details page and also used to track user click. It&#39;s relying on a custom product URL field in the catalog. | [optional]
+**brand** | **string** | Product brand. | [optional]
 **click_url** | **string** | Url leading to product details page and also used to track user click | [optional]
 **description** | **string** | Product description. | [optional]
 **google_category** | **string** | Product google category. | [optional]

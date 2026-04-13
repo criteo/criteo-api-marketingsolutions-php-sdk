@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * CampaignSpendLimitV23Q1 Class Doc Comment
  *
  * @category Class
- * @description campaign spend limit model
+ * @description Campaign spend-limit configuration. A capped spend limit restricts campaign spending per renewal period. An uncapped spend limit does not impose a spending ceiling.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

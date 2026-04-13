@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * AutomatedBudgetConfigurationV23Q1 Class Doc Comment
  *
  * @category Class
- * @description The automated budget configuration model
+ * @description Detailed configuration used when campaign budget automation is enabled.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -331,7 +331,7 @@ class AutomatedBudgetConfigurationV23Q1 implements ModelInterface, ArrayAccess, 
     /**
      * Sets ad_set_optimization_objective
      *
-     * @param string|null $ad_set_optimization_objective ad_set_optimization_objective
+     * @param string|null $ad_set_optimization_objective Optimization objective used to automate budget allocation across ad sets.  Expected when budgetAutomation.enabled is true.  Possible values are \"conversions\", \"revenue\", \"visits\", and \"videoViews\".
      *
      * @return self
      */
