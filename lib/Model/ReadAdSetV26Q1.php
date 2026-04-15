@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * ReadAdSetV26Q1 Class Doc Comment
  *
  * @category Class
- * @description ad set read model
+ * @description Ad set read model.                The ad set is the configuration unit that defines ads delivery. Its binds together the objective, budget,  scheduling, targeting options and ads.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -503,7 +503,7 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets advertiser_id
      *
-     * @param string|null $advertiser_id advertiser_id
+     * @param string|null $advertiser_id Advertiser id of the campaign this ad set belongs to  This value is a string-encoded integer.
      *
      * @return self
      */
@@ -639,7 +639,7 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets campaign_id
      *
-     * @param string|null $campaign_id campaign_id
+     * @param string|null $campaign_id Campaign id this ad set belongs to.                This is a key to a MarketingCampaign entity, which can be retrieved using the MarketingCampaigns endpoints.  This value is a string-encoded integer.
      *
      * @return self
      */
@@ -673,7 +673,7 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets dataset_id
      *
-     * @param string|null $dataset_id dataset_id
+     * @param string|null $dataset_id Dataset id of this ad set  This value is a string-encoded integer.
      *
      * @return self
      */
@@ -707,7 +707,7 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets destination_environment
      *
-     * @param string|null $destination_environment destination_environment
+     * @param string|null $destination_environment The environment that an ad click will lead a user to.                Possible values:  - undefined: the ad set does not specify its destination environment  - web: the ad set lead users to a web page  - app: the ad set lead users to an app
      *
      * @return self
      */
@@ -795,7 +795,7 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name name
+     * @param string|null $name Name of the ad set
      *
      * @return self
      */
@@ -829,7 +829,7 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets objective
      *
-     * @param string|null $objective objective
+     * @param string|null $objective Ad set objective.                Possible values:  - customAction (previously \"Actions\")  - clicks  - conversions  - displays  - appPromotion (previously \"Installs\")  - revenue  - storeConversions  - value  - reach (previously \"ViewedImpressions\")  - visits  - videoViews (previously \"CompletedVideoViews\")
      *
      * @return self
      */

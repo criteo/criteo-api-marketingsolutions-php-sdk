@@ -344,7 +344,7 @@ class BudgetAutomation implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets enabled
      *
-     * @param bool|null $enabled enabled
+     * @param bool|null $enabled Whether budget automation is active for this marketing campaign.  - true: budget automation is enabled and \"budgetConfiguration\" must be provided with a valid objective.  - false (default when omitted): budget automation is disabled; \"budgetConfiguration\" is ignored if provided.
      *
      * @return self
      */

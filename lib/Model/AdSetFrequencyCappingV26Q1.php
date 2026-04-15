@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * AdSetFrequencyCappingV26Q1 Class Doc Comment
  *
  * @category Class
- * @description ad set frequency capping model
+ * @description Ad set frequency capping.                Settings that can limit the number of impression by viewer and by period.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -338,7 +338,7 @@ class AdSetFrequencyCappingV26Q1 implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets frequency
      *
-     * @param string|null $frequency frequency
+     * @param string|null $frequency Period on which impression limitation is calculated.                Possible values:  - hourly  - daily  - lifetime  - advanced
      *
      * @return self
      */
@@ -382,7 +382,7 @@ class AdSetFrequencyCappingV26Q1 implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets maximum_impressions
      *
-     * @param int|null $maximum_impressions maximum_impressions
+     * @param int|null $maximum_impressions Maximum impressions for the specified period.
      *
      * @return self
      */

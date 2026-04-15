@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * PatchAdSetSchedulingV26Q1 Class Doc Comment
  *
  * @category Class
- * @description ad set schedule patch model
+ * @description Model for patching ad set scheduling.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

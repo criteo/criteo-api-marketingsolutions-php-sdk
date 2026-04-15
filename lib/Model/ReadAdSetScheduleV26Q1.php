@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * ReadAdSetScheduleV26Q1 Class Doc Comment
  *
  * @category Class
- * @description ad set schedule read model
+ * @description Ad set schedule read model
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -388,7 +388,7 @@ class ReadAdSetScheduleV26Q1 implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets activation_status
      *
-     * @param string|null $activation_status activation_status
+     * @param string|null $activation_status Activation status of the ad set, i.e. whether the consumer wants it to deliver
      *
      * @return self
      */
@@ -432,7 +432,7 @@ class ReadAdSetScheduleV26Q1 implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets delivery_status
      *
-     * @param string|null $delivery_status delivery_status
+     * @param string|null $delivery_status Delivery status of the ad set, i.e. whether the ad set is delivering.                Possible values:  - draft  - inactive  - live  - notLive  - pausing  - paused  - scheduled  - ended  - notDelivering  - archived
      *
      * @return self
      */

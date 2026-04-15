@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * PatchAdSetBiddingV26Q1 Class Doc Comment
  *
  * @category Class
- * @description ad set bidding patch model
+ * @description Ad set bidding patch model
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

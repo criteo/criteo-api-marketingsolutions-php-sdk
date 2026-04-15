@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * ReadAdSetAttributionConfigurationV26Q1 Class Doc Comment
  *
  * @category Class
- * @description Read model for an ad set&#39;s attribution configuration.
+ * @description Read model for an ad set&#39;s attribution configuration.                The lookback window is only set for ad sets with an attribution method that is postClick or googleAnalyticsLastClick.  It will be null with any other attribution method.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -376,7 +376,7 @@ class ReadAdSetAttributionConfigurationV26Q1 implements ModelInterface, ArrayAcc
     /**
      * Sets attribution_method
      *
-     * @param string|null $attribution_method The attribution method.
+     * @param string|null $attribution_method Ad set attribution method.  This defines how certain events (visits, clicks, sales...) are attributed to the ad set.                Possible values:  - unknown  - criteoAttribution (default attribution method)  - googleAnalyticsLastClick (requires Google Analytics integration)  - postClick  - sftp  - googleAnalytics (requires Google Analytics integration)
      *
      * @return self
      */

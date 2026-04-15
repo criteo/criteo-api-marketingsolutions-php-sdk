@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * AdSetDeliveryLimitationsV26Q1 Class Doc Comment
  *
  * @category Class
- * @description ad set delivery limitations model
+ * @description Delivery limitations for an ad set.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -368,7 +368,7 @@ class AdSetDeliveryLimitationsV26Q1 implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets devices
      *
-     * @param string[]|null $devices devices
+     * @param string[]|null $devices List of devices which the ad set should target.                No limitation if the list is empty.
      *
      * @return self
      */
@@ -411,7 +411,7 @@ class AdSetDeliveryLimitationsV26Q1 implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets environments
      *
-     * @param string[]|null $environments environments
+     * @param string[]|null $environments List of environments which the ad set should target.                No limitation if the list is empty.
      *
      * @return self
      */
@@ -454,7 +454,7 @@ class AdSetDeliveryLimitationsV26Q1 implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets operating_systems
      *
-     * @param string[]|null $operating_systems operating_systems
+     * @param string[]|null $operating_systems List of operating systems which the ad set should target.                No limitation if the list is empty.
      *
      * @return self
      */

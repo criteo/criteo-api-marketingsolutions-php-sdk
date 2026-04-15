@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * ReadAdSetBiddingV26Q1 Class Doc Comment
  *
  * @category Class
- * @description ad set bidding read model
+ * @description Ad set bidding read configuration.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -348,7 +348,7 @@ class ReadAdSetBiddingV26Q1 implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets bid_amount
      *
-     * @param float|null $bid_amount Decimal value target relating to the `adSetObjective` specified. May be `null` for objectives that do not require a target value. At most 4 decimals are supported. Additional decimals are rounded.
+     * @param float|null $bid_amount Decimal value target relating to the `adSetObjective` specified.  May be `null` for objectives that do not require a target value.  At most 4 decimals are supported. Additional decimals are rounded.
      *
      * @return self
      */
@@ -382,7 +382,7 @@ class ReadAdSetBiddingV26Q1 implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets cost_controller
      *
-     * @param string|null $cost_controller How spend is controlled
+     * @param string|null $cost_controller Cost controller for the ad set.                Possible values:  - COS  - maxCPC  - CPI  - CPM  - CPO  - CPSV  - CPV  - dailyBudget  - targetCPM
      *
      * @return self
      */

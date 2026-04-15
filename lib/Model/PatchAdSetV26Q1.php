@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * PatchAdSetV26Q1 Class Doc Comment
  *
  * @category Class
- * @description ad set patch model
+ * @description Model for patching an ad set.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -419,7 +419,7 @@ class PatchAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name name
+     * @param string|null $name Name of the ad set.
      *
      * @return self
      */

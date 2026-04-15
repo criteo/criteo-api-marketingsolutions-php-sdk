@@ -4248,7 +4248,7 @@ class CampaignApi
     /**
      * Operation getCampaign
      *
-     * @param  string $campaign_id Id of the campaign (required)
+     * @param  string $campaign_id ID of the marketing campaign; This field is required. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -4264,7 +4264,7 @@ class CampaignApi
     /**
      * Operation getCampaignWithHttpInfo
      *
-     * @param  string $campaign_id Id of the campaign (required)
+     * @param  string $campaign_id ID of the marketing campaign; This field is required. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -4362,7 +4362,7 @@ class CampaignApi
     /**
      * Operation getCampaignAsync
      *
-     * @param  string $campaign_id Id of the campaign (required)
+     * @param  string $campaign_id ID of the marketing campaign; This field is required. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4381,7 +4381,7 @@ class CampaignApi
     /**
      * Operation getCampaignAsyncWithHttpInfo
      *
-     * @param  string $campaign_id Id of the campaign (required)
+     * @param  string $campaign_id ID of the marketing campaign; This field is required. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4431,7 +4431,7 @@ class CampaignApi
     /**
      * Create request for operation 'getCampaign'
      *
-     * @param  string $campaign_id Id of the campaign (required)
+     * @param  string $campaign_id ID of the marketing campaign; This field is required. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5644,7 +5644,7 @@ class CampaignApi
      * Operation patchAdSetCategoryBids
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request patch_ad_set_category_bid_list_request (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request Collection of category bids to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSetCategoryBids'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -5661,7 +5661,7 @@ class CampaignApi
      * Operation patchAdSetCategoryBidsWithHttpInfo
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request Collection of category bids to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSetCategoryBids'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -5760,7 +5760,7 @@ class CampaignApi
      * Operation patchAdSetCategoryBidsAsync
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request Collection of category bids to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSetCategoryBids'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5780,7 +5780,7 @@ class CampaignApi
      * Operation patchAdSetCategoryBidsAsyncWithHttpInfo
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request Collection of category bids to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSetCategoryBids'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5831,7 +5831,7 @@ class CampaignApi
      * Create request for operation 'patchAdSetCategoryBids'
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request Collection of category bids to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSetCategoryBids'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6510,7 +6510,7 @@ class CampaignApi
      * Operation patchDisplayMultipliers
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request patch_ad_set_display_multiplier_list_request (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request List of display multiplier values to change (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDisplayMultipliers'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -6527,7 +6527,7 @@ class CampaignApi
      * Operation patchDisplayMultipliersWithHttpInfo
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request List of display multiplier values to change (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDisplayMultipliers'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -6626,7 +6626,7 @@ class CampaignApi
      * Operation patchDisplayMultipliersAsync
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request List of display multiplier values to change (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDisplayMultipliers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6646,7 +6646,7 @@ class CampaignApi
      * Operation patchDisplayMultipliersAsyncWithHttpInfo
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request List of display multiplier values to change (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDisplayMultipliers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6697,7 +6697,7 @@ class CampaignApi
      * Create request for operation 'patchDisplayMultipliers'
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request List of display multiplier values to change (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDisplayMultipliers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -9503,7 +9503,7 @@ class CampaignApi
     /**
      * Operation searchCampaigns
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 filters on campaigns (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 Filters for searching for campaigns (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaigns'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -9519,7 +9519,7 @@ class CampaignApi
     /**
      * Operation searchCampaignsWithHttpInfo
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 filters on campaigns (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 Filters for searching for campaigns (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaigns'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -9617,7 +9617,7 @@ class CampaignApi
     /**
      * Operation searchCampaignsAsync
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 filters on campaigns (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 Filters for searching for campaigns (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -9636,7 +9636,7 @@ class CampaignApi
     /**
      * Operation searchCampaignsAsyncWithHttpInfo
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 filters on campaigns (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 Filters for searching for campaigns (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -9686,7 +9686,7 @@ class CampaignApi
     /**
      * Create request for operation 'searchCampaigns'
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 filters on campaigns (optional)
+     * @param  \criteo\api\marketingsolutions\preview\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 Filters for searching for campaigns (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

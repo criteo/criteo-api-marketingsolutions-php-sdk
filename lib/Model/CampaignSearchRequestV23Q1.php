@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * CampaignSearchRequestV23Q1 Class Doc Comment
  *
  * @category Class
- * @description request payload of the search endpoint
+ * @description Request payload for the campaign search endpoint.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

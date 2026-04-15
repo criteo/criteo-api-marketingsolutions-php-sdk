@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * AdSetGeoLocationV26Q1 Class Doc Comment
  *
  * @category Class
- * @description ad set geolocation model
+ * @description Ad set geolocation options.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
