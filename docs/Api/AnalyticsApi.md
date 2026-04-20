@@ -103,7 +103,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$placements_report_query_message_list_request = new \criteo\api\marketingsolutions\v2025_04\Model\PlacementsReportQueryMessageListRequest(); // \criteo\api\marketingsolutions\v2025_04\Model\PlacementsReportQueryMessageListRequest
+$placements_report_query_message_list_request = {"data":[{"type":"report","attributes":{"advertiserIds":"123,456,789","campaignIds":"111,222,333,444","adsetIds":"135,246,357,468","environment":"Web","placement":"MyPlacement","dimensions":["AdsetId","AdvertiserId","Placement"],"metrics":["Clicks","Displays","Cost"],"currency":"EUR","disclosed":false,"format":"csv","timezone":"Europe/Paris","startDate":"2026-01-02T00:00:00.0000000+02:00","endDate":"2026-01-05T00:00:00.0000000+02:00"}}]}; // \criteo\api\marketingsolutions\v2025_04\Model\PlacementsReportQueryMessageListRequest
 
 try {
     $result = $apiInstance->getPlacementsReport($placements_report_query_message_list_request);
@@ -166,7 +166,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_04\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$transactions_report_query_message_list_request = new \criteo\api\marketingsolutions\v2025_04\Model\TransactionsReportQueryMessageListRequest(); // \criteo\api\marketingsolutions\v2025_04\Model\TransactionsReportQueryMessageListRequest
+$transactions_report_query_message_list_request = {"data":[{"type":"report","attributes":{"advertiserIds":"123,456,789","eventType":"Display","currency":"EUR","format":"csv","timezone":"Europe/Paris","startDate":"2026-01-02T00:00:00.0000000+02:00","endDate":"2026-01-05T00:00:00.0000000+02:00"}}]}; // \criteo\api\marketingsolutions\v2025_04\Model\TransactionsReportQueryMessageListRequest
 
 try {
     $result = $apiInstance->getTransactionsReport($transactions_report_query_message_list_request);

@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\v2025_04\ObjectSerializer;
  * CampaignV23Q1 Class Doc Comment
  *
  * @category Class
- * @description campaign read model
+ * @description Campaign read model                The {id} field is the campaign identifier (string-encoded integer).
  * @package  criteo\api\marketingsolutions\v2025_04
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -364,7 +364,7 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets advertiser_id
      *
-     * @param string|null $advertiser_id advertiser_id
+     * @param string|null $advertiser_id Advertiser id of the campaign (string-encoded integer)
      *
      * @return self
      */
@@ -432,7 +432,7 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets goal
      *
-     * @param string|null $goal goal
+     * @param string|null $goal Goal of the campaign                Serialized values are {unspecified}, {acquisition} and {retention}.                Acquisition and retention are defined as follows:  - Acquisition: campaign with the goal of acquiring new customers. The success of an acquisition campaign is measured by the number of new customers it brings.  - Retention: campaign with the goal of retaining existing customers. The success of a retention campaign is measured by the number of existing customers it retains.
      *
      * @return self
      */
@@ -510,7 +510,7 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name name
+     * @param string|null $name Name of the campaign
      *
      * @return self
      */
