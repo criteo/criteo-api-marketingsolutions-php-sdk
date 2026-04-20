@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\v2025_10\ObjectSerializer;
  * AdvertiserInfoMessage Class Doc Comment
  *
  * @category Class
- * @description Data representing an advertiser
+ * @description Data representing an advertiser. An advertiser is the top-level entity that owns campaigns, sellers, and budgets.
  * @package  criteo\api\marketingsolutions\v2025_10
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -60,7 +60,8 @@ class AdvertiserInfoMessage implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPITypes = [
         'advertiser_name' => 'string',
         'currency_name' => 'string',
-        'id' => 'int'
+        'id' => 'int',
+        'time_zone_id' => 'string'
     ];
 
     /**
@@ -73,7 +74,8 @@ class AdvertiserInfoMessage implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPIFormats = [
         'advertiser_name' => null,
         'currency_name' => null,
-        'id' => 'int32'
+        'id' => 'int32',
+        'time_zone_id' => null
     ];
 
     /**
@@ -84,7 +86,8 @@ class AdvertiserInfoMessage implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static array $openAPINullables = [
         'advertiser_name' => false,
 		'currency_name' => false,
-		'id' => false
+		'id' => false,
+		'time_zone_id' => true
     ];
 
     /**
@@ -175,7 +178,8 @@ class AdvertiserInfoMessage implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $attributeMap = [
         'advertiser_name' => 'advertiserName',
         'currency_name' => 'currencyName',
-        'id' => 'id'
+        'id' => 'id',
+        'time_zone_id' => 'timeZoneId'
     ];
 
     /**
@@ -186,7 +190,8 @@ class AdvertiserInfoMessage implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $setters = [
         'advertiser_name' => 'setAdvertiserName',
         'currency_name' => 'setCurrencyName',
-        'id' => 'setId'
+        'id' => 'setId',
+        'time_zone_id' => 'setTimeZoneId'
     ];
 
     /**
@@ -197,7 +202,8 @@ class AdvertiserInfoMessage implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $getters = [
         'advertiser_name' => 'getAdvertiserName',
         'currency_name' => 'getCurrencyName',
-        'id' => 'getId'
+        'id' => 'getId',
+        'time_zone_id' => 'getTimeZoneId'
     ];
 
     /**
@@ -260,6 +266,7 @@ class AdvertiserInfoMessage implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('advertiser_name', $data ?? [], null);
         $this->setIfExists('currency_name', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('time_zone_id', $data ?? [], null);
     }
 
     /**
@@ -317,7 +324,7 @@ class AdvertiserInfoMessage implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets advertiser_name
      *
-     * @param string|null $advertiser_name advertiser_name
+     * @param string|null $advertiser_name Display name of the advertiser
      *
      * @return self
      */
@@ -344,7 +351,7 @@ class AdvertiserInfoMessage implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets currency_name
      *
-     * @param string|null $currency_name currency_name
+     * @param string|null $currency_name Currency used by the advertiser for bids and budgets (e.g. USD, EUR)
      *
      * @return self
      */
@@ -371,7 +378,7 @@ class AdvertiserInfoMessage implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets id
      *
-     * @param int|null $id id
+     * @param int|null $id Unique advertiser identifier
      *
      * @return self
      */
@@ -381,6 +388,40 @@ class AdvertiserInfoMessage implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets time_zone_id
+     *
+     * @return string|null
+     */
+    public function getTimeZoneId()
+    {
+        return $this->container['time_zone_id'];
+    }
+
+    /**
+     * Sets time_zone_id
+     *
+     * @param string|null $time_zone_id IANA timezone identifier for the advertiser (e.g. UTC, Asia/Tokyo)
+     *
+     * @return self
+     */
+    public function setTimeZoneId($time_zone_id)
+    {
+        if (is_null($time_zone_id)) {
+            array_push($this->openAPINullablesSetToNull, 'time_zone_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('time_zone_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['time_zone_id'] = $time_zone_id;
 
         return $this;
     }

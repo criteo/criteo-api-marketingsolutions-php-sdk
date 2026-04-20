@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\v2025_10\ObjectSerializer;
  * CampaignBudgetAutomationV23Q1 Class Doc Comment
  *
  * @category Class
- * @description The campaign budget automation model
+ * @description Budget automation, also known as automated budget or budget pacing, lets users configure KPIs and budgets once at the campaign level while Criteo dynamically routes spend toward the best-performing ad sets.  When enabled is false, automatedBudgetConfiguration is null.  When enabled is true, automatedBudgetConfiguration.adSetOptimizationObjective is expected.
  * @package  criteo\api\marketingsolutions\v2025_10
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -344,7 +344,7 @@ class CampaignBudgetAutomationV23Q1 implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets enabled
      *
-     * @param bool|null $enabled enabled
+     * @param bool|null $enabled Whether budget automation is enabled for this campaign. This field is always present in the response.
      *
      * @return self
      */

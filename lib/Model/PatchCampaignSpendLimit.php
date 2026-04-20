@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\v2025_10\ObjectSerializer;
  * PatchCampaignSpendLimit Class Doc Comment
  *
  * @category Class
- * @description campaign spend limit model
+ * @description Spend limit configuration for a marketing campaign (patch).  Only provided fields are updated; omitted fields are left unchanged.  When spendLimitType is \&quot;capped\&quot;: spendLimitAmount and spendLimitRenewal are required.  When spendLimitType is \&quot;uncapped\&quot;: spendLimitAmount is null and spendLimitRenewal is \&quot;undefined\&quot;.
  * @package  criteo\api\marketingsolutions\v2025_10
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -403,7 +403,7 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets spend_limit_renewal
      *
-     * @param string|null $spend_limit_renewal spend_limit_renewal
+     * @param string|null $spend_limit_renewal The period over which the campaign spend limit is applied.  When spendLimitType is \"capped\", this is \"daily\", \"monthly\", or \"lifetime\".  When spendLimitType is \"uncapped\", this is \"undefined\".
      *
      * @return self
      */
@@ -447,7 +447,7 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets spend_limit_type
      *
-     * @param string|null $spend_limit_type spend_limit_type
+     * @param string|null $spend_limit_type Controls whether the campaign has a spend limit.  \"capped\" returns a non-null spendLimitAmount.value and a spendLimitRenewal of \"daily\", \"monthly\", or \"lifetime\".  \"uncapped\" returns spendLimitAmount.value as null and spendLimitRenewal as \"undefined\".
      *
      * @return self
      */

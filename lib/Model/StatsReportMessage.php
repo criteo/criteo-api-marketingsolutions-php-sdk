@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateCampaign
+ * StatsReportMessage
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2025_10\ObjectSerializer;
 
 /**
- * CreateCampaign Class Doc Comment
+ * StatsReportMessage Class Doc Comment
  *
  * @category Class
- * @description Campaign create model.
+ * @description A tabular stats report with column headers and data rows. Each row in &#39;data&#39; is an array of values matching the order of &#39;columns&#39;.
  * @package  criteo\api\marketingsolutions\v2025_10
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
+class StatsReportMessage implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CreateCampaign';
+    protected static $openAPIModelName = 'StatsReportMessage';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +58,10 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'advertiser_id' => 'string',
-        'budget_automation' => '\criteo\api\marketingsolutions\v2025_10\Model\BudgetAutomation',
-        'goal' => 'string',
-        'name' => 'string',
-        'spend_limit' => '\criteo\api\marketingsolutions\v2025_10\Model\CreateCampaignSpendLimit'
+        'columns' => 'string[]',
+        'data' => 'mixed[][]',
+        'links' => 'object',
+        'rows' => 'int'
     ];
 
     /**
@@ -73,11 +72,10 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'advertiser_id' => null,
-        'budget_automation' => null,
-        'goal' => null,
-        'name' => null,
-        'spend_limit' => null
+        'columns' => null,
+        'data' => null,
+        'links' => null,
+        'rows' => 'int32'
     ];
 
     /**
@@ -86,11 +84,10 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'advertiser_id' => true,
-		'budget_automation' => false,
-		'goal' => false,
-		'name' => true,
-		'spend_limit' => false
+        'columns' => true,
+		'data' => true,
+		'links' => true,
+		'rows' => true
     ];
 
     /**
@@ -179,11 +176,10 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'advertiser_id' => 'advertiserId',
-        'budget_automation' => 'budgetAutomation',
-        'goal' => 'goal',
-        'name' => 'name',
-        'spend_limit' => 'spendLimit'
+        'columns' => 'columns',
+        'data' => 'data',
+        'links' => 'links',
+        'rows' => 'rows'
     ];
 
     /**
@@ -192,11 +188,10 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'advertiser_id' => 'setAdvertiserId',
-        'budget_automation' => 'setBudgetAutomation',
-        'goal' => 'setGoal',
-        'name' => 'setName',
-        'spend_limit' => 'setSpendLimit'
+        'columns' => 'setColumns',
+        'data' => 'setData',
+        'links' => 'setLinks',
+        'rows' => 'setRows'
     ];
 
     /**
@@ -205,11 +200,10 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'advertiser_id' => 'getAdvertiserId',
-        'budget_automation' => 'getBudgetAutomation',
-        'goal' => 'getGoal',
-        'name' => 'getName',
-        'spend_limit' => 'getSpendLimit'
+        'columns' => 'getColumns',
+        'data' => 'getData',
+        'links' => 'getLinks',
+        'rows' => 'getRows'
     ];
 
     /**
@@ -253,23 +247,6 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const GOAL_UNSPECIFIED = 'Unspecified';
-    public const GOAL_ACQUISITION = 'Acquisition';
-    public const GOAL_RETENTION = 'Retention';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getGoalAllowableValues()
-    {
-        return [
-            self::GOAL_UNSPECIFIED,
-            self::GOAL_ACQUISITION,
-            self::GOAL_RETENTION,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -286,11 +263,10 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('advertiser_id', $data ?? [], null);
-        $this->setIfExists('budget_automation', $data ?? [], null);
-        $this->setIfExists('goal', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('spend_limit', $data ?? [], null);
+        $this->setIfExists('columns', $data ?? [], null);
+        $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('links', $data ?? [], null);
+        $this->setIfExists('rows', $data ?? [], null);
     }
 
     /**
@@ -320,27 +296,6 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['advertiser_id'] === null) {
-            $invalidProperties[] = "'advertiser_id' can't be null";
-        }
-        if ($this->container['goal'] === null) {
-            $invalidProperties[] = "'goal' can't be null";
-        }
-        $allowedValues = $this->getGoalAllowableValues();
-        if (!is_null($this->container['goal']) && !in_array($this->container['goal'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'goal', must be one of '%s'",
-                $this->container['goal'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['spend_limit'] === null) {
-            $invalidProperties[] = "'spend_limit' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -357,160 +312,137 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets advertiser_id
+     * Gets columns
      *
-     * @return string
+     * @return string[]|null
      */
-    public function getAdvertiserId()
+    public function getColumns()
     {
-        return $this->container['advertiser_id'];
+        return $this->container['columns'];
     }
 
     /**
-     * Sets advertiser_id
+     * Sets columns
      *
-     * @param string $advertiser_id Advertiser ID this campaign belongs to (string-encoded integer).
+     * @param string[]|null $columns List of column names for the report (e.g. campaignId, sellerId, day, impressions, clicks, cost, etc.)
      *
      * @return self
      */
-    public function setAdvertiserId($advertiser_id)
+    public function setColumns($columns)
     {
-        if (is_null($advertiser_id)) {
-            array_push($this->openAPINullablesSetToNull, 'advertiser_id');
+        if (is_null($columns)) {
+            array_push($this->openAPINullablesSetToNull, 'columns');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('advertiser_id', $nullablesSetToNull);
+            $index = array_search('columns', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['advertiser_id'] = $advertiser_id;
+        $this->container['columns'] = $columns;
 
         return $this;
     }
 
     /**
-     * Gets budget_automation
+     * Gets data
      *
-     * @return \criteo\api\marketingsolutions\v2025_10\Model\BudgetAutomation|null
+     * @return mixed[][]|null
      */
-    public function getBudgetAutomation()
+    public function getData()
     {
-        return $this->container['budget_automation'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets budget_automation
+     * Sets data
      *
-     * @param \criteo\api\marketingsolutions\v2025_10\Model\BudgetAutomation|null $budget_automation budget_automation
+     * @param mixed[][]|null $data Array of data rows, each row is an array of values matching the columns order
      *
      * @return self
      */
-    public function setBudgetAutomation($budget_automation)
+    public function setData($data)
     {
-        if (is_null($budget_automation)) {
-            throw new \InvalidArgumentException('non-nullable budget_automation cannot be null');
-        }
-        $this->container['budget_automation'] = $budget_automation;
-
-        return $this;
-    }
-
-    /**
-     * Gets goal
-     *
-     * @return string
-     */
-    public function getGoal()
-    {
-        return $this->container['goal'];
-    }
-
-    /**
-     * Sets goal
-     *
-     * @param string $goal Goal of the campaign                Serialized values are {Unspecified}, {Acquisition} and {Retention}.                Acquisition and retention are defined as follows:  - Acquisition: campaign with the goal of acquiring new customers. The success of an acquisition campaign is measured by the number of new customers it brings.  - Retention: campaign with the goal of retaining existing customers. The success of a retention campaign is measured by the number of existing customers it retains.
-     *
-     * @return self
-     */
-    public function setGoal($goal)
-    {
-        if (is_null($goal)) {
-            throw new \InvalidArgumentException('non-nullable goal cannot be null');
-        }
-        $allowedValues = $this->getGoalAllowableValues();
-        if (!in_array($goal, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'goal', must be one of '%s'",
-                    $goal,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['goal'] = $goal;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name Name of the campaign
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
+        if (is_null($data)) {
+            array_push($this->openAPINullablesSetToNull, 'data');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
+            $index = array_search('data', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['name'] = $name;
+        $this->container['data'] = $data;
 
         return $this;
     }
 
     /**
-     * Gets spend_limit
+     * Gets links
      *
-     * @return \criteo\api\marketingsolutions\v2025_10\Model\CreateCampaignSpendLimit
+     * @return object|null
      */
-    public function getSpendLimit()
+    public function getLinks()
     {
-        return $this->container['spend_limit'];
+        return $this->container['links'];
     }
 
     /**
-     * Sets spend_limit
+     * Sets links
      *
-     * @param \criteo\api\marketingsolutions\v2025_10\Model\CreateCampaignSpendLimit $spend_limit spend_limit
+     * @param object|null $links Pagination links (empty object if no pagination)
      *
      * @return self
      */
-    public function setSpendLimit($spend_limit)
+    public function setLinks($links)
     {
-        if (is_null($spend_limit)) {
-            throw new \InvalidArgumentException('non-nullable spend_limit cannot be null');
+        if (is_null($links)) {
+            array_push($this->openAPINullablesSetToNull, 'links');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('links', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['spend_limit'] = $spend_limit;
+        $this->container['links'] = $links;
+
+        return $this;
+    }
+
+    /**
+     * Gets rows
+     *
+     * @return int|null
+     */
+    public function getRows()
+    {
+        return $this->container['rows'];
+    }
+
+    /**
+     * Sets rows
+     *
+     * @param int|null $rows Total number of data rows in the report
+     *
+     * @return self
+     */
+    public function setRows($rows)
+    {
+        if (is_null($rows)) {
+            array_push($this->openAPINullablesSetToNull, 'rows');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('rows', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['rows'] = $rows;
 
         return $this;
     }

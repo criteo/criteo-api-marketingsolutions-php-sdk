@@ -1978,7 +1978,7 @@ class CampaignApi
     /**
      * Operation getCampaign
      *
-     * @param  string $campaign_id Id of the campaign (required)
+     * @param  string $campaign_id ID of the marketing campaign; This field is required. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
@@ -1994,7 +1994,7 @@ class CampaignApi
     /**
      * Operation getCampaignWithHttpInfo
      *
-     * @param  string $campaign_id Id of the campaign (required)
+     * @param  string $campaign_id ID of the marketing campaign; This field is required. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
@@ -2092,7 +2092,7 @@ class CampaignApi
     /**
      * Operation getCampaignAsync
      *
-     * @param  string $campaign_id Id of the campaign (required)
+     * @param  string $campaign_id ID of the marketing campaign; This field is required. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2111,7 +2111,7 @@ class CampaignApi
     /**
      * Operation getCampaignAsyncWithHttpInfo
      *
-     * @param  string $campaign_id Id of the campaign (required)
+     * @param  string $campaign_id ID of the marketing campaign; This field is required. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2161,7 +2161,7 @@ class CampaignApi
     /**
      * Create request for operation 'getCampaign'
      *
-     * @param  string $campaign_id Id of the campaign (required)
+     * @param  string $campaign_id ID of the marketing campaign; This field is required. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5161,7 +5161,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return string
+     * @return \criteo\api\marketingsolutions\v2025_10\Model\StatsReportMessage
      */
     public function getMarketplaceCampaignsStats($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $start_date = null, $time_zone_id = null, string $contentType = self::contentTypes['getMarketplaceCampaignsStats'][0])
     {
@@ -5186,7 +5186,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\v2025_10\Model\StatsReportMessage, HTTP status code, HTTP response headers (array of strings)
      */
     public function getMarketplaceCampaignsStatsWithHttpInfo($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $start_date = null, $time_zone_id = null, string $contentType = self::contentTypes['getMarketplaceCampaignsStats'][0])
     {
@@ -5229,23 +5229,23 @@ class CampaignApi
 
             switch($statusCode) {
                 case 200:
-                    if ('string' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\v2025_10\Model\StatsReportMessage' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('string' !== 'string') {
+                        if ('\criteo\api\marketingsolutions\v2025_10\Model\StatsReportMessage' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'string', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_10\Model\StatsReportMessage', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'string';
+            $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\StatsReportMessage';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5266,7 +5266,7 @@ class CampaignApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'string',
+                        '\criteo\api\marketingsolutions\v2025_10\Model\StatsReportMessage',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5324,7 +5324,7 @@ class CampaignApi
      */
     public function getMarketplaceCampaignsStatsAsyncWithHttpInfo($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $start_date = null, $time_zone_id = null, string $contentType = self::contentTypes['getMarketplaceCampaignsStats'][0])
     {
-        $returnType = 'string';
+        $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\StatsReportMessage';
         $request = $this->getMarketplaceCampaignsStatsRequest($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date, $time_zone_id, $contentType);
 
         return $this->client
@@ -8162,7 +8162,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return string
+     * @return \criteo\api\marketingsolutions\v2025_10\Model\StatsReportMessage
      */
     public function getMarketplaceSellerCampaignsStats($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, $time_zone_id = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsStats'][0])
     {
@@ -8188,7 +8188,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\v2025_10\Model\StatsReportMessage, HTTP status code, HTTP response headers (array of strings)
      */
     public function getMarketplaceSellerCampaignsStatsWithHttpInfo($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, $time_zone_id = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsStats'][0])
     {
@@ -8231,23 +8231,23 @@ class CampaignApi
 
             switch($statusCode) {
                 case 200:
-                    if ('string' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\v2025_10\Model\StatsReportMessage' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('string' !== 'string') {
+                        if ('\criteo\api\marketingsolutions\v2025_10\Model\StatsReportMessage' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'string', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_10\Model\StatsReportMessage', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'string';
+            $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\StatsReportMessage';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -8268,7 +8268,7 @@ class CampaignApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'string',
+                        '\criteo\api\marketingsolutions\v2025_10\Model\StatsReportMessage',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8328,7 +8328,7 @@ class CampaignApi
      */
     public function getMarketplaceSellerCampaignsStatsAsyncWithHttpInfo($advertiser_id = null, $campaign_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, $time_zone_id = null, string $contentType = self::contentTypes['getMarketplaceSellerCampaignsStats'][0])
     {
-        $returnType = 'string';
+        $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\StatsReportMessage';
         $request = $this->getMarketplaceSellerCampaignsStatsRequest($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $time_zone_id, $contentType);
 
         return $this->client
@@ -9253,7 +9253,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return string
+     * @return \criteo\api\marketingsolutions\v2025_10\Model\StatsReportMessage
      */
     public function getMarketplaceSellersStats($advertiser_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, $time_zone_id = null, string $contentType = self::contentTypes['getMarketplaceSellersStats'][0])
     {
@@ -9278,7 +9278,7 @@ class CampaignApi
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\v2025_10\Model\StatsReportMessage, HTTP status code, HTTP response headers (array of strings)
      */
     public function getMarketplaceSellersStatsWithHttpInfo($advertiser_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, $time_zone_id = null, string $contentType = self::contentTypes['getMarketplaceSellersStats'][0])
     {
@@ -9321,23 +9321,23 @@ class CampaignApi
 
             switch($statusCode) {
                 case 200:
-                    if ('string' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\v2025_10\Model\StatsReportMessage' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('string' !== 'string') {
+                        if ('\criteo\api\marketingsolutions\v2025_10\Model\StatsReportMessage' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'string', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_10\Model\StatsReportMessage', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'string';
+            $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\StatsReportMessage';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -9358,7 +9358,7 @@ class CampaignApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'string',
+                        '\criteo\api\marketingsolutions\v2025_10\Model\StatsReportMessage',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9416,7 +9416,7 @@ class CampaignApi
      */
     public function getMarketplaceSellersStatsAsyncWithHttpInfo($advertiser_id = null, $click_attribution_policy = 'AnySeller', $count = null, $end_date = null, $interval_size = 'Day', $seller_id = null, $start_date = null, $time_zone_id = null, string $contentType = self::contentTypes['getMarketplaceSellersStats'][0])
     {
-        $returnType = 'string';
+        $returnType = '\criteo\api\marketingsolutions\v2025_10\Model\StatsReportMessage';
         $request = $this->getMarketplaceSellersStatsRequest($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $time_zone_id, $contentType);
 
         return $this->client
@@ -9631,7 +9631,7 @@ class CampaignApi
      * Operation patchAdSetCategoryBids
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request patch_ad_set_category_bid_list_request (required)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request Collection of category bids to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSetCategoryBids'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
@@ -9648,7 +9648,7 @@ class CampaignApi
      * Operation patchAdSetCategoryBidsWithHttpInfo
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request (required)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request Collection of category bids to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSetCategoryBids'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
@@ -9747,7 +9747,7 @@ class CampaignApi
      * Operation patchAdSetCategoryBidsAsync
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request (required)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request Collection of category bids to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSetCategoryBids'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -9767,7 +9767,7 @@ class CampaignApi
      * Operation patchAdSetCategoryBidsAsyncWithHttpInfo
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request (required)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request Collection of category bids to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSetCategoryBids'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -9818,7 +9818,7 @@ class CampaignApi
      * Create request for operation 'patchAdSetCategoryBids'
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request (required)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request Collection of category bids to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSetCategoryBids'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10497,7 +10497,7 @@ class CampaignApi
      * Operation patchDisplayMultipliers
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request patch_ad_set_display_multiplier_list_request (required)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request List of display multiplier values to change (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDisplayMultipliers'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
@@ -10514,7 +10514,7 @@ class CampaignApi
      * Operation patchDisplayMultipliersWithHttpInfo
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request (required)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request List of display multiplier values to change (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDisplayMultipliers'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
@@ -10613,7 +10613,7 @@ class CampaignApi
      * Operation patchDisplayMultipliersAsync
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request (required)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request List of display multiplier values to change (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDisplayMultipliers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10633,7 +10633,7 @@ class CampaignApi
      * Operation patchDisplayMultipliersAsyncWithHttpInfo
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request (required)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request List of display multiplier values to change (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDisplayMultipliers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10684,7 +10684,7 @@ class CampaignApi
      * Create request for operation 'patchDisplayMultipliers'
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request (required)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request List of display multiplier values to change (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDisplayMultipliers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11074,7 +11074,7 @@ class CampaignApi
     /**
      * Operation searchCampaigns
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 filters on campaigns (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 Filters for searching for campaigns (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaigns'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
@@ -11090,7 +11090,7 @@ class CampaignApi
     /**
      * Operation searchCampaignsWithHttpInfo
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 filters on campaigns (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 Filters for searching for campaigns (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaigns'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
@@ -11188,7 +11188,7 @@ class CampaignApi
     /**
      * Operation searchCampaignsAsync
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 filters on campaigns (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 Filters for searching for campaigns (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11207,7 +11207,7 @@ class CampaignApi
     /**
      * Operation searchCampaignsAsyncWithHttpInfo
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 filters on campaigns (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 Filters for searching for campaigns (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11257,7 +11257,7 @@ class CampaignApi
     /**
      * Create request for operation 'searchCampaigns'
      *
-     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 filters on campaigns (optional)
+     * @param  \criteo\api\marketingsolutions\v2025_10\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 Filters for searching for campaigns (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
