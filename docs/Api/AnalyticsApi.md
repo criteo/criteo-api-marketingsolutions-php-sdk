@@ -429,7 +429,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$generate_categories_report_request_attributes_request = new \criteo\api\marketingsolutions\preview\Model\GenerateCategoriesReportRequestAttributesRequest(); // \criteo\api\marketingsolutions\preview\Model\GenerateCategoriesReportRequestAttributesRequest
+$generate_categories_report_request_attributes_request = {"data":{"type":"GenerateCategoriesReport","attributes":{"advertiserIds":["123","456","789"],"campaignId":"111","adsetId":"135","domain":"example.com","category":"Example","shouldDisplayDomainDimension":true,"format":"csv","timezone":"Europe/Paris","startDate":"2026-01-02T00:00:00.0000000+02:00","endDate":"2026-01-05T00:00:00.0000000+02:00"}}}; // \criteo\api\marketingsolutions\preview\Model\GenerateCategoriesReportRequestAttributesRequest
 
 try {
     $result = $apiInstance->getCategoriesReport($generate_categories_report_request_attributes_request);
@@ -492,7 +492,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$generate_creatives_report_request_attributes_request = new \criteo\api\marketingsolutions\preview\Model\GenerateCreativesReportRequestAttributesRequest(); // \criteo\api\marketingsolutions\preview\Model\GenerateCreativesReportRequestAttributesRequest
+$generate_creatives_report_request_attributes_request = {"data":{"type":"GenerateCreativesReport","attributes":{"startDate":"2026-01-02T00:00:00.0000000+02:00","endDate":"2026-01-05T00:00:00.0000000+02:00","advertiserIds":["6666","7777"],"metrics":["Clicks","Ctr","Displays"],"dimensions":["SizeCategory","DisplaySize","AdFormat","Coupon","CouponId","Ad","AdId","Day","Hour"],"timezone":"Europe/Paris","adFormats":["Dynamic","Other formats"],"displaySizes":["LeaderBoard","LargeBanner"],"couponNames":["a coupon name"],"couponIds":["3333","5555"],"adNames":["Ad by Criteo team"],"adIds":["2222"],"campaignIds":["1111"],"adSetIds":["2222","3333"],"adSetStatus":["Active","NotRunning"]}}}; // \criteo\api\marketingsolutions\preview\Model\GenerateCreativesReportRequestAttributesRequest
 
 try {
     $result = $apiInstance->getCreativesReport($generate_creatives_report_request_attributes_request);
@@ -555,7 +555,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$placements_report_query_message_list_request = new \criteo\api\marketingsolutions\preview\Model\PlacementsReportQueryMessageListRequest(); // \criteo\api\marketingsolutions\preview\Model\PlacementsReportQueryMessageListRequest
+$placements_report_query_message_list_request = {"data":[{"type":"report","attributes":{"advertiserIds":"123,456,789","campaignIds":"111,222,333,444","adsetIds":"135,246,357,468","environment":"Web","placement":"MyPlacement","dimensions":["AdsetId","AdvertiserId","Placement"],"metrics":["Clicks","Displays","Cost"],"currency":"EUR","disclosed":false,"format":"csv","timezone":"Europe/Paris","startDate":"2026-01-02T00:00:00.0000000+02:00","endDate":"2026-01-05T00:00:00.0000000+02:00"}}]}; // \criteo\api\marketingsolutions\preview\Model\PlacementsReportQueryMessageListRequest
 
 try {
     $result = $apiInstance->getPlacementsReport($placements_report_query_message_list_request);
@@ -744,7 +744,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$generate_realtime_statistics_report_request_attributes_request = new \criteo\api\marketingsolutions\preview\Model\GenerateRealtimeStatisticsReportRequestAttributesRequest(); // \criteo\api\marketingsolutions\preview\Model\GenerateRealtimeStatisticsReportRequestAttributesRequest
+$generate_realtime_statistics_report_request_attributes_request = {"data":{"type":"GenerateRealtimeStatisticsReport","attributes":{"advertiserIds":["123","456"],"campaignIds":["111"],"adsetIds":["135"],"dimensions":["AdvertiserId","Advertiser","CampaignId","Campaign","AdsetId","Adset","Day","Hour"],"metrics":["Displays","Clicks","Cost"],"lookbackWindow":12,"currency":"EUR","timezone":"Europe/Paris"}}}; // \criteo\api\marketingsolutions\preview\Model\GenerateRealtimeStatisticsReportRequestAttributesRequest
 
 try {
     $result = $apiInstance->getRealtimeStatisticsReport($generate_realtime_statistics_report_request_attributes_request);
@@ -807,7 +807,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$generate_top_products_report_request_attributes_request = new \criteo\api\marketingsolutions\preview\Model\GenerateTopProductsReportRequestAttributesRequest(); // \criteo\api\marketingsolutions\preview\Model\GenerateTopProductsReportRequestAttributesRequest
+$generate_top_products_report_request_attributes_request = {"data":{"type":"GenerateTopProductsReport","attributes":{"timezone":"Europe/Paris","startDate":"2026-01-02T00:00:00.0000000+02:00","endDate":"2026-01-05T00:00:00.0000000+02:00","advertiserId":"1234","limit":200,"rankProductsBy":"Clicks","dimensions":["CampaignId","Campaign","AdSetId","AdSet","ProductId","Product","ProductUrl","Brand","Category"],"metrics":["Clicks","Ctr","Visits","Sales","Cost","Revenue","Displays"],"currency":"EUR","brands":["Brand1","Brand2"],"categoryIds":["6666","7777"],"campaignIds":["9999"],"adSetIds":["11111","22222"],"adSetStatus":["Active","NotRunning"]}}}; // \criteo\api\marketingsolutions\preview\Model\GenerateTopProductsReportRequestAttributesRequest
 
 try {
     $result = $apiInstance->getTopProductsReport($generate_top_products_report_request_attributes_request);
@@ -870,7 +870,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$transactions_report_query_message_list_request = new \criteo\api\marketingsolutions\preview\Model\TransactionsReportQueryMessageListRequest(); // \criteo\api\marketingsolutions\preview\Model\TransactionsReportQueryMessageListRequest
+$transactions_report_query_message_list_request = {"data":[{"type":"report","attributes":{"advertiserIds":"123,456,789","eventType":"Display","currency":"EUR","format":"csv","timezone":"Europe/Paris","startDate":"2026-01-02T00:00:00.0000000+02:00","endDate":"2026-01-05T00:00:00.0000000+02:00"}}]}; // \criteo\api\marketingsolutions\preview\Model\TransactionsReportQueryMessageListRequest
 
 try {
     $result = $apiInstance->getTransactionsReport($transactions_report_query_message_list_request);
