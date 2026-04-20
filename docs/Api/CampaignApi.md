@@ -119,7 +119,7 @@ createCampaign($create_campaign_request): \criteo\api\marketingsolutions\v2025_0
 
 
 
-Create the specified campaign
+Create the specified campaign                A campaign, or in other words a marketing campaign, is an entity that defines advertising objectives and success criteria.
 
 ### Example
 
@@ -436,7 +436,7 @@ getCampaign($campaign_id): \criteo\api\marketingsolutions\v2025_07\Model\Campaig
 
 
 
-Get the data for the specified campaign
+Get the data for the specified campaign.                A campaign, or in other words a marketing campaign, is an entity that defines advertising objectives and success criteria.
 
 ### Example
 
@@ -458,7 +458,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_id = 'campaign_id_example'; // string | Id of the campaign
+$campaign_id = 'campaign_id_example'; // string | ID of the marketing campaign; This field is required.
 
 try {
     $result = $apiInstance->getCampaign($campaign_id);
@@ -472,7 +472,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_id** | **string**| Id of the campaign | |
+| **campaign_id** | **string**| ID of the marketing campaign; This field is required. | |
 
 ### Return type
 
@@ -1097,7 +1097,7 @@ try {
 ## `getMarketplaceCampaignsStats()`
 
 ```php
-getMarketplaceCampaignsStats($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date, $time_zone_id): string
+getMarketplaceCampaignsStats($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $start_date, $time_zone_id): \criteo\api\marketingsolutions\v2025_07\Model\StatsReportMessage
 ```
 
 
@@ -1156,7 +1156,7 @@ try {
 
 ### Return type
 
-**string**
+[**\criteo\api\marketingsolutions\v2025_07\Model\StatsReportMessage**](../Model/StatsReportMessage.md)
 
 ### Authorization
 
@@ -1716,7 +1716,7 @@ try {
 ## `getMarketplaceSellerCampaignsStats()`
 
 ```php
-getMarketplaceSellerCampaignsStats($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $time_zone_id): string
+getMarketplaceSellerCampaignsStats($advertiser_id, $campaign_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $time_zone_id): \criteo\api\marketingsolutions\v2025_07\Model\StatsReportMessage
 ```
 
 
@@ -1777,7 +1777,7 @@ try {
 
 ### Return type
 
-**string**
+[**\criteo\api\marketingsolutions\v2025_07\Model\StatsReportMessage**](../Model/StatsReportMessage.md)
 
 ### Authorization
 
@@ -1935,7 +1935,7 @@ try {
 ## `getMarketplaceSellersStats()`
 
 ```php
-getMarketplaceSellersStats($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $time_zone_id): string
+getMarketplaceSellersStats($advertiser_id, $click_attribution_policy, $count, $end_date, $interval_size, $seller_id, $start_date, $time_zone_id): \criteo\api\marketingsolutions\v2025_07\Model\StatsReportMessage
 ```
 
 
@@ -1994,7 +1994,7 @@ try {
 
 ### Return type
 
-**string**
+[**\criteo\api\marketingsolutions\v2025_07\Model\StatsReportMessage**](../Model/StatsReportMessage.md)
 
 ### Authorization
 
@@ -2017,7 +2017,7 @@ patchAdSetCategoryBids($ad_set_id, $patch_ad_set_category_bid_list_request): \cr
 
 
 
-Patch Category Bids for one or more Categories in a single request. Partial success policy is followed.
+Update the Category Bids for given Categories associated to an Ad Set  Patch Category Bids for one or more Categories in a single request. Partial success policy is followed.
 
 ### Example
 
@@ -2040,7 +2040,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
     $config
 );
 $ad_set_id = 'ad_set_id_example'; // string | Id of the Ad Set
-$patch_ad_set_category_bid_list_request = new \criteo\api\marketingsolutions\v2025_07\Model\PatchAdSetCategoryBidListRequest(); // \criteo\api\marketingsolutions\v2025_07\Model\PatchAdSetCategoryBidListRequest
+$patch_ad_set_category_bid_list_request = new \criteo\api\marketingsolutions\v2025_07\Model\PatchAdSetCategoryBidListRequest(); // \criteo\api\marketingsolutions\v2025_07\Model\PatchAdSetCategoryBidListRequest | Collection of category bids to update
 
 try {
     $result = $apiInstance->patchAdSetCategoryBids($ad_set_id, $patch_ad_set_category_bid_list_request);
@@ -2055,7 +2055,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **ad_set_id** | **string**| Id of the Ad Set | |
-| **patch_ad_set_category_bid_list_request** | [**\criteo\api\marketingsolutions\v2025_07\Model\PatchAdSetCategoryBidListRequest**](../Model/PatchAdSetCategoryBidListRequest.md)|  | |
+| **patch_ad_set_category_bid_list_request** | [**\criteo\api\marketingsolutions\v2025_07\Model\PatchAdSetCategoryBidListRequest**](../Model/PatchAdSetCategoryBidListRequest.md)| Collection of category bids to update | |
 
 ### Return type
 
@@ -2145,7 +2145,7 @@ patchCampaigns($patch_campaign_list_request): \criteo\api\marketingsolutions\v20
 
 
 
-Patch a list of Campaigns.
+Patch a list of Campaigns.                A campaign, or in other words a marketing campaign, is an entity that defines advertising objectives and success criteria.
 
 ### Example
 
@@ -2208,7 +2208,7 @@ patchDisplayMultipliers($ad_set_id, $patch_ad_set_display_multiplier_list_reques
 
 
 
-Patch Display Multipliers for one or more Categories in a single request. Partial success policy is followed.
+Update the Display Multipliers for given Categories associated to an Ad Set  Patch Display Multipliers for one or more Categories in a single request. Partial success policy is followed.
 
 ### Example
 
@@ -2231,7 +2231,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
     $config
 );
 $ad_set_id = 'ad_set_id_example'; // string | Id of the Ad Set
-$patch_ad_set_display_multiplier_list_request = new \criteo\api\marketingsolutions\v2025_07\Model\PatchAdSetDisplayMultiplierListRequest(); // \criteo\api\marketingsolutions\v2025_07\Model\PatchAdSetDisplayMultiplierListRequest
+$patch_ad_set_display_multiplier_list_request = new \criteo\api\marketingsolutions\v2025_07\Model\PatchAdSetDisplayMultiplierListRequest(); // \criteo\api\marketingsolutions\v2025_07\Model\PatchAdSetDisplayMultiplierListRequest | List of display multiplier values to change
 
 try {
     $result = $apiInstance->patchDisplayMultipliers($ad_set_id, $patch_ad_set_display_multiplier_list_request);
@@ -2246,7 +2246,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **ad_set_id** | **string**| Id of the Ad Set | |
-| **patch_ad_set_display_multiplier_list_request** | [**\criteo\api\marketingsolutions\v2025_07\Model\PatchAdSetDisplayMultiplierListRequest**](../Model/PatchAdSetDisplayMultiplierListRequest.md)|  | |
+| **patch_ad_set_display_multiplier_list_request** | [**\criteo\api\marketingsolutions\v2025_07\Model\PatchAdSetDisplayMultiplierListRequest**](../Model/PatchAdSetDisplayMultiplierListRequest.md)| List of display multiplier values to change | |
 
 ### Return type
 
@@ -2336,7 +2336,7 @@ searchCampaigns($campaign_search_request_v23_q1): \criteo\api\marketingsolutions
 
 
 
-Search for campaigns
+Search endpoint for campaigns                A campaign, or in other words a marketing campaign, is an entity that defines advertising objectives and success criteria.
 
 ### Example
 
@@ -2358,7 +2358,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_07\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_search_request_v23_q1 = new \criteo\api\marketingsolutions\v2025_07\Model\CampaignSearchRequestV23Q1(); // \criteo\api\marketingsolutions\v2025_07\Model\CampaignSearchRequestV23Q1 | filters on campaigns
+$campaign_search_request_v23_q1 = new \criteo\api\marketingsolutions\v2025_07\Model\CampaignSearchRequestV23Q1(); // \criteo\api\marketingsolutions\v2025_07\Model\CampaignSearchRequestV23Q1 | Filters for searching for campaigns
 
 try {
     $result = $apiInstance->searchCampaigns($campaign_search_request_v23_q1);
@@ -2372,7 +2372,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_search_request_v23_q1** | [**\criteo\api\marketingsolutions\v2025_07\Model\CampaignSearchRequestV23Q1**](../Model/CampaignSearchRequestV23Q1.md)| filters on campaigns | [optional] |
+| **campaign_search_request_v23_q1** | [**\criteo\api\marketingsolutions\v2025_07\Model\CampaignSearchRequestV23Q1**](../Model/CampaignSearchRequestV23Q1.md)| Filters for searching for campaigns | [optional] |
 
 ### Return type
 

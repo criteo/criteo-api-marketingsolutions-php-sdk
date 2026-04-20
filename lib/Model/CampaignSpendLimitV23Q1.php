@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\v2025_07\ObjectSerializer;
  * CampaignSpendLimitV23Q1 Class Doc Comment
  *
  * @category Class
- * @description campaign spend limit model
+ * @description Campaign spend-limit configuration. A capped spend limit restricts campaign spending per renewal period. An uncapped spend limit does not impose a spending ceiling.
  * @package  criteo\api\marketingsolutions\v2025_07
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -403,7 +403,7 @@ class CampaignSpendLimitV23Q1 implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets spend_limit_renewal
      *
-     * @param string|null $spend_limit_renewal spend_limit_renewal
+     * @param string|null $spend_limit_renewal The period over which the campaign spend limit is applied.  When spendLimitType is \"capped\", this is \"daily\", \"monthly\", or \"lifetime\".  When spendLimitType is \"uncapped\", this is \"undefined\".
      *
      * @return self
      */
@@ -447,7 +447,7 @@ class CampaignSpendLimitV23Q1 implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets spend_limit_type
      *
-     * @param string|null $spend_limit_type spend_limit_type
+     * @param string|null $spend_limit_type Controls whether the campaign has a spend limit.  \"capped\" returns a non-null spendLimitAmount.value and a spendLimitRenewal of \"daily\", \"monthly\", or \"lifetime\".  \"uncapped\" returns spendLimitAmount.value as null and spendLimitRenewal as \"undefined\".
      *
      * @return self
      */

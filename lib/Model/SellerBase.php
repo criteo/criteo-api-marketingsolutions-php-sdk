@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\v2025_07\ObjectSerializer;
  * SellerBase Class Doc Comment
  *
  * @category Class
- * @description The seller represents the legal person selling products on your platform.
+ * @description The seller represents the merchant selling products on the advertiser&#39;s marketplace platform.
  * @package  criteo\api\marketingsolutions\v2025_07
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -310,7 +310,7 @@ class SellerBase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param string|null $id Unique seller identifier
      *
      * @return self
      */
@@ -337,7 +337,7 @@ class SellerBase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets seller_name
      *
-     * @param string|null $seller_name seller_name
+     * @param string|null $seller_name Display name of the seller (merchant)
      *
      * @return self
      */

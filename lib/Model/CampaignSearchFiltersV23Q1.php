@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\v2025_07\ObjectSerializer;
  * CampaignSearchFiltersV23Q1 Class Doc Comment
  *
  * @category Class
- * @description filters on campaign
+ * @description Filters for searching campaigns.                Multiple filters are combined with an implicit AND operation.  Identifiers are string-encoded integers; invalid values are ignored.  If no filter is provided (both arrays are null or empty), the search returns all accessible campaigns.
  * @package  criteo\api\marketingsolutions\v2025_07
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -310,7 +310,7 @@ class CampaignSearchFiltersV23Q1 implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets advertiser_ids
      *
-     * @param string[]|null $advertiser_ids advertiser_ids
+     * @param string[]|null $advertiser_ids Advertiser IDs to filter on (string-encoded integers).
      *
      * @return self
      */
@@ -344,7 +344,7 @@ class CampaignSearchFiltersV23Q1 implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets campaign_ids
      *
-     * @param string[]|null $campaign_ids campaign_ids
+     * @param string[]|null $campaign_ids Campaign IDs to filter on (string-encoded integers).
      *
      * @return self
      */

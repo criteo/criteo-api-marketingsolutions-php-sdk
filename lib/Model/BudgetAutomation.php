@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\v2025_07\ObjectSerializer;
  * BudgetAutomation Class Doc Comment
  *
  * @category Class
- * @description The campaign budget automation model
+ * @description Budget automation, lets users configure budgets once at the campaign level while Criteo dynamically routes spend toward the best-performing ad sets.  If \&quot;enabled\&quot; is omitted and only \&quot;budgetConfiguration\&quot; is provided, \&quot;enabled\&quot; defaults to false — budget automation will not be activated.  To activate budget automation at creation, \&quot;enabled\&quot; must be explicitly set to true along with a valid \&quot;budgetConfiguration\&quot;.  If the entire \&quot;budgetAutomation\&quot; object is omitted from the create request, the campaign is created with budget automation disabled.
  * @package  criteo\api\marketingsolutions\v2025_07
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -344,7 +344,7 @@ class BudgetAutomation implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets enabled
      *
-     * @param bool|null $enabled enabled
+     * @param bool|null $enabled Whether budget automation is active for this marketing campaign.  - true: budget automation is enabled and \"budgetConfiguration\" must be provided with a valid objective.  - false (default when omitted): budget automation is disabled; \"budgetConfiguration\" is ignored if provided.
      *
      * @return self
      */

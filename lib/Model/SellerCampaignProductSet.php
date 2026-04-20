@@ -1,6 +1,6 @@
 <?php
 /**
- * PatchCampaign
+ * SellerCampaignProductSet
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2025_07\ObjectSerializer;
 
 /**
- * PatchCampaign Class Doc Comment
+ * SellerCampaignProductSet Class Doc Comment
  *
  * @category Class
- * @description Campaign patch model.  The campaign identifier is provided in the resource {id} field (string-encoded integer) and is required.
+ * @description Product set targeting configuration for a seller-campaign
  * @package  criteo\api\marketingsolutions\v2025_07
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
+class SellerCampaignProductSet implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PatchCampaign';
+    protected static $openAPIModelName = 'SellerCampaignProductSet';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,9 @@ class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'budget_automation' => '\criteo\api\marketingsolutions\v2025_07\Model\PatchMarketingCampaignBudgetAutomation',
-        'spend_limit' => '\criteo\api\marketingsolutions\v2025_07\Model\PatchCampaignSpendLimit'
+        'product_set_number_of_products' => 'int',
+        'product_set_status' => 'string',
+        'rules' => 'object[]'
     ];
 
     /**
@@ -70,8 +71,9 @@ class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'budget_automation' => null,
-        'spend_limit' => null
+        'product_set_number_of_products' => 'int32',
+        'product_set_status' => null,
+        'rules' => null
     ];
 
     /**
@@ -80,8 +82,9 @@ class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'budget_automation' => false,
-		'spend_limit' => false
+        'product_set_number_of_products' => true,
+		'product_set_status' => true,
+		'rules' => true
     ];
 
     /**
@@ -170,8 +173,9 @@ class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'budget_automation' => 'budgetAutomation',
-        'spend_limit' => 'spendLimit'
+        'product_set_number_of_products' => 'productSetNumberOfProducts',
+        'product_set_status' => 'productSetStatus',
+        'rules' => 'rules'
     ];
 
     /**
@@ -180,8 +184,9 @@ class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'budget_automation' => 'setBudgetAutomation',
-        'spend_limit' => 'setSpendLimit'
+        'product_set_number_of_products' => 'setProductSetNumberOfProducts',
+        'product_set_status' => 'setProductSetStatus',
+        'rules' => 'setRules'
     ];
 
     /**
@@ -190,8 +195,9 @@ class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'budget_automation' => 'getBudgetAutomation',
-        'spend_limit' => 'getSpendLimit'
+        'product_set_number_of_products' => 'getProductSetNumberOfProducts',
+        'product_set_status' => 'getProductSetStatus',
+        'rules' => 'getRules'
     ];
 
     /**
@@ -251,8 +257,9 @@ class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('budget_automation', $data ?? [], null);
-        $this->setIfExists('spend_limit', $data ?? [], null);
+        $this->setIfExists('product_set_number_of_products', $data ?? [], null);
+        $this->setIfExists('product_set_status', $data ?? [], null);
+        $this->setIfExists('rules', $data ?? [], null);
     }
 
     /**
@@ -298,55 +305,103 @@ class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets budget_automation
+     * Gets product_set_number_of_products
      *
-     * @return \criteo\api\marketingsolutions\v2025_07\Model\PatchMarketingCampaignBudgetAutomation|null
+     * @return int|null
      */
-    public function getBudgetAutomation()
+    public function getProductSetNumberOfProducts()
     {
-        return $this->container['budget_automation'];
+        return $this->container['product_set_number_of_products'];
     }
 
     /**
-     * Sets budget_automation
+     * Sets product_set_number_of_products
      *
-     * @param \criteo\api\marketingsolutions\v2025_07\Model\PatchMarketingCampaignBudgetAutomation|null $budget_automation budget_automation
+     * @param int|null $product_set_number_of_products Number of products matching the product set rules
      *
      * @return self
      */
-    public function setBudgetAutomation($budget_automation)
+    public function setProductSetNumberOfProducts($product_set_number_of_products)
     {
-        if (is_null($budget_automation)) {
-            throw new \InvalidArgumentException('non-nullable budget_automation cannot be null');
+        if (is_null($product_set_number_of_products)) {
+            array_push($this->openAPINullablesSetToNull, 'product_set_number_of_products');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('product_set_number_of_products', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['budget_automation'] = $budget_automation;
+        $this->container['product_set_number_of_products'] = $product_set_number_of_products;
 
         return $this;
     }
 
     /**
-     * Gets spend_limit
+     * Gets product_set_status
      *
-     * @return \criteo\api\marketingsolutions\v2025_07\Model\PatchCampaignSpendLimit|null
+     * @return string|null
      */
-    public function getSpendLimit()
+    public function getProductSetStatus()
     {
-        return $this->container['spend_limit'];
+        return $this->container['product_set_status'];
     }
 
     /**
-     * Sets spend_limit
+     * Sets product_set_status
      *
-     * @param \criteo\api\marketingsolutions\v2025_07\Model\PatchCampaignSpendLimit|null $spend_limit spend_limit
+     * @param string|null $product_set_status Status of the product set (e.g. Active, Pending)
      *
      * @return self
      */
-    public function setSpendLimit($spend_limit)
+    public function setProductSetStatus($product_set_status)
     {
-        if (is_null($spend_limit)) {
-            throw new \InvalidArgumentException('non-nullable spend_limit cannot be null');
+        if (is_null($product_set_status)) {
+            array_push($this->openAPINullablesSetToNull, 'product_set_status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('product_set_status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['spend_limit'] = $spend_limit;
+        $this->container['product_set_status'] = $product_set_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets rules
+     *
+     * @return object[]|null
+     */
+    public function getRules()
+    {
+        return $this->container['rules'];
+    }
+
+    /**
+     * Sets rules
+     *
+     * @param object[]|null $rules Array of product set filtering rules
+     *
+     * @return self
+     */
+    public function setRules($rules)
+    {
+        if (is_null($rules)) {
+            array_push($this->openAPINullablesSetToNull, 'rules');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('rules', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['rules'] = $rules;
 
         return $this;
     }

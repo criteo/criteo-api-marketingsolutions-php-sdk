@@ -1,6 +1,6 @@
 <?php
 /**
- * PatchCampaign
+ * StatsReportMessage
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2025_07\ObjectSerializer;
 
 /**
- * PatchCampaign Class Doc Comment
+ * StatsReportMessage Class Doc Comment
  *
  * @category Class
- * @description Campaign patch model.  The campaign identifier is provided in the resource {id} field (string-encoded integer) and is required.
+ * @description A tabular stats report with column headers and data rows. Each row in &#39;data&#39; is an array of values matching the order of &#39;columns&#39;.
  * @package  criteo\api\marketingsolutions\v2025_07
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
+class StatsReportMessage implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PatchCampaign';
+    protected static $openAPIModelName = 'StatsReportMessage';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,10 @@ class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'budget_automation' => '\criteo\api\marketingsolutions\v2025_07\Model\PatchMarketingCampaignBudgetAutomation',
-        'spend_limit' => '\criteo\api\marketingsolutions\v2025_07\Model\PatchCampaignSpendLimit'
+        'columns' => 'string[]',
+        'data' => 'mixed[][]',
+        'links' => 'object',
+        'rows' => 'int'
     ];
 
     /**
@@ -70,8 +72,10 @@ class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'budget_automation' => null,
-        'spend_limit' => null
+        'columns' => null,
+        'data' => null,
+        'links' => null,
+        'rows' => 'int32'
     ];
 
     /**
@@ -80,8 +84,10 @@ class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'budget_automation' => false,
-		'spend_limit' => false
+        'columns' => true,
+		'data' => true,
+		'links' => true,
+		'rows' => true
     ];
 
     /**
@@ -170,8 +176,10 @@ class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'budget_automation' => 'budgetAutomation',
-        'spend_limit' => 'spendLimit'
+        'columns' => 'columns',
+        'data' => 'data',
+        'links' => 'links',
+        'rows' => 'rows'
     ];
 
     /**
@@ -180,8 +188,10 @@ class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'budget_automation' => 'setBudgetAutomation',
-        'spend_limit' => 'setSpendLimit'
+        'columns' => 'setColumns',
+        'data' => 'setData',
+        'links' => 'setLinks',
+        'rows' => 'setRows'
     ];
 
     /**
@@ -190,8 +200,10 @@ class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'budget_automation' => 'getBudgetAutomation',
-        'spend_limit' => 'getSpendLimit'
+        'columns' => 'getColumns',
+        'data' => 'getData',
+        'links' => 'getLinks',
+        'rows' => 'getRows'
     ];
 
     /**
@@ -251,8 +263,10 @@ class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('budget_automation', $data ?? [], null);
-        $this->setIfExists('spend_limit', $data ?? [], null);
+        $this->setIfExists('columns', $data ?? [], null);
+        $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('links', $data ?? [], null);
+        $this->setIfExists('rows', $data ?? [], null);
     }
 
     /**
@@ -298,55 +312,137 @@ class PatchCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets budget_automation
+     * Gets columns
      *
-     * @return \criteo\api\marketingsolutions\v2025_07\Model\PatchMarketingCampaignBudgetAutomation|null
+     * @return string[]|null
      */
-    public function getBudgetAutomation()
+    public function getColumns()
     {
-        return $this->container['budget_automation'];
+        return $this->container['columns'];
     }
 
     /**
-     * Sets budget_automation
+     * Sets columns
      *
-     * @param \criteo\api\marketingsolutions\v2025_07\Model\PatchMarketingCampaignBudgetAutomation|null $budget_automation budget_automation
+     * @param string[]|null $columns List of column names for the report (e.g. campaignId, sellerId, day, impressions, clicks, cost, etc.)
      *
      * @return self
      */
-    public function setBudgetAutomation($budget_automation)
+    public function setColumns($columns)
     {
-        if (is_null($budget_automation)) {
-            throw new \InvalidArgumentException('non-nullable budget_automation cannot be null');
+        if (is_null($columns)) {
+            array_push($this->openAPINullablesSetToNull, 'columns');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('columns', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['budget_automation'] = $budget_automation;
+        $this->container['columns'] = $columns;
 
         return $this;
     }
 
     /**
-     * Gets spend_limit
+     * Gets data
      *
-     * @return \criteo\api\marketingsolutions\v2025_07\Model\PatchCampaignSpendLimit|null
+     * @return mixed[][]|null
      */
-    public function getSpendLimit()
+    public function getData()
     {
-        return $this->container['spend_limit'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets spend_limit
+     * Sets data
      *
-     * @param \criteo\api\marketingsolutions\v2025_07\Model\PatchCampaignSpendLimit|null $spend_limit spend_limit
+     * @param mixed[][]|null $data Array of data rows, each row is an array of values matching the columns order
      *
      * @return self
      */
-    public function setSpendLimit($spend_limit)
+    public function setData($data)
     {
-        if (is_null($spend_limit)) {
-            throw new \InvalidArgumentException('non-nullable spend_limit cannot be null');
+        if (is_null($data)) {
+            array_push($this->openAPINullablesSetToNull, 'data');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['spend_limit'] = $spend_limit;
+        $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets links
+     *
+     * @return object|null
+     */
+    public function getLinks()
+    {
+        return $this->container['links'];
+    }
+
+    /**
+     * Sets links
+     *
+     * @param object|null $links Pagination links (empty object if no pagination)
+     *
+     * @return self
+     */
+    public function setLinks($links)
+    {
+        if (is_null($links)) {
+            array_push($this->openAPINullablesSetToNull, 'links');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('links', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['links'] = $links;
+
+        return $this;
+    }
+
+    /**
+     * Gets rows
+     *
+     * @return int|null
+     */
+    public function getRows()
+    {
+        return $this->container['rows'];
+    }
+
+    /**
+     * Sets rows
+     *
+     * @param int|null $rows Total number of data rows in the report
+     *
+     * @return self
+     */
+    public function setRows($rows)
+    {
+        if (is_null($rows)) {
+            array_push($this->openAPINullablesSetToNull, 'rows');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('rows', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['rows'] = $rows;
 
         return $this;
     }
