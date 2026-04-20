@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\v2025_01\ObjectSerializer;
  * PatchCampaign Class Doc Comment
  *
  * @category Class
- * @description campaign patch model
+ * @description Campaign patch model.  The campaign identifier is provided in the resource {id} field (string-encoded integer) and is required.
  * @package  criteo\api\marketingsolutions\v2025_01
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
