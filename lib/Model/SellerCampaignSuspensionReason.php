@@ -33,7 +33,7 @@ use \criteo\api\marketingsolutions\v2026_01\ObjectSerializer;
  * SellerCampaignSuspensionReason Class Doc Comment
  *
  * @category Class
- * @description Public seller-campaign suspension reasons
+ * @description Reason why a seller-campaign is suspended. Values: ManuallyStopped (manually paused by the partner), NoBudgetDefined (no valid budget linked), NoCpcDefined (no CPC bid set), NoMoreBudget (lifetime budget fully spent), NoMoreDailyBudget (daily budget limit reached), RemovedFromCatalog (all products removed from catalog), NotYetStarted (newly created, not yet processed), Other (internal issue preventing delivery).
  * @package  criteo\api\marketingsolutions\v2026_01
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -55,6 +55,10 @@ class SellerCampaignSuspensionReason
 
     public const NOT_YET_STARTED = 'NotYetStarted';
 
+    public const NO_MORE_DAILY_BUDGET = 'NoMoreDailyBudget';
+
+    public const OTHER = 'Other';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -67,7 +71,9 @@ class SellerCampaignSuspensionReason
             self::NO_BUDGET_DEFINED,
             self::NO_CPC_DEFINED,
             self::REMOVED_FROM_CATALOG,
-            self::NOT_YET_STARTED
+            self::NOT_YET_STARTED,
+            self::NO_MORE_DAILY_BUDGET,
+            self::OTHER
         ];
     }
 }

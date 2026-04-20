@@ -338,7 +338,7 @@ class CreateSellerBudgetMapiMessage implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets amount
      *
-     * @param string|null $amount amount
+     * @param string|null $amount Budget amount as a string (e.g. '100.50')
      *
      * @return self
      */
@@ -365,7 +365,7 @@ class CreateSellerBudgetMapiMessage implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets budget_type
      *
-     * @param string|null $budget_type budget_type
+     * @param string|null $budget_type Type of budget: 'Daily' (daily cap), 'Capped' (lifetime with fixed amount), or 'Uncapped' (lifetime with no limit)
      *
      * @return self
      */
@@ -392,7 +392,7 @@ class CreateSellerBudgetMapiMessage implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets campaign_ids
      *
-     * @param int[]|null $campaign_ids campaign_ids
+     * @param int[]|null $campaign_ids List of campaign IDs this budget applies to
      *
      * @return self
      */
@@ -419,7 +419,7 @@ class CreateSellerBudgetMapiMessage implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets end_date
      *
-     * @param string|null $end_date end_date
+     * @param string|null $end_date Budget end date as a string (format: YYYY-MM-DD), or empty string for open-ended
      *
      * @return self
      */
@@ -446,7 +446,7 @@ class CreateSellerBudgetMapiMessage implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets seller_id
      *
-     * @param string|null $seller_id seller_id
+     * @param string|null $seller_id Identifier of the seller this budget is for
      *
      * @return self
      */
@@ -473,7 +473,7 @@ class CreateSellerBudgetMapiMessage implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets start_date
      *
-     * @param \DateTime|null $start_date start_date
+     * @param \DateTime|null $start_date Budget start date. Time component is ignored.
      *
      * @return self
      */

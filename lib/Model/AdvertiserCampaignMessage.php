@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\v2026_01\ObjectSerializer;
  * AdvertiserCampaignMessage Class Doc Comment
  *
  * @category Class
- * @description Data representing an advertiser&#39;s adset
+ * @description Data representing a campaign for an advertiser. A campaign groups seller-campaigns and defines delivery settings.
  * @package  criteo\api\marketingsolutions\v2026_01
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -376,7 +376,7 @@ class AdvertiserCampaignMessage implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets ad_set_delivery_status
      *
-     * @param string|null $ad_set_delivery_status ad_set_delivery_status
+     * @param string|null $ad_set_delivery_status Human-readable delivery status of the campaign's ad set
      *
      * @return self
      */
@@ -413,7 +413,7 @@ class AdvertiserCampaignMessage implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets campaign_name
      *
-     * @param string|null $campaign_name campaign_name
+     * @param string|null $campaign_name Display name of the campaign
      *
      * @return self
      */
@@ -440,7 +440,7 @@ class AdvertiserCampaignMessage implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets id
      *
-     * @param int|null $id id
+     * @param int|null $id Unique campaign identifier
      *
      * @return self
      */
@@ -467,7 +467,7 @@ class AdvertiserCampaignMessage implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets status
      *
-     * @param int|null $status status
+     * @param int|null $status Numeric delivery status: 0 = Running, 1 = Archived, 2 = NotRunning
      *
      * @return self
      */

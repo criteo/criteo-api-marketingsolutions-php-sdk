@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\v2026_01\ObjectSerializer;
  * SellerCampaignMessage Class Doc Comment
  *
  * @category Class
- * @description A Seller-Campaign contains all the information relative to the advertisement of the products of a Seller in a Campaign
+ * @description A seller-campaign links a seller to a campaign, defining the CPC bid. A seller can participate in multiple campaigns, and a campaign can have multiple sellers.
  * @package  criteo\api\marketingsolutions\v2026_01
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,6 +61,7 @@ class SellerCampaignMessage implements ModelInterface, ArrayAccess, \JsonSeriali
         'bid' => 'float',
         'campaign_id' => 'int',
         'id' => 'string',
+        'product_set' => '\criteo\api\marketingsolutions\v2026_01\Model\SellerCampaignProductSet',
         'seller_id' => 'string',
         'suspended_since' => '\DateTime',
         'suspension_reasons' => '\criteo\api\marketingsolutions\v2026_01\Model\SellerCampaignSuspensionReason[]'
@@ -77,6 +78,7 @@ class SellerCampaignMessage implements ModelInterface, ArrayAccess, \JsonSeriali
         'bid' => 'double',
         'campaign_id' => 'int32',
         'id' => null,
+        'product_set' => null,
         'seller_id' => null,
         'suspended_since' => 'date-time',
         'suspension_reasons' => null
@@ -91,9 +93,10 @@ class SellerCampaignMessage implements ModelInterface, ArrayAccess, \JsonSeriali
         'bid' => true,
 		'campaign_id' => false,
 		'id' => false,
+		'product_set' => true,
 		'seller_id' => false,
 		'suspended_since' => true,
-		'suspension_reasons' => false
+		'suspension_reasons' => true
     ];
 
     /**
@@ -185,6 +188,7 @@ class SellerCampaignMessage implements ModelInterface, ArrayAccess, \JsonSeriali
         'bid' => 'bid',
         'campaign_id' => 'campaignId',
         'id' => 'id',
+        'product_set' => 'productSet',
         'seller_id' => 'sellerId',
         'suspended_since' => 'suspendedSince',
         'suspension_reasons' => 'suspensionReasons'
@@ -199,6 +203,7 @@ class SellerCampaignMessage implements ModelInterface, ArrayAccess, \JsonSeriali
         'bid' => 'setBid',
         'campaign_id' => 'setCampaignId',
         'id' => 'setId',
+        'product_set' => 'setProductSet',
         'seller_id' => 'setSellerId',
         'suspended_since' => 'setSuspendedSince',
         'suspension_reasons' => 'setSuspensionReasons'
@@ -213,6 +218,7 @@ class SellerCampaignMessage implements ModelInterface, ArrayAccess, \JsonSeriali
         'bid' => 'getBid',
         'campaign_id' => 'getCampaignId',
         'id' => 'getId',
+        'product_set' => 'getProductSet',
         'seller_id' => 'getSellerId',
         'suspended_since' => 'getSuspendedSince',
         'suspension_reasons' => 'getSuspensionReasons'
@@ -278,6 +284,7 @@ class SellerCampaignMessage implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('bid', $data ?? [], null);
         $this->setIfExists('campaign_id', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('product_set', $data ?? [], null);
         $this->setIfExists('seller_id', $data ?? [], null);
         $this->setIfExists('suspended_since', $data ?? [], null);
         $this->setIfExists('suspension_reasons', $data ?? [], null);
@@ -338,7 +345,7 @@ class SellerCampaignMessage implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets bid
      *
-     * @param float|null $bid bid
+     * @param float|null $bid Cost-per-click bid in the advertiser's currency. Null means no CPC is defined (seller-campaign will be suspended with NoCpcDefined). Set to 0 to stop delivery.
      *
      * @return self
      */
@@ -372,7 +379,7 @@ class SellerCampaignMessage implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets campaign_id
      *
-     * @param int|null $campaign_id campaign_id
+     * @param int|null $campaign_id Identifier of the campaign this seller participates in
      *
      * @return self
      */
@@ -399,7 +406,7 @@ class SellerCampaignMessage implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param string|null $id Composite identifier in format {sellerId}.{campaignId}
      *
      * @return self
      */
@@ -409,6 +416,40 @@ class SellerCampaignMessage implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets product_set
+     *
+     * @return \criteo\api\marketingsolutions\v2026_01\Model\SellerCampaignProductSet|null
+     */
+    public function getProductSet()
+    {
+        return $this->container['product_set'];
+    }
+
+    /**
+     * Sets product_set
+     *
+     * @param \criteo\api\marketingsolutions\v2026_01\Model\SellerCampaignProductSet|null $product_set product_set
+     *
+     * @return self
+     */
+    public function setProductSet($product_set)
+    {
+        if (is_null($product_set)) {
+            array_push($this->openAPINullablesSetToNull, 'product_set');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('product_set', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['product_set'] = $product_set;
 
         return $this;
     }
@@ -426,7 +467,7 @@ class SellerCampaignMessage implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets seller_id
      *
-     * @param string|null $seller_id seller_id
+     * @param string|null $seller_id Unique identifier of the seller (merchant)
      *
      * @return self
      */
@@ -453,7 +494,7 @@ class SellerCampaignMessage implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets suspended_since
      *
-     * @param \DateTime|null $suspended_since suspended_since
+     * @param \DateTime|null $suspended_since Timestamp when the seller-campaign was suspended. Null means the seller-campaign is active.
      *
      * @return self
      */
@@ -487,14 +528,21 @@ class SellerCampaignMessage implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets suspension_reasons
      *
-     * @param \criteo\api\marketingsolutions\v2026_01\Model\SellerCampaignSuspensionReason[]|null $suspension_reasons suspension_reasons
+     * @param \criteo\api\marketingsolutions\v2026_01\Model\SellerCampaignSuspensionReason[]|null $suspension_reasons List of reasons why the seller-campaign is suspended. Null means the seller-campaign is active.
      *
      * @return self
      */
     public function setSuspensionReasons($suspension_reasons)
     {
         if (is_null($suspension_reasons)) {
-            throw new \InvalidArgumentException('non-nullable suspension_reasons cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'suspension_reasons');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('suspension_reasons', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['suspension_reasons'] = $suspension_reasons;
 

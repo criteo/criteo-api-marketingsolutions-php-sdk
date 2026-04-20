@@ -310,7 +310,7 @@ class CreateSellerCampaignMessageMapi implements ModelInterface, ArrayAccess, \J
     /**
      * Sets bid
      *
-     * @param float|null $bid bid
+     * @param float|null $bid Initial cost-per-click bid in the advertiser's currency
      *
      * @return self
      */
@@ -337,7 +337,7 @@ class CreateSellerCampaignMessageMapi implements ModelInterface, ArrayAccess, \J
     /**
      * Sets campaign_id
      *
-     * @param int|null $campaign_id campaign_id
+     * @param int|null $campaign_id ID of the campaign to associate the seller with. Must be an existing campaign.
      *
      * @return self
      */

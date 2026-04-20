@@ -271,10 +271,12 @@ docs/Model/SellerBase.md
 docs/Model/SellerBudgetMessage.md
 docs/Model/SellerBudgetStatusV2.md
 docs/Model/SellerCampaignMessage.md
+docs/Model/SellerCampaignProductSet.md
 docs/Model/SellerCampaignSuspensionReason.md
 docs/Model/SellerCampaignUpdate.md
 docs/Model/Size.md
 docs/Model/StatisticsReportQueryMessage.md
+docs/Model/StatsReportMessage.md
 docs/Model/Tag.md
 docs/Model/TransactionsReportQueryMessage.md
 docs/Model/TransactionsReportQueryMessageListRequest.md
@@ -573,10 +575,12 @@ lib/Model/SellerBase.php
 lib/Model/SellerBudgetMessage.php
 lib/Model/SellerBudgetStatusV2.php
 lib/Model/SellerCampaignMessage.php
+lib/Model/SellerCampaignProductSet.php
 lib/Model/SellerCampaignSuspensionReason.php
 lib/Model/SellerCampaignUpdate.php
 lib/Model/Size.php
 lib/Model/StatisticsReportQueryMessage.php
+lib/Model/StatsReportMessage.php
 lib/Model/Tag.php
 lib/Model/TransactionsReportQueryMessage.php
 lib/Model/TransactionsReportQueryMessageListRequest.php

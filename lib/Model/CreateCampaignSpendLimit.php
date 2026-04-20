@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\v2026_01\ObjectSerializer;
  * CreateCampaignSpendLimit Class Doc Comment
  *
  * @category Class
- * @description campaign spend limit create model
+ * @description Spend limit configuration for a marketing campaign. Controls how much can be spent and the renewal cadence.  When spendLimitType is \&quot;capped\&quot;: spendLimitAmount and spendLimitRenewal are required.  When spendLimitType is \&quot;uncapped\&quot;: spendLimitAmount is null and spendLimitRenewal is \&quot;undefined\&quot;.
  * @package  criteo\api\marketingsolutions\v2026_01
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -372,7 +372,7 @@ class CreateCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets spend_limit_amount
      *
-     * @param float|null $spend_limit_amount The amount of the spend limit. null if spendLimitType is uncapped.
+     * @param float|null $spend_limit_amount Maximum spend amount in the advertiser's currency per renewal period. Non-null when capped. null when uncapped.
      *
      * @return self
      */
@@ -406,7 +406,7 @@ class CreateCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets spend_limit_renewal
      *
-     * @param string|null $spend_limit_renewal The pace of the spend limit renewal
+     * @param string|null $spend_limit_renewal The period over which the spend limit is consumed.  - \"daily\", \"monthly\": spend limit resets at the start of each period.  - \"lifetime\": spend limit covers the entire campaign duration without resetting.  - \"undefined\": only used when spendLimitType is \"uncapped\" (no renewal applies).
      *
      * @return self
      */
@@ -443,7 +443,7 @@ class CreateCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets spend_limit_type
      *
-     * @param string $spend_limit_type Whether your spend limit is capped or not
+     * @param string $spend_limit_type Controls whether the campaign has a spending limit.  - \"capped\": spending is limited to spendLimitAmount. Requires spendLimitAmount (non-null) and spendLimitRenewal (not \"undefined\").  - \"uncapped\": no spending limit. spendLimitAmount is null and spendLimitRenewal is \"undefined\".
      *
      * @return self
      */

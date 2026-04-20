@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\v2026_01\ObjectSerializer;
  * PatchMarketingCampaignBudgetAutomation Class Doc Comment
  *
  * @category Class
- * @description patch marketing campaign budget automation model
+ * @description Budget automation, lets users configure budgets once at the campaign level while Criteo dynamically routes spend toward the best-performing ad sets.  Only provided fields are updated; omitted fields are left unchanged.  If \&quot;enabled\&quot; is omitted and only \&quot;budgetConfiguration\&quot; is provided, \&quot;enabled\&quot; defaults to false — budget automation will not be activated.  To activate budget automation, \&quot;enabled\&quot; must be explicitly set to true along with a valid \&quot;budgetConfiguration\&quot;.  To deactivate, set \&quot;enabled\&quot; to false; \&quot;budgetConfiguration\&quot; can be omitted.
  * @package  criteo\api\marketingsolutions\v2026_01
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -344,7 +344,7 @@ class PatchMarketingCampaignBudgetAutomation implements ModelInterface, ArrayAcc
     /**
      * Sets enabled
      *
-     * @param bool|null $enabled Budget automation for the marketing campaign enable
+     * @param bool|null $enabled Whether budget automation is enabled for this campaign. This field is always present in the response.
      *
      * @return self
      */

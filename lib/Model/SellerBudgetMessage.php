@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\v2026_01\ObjectSerializer;
  * SellerBudgetMessage Class Doc Comment
  *
  * @category Class
- * @description Budget are used to specify budget constraints for one or more Seller-Campaigns of the same Seller
+ * @description A budget defines spending constraints for a seller across one or more campaigns. Each seller can have one active budget per time period.
  * @package  criteo\api\marketingsolutions\v2026_01
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -366,7 +366,7 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets amount
      *
-     * @param float|null $amount amount
+     * @param float|null $amount Budget amount in the advertiser's currency
      *
      * @return self
      */
@@ -400,7 +400,7 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets budget_type
      *
-     * @param string|null $budget_type budget_type
+     * @param string|null $budget_type Type of budget: 'Daily' (daily cap), 'Capped' (lifetime with fixed amount), or 'Uncapped' (lifetime with no limit)
      *
      * @return self
      */
@@ -427,7 +427,7 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets campaign_ids
      *
-     * @param int[]|null $campaign_ids campaign_ids
+     * @param int[]|null $campaign_ids List of campaign IDs this budget applies to
      *
      * @return self
      */
@@ -454,7 +454,7 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets end_date
      *
-     * @param string|null $end_date end_date
+     * @param string|null $end_date End date of the budget period (format: YYYY-MM-DD), or empty string if open-ended
      *
      * @return self
      */
@@ -481,7 +481,7 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param string|null $id Unique budget identifier
      *
      * @return self
      */
@@ -508,7 +508,7 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets is_suspended
      *
-     * @param bool|null $is_suspended is_suspended
+     * @param bool|null $is_suspended Whether the budget has been manually suspended by the partner
      *
      * @return self
      */
@@ -535,7 +535,7 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets seller_id
      *
-     * @param string|null $seller_id seller_id
+     * @param string|null $seller_id Identifier of the seller this budget belongs to
      *
      * @return self
      */
@@ -562,7 +562,7 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets spend
      *
-     * @param float|null $spend spend
+     * @param float|null $spend Amount spent against this budget so far, or null if not available
      *
      * @return self
      */
@@ -596,7 +596,7 @@ class SellerBudgetMessage implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets start_date
      *
-     * @param \DateTime|null $start_date start_date
+     * @param \DateTime|null $start_date Start date of the budget period (format: YYYY-MM-DD)
      *
      * @return self
      */

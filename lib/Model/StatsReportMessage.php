@@ -1,6 +1,6 @@
 <?php
 /**
- * AutomatedBudgetConfigurationV23Q1
+ * StatsReportMessage
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\v2026_01\ObjectSerializer;
 
 /**
- * AutomatedBudgetConfigurationV23Q1 Class Doc Comment
+ * StatsReportMessage Class Doc Comment
  *
  * @category Class
- * @description Detailed configuration used when campaign budget automation is enabled.
+ * @description A tabular stats report with column headers and data rows. Each row in &#39;data&#39; is an array of values matching the order of &#39;columns&#39;.
  * @package  criteo\api\marketingsolutions\v2026_01
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class AutomatedBudgetConfigurationV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
+class StatsReportMessage implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class AutomatedBudgetConfigurationV23Q1 implements ModelInterface, ArrayAccess, 
       *
       * @var string
       */
-    protected static $openAPIModelName = 'AutomatedBudgetConfigurationV23Q1';
+    protected static $openAPIModelName = 'StatsReportMessage';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,10 @@ class AutomatedBudgetConfigurationV23Q1 implements ModelInterface, ArrayAccess, 
       * @var string[]
       */
     protected static $openAPITypes = [
-        'ad_set_optimization_objective' => 'string'
+        'columns' => 'string[]',
+        'data' => 'mixed[][]',
+        'links' => 'object',
+        'rows' => 'int'
     ];
 
     /**
@@ -69,7 +72,10 @@ class AutomatedBudgetConfigurationV23Q1 implements ModelInterface, ArrayAccess, 
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'ad_set_optimization_objective' => null
+        'columns' => null,
+        'data' => null,
+        'links' => null,
+        'rows' => 'int32'
     ];
 
     /**
@@ -78,7 +84,10 @@ class AutomatedBudgetConfigurationV23Q1 implements ModelInterface, ArrayAccess, 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'ad_set_optimization_objective' => true
+        'columns' => true,
+		'data' => true,
+		'links' => true,
+		'rows' => true
     ];
 
     /**
@@ -167,7 +176,10 @@ class AutomatedBudgetConfigurationV23Q1 implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $attributeMap = [
-        'ad_set_optimization_objective' => 'adSetOptimizationObjective'
+        'columns' => 'columns',
+        'data' => 'data',
+        'links' => 'links',
+        'rows' => 'rows'
     ];
 
     /**
@@ -176,7 +188,10 @@ class AutomatedBudgetConfigurationV23Q1 implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $setters = [
-        'ad_set_optimization_objective' => 'setAdSetOptimizationObjective'
+        'columns' => 'setColumns',
+        'data' => 'setData',
+        'links' => 'setLinks',
+        'rows' => 'setRows'
     ];
 
     /**
@@ -185,7 +200,10 @@ class AutomatedBudgetConfigurationV23Q1 implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $getters = [
-        'ad_set_optimization_objective' => 'getAdSetOptimizationObjective'
+        'columns' => 'getColumns',
+        'data' => 'getData',
+        'links' => 'getLinks',
+        'rows' => 'getRows'
     ];
 
     /**
@@ -229,25 +247,6 @@ class AutomatedBudgetConfigurationV23Q1 implements ModelInterface, ArrayAccess, 
         return self::$openAPIModelName;
     }
 
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_CONVERSIONS = 'conversions';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_REVENUE = 'revenue';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_VISITS = 'visits';
-    public const AD_SET_OPTIMIZATION_OBJECTIVE_VIDEO_VIEWS = 'videoViews';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getAdSetOptimizationObjectiveAllowableValues()
-    {
-        return [
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_CONVERSIONS,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_REVENUE,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_VISITS,
-            self::AD_SET_OPTIMIZATION_OBJECTIVE_VIDEO_VIEWS,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -264,7 +263,10 @@ class AutomatedBudgetConfigurationV23Q1 implements ModelInterface, ArrayAccess, 
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('ad_set_optimization_objective', $data ?? [], null);
+        $this->setIfExists('columns', $data ?? [], null);
+        $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('links', $data ?? [], null);
+        $this->setIfExists('rows', $data ?? [], null);
     }
 
     /**
@@ -294,15 +296,6 @@ class AutomatedBudgetConfigurationV23Q1 implements ModelInterface, ArrayAccess, 
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getAdSetOptimizationObjectiveAllowableValues();
-        if (!is_null($this->container['ad_set_optimization_objective']) && !in_array($this->container['ad_set_optimization_objective'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'ad_set_optimization_objective', must be one of '%s'",
-                $this->container['ad_set_optimization_objective'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -319,45 +312,137 @@ class AutomatedBudgetConfigurationV23Q1 implements ModelInterface, ArrayAccess, 
 
 
     /**
-     * Gets ad_set_optimization_objective
+     * Gets columns
      *
-     * @return string|null
+     * @return string[]|null
      */
-    public function getAdSetOptimizationObjective()
+    public function getColumns()
     {
-        return $this->container['ad_set_optimization_objective'];
+        return $this->container['columns'];
     }
 
     /**
-     * Sets ad_set_optimization_objective
+     * Sets columns
      *
-     * @param string|null $ad_set_optimization_objective Optimization objective used to automate budget allocation across ad sets.  Expected when budgetAutomation.enabled is true.  Possible values are \"conversions\", \"revenue\", \"visits\", and \"videoViews\".
+     * @param string[]|null $columns List of column names for the report (e.g. campaignId, sellerId, day, impressions, clicks, cost, etc.)
      *
      * @return self
      */
-    public function setAdSetOptimizationObjective($ad_set_optimization_objective)
+    public function setColumns($columns)
     {
-        if (is_null($ad_set_optimization_objective)) {
-            array_push($this->openAPINullablesSetToNull, 'ad_set_optimization_objective');
+        if (is_null($columns)) {
+            array_push($this->openAPINullablesSetToNull, 'columns');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('ad_set_optimization_objective', $nullablesSetToNull);
+            $index = array_search('columns', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $allowedValues = $this->getAdSetOptimizationObjectiveAllowableValues();
-        if (!is_null($ad_set_optimization_objective) && !in_array($ad_set_optimization_objective, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'ad_set_optimization_objective', must be one of '%s'",
-                    $ad_set_optimization_objective,
-                    implode("', '", $allowedValues)
-                )
-            );
+        $this->container['columns'] = $columns;
+
+        return $this;
+    }
+
+    /**
+     * Gets data
+     *
+     * @return mixed[][]|null
+     */
+    public function getData()
+    {
+        return $this->container['data'];
+    }
+
+    /**
+     * Sets data
+     *
+     * @param mixed[][]|null $data Array of data rows, each row is an array of values matching the columns order
+     *
+     * @return self
+     */
+    public function setData($data)
+    {
+        if (is_null($data)) {
+            array_push($this->openAPINullablesSetToNull, 'data');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['ad_set_optimization_objective'] = $ad_set_optimization_objective;
+        $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets links
+     *
+     * @return object|null
+     */
+    public function getLinks()
+    {
+        return $this->container['links'];
+    }
+
+    /**
+     * Sets links
+     *
+     * @param object|null $links Pagination links (empty object if no pagination)
+     *
+     * @return self
+     */
+    public function setLinks($links)
+    {
+        if (is_null($links)) {
+            array_push($this->openAPINullablesSetToNull, 'links');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('links', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['links'] = $links;
+
+        return $this;
+    }
+
+    /**
+     * Gets rows
+     *
+     * @return int|null
+     */
+    public function getRows()
+    {
+        return $this->container['rows'];
+    }
+
+    /**
+     * Sets rows
+     *
+     * @param int|null $rows Total number of data rows in the report
+     *
+     * @return self
+     */
+    public function setRows($rows)
+    {
+        if (is_null($rows)) {
+            array_push($this->openAPINullablesSetToNull, 'rows');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('rows', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['rows'] = $rows;
 
         return $this;
     }

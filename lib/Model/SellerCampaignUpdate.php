@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\v2026_01\ObjectSerializer;
  * SellerCampaignUpdate Class Doc Comment
  *
  * @category Class
- * @description Date used to update a Seller-Campaign&#39;s Bid.
+ * @description Data used to update a Seller-Campaign&#39;s Bid.
  * @package  criteo\api\marketingsolutions\v2026_01
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -310,7 +310,7 @@ class SellerCampaignUpdate implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets bid
      *
-     * @param float|null $bid bid
+     * @param float|null $bid New cost-per-click bid. Set to 0 to stop delivery.
      *
      * @return self
      */
@@ -337,7 +337,7 @@ class SellerCampaignUpdate implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param string|null $id Seller-campaign identifier in format {sellerId}.{campaignId}
      *
      * @return self
      */
