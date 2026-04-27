@@ -67,6 +67,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         'name' => 'string',
         'price' => 'float',
         'product_external_id' => 'string',
+        'relevance_label' => 'string',
         'relevancy_score' => 'float',
         'retail_price' => 'float'
     ];
@@ -88,6 +89,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         'name' => null,
         'price' => 'double',
         'product_external_id' => null,
+        'relevance_label' => null,
         'relevancy_score' => 'double',
         'retail_price' => 'double'
     ];
@@ -107,6 +109,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
 		'name' => true,
 		'price' => true,
 		'product_external_id' => true,
+		'relevance_label' => true,
 		'relevancy_score' => true,
 		'retail_price' => true
     ];
@@ -206,6 +209,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         'name' => 'name',
         'price' => 'price',
         'product_external_id' => 'productExternalId',
+        'relevance_label' => 'relevanceLabel',
         'relevancy_score' => 'relevancyScore',
         'retail_price' => 'retailPrice'
     ];
@@ -225,6 +229,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         'name' => 'setName',
         'price' => 'setPrice',
         'product_external_id' => 'setProductExternalId',
+        'relevance_label' => 'setRelevanceLabel',
         'relevancy_score' => 'setRelevancyScore',
         'retail_price' => 'setRetailPrice'
     ];
@@ -244,6 +249,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         'name' => 'getName',
         'price' => 'getPrice',
         'product_external_id' => 'getProductExternalId',
+        'relevance_label' => 'getRelevanceLabel',
         'relevancy_score' => 'getRelevancyScore',
         'retail_price' => 'getRetailPrice'
     ];
@@ -289,6 +295,21 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         return self::$openAPIModelName;
     }
 
+    public const RELEVANCE_LABEL_SIMILAR = 'Similar';
+    public const RELEVANCE_LABEL_RELEVANT = 'Relevant';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRelevanceLabelAllowableValues()
+    {
+        return [
+            self::RELEVANCE_LABEL_SIMILAR,
+            self::RELEVANCE_LABEL_RELEVANT,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -314,6 +335,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('price', $data ?? [], null);
         $this->setIfExists('product_external_id', $data ?? [], null);
+        $this->setIfExists('relevance_label', $data ?? [], null);
         $this->setIfExists('relevancy_score', $data ?? [], null);
         $this->setIfExists('retail_price', $data ?? [], null);
     }
@@ -344,6 +366,15 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getRelevanceLabelAllowableValues();
+        if (!is_null($this->container['relevance_label']) && !in_array($this->container['relevance_label'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'relevance_label', must be one of '%s'",
+                $this->container['relevance_label'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -662,6 +693,50 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
             }
         }
         $this->container['product_external_id'] = $product_external_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets relevance_label
+     *
+     * @return string|null
+     */
+    public function getRelevanceLabel()
+    {
+        return $this->container['relevance_label'];
+    }
+
+    /**
+     * Sets relevance_label
+     *
+     * @param string|null $relevance_label Product Relevance label
+     *
+     * @return self
+     */
+    public function setRelevanceLabel($relevance_label)
+    {
+        if (is_null($relevance_label)) {
+            array_push($this->openAPINullablesSetToNull, 'relevance_label');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('relevance_label', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getRelevanceLabelAllowableValues();
+        if (!is_null($relevance_label) && !in_array($relevance_label, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'relevance_label', must be one of '%s'",
+                    $relevance_label,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['relevance_label'] = $relevance_label;
 
         return $this;
     }
