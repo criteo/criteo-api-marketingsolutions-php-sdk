@@ -659,8 +659,6 @@ getRealtimeProductJob($report_id): \criteo\api\marketingsolutions\preview\Model\
 
 
 
-This endpoint is subject to specific rate limits.
-
 ### Example
 
 ```php
