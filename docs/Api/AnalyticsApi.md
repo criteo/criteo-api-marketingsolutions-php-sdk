@@ -4,21 +4,21 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createRealtimeProductReport()**](AnalyticsApi.md#createRealtimeProductReport) | **POST** /preview/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/export |  |
-| [**getAdsetReport()**](AnalyticsApi.md#getAdsetReport) | **POST** /preview/statistics/report |  |
-| [**getAsyncAdsetReport()**](AnalyticsApi.md#getAsyncAdsetReport) | **POST** /preview/reports/async-statistics |  |
-| [**getAsyncAudienceReport()**](AnalyticsApi.md#getAsyncAudienceReport) | **POST** /preview/reports/async-audience-performance |  |
-| [**getAsyncExportOutput()**](AnalyticsApi.md#getAsyncExportOutput) | **GET** /preview/reports/{report-id}/output |  |
-| [**getAsyncExportStatus()**](AnalyticsApi.md#getAsyncExportStatus) | **GET** /preview/reports/{report-id}/status |  |
-| [**getCategoriesReport()**](AnalyticsApi.md#getCategoriesReport) | **POST** /preview/categories/report |  |
-| [**getCreativesReport()**](AnalyticsApi.md#getCreativesReport) | **POST** /preview/reports/creatives |  |
-| [**getPlacementsReport()**](AnalyticsApi.md#getPlacementsReport) | **POST** /preview/placements/report |  |
-| [**getRealtimeProduct()**](AnalyticsApi.md#getRealtimeProduct) | **GET** /preview/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/{reportId} |  |
-| [**getRealtimeProductJob()**](AnalyticsApi.md#getRealtimeProductJob) | **GET** /preview/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId} |  |
-| [**getRealtimeStatisticsReport()**](AnalyticsApi.md#getRealtimeStatisticsReport) | **POST** /preview/reports/realtime |  |
-| [**getTopProductsReport()**](AnalyticsApi.md#getTopProductsReport) | **POST** /preview/reports/top-products |  |
-| [**getTransactionsReport()**](AnalyticsApi.md#getTransactionsReport) | **POST** /preview/transactions/report |  |
-| [**getTransparencyReport()**](AnalyticsApi.md#getTransparencyReport) | **POST** /preview/log-level/advertisers/{advertiser-id}/report |  |
+| [**createRealtimeProductReport()**](AnalyticsApi.md#createRealtimeProductReport) | **POST** /preview/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/export | /preview/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/export |
+| [**getAdsetReport()**](AnalyticsApi.md#getAdsetReport) | **POST** /preview/statistics/report | /preview/statistics/report |
+| [**getAsyncAdsetReport()**](AnalyticsApi.md#getAsyncAdsetReport) | **POST** /preview/reports/async-statistics | /preview/reports/async-statistics |
+| [**getAsyncAudienceReport()**](AnalyticsApi.md#getAsyncAudienceReport) | **POST** /preview/reports/async-audience-performance | /preview/reports/async-audience-performance |
+| [**getAsyncExportOutput()**](AnalyticsApi.md#getAsyncExportOutput) | **GET** /preview/reports/{report-id}/output | /preview/reports/{report-id}/output |
+| [**getAsyncExportStatus()**](AnalyticsApi.md#getAsyncExportStatus) | **GET** /preview/reports/{report-id}/status | /preview/reports/{report-id}/status |
+| [**getCategoriesReport()**](AnalyticsApi.md#getCategoriesReport) | **POST** /preview/categories/report | /preview/categories/report |
+| [**getCreativesReport()**](AnalyticsApi.md#getCreativesReport) | **POST** /preview/reports/creatives | /preview/reports/creatives |
+| [**getPlacementsReport()**](AnalyticsApi.md#getPlacementsReport) | **POST** /preview/placements/report | /preview/placements/report |
+| [**getRealtimeProduct()**](AnalyticsApi.md#getRealtimeProduct) | **GET** /preview/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/{reportId} | /preview/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/{reportId} |
+| [**getRealtimeProductJob()**](AnalyticsApi.md#getRealtimeProductJob) | **GET** /preview/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId} | /preview/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId} |
+| [**getRealtimeStatisticsReport()**](AnalyticsApi.md#getRealtimeStatisticsReport) | **POST** /preview/reports/realtime | /preview/reports/realtime |
+| [**getTopProductsReport()**](AnalyticsApi.md#getTopProductsReport) | **POST** /preview/reports/top-products | /preview/reports/top-products |
+| [**getTransactionsReport()**](AnalyticsApi.md#getTransactionsReport) | **POST** /preview/transactions/report | /preview/transactions/report |
+| [**getTransparencyReport()**](AnalyticsApi.md#getTransparencyReport) | **POST** /preview/log-level/advertisers/{advertiser-id}/report | /preview/log-level/advertisers/{advertiser-id}/report |
 
 
 ## `createRealtimeProductReport()`
@@ -27,7 +27,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 createRealtimeProductReport($real_time_product_report_job_request): \criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobStatusResponse
 ```
 
-
+/preview/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/export
 
 This endpoint is subject to specific rate limits.
 
@@ -90,7 +90,7 @@ try {
 getAdsetReport($statistics_report_query_message): \SplFileObject
 ```
 
-
+/preview/statistics/report
 
 This Statistics endpoint provides adset related data. It is an upgrade of our previous Statistics endpoint, and includes new metrics and customization capabilities.
 
@@ -153,7 +153,7 @@ try {
 getAsyncAdsetReport($generate_statistics_report_request): \criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse
 ```
 
-
+/preview/reports/async-statistics
 
 This Statistics endpoint provides an export Id that let you retrieve data.
 
@@ -216,7 +216,7 @@ try {
 getAsyncAudienceReport($generate_audience_performance_report_request): \criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse
 ```
 
-
+/preview/reports/async-audience-performance
 
 This Statistics endpoint provides an export Id that lets you retrieve data.
 
@@ -279,7 +279,7 @@ try {
 getAsyncExportOutput($report_id): \criteo\api\marketingsolutions\preview\Model\ExportResult
 ```
 
-
+/preview/reports/{report-id}/output
 
 This endpoint gives you the output of the report.
 
@@ -342,7 +342,7 @@ try {
 getAsyncExportStatus($report_id): \criteo\api\marketingsolutions\preview\Model\MarketingSolutionsReportStatusResponse
 ```
 
-
+/preview/reports/{report-id}/status
 
 This endpoint gives you the status of the report.
 
@@ -405,7 +405,7 @@ try {
 getCategoriesReport($generate_categories_report_request_attributes_request): \SplFileObject
 ```
 
-
+/preview/categories/report
 
 With this endpoint you can analyse what are the categories of the placements' domains your ads are placed in.
 
@@ -468,7 +468,7 @@ try {
 getCreativesReport($generate_creatives_report_request_attributes_request): \criteo\api\marketingsolutions\preview\Model\JsonReportRowsListResponse
 ```
 
-
+/preview/reports/creatives
 
 With Creatives endpoint, you can analyse the daily performances of your creatives on the main metrics: clicks, ctr, displays.
 
@@ -531,7 +531,7 @@ try {
 getPlacementsReport($placements_report_query_message_list_request): \SplFileObject
 ```
 
-
+/preview/placements/report
 
 Your ads are placed in different domains (publishers) and environments (websites and apps). Thanks to the placements endpoint, you can analyse the performances for each publisher, comparing displays, clicks and sales generated.
 
@@ -594,7 +594,7 @@ try {
 getRealtimeProduct($report_id): \criteo\api\marketingsolutions\preview\Model\FileStreamResultResponse
 ```
 
-
+/preview/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/{reportId}
 
 This endpoint is subject to specific rate limits.
 
@@ -657,7 +657,7 @@ try {
 getRealtimeProductJob($report_id): \criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobStatusResponse
 ```
 
-
+/preview/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId}
 
 ### Example
 
@@ -718,7 +718,7 @@ try {
 getRealtimeStatisticsReport($generate_realtime_statistics_report_request_attributes_request): \criteo\api\marketingsolutions\preview\Model\JsonReportRowsListResponse
 ```
 
-
+/preview/reports/realtime
 
 With Realtime endpoint, you can analyse the realtime values of the main metrics: displays, clicks, cost.
 
@@ -781,7 +781,7 @@ try {
 getTopProductsReport($generate_top_products_report_request_attributes_request): \criteo\api\marketingsolutions\preview\Model\JsonReportRowsListResponse
 ```
 
-
+/preview/reports/top-products
 
 With the topProducts endpoint, you can analyse the performances for each publisher, by top displays, top clicks or top sales.
 
@@ -844,7 +844,7 @@ try {
 getTransactionsReport($transactions_report_query_message_list_request): \SplFileObject
 ```
 
-
+/preview/transactions/report
 
 This Transactions endpoint provides transactions id related data.
 
@@ -907,7 +907,7 @@ try {
 getTransparencyReport($advertiser_id, $transparency_query_message): \criteo\api\marketingsolutions\preview\Model\TransparencyReportListResponse
 ```
 
-
+/preview/log-level/advertisers/{advertiser-id}/report
 
 This Statistics endpoint provides publisher data.
 

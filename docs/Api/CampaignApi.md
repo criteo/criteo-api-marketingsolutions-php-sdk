@@ -4,44 +4,44 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createAdSet()**](CampaignApi.md#createAdSet) | **POST** /preview/marketing-solutions/ad-sets |  |
-| [**createCampaign()**](CampaignApi.md#createCampaign) | **POST** /preview/marketing-solutions/campaigns |  |
-| [**deleteAdvertiserBundleRules()**](CampaignApi.md#deleteAdvertiserBundleRules) | **DELETE** /preview/advertisers/{advertiserId}/targeting/bundle-rules |  |
-| [**deleteAdvertiserDomainRules()**](CampaignApi.md#deleteAdvertiserDomainRules) | **DELETE** /preview/advertisers/{advertiserId}/targeting/domain-rules |  |
-| [**deleteCampaignBundleRules()**](CampaignApi.md#deleteCampaignBundleRules) | **DELETE** /preview/campaigns/{campaignId}/targeting/bundle-rules |  |
-| [**deleteCampaignDomainRules()**](CampaignApi.md#deleteCampaignDomainRules) | **DELETE** /preview/campaigns/{campaignId}/targeting/domain-rules |  |
-| [**disableAdSetTargetingDealIds()**](CampaignApi.md#disableAdSetTargetingDealIds) | **POST** /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids/disable |  |
-| [**disableAdSetTargetingVideoPositioning()**](CampaignApi.md#disableAdSetTargetingVideoPositioning) | **POST** /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positionings/disable |  |
-| [**getAdSet()**](CampaignApi.md#getAdSet) | **GET** /preview/marketing-solutions/ad-sets/{ad-set-id} |  |
-| [**getAdSetCategoryBids()**](CampaignApi.md#getAdSetCategoryBids) | **GET** /preview/marketing-solutions/ad-sets/{ad-set-id}/category-bids |  |
-| [**getAdSetTargetingDealIds()**](CampaignApi.md#getAdSetTargetingDealIds) | **GET** /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids |  |
-| [**getAdSetTargetingVideoPositioning()**](CampaignApi.md#getAdSetTargetingVideoPositioning) | **GET** /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning |  |
-| [**getAdvertiserBundleRules()**](CampaignApi.md#getAdvertiserBundleRules) | **GET** /preview/advertisers/{advertiserId}/targeting/bundle-rules |  |
-| [**getAdvertiserDomainRules()**](CampaignApi.md#getAdvertiserDomainRules) | **GET** /preview/advertisers/{advertiserId}/targeting/domain-rules |  |
-| [**getCampaign()**](CampaignApi.md#getCampaign) | **GET** /preview/marketing-solutions/campaigns/{campaign-id} |  |
-| [**getCampaignBundleRules()**](CampaignApi.md#getCampaignBundleRules) | **GET** /preview/campaigns/{campaignId}/targeting/bundle-rules |  |
-| [**getCampaignDomainRules()**](CampaignApi.md#getCampaignDomainRules) | **GET** /preview/campaigns/{campaignId}/targeting/domain-rules |  |
-| [**getDisplayMultipliers()**](CampaignApi.md#getDisplayMultipliers) | **GET** /preview/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers |  |
-| [**getSupplyVendorList()**](CampaignApi.md#getSupplyVendorList) | **GET** /preview/marketing-solutions/ad-sets/targeting/supply-vendors |  |
-| [**patchAdSetCategoryBids()**](CampaignApi.md#patchAdSetCategoryBids) | **PATCH** /preview/marketing-solutions/ad-sets/{ad-set-id}/category-bids |  |
-| [**patchAdSets()**](CampaignApi.md#patchAdSets) | **PATCH** /preview/marketing-solutions/ad-sets |  |
-| [**patchCampaigns()**](CampaignApi.md#patchCampaigns) | **PATCH** /preview/marketing-solutions/campaigns |  |
-| [**patchDisplayMultipliers()**](CampaignApi.md#patchDisplayMultipliers) | **PATCH** /preview/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers |  |
-| [**postAdvertiserBundleRules()**](CampaignApi.md#postAdvertiserBundleRules) | **POST** /preview/advertisers/{advertiserId}/targeting/bundle-rules |  |
-| [**postAdvertiserDomainRules()**](CampaignApi.md#postAdvertiserDomainRules) | **POST** /preview/advertisers/{advertiserId}/targeting/domain-rules |  |
-| [**postCampaignBundleRules()**](CampaignApi.md#postCampaignBundleRules) | **POST** /preview/campaigns/{campaignId}/targeting/bundle-rules |  |
-| [**postCampaignDomainRules()**](CampaignApi.md#postCampaignDomainRules) | **POST** /preview/campaigns/{campaignId}/targeting/domain-rules |  |
-| [**putAdvertiserBundleRules()**](CampaignApi.md#putAdvertiserBundleRules) | **PUT** /preview/advertisers/{advertiserId}/targeting/bundle-rules |  |
-| [**putAdvertiserDomainRules()**](CampaignApi.md#putAdvertiserDomainRules) | **PUT** /preview/advertisers/{advertiserId}/targeting/domain-rules |  |
-| [**putCampaignBundleRules()**](CampaignApi.md#putCampaignBundleRules) | **PUT** /preview/campaigns/{campaignId}/targeting/bundle-rules |  |
-| [**putCampaignDomainRules()**](CampaignApi.md#putCampaignDomainRules) | **PUT** /preview/campaigns/{campaignId}/targeting/domain-rules |  |
-| [**searchAdSets()**](CampaignApi.md#searchAdSets) | **POST** /preview/marketing-solutions/ad-sets/search |  |
-| [**searchCampaigns()**](CampaignApi.md#searchCampaigns) | **POST** /preview/marketing-solutions/campaigns/search |  |
-| [**setAdSetTargetingDealIds()**](CampaignApi.md#setAdSetTargetingDealIds) | **PUT** /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids |  |
-| [**setAdSetTargetingVideoPositioning()**](CampaignApi.md#setAdSetTargetingVideoPositioning) | **PUT** /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning |  |
-| [**startAdSets()**](CampaignApi.md#startAdSets) | **POST** /preview/marketing-solutions/ad-sets/start |  |
-| [**stopAdSets()**](CampaignApi.md#stopAdSets) | **POST** /preview/marketing-solutions/ad-sets/stop |  |
-| [**updateAdSetAudience()**](CampaignApi.md#updateAdSetAudience) | **PUT** /preview/marketing-solutions/ad-sets/{ad-set-id}/audience |  |
+| [**createAdSet()**](CampaignApi.md#createAdSet) | **POST** /preview/marketing-solutions/ad-sets | /preview/marketing-solutions/ad-sets |
+| [**createCampaign()**](CampaignApi.md#createCampaign) | **POST** /preview/marketing-solutions/campaigns | /preview/marketing-solutions/campaigns |
+| [**deleteAdvertiserBundleRules()**](CampaignApi.md#deleteAdvertiserBundleRules) | **DELETE** /preview/advertisers/{advertiserId}/targeting/bundle-rules | /preview/advertisers/{advertiserId}/targeting/bundle-rules |
+| [**deleteAdvertiserDomainRules()**](CampaignApi.md#deleteAdvertiserDomainRules) | **DELETE** /preview/advertisers/{advertiserId}/targeting/domain-rules | /preview/advertisers/{advertiserId}/targeting/domain-rules |
+| [**deleteCampaignBundleRules()**](CampaignApi.md#deleteCampaignBundleRules) | **DELETE** /preview/campaigns/{campaignId}/targeting/bundle-rules | /preview/campaigns/{campaignId}/targeting/bundle-rules |
+| [**deleteCampaignDomainRules()**](CampaignApi.md#deleteCampaignDomainRules) | **DELETE** /preview/campaigns/{campaignId}/targeting/domain-rules | /preview/campaigns/{campaignId}/targeting/domain-rules |
+| [**disableAdSetTargetingDealIds()**](CampaignApi.md#disableAdSetTargetingDealIds) | **POST** /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids/disable | /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids/disable |
+| [**disableAdSetTargetingVideoPositioning()**](CampaignApi.md#disableAdSetTargetingVideoPositioning) | **POST** /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positionings/disable | /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positionings/disable |
+| [**getAdSet()**](CampaignApi.md#getAdSet) | **GET** /preview/marketing-solutions/ad-sets/{ad-set-id} | /preview/marketing-solutions/ad-sets/{ad-set-id} |
+| [**getAdSetCategoryBids()**](CampaignApi.md#getAdSetCategoryBids) | **GET** /preview/marketing-solutions/ad-sets/{ad-set-id}/category-bids | /preview/marketing-solutions/ad-sets/{ad-set-id}/category-bids |
+| [**getAdSetTargetingDealIds()**](CampaignApi.md#getAdSetTargetingDealIds) | **GET** /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids | /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids |
+| [**getAdSetTargetingVideoPositioning()**](CampaignApi.md#getAdSetTargetingVideoPositioning) | **GET** /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning | /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning |
+| [**getAdvertiserBundleRules()**](CampaignApi.md#getAdvertiserBundleRules) | **GET** /preview/advertisers/{advertiserId}/targeting/bundle-rules | /preview/advertisers/{advertiserId}/targeting/bundle-rules |
+| [**getAdvertiserDomainRules()**](CampaignApi.md#getAdvertiserDomainRules) | **GET** /preview/advertisers/{advertiserId}/targeting/domain-rules | /preview/advertisers/{advertiserId}/targeting/domain-rules |
+| [**getCampaign()**](CampaignApi.md#getCampaign) | **GET** /preview/marketing-solutions/campaigns/{campaign-id} | /preview/marketing-solutions/campaigns/{campaign-id} |
+| [**getCampaignBundleRules()**](CampaignApi.md#getCampaignBundleRules) | **GET** /preview/campaigns/{campaignId}/targeting/bundle-rules | /preview/campaigns/{campaignId}/targeting/bundle-rules |
+| [**getCampaignDomainRules()**](CampaignApi.md#getCampaignDomainRules) | **GET** /preview/campaigns/{campaignId}/targeting/domain-rules | /preview/campaigns/{campaignId}/targeting/domain-rules |
+| [**getDisplayMultipliers()**](CampaignApi.md#getDisplayMultipliers) | **GET** /preview/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers | /preview/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers |
+| [**getSupplyVendorList()**](CampaignApi.md#getSupplyVendorList) | **GET** /preview/marketing-solutions/ad-sets/targeting/supply-vendors | /preview/marketing-solutions/ad-sets/targeting/supply-vendors |
+| [**patchAdSetCategoryBids()**](CampaignApi.md#patchAdSetCategoryBids) | **PATCH** /preview/marketing-solutions/ad-sets/{ad-set-id}/category-bids | /preview/marketing-solutions/ad-sets/{ad-set-id}/category-bids |
+| [**patchAdSets()**](CampaignApi.md#patchAdSets) | **PATCH** /preview/marketing-solutions/ad-sets | /preview/marketing-solutions/ad-sets |
+| [**patchCampaigns()**](CampaignApi.md#patchCampaigns) | **PATCH** /preview/marketing-solutions/campaigns | /preview/marketing-solutions/campaigns |
+| [**patchDisplayMultipliers()**](CampaignApi.md#patchDisplayMultipliers) | **PATCH** /preview/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers | /preview/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers |
+| [**postAdvertiserBundleRules()**](CampaignApi.md#postAdvertiserBundleRules) | **POST** /preview/advertisers/{advertiserId}/targeting/bundle-rules | /preview/advertisers/{advertiserId}/targeting/bundle-rules |
+| [**postAdvertiserDomainRules()**](CampaignApi.md#postAdvertiserDomainRules) | **POST** /preview/advertisers/{advertiserId}/targeting/domain-rules | /preview/advertisers/{advertiserId}/targeting/domain-rules |
+| [**postCampaignBundleRules()**](CampaignApi.md#postCampaignBundleRules) | **POST** /preview/campaigns/{campaignId}/targeting/bundle-rules | /preview/campaigns/{campaignId}/targeting/bundle-rules |
+| [**postCampaignDomainRules()**](CampaignApi.md#postCampaignDomainRules) | **POST** /preview/campaigns/{campaignId}/targeting/domain-rules | /preview/campaigns/{campaignId}/targeting/domain-rules |
+| [**putAdvertiserBundleRules()**](CampaignApi.md#putAdvertiserBundleRules) | **PUT** /preview/advertisers/{advertiserId}/targeting/bundle-rules | /preview/advertisers/{advertiserId}/targeting/bundle-rules |
+| [**putAdvertiserDomainRules()**](CampaignApi.md#putAdvertiserDomainRules) | **PUT** /preview/advertisers/{advertiserId}/targeting/domain-rules | /preview/advertisers/{advertiserId}/targeting/domain-rules |
+| [**putCampaignBundleRules()**](CampaignApi.md#putCampaignBundleRules) | **PUT** /preview/campaigns/{campaignId}/targeting/bundle-rules | /preview/campaigns/{campaignId}/targeting/bundle-rules |
+| [**putCampaignDomainRules()**](CampaignApi.md#putCampaignDomainRules) | **PUT** /preview/campaigns/{campaignId}/targeting/domain-rules | /preview/campaigns/{campaignId}/targeting/domain-rules |
+| [**searchAdSets()**](CampaignApi.md#searchAdSets) | **POST** /preview/marketing-solutions/ad-sets/search | /preview/marketing-solutions/ad-sets/search |
+| [**searchCampaigns()**](CampaignApi.md#searchCampaigns) | **POST** /preview/marketing-solutions/campaigns/search | /preview/marketing-solutions/campaigns/search |
+| [**setAdSetTargetingDealIds()**](CampaignApi.md#setAdSetTargetingDealIds) | **PUT** /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids | /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids |
+| [**setAdSetTargetingVideoPositioning()**](CampaignApi.md#setAdSetTargetingVideoPositioning) | **PUT** /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning | /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning |
+| [**startAdSets()**](CampaignApi.md#startAdSets) | **POST** /preview/marketing-solutions/ad-sets/start | /preview/marketing-solutions/ad-sets/start |
+| [**stopAdSets()**](CampaignApi.md#stopAdSets) | **POST** /preview/marketing-solutions/ad-sets/stop | /preview/marketing-solutions/ad-sets/stop |
+| [**updateAdSetAudience()**](CampaignApi.md#updateAdSetAudience) | **PUT** /preview/marketing-solutions/ad-sets/{ad-set-id}/audience | /preview/marketing-solutions/ad-sets/{ad-set-id}/audience |
 
 
 ## `createAdSet()`
@@ -50,7 +50,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 createAdSet($create_ad_set_v26_q1_request): \criteo\api\marketingsolutions\preview\Model\ResponseReadAdSetV26Q1
 ```
 
-
+/preview/marketing-solutions/ad-sets
 
 Create an ad set with the provided parameters
 
@@ -113,7 +113,7 @@ try {
 createCampaign($create_campaign_request): \criteo\api\marketingsolutions\preview\Model\CampaignV23Q1Response
 ```
 
-
+/preview/marketing-solutions/campaigns
 
 Create the specified campaign                A campaign, or in other words a marketing campaign, is an entity that defines advertising objectives and success criteria.
 
@@ -176,7 +176,7 @@ try {
 deleteAdvertiserBundleRules($advertiser_id, $api_request_of_targeting_entity): \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
 ```
 
-
+/preview/advertisers/{advertiserId}/targeting/bundle-rules
 
 Removes some bundles from the current list of targeted bundles for a given advertiser.<br />  The mode of targeting (allowlist/blocklist) cannot be updated through this method.
 
@@ -241,7 +241,7 @@ try {
 deleteAdvertiserDomainRules($advertiser_id, $api_request_of_targeting_entity): \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
 ```
 
-
+/preview/advertisers/{advertiserId}/targeting/domain-rules
 
 Removes some domains from the current list of targeted domains for a given advertiser.<br />  The mode of targeting (allowlist/blocklist) cannot be updated through this method.
 
@@ -306,7 +306,7 @@ try {
 deleteCampaignBundleRules($campaign_id, $api_request_of_targeting_entity): \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
 ```
 
-
+/preview/campaigns/{campaignId}/targeting/bundle-rules
 
 Removes some bundles from the current list of targeted bundles for a given campaign.<br />  The mode of targeting (allowlist/blocklist) cannot be updated through this method.
 
@@ -371,7 +371,7 @@ try {
 deleteCampaignDomainRules($campaign_id, $api_request_of_targeting_entity): \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
 ```
 
-
+/preview/campaigns/{campaignId}/targeting/domain-rules
 
 Removes some domains from the current list of targeted domains for a given campaign.<br />  The mode of targeting (allowlist/blocklist) cannot be updated through this method.
 
@@ -436,7 +436,7 @@ try {
 disableAdSetTargetingDealIds($ad_set_id): \criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsDisableResultResponse
 ```
 
-
+/preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids/disable
 
 Disable the Deal Id Targeting configuration for the ad set whose id is specified
 
@@ -499,7 +499,7 @@ try {
 disableAdSetTargetingVideoPositioning($ad_set_id): \criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningDisableResultResponse
 ```
 
-
+/preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positionings/disable
 
 Disable the Video Positioning Targeting configuration for the ad set whose id is specified
 
@@ -562,7 +562,7 @@ try {
 getAdSet($ad_set_id): \criteo\api\marketingsolutions\preview\Model\ResponseReadAdSetV26Q1
 ```
 
-
+/preview/marketing-solutions/ad-sets/{ad-set-id}
 
 Get the data for the specified ad set
 
@@ -625,7 +625,7 @@ try {
 getAdSetCategoryBids($ad_set_id): \criteo\api\marketingsolutions\preview\Model\AdSetCategoryBidListResponse
 ```
 
-
+/preview/marketing-solutions/ad-sets/{ad-set-id}/category-bids
 
 Get the Category Bids for all valid Categories associated to an Ad Set
 
@@ -688,7 +688,7 @@ try {
 getAdSetTargetingDealIds($ad_set_id): \criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsResponse
 ```
 
-
+/preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids
 
 Get the Deal Id Targeting configuration for the ad set whose id is specified
 
@@ -751,7 +751,7 @@ try {
 getAdSetTargetingVideoPositioning($ad_set_id): \criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningResponse
 ```
 
-
+/preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning
 
 Get the Video Positioning Targeting configuration for the ad set whose id is specified
 
@@ -814,7 +814,7 @@ try {
 getAdvertiserBundleRules($advertiser_id): \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
 ```
 
-
+/preview/advertisers/{advertiserId}/targeting/bundle-rules
 
 Returns a list of all targeted bundles for an advertiser.
 
@@ -877,7 +877,7 @@ try {
 getAdvertiserDomainRules($advertiser_id): \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
 ```
 
-
+/preview/advertisers/{advertiserId}/targeting/domain-rules
 
 Returns a list of all targeted domains for an advertiser.
 
@@ -940,7 +940,7 @@ try {
 getCampaign($campaign_id): \criteo\api\marketingsolutions\preview\Model\CampaignV23Q1Response
 ```
 
-
+/preview/marketing-solutions/campaigns/{campaign-id}
 
 Get the data for the specified campaign.                A campaign, or in other words a marketing campaign, is an entity that defines advertising objectives and success criteria.
 
@@ -1003,7 +1003,7 @@ try {
 getCampaignBundleRules($campaign_id): \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
 ```
 
-
+/preview/campaigns/{campaignId}/targeting/bundle-rules
 
 Returns a list of all targeted bundles for a campaign.
 
@@ -1066,7 +1066,7 @@ try {
 getCampaignDomainRules($campaign_id): \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
 ```
 
-
+/preview/campaigns/{campaignId}/targeting/domain-rules
 
 Returns a list of all targeted domains for a campaign.
 
@@ -1129,7 +1129,7 @@ try {
 getDisplayMultipliers($ad_set_id): \criteo\api\marketingsolutions\preview\Model\AdSetDisplayMultiplierListResponse
 ```
 
-
+/preview/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers
 
 Get the Display Multipliers for all valid Categories associated to an Ad Set
 
@@ -1192,7 +1192,7 @@ try {
 getSupplyVendorList(): \criteo\api\marketingsolutions\preview\Model\SupplyVendorListResponse
 ```
 
-
+/preview/marketing-solutions/ad-sets/targeting/supply-vendors
 
 Fetch the list of available supply vendors for any Ad Set targetings
 
@@ -1252,7 +1252,7 @@ This endpoint does not need any parameter.
 patchAdSetCategoryBids($ad_set_id, $patch_ad_set_category_bid_list_request): \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidResultListResponse
 ```
 
-
+/preview/marketing-solutions/ad-sets/{ad-set-id}/category-bids
 
 Update the Category Bids for given Categories associated to an Ad Set  Patch Category Bids for one or more Categories in a single request. Partial success policy is followed.
 
@@ -1317,7 +1317,7 @@ try {
 patchAdSets($requests_patch_ad_set_v26_q1): \criteo\api\marketingsolutions\preview\Model\ResponsesAdSetIdV26Q1
 ```
 
-
+/preview/marketing-solutions/ad-sets
 
 Patch a list of AdSets.
 
@@ -1380,7 +1380,7 @@ try {
 patchCampaigns($patch_campaign_list_request): \criteo\api\marketingsolutions\preview\Model\PatchResultCampaignListResponse
 ```
 
-
+/preview/marketing-solutions/campaigns
 
 Patch a list of Campaigns.                A campaign, or in other words a marketing campaign, is an entity that defines advertising objectives and success criteria.
 
@@ -1443,7 +1443,7 @@ try {
 patchDisplayMultipliers($ad_set_id, $patch_ad_set_display_multiplier_list_request): \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierResultListResponse
 ```
 
-
+/preview/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers
 
 Update the Display Multipliers for given Categories associated to an Ad Set  Patch Display Multipliers for one or more Categories in a single request. Partial success policy is followed.
 
@@ -1508,7 +1508,7 @@ try {
 postAdvertiserBundleRules($advertiser_id, $api_request_of_targeting_entity): \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
 ```
 
-
+/preview/advertisers/{advertiserId}/targeting/bundle-rules
 
 Inserts a list of targeted bundles for an advertiser and sets the targeting mode : blocklisting or allowlisting.<br />  It will replace the current list if any.
 
@@ -1573,7 +1573,7 @@ try {
 postAdvertiserDomainRules($advertiser_id, $api_request_of_targeting_entity): \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
 ```
 
-
+/preview/advertisers/{advertiserId}/targeting/domain-rules
 
 Inserts a list of targeted domains for an advertiser and sets the targeting mode : blocklisting or allowlisting.<br />  It will replace the current list if any.
 
@@ -1638,7 +1638,7 @@ try {
 postCampaignBundleRules($campaign_id, $api_request_of_targeting_entity): \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
 ```
 
-
+/preview/campaigns/{campaignId}/targeting/bundle-rules
 
 Inserts a list of targeted bundles for a campaign and sets the targeting mode : blocklisting or allowlisting.<br />  It will replace the current list if any.
 
@@ -1703,7 +1703,7 @@ try {
 postCampaignDomainRules($campaign_id, $api_request_of_targeting_entity): \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
 ```
 
-
+/preview/campaigns/{campaignId}/targeting/domain-rules
 
 Inserts a list of targeted domains for a campaign and sets the targeting mode : blocklisting or allowlisting.<br />  It will replace the current list if any.
 
@@ -1768,7 +1768,7 @@ try {
 putAdvertiserBundleRules($advertiser_id, $api_request_of_targeting_entity): \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
 ```
 
-
+/preview/advertisers/{advertiserId}/targeting/bundle-rules
 
 Updates the targeted bundles for an advertiser by adding a list of bundles to the current list.<br />  The mode of targeting (allowlist/blocklist) cannot be updated through this method.
 
@@ -1833,7 +1833,7 @@ try {
 putAdvertiserDomainRules($advertiser_id, $api_request_of_targeting_entity): \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
 ```
 
-
+/preview/advertisers/{advertiserId}/targeting/domain-rules
 
 Updates the targeted domains for an advertiser by adding a list of domains to the current list.<br />  The mode of targeting (allowlist/blocklist) cannot be updated through this method.
 
@@ -1898,7 +1898,7 @@ try {
 putCampaignBundleRules($campaign_id, $api_request_of_targeting_entity): \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
 ```
 
-
+/preview/campaigns/{campaignId}/targeting/bundle-rules
 
 Updates the targeted bundles for a campaign by adding a list of bundles to the current list.<br />  The mode of targeting (allowlist/blocklist) cannot be updated through this method.
 
@@ -1963,7 +1963,7 @@ try {
 putCampaignDomainRules($campaign_id, $api_request_of_targeting_entity): \criteo\api\marketingsolutions\preview\Model\ApiResponseOfTargetingEntity
 ```
 
-
+/preview/campaigns/{campaignId}/targeting/domain-rules
 
 Updates the targeted domains for a campaign by adding a list of domains to the current list.<br />  The mode of targeting (allowlist/blocklist) cannot be updated through this method.
 
@@ -2028,7 +2028,7 @@ try {
 searchAdSets($ad_set_search_request_v26_q1): \criteo\api\marketingsolutions\preview\Model\ResponsesReadAdSetV26Q1
 ```
 
-
+/preview/marketing-solutions/ad-sets/search
 
 Search for ad sets based on provided criteria.  This returns the full configuration of ad sets matching those criteria.  Field projection can be used if only a subset of fields is required, instead of the full configuration.                If specific fields are precised in the user prompt, use meta.fields field projection in order to query only the value of these fields, else, provide every field.
 
@@ -2091,7 +2091,7 @@ try {
 searchCampaigns($campaign_search_request_v23_q1): \criteo\api\marketingsolutions\preview\Model\CampaignV23Q1ListResponse
 ```
 
-
+/preview/marketing-solutions/campaigns/search
 
 Search endpoint for campaigns                A campaign, or in other words a marketing campaign, is an entity that defines advertising objectives and success criteria.
 
@@ -2154,7 +2154,7 @@ try {
 setAdSetTargetingDealIds($ad_set_id, $set_ad_set_targeting_deal_ids_request): \criteo\api\marketingsolutions\preview\Model\AdSetTargetingDealIdsSetResultResponse
 ```
 
-
+/preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids
 
 Set the Deal Id Targeting configuration for the ad set whose id is specified
 
@@ -2219,7 +2219,7 @@ try {
 setAdSetTargetingVideoPositioning($ad_set_id, $set_ad_set_targeting_video_positioning_request): \criteo\api\marketingsolutions\preview\Model\AdSetTargetingVideoPositioningSetResultResponse
 ```
 
-
+/preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning
 
 Set the Video Positioning Targeting configuration for the ad set whose id is specified
 
@@ -2284,7 +2284,7 @@ try {
 startAdSets($requests_ad_set_id): \criteo\api\marketingsolutions\preview\Model\ResponsesAdSetId
 ```
 
-
+/preview/marketing-solutions/ad-sets/start
 
 Start the specified list of ad sets
 
@@ -2347,7 +2347,7 @@ try {
 stopAdSets($requests_ad_set_id): \criteo\api\marketingsolutions\preview\Model\ResponsesAdSetId
 ```
 
-
+/preview/marketing-solutions/ad-sets/stop
 
 Stop the specified list of ad sets
 
@@ -2410,7 +2410,7 @@ try {
 updateAdSetAudience($ad_set_id, $ad_set_audience_link_input_entity_v1): \criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkEntityV1Response
 ```
 
-
+/preview/marketing-solutions/ad-sets/{ad-set-id}/audience
 
 Link or unlink an audience with an ad set
 

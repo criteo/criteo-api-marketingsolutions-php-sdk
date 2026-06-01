@@ -4,8 +4,8 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**searchRecommendedProducts()**](OnSiteRecommendationApi.md#searchRecommendedProducts) | **POST** /preview/recommendation/search |  |
-| [**searchRecommendedProductsConversational()**](OnSiteRecommendationApi.md#searchRecommendedProductsConversational) | **POST** /preview/recommendation/search-conversational |  |
+| [**searchRecommendedProducts()**](OnSiteRecommendationApi.md#searchRecommendedProducts) | **POST** /preview/recommendation/search | /preview/recommendation/search |
+| [**searchRecommendedProductsConversational()**](OnSiteRecommendationApi.md#searchRecommendedProductsConversational) | **POST** /preview/recommendation/search-conversational | /preview/recommendation/search-conversational |
 
 
 ## `searchRecommendedProducts()`
@@ -14,7 +14,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 searchRecommendedProducts($on_site_reco_request): \criteo\api\marketingsolutions\preview\Model\OnSiteRecoResponse
 ```
 
-
+/preview/recommendation/search
 
 Retrieves a list of products recommended for the given user. This end point can either rely on a Criteo UserId, or a list of user events to perform the recommendation
 
@@ -77,7 +77,7 @@ try {
 searchRecommendedProductsConversational($on_site_reco_request_conversational): \criteo\api\marketingsolutions\preview\Model\OnSiteRecoResponse
 ```
 
-
+/preview/recommendation/search-conversational
 
 Retrieves a list of products recommended for the given user based on a conversation between a user and a partner's agent
 

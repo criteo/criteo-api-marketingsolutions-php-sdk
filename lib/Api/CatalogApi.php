@@ -131,6 +131,8 @@ class CatalogApi
     /**
      * Operation getCatalogMerchantStats
      *
+     * /preview/catalog/stats/merchants/{merchant-id}
+     *
      * @param  string $merchant_id merchant-id to get (required)
      * @param  int $last_num_hours the last number of hours (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogMerchantStats'] to see the possible values for this operation
@@ -147,6 +149,8 @@ class CatalogApi
 
     /**
      * Operation getCatalogMerchantStatsWithHttpInfo
+     *
+     * /preview/catalog/stats/merchants/{merchant-id}
      *
      * @param  string $merchant_id merchant-id to get (required)
      * @param  int $last_num_hours the last number of hours (optional)
@@ -247,6 +251,8 @@ class CatalogApi
     /**
      * Operation getCatalogMerchantStatsAsync
      *
+     * /preview/catalog/stats/merchants/{merchant-id}
+     *
      * @param  string $merchant_id merchant-id to get (required)
      * @param  int $last_num_hours the last number of hours (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogMerchantStats'] to see the possible values for this operation
@@ -266,6 +272,8 @@ class CatalogApi
 
     /**
      * Operation getCatalogMerchantStatsAsyncWithHttpInfo
+     *
+     * /preview/catalog/stats/merchants/{merchant-id}
      *
      * @param  string $merchant_id merchant-id to get (required)
      * @param  int $last_num_hours the last number of hours (optional)
@@ -429,6 +437,8 @@ class CatalogApi
     /**
      * Operation getCatalogProductsBatchReport
      *
+     * /preview/catalog/products/batch/report/{operation-token}
+     *
      * @param  string $operation_token The token returned by the batch endpoint. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogProductsBatchReport'] to see the possible values for this operation
      *
@@ -444,6 +454,8 @@ class CatalogApi
 
     /**
      * Operation getCatalogProductsBatchReportWithHttpInfo
+     *
+     * /preview/catalog/products/batch/report/{operation-token}
      *
      * @param  string $operation_token The token returned by the batch endpoint. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogProductsBatchReport'] to see the possible values for this operation
@@ -543,6 +555,8 @@ class CatalogApi
     /**
      * Operation getCatalogProductsBatchReportAsync
      *
+     * /preview/catalog/products/batch/report/{operation-token}
+     *
      * @param  string $operation_token The token returned by the batch endpoint. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogProductsBatchReport'] to see the possible values for this operation
      *
@@ -561,6 +575,8 @@ class CatalogApi
 
     /**
      * Operation getCatalogProductsBatchReportAsyncWithHttpInfo
+     *
+     * /preview/catalog/products/batch/report/{operation-token}
      *
      * @param  string $operation_token The token returned by the batch endpoint. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogProductsBatchReport'] to see the possible values for this operation
@@ -712,6 +728,8 @@ class CatalogApi
     /**
      * Operation submitCatalogProductsBatch
      *
+     * /preview/catalog/products/batch
+     *
      * @param  \criteo\api\marketingsolutions\preview\Model\ProductsCustomBatchRequest $products_custom_batch_request products_custom_batch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitCatalogProductsBatch'] to see the possible values for this operation
      *
@@ -727,6 +745,8 @@ class CatalogApi
 
     /**
      * Operation submitCatalogProductsBatchWithHttpInfo
+     *
+     * /preview/catalog/products/batch
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\ProductsCustomBatchRequest $products_custom_batch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitCatalogProductsBatch'] to see the possible values for this operation
@@ -826,6 +846,8 @@ class CatalogApi
     /**
      * Operation submitCatalogProductsBatchAsync
      *
+     * /preview/catalog/products/batch
+     *
      * @param  \criteo\api\marketingsolutions\preview\Model\ProductsCustomBatchRequest $products_custom_batch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitCatalogProductsBatch'] to see the possible values for this operation
      *
@@ -844,6 +866,8 @@ class CatalogApi
 
     /**
      * Operation submitCatalogProductsBatchAsyncWithHttpInfo
+     *
+     * /preview/catalog/products/batch
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\ProductsCustomBatchRequest $products_custom_batch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitCatalogProductsBatch'] to see the possible values for this operation

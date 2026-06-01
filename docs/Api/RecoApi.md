@@ -4,20 +4,20 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createBoostedAdAssociation()**](RecoApi.md#createBoostedAdAssociation) | **POST** /preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id} |  |
-| [**createProductSet()**](RecoApi.md#createProductSet) | **POST** /preview/product-sets |  |
-| [**deleteBoostedAdAssociation()**](RecoApi.md#deleteBoostedAdAssociation) | **DELETE** /preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id} |  |
-| [**disableProductFiltering()**](RecoApi.md#disableProductFiltering) | **DELETE** /preview/ads/{ad-id}/product-filter |  |
-| [**enableProductFiltering()**](RecoApi.md#enableProductFiltering) | **POST** /preview/ads/{ad-id}/product-filter |  |
-| [**fetchBoostedAdAssociation()**](RecoApi.md#fetchBoostedAdAssociation) | **GET** /preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id} |  |
-| [**fetchBoostedAdAssociationByPartnerId()**](RecoApi.md#fetchBoostedAdAssociationByPartnerId) | **GET** /preview/marketing-solutions/dataset/{dataset-id}/product-boost |  |
-| [**fetchBoostedAdAssociations()**](RecoApi.md#fetchBoostedAdAssociations) | **GET** /preview/marketing-solutions/ads/{ad-id}/product-boost |  |
-| [**fetchProductFilteringConfig()**](RecoApi.md#fetchProductFilteringConfig) | **GET** /preview/ads/{ad-id}/product-filter |  |
-| [**fetchProductFilteringUsages()**](RecoApi.md#fetchProductFilteringUsages) | **GET** /preview/product-sets/{product-set-id}/product-filters |  |
-| [**fetchProductSet()**](RecoApi.md#fetchProductSet) | **GET** /preview/product-sets/{product-set-id} |  |
-| [**fetchProductSets()**](RecoApi.md#fetchProductSets) | **GET** /preview/product-sets/dataset/{dataset-id} |  |
-| [**patchProductSet()**](RecoApi.md#patchProductSet) | **PATCH** /preview/product-sets/{product-set-id} |  |
-| [**removeProductSet()**](RecoApi.md#removeProductSet) | **DELETE** /preview/product-sets/{product-set-id} |  |
+| [**createBoostedAdAssociation()**](RecoApi.md#createBoostedAdAssociation) | **POST** /preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id} | /preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id} |
+| [**createProductSet()**](RecoApi.md#createProductSet) | **POST** /preview/product-sets | /preview/product-sets |
+| [**deleteBoostedAdAssociation()**](RecoApi.md#deleteBoostedAdAssociation) | **DELETE** /preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id} | /preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id} |
+| [**disableProductFiltering()**](RecoApi.md#disableProductFiltering) | **DELETE** /preview/ads/{ad-id}/product-filter | /preview/ads/{ad-id}/product-filter |
+| [**enableProductFiltering()**](RecoApi.md#enableProductFiltering) | **POST** /preview/ads/{ad-id}/product-filter | /preview/ads/{ad-id}/product-filter |
+| [**fetchBoostedAdAssociation()**](RecoApi.md#fetchBoostedAdAssociation) | **GET** /preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id} | /preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id} |
+| [**fetchBoostedAdAssociationByPartnerId()**](RecoApi.md#fetchBoostedAdAssociationByPartnerId) | **GET** /preview/marketing-solutions/dataset/{dataset-id}/product-boost | /preview/marketing-solutions/dataset/{dataset-id}/product-boost |
+| [**fetchBoostedAdAssociations()**](RecoApi.md#fetchBoostedAdAssociations) | **GET** /preview/marketing-solutions/ads/{ad-id}/product-boost | /preview/marketing-solutions/ads/{ad-id}/product-boost |
+| [**fetchProductFilteringConfig()**](RecoApi.md#fetchProductFilteringConfig) | **GET** /preview/ads/{ad-id}/product-filter | /preview/ads/{ad-id}/product-filter |
+| [**fetchProductFilteringUsages()**](RecoApi.md#fetchProductFilteringUsages) | **GET** /preview/product-sets/{product-set-id}/product-filters | /preview/product-sets/{product-set-id}/product-filters |
+| [**fetchProductSet()**](RecoApi.md#fetchProductSet) | **GET** /preview/product-sets/{product-set-id} | /preview/product-sets/{product-set-id} |
+| [**fetchProductSets()**](RecoApi.md#fetchProductSets) | **GET** /preview/product-sets/dataset/{dataset-id} | /preview/product-sets/dataset/{dataset-id} |
+| [**patchProductSet()**](RecoApi.md#patchProductSet) | **PATCH** /preview/product-sets/{product-set-id} | /preview/product-sets/{product-set-id} |
+| [**removeProductSet()**](RecoApi.md#removeProductSet) | **DELETE** /preview/product-sets/{product-set-id} | /preview/product-sets/{product-set-id} |
 
 
 ## `createBoostedAdAssociation()`
@@ -26,7 +26,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 createBoostedAdAssociation($ad_id, $product_set_id, $value_resource_input_of_boosting_configuration_request): \criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet
 ```
 
-
+/preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id}
 
 Create or update product boosting configuration
 
@@ -93,7 +93,7 @@ try {
 createProductSet($value_resource_input_of_create_product_set_request): \criteo\api\marketingsolutions\preview\Model\ResourceOutcomeOfProductSet
 ```
 
-
+/preview/product-sets
 
 Create a new product set
 
@@ -156,7 +156,7 @@ try {
 deleteBoostedAdAssociation($ad_id, $product_set_id): \criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet
 ```
 
-
+/preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id}
 
 Delete association and configuration.
 
@@ -221,7 +221,7 @@ try {
 disableProductFiltering($ad_id): \criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfProductFilterConfig
 ```
 
-
+/preview/ads/{ad-id}/product-filter
 
 Disable product filtering for a given ad
 
@@ -284,7 +284,7 @@ try {
 enableProductFiltering($ad_id, $value_resource_input_of_create_product_filter_request): \criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfProductFilterConfig
 ```
 
-
+/preview/ads/{ad-id}/product-filter
 
 Enable product filtering for a given ad
 
@@ -349,7 +349,7 @@ try {
 fetchBoostedAdAssociation($ad_id, $product_set_id): \criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfBoostedAdProductSet
 ```
 
-
+/preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id}
 
 Fetch boosting association and configuration
 
@@ -414,7 +414,7 @@ try {
 fetchBoostedAdAssociationByPartnerId($dataset_id, $client_type): \criteo\api\marketingsolutions\preview\Model\ValueResourceCollectionOutcomeOfBoostedAdProductSet
 ```
 
-
+/preview/marketing-solutions/dataset/{dataset-id}/product-boost
 
 Fetch boosting association and configuration for a given partner
 
@@ -479,7 +479,7 @@ try {
 fetchBoostedAdAssociations($ad_id): \criteo\api\marketingsolutions\preview\Model\ValueResourceCollectionOutcomeOfBoostedAdProductSet
 ```
 
-
+/preview/marketing-solutions/ads/{ad-id}/product-boost
 
 Fetch all boosting associations and configurations
 
@@ -542,7 +542,7 @@ try {
 fetchProductFilteringConfig($ad_id): \criteo\api\marketingsolutions\preview\Model\ValueResourceOutcomeOfProductFilterConfig
 ```
 
-
+/preview/ads/{ad-id}/product-filter
 
 Fetch product filtering configuration for a given ad
 
@@ -605,7 +605,7 @@ try {
 fetchProductFilteringUsages($product_set_id): \criteo\api\marketingsolutions\preview\Model\ValueResourceCollectionOutcomeOfProductFilterConfig
 ```
 
-
+/preview/product-sets/{product-set-id}/product-filters
 
 Fetch product filtering usages for a given product set
 
@@ -668,7 +668,7 @@ try {
 fetchProductSet($product_set_id): \criteo\api\marketingsolutions\preview\Model\ResourceOutcomeOfProductSet
 ```
 
-
+/preview/product-sets/{product-set-id}
 
 Fetch an existing product set
 
@@ -731,7 +731,7 @@ try {
 fetchProductSets($dataset_id): \criteo\api\marketingsolutions\preview\Model\ResourceCollectionOutcomeOfProductSet
 ```
 
-
+/preview/product-sets/dataset/{dataset-id}
 
 Fetch product sets of a given dataset
 
@@ -794,7 +794,7 @@ try {
 patchProductSet($product_set_id, $value_resource_input_of_patch_product_set_request): \criteo\api\marketingsolutions\preview\Model\ResourceOutcomeOfProductSet
 ```
 
-
+/preview/product-sets/{product-set-id}
 
 Patch an existing product set
 
@@ -859,7 +859,7 @@ try {
 removeProductSet($product_set_id): \criteo\api\marketingsolutions\preview\Model\Outcome
 ```
 
-
+/preview/product-sets/{product-set-id}
 
 Remove a product set
 

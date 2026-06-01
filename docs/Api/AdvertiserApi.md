@@ -4,9 +4,9 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**listAdvertisers()**](AdvertiserApi.md#listAdvertisers) | **GET** /preview/advertisers/me |  |
-| [**listDatasetsByAdvertiser()**](AdvertiserApi.md#listDatasetsByAdvertiser) | **GET** /preview/advertisers/{advertiser-id}/datasets |  |
-| [**listIndustries()**](AdvertiserApi.md#listIndustries) | **GET** /preview/industries |  |
+| [**listAdvertisers()**](AdvertiserApi.md#listAdvertisers) | **GET** /preview/advertisers/me | /preview/advertisers/me |
+| [**listDatasetsByAdvertiser()**](AdvertiserApi.md#listDatasetsByAdvertiser) | **GET** /preview/advertisers/{advertiser-id}/datasets | /preview/advertisers/{advertiser-id}/datasets |
+| [**listIndustries()**](AdvertiserApi.md#listIndustries) | **GET** /preview/industries | /preview/industries |
 
 
 ## `listAdvertisers()`
@@ -15,7 +15,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 listAdvertisers(): \criteo\api\marketingsolutions\preview\Model\GetPortfolioResponse
 ```
 
-
+/preview/advertisers/me
 
 Fetch the portfolio of Advertisers for this account
 
@@ -75,7 +75,7 @@ This endpoint does not need any parameter.
 listDatasetsByAdvertiser($advertiser_id): \criteo\api\marketingsolutions\preview\Model\AdvertiserDatasetListResponse
 ```
 
-
+/preview/advertisers/{advertiser-id}/datasets
 
 Retrieves corresponding Datasets for a given Advertiser. Only those Datasets are included for which the given Advertiser is marked a primary.
 
@@ -138,7 +138,7 @@ try {
 listIndustries(): \criteo\api\marketingsolutions\preview\Model\ListAvailableIndustriesResponse
 ```
 
-
+/preview/industries
 
 Returns the list of available industries for new advertisers.
 

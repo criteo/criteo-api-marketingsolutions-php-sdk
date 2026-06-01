@@ -164,6 +164,8 @@ class RecoApi
     /**
      * Operation createBoostedAdAssociation
      *
+     * /preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id}
+     *
      * @param  string $ad_id ID of the ad (required)
      * @param  string $product_set_id ID of the product set (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfBoostingConfigurationRequest $value_resource_input_of_boosting_configuration_request value_resource_input_of_boosting_configuration_request (optional)
@@ -181,6 +183,8 @@ class RecoApi
 
     /**
      * Operation createBoostedAdAssociationWithHttpInfo
+     *
+     * /preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id}
      *
      * @param  string $ad_id ID of the ad (required)
      * @param  string $product_set_id ID of the product set (required)
@@ -305,6 +309,8 @@ class RecoApi
     /**
      * Operation createBoostedAdAssociationAsync
      *
+     * /preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id}
+     *
      * @param  string $ad_id ID of the ad (required)
      * @param  string $product_set_id ID of the product set (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfBoostingConfigurationRequest $value_resource_input_of_boosting_configuration_request (optional)
@@ -325,6 +331,8 @@ class RecoApi
 
     /**
      * Operation createBoostedAdAssociationAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id}
      *
      * @param  string $ad_id ID of the ad (required)
      * @param  string $product_set_id ID of the product set (required)
@@ -503,6 +511,8 @@ class RecoApi
     /**
      * Operation createProductSet
      *
+     * /preview/product-sets
+     *
      * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfCreateProductSetRequest $value_resource_input_of_create_product_set_request value_resource_input_of_create_product_set_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductSet'] to see the possible values for this operation
      *
@@ -518,6 +528,8 @@ class RecoApi
 
     /**
      * Operation createProductSetWithHttpInfo
+     *
+     * /preview/product-sets
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfCreateProductSetRequest $value_resource_input_of_create_product_set_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductSet'] to see the possible values for this operation
@@ -617,6 +629,8 @@ class RecoApi
     /**
      * Operation createProductSetAsync
      *
+     * /preview/product-sets
+     *
      * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfCreateProductSetRequest $value_resource_input_of_create_product_set_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductSet'] to see the possible values for this operation
      *
@@ -635,6 +649,8 @@ class RecoApi
 
     /**
      * Operation createProductSetAsyncWithHttpInfo
+     *
+     * /preview/product-sets
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfCreateProductSetRequest $value_resource_input_of_create_product_set_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductSet'] to see the possible values for this operation
@@ -785,6 +801,8 @@ class RecoApi
     /**
      * Operation deleteBoostedAdAssociation
      *
+     * /preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id}
+     *
      * @param  string $ad_id ID of the ad (required)
      * @param  string $product_set_id ID of the product set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBoostedAdAssociation'] to see the possible values for this operation
@@ -801,6 +819,8 @@ class RecoApi
 
     /**
      * Operation deleteBoostedAdAssociationWithHttpInfo
+     *
+     * /preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id}
      *
      * @param  string $ad_id ID of the ad (required)
      * @param  string $product_set_id ID of the product set (required)
@@ -901,6 +921,8 @@ class RecoApi
     /**
      * Operation deleteBoostedAdAssociationAsync
      *
+     * /preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id}
+     *
      * @param  string $ad_id ID of the ad (required)
      * @param  string $product_set_id ID of the product set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBoostedAdAssociation'] to see the possible values for this operation
@@ -920,6 +942,8 @@ class RecoApi
 
     /**
      * Operation deleteBoostedAdAssociationAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id}
      *
      * @param  string $ad_id ID of the ad (required)
      * @param  string $product_set_id ID of the product set (required)
@@ -1088,6 +1112,8 @@ class RecoApi
     /**
      * Operation disableProductFiltering
      *
+     * /preview/ads/{ad-id}/product-filter
+     *
      * @param  string $ad_id ID of the ad (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['disableProductFiltering'] to see the possible values for this operation
      *
@@ -1103,6 +1129,8 @@ class RecoApi
 
     /**
      * Operation disableProductFilteringWithHttpInfo
+     *
+     * /preview/ads/{ad-id}/product-filter
      *
      * @param  string $ad_id ID of the ad (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['disableProductFiltering'] to see the possible values for this operation
@@ -1202,6 +1230,8 @@ class RecoApi
     /**
      * Operation disableProductFilteringAsync
      *
+     * /preview/ads/{ad-id}/product-filter
+     *
      * @param  string $ad_id ID of the ad (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['disableProductFiltering'] to see the possible values for this operation
      *
@@ -1220,6 +1250,8 @@ class RecoApi
 
     /**
      * Operation disableProductFilteringAsyncWithHttpInfo
+     *
+     * /preview/ads/{ad-id}/product-filter
      *
      * @param  string $ad_id ID of the ad (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['disableProductFiltering'] to see the possible values for this operation
@@ -1371,6 +1403,8 @@ class RecoApi
     /**
      * Operation enableProductFiltering
      *
+     * /preview/ads/{ad-id}/product-filter
+     *
      * @param  string $ad_id ID of the ad (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfCreateProductFilterRequest $value_resource_input_of_create_product_filter_request value_resource_input_of_create_product_filter_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['enableProductFiltering'] to see the possible values for this operation
@@ -1387,6 +1421,8 @@ class RecoApi
 
     /**
      * Operation enableProductFilteringWithHttpInfo
+     *
+     * /preview/ads/{ad-id}/product-filter
      *
      * @param  string $ad_id ID of the ad (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfCreateProductFilterRequest $value_resource_input_of_create_product_filter_request (optional)
@@ -1487,6 +1523,8 @@ class RecoApi
     /**
      * Operation enableProductFilteringAsync
      *
+     * /preview/ads/{ad-id}/product-filter
+     *
      * @param  string $ad_id ID of the ad (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfCreateProductFilterRequest $value_resource_input_of_create_product_filter_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['enableProductFiltering'] to see the possible values for this operation
@@ -1506,6 +1544,8 @@ class RecoApi
 
     /**
      * Operation enableProductFilteringAsyncWithHttpInfo
+     *
+     * /preview/ads/{ad-id}/product-filter
      *
      * @param  string $ad_id ID of the ad (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfCreateProductFilterRequest $value_resource_input_of_create_product_filter_request (optional)
@@ -1667,6 +1707,8 @@ class RecoApi
     /**
      * Operation fetchBoostedAdAssociation
      *
+     * /preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id}
+     *
      * @param  string $ad_id ID of the ad (required)
      * @param  string $product_set_id ID of the product set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBoostedAdAssociation'] to see the possible values for this operation
@@ -1683,6 +1725,8 @@ class RecoApi
 
     /**
      * Operation fetchBoostedAdAssociationWithHttpInfo
+     *
+     * /preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id}
      *
      * @param  string $ad_id ID of the ad (required)
      * @param  string $product_set_id ID of the product set (required)
@@ -1783,6 +1827,8 @@ class RecoApi
     /**
      * Operation fetchBoostedAdAssociationAsync
      *
+     * /preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id}
+     *
      * @param  string $ad_id ID of the ad (required)
      * @param  string $product_set_id ID of the product set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBoostedAdAssociation'] to see the possible values for this operation
@@ -1802,6 +1848,8 @@ class RecoApi
 
     /**
      * Operation fetchBoostedAdAssociationAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/ads/{ad-id}/product-boost/{product-set-id}
      *
      * @param  string $ad_id ID of the ad (required)
      * @param  string $product_set_id ID of the product set (required)
@@ -1970,6 +2018,8 @@ class RecoApi
     /**
      * Operation fetchBoostedAdAssociationByPartnerId
      *
+     * /preview/marketing-solutions/dataset/{dataset-id}/product-boost
+     *
      * @param  string $dataset_id ID of the dataset (required)
      * @param  string $client_type Client type filter (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBoostedAdAssociationByPartnerId'] to see the possible values for this operation
@@ -1986,6 +2036,8 @@ class RecoApi
 
     /**
      * Operation fetchBoostedAdAssociationByPartnerIdWithHttpInfo
+     *
+     * /preview/marketing-solutions/dataset/{dataset-id}/product-boost
      *
      * @param  string $dataset_id ID of the dataset (required)
      * @param  string $client_type Client type filter (optional)
@@ -2086,6 +2138,8 @@ class RecoApi
     /**
      * Operation fetchBoostedAdAssociationByPartnerIdAsync
      *
+     * /preview/marketing-solutions/dataset/{dataset-id}/product-boost
+     *
      * @param  string $dataset_id ID of the dataset (required)
      * @param  string $client_type Client type filter (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBoostedAdAssociationByPartnerId'] to see the possible values for this operation
@@ -2105,6 +2159,8 @@ class RecoApi
 
     /**
      * Operation fetchBoostedAdAssociationByPartnerIdAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/dataset/{dataset-id}/product-boost
      *
      * @param  string $dataset_id ID of the dataset (required)
      * @param  string $client_type Client type filter (optional)
@@ -2268,6 +2324,8 @@ class RecoApi
     /**
      * Operation fetchBoostedAdAssociations
      *
+     * /preview/marketing-solutions/ads/{ad-id}/product-boost
+     *
      * @param  string $ad_id ID of the ad (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBoostedAdAssociations'] to see the possible values for this operation
      *
@@ -2283,6 +2341,8 @@ class RecoApi
 
     /**
      * Operation fetchBoostedAdAssociationsWithHttpInfo
+     *
+     * /preview/marketing-solutions/ads/{ad-id}/product-boost
      *
      * @param  string $ad_id ID of the ad (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBoostedAdAssociations'] to see the possible values for this operation
@@ -2382,6 +2442,8 @@ class RecoApi
     /**
      * Operation fetchBoostedAdAssociationsAsync
      *
+     * /preview/marketing-solutions/ads/{ad-id}/product-boost
+     *
      * @param  string $ad_id ID of the ad (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBoostedAdAssociations'] to see the possible values for this operation
      *
@@ -2400,6 +2462,8 @@ class RecoApi
 
     /**
      * Operation fetchBoostedAdAssociationsAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/ads/{ad-id}/product-boost
      *
      * @param  string $ad_id ID of the ad (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBoostedAdAssociations'] to see the possible values for this operation
@@ -2551,6 +2615,8 @@ class RecoApi
     /**
      * Operation fetchProductFilteringConfig
      *
+     * /preview/ads/{ad-id}/product-filter
+     *
      * @param  string $ad_id ID of the ad (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchProductFilteringConfig'] to see the possible values for this operation
      *
@@ -2566,6 +2632,8 @@ class RecoApi
 
     /**
      * Operation fetchProductFilteringConfigWithHttpInfo
+     *
+     * /preview/ads/{ad-id}/product-filter
      *
      * @param  string $ad_id ID of the ad (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchProductFilteringConfig'] to see the possible values for this operation
@@ -2665,6 +2733,8 @@ class RecoApi
     /**
      * Operation fetchProductFilteringConfigAsync
      *
+     * /preview/ads/{ad-id}/product-filter
+     *
      * @param  string $ad_id ID of the ad (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchProductFilteringConfig'] to see the possible values for this operation
      *
@@ -2683,6 +2753,8 @@ class RecoApi
 
     /**
      * Operation fetchProductFilteringConfigAsyncWithHttpInfo
+     *
+     * /preview/ads/{ad-id}/product-filter
      *
      * @param  string $ad_id ID of the ad (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchProductFilteringConfig'] to see the possible values for this operation
@@ -2834,6 +2906,8 @@ class RecoApi
     /**
      * Operation fetchProductFilteringUsages
      *
+     * /preview/product-sets/{product-set-id}/product-filters
+     *
      * @param  string $product_set_id ID of the product set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchProductFilteringUsages'] to see the possible values for this operation
      *
@@ -2849,6 +2923,8 @@ class RecoApi
 
     /**
      * Operation fetchProductFilteringUsagesWithHttpInfo
+     *
+     * /preview/product-sets/{product-set-id}/product-filters
      *
      * @param  string $product_set_id ID of the product set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchProductFilteringUsages'] to see the possible values for this operation
@@ -2948,6 +3024,8 @@ class RecoApi
     /**
      * Operation fetchProductFilteringUsagesAsync
      *
+     * /preview/product-sets/{product-set-id}/product-filters
+     *
      * @param  string $product_set_id ID of the product set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchProductFilteringUsages'] to see the possible values for this operation
      *
@@ -2966,6 +3044,8 @@ class RecoApi
 
     /**
      * Operation fetchProductFilteringUsagesAsyncWithHttpInfo
+     *
+     * /preview/product-sets/{product-set-id}/product-filters
      *
      * @param  string $product_set_id ID of the product set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchProductFilteringUsages'] to see the possible values for this operation
@@ -3117,6 +3197,8 @@ class RecoApi
     /**
      * Operation fetchProductSet
      *
+     * /preview/product-sets/{product-set-id}
+     *
      * @param  string $product_set_id ID of the product set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchProductSet'] to see the possible values for this operation
      *
@@ -3132,6 +3214,8 @@ class RecoApi
 
     /**
      * Operation fetchProductSetWithHttpInfo
+     *
+     * /preview/product-sets/{product-set-id}
      *
      * @param  string $product_set_id ID of the product set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchProductSet'] to see the possible values for this operation
@@ -3231,6 +3315,8 @@ class RecoApi
     /**
      * Operation fetchProductSetAsync
      *
+     * /preview/product-sets/{product-set-id}
+     *
      * @param  string $product_set_id ID of the product set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchProductSet'] to see the possible values for this operation
      *
@@ -3249,6 +3335,8 @@ class RecoApi
 
     /**
      * Operation fetchProductSetAsyncWithHttpInfo
+     *
+     * /preview/product-sets/{product-set-id}
      *
      * @param  string $product_set_id ID of the product set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchProductSet'] to see the possible values for this operation
@@ -3400,6 +3488,8 @@ class RecoApi
     /**
      * Operation fetchProductSets
      *
+     * /preview/product-sets/dataset/{dataset-id}
+     *
      * @param  string $dataset_id The ID of the dataset that should be used for product set retrieval (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchProductSets'] to see the possible values for this operation
      *
@@ -3415,6 +3505,8 @@ class RecoApi
 
     /**
      * Operation fetchProductSetsWithHttpInfo
+     *
+     * /preview/product-sets/dataset/{dataset-id}
      *
      * @param  string $dataset_id The ID of the dataset that should be used for product set retrieval (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchProductSets'] to see the possible values for this operation
@@ -3514,6 +3606,8 @@ class RecoApi
     /**
      * Operation fetchProductSetsAsync
      *
+     * /preview/product-sets/dataset/{dataset-id}
+     *
      * @param  string $dataset_id The ID of the dataset that should be used for product set retrieval (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchProductSets'] to see the possible values for this operation
      *
@@ -3532,6 +3626,8 @@ class RecoApi
 
     /**
      * Operation fetchProductSetsAsyncWithHttpInfo
+     *
+     * /preview/product-sets/dataset/{dataset-id}
      *
      * @param  string $dataset_id The ID of the dataset that should be used for product set retrieval (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchProductSets'] to see the possible values for this operation
@@ -3683,6 +3779,8 @@ class RecoApi
     /**
      * Operation patchProductSet
      *
+     * /preview/product-sets/{product-set-id}
+     *
      * @param  string $product_set_id ID of the product set (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfPatchProductSetRequest $value_resource_input_of_patch_product_set_request value_resource_input_of_patch_product_set_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProductSet'] to see the possible values for this operation
@@ -3699,6 +3797,8 @@ class RecoApi
 
     /**
      * Operation patchProductSetWithHttpInfo
+     *
+     * /preview/product-sets/{product-set-id}
      *
      * @param  string $product_set_id ID of the product set (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfPatchProductSetRequest $value_resource_input_of_patch_product_set_request (required)
@@ -3799,6 +3899,8 @@ class RecoApi
     /**
      * Operation patchProductSetAsync
      *
+     * /preview/product-sets/{product-set-id}
+     *
      * @param  string $product_set_id ID of the product set (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfPatchProductSetRequest $value_resource_input_of_patch_product_set_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProductSet'] to see the possible values for this operation
@@ -3818,6 +3920,8 @@ class RecoApi
 
     /**
      * Operation patchProductSetAsyncWithHttpInfo
+     *
+     * /preview/product-sets/{product-set-id}
      *
      * @param  string $product_set_id ID of the product set (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ValueResourceInputOfPatchProductSetRequest $value_resource_input_of_patch_product_set_request (required)
@@ -3985,6 +4089,8 @@ class RecoApi
     /**
      * Operation removeProductSet
      *
+     * /preview/product-sets/{product-set-id}
+     *
      * @param  string $product_set_id ID of the product set to remove (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeProductSet'] to see the possible values for this operation
      *
@@ -4000,6 +4106,8 @@ class RecoApi
 
     /**
      * Operation removeProductSetWithHttpInfo
+     *
+     * /preview/product-sets/{product-set-id}
      *
      * @param  string $product_set_id ID of the product set to remove (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeProductSet'] to see the possible values for this operation
@@ -4099,6 +4207,8 @@ class RecoApi
     /**
      * Operation removeProductSetAsync
      *
+     * /preview/product-sets/{product-set-id}
+     *
      * @param  string $product_set_id ID of the product set to remove (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeProductSet'] to see the possible values for this operation
      *
@@ -4117,6 +4227,8 @@ class RecoApi
 
     /**
      * Operation removeProductSetAsyncWithHttpInfo
+     *
+     * /preview/product-sets/{product-set-id}
      *
      * @param  string $product_set_id ID of the product set to remove (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeProductSet'] to see the possible values for this operation

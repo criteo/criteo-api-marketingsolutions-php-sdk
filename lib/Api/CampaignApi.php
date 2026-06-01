@@ -236,6 +236,8 @@ class CampaignApi
     /**
      * Operation createAdSet
      *
+     * /preview/marketing-solutions/ad-sets
+     *
      * @param  \criteo\api\marketingsolutions\preview\Model\CreateAdSetV26Q1Request $create_ad_set_v26_q1_request the ad sets to create (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdSet'] to see the possible values for this operation
      *
@@ -251,6 +253,8 @@ class CampaignApi
 
     /**
      * Operation createAdSetWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\CreateAdSetV26Q1Request $create_ad_set_v26_q1_request the ad sets to create (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdSet'] to see the possible values for this operation
@@ -350,6 +354,8 @@ class CampaignApi
     /**
      * Operation createAdSetAsync
      *
+     * /preview/marketing-solutions/ad-sets
+     *
      * @param  \criteo\api\marketingsolutions\preview\Model\CreateAdSetV26Q1Request $create_ad_set_v26_q1_request the ad sets to create (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdSet'] to see the possible values for this operation
      *
@@ -368,6 +374,8 @@ class CampaignApi
 
     /**
      * Operation createAdSetAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\CreateAdSetV26Q1Request $create_ad_set_v26_q1_request the ad sets to create (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdSet'] to see the possible values for this operation
@@ -518,6 +526,8 @@ class CampaignApi
     /**
      * Operation createCampaign
      *
+     * /preview/marketing-solutions/campaigns
+     *
      * @param  \criteo\api\marketingsolutions\preview\Model\CreateCampaignRequest $create_campaign_request the campaigns to create (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCampaign'] to see the possible values for this operation
      *
@@ -533,6 +543,8 @@ class CampaignApi
 
     /**
      * Operation createCampaignWithHttpInfo
+     *
+     * /preview/marketing-solutions/campaigns
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\CreateCampaignRequest $create_campaign_request the campaigns to create (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCampaign'] to see the possible values for this operation
@@ -632,6 +644,8 @@ class CampaignApi
     /**
      * Operation createCampaignAsync
      *
+     * /preview/marketing-solutions/campaigns
+     *
      * @param  \criteo\api\marketingsolutions\preview\Model\CreateCampaignRequest $create_campaign_request the campaigns to create (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCampaign'] to see the possible values for this operation
      *
@@ -650,6 +664,8 @@ class CampaignApi
 
     /**
      * Operation createCampaignAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/campaigns
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\CreateCampaignRequest $create_campaign_request the campaigns to create (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCampaign'] to see the possible values for this operation
@@ -800,6 +816,8 @@ class CampaignApi
     /**
      * Operation deleteAdvertiserBundleRules
      *
+     * /preview/advertisers/{advertiserId}/targeting/bundle-rules
+     *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to delete from the list (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAdvertiserBundleRules'] to see the possible values for this operation
@@ -816,6 +834,8 @@ class CampaignApi
 
     /**
      * Operation deleteAdvertiserBundleRulesWithHttpInfo
+     *
+     * /preview/advertisers/{advertiserId}/targeting/bundle-rules
      *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to delete from the list (optional)
@@ -916,6 +936,8 @@ class CampaignApi
     /**
      * Operation deleteAdvertiserBundleRulesAsync
      *
+     * /preview/advertisers/{advertiserId}/targeting/bundle-rules
+     *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to delete from the list (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAdvertiserBundleRules'] to see the possible values for this operation
@@ -935,6 +957,8 @@ class CampaignApi
 
     /**
      * Operation deleteAdvertiserBundleRulesAsyncWithHttpInfo
+     *
+     * /preview/advertisers/{advertiserId}/targeting/bundle-rules
      *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to delete from the list (optional)
@@ -1096,6 +1120,8 @@ class CampaignApi
     /**
      * Operation deleteAdvertiserDomainRules
      *
+     * /preview/advertisers/{advertiserId}/targeting/domain-rules
+     *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to delete from the list (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAdvertiserDomainRules'] to see the possible values for this operation
@@ -1112,6 +1138,8 @@ class CampaignApi
 
     /**
      * Operation deleteAdvertiserDomainRulesWithHttpInfo
+     *
+     * /preview/advertisers/{advertiserId}/targeting/domain-rules
      *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to delete from the list (optional)
@@ -1212,6 +1240,8 @@ class CampaignApi
     /**
      * Operation deleteAdvertiserDomainRulesAsync
      *
+     * /preview/advertisers/{advertiserId}/targeting/domain-rules
+     *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to delete from the list (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAdvertiserDomainRules'] to see the possible values for this operation
@@ -1231,6 +1261,8 @@ class CampaignApi
 
     /**
      * Operation deleteAdvertiserDomainRulesAsyncWithHttpInfo
+     *
+     * /preview/advertisers/{advertiserId}/targeting/domain-rules
      *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to delete from the list (optional)
@@ -1392,6 +1424,8 @@ class CampaignApi
     /**
      * Operation deleteCampaignBundleRules
      *
+     * /preview/campaigns/{campaignId}/targeting/bundle-rules
+     *
      * @param  string $campaign_id The campaign id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to delete from the list (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCampaignBundleRules'] to see the possible values for this operation
@@ -1408,6 +1442,8 @@ class CampaignApi
 
     /**
      * Operation deleteCampaignBundleRulesWithHttpInfo
+     *
+     * /preview/campaigns/{campaignId}/targeting/bundle-rules
      *
      * @param  string $campaign_id The campaign id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to delete from the list (optional)
@@ -1508,6 +1544,8 @@ class CampaignApi
     /**
      * Operation deleteCampaignBundleRulesAsync
      *
+     * /preview/campaigns/{campaignId}/targeting/bundle-rules
+     *
      * @param  string $campaign_id The campaign id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to delete from the list (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCampaignBundleRules'] to see the possible values for this operation
@@ -1527,6 +1565,8 @@ class CampaignApi
 
     /**
      * Operation deleteCampaignBundleRulesAsyncWithHttpInfo
+     *
+     * /preview/campaigns/{campaignId}/targeting/bundle-rules
      *
      * @param  string $campaign_id The campaign id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to delete from the list (optional)
@@ -1688,6 +1728,8 @@ class CampaignApi
     /**
      * Operation deleteCampaignDomainRules
      *
+     * /preview/campaigns/{campaignId}/targeting/domain-rules
+     *
      * @param  string $campaign_id The campaign id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to delete from the list (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCampaignDomainRules'] to see the possible values for this operation
@@ -1704,6 +1746,8 @@ class CampaignApi
 
     /**
      * Operation deleteCampaignDomainRulesWithHttpInfo
+     *
+     * /preview/campaigns/{campaignId}/targeting/domain-rules
      *
      * @param  string $campaign_id The campaign id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to delete from the list (optional)
@@ -1804,6 +1848,8 @@ class CampaignApi
     /**
      * Operation deleteCampaignDomainRulesAsync
      *
+     * /preview/campaigns/{campaignId}/targeting/domain-rules
+     *
      * @param  string $campaign_id The campaign id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to delete from the list (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCampaignDomainRules'] to see the possible values for this operation
@@ -1823,6 +1869,8 @@ class CampaignApi
 
     /**
      * Operation deleteCampaignDomainRulesAsyncWithHttpInfo
+     *
+     * /preview/campaigns/{campaignId}/targeting/domain-rules
      *
      * @param  string $campaign_id The campaign id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to delete from the list (optional)
@@ -1984,6 +2032,8 @@ class CampaignApi
     /**
      * Operation disableAdSetTargetingDealIds
      *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids/disable
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['disableAdSetTargetingDealIds'] to see the possible values for this operation
      *
@@ -1999,6 +2049,8 @@ class CampaignApi
 
     /**
      * Operation disableAdSetTargetingDealIdsWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids/disable
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['disableAdSetTargetingDealIds'] to see the possible values for this operation
@@ -2098,6 +2150,8 @@ class CampaignApi
     /**
      * Operation disableAdSetTargetingDealIdsAsync
      *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids/disable
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['disableAdSetTargetingDealIds'] to see the possible values for this operation
      *
@@ -2116,6 +2170,8 @@ class CampaignApi
 
     /**
      * Operation disableAdSetTargetingDealIdsAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids/disable
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['disableAdSetTargetingDealIds'] to see the possible values for this operation
@@ -2267,6 +2323,8 @@ class CampaignApi
     /**
      * Operation disableAdSetTargetingVideoPositioning
      *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positionings/disable
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['disableAdSetTargetingVideoPositioning'] to see the possible values for this operation
      *
@@ -2282,6 +2340,8 @@ class CampaignApi
 
     /**
      * Operation disableAdSetTargetingVideoPositioningWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positionings/disable
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['disableAdSetTargetingVideoPositioning'] to see the possible values for this operation
@@ -2381,6 +2441,8 @@ class CampaignApi
     /**
      * Operation disableAdSetTargetingVideoPositioningAsync
      *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positionings/disable
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['disableAdSetTargetingVideoPositioning'] to see the possible values for this operation
      *
@@ -2399,6 +2461,8 @@ class CampaignApi
 
     /**
      * Operation disableAdSetTargetingVideoPositioningAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positionings/disable
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['disableAdSetTargetingVideoPositioning'] to see the possible values for this operation
@@ -2550,6 +2614,8 @@ class CampaignApi
     /**
      * Operation getAdSet
      *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}
+     *
      * @param  string $ad_set_id Id of the ad set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSet'] to see the possible values for this operation
      *
@@ -2565,6 +2631,8 @@ class CampaignApi
 
     /**
      * Operation getAdSetWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}
      *
      * @param  string $ad_set_id Id of the ad set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSet'] to see the possible values for this operation
@@ -2664,6 +2732,8 @@ class CampaignApi
     /**
      * Operation getAdSetAsync
      *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}
+     *
      * @param  string $ad_set_id Id of the ad set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSet'] to see the possible values for this operation
      *
@@ -2682,6 +2752,8 @@ class CampaignApi
 
     /**
      * Operation getAdSetAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}
      *
      * @param  string $ad_set_id Id of the ad set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSet'] to see the possible values for this operation
@@ -2833,6 +2905,8 @@ class CampaignApi
     /**
      * Operation getAdSetCategoryBids
      *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/category-bids
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSetCategoryBids'] to see the possible values for this operation
      *
@@ -2848,6 +2922,8 @@ class CampaignApi
 
     /**
      * Operation getAdSetCategoryBidsWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/category-bids
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSetCategoryBids'] to see the possible values for this operation
@@ -2947,6 +3023,8 @@ class CampaignApi
     /**
      * Operation getAdSetCategoryBidsAsync
      *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/category-bids
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSetCategoryBids'] to see the possible values for this operation
      *
@@ -2965,6 +3043,8 @@ class CampaignApi
 
     /**
      * Operation getAdSetCategoryBidsAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/category-bids
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSetCategoryBids'] to see the possible values for this operation
@@ -3116,6 +3196,8 @@ class CampaignApi
     /**
      * Operation getAdSetTargetingDealIds
      *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSetTargetingDealIds'] to see the possible values for this operation
      *
@@ -3131,6 +3213,8 @@ class CampaignApi
 
     /**
      * Operation getAdSetTargetingDealIdsWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSetTargetingDealIds'] to see the possible values for this operation
@@ -3230,6 +3314,8 @@ class CampaignApi
     /**
      * Operation getAdSetTargetingDealIdsAsync
      *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSetTargetingDealIds'] to see the possible values for this operation
      *
@@ -3248,6 +3334,8 @@ class CampaignApi
 
     /**
      * Operation getAdSetTargetingDealIdsAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSetTargetingDealIds'] to see the possible values for this operation
@@ -3399,6 +3487,8 @@ class CampaignApi
     /**
      * Operation getAdSetTargetingVideoPositioning
      *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSetTargetingVideoPositioning'] to see the possible values for this operation
      *
@@ -3414,6 +3504,8 @@ class CampaignApi
 
     /**
      * Operation getAdSetTargetingVideoPositioningWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSetTargetingVideoPositioning'] to see the possible values for this operation
@@ -3513,6 +3605,8 @@ class CampaignApi
     /**
      * Operation getAdSetTargetingVideoPositioningAsync
      *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSetTargetingVideoPositioning'] to see the possible values for this operation
      *
@@ -3531,6 +3625,8 @@ class CampaignApi
 
     /**
      * Operation getAdSetTargetingVideoPositioningAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSetTargetingVideoPositioning'] to see the possible values for this operation
@@ -3682,6 +3778,8 @@ class CampaignApi
     /**
      * Operation getAdvertiserBundleRules
      *
+     * /preview/advertisers/{advertiserId}/targeting/bundle-rules
+     *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserBundleRules'] to see the possible values for this operation
      *
@@ -3697,6 +3795,8 @@ class CampaignApi
 
     /**
      * Operation getAdvertiserBundleRulesWithHttpInfo
+     *
+     * /preview/advertisers/{advertiserId}/targeting/bundle-rules
      *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserBundleRules'] to see the possible values for this operation
@@ -3796,6 +3896,8 @@ class CampaignApi
     /**
      * Operation getAdvertiserBundleRulesAsync
      *
+     * /preview/advertisers/{advertiserId}/targeting/bundle-rules
+     *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserBundleRules'] to see the possible values for this operation
      *
@@ -3814,6 +3916,8 @@ class CampaignApi
 
     /**
      * Operation getAdvertiserBundleRulesAsyncWithHttpInfo
+     *
+     * /preview/advertisers/{advertiserId}/targeting/bundle-rules
      *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserBundleRules'] to see the possible values for this operation
@@ -3965,6 +4069,8 @@ class CampaignApi
     /**
      * Operation getAdvertiserDomainRules
      *
+     * /preview/advertisers/{advertiserId}/targeting/domain-rules
+     *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserDomainRules'] to see the possible values for this operation
      *
@@ -3980,6 +4086,8 @@ class CampaignApi
 
     /**
      * Operation getAdvertiserDomainRulesWithHttpInfo
+     *
+     * /preview/advertisers/{advertiserId}/targeting/domain-rules
      *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserDomainRules'] to see the possible values for this operation
@@ -4079,6 +4187,8 @@ class CampaignApi
     /**
      * Operation getAdvertiserDomainRulesAsync
      *
+     * /preview/advertisers/{advertiserId}/targeting/domain-rules
+     *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserDomainRules'] to see the possible values for this operation
      *
@@ -4097,6 +4207,8 @@ class CampaignApi
 
     /**
      * Operation getAdvertiserDomainRulesAsyncWithHttpInfo
+     *
+     * /preview/advertisers/{advertiserId}/targeting/domain-rules
      *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserDomainRules'] to see the possible values for this operation
@@ -4248,6 +4360,8 @@ class CampaignApi
     /**
      * Operation getCampaign
      *
+     * /preview/marketing-solutions/campaigns/{campaign-id}
+     *
      * @param  string $campaign_id ID of the marketing campaign; This field is required. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
      *
@@ -4263,6 +4377,8 @@ class CampaignApi
 
     /**
      * Operation getCampaignWithHttpInfo
+     *
+     * /preview/marketing-solutions/campaigns/{campaign-id}
      *
      * @param  string $campaign_id ID of the marketing campaign; This field is required. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
@@ -4362,6 +4478,8 @@ class CampaignApi
     /**
      * Operation getCampaignAsync
      *
+     * /preview/marketing-solutions/campaigns/{campaign-id}
+     *
      * @param  string $campaign_id ID of the marketing campaign; This field is required. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
      *
@@ -4380,6 +4498,8 @@ class CampaignApi
 
     /**
      * Operation getCampaignAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/campaigns/{campaign-id}
      *
      * @param  string $campaign_id ID of the marketing campaign; This field is required. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
@@ -4531,6 +4651,8 @@ class CampaignApi
     /**
      * Operation getCampaignBundleRules
      *
+     * /preview/campaigns/{campaignId}/targeting/bundle-rules
+     *
      * @param  string $campaign_id The campaign id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignBundleRules'] to see the possible values for this operation
      *
@@ -4546,6 +4668,8 @@ class CampaignApi
 
     /**
      * Operation getCampaignBundleRulesWithHttpInfo
+     *
+     * /preview/campaigns/{campaignId}/targeting/bundle-rules
      *
      * @param  string $campaign_id The campaign id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignBundleRules'] to see the possible values for this operation
@@ -4645,6 +4769,8 @@ class CampaignApi
     /**
      * Operation getCampaignBundleRulesAsync
      *
+     * /preview/campaigns/{campaignId}/targeting/bundle-rules
+     *
      * @param  string $campaign_id The campaign id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignBundleRules'] to see the possible values for this operation
      *
@@ -4663,6 +4789,8 @@ class CampaignApi
 
     /**
      * Operation getCampaignBundleRulesAsyncWithHttpInfo
+     *
+     * /preview/campaigns/{campaignId}/targeting/bundle-rules
      *
      * @param  string $campaign_id The campaign id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignBundleRules'] to see the possible values for this operation
@@ -4814,6 +4942,8 @@ class CampaignApi
     /**
      * Operation getCampaignDomainRules
      *
+     * /preview/campaigns/{campaignId}/targeting/domain-rules
+     *
      * @param  string $campaign_id The campaign id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignDomainRules'] to see the possible values for this operation
      *
@@ -4829,6 +4959,8 @@ class CampaignApi
 
     /**
      * Operation getCampaignDomainRulesWithHttpInfo
+     *
+     * /preview/campaigns/{campaignId}/targeting/domain-rules
      *
      * @param  string $campaign_id The campaign id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignDomainRules'] to see the possible values for this operation
@@ -4928,6 +5060,8 @@ class CampaignApi
     /**
      * Operation getCampaignDomainRulesAsync
      *
+     * /preview/campaigns/{campaignId}/targeting/domain-rules
+     *
      * @param  string $campaign_id The campaign id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignDomainRules'] to see the possible values for this operation
      *
@@ -4946,6 +5080,8 @@ class CampaignApi
 
     /**
      * Operation getCampaignDomainRulesAsyncWithHttpInfo
+     *
+     * /preview/campaigns/{campaignId}/targeting/domain-rules
      *
      * @param  string $campaign_id The campaign id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignDomainRules'] to see the possible values for this operation
@@ -5097,6 +5233,8 @@ class CampaignApi
     /**
      * Operation getDisplayMultipliers
      *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDisplayMultipliers'] to see the possible values for this operation
      *
@@ -5112,6 +5250,8 @@ class CampaignApi
 
     /**
      * Operation getDisplayMultipliersWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDisplayMultipliers'] to see the possible values for this operation
@@ -5211,6 +5351,8 @@ class CampaignApi
     /**
      * Operation getDisplayMultipliersAsync
      *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDisplayMultipliers'] to see the possible values for this operation
      *
@@ -5229,6 +5371,8 @@ class CampaignApi
 
     /**
      * Operation getDisplayMultipliersAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDisplayMultipliers'] to see the possible values for this operation
@@ -5380,6 +5524,8 @@ class CampaignApi
     /**
      * Operation getSupplyVendorList
      *
+     * /preview/marketing-solutions/ad-sets/targeting/supply-vendors
+     *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupplyVendorList'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -5394,6 +5540,8 @@ class CampaignApi
 
     /**
      * Operation getSupplyVendorListWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/targeting/supply-vendors
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupplyVendorList'] to see the possible values for this operation
      *
@@ -5492,6 +5640,8 @@ class CampaignApi
     /**
      * Operation getSupplyVendorListAsync
      *
+     * /preview/marketing-solutions/ad-sets/targeting/supply-vendors
+     *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupplyVendorList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5509,6 +5659,8 @@ class CampaignApi
 
     /**
      * Operation getSupplyVendorListAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/targeting/supply-vendors
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupplyVendorList'] to see the possible values for this operation
      *
@@ -5643,6 +5795,8 @@ class CampaignApi
     /**
      * Operation patchAdSetCategoryBids
      *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/category-bids
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request Collection of category bids to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSetCategoryBids'] to see the possible values for this operation
@@ -5659,6 +5813,8 @@ class CampaignApi
 
     /**
      * Operation patchAdSetCategoryBidsWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/category-bids
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request Collection of category bids to update (required)
@@ -5759,6 +5915,8 @@ class CampaignApi
     /**
      * Operation patchAdSetCategoryBidsAsync
      *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/category-bids
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request Collection of category bids to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSetCategoryBids'] to see the possible values for this operation
@@ -5778,6 +5936,8 @@ class CampaignApi
 
     /**
      * Operation patchAdSetCategoryBidsAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/category-bids
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request Collection of category bids to update (required)
@@ -5945,6 +6105,8 @@ class CampaignApi
     /**
      * Operation patchAdSets
      *
+     * /preview/marketing-solutions/ad-sets
+     *
      * @param  \criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSetV26Q1 $requests_patch_ad_set_v26_q1 List of adsets to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSets'] to see the possible values for this operation
      *
@@ -5960,6 +6122,8 @@ class CampaignApi
 
     /**
      * Operation patchAdSetsWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSetV26Q1 $requests_patch_ad_set_v26_q1 List of adsets to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSets'] to see the possible values for this operation
@@ -6059,6 +6223,8 @@ class CampaignApi
     /**
      * Operation patchAdSetsAsync
      *
+     * /preview/marketing-solutions/ad-sets
+     *
      * @param  \criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSetV26Q1 $requests_patch_ad_set_v26_q1 List of adsets to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSets'] to see the possible values for this operation
      *
@@ -6077,6 +6243,8 @@ class CampaignApi
 
     /**
      * Operation patchAdSetsAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\RequestsPatchAdSetV26Q1 $requests_patch_ad_set_v26_q1 List of adsets to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSets'] to see the possible values for this operation
@@ -6227,6 +6395,8 @@ class CampaignApi
     /**
      * Operation patchCampaigns
      *
+     * /preview/marketing-solutions/campaigns
+     *
      * @param  \criteo\api\marketingsolutions\preview\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
      *
@@ -6242,6 +6412,8 @@ class CampaignApi
 
     /**
      * Operation patchCampaignsWithHttpInfo
+     *
+     * /preview/marketing-solutions/campaigns
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
@@ -6341,6 +6513,8 @@ class CampaignApi
     /**
      * Operation patchCampaignsAsync
      *
+     * /preview/marketing-solutions/campaigns
+     *
      * @param  \criteo\api\marketingsolutions\preview\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
      *
@@ -6359,6 +6533,8 @@ class CampaignApi
 
     /**
      * Operation patchCampaignsAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/campaigns
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
@@ -6509,6 +6685,8 @@ class CampaignApi
     /**
      * Operation patchDisplayMultipliers
      *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request List of display multiplier values to change (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDisplayMultipliers'] to see the possible values for this operation
@@ -6525,6 +6703,8 @@ class CampaignApi
 
     /**
      * Operation patchDisplayMultipliersWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request List of display multiplier values to change (required)
@@ -6625,6 +6805,8 @@ class CampaignApi
     /**
      * Operation patchDisplayMultipliersAsync
      *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request List of display multiplier values to change (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDisplayMultipliers'] to see the possible values for this operation
@@ -6644,6 +6826,8 @@ class CampaignApi
 
     /**
      * Operation patchDisplayMultipliersAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request List of display multiplier values to change (required)
@@ -6811,6 +6995,8 @@ class CampaignApi
     /**
      * Operation postAdvertiserBundleRules
      *
+     * /preview/advertisers/{advertiserId}/targeting/bundle-rules
+     *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postAdvertiserBundleRules'] to see the possible values for this operation
@@ -6827,6 +7013,8 @@ class CampaignApi
 
     /**
      * Operation postAdvertiserBundleRulesWithHttpInfo
+     *
+     * /preview/advertisers/{advertiserId}/targeting/bundle-rules
      *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
@@ -6927,6 +7115,8 @@ class CampaignApi
     /**
      * Operation postAdvertiserBundleRulesAsync
      *
+     * /preview/advertisers/{advertiserId}/targeting/bundle-rules
+     *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postAdvertiserBundleRules'] to see the possible values for this operation
@@ -6946,6 +7136,8 @@ class CampaignApi
 
     /**
      * Operation postAdvertiserBundleRulesAsyncWithHttpInfo
+     *
+     * /preview/advertisers/{advertiserId}/targeting/bundle-rules
      *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
@@ -7113,6 +7305,8 @@ class CampaignApi
     /**
      * Operation postAdvertiserDomainRules
      *
+     * /preview/advertisers/{advertiserId}/targeting/domain-rules
+     *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postAdvertiserDomainRules'] to see the possible values for this operation
@@ -7129,6 +7323,8 @@ class CampaignApi
 
     /**
      * Operation postAdvertiserDomainRulesWithHttpInfo
+     *
+     * /preview/advertisers/{advertiserId}/targeting/domain-rules
      *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
@@ -7229,6 +7425,8 @@ class CampaignApi
     /**
      * Operation postAdvertiserDomainRulesAsync
      *
+     * /preview/advertisers/{advertiserId}/targeting/domain-rules
+     *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postAdvertiserDomainRules'] to see the possible values for this operation
@@ -7248,6 +7446,8 @@ class CampaignApi
 
     /**
      * Operation postAdvertiserDomainRulesAsyncWithHttpInfo
+     *
+     * /preview/advertisers/{advertiserId}/targeting/domain-rules
      *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
@@ -7415,6 +7615,8 @@ class CampaignApi
     /**
      * Operation postCampaignBundleRules
      *
+     * /preview/campaigns/{campaignId}/targeting/bundle-rules
+     *
      * @param  string $campaign_id The campaign id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postCampaignBundleRules'] to see the possible values for this operation
@@ -7431,6 +7633,8 @@ class CampaignApi
 
     /**
      * Operation postCampaignBundleRulesWithHttpInfo
+     *
+     * /preview/campaigns/{campaignId}/targeting/bundle-rules
      *
      * @param  string $campaign_id The campaign id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
@@ -7531,6 +7735,8 @@ class CampaignApi
     /**
      * Operation postCampaignBundleRulesAsync
      *
+     * /preview/campaigns/{campaignId}/targeting/bundle-rules
+     *
      * @param  string $campaign_id The campaign id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postCampaignBundleRules'] to see the possible values for this operation
@@ -7550,6 +7756,8 @@ class CampaignApi
 
     /**
      * Operation postCampaignBundleRulesAsyncWithHttpInfo
+     *
+     * /preview/campaigns/{campaignId}/targeting/bundle-rules
      *
      * @param  string $campaign_id The campaign id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
@@ -7717,6 +7925,8 @@ class CampaignApi
     /**
      * Operation postCampaignDomainRules
      *
+     * /preview/campaigns/{campaignId}/targeting/domain-rules
+     *
      * @param  string $campaign_id The campaign id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postCampaignDomainRules'] to see the possible values for this operation
@@ -7733,6 +7943,8 @@ class CampaignApi
 
     /**
      * Operation postCampaignDomainRulesWithHttpInfo
+     *
+     * /preview/campaigns/{campaignId}/targeting/domain-rules
      *
      * @param  string $campaign_id The campaign id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
@@ -7833,6 +8045,8 @@ class CampaignApi
     /**
      * Operation postCampaignDomainRulesAsync
      *
+     * /preview/campaigns/{campaignId}/targeting/domain-rules
+     *
      * @param  string $campaign_id The campaign id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postCampaignDomainRules'] to see the possible values for this operation
@@ -7852,6 +8066,8 @@ class CampaignApi
 
     /**
      * Operation postCampaignDomainRulesAsyncWithHttpInfo
+     *
+     * /preview/campaigns/{campaignId}/targeting/domain-rules
      *
      * @param  string $campaign_id The campaign id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Description of the targeting rule to setup (required)
@@ -8019,6 +8235,8 @@ class CampaignApi
     /**
      * Operation putAdvertiserBundleRules
      *
+     * /preview/advertisers/{advertiserId}/targeting/bundle-rules
+     *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putAdvertiserBundleRules'] to see the possible values for this operation
@@ -8035,6 +8253,8 @@ class CampaignApi
 
     /**
      * Operation putAdvertiserBundleRulesWithHttpInfo
+     *
+     * /preview/advertisers/{advertiserId}/targeting/bundle-rules
      *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
@@ -8135,6 +8355,8 @@ class CampaignApi
     /**
      * Operation putAdvertiserBundleRulesAsync
      *
+     * /preview/advertisers/{advertiserId}/targeting/bundle-rules
+     *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putAdvertiserBundleRules'] to see the possible values for this operation
@@ -8154,6 +8376,8 @@ class CampaignApi
 
     /**
      * Operation putAdvertiserBundleRulesAsyncWithHttpInfo
+     *
+     * /preview/advertisers/{advertiserId}/targeting/bundle-rules
      *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
@@ -8321,6 +8545,8 @@ class CampaignApi
     /**
      * Operation putAdvertiserDomainRules
      *
+     * /preview/advertisers/{advertiserId}/targeting/domain-rules
+     *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putAdvertiserDomainRules'] to see the possible values for this operation
@@ -8337,6 +8563,8 @@ class CampaignApi
 
     /**
      * Operation putAdvertiserDomainRulesWithHttpInfo
+     *
+     * /preview/advertisers/{advertiserId}/targeting/domain-rules
      *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
@@ -8437,6 +8665,8 @@ class CampaignApi
     /**
      * Operation putAdvertiserDomainRulesAsync
      *
+     * /preview/advertisers/{advertiserId}/targeting/domain-rules
+     *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putAdvertiserDomainRules'] to see the possible values for this operation
@@ -8456,6 +8686,8 @@ class CampaignApi
 
     /**
      * Operation putAdvertiserDomainRulesAsyncWithHttpInfo
+     *
+     * /preview/advertisers/{advertiserId}/targeting/domain-rules
      *
      * @param  string $advertiser_id The advertiser id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
@@ -8623,6 +8855,8 @@ class CampaignApi
     /**
      * Operation putCampaignBundleRules
      *
+     * /preview/campaigns/{campaignId}/targeting/bundle-rules
+     *
      * @param  string $campaign_id The campaign id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putCampaignBundleRules'] to see the possible values for this operation
@@ -8639,6 +8873,8 @@ class CampaignApi
 
     /**
      * Operation putCampaignBundleRulesWithHttpInfo
+     *
+     * /preview/campaigns/{campaignId}/targeting/bundle-rules
      *
      * @param  string $campaign_id The campaign id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
@@ -8739,6 +8975,8 @@ class CampaignApi
     /**
      * Operation putCampaignBundleRulesAsync
      *
+     * /preview/campaigns/{campaignId}/targeting/bundle-rules
+     *
      * @param  string $campaign_id The campaign id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putCampaignBundleRules'] to see the possible values for this operation
@@ -8758,6 +8996,8 @@ class CampaignApi
 
     /**
      * Operation putCampaignBundleRulesAsyncWithHttpInfo
+     *
+     * /preview/campaigns/{campaignId}/targeting/bundle-rules
      *
      * @param  string $campaign_id The campaign id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
@@ -8925,6 +9165,8 @@ class CampaignApi
     /**
      * Operation putCampaignDomainRules
      *
+     * /preview/campaigns/{campaignId}/targeting/domain-rules
+     *
      * @param  string $campaign_id The campaign id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putCampaignDomainRules'] to see the possible values for this operation
@@ -8941,6 +9183,8 @@ class CampaignApi
 
     /**
      * Operation putCampaignDomainRulesWithHttpInfo
+     *
+     * /preview/campaigns/{campaignId}/targeting/domain-rules
      *
      * @param  string $campaign_id The campaign id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
@@ -9041,6 +9285,8 @@ class CampaignApi
     /**
      * Operation putCampaignDomainRulesAsync
      *
+     * /preview/campaigns/{campaignId}/targeting/domain-rules
+     *
      * @param  string $campaign_id The campaign id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putCampaignDomainRules'] to see the possible values for this operation
@@ -9060,6 +9306,8 @@ class CampaignApi
 
     /**
      * Operation putCampaignDomainRulesAsyncWithHttpInfo
+     *
+     * /preview/campaigns/{campaignId}/targeting/domain-rules
      *
      * @param  string $campaign_id The campaign id (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ApiRequestOfTargetingEntity $api_request_of_targeting_entity Contains the list of items to add to the existing list (required)
@@ -9227,6 +9475,8 @@ class CampaignApi
     /**
      * Operation searchAdSets
      *
+     * /preview/marketing-solutions/ad-sets/search
+     *
      * @param  \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestV26Q1 $ad_set_search_request_v26_q1 ad_set_search_request_v26_q1 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchAdSets'] to see the possible values for this operation
      *
@@ -9242,6 +9492,8 @@ class CampaignApi
 
     /**
      * Operation searchAdSetsWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/search
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestV26Q1 $ad_set_search_request_v26_q1 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchAdSets'] to see the possible values for this operation
@@ -9341,6 +9593,8 @@ class CampaignApi
     /**
      * Operation searchAdSetsAsync
      *
+     * /preview/marketing-solutions/ad-sets/search
+     *
      * @param  \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestV26Q1 $ad_set_search_request_v26_q1 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchAdSets'] to see the possible values for this operation
      *
@@ -9359,6 +9613,8 @@ class CampaignApi
 
     /**
      * Operation searchAdSetsAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/search
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\AdSetSearchRequestV26Q1 $ad_set_search_request_v26_q1 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchAdSets'] to see the possible values for this operation
@@ -9503,6 +9759,8 @@ class CampaignApi
     /**
      * Operation searchCampaigns
      *
+     * /preview/marketing-solutions/campaigns/search
+     *
      * @param  \criteo\api\marketingsolutions\preview\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 Filters for searching for campaigns (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaigns'] to see the possible values for this operation
      *
@@ -9518,6 +9776,8 @@ class CampaignApi
 
     /**
      * Operation searchCampaignsWithHttpInfo
+     *
+     * /preview/marketing-solutions/campaigns/search
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 Filters for searching for campaigns (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaigns'] to see the possible values for this operation
@@ -9617,6 +9877,8 @@ class CampaignApi
     /**
      * Operation searchCampaignsAsync
      *
+     * /preview/marketing-solutions/campaigns/search
+     *
      * @param  \criteo\api\marketingsolutions\preview\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 Filters for searching for campaigns (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaigns'] to see the possible values for this operation
      *
@@ -9635,6 +9897,8 @@ class CampaignApi
 
     /**
      * Operation searchCampaignsAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/campaigns/search
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 Filters for searching for campaigns (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaigns'] to see the possible values for this operation
@@ -9779,6 +10043,8 @@ class CampaignApi
     /**
      * Operation setAdSetTargetingDealIds
      *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingDealIdsRequest $set_ad_set_targeting_deal_ids_request the new Deal Id Targeting configuration (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setAdSetTargetingDealIds'] to see the possible values for this operation
@@ -9795,6 +10061,8 @@ class CampaignApi
 
     /**
      * Operation setAdSetTargetingDealIdsWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingDealIdsRequest $set_ad_set_targeting_deal_ids_request the new Deal Id Targeting configuration (required)
@@ -9895,6 +10163,8 @@ class CampaignApi
     /**
      * Operation setAdSetTargetingDealIdsAsync
      *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingDealIdsRequest $set_ad_set_targeting_deal_ids_request the new Deal Id Targeting configuration (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setAdSetTargetingDealIds'] to see the possible values for this operation
@@ -9914,6 +10184,8 @@ class CampaignApi
 
     /**
      * Operation setAdSetTargetingDealIdsAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingDealIdsRequest $set_ad_set_targeting_deal_ids_request the new Deal Id Targeting configuration (required)
@@ -10081,6 +10353,8 @@ class CampaignApi
     /**
      * Operation setAdSetTargetingVideoPositioning
      *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingVideoPositioningRequest $set_ad_set_targeting_video_positioning_request the new Video Positioning Targeting configuration (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setAdSetTargetingVideoPositioning'] to see the possible values for this operation
@@ -10097,6 +10371,8 @@ class CampaignApi
 
     /**
      * Operation setAdSetTargetingVideoPositioningWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingVideoPositioningRequest $set_ad_set_targeting_video_positioning_request the new Video Positioning Targeting configuration (required)
@@ -10197,6 +10473,8 @@ class CampaignApi
     /**
      * Operation setAdSetTargetingVideoPositioningAsync
      *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingVideoPositioningRequest $set_ad_set_targeting_video_positioning_request the new Video Positioning Targeting configuration (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setAdSetTargetingVideoPositioning'] to see the possible values for this operation
@@ -10216,6 +10494,8 @@ class CampaignApi
 
     /**
      * Operation setAdSetTargetingVideoPositioningAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\SetAdSetTargetingVideoPositioningRequest $set_ad_set_targeting_video_positioning_request the new Video Positioning Targeting configuration (required)
@@ -10383,6 +10663,8 @@ class CampaignApi
     /**
      * Operation startAdSets
      *
+     * /preview/marketing-solutions/ad-sets/start
+     *
      * @param  \criteo\api\marketingsolutions\preview\Model\RequestsAdSetId $requests_ad_set_id All the ad sets to start (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['startAdSets'] to see the possible values for this operation
      *
@@ -10398,6 +10680,8 @@ class CampaignApi
 
     /**
      * Operation startAdSetsWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/start
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\RequestsAdSetId $requests_ad_set_id All the ad sets to start (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['startAdSets'] to see the possible values for this operation
@@ -10497,6 +10781,8 @@ class CampaignApi
     /**
      * Operation startAdSetsAsync
      *
+     * /preview/marketing-solutions/ad-sets/start
+     *
      * @param  \criteo\api\marketingsolutions\preview\Model\RequestsAdSetId $requests_ad_set_id All the ad sets to start (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['startAdSets'] to see the possible values for this operation
      *
@@ -10515,6 +10801,8 @@ class CampaignApi
 
     /**
      * Operation startAdSetsAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/start
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\RequestsAdSetId $requests_ad_set_id All the ad sets to start (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['startAdSets'] to see the possible values for this operation
@@ -10659,6 +10947,8 @@ class CampaignApi
     /**
      * Operation stopAdSets
      *
+     * /preview/marketing-solutions/ad-sets/stop
+     *
      * @param  \criteo\api\marketingsolutions\preview\Model\RequestsAdSetId $requests_ad_set_id All the ad sets to stop (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['stopAdSets'] to see the possible values for this operation
      *
@@ -10674,6 +10964,8 @@ class CampaignApi
 
     /**
      * Operation stopAdSetsWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/stop
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\RequestsAdSetId $requests_ad_set_id All the ad sets to stop (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['stopAdSets'] to see the possible values for this operation
@@ -10773,6 +11065,8 @@ class CampaignApi
     /**
      * Operation stopAdSetsAsync
      *
+     * /preview/marketing-solutions/ad-sets/stop
+     *
      * @param  \criteo\api\marketingsolutions\preview\Model\RequestsAdSetId $requests_ad_set_id All the ad sets to stop (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['stopAdSets'] to see the possible values for this operation
      *
@@ -10791,6 +11085,8 @@ class CampaignApi
 
     /**
      * Operation stopAdSetsAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/stop
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\RequestsAdSetId $requests_ad_set_id All the ad sets to stop (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['stopAdSets'] to see the possible values for this operation
@@ -10935,6 +11231,8 @@ class CampaignApi
     /**
      * Operation updateAdSetAudience
      *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/audience
+     *
      * @param  string $ad_set_id The ad set ID. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1 $ad_set_audience_link_input_entity_v1 Ad set-Audience update request. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAdSetAudience'] to see the possible values for this operation
@@ -10951,6 +11249,8 @@ class CampaignApi
 
     /**
      * Operation updateAdSetAudienceWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/audience
      *
      * @param  string $ad_set_id The ad set ID. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1 $ad_set_audience_link_input_entity_v1 Ad set-Audience update request. (required)
@@ -11051,6 +11351,8 @@ class CampaignApi
     /**
      * Operation updateAdSetAudienceAsync
      *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/audience
+     *
      * @param  string $ad_set_id The ad set ID. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1 $ad_set_audience_link_input_entity_v1 Ad set-Audience update request. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAdSetAudience'] to see the possible values for this operation
@@ -11070,6 +11372,8 @@ class CampaignApi
 
     /**
      * Operation updateAdSetAudienceAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/audience
      *
      * @param  string $ad_set_id The ad set ID. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\AdSetAudienceLinkInputEntityV1 $ad_set_audience_link_input_entity_v1 Ad set-Audience update request. (required)

@@ -128,6 +128,8 @@ class OnSiteRecommendationApi
     /**
      * Operation searchRecommendedProducts
      *
+     * /preview/recommendation/search
+     *
      * @param  \criteo\api\marketingsolutions\preview\Model\OnSiteRecoRequest $on_site_reco_request on_site_reco_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRecommendedProducts'] to see the possible values for this operation
      *
@@ -143,6 +145,8 @@ class OnSiteRecommendationApi
 
     /**
      * Operation searchRecommendedProductsWithHttpInfo
+     *
+     * /preview/recommendation/search
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\OnSiteRecoRequest $on_site_reco_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRecommendedProducts'] to see the possible values for this operation
@@ -242,6 +246,8 @@ class OnSiteRecommendationApi
     /**
      * Operation searchRecommendedProductsAsync
      *
+     * /preview/recommendation/search
+     *
      * @param  \criteo\api\marketingsolutions\preview\Model\OnSiteRecoRequest $on_site_reco_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRecommendedProducts'] to see the possible values for this operation
      *
@@ -260,6 +266,8 @@ class OnSiteRecommendationApi
 
     /**
      * Operation searchRecommendedProductsAsyncWithHttpInfo
+     *
+     * /preview/recommendation/search
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\OnSiteRecoRequest $on_site_reco_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRecommendedProducts'] to see the possible values for this operation
@@ -404,6 +412,8 @@ class OnSiteRecommendationApi
     /**
      * Operation searchRecommendedProductsConversational
      *
+     * /preview/recommendation/search-conversational
+     *
      * @param  \criteo\api\marketingsolutions\preview\Model\OnSiteRecoRequestConversational $on_site_reco_request_conversational on_site_reco_request_conversational (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRecommendedProductsConversational'] to see the possible values for this operation
      *
@@ -419,6 +429,8 @@ class OnSiteRecommendationApi
 
     /**
      * Operation searchRecommendedProductsConversationalWithHttpInfo
+     *
+     * /preview/recommendation/search-conversational
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\OnSiteRecoRequestConversational $on_site_reco_request_conversational (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRecommendedProductsConversational'] to see the possible values for this operation
@@ -518,6 +530,8 @@ class OnSiteRecommendationApi
     /**
      * Operation searchRecommendedProductsConversationalAsync
      *
+     * /preview/recommendation/search-conversational
+     *
      * @param  \criteo\api\marketingsolutions\preview\Model\OnSiteRecoRequestConversational $on_site_reco_request_conversational (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRecommendedProductsConversational'] to see the possible values for this operation
      *
@@ -536,6 +550,8 @@ class OnSiteRecommendationApi
 
     /**
      * Operation searchRecommendedProductsConversationalAsyncWithHttpInfo
+     *
+     * /preview/recommendation/search-conversational
      *
      * @param  \criteo\api\marketingsolutions\preview\Model\OnSiteRecoRequestConversational $on_site_reco_request_conversational (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRecommendedProductsConversational'] to see the possible values for this operation

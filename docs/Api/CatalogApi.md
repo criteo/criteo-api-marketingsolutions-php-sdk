@@ -4,9 +4,9 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getCatalogMerchantStats()**](CatalogApi.md#getCatalogMerchantStats) | **GET** /preview/catalog/stats/merchants/{merchant-id} |  |
-| [**getCatalogProductsBatchReport()**](CatalogApi.md#getCatalogProductsBatchReport) | **GET** /preview/catalog/products/batch/report/{operation-token} |  |
-| [**submitCatalogProductsBatch()**](CatalogApi.md#submitCatalogProductsBatch) | **POST** /preview/catalog/products/batch |  |
+| [**getCatalogMerchantStats()**](CatalogApi.md#getCatalogMerchantStats) | **GET** /preview/catalog/stats/merchants/{merchant-id} | /preview/catalog/stats/merchants/{merchant-id} |
+| [**getCatalogProductsBatchReport()**](CatalogApi.md#getCatalogProductsBatchReport) | **GET** /preview/catalog/products/batch/report/{operation-token} | /preview/catalog/products/batch/report/{operation-token} |
+| [**submitCatalogProductsBatch()**](CatalogApi.md#submitCatalogProductsBatch) | **POST** /preview/catalog/products/batch | /preview/catalog/products/batch |
 
 
 ## `getCatalogMerchantStats()`
@@ -15,7 +15,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 getCatalogMerchantStats($merchant_id, $last_num_hours): \criteo\api\marketingsolutions\preview\Model\StatisticsOkResponse
 ```
 
-
+/preview/catalog/stats/merchants/{merchant-id}
 
 get an stats request
 
@@ -80,7 +80,7 @@ try {
 getCatalogProductsBatchReport($operation_token): \criteo\api\marketingsolutions\preview\Model\ReportOkResponse
 ```
 
-
+/preview/catalog/products/batch/report/{operation-token}
 
 Get the report of an asynchronous batch operation previously requested
 
@@ -143,7 +143,7 @@ try {
 submitCatalogProductsBatch($products_custom_batch_request): \criteo\api\marketingsolutions\preview\Model\BatchAcceptedResponse
 ```
 
-
+/preview/catalog/products/batch
 
 Used to publish a batch of operations to insert, update and deletes products.  The batch is processed asynchronously.The response provides an operationToken which can be used to track  the status of the report of the operation.
 

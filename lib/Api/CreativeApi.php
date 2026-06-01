@@ -182,6 +182,8 @@ class CreativeApi
     /**
      * Operation createAdvertiserAd
      *
+     * /preview/advertisers/{advertiser-id}/ads
+     *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfAdWrite $resource_input_of_ad_write resource_input_of_ad_write (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdvertiserAd'] to see the possible values for this operation
@@ -198,6 +200,8 @@ class CreativeApi
 
     /**
      * Operation createAdvertiserAdWithHttpInfo
+     *
+     * /preview/advertisers/{advertiser-id}/ads
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfAdWrite $resource_input_of_ad_write (required)
@@ -298,6 +302,8 @@ class CreativeApi
     /**
      * Operation createAdvertiserAdAsync
      *
+     * /preview/advertisers/{advertiser-id}/ads
+     *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfAdWrite $resource_input_of_ad_write (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdvertiserAd'] to see the possible values for this operation
@@ -317,6 +323,8 @@ class CreativeApi
 
     /**
      * Operation createAdvertiserAdAsyncWithHttpInfo
+     *
+     * /preview/advertisers/{advertiser-id}/ads
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfAdWrite $resource_input_of_ad_write (required)
@@ -484,6 +492,8 @@ class CreativeApi
     /**
      * Operation createAdvertiserCoupon
      *
+     * /preview/advertisers/{advertiser-id}/coupons
+     *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreateCoupon $resource_input_of_create_coupon resource_input_of_create_coupon (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdvertiserCoupon'] to see the possible values for this operation
@@ -500,6 +510,8 @@ class CreativeApi
 
     /**
      * Operation createAdvertiserCouponWithHttpInfo
+     *
+     * /preview/advertisers/{advertiser-id}/coupons
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreateCoupon $resource_input_of_create_coupon (required)
@@ -600,6 +612,8 @@ class CreativeApi
     /**
      * Operation createAdvertiserCouponAsync
      *
+     * /preview/advertisers/{advertiser-id}/coupons
+     *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreateCoupon $resource_input_of_create_coupon (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdvertiserCoupon'] to see the possible values for this operation
@@ -619,6 +633,8 @@ class CreativeApi
 
     /**
      * Operation createAdvertiserCouponAsyncWithHttpInfo
+     *
+     * /preview/advertisers/{advertiser-id}/coupons
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreateCoupon $resource_input_of_create_coupon (required)
@@ -786,6 +802,8 @@ class CreativeApi
     /**
      * Operation createAdvertiserCreative
      *
+     * /preview/advertisers/{advertiser-id}/creatives
+     *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write resource_input_of_creative_write (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdvertiserCreative'] to see the possible values for this operation
@@ -802,6 +820,8 @@ class CreativeApi
 
     /**
      * Operation createAdvertiserCreativeWithHttpInfo
+     *
+     * /preview/advertisers/{advertiser-id}/creatives
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write (required)
@@ -902,6 +922,8 @@ class CreativeApi
     /**
      * Operation createAdvertiserCreativeAsync
      *
+     * /preview/advertisers/{advertiser-id}/creatives
+     *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdvertiserCreative'] to see the possible values for this operation
@@ -921,6 +943,8 @@ class CreativeApi
 
     /**
      * Operation createAdvertiserCreativeAsyncWithHttpInfo
+     *
+     * /preview/advertisers/{advertiser-id}/creatives
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write (required)
@@ -1088,6 +1112,8 @@ class CreativeApi
     /**
      * Operation deleteAd
      *
+     * /preview/ads/{id}
+     *
      * @param  string $id The ad identifier to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAd'] to see the possible values for this operation
      *
@@ -1102,6 +1128,8 @@ class CreativeApi
 
     /**
      * Operation deleteAdWithHttpInfo
+     *
+     * /preview/ads/{id}
      *
      * @param  string $id The ad identifier to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAd'] to see the possible values for this operation
@@ -1161,6 +1189,8 @@ class CreativeApi
     /**
      * Operation deleteAdAsync
      *
+     * /preview/ads/{id}
+     *
      * @param  string $id The ad identifier to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAd'] to see the possible values for this operation
      *
@@ -1179,6 +1209,8 @@ class CreativeApi
 
     /**
      * Operation deleteAdAsyncWithHttpInfo
+     *
+     * /preview/ads/{id}
      *
      * @param  string $id The ad identifier to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAd'] to see the possible values for this operation
@@ -1317,6 +1349,8 @@ class CreativeApi
     /**
      * Operation deleteAdSegmentLink
      *
+     * /preview/marketing-solutions/ads/{ad-id}/audience-segment
+     *
      * @param  string $ad_id The ad identifier. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAdSegmentLink'] to see the possible values for this operation
      *
@@ -1331,6 +1365,8 @@ class CreativeApi
 
     /**
      * Operation deleteAdSegmentLinkWithHttpInfo
+     *
+     * /preview/marketing-solutions/ads/{ad-id}/audience-segment
      *
      * @param  string $ad_id The ad identifier. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAdSegmentLink'] to see the possible values for this operation
@@ -1390,6 +1426,8 @@ class CreativeApi
     /**
      * Operation deleteAdSegmentLinkAsync
      *
+     * /preview/marketing-solutions/ads/{ad-id}/audience-segment
+     *
      * @param  string $ad_id The ad identifier. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAdSegmentLink'] to see the possible values for this operation
      *
@@ -1408,6 +1446,8 @@ class CreativeApi
 
     /**
      * Operation deleteAdSegmentLinkAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/ads/{ad-id}/audience-segment
      *
      * @param  string $ad_id The ad identifier. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAdSegmentLink'] to see the possible values for this operation
@@ -1546,6 +1586,8 @@ class CreativeApi
     /**
      * Operation deleteAdvertiserCoupon
      *
+     * /preview/advertisers/{advertiser-id}/coupons/{id}
+     *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $id The Coupon identifier to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAdvertiserCoupon'] to see the possible values for this operation
@@ -1561,6 +1603,8 @@ class CreativeApi
 
     /**
      * Operation deleteAdvertiserCouponWithHttpInfo
+     *
+     * /preview/advertisers/{advertiser-id}/coupons/{id}
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $id The Coupon identifier to delete. (required)
@@ -1621,6 +1665,8 @@ class CreativeApi
     /**
      * Operation deleteAdvertiserCouponAsync
      *
+     * /preview/advertisers/{advertiser-id}/coupons/{id}
+     *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $id The Coupon identifier to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAdvertiserCoupon'] to see the possible values for this operation
@@ -1640,6 +1686,8 @@ class CreativeApi
 
     /**
      * Operation deleteAdvertiserCouponAsyncWithHttpInfo
+     *
+     * /preview/advertisers/{advertiser-id}/coupons/{id}
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $id The Coupon identifier to delete. (required)
@@ -1795,6 +1843,8 @@ class CreativeApi
     /**
      * Operation deleteCreative
      *
+     * /preview/creatives/{id}
+     *
      * @param  string $id The creative identifier to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCreative'] to see the possible values for this operation
      *
@@ -1809,6 +1859,8 @@ class CreativeApi
 
     /**
      * Operation deleteCreativeWithHttpInfo
+     *
+     * /preview/creatives/{id}
      *
      * @param  string $id The creative identifier to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCreative'] to see the possible values for this operation
@@ -1868,6 +1920,8 @@ class CreativeApi
     /**
      * Operation deleteCreativeAsync
      *
+     * /preview/creatives/{id}
+     *
      * @param  string $id The creative identifier to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCreative'] to see the possible values for this operation
      *
@@ -1886,6 +1940,8 @@ class CreativeApi
 
     /**
      * Operation deleteCreativeAsyncWithHttpInfo
+     *
+     * /preview/creatives/{id}
      *
      * @param  string $id The creative identifier to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCreative'] to see the possible values for this operation
@@ -2024,6 +2080,8 @@ class CreativeApi
     /**
      * Operation editAdvertiserCoupon
      *
+     * /preview/advertisers/{advertiser-id}/coupons/{id}
+     *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $id The Coupon identifier to edit. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfUpdateCoupon $resource_input_of_update_coupon resource_input_of_update_coupon (required)
@@ -2041,6 +2099,8 @@ class CreativeApi
 
     /**
      * Operation editAdvertiserCouponWithHttpInfo
+     *
+     * /preview/advertisers/{advertiser-id}/coupons/{id}
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $id The Coupon identifier to edit. (required)
@@ -2142,6 +2202,8 @@ class CreativeApi
     /**
      * Operation editAdvertiserCouponAsync
      *
+     * /preview/advertisers/{advertiser-id}/coupons/{id}
+     *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $id The Coupon identifier to edit. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfUpdateCoupon $resource_input_of_update_coupon (required)
@@ -2162,6 +2224,8 @@ class CreativeApi
 
     /**
      * Operation editAdvertiserCouponAsyncWithHttpInfo
+     *
+     * /preview/advertisers/{advertiser-id}/coupons/{id}
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $id The Coupon identifier to edit. (required)
@@ -2346,6 +2410,8 @@ class CreativeApi
     /**
      * Operation editCreative
      *
+     * /preview/creatives/{id}
+     *
      * @param  string $id The creative identifier to edit. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write resource_input_of_creative_write (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editCreative'] to see the possible values for this operation
@@ -2362,6 +2428,8 @@ class CreativeApi
 
     /**
      * Operation editCreativeWithHttpInfo
+     *
+     * /preview/creatives/{id}
      *
      * @param  string $id The creative identifier to edit. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write (required)
@@ -2462,6 +2530,8 @@ class CreativeApi
     /**
      * Operation editCreativeAsync
      *
+     * /preview/creatives/{id}
+     *
      * @param  string $id The creative identifier to edit. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editCreative'] to see the possible values for this operation
@@ -2481,6 +2551,8 @@ class CreativeApi
 
     /**
      * Operation editCreativeAsyncWithHttpInfo
+     *
+     * /preview/creatives/{id}
      *
      * @param  string $id The creative identifier to edit. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write (required)
@@ -2648,6 +2720,8 @@ class CreativeApi
     /**
      * Operation generateCreativePreview
      *
+     * /preview/creatives/{id}/preview
+     *
      * @param  string $id The Creative identifier to preview. (required)
      * @param  int $height The height of the Creative to preview. (optional)
      * @param  int $width The width of the Creative to preview. (optional)
@@ -2665,6 +2739,8 @@ class CreativeApi
 
     /**
      * Operation generateCreativePreviewWithHttpInfo
+     *
+     * /preview/creatives/{id}/preview
      *
      * @param  string $id The Creative identifier to preview. (required)
      * @param  int $height The height of the Creative to preview. (optional)
@@ -2766,6 +2842,8 @@ class CreativeApi
     /**
      * Operation generateCreativePreviewAsync
      *
+     * /preview/creatives/{id}/preview
+     *
      * @param  string $id The Creative identifier to preview. (required)
      * @param  int $height The height of the Creative to preview. (optional)
      * @param  int $width The width of the Creative to preview. (optional)
@@ -2786,6 +2864,8 @@ class CreativeApi
 
     /**
      * Operation generateCreativePreviewAsyncWithHttpInfo
+     *
+     * /preview/creatives/{id}/preview
      *
      * @param  string $id The Creative identifier to preview. (required)
      * @param  int $height The height of the Creative to preview. (optional)
@@ -2961,6 +3041,8 @@ class CreativeApi
     /**
      * Operation getAd
      *
+     * /preview/ads/{id}
+     *
      * @param  string $id The ad identifier to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAd'] to see the possible values for this operation
      *
@@ -2976,6 +3058,8 @@ class CreativeApi
 
     /**
      * Operation getAdWithHttpInfo
+     *
+     * /preview/ads/{id}
      *
      * @param  string $id The ad identifier to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAd'] to see the possible values for this operation
@@ -3075,6 +3159,8 @@ class CreativeApi
     /**
      * Operation getAdAsync
      *
+     * /preview/ads/{id}
+     *
      * @param  string $id The ad identifier to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAd'] to see the possible values for this operation
      *
@@ -3093,6 +3179,8 @@ class CreativeApi
 
     /**
      * Operation getAdAsyncWithHttpInfo
+     *
+     * /preview/ads/{id}
      *
      * @param  string $id The ad identifier to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAd'] to see the possible values for this operation
@@ -3244,6 +3332,8 @@ class CreativeApi
     /**
      * Operation getAdSegmentLink
      *
+     * /preview/marketing-solutions/ads/{ad-id}/audience-segment
+     *
      * @param  string $ad_id The ad identifier. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSegmentLink'] to see the possible values for this operation
      *
@@ -3259,6 +3349,8 @@ class CreativeApi
 
     /**
      * Operation getAdSegmentLinkWithHttpInfo
+     *
+     * /preview/marketing-solutions/ads/{ad-id}/audience-segment
      *
      * @param  string $ad_id The ad identifier. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSegmentLink'] to see the possible values for this operation
@@ -3358,6 +3450,8 @@ class CreativeApi
     /**
      * Operation getAdSegmentLinkAsync
      *
+     * /preview/marketing-solutions/ads/{ad-id}/audience-segment
+     *
      * @param  string $ad_id The ad identifier. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSegmentLink'] to see the possible values for this operation
      *
@@ -3376,6 +3470,8 @@ class CreativeApi
 
     /**
      * Operation getAdSegmentLinkAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/ads/{ad-id}/audience-segment
      *
      * @param  string $ad_id The ad identifier. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSegmentLink'] to see the possible values for this operation
@@ -3527,6 +3623,8 @@ class CreativeApi
     /**
      * Operation getAdvertiserAds
      *
+     * /preview/advertisers/{advertiser-id}/ads
+     *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  int $limit The number of ads to be returned. The default is 50. (optional)
      * @param  int $offset The (zero-based) offset into the collection of ads. The default is 0. (optional)
@@ -3544,6 +3642,8 @@ class CreativeApi
 
     /**
      * Operation getAdvertiserAdsWithHttpInfo
+     *
+     * /preview/advertisers/{advertiser-id}/ads
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  int $limit The number of ads to be returned. The default is 50. (optional)
@@ -3645,6 +3745,8 @@ class CreativeApi
     /**
      * Operation getAdvertiserAdsAsync
      *
+     * /preview/advertisers/{advertiser-id}/ads
+     *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  int $limit The number of ads to be returned. The default is 50. (optional)
      * @param  int $offset The (zero-based) offset into the collection of ads. The default is 0. (optional)
@@ -3665,6 +3767,8 @@ class CreativeApi
 
     /**
      * Operation getAdvertiserAdsAsyncWithHttpInfo
+     *
+     * /preview/advertisers/{advertiser-id}/ads
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  int $limit The number of ads to be returned. The default is 50. (optional)
@@ -3840,6 +3944,8 @@ class CreativeApi
     /**
      * Operation getAdvertiserCoupon
      *
+     * /preview/advertisers/{advertiser-id}/coupons/{id}
+     *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $id The Coupon identifier to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserCoupon'] to see the possible values for this operation
@@ -3856,6 +3962,8 @@ class CreativeApi
 
     /**
      * Operation getAdvertiserCouponWithHttpInfo
+     *
+     * /preview/advertisers/{advertiser-id}/coupons/{id}
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $id The Coupon identifier to retrieve. (required)
@@ -3956,6 +4064,8 @@ class CreativeApi
     /**
      * Operation getAdvertiserCouponAsync
      *
+     * /preview/advertisers/{advertiser-id}/coupons/{id}
+     *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $id The Coupon identifier to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserCoupon'] to see the possible values for this operation
@@ -3975,6 +4085,8 @@ class CreativeApi
 
     /**
      * Operation getAdvertiserCouponAsyncWithHttpInfo
+     *
+     * /preview/advertisers/{advertiser-id}/coupons/{id}
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $id The Coupon identifier to retrieve. (required)
@@ -4143,6 +4255,8 @@ class CreativeApi
     /**
      * Operation getAdvertiserCouponPreview
      *
+     * /preview/advertisers/{advertiser-id}/coupons/{id}/preview
+     *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $id The Coupon identifier to preview. (required)
      * @param  int $height The height of the coupon to preview. (optional)
@@ -4161,6 +4275,8 @@ class CreativeApi
 
     /**
      * Operation getAdvertiserCouponPreviewWithHttpInfo
+     *
+     * /preview/advertisers/{advertiser-id}/coupons/{id}/preview
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $id The Coupon identifier to preview. (required)
@@ -4263,6 +4379,8 @@ class CreativeApi
     /**
      * Operation getAdvertiserCouponPreviewAsync
      *
+     * /preview/advertisers/{advertiser-id}/coupons/{id}/preview
+     *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $id The Coupon identifier to preview. (required)
      * @param  int $height The height of the coupon to preview. (optional)
@@ -4284,6 +4402,8 @@ class CreativeApi
 
     /**
      * Operation getAdvertiserCouponPreviewAsyncWithHttpInfo
+     *
+     * /preview/advertisers/{advertiser-id}/coupons/{id}/preview
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $id The Coupon identifier to preview. (required)
@@ -4476,6 +4596,8 @@ class CreativeApi
     /**
      * Operation getAdvertiserCouponSupportedSizes
      *
+     * /preview/advertisers/{advertiser-id}/coupons-supported-sizes
+     *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $ad_set_id The ad set id on which you want to check the Coupon supported sizes. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserCouponSupportedSizes'] to see the possible values for this operation
@@ -4492,6 +4614,8 @@ class CreativeApi
 
     /**
      * Operation getAdvertiserCouponSupportedSizesWithHttpInfo
+     *
+     * /preview/advertisers/{advertiser-id}/coupons-supported-sizes
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $ad_set_id The ad set id on which you want to check the Coupon supported sizes. (optional)
@@ -4592,6 +4716,8 @@ class CreativeApi
     /**
      * Operation getAdvertiserCouponSupportedSizesAsync
      *
+     * /preview/advertisers/{advertiser-id}/coupons-supported-sizes
+     *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $ad_set_id The ad set id on which you want to check the Coupon supported sizes. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdvertiserCouponSupportedSizes'] to see the possible values for this operation
@@ -4611,6 +4737,8 @@ class CreativeApi
 
     /**
      * Operation getAdvertiserCouponSupportedSizesAsyncWithHttpInfo
+     *
+     * /preview/advertisers/{advertiser-id}/coupons-supported-sizes
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $ad_set_id The ad set id on which you want to check the Coupon supported sizes. (optional)
@@ -4774,6 +4902,8 @@ class CreativeApi
     /**
      * Operation getAdvertiserCoupons
      *
+     * /preview/advertisers/{advertiser-id}/coupons
+     *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  int $limit The number of coupons to be returned. The default is 50. (optional)
      * @param  int $offset The (zero-based) offset into the collection of coupons. The default is 0. (optional)
@@ -4791,6 +4921,8 @@ class CreativeApi
 
     /**
      * Operation getAdvertiserCouponsWithHttpInfo
+     *
+     * /preview/advertisers/{advertiser-id}/coupons
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  int $limit The number of coupons to be returned. The default is 50. (optional)
@@ -4892,6 +5024,8 @@ class CreativeApi
     /**
      * Operation getAdvertiserCouponsAsync
      *
+     * /preview/advertisers/{advertiser-id}/coupons
+     *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  int $limit The number of coupons to be returned. The default is 50. (optional)
      * @param  int $offset The (zero-based) offset into the collection of coupons. The default is 0. (optional)
@@ -4912,6 +5046,8 @@ class CreativeApi
 
     /**
      * Operation getAdvertiserCouponsAsyncWithHttpInfo
+     *
+     * /preview/advertisers/{advertiser-id}/coupons
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  int $limit The number of coupons to be returned. The default is 50. (optional)
@@ -5087,6 +5223,8 @@ class CreativeApi
     /**
      * Operation getAdvertiserCreatives
      *
+     * /preview/advertisers/{advertiser-id}/creatives
+     *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  int $limit The number of creatives to be returned. The default is 50. (optional)
      * @param  int $offset The (zero-based) offset into the collection of creatives. The default is 0. (optional)
@@ -5104,6 +5242,8 @@ class CreativeApi
 
     /**
      * Operation getAdvertiserCreativesWithHttpInfo
+     *
+     * /preview/advertisers/{advertiser-id}/creatives
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  int $limit The number of creatives to be returned. The default is 50. (optional)
@@ -5205,6 +5345,8 @@ class CreativeApi
     /**
      * Operation getAdvertiserCreativesAsync
      *
+     * /preview/advertisers/{advertiser-id}/creatives
+     *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  int $limit The number of creatives to be returned. The default is 50. (optional)
      * @param  int $offset The (zero-based) offset into the collection of creatives. The default is 0. (optional)
@@ -5225,6 +5367,8 @@ class CreativeApi
 
     /**
      * Operation getAdvertiserCreativesAsyncWithHttpInfo
+     *
+     * /preview/advertisers/{advertiser-id}/creatives
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  int $limit The number of creatives to be returned. The default is 50. (optional)
@@ -5400,6 +5544,8 @@ class CreativeApi
     /**
      * Operation getCreative
      *
+     * /preview/creatives/{id}
+     *
      * @param  string $id The creative identifier to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreative'] to see the possible values for this operation
      *
@@ -5415,6 +5561,8 @@ class CreativeApi
 
     /**
      * Operation getCreativeWithHttpInfo
+     *
+     * /preview/creatives/{id}
      *
      * @param  string $id The creative identifier to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreative'] to see the possible values for this operation
@@ -5514,6 +5662,8 @@ class CreativeApi
     /**
      * Operation getCreativeAsync
      *
+     * /preview/creatives/{id}
+     *
      * @param  string $id The creative identifier to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreative'] to see the possible values for this operation
      *
@@ -5532,6 +5682,8 @@ class CreativeApi
 
     /**
      * Operation getCreativeAsyncWithHttpInfo
+     *
+     * /preview/creatives/{id}
      *
      * @param  string $id The creative identifier to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreative'] to see the possible values for this operation
@@ -5683,6 +5835,8 @@ class CreativeApi
     /**
      * Operation linkAdSegment
      *
+     * /preview/marketing-solutions/ads/{ad-id}/audience-segment
+     *
      * @param  string $ad_id The ad identifier. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ExamAdAudienceSegmentLinkInput $exam_ad_audience_segment_link_input The audience segment link information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['linkAdSegment'] to see the possible values for this operation
@@ -5699,6 +5853,8 @@ class CreativeApi
 
     /**
      * Operation linkAdSegmentWithHttpInfo
+     *
+     * /preview/marketing-solutions/ads/{ad-id}/audience-segment
      *
      * @param  string $ad_id The ad identifier. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ExamAdAudienceSegmentLinkInput $exam_ad_audience_segment_link_input The audience segment link information. (required)
@@ -5799,6 +5955,8 @@ class CreativeApi
     /**
      * Operation linkAdSegmentAsync
      *
+     * /preview/marketing-solutions/ads/{ad-id}/audience-segment
+     *
      * @param  string $ad_id The ad identifier. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ExamAdAudienceSegmentLinkInput $exam_ad_audience_segment_link_input The audience segment link information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['linkAdSegment'] to see the possible values for this operation
@@ -5818,6 +5976,8 @@ class CreativeApi
 
     /**
      * Operation linkAdSegmentAsyncWithHttpInfo
+     *
+     * /preview/marketing-solutions/ads/{ad-id}/audience-segment
      *
      * @param  string $ad_id The ad identifier. (required)
      * @param  \criteo\api\marketingsolutions\preview\Model\ExamAdAudienceSegmentLinkInput $exam_ad_audience_segment_link_input The audience segment link information. (required)

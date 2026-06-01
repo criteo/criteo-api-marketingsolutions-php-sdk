@@ -131,6 +131,8 @@ class AdvertiserApi
     /**
      * Operation listAdvertisers
      *
+     * /preview/advertisers/me
+     *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAdvertisers'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -145,6 +147,8 @@ class AdvertiserApi
 
     /**
      * Operation listAdvertisersWithHttpInfo
+     *
+     * /preview/advertisers/me
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAdvertisers'] to see the possible values for this operation
      *
@@ -243,6 +247,8 @@ class AdvertiserApi
     /**
      * Operation listAdvertisersAsync
      *
+     * /preview/advertisers/me
+     *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAdvertisers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -260,6 +266,8 @@ class AdvertiserApi
 
     /**
      * Operation listAdvertisersAsyncWithHttpInfo
+     *
+     * /preview/advertisers/me
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAdvertisers'] to see the possible values for this operation
      *
@@ -394,6 +402,8 @@ class AdvertiserApi
     /**
      * Operation listDatasetsByAdvertiser
      *
+     * /preview/advertisers/{advertiser-id}/datasets
+     *
      * @param  string $advertiser_id The id of the Advertiser for which Datasets are being retrieved. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDatasetsByAdvertiser'] to see the possible values for this operation
      *
@@ -409,6 +419,8 @@ class AdvertiserApi
 
     /**
      * Operation listDatasetsByAdvertiserWithHttpInfo
+     *
+     * /preview/advertisers/{advertiser-id}/datasets
      *
      * @param  string $advertiser_id The id of the Advertiser for which Datasets are being retrieved. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDatasetsByAdvertiser'] to see the possible values for this operation
@@ -508,6 +520,8 @@ class AdvertiserApi
     /**
      * Operation listDatasetsByAdvertiserAsync
      *
+     * /preview/advertisers/{advertiser-id}/datasets
+     *
      * @param  string $advertiser_id The id of the Advertiser for which Datasets are being retrieved. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDatasetsByAdvertiser'] to see the possible values for this operation
      *
@@ -526,6 +540,8 @@ class AdvertiserApi
 
     /**
      * Operation listDatasetsByAdvertiserAsyncWithHttpInfo
+     *
+     * /preview/advertisers/{advertiser-id}/datasets
      *
      * @param  string $advertiser_id The id of the Advertiser for which Datasets are being retrieved. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDatasetsByAdvertiser'] to see the possible values for this operation
@@ -677,6 +693,8 @@ class AdvertiserApi
     /**
      * Operation listIndustries
      *
+     * /preview/industries
+     *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listIndustries'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -691,6 +709,8 @@ class AdvertiserApi
 
     /**
      * Operation listIndustriesWithHttpInfo
+     *
+     * /preview/industries
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listIndustries'] to see the possible values for this operation
      *
@@ -789,6 +809,8 @@ class AdvertiserApi
     /**
      * Operation listIndustriesAsync
      *
+     * /preview/industries
+     *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listIndustries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -806,6 +828,8 @@ class AdvertiserApi
 
     /**
      * Operation listIndustriesAsyncWithHttpInfo
+     *
+     * /preview/industries
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listIndustries'] to see the possible values for this operation
      *

@@ -4,24 +4,24 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**computeAudienceSegmentsSizes()**](AudienceApi.md#computeAudienceSegmentsSizes) | **POST** /preview/marketing-solutions/audience-segments/compute-sizes |  |
-| [**computeAudiencesSizes()**](AudienceApi.md#computeAudiencesSizes) | **POST** /preview/marketing-solutions/audiences/compute-sizes |  |
-| [**createAudienceSegments()**](AudienceApi.md#createAudienceSegments) | **POST** /preview/marketing-solutions/audience-segments/create |  |
-| [**createAudiences()**](AudienceApi.md#createAudiences) | **POST** /preview/marketing-solutions/audiences/create |  |
-| [**deleteAudienceSegments()**](AudienceApi.md#deleteAudienceSegments) | **POST** /preview/marketing-solutions/audience-segments/delete |  |
-| [**deleteAudiences()**](AudienceApi.md#deleteAudiences) | **POST** /preview/marketing-solutions/audiences/delete |  |
-| [**deleteContactListByAudienceSegment()**](AudienceApi.md#deleteContactListByAudienceSegment) | **DELETE** /preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list |  |
-| [**estimateAudienceSegmentsSizes()**](AudienceApi.md#estimateAudienceSegmentsSizes) | **POST** /preview/marketing-solutions/audience-segments/estimate-size |  |
-| [**estimateAudiencesSizes()**](AudienceApi.md#estimateAudiencesSizes) | **POST** /preview/marketing-solutions/audiences/estimate-size |  |
-| [**getAudienceSegmentContactListStatistics()**](AudienceApi.md#getAudienceSegmentContactListStatistics) | **GET** /preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list/statistics |  |
-| [**getAudienceSegmentsInMarketBrands()**](AudienceApi.md#getAudienceSegmentsInMarketBrands) | **GET** /preview/marketing-solutions/audience-segments/in-market-brands |  |
-| [**getAudienceSegmentsInMarketInterests()**](AudienceApi.md#getAudienceSegmentsInMarketInterests) | **GET** /preview/marketing-solutions/audience-segments/in-market-interests |  |
-| [**modifyAudienceUsersWithAttributes()**](AudienceApi.md#modifyAudienceUsersWithAttributes) | **PATCH** /preview/marketing-solutions/audiences/{audience-id}/contactlist-attributes |  |
-| [**searchAudienceSegments()**](AudienceApi.md#searchAudienceSegments) | **POST** /preview/marketing-solutions/audience-segments/search |  |
-| [**searchAudiences()**](AudienceApi.md#searchAudiences) | **POST** /preview/marketing-solutions/audiences/search |  |
-| [**updateAudienceSegments()**](AudienceApi.md#updateAudienceSegments) | **PATCH** /preview/marketing-solutions/audience-segments |  |
-| [**updateAudiences()**](AudienceApi.md#updateAudiences) | **PATCH** /preview/marketing-solutions/audiences |  |
-| [**updateContactListByAudienceSegment()**](AudienceApi.md#updateContactListByAudienceSegment) | **PATCH** /preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list |  |
+| [**computeAudienceSegmentsSizes()**](AudienceApi.md#computeAudienceSegmentsSizes) | **POST** /preview/marketing-solutions/audience-segments/compute-sizes | /preview/marketing-solutions/audience-segments/compute-sizes |
+| [**computeAudiencesSizes()**](AudienceApi.md#computeAudiencesSizes) | **POST** /preview/marketing-solutions/audiences/compute-sizes | /preview/marketing-solutions/audiences/compute-sizes |
+| [**createAudienceSegments()**](AudienceApi.md#createAudienceSegments) | **POST** /preview/marketing-solutions/audience-segments/create | /preview/marketing-solutions/audience-segments/create |
+| [**createAudiences()**](AudienceApi.md#createAudiences) | **POST** /preview/marketing-solutions/audiences/create | /preview/marketing-solutions/audiences/create |
+| [**deleteAudienceSegments()**](AudienceApi.md#deleteAudienceSegments) | **POST** /preview/marketing-solutions/audience-segments/delete | /preview/marketing-solutions/audience-segments/delete |
+| [**deleteAudiences()**](AudienceApi.md#deleteAudiences) | **POST** /preview/marketing-solutions/audiences/delete | /preview/marketing-solutions/audiences/delete |
+| [**deleteContactListByAudienceSegment()**](AudienceApi.md#deleteContactListByAudienceSegment) | **DELETE** /preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list | /preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list |
+| [**estimateAudienceSegmentsSizes()**](AudienceApi.md#estimateAudienceSegmentsSizes) | **POST** /preview/marketing-solutions/audience-segments/estimate-size | /preview/marketing-solutions/audience-segments/estimate-size |
+| [**estimateAudiencesSizes()**](AudienceApi.md#estimateAudiencesSizes) | **POST** /preview/marketing-solutions/audiences/estimate-size | /preview/marketing-solutions/audiences/estimate-size |
+| [**getAudienceSegmentContactListStatistics()**](AudienceApi.md#getAudienceSegmentContactListStatistics) | **GET** /preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list/statistics | /preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list/statistics |
+| [**getAudienceSegmentsInMarketBrands()**](AudienceApi.md#getAudienceSegmentsInMarketBrands) | **GET** /preview/marketing-solutions/audience-segments/in-market-brands | /preview/marketing-solutions/audience-segments/in-market-brands |
+| [**getAudienceSegmentsInMarketInterests()**](AudienceApi.md#getAudienceSegmentsInMarketInterests) | **GET** /preview/marketing-solutions/audience-segments/in-market-interests | /preview/marketing-solutions/audience-segments/in-market-interests |
+| [**modifyAudienceUsersWithAttributes()**](AudienceApi.md#modifyAudienceUsersWithAttributes) | **PATCH** /preview/marketing-solutions/audiences/{audience-id}/contactlist-attributes | /preview/marketing-solutions/audiences/{audience-id}/contactlist-attributes |
+| [**searchAudienceSegments()**](AudienceApi.md#searchAudienceSegments) | **POST** /preview/marketing-solutions/audience-segments/search | /preview/marketing-solutions/audience-segments/search |
+| [**searchAudiences()**](AudienceApi.md#searchAudiences) | **POST** /preview/marketing-solutions/audiences/search | /preview/marketing-solutions/audiences/search |
+| [**updateAudienceSegments()**](AudienceApi.md#updateAudienceSegments) | **PATCH** /preview/marketing-solutions/audience-segments | /preview/marketing-solutions/audience-segments |
+| [**updateAudiences()**](AudienceApi.md#updateAudiences) | **PATCH** /preview/marketing-solutions/audiences | /preview/marketing-solutions/audiences |
+| [**updateContactListByAudienceSegment()**](AudienceApi.md#updateContactListByAudienceSegment) | **PATCH** /preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list | /preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list |
 
 
 ## `computeAudienceSegmentsSizes()`
@@ -30,7 +30,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 computeAudienceSegmentsSizes($audience_segment_compute_sizes_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceSegmentSizeEntityV1ListResponse
 ```
 
-
+/preview/marketing-solutions/audience-segments/compute-sizes
 
 Gets the size of all segments. An error is returned for those whose size calculation is not supported.
 
@@ -93,7 +93,7 @@ try {
 computeAudiencesSizes($audience_compute_sizes_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceSizeEntityV1ListResponse
 ```
 
-
+/preview/marketing-solutions/audiences/compute-sizes
 
 Gets the size of all audiences. An error is returned for those whose size calculation is not supported.
 
@@ -156,7 +156,7 @@ try {
 createAudienceSegments($audience_segment_bulk_create_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse
 ```
 
-
+/preview/marketing-solutions/audience-segments/create
 
 Creates all segments with a valid configuration, and returns their IDs. For those that cannot be created, one or multiple errors are returned.
 
@@ -219,7 +219,7 @@ try {
 createAudiences($audience_bulk_create_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse
 ```
 
-
+/preview/marketing-solutions/audiences/create
 
 Creates all audiences with a valid configuration, and returns their IDs. For those that cannot be created, one or multiple errors are returned.
 
@@ -282,7 +282,7 @@ try {
 deleteAudienceSegments($audience_segment_bulk_delete_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceSegmentIdEntityV1ListResponse
 ```
 
-
+/preview/marketing-solutions/audience-segments/delete
 
 Delete the segments associated to the given audience IDs.
 
@@ -345,7 +345,7 @@ try {
 deleteAudiences($audience_bulk_delete_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceIdEntityV1ListResponse
 ```
 
-
+/preview/marketing-solutions/audiences/delete
 
 Deletes the audiences associated to the given audience IDs.
 
@@ -408,7 +408,7 @@ try {
 deleteContactListByAudienceSegment($audience_segment_id): \criteo\api\marketingsolutions\preview\Model\DeleteAudienceContactListResponse
 ```
 
-
+/preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list
 
 Delete all identifiers from a contact list audience-segment.
 
@@ -471,7 +471,7 @@ try {
 estimateAudienceSegmentsSizes($audience_segment_estimate_size_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceSegmentSizeEstimationV1Response
 ```
 
-
+/preview/marketing-solutions/audience-segments/estimate-size
 
 Gets the size estimation of a non existent segment. An error is returned when size calculation is not supported.
 
@@ -534,7 +534,7 @@ try {
 estimateAudiencesSizes($audience_estimate_size_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceSizeEstimationV1Response
 ```
 
-
+/preview/marketing-solutions/audiences/estimate-size
 
 Gets the size estimation of a non existent audience. An error is returned when size calculation is not supported.
 
@@ -597,7 +597,7 @@ try {
 getAudienceSegmentContactListStatistics($audience_segment_id): \criteo\api\marketingsolutions\preview\Model\ContactListStatisticsEntityV1Response
 ```
 
-
+/preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list/statistics
 
 Returns the statistics of a contact list segment.
 
@@ -660,7 +660,7 @@ try {
 getAudienceSegmentsInMarketBrands($advertiser_id, $country): \criteo\api\marketingsolutions\preview\Model\InMarketAudienceSegmentBrandEntityV1ListResponse
 ```
 
-
+/preview/marketing-solutions/audience-segments/in-market-brands
 
 Returns a list with all available in-market brands that can be used to define an in-market segment.
 
@@ -725,7 +725,7 @@ try {
 getAudienceSegmentsInMarketInterests($advertiser_id, $country): \criteo\api\marketingsolutions\preview\Model\InMarketAudienceSegmentInterestEntityV1ListResponse
 ```
 
-
+/preview/marketing-solutions/audience-segments/in-market-interests
 
 Returns a list with all available in-market interests that can be used to define an in-market segment. These in-market interests correspond to the Google product taxonomy.
 
@@ -790,7 +790,7 @@ try {
 modifyAudienceUsersWithAttributes($audience_id, $contactlist_with_attributes_amendment_request): \criteo\api\marketingsolutions\preview\Model\ModifyAudienceResponse
 ```
 
-
+/preview/marketing-solutions/audiences/{audience-id}/contactlist-attributes
 
 Add/remove identifiers to or from a contact list.
 
@@ -855,7 +855,7 @@ try {
 searchAudienceSegments($audience_segment_search_input_v1, $limit, $offset): \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1AudienceSegmentSearchMetadataV1ListResponse
 ```
 
-
+/preview/marketing-solutions/audience-segments/search
 
 Returns a list of segments that match the provided filters. If present, the filters are AND'ed together when applied.
 
@@ -922,7 +922,7 @@ try {
 searchAudiences($audience_search_input_v1, $limit, $offset): \criteo\api\marketingsolutions\preview\Model\AudienceEntityV1AudienceSearchMetadataV1ListResponse
 ```
 
-
+/preview/marketing-solutions/audiences/search
 
 Returns a list of audiences that match the provided filters. If present, the filters are AND'ed together when applied.
 
@@ -989,7 +989,7 @@ try {
 updateAudienceSegments($audience_segment_bulk_update_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceSegmentEntityV1ListResponse
 ```
 
-
+/preview/marketing-solutions/audience-segments
 
 Updates the properties of all segments with a valid configuration, and returns their IDs. For those that cannot be updated, one or multiple errors are returned.
 
@@ -1052,7 +1052,7 @@ try {
 updateAudiences($audience_bulk_update_input_v1): \criteo\api\marketingsolutions\preview\Model\AudienceEntityV1ListResponse
 ```
 
-
+/preview/marketing-solutions/audiences
 
 Updates the properties of all audiences with a valid configuration, and returns their IDs. For those that cannot be updated, one or multiple errors are returned.
 
@@ -1115,7 +1115,7 @@ try {
 updateContactListByAudienceSegment($audience_segment_id, $contactlist_amendment_request): \criteo\api\marketingsolutions\preview\Model\ModifyAudienceResponse
 ```
 
-
+/preview/marketing-solutions/audience-segments/{audience-segment-id}/contact-list
 
 Add/remove identifiers to or from a contact list audience-segment.
 
