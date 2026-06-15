@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **click_url** | **string** | Url leading to product details page and also used to track user click | [optional]
 **description** | **string** | Product description. | [optional]
 **google_category** | **string** | Product google category. | [optional]
+**has_variants** | **bool** | Whether the product has variants available. | [optional]
 **image_url** | **string** | Product image. | [optional]
 **name** | **string** | Product name | [optional]
 **price** | **float** | Product price. | [optional]

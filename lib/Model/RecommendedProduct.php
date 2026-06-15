@@ -63,6 +63,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         'click_url' => 'string',
         'description' => 'string',
         'google_category' => 'string',
+        'has_variants' => 'bool',
         'image_url' => 'string',
         'name' => 'string',
         'price' => 'float',
@@ -85,6 +86,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         'click_url' => null,
         'description' => null,
         'google_category' => null,
+        'has_variants' => null,
         'image_url' => null,
         'name' => null,
         'price' => 'double',
@@ -105,6 +107,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
 		'click_url' => true,
 		'description' => true,
 		'google_category' => true,
+		'has_variants' => true,
 		'image_url' => true,
 		'name' => true,
 		'price' => true,
@@ -205,6 +208,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         'click_url' => 'clickUrl',
         'description' => 'description',
         'google_category' => 'googleCategory',
+        'has_variants' => 'hasVariants',
         'image_url' => 'imageUrl',
         'name' => 'name',
         'price' => 'price',
@@ -225,6 +229,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         'click_url' => 'setClickUrl',
         'description' => 'setDescription',
         'google_category' => 'setGoogleCategory',
+        'has_variants' => 'setHasVariants',
         'image_url' => 'setImageUrl',
         'name' => 'setName',
         'price' => 'setPrice',
@@ -245,6 +250,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         'click_url' => 'getClickUrl',
         'description' => 'getDescription',
         'google_category' => 'getGoogleCategory',
+        'has_variants' => 'getHasVariants',
         'image_url' => 'getImageUrl',
         'name' => 'getName',
         'price' => 'getPrice',
@@ -331,6 +337,7 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('click_url', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('google_category', $data ?? [], null);
+        $this->setIfExists('has_variants', $data ?? [], null);
         $this->setIfExists('image_url', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('price', $data ?? [], null);
@@ -557,6 +564,40 @@ class RecommendedProduct implements ModelInterface, ArrayAccess, \JsonSerializab
             }
         }
         $this->container['google_category'] = $google_category;
+
+        return $this;
+    }
+
+    /**
+     * Gets has_variants
+     *
+     * @return bool|null
+     */
+    public function getHasVariants()
+    {
+        return $this->container['has_variants'];
+    }
+
+    /**
+     * Sets has_variants
+     *
+     * @param bool|null $has_variants Whether the product has variants available.
+     *
+     * @return self
+     */
+    public function setHasVariants($has_variants)
+    {
+        if (is_null($has_variants)) {
+            array_push($this->openAPINullablesSetToNull, 'has_variants');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('has_variants', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['has_variants'] = $has_variants;
 
         return $this;
     }

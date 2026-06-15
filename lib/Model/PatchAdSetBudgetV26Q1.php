@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * PatchAdSetBudgetV26Q1 Class Doc Comment
  *
  * @category Class
- * @description Budget patch model for an ad set. Only provided fields are updated; omitted fields are left unchanged.  Switching to \&quot;uncapped\&quot;: set budgetStrategy to \&quot;uncapped\&quot; and budgetAmount.value to null. Other budget fields (budgetRenewal, budgetDeliverySmoothing, budgetDeliveryWeek) are automatically cleared.  Switching to \&quot;capped\&quot;: set budgetStrategy to \&quot;capped\&quot;, budgetAmount.value to a positive number, budgetRenewal to a period, and budgetDeliverySmoothing to a pacing strategy.  Manual budget updates are not supported when the linked marketing campaign has budget automation enabled.
+ * @description Budget patch model for an ad set. Only provided fields are updated; omitted fields are left unchanged.  Switching to \&quot;uncapped\&quot;: set budgetStrategy to \&quot;uncapped\&quot; and budgetAmount.value to null. Other budget fields (budgetRenewal, budgetDeliverySmoothing, budgetDeliveryWeek, and pacingBehavior) are automatically cleared.  Switching to \&quot;capped\&quot;: set budgetStrategy to \&quot;capped\&quot;, budgetAmount.value to a positive number, budgetRenewal to a period, and budgetDeliverySmoothing to a pacing strategy.  pacingBehavior can only be set for capped budgets using standard delivery smoothing; \&quot;targetAverageDailyBudget\&quot; also requires monthly renewal.  Manual budget updates are not supported when the linked marketing campaign has budget automation enabled.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -62,7 +62,8 @@ class PatchAdSetBudgetV26Q1 implements ModelInterface, ArrayAccess, \JsonSeriali
         'budget_delivery_smoothing' => 'string',
         'budget_delivery_week' => 'string',
         'budget_renewal' => 'string',
-        'budget_strategy' => 'string'
+        'budget_strategy' => 'string',
+        'pacing_behavior' => 'string'
     ];
 
     /**
@@ -77,7 +78,8 @@ class PatchAdSetBudgetV26Q1 implements ModelInterface, ArrayAccess, \JsonSeriali
         'budget_delivery_smoothing' => null,
         'budget_delivery_week' => null,
         'budget_renewal' => null,
-        'budget_strategy' => null
+        'budget_strategy' => null,
+        'pacing_behavior' => null
     ];
 
     /**
@@ -90,7 +92,8 @@ class PatchAdSetBudgetV26Q1 implements ModelInterface, ArrayAccess, \JsonSeriali
 		'budget_delivery_smoothing' => true,
 		'budget_delivery_week' => true,
 		'budget_renewal' => true,
-		'budget_strategy' => true
+		'budget_strategy' => true,
+		'pacing_behavior' => true
     ];
 
     /**
@@ -183,7 +186,8 @@ class PatchAdSetBudgetV26Q1 implements ModelInterface, ArrayAccess, \JsonSeriali
         'budget_delivery_smoothing' => 'budgetDeliverySmoothing',
         'budget_delivery_week' => 'budgetDeliveryWeek',
         'budget_renewal' => 'budgetRenewal',
-        'budget_strategy' => 'budgetStrategy'
+        'budget_strategy' => 'budgetStrategy',
+        'pacing_behavior' => 'pacingBehavior'
     ];
 
     /**
@@ -196,7 +200,8 @@ class PatchAdSetBudgetV26Q1 implements ModelInterface, ArrayAccess, \JsonSeriali
         'budget_delivery_smoothing' => 'setBudgetDeliverySmoothing',
         'budget_delivery_week' => 'setBudgetDeliveryWeek',
         'budget_renewal' => 'setBudgetRenewal',
-        'budget_strategy' => 'setBudgetStrategy'
+        'budget_strategy' => 'setBudgetStrategy',
+        'pacing_behavior' => 'setPacingBehavior'
     ];
 
     /**
@@ -209,7 +214,8 @@ class PatchAdSetBudgetV26Q1 implements ModelInterface, ArrayAccess, \JsonSeriali
         'budget_delivery_smoothing' => 'getBudgetDeliverySmoothing',
         'budget_delivery_week' => 'getBudgetDeliveryWeek',
         'budget_renewal' => 'getBudgetRenewal',
-        'budget_strategy' => 'getBudgetStrategy'
+        'budget_strategy' => 'getBudgetStrategy',
+        'pacing_behavior' => 'getPacingBehavior'
     ];
 
     /**
@@ -270,6 +276,9 @@ class PatchAdSetBudgetV26Q1 implements ModelInterface, ArrayAccess, \JsonSeriali
     public const BUDGET_RENEWAL_WEEKLY = 'weekly';
     public const BUDGET_STRATEGY_CAPPED = 'capped';
     public const BUDGET_STRATEGY_UNCAPPED = 'uncapped';
+    public const PACING_BEHAVIOR_UNDEFINED = 'undefined';
+    public const PACING_BEHAVIOR_TARGET_FULL_BUDGET = 'targetFullBudget';
+    public const PACING_BEHAVIOR_TARGET_AVERAGE_DAILY_BUDGET = 'targetAverageDailyBudget';
 
     /**
      * Gets allowable values of the enum
@@ -333,6 +342,20 @@ class PatchAdSetBudgetV26Q1 implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPacingBehaviorAllowableValues()
+    {
+        return [
+            self::PACING_BEHAVIOR_UNDEFINED,
+            self::PACING_BEHAVIOR_TARGET_FULL_BUDGET,
+            self::PACING_BEHAVIOR_TARGET_AVERAGE_DAILY_BUDGET,
+        ];
+    }
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -352,6 +375,7 @@ class PatchAdSetBudgetV26Q1 implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('budget_delivery_week', $data ?? [], null);
         $this->setIfExists('budget_renewal', $data ?? [], null);
         $this->setIfExists('budget_strategy', $data ?? [], null);
+        $this->setIfExists('pacing_behavior', $data ?? [], null);
     }
 
     /**
@@ -413,6 +437,15 @@ class PatchAdSetBudgetV26Q1 implements ModelInterface, ArrayAccess, \JsonSeriali
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'budget_strategy', must be one of '%s'",
                 $this->container['budget_strategy'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getPacingBehaviorAllowableValues();
+        if (!is_null($this->container['pacing_behavior']) && !in_array($this->container['pacing_behavior'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'pacing_behavior', must be one of '%s'",
+                $this->container['pacing_behavior'],
                 implode("', '", $allowedValues)
             );
         }
@@ -638,6 +671,50 @@ class PatchAdSetBudgetV26Q1 implements ModelInterface, ArrayAccess, \JsonSeriali
             );
         }
         $this->container['budget_strategy'] = $budget_strategy;
+
+        return $this;
+    }
+
+    /**
+     * Gets pacing_behavior
+     *
+     * @return string|null
+     */
+    public function getPacingBehavior()
+    {
+        return $this->container['pacing_behavior'];
+    }
+
+    /**
+     * Sets pacing_behavior
+     *
+     * @param string|null $pacing_behavior Controls how a standard capped budget is paced.  - \"targetFullBudget\": spend toward the full budget amount within the renewal period.  - \"targetAverageDailyBudget\": spend toward an average daily amount. Only supported for capped, standard, monthly budgets.  - \"undefined\": no explicit pacing behavior. Required for uncapped budgets and accelerated budgets.
+     *
+     * @return self
+     */
+    public function setPacingBehavior($pacing_behavior)
+    {
+        if (is_null($pacing_behavior)) {
+            array_push($this->openAPINullablesSetToNull, 'pacing_behavior');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('pacing_behavior', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getPacingBehaviorAllowableValues();
+        if (!is_null($pacing_behavior) && !in_array($pacing_behavior, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'pacing_behavior', must be one of '%s'",
+                    $pacing_behavior,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['pacing_behavior'] = $pacing_behavior;
 
         return $this;
     }

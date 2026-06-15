@@ -2781,7 +2781,7 @@ class AnalyticsApi
      *
      * /preview/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/{reportId}
      *
-     * @param  string $report_id report_id (required)
+     * @param  string $report_id Unique ID (UUID) of the report to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRealtimeProduct'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -2799,7 +2799,7 @@ class AnalyticsApi
      *
      * /preview/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/{reportId}
      *
-     * @param  string $report_id (required)
+     * @param  string $report_id Unique ID (UUID) of the report to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRealtimeProduct'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -2899,7 +2899,7 @@ class AnalyticsApi
      *
      * /preview/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/{reportId}
      *
-     * @param  string $report_id (required)
+     * @param  string $report_id Unique ID (UUID) of the report to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRealtimeProduct'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2920,7 +2920,7 @@ class AnalyticsApi
      *
      * /preview/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/{reportId}
      *
-     * @param  string $report_id (required)
+     * @param  string $report_id Unique ID (UUID) of the report to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRealtimeProduct'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2970,7 +2970,7 @@ class AnalyticsApi
     /**
      * Create request for operation 'getRealtimeProduct'
      *
-     * @param  string $report_id (required)
+     * @param  string $report_id Unique ID (UUID) of the report to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRealtimeProduct'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3072,7 +3072,7 @@ class AnalyticsApi
      *
      * /preview/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId}
      *
-     * @param  string $report_id report_id (required)
+     * @param  string $report_id Unique ID (UUID) of the report job. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRealtimeProductJob'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -3090,7 +3090,7 @@ class AnalyticsApi
      *
      * /preview/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId}
      *
-     * @param  string $report_id (required)
+     * @param  string $report_id Unique ID (UUID) of the report job. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRealtimeProductJob'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -3190,7 +3190,7 @@ class AnalyticsApi
      *
      * /preview/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId}
      *
-     * @param  string $report_id (required)
+     * @param  string $report_id Unique ID (UUID) of the report job. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRealtimeProductJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3211,7 +3211,7 @@ class AnalyticsApi
      *
      * /preview/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId}
      *
-     * @param  string $report_id (required)
+     * @param  string $report_id Unique ID (UUID) of the report job. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRealtimeProductJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3261,7 +3261,7 @@ class AnalyticsApi
     /**
      * Create request for operation 'getRealtimeProductJob'
      *
-     * @param  string $report_id (required)
+     * @param  string $report_id Unique ID (UUID) of the report job. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRealtimeProductJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

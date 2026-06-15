@@ -29,7 +29,7 @@ createRealtimeProductReport($real_time_product_report_job_request): \criteo\api\
 
 /preview/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/export
 
-This endpoint is subject to specific rate limits.
+This endpoint is subject to specific rate limits.  <br />  This endpoint is subject to specific rate limits.
 
 ### Example
 
@@ -596,7 +596,7 @@ getRealtimeProduct($report_id): \criteo\api\marketingsolutions\preview\Model\Fil
 
 /preview/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/{reportId}
 
-This endpoint is subject to specific rate limits.
+This endpoint is subject to specific rate limits.  <br />  This endpoint is subject to specific rate limits.
 
 ### Example
 
@@ -618,7 +618,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$report_id = 'report_id_example'; // string
+$report_id = 'report_id_example'; // string | Unique ID (UUID) of the report to retrieve.
 
 try {
     $result = $apiInstance->getRealtimeProduct($report_id);
@@ -632,7 +632,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **report_id** | **string**|  | |
+| **report_id** | **string**| Unique ID (UUID) of the report to retrieve. | |
 
 ### Return type
 
@@ -659,6 +659,8 @@ getRealtimeProductJob($report_id): \criteo\api\marketingsolutions\preview\Model\
 
 /preview/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId}
 
+This endpoint is subject to specific rate limits.
+
 ### Example
 
 ```php
@@ -679,7 +681,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$report_id = 'report_id_example'; // string
+$report_id = 'report_id_example'; // string | Unique ID (UUID) of the report job.
 
 try {
     $result = $apiInstance->getRealtimeProductJob($report_id);
@@ -693,7 +695,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **report_id** | **string**|  | |
+| **report_id** | **string**| Unique ID (UUID) of the report job. | |
 
 ### Return type
 
