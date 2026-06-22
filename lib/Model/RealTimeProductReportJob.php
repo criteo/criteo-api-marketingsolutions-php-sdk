@@ -300,6 +300,7 @@ class RealTimeProductReportJob implements ModelInterface, ArrayAccess, \JsonSeri
     public const DIMENSIONS_CAMPAIGN_ID = 'CampaignId';
     public const DIMENSIONS_SELLER_ID = 'SellerId';
     public const DIMENSIONS_PRODUCT_ID = 'ProductId';
+    public const DIMENSIONS_SELLER_NAME = 'SellerName';
     public const DIMENSIONS_YEAR = 'Year';
     public const DIMENSIONS_MONTH = 'Month';
     public const DIMENSIONS_WEEK = 'Week';
@@ -325,6 +326,7 @@ class RealTimeProductReportJob implements ModelInterface, ArrayAccess, \JsonSeri
             self::DIMENSIONS_CAMPAIGN_ID,
             self::DIMENSIONS_SELLER_ID,
             self::DIMENSIONS_PRODUCT_ID,
+            self::DIMENSIONS_SELLER_NAME,
             self::DIMENSIONS_YEAR,
             self::DIMENSIONS_MONTH,
             self::DIMENSIONS_WEEK,
@@ -522,7 +524,7 @@ class RealTimeProductReportJob implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency for the export. Default is \"EUR\".
+     * @param string|null $currency Currency for the export. Default is _local currency_.
      *
      * @return self
      */
@@ -599,7 +601,7 @@ class RealTimeProductReportJob implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets end_date
      *
-     * @param \DateTime|null $end_date End of the reporting interval, in ISOâ€‘8601 dateâ€‘time format (UTC). Mutually exclusive with lookbackWindow.  If omitted while startDate is provided, defaults to the current time.
+     * @param \DateTime|null $end_date End of the reporting interval, in ISO‑8601 date‑time format (UTC). Mutually exclusive with lookbackWindow.  If omitted while startDate is provided, defaults to the current time.
      *
      * @return self
      */
@@ -670,7 +672,7 @@ class RealTimeProductReportJob implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets lookback_window
      *
-     * @param int|null $lookback_window Lookback window in days. Default is 60.
+     * @param int|null $lookback_window Lookback window in minutes. Default is 60.
      *
      * @return self
      */
@@ -815,7 +817,7 @@ class RealTimeProductReportJob implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets start_date
      *
-     * @param \DateTime|null $start_date Start of the reporting interval, in ISOâ€‘8601 dateâ€‘time format (UTC). Mutually exclusive with lookbackWindow.
+     * @param \DateTime|null $start_date Start of the reporting interval, in ISO‑8601 date‑time format (UTC). Mutually exclusive with lookbackWindow.
      *
      * @return self
      */

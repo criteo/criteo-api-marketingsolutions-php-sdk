@@ -193,6 +193,9 @@ docs/Model/ExportColumn.md
 docs/Model/ExportMetaData.md
 docs/Model/ExportResult.md
 docs/Model/ExportResultData.md
+docs/Model/ExportStatusModel.md
+docs/Model/ExportStatusModelResource.md
+docs/Model/ExportStatusModelResponse.md
 docs/Model/FileStreamResultResource.md
 docs/Model/FileStreamResultResponse.md
 docs/Model/GenerateAudiencePerformanceReport.md
@@ -602,6 +605,9 @@ lib/Model/ExportColumn.php
 lib/Model/ExportMetaData.php
 lib/Model/ExportResult.php
 lib/Model/ExportResultData.php
+lib/Model/ExportStatusModel.php
+lib/Model/ExportStatusModelResource.php
+lib/Model/ExportStatusModelResponse.php
 lib/Model/FileStreamResultResource.php
 lib/Model/FileStreamResultResponse.php
 lib/Model/GenerateAudiencePerformanceReport.php

@@ -13,6 +13,6 @@ Name | Type | Description | Notes
 **metrics** | **string[]** | The list of metrics to report. |
 **segments_ids** | **string[]** | The list of Segments ids. If empty, all the segments will be fetched. | [optional]
 **start_date** | **\DateTime** | Start date of the report. Date component of ISO 8061 format, any time or timezone component is ignored. |
-**timezone** | **string** | The timezone used for the report. Timezone Database format (Tz). | [optional]
+**timezone** | **string** | Optional timezone used for the report. Timezone Database format (Tz). | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

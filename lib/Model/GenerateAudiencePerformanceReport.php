@@ -728,7 +728,7 @@ class GenerateAudiencePerformanceReport implements ModelInterface, ArrayAccess, 
     /**
      * Sets timezone
      *
-     * @param string|null $timezone The timezone used for the report. Timezone Database format (Tz).
+     * @param string|null $timezone Optional timezone used for the report. Timezone Database format (Tz).
      *
      * @return self
      */

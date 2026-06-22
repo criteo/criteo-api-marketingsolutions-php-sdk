@@ -313,6 +313,19 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
         return self::$openAPIModelName;
     }
 
+    public const AD_FORMATS_DYNAMIC = 'Dynamic';
+    public const AD_FORMATS_ADAPTIVE = 'Adaptive';
+    public const AD_FORMATS_RICH_MEDIA = 'RichMedia';
+    public const AD_FORMATS_SHOWCASE = 'Showcase';
+    public const AD_FORMATS_VIDEO = 'Video';
+    public const AD_FORMATS_IMAGE = 'Image';
+    public const AD_FORMATS_HTML5 = 'HTML5';
+    public const AD_FORMATS_HTML_AD_TAGS = 'Html Ad Tags';
+    public const AD_FORMATS_VAST_VPAID_TAGS = 'VAST/VPAID Tags';
+    public const AD_FORMATS_OTHER_FORMATS = 'Other formats';
+    public const AD_SET_STATUS_ACTIVE = 'Active';
+    public const AD_SET_STATUS_NOT_RUNNING = 'NotRunning';
+    public const AD_SET_STATUS_DEAD = 'Dead';
     public const DIMENSIONS_AD_FORMAT = 'AdFormat';
     public const DIMENSIONS_COUPON = 'Coupon';
     public const DIMENSIONS_COUPON_ID = 'CouponId';
@@ -325,6 +338,41 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
     public const METRICS_CLICKS = 'Clicks';
     public const METRICS_CTR = 'Ctr';
     public const METRICS_DISPLAYS = 'Displays';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAdFormatsAllowableValues()
+    {
+        return [
+            self::AD_FORMATS_DYNAMIC,
+            self::AD_FORMATS_ADAPTIVE,
+            self::AD_FORMATS_RICH_MEDIA,
+            self::AD_FORMATS_SHOWCASE,
+            self::AD_FORMATS_VIDEO,
+            self::AD_FORMATS_IMAGE,
+            self::AD_FORMATS_HTML5,
+            self::AD_FORMATS_HTML_AD_TAGS,
+            self::AD_FORMATS_VAST_VPAID_TAGS,
+            self::AD_FORMATS_OTHER_FORMATS,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAdSetStatusAllowableValues()
+    {
+        return [
+            self::AD_SET_STATUS_ACTIVE,
+            self::AD_SET_STATUS_NOT_RUNNING,
+            self::AD_SET_STATUS_DEAD,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -389,7 +437,7 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
         $this->setIfExists('end_date', $data ?? [], null);
         $this->setIfExists('metrics', $data ?? [], null);
         $this->setIfExists('start_date', $data ?? [], null);
-        $this->setIfExists('timezone', $data ?? [], null);
+        $this->setIfExists('timezone', $data ?? [], 'UTC');
     }
 
     /**
@@ -422,15 +470,27 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
         if ($this->container['advertiser_ids'] === null) {
             $invalidProperties[] = "'advertiser_ids' can't be null";
         }
+        if ((count($this->container['advertiser_ids']) < 1)) {
+            $invalidProperties[] = "invalid value for 'advertiser_ids', number of items must be greater than or equal to 1.";
+        }
+
         if ($this->container['dimensions'] === null) {
             $invalidProperties[] = "'dimensions' can't be null";
         }
+        if ((count($this->container['dimensions']) < 1)) {
+            $invalidProperties[] = "invalid value for 'dimensions', number of items must be greater than or equal to 1.";
+        }
+
         if ($this->container['end_date'] === null) {
             $invalidProperties[] = "'end_date' can't be null";
         }
         if ($this->container['metrics'] === null) {
             $invalidProperties[] = "'metrics' can't be null";
         }
+        if ((count($this->container['metrics']) < 1)) {
+            $invalidProperties[] = "invalid value for 'metrics', number of items must be greater than or equal to 1.";
+        }
+
         if ($this->container['start_date'] === null) {
             $invalidProperties[] = "'start_date' can't be null";
         }
@@ -462,7 +522,7 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
     /**
      * Sets ad_formats
      *
-     * @param string[]|null $ad_formats The list of adFormats.
+     * @param string[]|null $ad_formats Optional list of ad formats to filter on. If empty, all ad formats will be included.
      *
      * @return self
      */
@@ -477,6 +537,15 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        $allowedValues = $this->getAdFormatsAllowableValues();
+        if (!is_null($ad_formats) && array_diff($ad_formats, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'ad_formats', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['ad_formats'] = $ad_formats;
 
@@ -496,7 +565,7 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
     /**
      * Sets ad_ids
      *
-     * @param string[]|null $ad_ids The list of ad ids.
+     * @param string[]|null $ad_ids Optional list of ad IDs to filter on. If empty, all ads will be included.
      *
      * @return self
      */
@@ -530,7 +599,7 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
     /**
      * Sets ad_names
      *
-     * @param string[]|null $ad_names The list of ad names.
+     * @param string[]|null $ad_names Optional list of ad names to filter on. If empty, all ads will be included.
      *
      * @return self
      */
@@ -564,7 +633,7 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
     /**
      * Sets ad_set_ids
      *
-     * @param string[]|null $ad_set_ids The list of adSet ids (campaign ids).
+     * @param string[]|null $ad_set_ids Optional list of ad set IDs to filter on. If empty, all ad sets will be included.
      *
      * @return self
      */
@@ -598,7 +667,7 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
     /**
      * Sets ad_set_status
      *
-     * @param string[]|null $ad_set_status The list of adSet status (ex: 'Active','NotRunning').
+     * @param string[]|null $ad_set_status Optional list of ad set statuses to filter on. If empty, all ad sets will be included.
      *
      * @return self
      */
@@ -613,6 +682,15 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        $allowedValues = $this->getAdSetStatusAllowableValues();
+        if (!is_null($ad_set_status) && array_diff($ad_set_status, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'ad_set_status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['ad_set_status'] = $ad_set_status;
 
@@ -632,7 +710,7 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
     /**
      * Sets advertiser_ids
      *
-     * @param string[] $advertiser_ids The list of client ids.
+     * @param string[] $advertiser_ids List of advertiser IDs to report on. The advertisers must already exist. At least one advertiser ID should be provided.
      *
      * @return self
      */
@@ -640,6 +718,11 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
     {
         if (is_null($advertiser_ids)) {
             throw new \InvalidArgumentException('non-nullable advertiser_ids cannot be null');
+        }
+
+
+        if ((count($advertiser_ids) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $advertiser_ids when calling GenerateCreativesReportRequestAttributes., number of items must be greater than or equal to 1.');
         }
         $this->container['advertiser_ids'] = $advertiser_ids;
 
@@ -659,7 +742,7 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
     /**
      * Sets campaign_ids
      *
-     * @param string[]|null $campaign_ids The list of campaign ids (marketing campaign ids).
+     * @param string[]|null $campaign_ids Optional list of marketing campaign IDs to filter on. If empty, all campaigns will be included.
      *
      * @return self
      */
@@ -693,7 +776,7 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
     /**
      * Sets coupon_ids
      *
-     * @param string[]|null $coupon_ids The list of coupon ids.
+     * @param string[]|null $coupon_ids Optional list of coupon IDs to filter on. If empty, all coupons will be included.
      *
      * @return self
      */
@@ -727,7 +810,7 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
     /**
      * Sets coupon_names
      *
-     * @param string[]|null $coupon_names The list of coupon names.
+     * @param string[]|null $coupon_names Optional list of coupon names to filter on. If empty, all coupons will be included.
      *
      * @return self
      */
@@ -761,7 +844,7 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
     /**
      * Sets dimensions
      *
-     * @param string[] $dimensions The list of dimensions to report.
+     * @param string[] $dimensions List of dimensions for the report. At least one dimension should be provided.
      *
      * @return self
      */
@@ -778,6 +861,11 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
                     implode("', '", $allowedValues)
                 )
             );
+        }
+
+
+        if ((count($dimensions) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $dimensions when calling GenerateCreativesReportRequestAttributes., number of items must be greater than or equal to 1.');
         }
         $this->container['dimensions'] = $dimensions;
 
@@ -797,7 +885,7 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
     /**
      * Sets display_sizes
      *
-     * @param string[]|null $display_sizes The list of displaySizes.
+     * @param string[]|null $display_sizes Optional list of display sizes to filter on. If empty, all display sizes will be included. <br /><br /> Most common values: 'Native', 'Skyscraper', 'HalfPage', 'MediumBanner', 'LargeBanner', 'LeaderBoard', 'WideLeaderBoard', 'Other placements', 'Others'.
      *
      * @return self
      */
@@ -831,7 +919,7 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
     /**
      * Sets end_date
      *
-     * @param \DateTime $end_date End date of the report. Date component of ISO 8061 format, any time or timezone component is ignored.
+     * @param \DateTime $end_date End date of the report. Date component of ISO 8601 format, any time or timezone component is ignored.
      *
      * @return self
      */
@@ -858,7 +946,7 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
     /**
      * Sets metrics
      *
-     * @param string[] $metrics The list of metrics to report.
+     * @param string[] $metrics List of metrics for the report. At least one metric should be provided.
      *
      * @return self
      */
@@ -875,6 +963,11 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
                     implode("', '", $allowedValues)
                 )
             );
+        }
+
+
+        if ((count($metrics) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $metrics when calling GenerateCreativesReportRequestAttributes., number of items must be greater than or equal to 1.');
         }
         $this->container['metrics'] = $metrics;
 
@@ -894,7 +987,7 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
     /**
      * Sets start_date
      *
-     * @param \DateTime $start_date Start date of the report. Date component of ISO 8061 format, any time or timezone component is ignored.
+     * @param \DateTime $start_date Start date of the report. Date component of ISO 8601 format, any time or timezone component is ignored. Must be ≤ endDate.
      *
      * @return self
      */
@@ -921,7 +1014,7 @@ class GenerateCreativesReportRequestAttributes implements ModelInterface, ArrayA
     /**
      * Sets timezone
      *
-     * @param string|null $timezone The timezone used for the report. Timezone Database format (Tz).
+     * @param string|null $timezone Optional timezone used for the report. Timezone Database format (Tz).
      *
      * @return self
      */

@@ -360,6 +360,10 @@ class GenerateCategoriesReportRequestAttributes implements ModelInterface, Array
         if ($this->container['advertiser_ids'] === null) {
             $invalidProperties[] = "'advertiser_ids' can't be null";
         }
+        if ((count($this->container['advertiser_ids']) < 1)) {
+            $invalidProperties[] = "invalid value for 'advertiser_ids', number of items must be greater than or equal to 1.";
+        }
+
         if ($this->container['end_date'] === null) {
             $invalidProperties[] = "'end_date' can't be null";
         }
@@ -403,7 +407,7 @@ class GenerateCategoriesReportRequestAttributes implements ModelInterface, Array
     /**
      * Sets adset_id
      *
-     * @param string|null $adset_id Report only on the specified AdSet id.
+     * @param string|null $adset_id Optional adset id to filter on. The adset must already exist. If empty, all adsets will be fetched.
      *
      * @return self
      */
@@ -437,7 +441,7 @@ class GenerateCategoriesReportRequestAttributes implements ModelInterface, Array
     /**
      * Sets advertiser_ids
      *
-     * @param string[] $advertiser_ids List of Advertiser ids.
+     * @param string[] $advertiser_ids List of advertiser IDs to report on. The advertisers must already exist. At least one advertiser ID should be provided.
      *
      * @return self
      */
@@ -445,6 +449,11 @@ class GenerateCategoriesReportRequestAttributes implements ModelInterface, Array
     {
         if (is_null($advertiser_ids)) {
             throw new \InvalidArgumentException('non-nullable advertiser_ids cannot be null');
+        }
+
+
+        if ((count($advertiser_ids) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $advertiser_ids when calling GenerateCategoriesReportRequestAttributes., number of items must be greater than or equal to 1.');
         }
         $this->container['advertiser_ids'] = $advertiser_ids;
 
@@ -464,7 +473,7 @@ class GenerateCategoriesReportRequestAttributes implements ModelInterface, Array
     /**
      * Sets campaign_id
      *
-     * @param string|null $campaign_id Report only on the specified Campaign id.
+     * @param string|null $campaign_id Optional campaign id to filter on. The campaign must already exist. If empty, all campaign will be fetched.
      *
      * @return self
      */
@@ -498,7 +507,7 @@ class GenerateCategoriesReportRequestAttributes implements ModelInterface, Array
     /**
      * Sets category
      *
-     * @param string|null $category Report only on the specified category.
+     * @param string|null $category Optional category to filter on. If empty, all categories will be fetched.
      *
      * @return self
      */
@@ -532,7 +541,7 @@ class GenerateCategoriesReportRequestAttributes implements ModelInterface, Array
     /**
      * Sets domain
      *
-     * @param string|null $domain Report only on the specified domain.
+     * @param string|null $domain Optional domain to filter on. If empty, all domains will be fetched.
      *
      * @return self
      */
@@ -566,7 +575,7 @@ class GenerateCategoriesReportRequestAttributes implements ModelInterface, Array
     /**
      * Sets end_date
      *
-     * @param \DateTime $end_date End date of the report. Date component of ISO 8061 format, any time or timezone component is ignored.
+     * @param \DateTime $end_date End date of the report. Date component of ISO 8601 format, any time or timezone component is ignored.
      *
      * @return self
      */
@@ -593,7 +602,7 @@ class GenerateCategoriesReportRequestAttributes implements ModelInterface, Array
     /**
      * Sets format
      *
-     * @param string|null $format The file format of the generated report
+     * @param string|null $format Optional file format of the generated report.
      *
      * @return self
      */
@@ -630,7 +639,7 @@ class GenerateCategoriesReportRequestAttributes implements ModelInterface, Array
     /**
      * Sets should_display_domain_dimension
      *
-     * @param bool|null $should_display_domain_dimension Specify if the domain dimension is displayed in the report.
+     * @param bool|null $should_display_domain_dimension Optionally specify if the domain dimension is displayed in the report.
      *
      * @return self
      */
@@ -657,7 +666,7 @@ class GenerateCategoriesReportRequestAttributes implements ModelInterface, Array
     /**
      * Sets start_date
      *
-     * @param \DateTime $start_date Start date of the report. Date component of ISO 8061 format, any time or timezone component is ignored.
+     * @param \DateTime $start_date Start date of the report. Date component of ISO 8601 format, any time or timezone component is ignored. Must be ≤ endDate.
      *
      * @return self
      */
@@ -684,7 +693,7 @@ class GenerateCategoriesReportRequestAttributes implements ModelInterface, Array
     /**
      * Sets timezone
      *
-     * @param string|null $timezone The timezone used for the report. Timezone Database format (Tz).
+     * @param string|null $timezone Optional timezone used for the report. Timezone Database format (Tz).
      *
      * @return self
      */

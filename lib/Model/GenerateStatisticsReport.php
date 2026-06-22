@@ -99,13 +99,13 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
         'ad_set_ids' => true,
 		'ad_set_names' => true,
 		'ad_set_status' => true,
-		'advertiser_ids' => true,
+		'advertiser_ids' => false,
 		'currency' => true,
 		'dimensions' => false,
 		'end_date' => false,
 		'metrics' => false,
 		'start_date' => false,
-		'timezone' => true
+		'timezone' => false
     ];
 
     /**
@@ -338,8 +338,6 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
     public const METRICS_SALES_ALL_PC7D = 'SalesAllPc7d';
     public const METRICS_SALES_PC7D_PV24 = 'SalesPc7dPv24';
     public const METRICS_SALES_ALL_PC7D_PV24 = 'SalesAllPc7dPv24';
-    public const METRICS_SALES_PC7D_PV24H = 'SalesPc7dPv24h';
-    public const METRICS_SALES_ALL_PC7D_PV24H = 'SalesAllPc7dPv24h';
     public const METRICS_SALES_PV24H = 'SalesPv24h';
     public const METRICS_SALES_ALL_PV24H = 'SalesAllPv24h';
     public const METRICS_SALES_PC30_PV24 = 'SalesPc30Pv24';
@@ -370,8 +368,6 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
     public const METRICS_REVENUE_GENERATED_ALL_PC30_PV24 = 'RevenueGeneratedAllPc30Pv24';
     public const METRICS_REVENUE_GENERATED_PC30D_PV24H = 'RevenueGeneratedPc30dPv24h';
     public const METRICS_REVENUE_GENERATED_ALL_PC30D_PV24H = 'RevenueGeneratedAllPc30dPv24h';
-    public const METRICS_REVENUE_GENERATED_PC7D_PV24H = 'RevenueGeneratedPc7dPv24h';
-    public const METRICS_REVENUE_GENERATED_ALL_PC7D_PV24H = 'RevenueGeneratedAllPc7dPv24h';
     public const METRICS_REVENUE_GENERATED_PC7D_PV24 = 'RevenueGeneratedPc7dPv24';
     public const METRICS_REVENUE_GENERATED_ALL_PC7D_PV24 = 'RevenueGeneratedAllPc7dPv24';
     public const METRICS_REVENUE_GENERATED_OFFLINE_PC = 'RevenueGeneratedOfflinePc';
@@ -396,8 +392,6 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
     public const METRICS_CONVERSION_RATE_ALL_PC30D_PV24H = 'ConversionRateAllPc30dPv24h';
     public const METRICS_CONVERSION_RATE_PC7D_PV24 = 'ConversionRatePc7dPv24';
     public const METRICS_CONVERSION_RATE_ALL_PC7D_PV24 = 'ConversionRateAllPc7dPv24';
-    public const METRICS_CONVERSION_RATE_PC7D_PV24H = 'ConversionRatePc7dPv24h';
-    public const METRICS_CONVERSION_RATE_ALL_PC7D_PV24H = 'ConversionRateAllPc7dPv24h';
     public const METRICS_CONVERSION_RATE_PI_PC_PV = 'ConversionRatePiPcPv';
     public const METRICS_POST_INSTALL_CONVERSION_RATE = 'PostInstallConversionRate';
     public const METRICS_E_COS_PC30D_CLIENT_ATTRIBUTION = 'ECosPc30dClientAttribution';
@@ -416,8 +410,6 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
     public const METRICS_E_COS_ALL_PC30_PV24 = 'ECosAllPc30Pv24';
     public const METRICS_E_COS_PC30D_PV24H = 'ECosPc30dPv24h';
     public const METRICS_E_COS_ALL_PC30D_PV24H = 'ECosAllPc30dPv24h';
-    public const METRICS_E_COS_PC7D_PV24H = 'ECosPc7dPv24h';
-    public const METRICS_E_COS_ALL_PC7D_PV24H = 'ECosAllPc7dPv24h';
     public const METRICS_E_COS_PC7D_PV24 = 'ECosPc7dPv24';
     public const METRICS_E_COS_ALL_PC7D_PV24 = 'ECosAllPc7dPv24';
     public const METRICS_COST_PER_ORDER_PC30D_CLIENT_ATTRIBUTION = 'CostPerOrderPc30dClientAttribution';
@@ -436,8 +428,6 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
     public const METRICS_COST_PER_ORDER_ALL_PC30_PV24 = 'CostPerOrderAllPc30Pv24';
     public const METRICS_COST_PER_ORDER_PC30D_PV24H = 'CostPerOrderPc30dPv24h';
     public const METRICS_COST_PER_ORDER_ALL_PC30D_PV24H = 'CostPerOrderAllPc30dPv24h';
-    public const METRICS_COST_PER_ORDER_PC7D_PV24H = 'CostPerOrderPc7dPv24h';
-    public const METRICS_COST_PER_ORDER_ALL_PC7D_PV24H = 'CostPerOrderAllPc7dPv24h';
     public const METRICS_COST_PER_ORDER_PC7D_PV24 = 'CostPerOrderPc7dPv24';
     public const METRICS_COST_PER_ORDER_ALL_PC7D_PV24 = 'CostPerOrderAllPc7dPv24';
     public const METRICS_EXPOSED_USERS = 'ExposedUsers';
@@ -459,8 +449,6 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
     public const METRICS_AVERAGE_CART_ALL_PC30_PV24 = 'AverageCartAllPc30Pv24';
     public const METRICS_AVERAGE_CART_PC30D_PV24H = 'AverageCartPc30dPv24h';
     public const METRICS_AVERAGE_CART_ALL_PC30D_PV24H = 'AverageCartAllPc30dPv24h';
-    public const METRICS_AVERAGE_CART_PC7D_PV24H = 'AverageCartPc7dPv24h';
-    public const METRICS_AVERAGE_CART_ALL_PC7D_PV24H = 'AverageCartAllPc7dPv24h';
     public const METRICS_AVERAGE_CART_PC7D_PV24 = 'AverageCartPc7dPv24';
     public const METRICS_AVERAGE_CART_ALL_PC7D_PV24 = 'AverageCartAllPc7dPv24';
     public const METRICS_CLICK_THROUGH_RATE = 'ClickThroughRate';
@@ -485,11 +473,11 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
     public const METRICS_COST_PER_VISIT = 'CostPerVisit';
     public const METRICS_INSTALL_RATE_PC_PV = 'InstallRatePcPv';
     public const METRICS_INSTALL_RATE = 'InstallRate';
-    public const METRICS_OMNI_CHANNEL_ROAS_PC30D = 'OmniChannelRoasPc30d';
+    public const METRICS_OMNICHANNEL_ROAS_PC30D = 'OmnichannelRoasPc30d';
     public const METRICS_OMNICHANNEL_ROAS_ALL_PC30D = 'OmnichannelRoasAllPc30d';
-    public const METRICS_OMNI_CHANNEL_REVENUE_PC30D = 'OmniChannelRevenuePc30d';
+    public const METRICS_OMNICHANNEL_REVENUE_PC30D = 'OmnichannelRevenuePc30d';
     public const METRICS_OMNICHANNEL_REVENUE_ALL_PC30D = 'OmnichannelRevenueAllPc30d';
-    public const METRICS_OMNI_CHANNEL_SALES_PC30D = 'OmniChannelSalesPc30d';
+    public const METRICS_OMNICHANNEL_SALES_PC30D = 'OmnichannelSalesPc30d';
     public const METRICS_OMNICHANNEL_SALES_ALL_PC30D = 'OmnichannelSalesAllPc30d';
     public const METRICS_OMNICHANNEL_ROAS_ALL_PV24H = 'OmnichannelRoasAllPv24h';
     public const METRICS_OMNICHANNEL_ROAS_PV24H = 'OmnichannelRoasPv24h';
@@ -518,8 +506,6 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
     public const METRICS_ROAS_ALL_PC30D_PV24H = 'RoasAllPc30dPv24h';
     public const METRICS_ROAS_PC7D_PV24 = 'RoasPc7dPv24';
     public const METRICS_ROAS_ALL_PC7D_PV24 = 'RoasAllPc7dPv24';
-    public const METRICS_ROAS_PC7D_PV24H = 'RoasPc7dPv24h';
-    public const METRICS_ROAS_ALL_PC7D_PV24H = 'RoasAllPc7dPv24h';
     public const METRICS_COST_OF_SALE_PI = 'CostOfSalePi';
     public const METRICS_COST_PER_ORDER_PI = 'CostPerOrderPi';
     public const METRICS_POST_INSTALL_COST_OF_SALE = 'PostInstallCostOfSale';
@@ -588,6 +574,10 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
     public const METRICS_ASSISTS_SALES_RATIO_PI_PC = 'AssistsSalesRatioPiPc';
     public const METRICS_ASSISTS_SALES_RATIO_PI_PV = 'AssistsSalesRatioPiPv';
     public const METRICS_ASSISTS_SALES_RATIO_PI_PC_PV = 'AssistsSalesRatioPiPcPv';
+    public const METRICS_SALES_LC = 'SalesLc';
+    public const METRICS_SALES_ALL_LC = 'SalesAllLc';
+    public const METRICS_REVENUE_GENERATED_LC = 'RevenueGeneratedLc';
+    public const METRICS_REVENUE_GENERATED_ALL_LC = 'RevenueGeneratedAllLc';
 
     /**
      * Gets allowable values of the enum
@@ -663,8 +653,6 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
             self::METRICS_SALES_ALL_PC7D,
             self::METRICS_SALES_PC7D_PV24,
             self::METRICS_SALES_ALL_PC7D_PV24,
-            self::METRICS_SALES_PC7D_PV24H,
-            self::METRICS_SALES_ALL_PC7D_PV24H,
             self::METRICS_SALES_PV24H,
             self::METRICS_SALES_ALL_PV24H,
             self::METRICS_SALES_PC30_PV24,
@@ -695,8 +683,6 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
             self::METRICS_REVENUE_GENERATED_ALL_PC30_PV24,
             self::METRICS_REVENUE_GENERATED_PC30D_PV24H,
             self::METRICS_REVENUE_GENERATED_ALL_PC30D_PV24H,
-            self::METRICS_REVENUE_GENERATED_PC7D_PV24H,
-            self::METRICS_REVENUE_GENERATED_ALL_PC7D_PV24H,
             self::METRICS_REVENUE_GENERATED_PC7D_PV24,
             self::METRICS_REVENUE_GENERATED_ALL_PC7D_PV24,
             self::METRICS_REVENUE_GENERATED_OFFLINE_PC,
@@ -721,8 +707,6 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
             self::METRICS_CONVERSION_RATE_ALL_PC30D_PV24H,
             self::METRICS_CONVERSION_RATE_PC7D_PV24,
             self::METRICS_CONVERSION_RATE_ALL_PC7D_PV24,
-            self::METRICS_CONVERSION_RATE_PC7D_PV24H,
-            self::METRICS_CONVERSION_RATE_ALL_PC7D_PV24H,
             self::METRICS_CONVERSION_RATE_PI_PC_PV,
             self::METRICS_POST_INSTALL_CONVERSION_RATE,
             self::METRICS_E_COS_PC30D_CLIENT_ATTRIBUTION,
@@ -741,8 +725,6 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
             self::METRICS_E_COS_ALL_PC30_PV24,
             self::METRICS_E_COS_PC30D_PV24H,
             self::METRICS_E_COS_ALL_PC30D_PV24H,
-            self::METRICS_E_COS_PC7D_PV24H,
-            self::METRICS_E_COS_ALL_PC7D_PV24H,
             self::METRICS_E_COS_PC7D_PV24,
             self::METRICS_E_COS_ALL_PC7D_PV24,
             self::METRICS_COST_PER_ORDER_PC30D_CLIENT_ATTRIBUTION,
@@ -761,8 +743,6 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
             self::METRICS_COST_PER_ORDER_ALL_PC30_PV24,
             self::METRICS_COST_PER_ORDER_PC30D_PV24H,
             self::METRICS_COST_PER_ORDER_ALL_PC30D_PV24H,
-            self::METRICS_COST_PER_ORDER_PC7D_PV24H,
-            self::METRICS_COST_PER_ORDER_ALL_PC7D_PV24H,
             self::METRICS_COST_PER_ORDER_PC7D_PV24,
             self::METRICS_COST_PER_ORDER_ALL_PC7D_PV24,
             self::METRICS_EXPOSED_USERS,
@@ -784,8 +764,6 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
             self::METRICS_AVERAGE_CART_ALL_PC30_PV24,
             self::METRICS_AVERAGE_CART_PC30D_PV24H,
             self::METRICS_AVERAGE_CART_ALL_PC30D_PV24H,
-            self::METRICS_AVERAGE_CART_PC7D_PV24H,
-            self::METRICS_AVERAGE_CART_ALL_PC7D_PV24H,
             self::METRICS_AVERAGE_CART_PC7D_PV24,
             self::METRICS_AVERAGE_CART_ALL_PC7D_PV24,
             self::METRICS_CLICK_THROUGH_RATE,
@@ -810,11 +788,11 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
             self::METRICS_COST_PER_VISIT,
             self::METRICS_INSTALL_RATE_PC_PV,
             self::METRICS_INSTALL_RATE,
-            self::METRICS_OMNI_CHANNEL_ROAS_PC30D,
+            self::METRICS_OMNICHANNEL_ROAS_PC30D,
             self::METRICS_OMNICHANNEL_ROAS_ALL_PC30D,
-            self::METRICS_OMNI_CHANNEL_REVENUE_PC30D,
+            self::METRICS_OMNICHANNEL_REVENUE_PC30D,
             self::METRICS_OMNICHANNEL_REVENUE_ALL_PC30D,
-            self::METRICS_OMNI_CHANNEL_SALES_PC30D,
+            self::METRICS_OMNICHANNEL_SALES_PC30D,
             self::METRICS_OMNICHANNEL_SALES_ALL_PC30D,
             self::METRICS_OMNICHANNEL_ROAS_ALL_PV24H,
             self::METRICS_OMNICHANNEL_ROAS_PV24H,
@@ -843,8 +821,6 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
             self::METRICS_ROAS_ALL_PC30D_PV24H,
             self::METRICS_ROAS_PC7D_PV24,
             self::METRICS_ROAS_ALL_PC7D_PV24,
-            self::METRICS_ROAS_PC7D_PV24H,
-            self::METRICS_ROAS_ALL_PC7D_PV24H,
             self::METRICS_COST_OF_SALE_PI,
             self::METRICS_COST_PER_ORDER_PI,
             self::METRICS_POST_INSTALL_COST_OF_SALE,
@@ -913,6 +889,10 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
             self::METRICS_ASSISTS_SALES_RATIO_PI_PC,
             self::METRICS_ASSISTS_SALES_RATIO_PI_PV,
             self::METRICS_ASSISTS_SALES_RATIO_PI_PC_PV,
+            self::METRICS_SALES_LC,
+            self::METRICS_SALES_ALL_LC,
+            self::METRICS_REVENUE_GENERATED_LC,
+            self::METRICS_REVENUE_GENERATED_ALL_LC,
         ];
     }
 
@@ -970,9 +950,16 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
+        if ($this->container['advertiser_ids'] === null) {
+            $invalidProperties[] = "'advertiser_ids' can't be null";
+        }
         if ($this->container['dimensions'] === null) {
             $invalidProperties[] = "'dimensions' can't be null";
         }
+        if ((count($this->container['dimensions']) < 1)) {
+            $invalidProperties[] = "invalid value for 'dimensions', number of items must be greater than or equal to 1.";
+        }
+
         if ($this->container['end_date'] === null) {
             $invalidProperties[] = "'end_date' can't be null";
         }
@@ -981,6 +968,9 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
         }
         if ($this->container['start_date'] === null) {
             $invalidProperties[] = "'start_date' can't be null";
+        }
+        if ($this->container['timezone'] === null) {
+            $invalidProperties[] = "'timezone' can't be null";
         }
         return $invalidProperties;
     }
@@ -1010,7 +1000,7 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets ad_set_ids
      *
-     * @param string[]|null $ad_set_ids The list of adSets ids. If empty, all the adSets will be fetched
+     * @param string[]|null $ad_set_ids List of advertiser IDs to report on, provided as a single comma-separated string (e.g., \"123,456,789\"). The advertisers must already exist. If empty, all advertisers will be used.
      *
      * @return self
      */
@@ -1044,7 +1034,7 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets ad_set_names
      *
-     * @param string[]|null $ad_set_names The list of adSets names. If empty, all the adSets will be fetched
+     * @param string[]|null $ad_set_names The list of ad sets names. If empty, all the adSets will be fetched.
      *
      * @return self
      */
@@ -1078,7 +1068,7 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets ad_set_status
      *
-     * @param string[]|null $ad_set_status The list of adSets status. If empty, all the adSets will be fetched
+     * @param string[]|null $ad_set_status The list of ad sets status. If empty, all the adSets will be fetched.
      *
      * @return self
      */
@@ -1102,7 +1092,7 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets advertiser_ids
      *
-     * @return string[]|null
+     * @return string[]
      */
     public function getAdvertiserIds()
     {
@@ -1112,21 +1102,14 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets advertiser_ids
      *
-     * @param string[]|null $advertiser_ids The list of advertiser ids
+     * @param string[] $advertiser_ids The list of advertiser ids
      *
      * @return self
      */
     public function setAdvertiserIds($advertiser_ids)
     {
         if (is_null($advertiser_ids)) {
-            array_push($this->openAPINullablesSetToNull, 'advertiser_ids');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('advertiser_ids', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable advertiser_ids cannot be null');
         }
         $this->container['advertiser_ids'] = $advertiser_ids;
 
@@ -1197,6 +1180,11 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
                     implode("', '", $allowedValues)
                 )
             );
+        }
+
+
+        if ((count($dimensions) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $dimensions when calling GenerateStatisticsReport., number of items must be greater than or equal to 1.');
         }
         $this->container['dimensions'] = $dimensions;
 
@@ -1296,7 +1284,7 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets timezone
      *
-     * @return string|null
+     * @return string
      */
     public function getTimezone()
     {
@@ -1306,21 +1294,14 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets timezone
      *
-     * @param string|null $timezone The timezone used for the report. Timezone Database format (Tz).
+     * @param string $timezone Optional timezone used for the report. Timezone Database format (Tz).
      *
      * @return self
      */
     public function setTimezone($timezone)
     {
         if (is_null($timezone)) {
-            array_push($this->openAPINullablesSetToNull, 'timezone');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('timezone', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable timezone cannot be null');
         }
         $this->container['timezone'] = $timezone;
 

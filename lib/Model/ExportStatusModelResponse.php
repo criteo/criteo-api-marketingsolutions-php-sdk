@@ -1,6 +1,6 @@
 <?php
 /**
- * GenerateStatisticsReportRequest
+ * ExportStatusModelResponse
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * GenerateStatisticsReportRequest Class Doc Comment
+ * ExportStatusModelResponse Class Doc Comment
  *
  * @category Class
- * @description A top-level object that encapsulates a Criteo API request for a single value object.
+ * @description A top-level object that encapsulates a Criteo API response for a single value object.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class ExportStatusModelResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
       *
       * @var string
       */
-    protected static $openAPIModelName = 'GenerateStatisticsReportRequest';
+    protected static $openAPIModelName = 'ExportStatusModelResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,9 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportResource'
+        'data' => '\criteo\api\marketingsolutions\preview\Model\ExportStatusModelResource',
+        'errors' => '\criteo\api\marketingsolutions\preview\Model\CommonProblem[]',
+        'warnings' => '\criteo\api\marketingsolutions\preview\Model\CommonProblem[]'
     ];
 
     /**
@@ -69,7 +71,9 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'data' => null,
+        'errors' => null,
+        'warnings' => null
     ];
 
     /**
@@ -78,7 +82,9 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'data' => false
+        'data' => true,
+		'errors' => true,
+		'warnings' => true
     ];
 
     /**
@@ -167,7 +173,9 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'data' => 'data',
+        'errors' => 'errors',
+        'warnings' => 'warnings'
     ];
 
     /**
@@ -176,7 +184,9 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'data' => 'setData',
+        'errors' => 'setErrors',
+        'warnings' => 'setWarnings'
     ];
 
     /**
@@ -185,7 +195,9 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'data' => 'getData',
+        'errors' => 'getErrors',
+        'warnings' => 'getWarnings'
     ];
 
     /**
@@ -246,6 +258,8 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
     public function __construct(array $data = null)
     {
         $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('errors', $data ?? [], null);
+        $this->setIfExists('warnings', $data ?? [], null);
     }
 
     /**
@@ -293,7 +307,7 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
     /**
      * Gets data
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportResource|null
+     * @return \criteo\api\marketingsolutions\preview\Model\ExportStatusModelResource|null
      */
     public function getData()
     {
@@ -303,16 +317,91 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
     /**
      * Sets data
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportResource|null $data data
+     * @param \criteo\api\marketingsolutions\preview\Model\ExportStatusModelResource|null $data data
      *
      * @return self
      */
     public function setData($data)
     {
         if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets errors
+     *
+     * @return \criteo\api\marketingsolutions\preview\Model\CommonProblem[]|null
+     */
+    public function getErrors()
+    {
+        return $this->container['errors'];
+    }
+
+    /**
+     * Sets errors
+     *
+     * @param \criteo\api\marketingsolutions\preview\Model\CommonProblem[]|null $errors Errors that occured during this call.
+     *
+     * @return self
+     */
+    public function setErrors($errors)
+    {
+        if (is_null($errors)) {
+            array_push($this->openAPINullablesSetToNull, 'errors');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('errors', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['errors'] = $errors;
+
+        return $this;
+    }
+
+    /**
+     * Gets warnings
+     *
+     * @return \criteo\api\marketingsolutions\preview\Model\CommonProblem[]|null
+     */
+    public function getWarnings()
+    {
+        return $this->container['warnings'];
+    }
+
+    /**
+     * Sets warnings
+     *
+     * @param \criteo\api\marketingsolutions\preview\Model\CommonProblem[]|null $warnings Warnings that occured during this call.
+     *
+     * @return self
+     */
+    public function setWarnings($warnings)
+    {
+        if (is_null($warnings)) {
+            array_push($this->openAPINullablesSetToNull, 'warnings');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('warnings', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['warnings'] = $warnings;
 
         return $this;
     }

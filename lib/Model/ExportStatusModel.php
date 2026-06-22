@@ -1,6 +1,6 @@
 <?php
 /**
- * GenerateStatisticsReportRequest
+ * ExportStatusModel
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * GenerateStatisticsReportRequest Class Doc Comment
+ * ExportStatusModel Class Doc Comment
  *
  * @category Class
- * @description A top-level object that encapsulates a Criteo API request for a single value object.
+ * @description Status returned for an asynchronous export job.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class ExportStatusModel implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
       *
       * @var string
       */
-    protected static $openAPIModelName = 'GenerateStatisticsReportRequest';
+    protected static $openAPIModelName = 'ExportStatusModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,9 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportResource'
+        'export_id' => 'string',
+        'message' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -69,7 +71,9 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'export_id' => null,
+        'message' => null,
+        'status' => null
     ];
 
     /**
@@ -78,7 +82,9 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'data' => false
+        'export_id' => true,
+		'message' => true,
+		'status' => true
     ];
 
     /**
@@ -167,7 +173,9 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'export_id' => 'exportId',
+        'message' => 'message',
+        'status' => 'status'
     ];
 
     /**
@@ -176,7 +184,9 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'export_id' => 'setExportId',
+        'message' => 'setMessage',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -185,7 +195,9 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'export_id' => 'getExportId',
+        'message' => 'getMessage',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -229,6 +241,27 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
         return self::$openAPIModelName;
     }
 
+    public const STATUS_UNKNOWN = 'Unknown';
+    public const STATUS_PENDING = 'Pending';
+    public const STATUS_DONE = 'Done';
+    public const STATUS_FAILURE = 'Failure';
+    public const STATUS_EXPIRED = 'Expired';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_UNKNOWN,
+            self::STATUS_PENDING,
+            self::STATUS_DONE,
+            self::STATUS_FAILURE,
+            self::STATUS_EXPIRED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -245,7 +278,9 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('export_id', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
     }
 
     /**
@@ -275,6 +310,15 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'status', must be one of '%s'",
+                $this->container['status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -291,28 +335,113 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
 
 
     /**
-     * Gets data
+     * Gets export_id
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportResource|null
+     * @return string|null
      */
-    public function getData()
+    public function getExportId()
     {
-        return $this->container['data'];
+        return $this->container['export_id'];
     }
 
     /**
-     * Sets data
+     * Sets export_id
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportResource|null $data data
+     * @param string|null $export_id Export id (UUID), ex.: \"e0893b6b-be25-477f-9ca3-e6e8c8ec9e30\"
      *
      * @return self
      */
-    public function setData($data)
+    public function setExportId($export_id)
     {
-        if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
+        if (is_null($export_id)) {
+            array_push($this->openAPINullablesSetToNull, 'export_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('export_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['data'] = $data;
+        $this->container['export_id'] = $export_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string|null
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string|null $message message
+     *
+     * @return self
+     */
+    public function setMessage($message)
+    {
+        if (is_null($message)) {
+            array_push($this->openAPINullablesSetToNull, 'message');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('message', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status status
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            array_push($this->openAPINullablesSetToNull, 'status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'status', must be one of '%s'",
+                    $status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }

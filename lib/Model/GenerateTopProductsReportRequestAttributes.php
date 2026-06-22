@@ -110,7 +110,7 @@ class GenerateTopProductsReportRequestAttributes implements ModelInterface, Arra
 		'brands' => true,
 		'campaign_ids' => true,
 		'category_ids' => true,
-		'currency' => true,
+		'currency' => false,
 		'dimensions' => true,
 		'end_date' => false,
 		'limit' => false,
@@ -307,6 +307,9 @@ class GenerateTopProductsReportRequestAttributes implements ModelInterface, Arra
         return self::$openAPIModelName;
     }
 
+    public const AD_SET_STATUS_ACTIVE = 'Active';
+    public const AD_SET_STATUS_NOT_RUNNING = 'NotRunning';
+    public const AD_SET_STATUS_DEAD = 'Dead';
     public const DIMENSIONS_CAMPAIGN = 'Campaign';
     public const DIMENSIONS_CAMPAIGN_ID = 'CampaignId';
     public const DIMENSIONS_AD_SET = 'AdSet';
@@ -329,6 +332,20 @@ class GenerateTopProductsReportRequestAttributes implements ModelInterface, Arra
     public const RANK_PRODUCTS_BY_CLICKS = 'Clicks';
     public const RANK_PRODUCTS_BY_DISPLAYS = 'Displays';
     public const RANK_PRODUCTS_BY_SALES = 'Sales';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAdSetStatusAllowableValues()
+    {
+        return [
+            self::AD_SET_STATUS_ACTIVE,
+            self::AD_SET_STATUS_NOT_RUNNING,
+            self::AD_SET_STATUS_DEAD,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -409,7 +426,7 @@ class GenerateTopProductsReportRequestAttributes implements ModelInterface, Arra
         $this->setIfExists('currency', $data ?? [], 'EUR');
         $this->setIfExists('dimensions', $data ?? [], null);
         $this->setIfExists('end_date', $data ?? [], null);
-        $this->setIfExists('limit', $data ?? [], null);
+        $this->setIfExists('limit', $data ?? [], 200);
         $this->setIfExists('metrics', $data ?? [], null);
         $this->setIfExists('rank_products_by', $data ?? [], null);
         $this->setIfExists('start_date', $data ?? [], null);
@@ -446,9 +463,20 @@ class GenerateTopProductsReportRequestAttributes implements ModelInterface, Arra
         if ($this->container['advertiser_id'] === null) {
             $invalidProperties[] = "'advertiser_id' can't be null";
         }
+        if ($this->container['currency'] === null) {
+            $invalidProperties[] = "'currency' can't be null";
+        }
         if ($this->container['end_date'] === null) {
             $invalidProperties[] = "'end_date' can't be null";
         }
+        if (!is_null($this->container['limit']) && ($this->container['limit'] > 200)) {
+            $invalidProperties[] = "invalid value for 'limit', must be smaller than or equal to 200.";
+        }
+
+        if (!is_null($this->container['limit']) && ($this->container['limit'] < 1)) {
+            $invalidProperties[] = "invalid value for 'limit', must be bigger than or equal to 1.";
+        }
+
         if ($this->container['rank_products_by'] === null) {
             $invalidProperties[] = "'rank_products_by' can't be null";
         }
@@ -492,7 +520,7 @@ class GenerateTopProductsReportRequestAttributes implements ModelInterface, Arra
     /**
      * Sets ad_set_ids
      *
-     * @param string[]|null $ad_set_ids The list of adSet ids.
+     * @param string[]|null $ad_set_ids Optional list of ad set IDs to filter on. The ad sets must already exist. If empty, all ad sets will be included.
      *
      * @return self
      */
@@ -526,7 +554,7 @@ class GenerateTopProductsReportRequestAttributes implements ModelInterface, Arra
     /**
      * Sets ad_set_status
      *
-     * @param string[]|null $ad_set_status The list of adSet status (ex: 'Active','NotRunning').
+     * @param string[]|null $ad_set_status Optional list of ad set statuses to filter on. If empty, all ad sets will be included.
      *
      * @return self
      */
@@ -541,6 +569,15 @@ class GenerateTopProductsReportRequestAttributes implements ModelInterface, Arra
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        $allowedValues = $this->getAdSetStatusAllowableValues();
+        if (!is_null($ad_set_status) && array_diff($ad_set_status, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'ad_set_status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['ad_set_status'] = $ad_set_status;
 
@@ -560,7 +597,7 @@ class GenerateTopProductsReportRequestAttributes implements ModelInterface, Arra
     /**
      * Sets advertiser_id
      *
-     * @param string $advertiser_id The client id.
+     * @param string $advertiser_id The advertiser ID to report on. The advertiser must already exist. At least one advertiser ID should be provided
      *
      * @return self
      */
@@ -587,7 +624,7 @@ class GenerateTopProductsReportRequestAttributes implements ModelInterface, Arra
     /**
      * Sets brands
      *
-     * @param string[]|null $brands The list of brands names.
+     * @param string[]|null $brands Optional list of brand names to filter on. If empty, all brands will be included.
      *
      * @return self
      */
@@ -621,7 +658,7 @@ class GenerateTopProductsReportRequestAttributes implements ModelInterface, Arra
     /**
      * Sets campaign_ids
      *
-     * @param string[]|null $campaign_ids The list of campaign ids.
+     * @param string[]|null $campaign_ids Optional list of campaign IDs to filter on. The campaigns must already exist. If empty, all campaigns will be included.
      *
      * @return self
      */
@@ -655,7 +692,7 @@ class GenerateTopProductsReportRequestAttributes implements ModelInterface, Arra
     /**
      * Sets category_ids
      *
-     * @param string[]|null $category_ids The list of category ids.
+     * @param string[]|null $category_ids Optional list of product catalog category IDs to filter on. If empty, all categories will be included.
      *
      * @return self
      */
@@ -679,7 +716,7 @@ class GenerateTopProductsReportRequestAttributes implements ModelInterface, Arra
     /**
      * Gets currency
      *
-     * @return string|null
+     * @return string
      */
     public function getCurrency()
     {
@@ -689,21 +726,14 @@ class GenerateTopProductsReportRequestAttributes implements ModelInterface, Arra
     /**
      * Sets currency
      *
-     * @param string|null $currency The currency used for the report. ISO 4217 code (three-letter capitals).
+     * @param string $currency The currency used for the report. ISO 4217 code (three-letter capitals).
      *
      * @return self
      */
     public function setCurrency($currency)
     {
         if (is_null($currency)) {
-            array_push($this->openAPINullablesSetToNull, 'currency');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('currency', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable currency cannot be null');
         }
         $this->container['currency'] = $currency;
 
@@ -723,7 +753,7 @@ class GenerateTopProductsReportRequestAttributes implements ModelInterface, Arra
     /**
      * Sets dimensions
      *
-     * @param string[]|null $dimensions The dimensions for the report.
+     * @param string[]|null $dimensions Optional list of dimensions for the report. If not provided, defaults to [ProductId, Product, ProductUrl]. When an ID dimension is requested (e.g., CampaignId), the corresponding name dimension (e.g., Campaign) is automatically included, and vice versa. This applies to the following pairs: CampaignId/Campaign, AdSetId/AdSet, ProductId/Product, CategoryId/Category, AdvertiserId/Advertiser.
      *
      * @return self
      */
@@ -766,7 +796,7 @@ class GenerateTopProductsReportRequestAttributes implements ModelInterface, Arra
     /**
      * Sets end_date
      *
-     * @param \DateTime $end_date End date of the report. Date component of ISO 8061 format, any time or timezone component is ignored.
+     * @param \DateTime $end_date End date of the report. Date component of ISO 8601 format, any time or timezone component is ignored.
      *
      * @return self
      */
@@ -793,7 +823,7 @@ class GenerateTopProductsReportRequestAttributes implements ModelInterface, Arra
     /**
      * Sets limit
      *
-     * @param int|null $limit The maximum number of top products returned.
+     * @param int|null $limit Optional maximum number of top products returned. Must be between 1 and 200.
      *
      * @return self
      */
@@ -802,6 +832,14 @@ class GenerateTopProductsReportRequestAttributes implements ModelInterface, Arra
         if (is_null($limit)) {
             throw new \InvalidArgumentException('non-nullable limit cannot be null');
         }
+
+        if (($limit > 200)) {
+            throw new \InvalidArgumentException('invalid value for $limit when calling GenerateTopProductsReportRequestAttributes., must be smaller than or equal to 200.');
+        }
+        if (($limit < 1)) {
+            throw new \InvalidArgumentException('invalid value for $limit when calling GenerateTopProductsReportRequestAttributes., must be bigger than or equal to 1.');
+        }
+
         $this->container['limit'] = $limit;
 
         return $this;
@@ -820,7 +858,7 @@ class GenerateTopProductsReportRequestAttributes implements ModelInterface, Arra
     /**
      * Sets metrics
      *
-     * @param string[]|null $metrics The list of metrics to report.
+     * @param string[]|null $metrics Optional list of metrics to report. If not provided, defaults to the metric specified in rankProductsBy.
      *
      * @return self
      */
@@ -863,7 +901,7 @@ class GenerateTopProductsReportRequestAttributes implements ModelInterface, Arra
     /**
      * Sets rank_products_by
      *
-     * @param string $rank_products_by The metric used to filter the top products.
+     * @param string $rank_products_by Optional metric used to rank the top products. Allowed values: 'Clicks', 'Displays', 'Sales'.
      *
      * @return self
      */
@@ -900,7 +938,7 @@ class GenerateTopProductsReportRequestAttributes implements ModelInterface, Arra
     /**
      * Sets start_date
      *
-     * @param \DateTime $start_date Start date of the report. Date component of ISO 8061 format, any time or timezone component is ignored.
+     * @param \DateTime $start_date Start date of the report. Date component of ISO 8601 format, any time or timezone component is ignored. Must be ≤ endDate.
      *
      * @return self
      */
@@ -927,7 +965,7 @@ class GenerateTopProductsReportRequestAttributes implements ModelInterface, Arra
     /**
      * Sets timezone
      *
-     * @param string|null $timezone The timezone used for the report. Timezone Database format (Tz).
+     * @param string|null $timezone Optional timezone used for the report. Timezone Database format (Tz).
      *
      * @return self
      */

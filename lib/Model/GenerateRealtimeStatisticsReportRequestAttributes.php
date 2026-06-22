@@ -421,7 +421,7 @@ class GenerateRealtimeStatisticsReportRequestAttributes implements ModelInterfac
     /**
      * Sets adset_ids
      *
-     * @param string[]|null $adset_ids List of adset ids to filter.
+     * @param string[]|null $adset_ids Optional list of ad set IDs to filter on. The ad sets must already exist. If empty, all ad sets will be included.
      *
      * @return self
      */
@@ -455,7 +455,7 @@ class GenerateRealtimeStatisticsReportRequestAttributes implements ModelInterfac
     /**
      * Sets advertiser_ids
      *
-     * @param string[] $advertiser_ids List of advertiser ids to report on.
+     * @param string[] $advertiser_ids List of advertiser IDs to report on. The advertisers must already exist. Between 1 and 10 advertiser IDs can be provided.
      *
      * @return self
      */
@@ -489,7 +489,7 @@ class GenerateRealtimeStatisticsReportRequestAttributes implements ModelInterfac
     /**
      * Sets campaign_ids
      *
-     * @param string[]|null $campaign_ids List of campaign ids to filter.
+     * @param string[]|null $campaign_ids Optional list of campaign IDs to filter on. The campaigns must already exist. If empty, all campaigns will be included.
      *
      * @return self
      */
@@ -557,7 +557,7 @@ class GenerateRealtimeStatisticsReportRequestAttributes implements ModelInterfac
     /**
      * Sets dimensions
      *
-     * @param string[]|null $dimensions List of dimensions for the report.
+     * @param string[]|null $dimensions List of dimensions for the report. If not included, the default list of dimensions will be used.
      *
      * @return self
      */
@@ -600,7 +600,7 @@ class GenerateRealtimeStatisticsReportRequestAttributes implements ModelInterfac
     /**
      * Sets lookback_window
      *
-     * @param int|null $lookback_window The number of hours to consider in the past.
+     * @param int|null $lookback_window Optional number of hours to consider in the past.
      *
      * @return self
      */
@@ -635,7 +635,7 @@ class GenerateRealtimeStatisticsReportRequestAttributes implements ModelInterfac
     /**
      * Sets metrics
      *
-     * @param string[]|null $metrics List of metrics for the report.
+     * @param string[]|null $metrics List of metrics for the report. If included, at least one metric should be provided.
      *
      * @return self
      */
@@ -678,7 +678,7 @@ class GenerateRealtimeStatisticsReportRequestAttributes implements ModelInterfac
     /**
      * Sets timezone
      *
-     * @param string|null $timezone The timezone used for the report.
+     * @param string|null $timezone Optional timezone used for the report.
      *
      * @return self
      */

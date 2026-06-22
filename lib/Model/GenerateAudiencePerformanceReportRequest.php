@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * GenerateAudiencePerformanceReportRequest Class Doc Comment
  *
  * @category Class
- * @description A top-level object that encapsulates a Criteo API request for a single value objects.
+ * @description A top-level object that encapsulates a Criteo API request for a single value object.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

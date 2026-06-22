@@ -1,6 +1,6 @@
 <?php
 /**
- * GenerateStatisticsReportRequest
+ * ExportStatusModelResource
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * GenerateStatisticsReportRequest Class Doc Comment
+ * ExportStatusModelResource Class Doc Comment
  *
  * @category Class
- * @description A top-level object that encapsulates a Criteo API request for a single value object.
+ * @description A value resource exposed by the API.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class ExportStatusModelResource implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
       *
       * @var string
       */
-    protected static $openAPIModelName = 'GenerateStatisticsReportRequest';
+    protected static $openAPIModelName = 'ExportStatusModelResource';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,8 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportResource'
+        'attributes' => '\criteo\api\marketingsolutions\preview\Model\ExportStatusModel',
+        'type' => 'string'
     ];
 
     /**
@@ -69,7 +70,8 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'attributes' => null,
+        'type' => null
     ];
 
     /**
@@ -78,7 +80,8 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'data' => false
+        'attributes' => true,
+		'type' => true
     ];
 
     /**
@@ -167,7 +170,8 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'attributes' => 'attributes',
+        'type' => 'type'
     ];
 
     /**
@@ -176,7 +180,8 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'attributes' => 'setAttributes',
+        'type' => 'setType'
     ];
 
     /**
@@ -185,7 +190,8 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'attributes' => 'getAttributes',
+        'type' => 'getType'
     ];
 
     /**
@@ -245,7 +251,8 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('attributes', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
     }
 
     /**
@@ -291,28 +298,69 @@ class GenerateStatisticsReportRequest implements ModelInterface, ArrayAccess, \J
 
 
     /**
-     * Gets data
+     * Gets attributes
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportResource|null
+     * @return \criteo\api\marketingsolutions\preview\Model\ExportStatusModel|null
      */
-    public function getData()
+    public function getAttributes()
     {
-        return $this->container['data'];
+        return $this->container['attributes'];
     }
 
     /**
-     * Sets data
+     * Sets attributes
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\GenerateStatisticsReportResource|null $data data
+     * @param \criteo\api\marketingsolutions\preview\Model\ExportStatusModel|null $attributes attributes
      *
      * @return self
      */
-    public function setData($data)
+    public function setAttributes($attributes)
     {
-        if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
+        if (is_null($attributes)) {
+            array_push($this->openAPINullablesSetToNull, 'attributes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('attributes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['data'] = $data;
+        $this->container['attributes'] = $attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type Type of the resource.
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }

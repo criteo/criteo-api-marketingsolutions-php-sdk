@@ -12,9 +12,9 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 | [**getAsyncExportStatus()**](AnalyticsApi.md#getAsyncExportStatus) | **GET** /preview/reports/{report-id}/status | /preview/reports/{report-id}/status |
 | [**getCategoriesReport()**](AnalyticsApi.md#getCategoriesReport) | **POST** /preview/categories/report | /preview/categories/report |
 | [**getCreativesReport()**](AnalyticsApi.md#getCreativesReport) | **POST** /preview/reports/creatives | /preview/reports/creatives |
+| [**getExportStatus()**](AnalyticsApi.md#getExportStatus) | **GET** /preview/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId} | /preview/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId} |
 | [**getPlacementsReport()**](AnalyticsApi.md#getPlacementsReport) | **POST** /preview/placements/report | /preview/placements/report |
 | [**getRealtimeProduct()**](AnalyticsApi.md#getRealtimeProduct) | **GET** /preview/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/{reportId} | /preview/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/{reportId} |
-| [**getRealtimeProductJob()**](AnalyticsApi.md#getRealtimeProductJob) | **GET** /preview/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId} | /preview/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId} |
 | [**getRealtimeStatisticsReport()**](AnalyticsApi.md#getRealtimeStatisticsReport) | **POST** /preview/reports/realtime | /preview/reports/realtime |
 | [**getTopProductsReport()**](AnalyticsApi.md#getTopProductsReport) | **POST** /preview/reports/top-products | /preview/reports/top-products |
 | [**getTransactionsReport()**](AnalyticsApi.md#getTransactionsReport) | **POST** /preview/transactions/report | /preview/transactions/report |
@@ -29,7 +29,7 @@ createRealtimeProductReport($real_time_product_report_job_request): \criteo\api\
 
 /preview/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/export
 
-This endpoint is subject to specific rate limits.  <br />  This endpoint is subject to specific rate limits.
+Creates a marketplace performance outcomes realtime report export.  <br />  This endpoint is subject to specific rate limits.
 
 ### Example
 
@@ -51,7 +51,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$real_time_product_report_job_request = new \criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobRequest(); // \criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobRequest
+$real_time_product_report_job_request = new \criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobRequest(); // \criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobRequest | The realtime report export request.
 
 try {
     $result = $apiInstance->createRealtimeProductReport($real_time_product_report_job_request);
@@ -65,7 +65,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **real_time_product_report_job_request** | [**\criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobRequest**](../Model/RealTimeProductReportJobRequest.md)|  | [optional] |
+| **real_time_product_report_job_request** | [**\criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobRequest**](../Model/RealTimeProductReportJobRequest.md)| The realtime report export request. | [optional] |
 
 ### Return type
 
@@ -92,7 +92,7 @@ getAdsetReport($statistics_report_query_message): \SplFileObject
 
 /preview/statistics/report
 
-This Statistics endpoint provides adset related data. It is an upgrade of our previous Statistics endpoint, and includes new metrics and customization capabilities.
+This Statistics endpoint provides ad set related data. It is an upgrade of our previous Statistics endpoint, and includes new metrics and customization capabilities.  <br/><br/>  This endpoint supports data retrieval for up to two years in the past.
 
 ### Example
 
@@ -114,7 +114,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$statistics_report_query_message = {"advertiserIds":"123,456,789","adSetIds":["12345","54321"],"adSetNames":["myAdSet1","myAdSet2"],"adSetStatus":["Active"],"dimensions":["CampaignId","Campaign","AdsetId","Adset","AdvertiserId","Advertiser","AdId","Ad","CouponId","Coupon","CategoryId","Category","Hour","Day","Week","Month","Year","Os","Device"],"metrics":["Clicks","Displays","Cpc","Visits"],"currency":"EUR","format":"csv","timezone":"Europe/Paris","startDate":"2025-08-11T00:00:00.0000000+00:00","endDate":"2025-08-14T00:00:00.0000000+00:00"}; // \criteo\api\marketingsolutions\preview\Model\StatisticsReportQueryMessage
+$statistics_report_query_message = {"advertiserIds":"123,456,789","adSetIds":["12345","54321"],"adSetNames":["myAdSet1","myAdSet2"],"adSetStatus":["Active"],"dimensions":["CampaignId","Campaign","AdsetId","Adset","AdvertiserId","Advertiser","AdId","Ad","CouponId","Coupon","CategoryId","Category","Hour","Day","Week","Month","Year","Os","Device"],"metrics":["Clicks","Displays","Cpc","Visits"],"currency":"EUR","format":"csv","timezone":"Europe/Paris","startDate":"2026-03-13T00:00:00.0000000+00:00","endDate":"2026-03-16T00:00:00.0000000+00:00"}; // \criteo\api\marketingsolutions\preview\Model\StatisticsReportQueryMessage
 
 try {
     $result = $apiInstance->getAdsetReport($statistics_report_query_message);
@@ -330,7 +330,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: `application/json`, `application/xml`, `text/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -407,7 +407,7 @@ getCategoriesReport($generate_categories_report_request_attributes_request): \Sp
 
 /preview/categories/report
 
-With this endpoint you can analyse what are the categories of the placements' domains your ads are placed in.
+With this endpoint you can analyse what are the categories of the placements' domains your ads are placed in.  <br/><br/>  This endpoint supports data retrieval for up to three months in the past.
 
 ### Example
 
@@ -429,7 +429,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$generate_categories_report_request_attributes_request = {"data":{"type":"GenerateCategoriesReport","attributes":{"advertiserIds":["123","456","789"],"campaignId":"111","adsetId":"135","domain":"example.com","category":"Example","shouldDisplayDomainDimension":true,"format":"csv","timezone":"Europe/Paris","startDate":"2026-01-02T00:00:00.0000000+02:00","endDate":"2026-01-05T00:00:00.0000000+02:00"}}}; // \criteo\api\marketingsolutions\preview\Model\GenerateCategoriesReportRequestAttributesRequest
+$generate_categories_report_request_attributes_request = {"data":{"type":"GenerateCategoriesReport","attributes":{"advertiserIds":["123","456","789"],"campaignId":"111","adsetId":"135","domain":"example.com","category":"Example","shouldDisplayDomainDimension":true,"format":"csv","timezone":"Europe/Paris","startDate":"2026-03-13T00:00:00.0000000+00:00","endDate":"2026-03-16T00:00:00.0000000+00:00"}}}; // \criteo\api\marketingsolutions\preview\Model\GenerateCategoriesReportRequestAttributesRequest
 
 try {
     $result = $apiInstance->getCategoriesReport($generate_categories_report_request_attributes_request);
@@ -470,7 +470,7 @@ getCreativesReport($generate_creatives_report_request_attributes_request): \crit
 
 /preview/reports/creatives
 
-With Creatives endpoint, you can analyse the daily performances of your creatives on the main metrics: clicks, ctr, displays.
+With Creatives endpoint, you can analyse the daily performances of your creatives on the main metrics: clicks, ctr, displays.  <br/><br/>  This endpoint supports data retrieval for up to two years in the past.
 
 ### Example
 
@@ -492,7 +492,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$generate_creatives_report_request_attributes_request = {"data":{"type":"GenerateCreativesReport","attributes":{"startDate":"2026-01-02T00:00:00.0000000+02:00","endDate":"2026-01-05T00:00:00.0000000+02:00","advertiserIds":["6666","7777"],"metrics":["Clicks","Ctr","Displays"],"dimensions":["SizeCategory","DisplaySize","AdFormat","Coupon","CouponId","Ad","AdId","Day","Hour"],"timezone":"Europe/Paris","adFormats":["Dynamic","Other formats"],"displaySizes":["LeaderBoard","LargeBanner"],"couponNames":["a coupon name"],"couponIds":["3333","5555"],"adNames":["Ad by Criteo team"],"adIds":["2222"],"campaignIds":["1111"],"adSetIds":["2222","3333"],"adSetStatus":["Active","NotRunning"]}}}; // \criteo\api\marketingsolutions\preview\Model\GenerateCreativesReportRequestAttributesRequest
+$generate_creatives_report_request_attributes_request = {"data":{"type":"GenerateCreativesReport","attributes":{"startDate":"2026-03-13T00:00:00.0000000+00:00","endDate":"2026-03-16T00:00:00.0000000+00:00","advertiserIds":["6666","7777"],"metrics":["Clicks","Ctr","Displays"],"dimensions":["SizeCategory","DisplaySize","AdFormat","Coupon","CouponId","Ad","AdId","Day","Hour"],"timezone":"Europe/Paris","adFormats":["Dynamic","Other formats"],"displaySizes":["LeaderBoard","LargeBanner"],"couponNames":["a coupon name"],"couponIds":["3333","5555"],"adNames":["Ad by Criteo team"],"adIds":["2222"],"campaignIds":["1111"],"adSetIds":["2222","3333"],"adSetStatus":["Active","NotRunning"]}}}; // \criteo\api\marketingsolutions\preview\Model\GenerateCreativesReportRequestAttributesRequest
 
 try {
     $result = $apiInstance->getCreativesReport($generate_creatives_report_request_attributes_request);
@@ -525,15 +525,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getPlacementsReport()`
+## `getExportStatus()`
 
 ```php
-getPlacementsReport($placements_report_query_message_list_request): \SplFileObject
+getExportStatus($report_id): \criteo\api\marketingsolutions\preview\Model\ExportStatusModelResponse
 ```
 
-/preview/placements/report
+/preview/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId}
 
-Your ads are placed in different domains (publishers) and environments (websites and apps). Thanks to the placements endpoint, you can analyse the performances for each publisher, comparing displays, clicks and sales generated.
+Gets the status of a marketplace performance outcomes report export job.
 
 ### Example
 
@@ -555,7 +555,70 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$placements_report_query_message_list_request = {"data":[{"type":"report","attributes":{"advertiserIds":"123,456,789","campaignIds":"111,222,333,444","adsetIds":"135,246,357,468","environment":"Web","placement":"MyPlacement","dimensions":["AdsetId","AdvertiserId","Placement"],"metrics":["Clicks","Displays","Cost"],"currency":"EUR","disclosed":false,"format":"csv","timezone":"Europe/Paris","startDate":"2026-01-02T00:00:00.0000000+02:00","endDate":"2026-01-05T00:00:00.0000000+02:00"}}]}; // \criteo\api\marketingsolutions\preview\Model\PlacementsReportQueryMessageListRequest
+$report_id = 'report_id_example'; // string | The identifier of the report export job.
+
+try {
+    $result = $apiInstance->getExportStatus($report_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AnalyticsApi->getExportStatus: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **report_id** | **string**| The identifier of the report export job. | |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\preview\Model\ExportStatusModelResponse**](../Model/ExportStatusModelResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`, `text/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getPlacementsReport()`
+
+```php
+getPlacementsReport($placements_report_query_message_list_request): \SplFileObject
+```
+
+/preview/placements/report
+
+Your ads are placed in different domains (publishers) and environments (websites and apps). Thanks to the placements endpoint, you can analyse the performances for each publisher, comparing displays, clicks and sales generated.  <br/><br/>  This endpoint supports data retrieval for up to three months in the past.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$placements_report_query_message_list_request = {"data":[{"type":"report","attributes":{"advertiserIds":"123,456,789","campaignIds":"111,222,333,444","adsetIds":"135,246,357,468","environment":"Web","placement":"MyPlacement","dimensions":["AdsetId","AdvertiserId","Placement"],"metrics":["Clicks","Displays","Cost"],"currency":"EUR","disclosed":false,"format":"csv","timezone":"Europe/Paris","startDate":"2026-03-13T00:00:00.0000000+00:00","endDate":"2026-03-16T00:00:00.0000000+00:00"}}]}; // \criteo\api\marketingsolutions\preview\Model\PlacementsReportQueryMessageListRequest
 
 try {
     $result = $apiInstance->getPlacementsReport($placements_report_query_message_list_request);
@@ -596,7 +659,7 @@ getRealtimeProduct($report_id): \criteo\api\marketingsolutions\preview\Model\Fil
 
 /preview/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/{reportId}
 
-This endpoint is subject to specific rate limits.  <br />  This endpoint is subject to specific rate limits.
+Downloads the generated marketplace performance outcomes realtime report export.  <br />  This endpoint is subject to specific rate limits.
 
 ### Example
 
@@ -618,7 +681,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$report_id = 'report_id_example'; // string | Unique ID (UUID) of the report to retrieve.
+$report_id = 'report_id_example'; // string | The identifier of the realtime report export.
 
 try {
     $result = $apiInstance->getRealtimeProduct($report_id);
@@ -632,74 +695,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **report_id** | **string**| Unique ID (UUID) of the report to retrieve. | |
+| **report_id** | **string**| The identifier of the realtime report export. | |
 
 ### Return type
 
 [**\criteo\api\marketingsolutions\preview\Model\FileStreamResultResponse**](../Model/FileStreamResultResponse.md)
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`, `text/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getRealtimeProductJob()`
-
-```php
-getRealtimeProductJob($report_id): \criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobStatusResponse
-```
-
-/preview/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId}
-
-This endpoint is subject to specific rate limits.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = criteo\api\marketingsolutions\preview\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$report_id = 'report_id_example'; // string | Unique ID (UUID) of the report job.
-
-try {
-    $result = $apiInstance->getRealtimeProductJob($report_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AnalyticsApi->getRealtimeProductJob: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **report_id** | **string**| Unique ID (UUID) of the report job. | |
-
-### Return type
-
-[**\criteo\api\marketingsolutions\preview\Model\RealTimeProductReportJobStatusResponse**](../Model/RealTimeProductReportJobStatusResponse.md)
 
 ### Authorization
 
@@ -785,7 +785,7 @@ getTopProductsReport($generate_top_products_report_request_attributes_request): 
 
 /preview/reports/top-products
 
-With the topProducts endpoint, you can analyse the performances for each publisher, by top displays, top clicks or top sales.
+With the topProducts endpoint, you can analyse the performances for each publisher, by top displays, top clicks or top sales.  <br/><br/>  This endpoint supports data retrieval for up to one year in the past.
 
 ### Example
 
@@ -807,7 +807,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$generate_top_products_report_request_attributes_request = {"data":{"type":"GenerateTopProductsReport","attributes":{"timezone":"Europe/Paris","startDate":"2026-01-02T00:00:00.0000000+02:00","endDate":"2026-01-05T00:00:00.0000000+02:00","advertiserId":"1234","limit":200,"rankProductsBy":"Clicks","dimensions":["CampaignId","Campaign","AdSetId","AdSet","ProductId","Product","ProductUrl","Brand","Category"],"metrics":["Clicks","Ctr","Visits","Sales","Cost","Revenue","Displays"],"currency":"EUR","brands":["Brand1","Brand2"],"categoryIds":["6666","7777"],"campaignIds":["9999"],"adSetIds":["11111","22222"],"adSetStatus":["Active","NotRunning"]}}}; // \criteo\api\marketingsolutions\preview\Model\GenerateTopProductsReportRequestAttributesRequest
+$generate_top_products_report_request_attributes_request = {"data":{"type":"GenerateTopProductsReport","attributes":{"timezone":"Europe/Paris","startDate":"2026-03-13T00:00:00.0000000+00:00","endDate":"2026-03-16T00:00:00.0000000+00:00","advertiserId":"1234","limit":200,"rankProductsBy":"Clicks","dimensions":["CampaignId","Campaign","AdSetId","AdSet","ProductId","Product","ProductUrl","Brand","Category"],"metrics":["Clicks","Ctr","Visits","Sales","Cost","Revenue","Displays"],"currency":"EUR","brands":["Brand1","Brand2"],"categoryIds":["6666","7777"],"campaignIds":["9999"],"adSetIds":["11111","22222"],"adSetStatus":["Active","NotRunning"]}}}; // \criteo\api\marketingsolutions\preview\Model\GenerateTopProductsReportRequestAttributesRequest
 
 try {
     $result = $apiInstance->getTopProductsReport($generate_top_products_report_request_attributes_request);
@@ -848,7 +848,7 @@ getTransactionsReport($transactions_report_query_message_list_request): \SplFile
 
 /preview/transactions/report
 
-This Transactions endpoint provides transactions id related data.
+This Transactions endpoint provides transactions id related data.  <br/><br/>  This endpoint supports data retrieval for up to two years in the past.
 
 ### Example
 
@@ -870,7 +870,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$transactions_report_query_message_list_request = {"data":[{"type":"report","attributes":{"advertiserIds":"123,456,789","eventType":"Display","currency":"EUR","format":"csv","timezone":"Europe/Paris","startDate":"2026-01-02T00:00:00.0000000+02:00","endDate":"2026-01-05T00:00:00.0000000+02:00"}}]}; // \criteo\api\marketingsolutions\preview\Model\TransactionsReportQueryMessageListRequest
+$transactions_report_query_message_list_request = {"data":[{"type":"report","attributes":{"advertiserIds":"123,456,789","eventType":"Display","currency":"EUR","format":"csv","timezone":"Europe/Paris","startDate":"2026-03-13T00:00:00.0000000+00:00","endDate":"2026-03-16T00:00:00.0000000+00:00"}}]}; // \criteo\api\marketingsolutions\preview\Model\TransactionsReportQueryMessageListRequest
 
 try {
     $result = $apiInstance->getTransactionsReport($transactions_report_query_message_list_request);
@@ -933,8 +933,8 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$advertiser_id = 'advertiser_id_example'; // string | The advertiser id to fetch the transparency data.
-$transparency_query_message = {"shouldDisplayProductIds":false,"startDate":"2025-08-11T00:00:00.0000000+00:00","endDate":"2025-08-14T00:00:00.0000000+00:00"}; // \criteo\api\marketingsolutions\preview\Model\TransparencyQueryMessage | The query message.
+$advertiser_id = 'advertiser_id_example'; // string | The advertiser ID to fetch the transparency data for. The advertiser must already exist. Must be greater than 0.
+$transparency_query_message = {"shouldDisplayProductIds":false,"startDate":"2026-03-13T00:00:00.0000000+00:00","endDate":"2026-03-16T00:00:00.0000000+00:00"}; // \criteo\api\marketingsolutions\preview\Model\TransparencyQueryMessage | The query message.
 
 try {
     $result = $apiInstance->getTransparencyReport($advertiser_id, $transparency_query_message);
@@ -948,7 +948,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **string**| The advertiser id to fetch the transparency data. | |
+| **advertiser_id** | **string**| The advertiser ID to fetch the transparency data for. The advertiser must already exist. Must be greater than 0. | |
 | **transparency_query_message** | [**\criteo\api\marketingsolutions\preview\Model\TransparencyQueryMessage**](../Model/TransparencyQueryMessage.md)| The query message. | [optional] |
 
 ### Return type
