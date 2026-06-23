@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | [**\criteo\api\marketingsolutions\v2025_01\Model\AudienceNameDescription**](AudienceNameDescription.md) |  | [optional]
+**attributes** | [**\criteo\api\marketingsolutions\v2026_07\Model\AudienceNameDescription**](AudienceNameDescription.md) |  | [optional]
 **id** | **string** | the id of the entity type |
 **type** | **string** | the name of the entity type |
 
