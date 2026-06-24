@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | [**\criteo\api\marketingsolutions\v2025_10\Model\AudienceSearchEntityV1**](AudienceSearchEntityV1.md) |  | [optional]
+**attributes** | [**\criteo\api\marketingsolutions\experimental\Model\AudienceSearchEntityV1**](AudienceSearchEntityV1.md) |  | [optional]
 **type** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

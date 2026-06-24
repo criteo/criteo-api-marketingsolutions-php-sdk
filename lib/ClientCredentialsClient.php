@@ -1,8 +1,8 @@
 <?php
-namespace criteo\api\marketingsolutions\v2025_10;
+namespace criteo\api\marketingsolutions\experimental;
 
-use criteo\api\marketingsolutions\v2025_10\ApiException;
-use criteo\api\marketingsolutions\v2025_10\ClientCredentialsClient\Token;
+use criteo\api\marketingsolutions\experimental\ApiException;
+use criteo\api\marketingsolutions\experimental\ClientCredentialsClient\Token;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;

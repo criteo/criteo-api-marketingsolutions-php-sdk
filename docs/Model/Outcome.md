@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**errors** | [**\criteo\api\marketingsolutions\v2025_10\Model\CommonProblem[]**](CommonProblem.md) |  | [optional] [readonly]
-**warnings** | [**\criteo\api\marketingsolutions\v2025_10\Model\CommonProblem[]**](CommonProblem.md) |  | [optional] [readonly]
+**errors** | [**\criteo\api\marketingsolutions\experimental\Model\CommonProblem[]**](CommonProblem.md) |  | [optional] [readonly]
+**warnings** | [**\criteo\api\marketingsolutions\experimental\Model\CommonProblem[]**](CommonProblem.md) |  | [optional] [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

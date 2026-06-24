@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | [**\criteo\api\marketingsolutions\v2025_10\Model\AudienceEntityV1**](AudienceEntityV1.md) |  | [optional]
+**attributes** | [**\criteo\api\marketingsolutions\experimental\Model\AudienceEntityV1**](AudienceEntityV1.md) |  | [optional]
 **id** | **string** | Id of the entity | [optional]
 **type** | **string** |  | [optional]
 
