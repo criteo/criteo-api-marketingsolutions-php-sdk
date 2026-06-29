@@ -198,6 +198,9 @@ docs/Model/ExportStatusModelResource.md
 docs/Model/ExportStatusModelResponse.md
 docs/Model/FileStreamResultResource.md
 docs/Model/FileStreamResultResponse.md
+docs/Model/GenerateAllProductsReportRequestAttributes.md
+docs/Model/GenerateAllProductsReportRequestAttributesRequest.md
+docs/Model/GenerateAllProductsReportRequestAttributesResource.md
 docs/Model/GenerateAudiencePerformanceReport.md
 docs/Model/GenerateAudiencePerformanceReportRequest.md
 docs/Model/GenerateAudiencePerformanceReportResource.md
@@ -610,6 +613,9 @@ lib/Model/ExportStatusModelResource.php
 lib/Model/ExportStatusModelResponse.php
 lib/Model/FileStreamResultResource.php
 lib/Model/FileStreamResultResponse.php
+lib/Model/GenerateAllProductsReportRequestAttributes.php
+lib/Model/GenerateAllProductsReportRequestAttributesRequest.php
+lib/Model/GenerateAllProductsReportRequestAttributesResource.php
 lib/Model/GenerateAudiencePerformanceReport.php
 lib/Model/GenerateAudiencePerformanceReportRequest.php
 lib/Model/GenerateAudiencePerformanceReportResource.php

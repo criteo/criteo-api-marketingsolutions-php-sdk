@@ -105,7 +105,7 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
 		'end_date' => false,
 		'metrics' => false,
 		'start_date' => false,
-		'timezone' => false
+		'timezone' => true
     ];
 
     /**
@@ -969,9 +969,6 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
         if ($this->container['start_date'] === null) {
             $invalidProperties[] = "'start_date' can't be null";
         }
-        if ($this->container['timezone'] === null) {
-            $invalidProperties[] = "'timezone' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -1284,7 +1281,7 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets timezone
      *
-     * @return string
+     * @return string|null
      */
     public function getTimezone()
     {
@@ -1294,14 +1291,21 @@ class GenerateStatisticsReport implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets timezone
      *
-     * @param string $timezone Optional timezone used for the report. Timezone Database format (Tz).
+     * @param string|null $timezone Optional timezone used for the report. Timezone Database format (Tz).
      *
      * @return self
      */
     public function setTimezone($timezone)
     {
         if (is_null($timezone)) {
-            throw new \InvalidArgumentException('non-nullable timezone cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'timezone');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('timezone', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['timezone'] = $timezone;
 
