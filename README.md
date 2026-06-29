@@ -71,7 +71,9 @@ Class | Method | HTTP request | Description
 *AdvertiserApi* | [**listAdvertisers**](docs/Api/AdvertiserApi.md#listadvertisers) | **GET** /experimental/advertisers/me | /experimental/advertisers/me
 *AdvertiserApi* | [**listDatasetsByAdvertiser**](docs/Api/AdvertiserApi.md#listdatasetsbyadvertiser) | **GET** /experimental/advertisers/{advertiser-id}/datasets | /experimental/advertisers/{advertiser-id}/datasets
 *AdvertiserApi* | [**listIndustries**](docs/Api/AdvertiserApi.md#listindustries) | **GET** /experimental/industries | /experimental/industries
+*AnalyticsApi* | [**createAllProductsExport**](docs/Api/AnalyticsApi.md#createallproductsexport) | **POST** /experimental/marketing-solutions/report/products/export | /experimental/marketing-solutions/report/products/export
 *AnalyticsApi* | [**createRealtimeProductReport**](docs/Api/AnalyticsApi.md#createrealtimeproductreport) | **POST** /experimental/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/export | /experimental/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/export
+*AnalyticsApi* | [**downloadAllProductsExport**](docs/Api/AnalyticsApi.md#downloadallproductsexport) | **GET** /experimental/marketing-solutions/report/products/{reportId} | /experimental/marketing-solutions/report/products/{reportId}
 *AnalyticsApi* | [**getAdsetReport**](docs/Api/AnalyticsApi.md#getadsetreport) | **POST** /experimental/statistics/report | /experimental/statistics/report
 *AnalyticsApi* | [**getAsyncAdsetReport**](docs/Api/AnalyticsApi.md#getasyncadsetreport) | **POST** /experimental/reports/async-statistics | /experimental/reports/async-statistics
 *AnalyticsApi* | [**getAsyncAudienceReport**](docs/Api/AnalyticsApi.md#getasyncaudiencereport) | **POST** /experimental/reports/async-audience-performance | /experimental/reports/async-audience-performance
@@ -79,7 +81,8 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**getAsyncExportStatus**](docs/Api/AnalyticsApi.md#getasyncexportstatus) | **GET** /experimental/reports/{report-id}/status | /experimental/reports/{report-id}/status
 *AnalyticsApi* | [**getCategoriesReport**](docs/Api/AnalyticsApi.md#getcategoriesreport) | **POST** /experimental/categories/report | /experimental/categories/report
 *AnalyticsApi* | [**getCreativesReport**](docs/Api/AnalyticsApi.md#getcreativesreport) | **POST** /experimental/reports/creatives | /experimental/reports/creatives
-*AnalyticsApi* | [**getExportStatus**](docs/Api/AnalyticsApi.md#getexportstatus) | **GET** /experimental/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId} | /experimental/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId}
+*AnalyticsApi* | [**getExportStatus**](docs/Api/AnalyticsApi.md#getexportstatus) | **GET** /experimental/marketing-solutions/report-jobs/{reportId} | /experimental/marketing-solutions/report-jobs/{reportId}
+*AnalyticsApi* | [**getMarketplacePerformanceOutcomesExportStatus**](docs/Api/AnalyticsApi.md#getmarketplaceperformanceoutcomesexportstatus) | **GET** /experimental/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId} | /experimental/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId}
 *AnalyticsApi* | [**getPlacementsReport**](docs/Api/AnalyticsApi.md#getplacementsreport) | **POST** /experimental/placements/report | /experimental/placements/report
 *AnalyticsApi* | [**getRealtimeProduct**](docs/Api/AnalyticsApi.md#getrealtimeproduct) | **GET** /experimental/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/{reportId} | /experimental/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/{reportId}
 *AnalyticsApi* | [**getRealtimeStatisticsReport**](docs/Api/AnalyticsApi.md#getrealtimestatisticsreport) | **POST** /experimental/reports/realtime | /experimental/reports/realtime
@@ -371,6 +374,9 @@ Class | Method | HTTP request | Description
  - [ExportStatusModelResponse](docs/Model/ExportStatusModelResponse.md)
  - [FileStreamResultResource](docs/Model/FileStreamResultResource.md)
  - [FileStreamResultResponse](docs/Model/FileStreamResultResponse.md)
+ - [GenerateAllProductsReportRequestAttributes](docs/Model/GenerateAllProductsReportRequestAttributes.md)
+ - [GenerateAllProductsReportRequestAttributesRequest](docs/Model/GenerateAllProductsReportRequestAttributesRequest.md)
+ - [GenerateAllProductsReportRequestAttributesResource](docs/Model/GenerateAllProductsReportRequestAttributesResource.md)
  - [GenerateAudiencePerformanceReport](docs/Model/GenerateAudiencePerformanceReport.md)
  - [GenerateAudiencePerformanceReportRequest](docs/Model/GenerateAudiencePerformanceReportRequest.md)
  - [GenerateAudiencePerformanceReportResource](docs/Model/GenerateAudiencePerformanceReportResource.md)

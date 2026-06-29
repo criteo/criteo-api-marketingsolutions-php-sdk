@@ -71,11 +71,20 @@ class AnalyticsApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
+        'createAllProductsExport' => [
+            'application/json',
+            'application/xml',
+            'text/xml',
+            'application/*+xml',
+        ],
         'createRealtimeProductReport' => [
             'application/json',
             'application/xml',
             'text/xml',
             'application/*+xml',
+        ],
+        'downloadAllProductsExport' => [
+            'application/json',
         ],
         'getAdsetReport' => [
             'application/json',
@@ -111,6 +120,9 @@ class AnalyticsApi
             'application/*+xml',
         ],
         'getExportStatus' => [
+            'application/json',
+        ],
+        'getMarketplacePerformanceOutcomesExportStatus' => [
             'application/json',
         ],
         'getPlacementsReport' => [
@@ -192,6 +204,290 @@ class AnalyticsApi
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * Operation createAllProductsExport
+     *
+     * /experimental/marketing-solutions/report/products/export
+     *
+     * @param  \criteo\api\marketingsolutions\experimental\Model\GenerateAllProductsReportRequestAttributesRequest $generate_all_products_report_request_attributes_request The all-products report export request. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAllProductsExport'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\experimental\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\experimental\Model\ExportStatusModelResponse
+     */
+    public function createAllProductsExport($generate_all_products_report_request_attributes_request = null, string $contentType = self::contentTypes['createAllProductsExport'][0])
+    {
+        list($response) = $this->createAllProductsExportWithHttpInfo($generate_all_products_report_request_attributes_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createAllProductsExportWithHttpInfo
+     *
+     * /experimental/marketing-solutions/report/products/export
+     *
+     * @param  \criteo\api\marketingsolutions\experimental\Model\GenerateAllProductsReportRequestAttributesRequest $generate_all_products_report_request_attributes_request The all-products report export request. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAllProductsExport'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\experimental\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\experimental\Model\ExportStatusModelResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createAllProductsExportWithHttpInfo($generate_all_products_report_request_attributes_request = null, string $contentType = self::contentTypes['createAllProductsExport'][0])
+    {
+        $request = $this->createAllProductsExportRequest($generate_all_products_report_request_attributes_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\experimental\Model\ExportStatusModelResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\experimental\Model\ExportStatusModelResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\experimental\Model\ExportStatusModelResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\experimental\Model\ExportStatusModelResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\experimental\Model\ExportStatusModelResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createAllProductsExportAsync
+     *
+     * /experimental/marketing-solutions/report/products/export
+     *
+     * @param  \criteo\api\marketingsolutions\experimental\Model\GenerateAllProductsReportRequestAttributesRequest $generate_all_products_report_request_attributes_request The all-products report export request. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAllProductsExport'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createAllProductsExportAsync($generate_all_products_report_request_attributes_request = null, string $contentType = self::contentTypes['createAllProductsExport'][0])
+    {
+        return $this->createAllProductsExportAsyncWithHttpInfo($generate_all_products_report_request_attributes_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createAllProductsExportAsyncWithHttpInfo
+     *
+     * /experimental/marketing-solutions/report/products/export
+     *
+     * @param  \criteo\api\marketingsolutions\experimental\Model\GenerateAllProductsReportRequestAttributesRequest $generate_all_products_report_request_attributes_request The all-products report export request. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAllProductsExport'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createAllProductsExportAsyncWithHttpInfo($generate_all_products_report_request_attributes_request = null, string $contentType = self::contentTypes['createAllProductsExport'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\experimental\Model\ExportStatusModelResponse';
+        $request = $this->createAllProductsExportRequest($generate_all_products_report_request_attributes_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createAllProductsExport'
+     *
+     * @param  \criteo\api\marketingsolutions\experimental\Model\GenerateAllProductsReportRequestAttributesRequest $generate_all_products_report_request_attributes_request The all-products report export request. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAllProductsExport'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createAllProductsExportRequest($generate_all_products_report_request_attributes_request = null, string $contentType = self::contentTypes['createAllProductsExport'][0])
+    {
+
+
+
+        $resourcePath = '/experimental/marketing-solutions/report/products/export';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', 'text/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($generate_all_products_report_request_attributes_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($generate_all_products_report_request_attributes_request));
+            } else {
+                $httpBody = $generate_all_products_report_request_attributes_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**
@@ -472,6 +768,297 @@ class AnalyticsApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation downloadAllProductsExport
+     *
+     * /experimental/marketing-solutions/report/products/{reportId}
+     *
+     * @param  string $report_id The identifier of the all-products report export. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadAllProductsExport'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\experimental\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \SplFileObject
+     */
+    public function downloadAllProductsExport($report_id, string $contentType = self::contentTypes['downloadAllProductsExport'][0])
+    {
+        list($response) = $this->downloadAllProductsExportWithHttpInfo($report_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation downloadAllProductsExportWithHttpInfo
+     *
+     * /experimental/marketing-solutions/report/products/{reportId}
+     *
+     * @param  string $report_id The identifier of the all-products report export. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadAllProductsExport'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\experimental\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function downloadAllProductsExportWithHttpInfo($report_id, string $contentType = self::contentTypes['downloadAllProductsExport'][0])
+    {
+        $request = $this->downloadAllProductsExportRequest($report_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\SplFileObject' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\SplFileObject' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\SplFileObject';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\SplFileObject',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation downloadAllProductsExportAsync
+     *
+     * /experimental/marketing-solutions/report/products/{reportId}
+     *
+     * @param  string $report_id The identifier of the all-products report export. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadAllProductsExport'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function downloadAllProductsExportAsync($report_id, string $contentType = self::contentTypes['downloadAllProductsExport'][0])
+    {
+        return $this->downloadAllProductsExportAsyncWithHttpInfo($report_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation downloadAllProductsExportAsyncWithHttpInfo
+     *
+     * /experimental/marketing-solutions/report/products/{reportId}
+     *
+     * @param  string $report_id The identifier of the all-products report export. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadAllProductsExport'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function downloadAllProductsExportAsyncWithHttpInfo($report_id, string $contentType = self::contentTypes['downloadAllProductsExport'][0])
+    {
+        $returnType = '\SplFileObject';
+        $request = $this->downloadAllProductsExportRequest($report_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'downloadAllProductsExport'
+     *
+     * @param  string $report_id The identifier of the all-products report export. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadAllProductsExport'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function downloadAllProductsExportRequest($report_id, string $contentType = self::contentTypes['downloadAllProductsExport'][0])
+    {
+
+        // verify the required parameter 'report_id' is set
+        if ($report_id === null || (is_array($report_id) && count($report_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $report_id when calling downloadAllProductsExport'
+            );
+        }
+
+
+        $resourcePath = '/experimental/marketing-solutions/report/products/{reportId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($report_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'reportId' . '}',
+                ObjectSerializer::toPathValue($report_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -2495,7 +3082,7 @@ class AnalyticsApi
     /**
      * Operation getExportStatus
      *
-     * /experimental/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId}
+     * /experimental/marketing-solutions/report-jobs/{reportId}
      *
      * @param  string $report_id The identifier of the report export job. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExportStatus'] to see the possible values for this operation
@@ -2513,7 +3100,7 @@ class AnalyticsApi
     /**
      * Operation getExportStatusWithHttpInfo
      *
-     * /experimental/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId}
+     * /experimental/marketing-solutions/report-jobs/{reportId}
      *
      * @param  string $report_id The identifier of the report export job. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExportStatus'] to see the possible values for this operation
@@ -2613,7 +3200,7 @@ class AnalyticsApi
     /**
      * Operation getExportStatusAsync
      *
-     * /experimental/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId}
+     * /experimental/marketing-solutions/report-jobs/{reportId}
      *
      * @param  string $report_id The identifier of the report export job. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExportStatus'] to see the possible values for this operation
@@ -2634,7 +3221,7 @@ class AnalyticsApi
     /**
      * Operation getExportStatusAsyncWithHttpInfo
      *
-     * /experimental/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId}
+     * /experimental/marketing-solutions/report-jobs/{reportId}
      *
      * @param  string $report_id The identifier of the report export job. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExportStatus'] to see the possible values for this operation
@@ -2699,6 +3286,297 @@ class AnalyticsApi
         if ($report_id === null || (is_array($report_id) && count($report_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $report_id when calling getExportStatus'
+            );
+        }
+
+
+        $resourcePath = '/experimental/marketing-solutions/report-jobs/{reportId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($report_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'reportId' . '}',
+                ObjectSerializer::toPathValue($report_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', 'text/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getMarketplacePerformanceOutcomesExportStatus
+     *
+     * /experimental/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId}
+     *
+     * @param  string $report_id The identifier of the report export job. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplacePerformanceOutcomesExportStatus'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\experimental\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\experimental\Model\ExportStatusModelResponse
+     */
+    public function getMarketplacePerformanceOutcomesExportStatus($report_id, string $contentType = self::contentTypes['getMarketplacePerformanceOutcomesExportStatus'][0])
+    {
+        list($response) = $this->getMarketplacePerformanceOutcomesExportStatusWithHttpInfo($report_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getMarketplacePerformanceOutcomesExportStatusWithHttpInfo
+     *
+     * /experimental/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId}
+     *
+     * @param  string $report_id The identifier of the report export job. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplacePerformanceOutcomesExportStatus'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\experimental\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\experimental\Model\ExportStatusModelResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMarketplacePerformanceOutcomesExportStatusWithHttpInfo($report_id, string $contentType = self::contentTypes['getMarketplacePerformanceOutcomesExportStatus'][0])
+    {
+        $request = $this->getMarketplacePerformanceOutcomesExportStatusRequest($report_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\experimental\Model\ExportStatusModelResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\experimental\Model\ExportStatusModelResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\experimental\Model\ExportStatusModelResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\experimental\Model\ExportStatusModelResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\experimental\Model\ExportStatusModelResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMarketplacePerformanceOutcomesExportStatusAsync
+     *
+     * /experimental/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId}
+     *
+     * @param  string $report_id The identifier of the report export job. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplacePerformanceOutcomesExportStatus'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketplacePerformanceOutcomesExportStatusAsync($report_id, string $contentType = self::contentTypes['getMarketplacePerformanceOutcomesExportStatus'][0])
+    {
+        return $this->getMarketplacePerformanceOutcomesExportStatusAsyncWithHttpInfo($report_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getMarketplacePerformanceOutcomesExportStatusAsyncWithHttpInfo
+     *
+     * /experimental/marketing-solutions/marketplace-performance-outcomes/stats/report-jobs/{reportId}
+     *
+     * @param  string $report_id The identifier of the report export job. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplacePerformanceOutcomesExportStatus'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketplacePerformanceOutcomesExportStatusAsyncWithHttpInfo($report_id, string $contentType = self::contentTypes['getMarketplacePerformanceOutcomesExportStatus'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\experimental\Model\ExportStatusModelResponse';
+        $request = $this->getMarketplacePerformanceOutcomesExportStatusRequest($report_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getMarketplacePerformanceOutcomesExportStatus'
+     *
+     * @param  string $report_id The identifier of the report export job. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplacePerformanceOutcomesExportStatus'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getMarketplacePerformanceOutcomesExportStatusRequest($report_id, string $contentType = self::contentTypes['getMarketplacePerformanceOutcomesExportStatus'][0])
+    {
+
+        // verify the required parameter 'report_id' is set
+        if ($report_id === null || (is_array($report_id) && count($report_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $report_id when calling getMarketplacePerformanceOutcomesExportStatus'
             );
         }
 
