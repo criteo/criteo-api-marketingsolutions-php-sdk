@@ -40,7 +40,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2026_07\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$statistics_report_query_message = {"advertiserIds":"123,456,789","adSetIds":["12345","54321"],"adSetNames":["myAdSet1","myAdSet2"],"adSetStatus":["Active"],"dimensions":["CampaignId","Campaign","AdsetId","Adset","AdvertiserId","Advertiser","AdId","Ad","CouponId","Coupon","CategoryId","Category","Hour","Day","Week","Month","Year","Os","Device"],"metrics":["Clicks","Displays","Cpc","Visits"],"currency":"EUR","format":"csv","timezone":"Europe/Paris","startDate":"2026-03-13T00:00:00.0000000+00:00","endDate":"2026-03-16T00:00:00.0000000+00:00"}; // \criteo\api\marketingsolutions\v2026_07\Model\StatisticsReportQueryMessage
+$statistics_report_query_message = {"advertiserIds":"123,456,789","adSetIds":["12345","54321"],"adSetNames":["myAdSet1","myAdSet2"],"adSetStatus":["Active"],"dimensions":["CampaignId","Campaign","AdsetId","Adset","AdvertiserId","Advertiser","AdId","Ad","CouponId","Coupon","CategoryId","Category","Hour","Day","Week","Month","Year","Os","Device"],"metrics":["Clicks","Displays","Cpc","Visits"],"currency":"EUR","format":"csv","timezone":"Europe/Paris","startDate":"2024-01-01T00:00:00.0000000+00:00","endDate":"2024-01-04T00:00:00.0000000+00:00"}; // \criteo\api\marketingsolutions\v2026_07\Model\StatisticsReportQueryMessage
 
 try {
     $result = $apiInstance->getAdsetReport($statistics_report_query_message);
@@ -103,7 +103,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2026_07\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$placements_report_query_message_list_request = {"data":[{"type":"report","attributes":{"advertiserIds":"123,456,789","campaignIds":"111,222,333,444","adsetIds":"135,246,357,468","environment":"Web","placement":"MyPlacement","dimensions":["AdsetId","AdvertiserId","Placement"],"metrics":["Clicks","Displays","Cost"],"currency":"EUR","disclosed":false,"format":"csv","timezone":"Europe/Paris","startDate":"2026-03-13T00:00:00.0000000+00:00","endDate":"2026-03-16T00:00:00.0000000+00:00"}}]}; // \criteo\api\marketingsolutions\v2026_07\Model\PlacementsReportQueryMessageListRequest
+$placements_report_query_message_list_request = {"data":[{"type":"report","attributes":{"advertiserIds":"123,456,789","campaignIds":"111,222,333,444","adsetIds":"135,246,357,468","environment":"Web","placement":"MyPlacement","dimensions":["AdsetId","AdvertiserId","Placement"],"metrics":["Clicks","Displays","Cost"],"currency":"EUR","disclosed":false,"format":"csv","timezone":"Europe/Paris","startDate":"2024-01-01T00:00:00.0000000+00:00","endDate":"2024-01-04T00:00:00.0000000+00:00"}}]}; // \criteo\api\marketingsolutions\v2026_07\Model\PlacementsReportQueryMessageListRequest
 
 try {
     $result = $apiInstance->getPlacementsReport($placements_report_query_message_list_request);
@@ -166,7 +166,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2026_07\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$transactions_report_query_message_list_request = {"data":[{"type":"report","attributes":{"advertiserIds":"123,456,789","eventType":"Display","currency":"EUR","format":"csv","timezone":"Europe/Paris","startDate":"2026-03-13T00:00:00.0000000+00:00","endDate":"2026-03-16T00:00:00.0000000+00:00"}}]}; // \criteo\api\marketingsolutions\v2026_07\Model\TransactionsReportQueryMessageListRequest
+$transactions_report_query_message_list_request = {"data":[{"type":"report","attributes":{"advertiserIds":"123,456,789","eventType":"Display","currency":"EUR","format":"csv","timezone":"Europe/Paris","startDate":"2024-01-01T00:00:00.0000000+00:00","endDate":"2024-01-04T00:00:00.0000000+00:00"}}]}; // \criteo\api\marketingsolutions\v2026_07\Model\TransactionsReportQueryMessageListRequest
 
 try {
     $result = $apiInstance->getTransactionsReport($transactions_report_query_message_list_request);
@@ -230,7 +230,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2026_07\Api\AnalyticsApi(
     $config
 );
 $advertiser_id = 'advertiser_id_example'; // string | The advertiser ID to fetch the transparency data for. The advertiser must already exist. Must be greater than 0.
-$transparency_query_message = {"shouldDisplayProductIds":false,"startDate":"2026-03-13T00:00:00.0000000+00:00","endDate":"2026-03-16T00:00:00.0000000+00:00"}; // \criteo\api\marketingsolutions\v2026_07\Model\TransparencyQueryMessage | The query message.
+$transparency_query_message = {"shouldDisplayProductIds":false,"startDate":"2024-01-01T00:00:00.0000000+00:00","endDate":"2024-01-04T00:00:00.0000000+00:00"}; // \criteo\api\marketingsolutions\v2026_07\Model\TransparencyQueryMessage | The query message.
 
 try {
     $result = $apiInstance->getTransparencyReport($advertiser_id, $transparency_query_message);

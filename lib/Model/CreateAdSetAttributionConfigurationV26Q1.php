@@ -237,8 +237,6 @@ class CreateAdSetAttributionConfigurationV26Q1 implements ModelInterface, ArrayA
 
     public const ATTRIBUTION_METHOD_UNKNOWN = 'unknown';
     public const ATTRIBUTION_METHOD_CRITEO_ATTRIBUTION = 'criteoAttribution';
-    public const ATTRIBUTION_METHOD_GOOGLE_ANALYTICS_LAST_CLICK = 'googleAnalyticsLastClick';
-    public const ATTRIBUTION_METHOD_GOOGLE_ANALYTICS_DATA_DRIVEN = 'googleAnalyticsDataDriven';
     public const ATTRIBUTION_METHOD_LAST_CLICK = 'lastClick';
     public const ATTRIBUTION_METHOD_POST_CLICK = 'postClick';
     public const ATTRIBUTION_METHOD_SFTP = 'sftp';
@@ -259,8 +257,6 @@ class CreateAdSetAttributionConfigurationV26Q1 implements ModelInterface, ArrayA
         return [
             self::ATTRIBUTION_METHOD_UNKNOWN,
             self::ATTRIBUTION_METHOD_CRITEO_ATTRIBUTION,
-            self::ATTRIBUTION_METHOD_GOOGLE_ANALYTICS_LAST_CLICK,
-            self::ATTRIBUTION_METHOD_GOOGLE_ANALYTICS_DATA_DRIVEN,
             self::ATTRIBUTION_METHOD_LAST_CLICK,
             self::ATTRIBUTION_METHOD_POST_CLICK,
             self::ATTRIBUTION_METHOD_SFTP,
