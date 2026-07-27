@@ -90,7 +90,7 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'advertiser_ids' => true,
+        'advertiser_ids' => false,
 		'currency' => false,
 		'end_date' => false,
 		'event_type' => true,
@@ -265,10 +265,25 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
         return self::$openAPIModelName;
     }
 
+    public const EVENT_TYPE_CLICK = 'Click';
+    public const EVENT_TYPE_DISPLAY = 'Display';
     public const FORMAT_CSV = 'csv';
     public const FORMAT_EXCEL = 'excel';
     public const FORMAT_XML = 'xml';
     public const FORMAT_JSON = 'json';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getEventTypeAllowableValues()
+    {
+        return [
+            self::EVENT_TYPE_CLICK,
+            self::EVENT_TYPE_DISPLAY,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -336,12 +351,24 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
     {
         $invalidProperties = [];
 
+        if ($this->container['advertiser_ids'] === null) {
+            $invalidProperties[] = "'advertiser_ids' can't be null";
+        }
         if ($this->container['currency'] === null) {
             $invalidProperties[] = "'currency' can't be null";
         }
         if ($this->container['end_date'] === null) {
             $invalidProperties[] = "'end_date' can't be null";
         }
+        $allowedValues = $this->getEventTypeAllowableValues();
+        if (!is_null($this->container['event_type']) && !in_array($this->container['event_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'event_type', must be one of '%s'",
+                $this->container['event_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         $allowedValues = $this->getFormatAllowableValues();
         if (!is_null($this->container['format']) && !in_array($this->container['format'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -372,7 +399,7 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets advertiser_ids
      *
-     * @return string|null
+     * @return string
      */
     public function getAdvertiserIds()
     {
@@ -382,21 +409,14 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets advertiser_ids
      *
-     * @param string|null $advertiser_ids The comma-separated list of advertiser ids. If empty, all the advertisers in the portfolio will be used
+     * @param string $advertiser_ids List of advertiser IDs to report on, provided as a single comma-separated string (e.g., \"123,456,789\"). The advertisers must already exist. If empty, all advertisers will be used.
      *
      * @return self
      */
     public function setAdvertiserIds($advertiser_ids)
     {
         if (is_null($advertiser_ids)) {
-            array_push($this->openAPINullablesSetToNull, 'advertiser_ids');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('advertiser_ids', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable advertiser_ids cannot be null');
         }
         $this->container['advertiser_ids'] = $advertiser_ids;
 
@@ -443,7 +463,7 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets end_date
      *
-     * @param \DateTime $end_date End date of the report. Date component of ISO 8061 format, any time or timezone component is ignored.
+     * @param \DateTime $end_date End date of the report. Date component of ISO 8601 format, any time or timezone component is ignored.
      *
      * @return self
      */
@@ -470,7 +490,7 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets event_type
      *
-     * @param string|null $event_type Apply a filter on Event type .
+     * @param string|null $event_type Optional event type to filter on. If empty, all event types will be included.
      *
      * @return self
      */
@@ -485,6 +505,16 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        $allowedValues = $this->getEventTypeAllowableValues();
+        if (!is_null($event_type) && !in_array($event_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'event_type', must be one of '%s'",
+                    $event_type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['event_type'] = $event_type;
 
@@ -504,7 +534,7 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets format
      *
-     * @param string|null $format The file format of the generated report
+     * @param string|null $format Optional file format of the generated report.
      *
      * @return self
      */
@@ -541,7 +571,7 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets start_date
      *
-     * @param \DateTime $start_date Start date of the report. Date component of ISO 8061 format, any time or timezone component is ignored.
+     * @param \DateTime $start_date Start date of the report. Date component of ISO 8601 format, any time or timezone component is ignored. Must be ≤ endDate.
      *
      * @return self
      */
@@ -568,7 +598,7 @@ class TransactionsReportQueryMessage implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets timezone
      *
-     * @param string|null $timezone The timezone used for the report. Timezone Database format (Tz).
+     * @param string|null $timezone Optional timezone used for the report. Timezone Database format (Tz).
      *
      * @return self
      */

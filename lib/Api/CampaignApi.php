@@ -248,6 +248,8 @@ class CampaignApi
     /**
      * Operation createAdSet
      *
+     * /2025-07/marketing-solutions/ad-sets
+     *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CreateAdSetV24Q3Request $create_ad_set_v24_q3_request the ad sets to create (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdSet'] to see the possible values for this operation
      *
@@ -263,6 +265,8 @@ class CampaignApi
 
     /**
      * Operation createAdSetWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/ad-sets
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CreateAdSetV24Q3Request $create_ad_set_v24_q3_request the ad sets to create (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdSet'] to see the possible values for this operation
@@ -362,6 +366,8 @@ class CampaignApi
     /**
      * Operation createAdSetAsync
      *
+     * /2025-07/marketing-solutions/ad-sets
+     *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CreateAdSetV24Q3Request $create_ad_set_v24_q3_request the ad sets to create (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdSet'] to see the possible values for this operation
      *
@@ -380,6 +386,8 @@ class CampaignApi
 
     /**
      * Operation createAdSetAsyncWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/ad-sets
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CreateAdSetV24Q3Request $create_ad_set_v24_q3_request the ad sets to create (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdSet'] to see the possible values for this operation
@@ -530,6 +538,8 @@ class CampaignApi
     /**
      * Operation createCampaign
      *
+     * /2025-07/marketing-solutions/campaigns
+     *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CreateCampaignRequest $create_campaign_request the campaigns to create (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCampaign'] to see the possible values for this operation
      *
@@ -545,6 +555,8 @@ class CampaignApi
 
     /**
      * Operation createCampaignWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/campaigns
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CreateCampaignRequest $create_campaign_request the campaigns to create (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCampaign'] to see the possible values for this operation
@@ -644,6 +656,8 @@ class CampaignApi
     /**
      * Operation createCampaignAsync
      *
+     * /2025-07/marketing-solutions/campaigns
+     *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CreateCampaignRequest $create_campaign_request the campaigns to create (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCampaign'] to see the possible values for this operation
      *
@@ -662,6 +676,8 @@ class CampaignApi
 
     /**
      * Operation createCampaignAsyncWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/campaigns
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CreateCampaignRequest $create_campaign_request the campaigns to create (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCampaign'] to see the possible values for this operation
@@ -812,7 +828,7 @@ class CampaignApi
     /**
      * Operation createMarketplaceSellerBudgets
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CreateSellerBudgetMapiMessage[] $create_seller_budget_mapi_message  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceSellerBudgets'] to see the possible values for this operation
@@ -830,7 +846,7 @@ class CampaignApi
     /**
      * Operation createMarketplaceSellerBudgetsWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CreateSellerBudgetMapiMessage[] $create_seller_budget_mapi_message  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceSellerBudgets'] to see the possible values for this operation
@@ -930,7 +946,7 @@ class CampaignApi
     /**
      * Operation createMarketplaceSellerBudgetsAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CreateSellerBudgetMapiMessage[] $create_seller_budget_mapi_message  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceSellerBudgets'] to see the possible values for this operation
@@ -951,7 +967,7 @@ class CampaignApi
     /**
      * Operation createMarketplaceSellerBudgetsAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CreateSellerBudgetMapiMessage[] $create_seller_budget_mapi_message  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceSellerBudgets'] to see the possible values for this operation
@@ -1102,7 +1118,7 @@ class CampaignApi
     /**
      * Operation createMarketplaceSellerCampaignsBySeller
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/seller-campaigns
      *
      * @param  string $seller_id Supply a generated Id of an existing Seller (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CreateSellerCampaignMessageMapi $create_seller_campaign_message_mapi Supply the campaign Id and bid to create the mapping (required)
@@ -1121,7 +1137,7 @@ class CampaignApi
     /**
      * Operation createMarketplaceSellerCampaignsBySellerWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/seller-campaigns
      *
      * @param  string $seller_id Supply a generated Id of an existing Seller (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CreateSellerCampaignMessageMapi $create_seller_campaign_message_mapi Supply the campaign Id and bid to create the mapping (required)
@@ -1222,7 +1238,7 @@ class CampaignApi
     /**
      * Operation createMarketplaceSellerCampaignsBySellerAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/seller-campaigns
      *
      * @param  string $seller_id Supply a generated Id of an existing Seller (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CreateSellerCampaignMessageMapi $create_seller_campaign_message_mapi Supply the campaign Id and bid to create the mapping (required)
@@ -1244,7 +1260,7 @@ class CampaignApi
     /**
      * Operation createMarketplaceSellerCampaignsBySellerAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/seller-campaigns
      *
      * @param  string $seller_id Supply a generated Id of an existing Seller (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CreateSellerCampaignMessageMapi $create_seller_campaign_message_mapi Supply the campaign Id and bid to create the mapping (required)
@@ -1412,6 +1428,8 @@ class CampaignApi
     /**
      * Operation getAdSet
      *
+     * /2025-07/marketing-solutions/ad-sets/{ad-set-id}
+     *
      * @param  string $ad_set_id Id of the ad set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSet'] to see the possible values for this operation
      *
@@ -1427,6 +1445,8 @@ class CampaignApi
 
     /**
      * Operation getAdSetWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/ad-sets/{ad-set-id}
      *
      * @param  string $ad_set_id Id of the ad set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSet'] to see the possible values for this operation
@@ -1526,6 +1546,8 @@ class CampaignApi
     /**
      * Operation getAdSetAsync
      *
+     * /2025-07/marketing-solutions/ad-sets/{ad-set-id}
+     *
      * @param  string $ad_set_id Id of the ad set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSet'] to see the possible values for this operation
      *
@@ -1544,6 +1566,8 @@ class CampaignApi
 
     /**
      * Operation getAdSetAsyncWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/ad-sets/{ad-set-id}
      *
      * @param  string $ad_set_id Id of the ad set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSet'] to see the possible values for this operation
@@ -1695,6 +1719,8 @@ class CampaignApi
     /**
      * Operation getAdSetCategoryBids
      *
+     * /2025-07/marketing-solutions/ad-sets/{ad-set-id}/category-bids
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSetCategoryBids'] to see the possible values for this operation
      *
@@ -1710,6 +1736,8 @@ class CampaignApi
 
     /**
      * Operation getAdSetCategoryBidsWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/ad-sets/{ad-set-id}/category-bids
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSetCategoryBids'] to see the possible values for this operation
@@ -1809,6 +1837,8 @@ class CampaignApi
     /**
      * Operation getAdSetCategoryBidsAsync
      *
+     * /2025-07/marketing-solutions/ad-sets/{ad-set-id}/category-bids
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSetCategoryBids'] to see the possible values for this operation
      *
@@ -1827,6 +1857,8 @@ class CampaignApi
 
     /**
      * Operation getAdSetCategoryBidsAsyncWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/ad-sets/{ad-set-id}/category-bids
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdSetCategoryBids'] to see the possible values for this operation
@@ -1978,6 +2010,8 @@ class CampaignApi
     /**
      * Operation getCampaign
      *
+     * /2025-07/marketing-solutions/campaigns/{campaign-id}
+     *
      * @param  string $campaign_id ID of the marketing campaign; This field is required. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
      *
@@ -1993,6 +2027,8 @@ class CampaignApi
 
     /**
      * Operation getCampaignWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/campaigns/{campaign-id}
      *
      * @param  string $campaign_id ID of the marketing campaign; This field is required. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
@@ -2092,6 +2128,8 @@ class CampaignApi
     /**
      * Operation getCampaignAsync
      *
+     * /2025-07/marketing-solutions/campaigns/{campaign-id}
+     *
      * @param  string $campaign_id ID of the marketing campaign; This field is required. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
      *
@@ -2110,6 +2148,8 @@ class CampaignApi
 
     /**
      * Operation getCampaignAsyncWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/campaigns/{campaign-id}
      *
      * @param  string $campaign_id ID of the marketing campaign; This field is required. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
@@ -2261,6 +2301,8 @@ class CampaignApi
     /**
      * Operation getDisplayMultipliers
      *
+     * /2025-07/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDisplayMultipliers'] to see the possible values for this operation
      *
@@ -2276,6 +2318,8 @@ class CampaignApi
 
     /**
      * Operation getDisplayMultipliersWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDisplayMultipliers'] to see the possible values for this operation
@@ -2375,6 +2419,8 @@ class CampaignApi
     /**
      * Operation getDisplayMultipliersAsync
      *
+     * /2025-07/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDisplayMultipliers'] to see the possible values for this operation
      *
@@ -2393,6 +2439,8 @@ class CampaignApi
 
     /**
      * Operation getDisplayMultipliersAsyncWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDisplayMultipliers'] to see the possible values for this operation
@@ -2544,7 +2592,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceAdSetsByAdvertiser
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/adsets
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdSetsByAdvertiser'] to see the possible values for this operation
@@ -2562,7 +2610,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceAdSetsByAdvertiserWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/adsets
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdSetsByAdvertiser'] to see the possible values for this operation
@@ -2662,7 +2710,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceAdSetsByAdvertiserAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/adsets
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdSetsByAdvertiser'] to see the possible values for this operation
@@ -2683,7 +2731,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceAdSetsByAdvertiserAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/adsets
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdSetsByAdvertiser'] to see the possible values for this operation
@@ -2835,7 +2883,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceAdvertiser
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertiser'] to see the possible values for this operation
@@ -2853,7 +2901,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceAdvertiserWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertiser'] to see the possible values for this operation
@@ -2953,7 +3001,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceAdvertiserAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertiser'] to see the possible values for this operation
@@ -2974,7 +3022,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceAdvertiserAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertiser'] to see the possible values for this operation
@@ -3126,7 +3174,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceAdvertiserPreviewLimits
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/preview-limit
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertiserPreviewLimits'] to see the possible values for this operation
      *
@@ -3143,7 +3191,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceAdvertiserPreviewLimitsWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/preview-limit
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertiserPreviewLimits'] to see the possible values for this operation
      *
@@ -3242,7 +3290,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceAdvertiserPreviewLimitsAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/preview-limit
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertiserPreviewLimits'] to see the possible values for this operation
      *
@@ -3262,7 +3310,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceAdvertiserPreviewLimitsAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/preview-limit
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertiserPreviewLimits'] to see the possible values for this operation
      *
@@ -3397,7 +3445,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceAdvertisers
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertisers'] to see the possible values for this operation
      *
@@ -3414,7 +3462,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceAdvertisersWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertisers'] to see the possible values for this operation
      *
@@ -3513,7 +3561,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceAdvertisersAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertisers'] to see the possible values for this operation
      *
@@ -3533,7 +3581,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceAdvertisersAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceAdvertisers'] to see the possible values for this operation
      *
@@ -3668,7 +3716,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceBudgetsByAdvertiser
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/budgets
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  int $budget_id Return only budgets with given Id (optional)
@@ -3694,7 +3742,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceBudgetsByAdvertiserWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/budgets
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  int $budget_id Return only budgets with given Id (optional)
@@ -3802,7 +3850,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceBudgetsByAdvertiserAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/budgets
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  int $budget_id Return only budgets with given Id (optional)
@@ -3831,7 +3879,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceBudgetsByAdvertiserAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/budgets
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  int $budget_id Return only budgets with given Id (optional)
@@ -4079,7 +4127,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceBudgetsBySeller
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/budgets
      *
      * @param  string $seller_id Return only budgets belonging to the given seller. (required)
      * @param  int $campaign_id Return only budgets that pay for a given campaign. (optional)
@@ -4104,7 +4152,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceBudgetsBySellerWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/budgets
      *
      * @param  string $seller_id Return only budgets belonging to the given seller. (required)
      * @param  int $campaign_id Return only budgets that pay for a given campaign. (optional)
@@ -4211,7 +4259,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceBudgetsBySellerAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/budgets
      *
      * @param  string $seller_id Return only budgets belonging to the given seller. (required)
      * @param  int $campaign_id Return only budgets that pay for a given campaign. (optional)
@@ -4239,7 +4287,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceBudgetsBySellerAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/budgets
      *
      * @param  string $seller_id Return only budgets belonging to the given seller. (required)
      * @param  int $campaign_id Return only budgets that pay for a given campaign. (optional)
@@ -4475,9 +4523,9 @@ class CampaignApi
     /**
      * Operation getMarketplaceBudgetsBySellerCampaign
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns/{sellerCampaignId}/budgets
      *
-     * @param  string $seller_campaign_id Return only budgets belonging to the given seller campaign. (required)
+     * @param  string $seller_campaign_id Return only budgets belonging to the given seller campaign. Format: &#x60;{sellerId}.{campaignId}&#x60;, e.g. &#x60;2578464.187625&#x60;. (required)
      * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.               If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
      * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
      * @param  string $status Return only budgets with the given status. (optional)
@@ -4499,9 +4547,9 @@ class CampaignApi
     /**
      * Operation getMarketplaceBudgetsBySellerCampaignWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns/{sellerCampaignId}/budgets
      *
-     * @param  string $seller_campaign_id Return only budgets belonging to the given seller campaign. (required)
+     * @param  string $seller_campaign_id Return only budgets belonging to the given seller campaign. Format: &#x60;{sellerId}.{campaignId}&#x60;, e.g. &#x60;2578464.187625&#x60;. (required)
      * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.               If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
      * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
      * @param  string $status Return only budgets with the given status. (optional)
@@ -4605,9 +4653,9 @@ class CampaignApi
     /**
      * Operation getMarketplaceBudgetsBySellerCampaignAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns/{sellerCampaignId}/budgets
      *
-     * @param  string $seller_campaign_id Return only budgets belonging to the given seller campaign. (required)
+     * @param  string $seller_campaign_id Return only budgets belonging to the given seller campaign. Format: &#x60;{sellerId}.{campaignId}&#x60;, e.g. &#x60;2578464.187625&#x60;. (required)
      * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.               If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
      * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
      * @param  string $status Return only budgets with the given status. (optional)
@@ -4632,9 +4680,9 @@ class CampaignApi
     /**
      * Operation getMarketplaceBudgetsBySellerCampaignAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns/{sellerCampaignId}/budgets
      *
-     * @param  string $seller_campaign_id Return only budgets belonging to the given seller campaign. (required)
+     * @param  string $seller_campaign_id Return only budgets belonging to the given seller campaign. Format: &#x60;{sellerId}.{campaignId}&#x60;, e.g. &#x60;2578464.187625&#x60;. (required)
      * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.               If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
      * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
      * @param  string $status Return only budgets with the given status. (optional)
@@ -4690,7 +4738,7 @@ class CampaignApi
     /**
      * Create request for operation 'getMarketplaceBudgetsBySellerCampaign'
      *
-     * @param  string $seller_campaign_id Return only budgets belonging to the given seller campaign. (required)
+     * @param  string $seller_campaign_id Return only budgets belonging to the given seller campaign. Format: &#x60;{sellerId}.{campaignId}&#x60;, e.g. &#x60;2578464.187625&#x60;. (required)
      * @param  \DateTime $end_after_date Return budgets that end after the given date using the &#x60;yyyy-MM-DD&#x60; format.               If param is not provided, default behavior is to only return budgets that have not yet ended. (optional)
      * @param  \DateTime $start_before_date Return budgets that start on or before the given date using the &#x60;yyyy-MM-DD&#x60; format. (optional)
      * @param  string $status Return only budgets with the given status. (optional)
@@ -4856,7 +4904,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceCampaignsByAdvertiser
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/campaigns
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceCampaignsByAdvertiser'] to see the possible values for this operation
@@ -4874,7 +4922,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceCampaignsByAdvertiserWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/campaigns
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceCampaignsByAdvertiser'] to see the possible values for this operation
@@ -4974,7 +5022,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceCampaignsByAdvertiserAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/campaigns
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceCampaignsByAdvertiser'] to see the possible values for this operation
@@ -4995,7 +5043,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceCampaignsByAdvertiserAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/campaigns
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceCampaignsByAdvertiser'] to see the possible values for this operation
@@ -5147,9 +5195,9 @@ class CampaignApi
     /**
      * Operation getMarketplaceCampaignsStats
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/stats/campaigns
      *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  int $advertiser_id Filter metrics to this advertiser. Strongly recommended — omitting this on large accounts causes timeouts. (optional)
      * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
      * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
      * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
@@ -5172,9 +5220,9 @@ class CampaignApi
     /**
      * Operation getMarketplaceCampaignsStatsWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/stats/campaigns
      *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  int $advertiser_id Filter metrics to this advertiser. Strongly recommended — omitting this on large accounts causes timeouts. (optional)
      * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
      * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
      * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
@@ -5279,9 +5327,9 @@ class CampaignApi
     /**
      * Operation getMarketplaceCampaignsStatsAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/stats/campaigns
      *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  int $advertiser_id Filter metrics to this advertiser. Strongly recommended — omitting this on large accounts causes timeouts. (optional)
      * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
      * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
      * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
@@ -5307,9 +5355,9 @@ class CampaignApi
     /**
      * Operation getMarketplaceCampaignsStatsAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/stats/campaigns
      *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  int $advertiser_id Filter metrics to this advertiser. Strongly recommended — omitting this on large accounts causes timeouts. (optional)
      * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
      * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
      * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
@@ -5366,7 +5414,7 @@ class CampaignApi
     /**
      * Create request for operation 'getMarketplaceCampaignsStats'
      *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  int $advertiser_id Filter metrics to this advertiser. Strongly recommended — omitting this on large accounts causes timeouts. (optional)
      * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
      * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
      * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
@@ -5538,7 +5586,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSeller
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}
      *
      * @param  string $seller_id Id of the seller. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSeller'] to see the possible values for this operation
@@ -5556,7 +5604,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}
      *
      * @param  string $seller_id Id of the seller. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSeller'] to see the possible values for this operation
@@ -5656,7 +5704,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}
      *
      * @param  string $seller_id Id of the seller. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSeller'] to see the possible values for this operation
@@ -5677,7 +5725,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}
      *
      * @param  string $seller_id Id of the seller. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSeller'] to see the possible values for this operation
@@ -5829,7 +5877,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerAdPreview
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/ad-preview
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  int $seller_id Id of the seller (required)
@@ -5851,7 +5899,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerAdPreviewWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/ad-preview
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  int $seller_id Id of the seller (required)
@@ -5955,7 +6003,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerAdPreviewAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/ad-preview
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  int $seller_id Id of the seller (required)
@@ -5980,7 +6028,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerAdPreviewAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/ad-preview
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  int $seller_id Id of the seller (required)
@@ -6186,7 +6234,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerBudget
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets/{budgetId}
      *
      * @param  string $budget_id Id of the budget. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerBudget'] to see the possible values for this operation
@@ -6204,7 +6252,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerBudgetWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets/{budgetId}
      *
      * @param  string $budget_id Id of the budget. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerBudget'] to see the possible values for this operation
@@ -6304,7 +6352,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerBudgetAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets/{budgetId}
      *
      * @param  string $budget_id Id of the budget. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerBudget'] to see the possible values for this operation
@@ -6325,7 +6373,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerBudgetAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets/{budgetId}
      *
      * @param  string $budget_id Id of the budget. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerBudget'] to see the possible values for this operation
@@ -6477,7 +6525,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerBudgets
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets
      *
      * @param  int $advertiser_id Return only budgets belonging to the specified advertiser (optional)
      * @param  int $campaign_id Return only budgets that pay for a given campaign. (optional)
@@ -6503,7 +6551,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerBudgetsWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets
      *
      * @param  int $advertiser_id Return only budgets belonging to the specified advertiser (optional)
      * @param  int $campaign_id Return only budgets that pay for a given campaign. (optional)
@@ -6611,7 +6659,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerBudgetsAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets
      *
      * @param  int $advertiser_id Return only budgets belonging to the specified advertiser (optional)
      * @param  int $campaign_id Return only budgets that pay for a given campaign. (optional)
@@ -6640,7 +6688,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerBudgetsAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets
      *
      * @param  int $advertiser_id Return only budgets belonging to the specified advertiser (optional)
      * @param  int $campaign_id Return only budgets that pay for a given campaign. (optional)
@@ -6883,14 +6931,14 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerCampaign
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns/{sellerCampaignId}
      *
-     * @param  string $seller_campaign_id Id of the seller campaign. (required)
+     * @param  string $seller_campaign_id Composite id of the seller campaign in the format &#x60;{sellerId}.{campaignId}&#x60;, e.g. &#x60;2578464.187625&#x60;. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaign'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[]
+     * @return \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage
      */
     public function getMarketplaceSellerCampaign($seller_campaign_id, string $contentType = self::contentTypes['getMarketplaceSellerCampaign'][0])
     {
@@ -6901,14 +6949,14 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerCampaignWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns/{sellerCampaignId}
      *
-     * @param  string $seller_campaign_id Id of the seller campaign. (required)
+     * @param  string $seller_campaign_id Composite id of the seller campaign in the format &#x60;{sellerId}.{campaignId}&#x60;, e.g. &#x60;2578464.187625&#x60;. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaign'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_07\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage, HTTP status code, HTTP response headers (array of strings)
      */
     public function getMarketplaceSellerCampaignWithHttpInfo($seller_campaign_id, string $contentType = self::contentTypes['getMarketplaceSellerCampaign'][0])
     {
@@ -6951,23 +6999,23 @@ class CampaignApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[]' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[]' !== 'string') {
+                        if ('\criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[]', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[]';
+            $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -6988,7 +7036,7 @@ class CampaignApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[]',
+                        '\criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7001,9 +7049,9 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerCampaignAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns/{sellerCampaignId}
      *
-     * @param  string $seller_campaign_id Id of the seller campaign. (required)
+     * @param  string $seller_campaign_id Composite id of the seller campaign in the format &#x60;{sellerId}.{campaignId}&#x60;, e.g. &#x60;2578464.187625&#x60;. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7022,9 +7070,9 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerCampaignAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns/{sellerCampaignId}
      *
-     * @param  string $seller_campaign_id Id of the seller campaign. (required)
+     * @param  string $seller_campaign_id Composite id of the seller campaign in the format &#x60;{sellerId}.{campaignId}&#x60;, e.g. &#x60;2578464.187625&#x60;. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7032,7 +7080,7 @@ class CampaignApi
      */
     public function getMarketplaceSellerCampaignAsyncWithHttpInfo($seller_campaign_id, string $contentType = self::contentTypes['getMarketplaceSellerCampaign'][0])
     {
-        $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage[]';
+        $returnType = '\criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignMessage';
         $request = $this->getMarketplaceSellerCampaignRequest($seller_campaign_id, $contentType);
 
         return $this->client
@@ -7074,7 +7122,7 @@ class CampaignApi
     /**
      * Create request for operation 'getMarketplaceSellerCampaign'
      *
-     * @param  string $seller_campaign_id Id of the seller campaign. (required)
+     * @param  string $seller_campaign_id Composite id of the seller campaign in the format &#x60;{sellerId}.{campaignId}&#x60;, e.g. &#x60;2578464.187625&#x60;. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7174,7 +7222,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerCampaigns
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns
      *
      * @param  int $advertiser_id Return only seller belonging to the specified advertiser (optional)
      * @param  string $budget_status Return only seller campaigns whose budget has the given status. (optional)
@@ -7196,7 +7244,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerCampaignsWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns
      *
      * @param  int $advertiser_id Return only seller belonging to the specified advertiser (optional)
      * @param  string $budget_status Return only seller campaigns whose budget has the given status. (optional)
@@ -7300,7 +7348,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerCampaignsAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns
      *
      * @param  int $advertiser_id Return only seller belonging to the specified advertiser (optional)
      * @param  string $budget_status Return only seller campaigns whose budget has the given status. (optional)
@@ -7325,7 +7373,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerCampaignsAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns
      *
      * @param  int $advertiser_id Return only seller belonging to the specified advertiser (optional)
      * @param  string $budget_status Return only seller campaigns whose budget has the given status. (optional)
@@ -7520,7 +7568,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerCampaignsByAdvertiser
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/seller-campaigns
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsByAdvertiser'] to see the possible values for this operation
@@ -7538,7 +7586,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerCampaignsByAdvertiserWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/seller-campaigns
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsByAdvertiser'] to see the possible values for this operation
@@ -7638,7 +7686,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerCampaignsByAdvertiserAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/seller-campaigns
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsByAdvertiser'] to see the possible values for this operation
@@ -7659,7 +7707,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerCampaignsByAdvertiserAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/seller-campaigns
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceSellerCampaignsByAdvertiser'] to see the possible values for this operation
@@ -7811,7 +7859,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerCampaignsBySeller
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/seller-campaigns
      *
      * @param  string $seller_id Return only seller campaigns belonging to the given seller. (required)
      * @param  string $budget_status Return only seller campaigns whose budget has the given status. (optional)
@@ -7832,7 +7880,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerCampaignsBySellerWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/seller-campaigns
      *
      * @param  string $seller_id Return only seller campaigns belonging to the given seller. (required)
      * @param  string $budget_status Return only seller campaigns whose budget has the given status. (optional)
@@ -7935,7 +7983,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerCampaignsBySellerAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/seller-campaigns
      *
      * @param  string $seller_id Return only seller campaigns belonging to the given seller. (required)
      * @param  string $budget_status Return only seller campaigns whose budget has the given status. (optional)
@@ -7959,7 +8007,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerCampaignsBySellerAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers/{sellerId}/seller-campaigns
      *
      * @param  string $seller_id Return only seller campaigns belonging to the given seller. (required)
      * @param  string $budget_status Return only seller campaigns whose budget has the given status. (optional)
@@ -8147,9 +8195,9 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerCampaignsStats
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/stats/seller-campaigns
      *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  int $advertiser_id Filter metrics to this advertiser. Strongly recommended — omitting this on large accounts causes timeouts. (optional)
      * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
      * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
      * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
@@ -8173,9 +8221,9 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerCampaignsStatsWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/stats/seller-campaigns
      *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  int $advertiser_id Filter metrics to this advertiser. Strongly recommended — omitting this on large accounts causes timeouts. (optional)
      * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
      * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
      * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
@@ -8281,9 +8329,9 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerCampaignsStatsAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/stats/seller-campaigns
      *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  int $advertiser_id Filter metrics to this advertiser. Strongly recommended — omitting this on large accounts causes timeouts. (optional)
      * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
      * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
      * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
@@ -8310,9 +8358,9 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellerCampaignsStatsAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/stats/seller-campaigns
      *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  int $advertiser_id Filter metrics to this advertiser. Strongly recommended — omitting this on large accounts causes timeouts. (optional)
      * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
      * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
      * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
@@ -8370,7 +8418,7 @@ class CampaignApi
     /**
      * Create request for operation 'getMarketplaceSellerCampaignsStats'
      *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  int $advertiser_id Filter metrics to this advertiser. Strongly recommended — omitting this on large accounts causes timeouts. (optional)
      * @param  string $campaign_id Show only metrics for this campaign (default all campaigns) (optional)
      * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
      * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
@@ -8553,7 +8601,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellers
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers
      *
      * @param  int $advertiser_id Return only sellers belonging to the specified advertiser (optional)
      * @param  int $campaign_id Return only sellers belonging to the specified campaign (optional)
@@ -8576,7 +8624,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellersWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers
      *
      * @param  int $advertiser_id Return only sellers belonging to the specified advertiser (optional)
      * @param  int $campaign_id Return only sellers belonging to the specified campaign (optional)
@@ -8681,7 +8729,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellersAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers
      *
      * @param  int $advertiser_id Return only sellers belonging to the specified advertiser (optional)
      * @param  int $campaign_id Return only sellers belonging to the specified campaign (optional)
@@ -8707,7 +8755,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellersAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/sellers
      *
      * @param  int $advertiser_id Return only sellers belonging to the specified advertiser (optional)
      * @param  int $campaign_id Return only sellers belonging to the specified campaign (optional)
@@ -8914,7 +8962,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellersByAdvertiser
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/sellers
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string[] $request_body Names of the sellers to associate with new Ids (required)
@@ -8934,7 +8982,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellersByAdvertiserWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/sellers
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string[] $request_body Names of the sellers to associate with new Ids (required)
@@ -9036,7 +9084,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellersByAdvertiserAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/sellers
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string[] $request_body Names of the sellers to associate with new Ids (required)
@@ -9059,7 +9107,7 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellersByAdvertiserAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/advertisers/{advertiserId}/sellers
      *
      * @param  string $advertiser_id Id of the advertiser (required)
      * @param  string[] $request_body Names of the sellers to associate with new Ids (required)
@@ -9239,9 +9287,9 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellersStats
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/stats/sellers
      *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  int $advertiser_id Filter metrics to this advertiser. Strongly recommended — omitting this on large accounts causes timeouts. (optional)
      * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
      * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
      * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
@@ -9264,9 +9312,9 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellersStatsWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/stats/sellers
      *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  int $advertiser_id Filter metrics to this advertiser. Strongly recommended — omitting this on large accounts causes timeouts. (optional)
      * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
      * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
      * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
@@ -9371,9 +9419,9 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellersStatsAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/stats/sellers
      *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  int $advertiser_id Filter metrics to this advertiser. Strongly recommended — omitting this on large accounts causes timeouts. (optional)
      * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
      * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
      * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
@@ -9399,9 +9447,9 @@ class CampaignApi
     /**
      * Operation getMarketplaceSellersStatsAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/stats/sellers
      *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  int $advertiser_id Filter metrics to this advertiser. Strongly recommended — omitting this on large accounts causes timeouts. (optional)
      * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
      * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
      * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
@@ -9458,7 +9506,7 @@ class CampaignApi
     /**
      * Create request for operation 'getMarketplaceSellersStats'
      *
-     * @param  int $advertiser_id Show only metrics for this advertiser. (optional)
+     * @param  int $advertiser_id Filter metrics to this advertiser. Strongly recommended — omitting this on large accounts causes timeouts. (optional)
      * @param  string $click_attribution_policy Specify the click attribution policy for salesUnits, revenue, CR, CPO, COS, and ROAS (optional, default to 'AnySeller')
      * @param  int $count Return up to the first count rows of data (default is all rows) (optional)
      * @param  \DateTime $end_date Filter out all events that occur after date (default is today’s date) (optional)
@@ -9630,6 +9678,8 @@ class CampaignApi
     /**
      * Operation patchAdSetCategoryBids
      *
+     * /2025-07/marketing-solutions/ad-sets/{ad-set-id}/category-bids
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request Collection of category bids to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSetCategoryBids'] to see the possible values for this operation
@@ -9646,6 +9696,8 @@ class CampaignApi
 
     /**
      * Operation patchAdSetCategoryBidsWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/ad-sets/{ad-set-id}/category-bids
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request Collection of category bids to update (required)
@@ -9746,6 +9798,8 @@ class CampaignApi
     /**
      * Operation patchAdSetCategoryBidsAsync
      *
+     * /2025-07/marketing-solutions/ad-sets/{ad-set-id}/category-bids
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request Collection of category bids to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSetCategoryBids'] to see the possible values for this operation
@@ -9765,6 +9819,8 @@ class CampaignApi
 
     /**
      * Operation patchAdSetCategoryBidsAsyncWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/ad-sets/{ad-set-id}/category-bids
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\PatchAdSetCategoryBidListRequest $patch_ad_set_category_bid_list_request Collection of category bids to update (required)
@@ -9932,6 +9988,8 @@ class CampaignApi
     /**
      * Operation patchAdSets
      *
+     * /2025-07/marketing-solutions/ad-sets
+     *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\RequestsPatchAdSetV24Q3 $requests_patch_ad_set_v24_q3 List of adsets to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSets'] to see the possible values for this operation
      *
@@ -9947,6 +10005,8 @@ class CampaignApi
 
     /**
      * Operation patchAdSetsWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/ad-sets
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\RequestsPatchAdSetV24Q3 $requests_patch_ad_set_v24_q3 List of adsets to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSets'] to see the possible values for this operation
@@ -10046,6 +10106,8 @@ class CampaignApi
     /**
      * Operation patchAdSetsAsync
      *
+     * /2025-07/marketing-solutions/ad-sets
+     *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\RequestsPatchAdSetV24Q3 $requests_patch_ad_set_v24_q3 List of adsets to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSets'] to see the possible values for this operation
      *
@@ -10064,6 +10126,8 @@ class CampaignApi
 
     /**
      * Operation patchAdSetsAsyncWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/ad-sets
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\RequestsPatchAdSetV24Q3 $requests_patch_ad_set_v24_q3 List of adsets to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAdSets'] to see the possible values for this operation
@@ -10214,6 +10278,8 @@ class CampaignApi
     /**
      * Operation patchCampaigns
      *
+     * /2025-07/marketing-solutions/campaigns
+     *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
      *
@@ -10229,6 +10295,8 @@ class CampaignApi
 
     /**
      * Operation patchCampaignsWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/campaigns
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
@@ -10328,6 +10396,8 @@ class CampaignApi
     /**
      * Operation patchCampaignsAsync
      *
+     * /2025-07/marketing-solutions/campaigns
+     *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
      *
@@ -10346,6 +10416,8 @@ class CampaignApi
 
     /**
      * Operation patchCampaignsAsyncWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/campaigns
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
@@ -10496,6 +10568,8 @@ class CampaignApi
     /**
      * Operation patchDisplayMultipliers
      *
+     * /2025-07/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request List of display multiplier values to change (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDisplayMultipliers'] to see the possible values for this operation
@@ -10512,6 +10586,8 @@ class CampaignApi
 
     /**
      * Operation patchDisplayMultipliersWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request List of display multiplier values to change (required)
@@ -10612,6 +10688,8 @@ class CampaignApi
     /**
      * Operation patchDisplayMultipliersAsync
      *
+     * /2025-07/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers
+     *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request List of display multiplier values to change (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDisplayMultipliers'] to see the possible values for this operation
@@ -10631,6 +10709,8 @@ class CampaignApi
 
     /**
      * Operation patchDisplayMultipliersAsyncWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/ad-sets/{ad-set-id}/display-multipliers
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\PatchAdSetDisplayMultiplierListRequest $patch_ad_set_display_multiplier_list_request List of display multiplier values to change (required)
@@ -10798,6 +10878,8 @@ class CampaignApi
     /**
      * Operation searchAdSets
      *
+     * /2025-07/marketing-solutions/ad-sets/search
+     *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\AdSetSearchRequestV24Q3 $ad_set_search_request_v24_q3 ad_set_search_request_v24_q3 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchAdSets'] to see the possible values for this operation
      *
@@ -10813,6 +10895,8 @@ class CampaignApi
 
     /**
      * Operation searchAdSetsWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/ad-sets/search
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\AdSetSearchRequestV24Q3 $ad_set_search_request_v24_q3 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchAdSets'] to see the possible values for this operation
@@ -10912,6 +10996,8 @@ class CampaignApi
     /**
      * Operation searchAdSetsAsync
      *
+     * /2025-07/marketing-solutions/ad-sets/search
+     *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\AdSetSearchRequestV24Q3 $ad_set_search_request_v24_q3 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchAdSets'] to see the possible values for this operation
      *
@@ -10930,6 +11016,8 @@ class CampaignApi
 
     /**
      * Operation searchAdSetsAsyncWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/ad-sets/search
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\AdSetSearchRequestV24Q3 $ad_set_search_request_v24_q3 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchAdSets'] to see the possible values for this operation
@@ -11074,6 +11162,8 @@ class CampaignApi
     /**
      * Operation searchCampaigns
      *
+     * /2025-07/marketing-solutions/campaigns/search
+     *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 Filters for searching for campaigns (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaigns'] to see the possible values for this operation
      *
@@ -11089,6 +11179,8 @@ class CampaignApi
 
     /**
      * Operation searchCampaignsWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/campaigns/search
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 Filters for searching for campaigns (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaigns'] to see the possible values for this operation
@@ -11188,6 +11280,8 @@ class CampaignApi
     /**
      * Operation searchCampaignsAsync
      *
+     * /2025-07/marketing-solutions/campaigns/search
+     *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 Filters for searching for campaigns (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaigns'] to see the possible values for this operation
      *
@@ -11206,6 +11300,8 @@ class CampaignApi
 
     /**
      * Operation searchCampaignsAsyncWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/campaigns/search
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\CampaignSearchRequestV23Q1 $campaign_search_request_v23_q1 Filters for searching for campaigns (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCampaigns'] to see the possible values for this operation
@@ -11350,6 +11446,8 @@ class CampaignApi
     /**
      * Operation startAdSets
      *
+     * /2025-07/marketing-solutions/ad-sets/start
+     *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\RequestsAdSetId $requests_ad_set_id All the ad sets to start (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['startAdSets'] to see the possible values for this operation
      *
@@ -11365,6 +11463,8 @@ class CampaignApi
 
     /**
      * Operation startAdSetsWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/ad-sets/start
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\RequestsAdSetId $requests_ad_set_id All the ad sets to start (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['startAdSets'] to see the possible values for this operation
@@ -11464,6 +11564,8 @@ class CampaignApi
     /**
      * Operation startAdSetsAsync
      *
+     * /2025-07/marketing-solutions/ad-sets/start
+     *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\RequestsAdSetId $requests_ad_set_id All the ad sets to start (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['startAdSets'] to see the possible values for this operation
      *
@@ -11482,6 +11584,8 @@ class CampaignApi
 
     /**
      * Operation startAdSetsAsyncWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/ad-sets/start
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\RequestsAdSetId $requests_ad_set_id All the ad sets to start (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['startAdSets'] to see the possible values for this operation
@@ -11626,6 +11730,8 @@ class CampaignApi
     /**
      * Operation stopAdSets
      *
+     * /2025-07/marketing-solutions/ad-sets/stop
+     *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\RequestsAdSetId $requests_ad_set_id All the ad sets to stop (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['stopAdSets'] to see the possible values for this operation
      *
@@ -11641,6 +11747,8 @@ class CampaignApi
 
     /**
      * Operation stopAdSetsWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/ad-sets/stop
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\RequestsAdSetId $requests_ad_set_id All the ad sets to stop (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['stopAdSets'] to see the possible values for this operation
@@ -11740,6 +11848,8 @@ class CampaignApi
     /**
      * Operation stopAdSetsAsync
      *
+     * /2025-07/marketing-solutions/ad-sets/stop
+     *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\RequestsAdSetId $requests_ad_set_id All the ad sets to stop (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['stopAdSets'] to see the possible values for this operation
      *
@@ -11758,6 +11868,8 @@ class CampaignApi
 
     /**
      * Operation stopAdSetsAsyncWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/ad-sets/stop
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\RequestsAdSetId $requests_ad_set_id All the ad sets to stop (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['stopAdSets'] to see the possible values for this operation
@@ -11902,6 +12014,8 @@ class CampaignApi
     /**
      * Operation updateAdSetAudience
      *
+     * /2025-07/marketing-solutions/ad-sets/{ad-set-id}/audience
+     *
      * @param  string $ad_set_id The ad set ID. (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\AdSetAudienceLinkInputEntityV1 $ad_set_audience_link_input_entity_v1 Ad set-Audience update request. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAdSetAudience'] to see the possible values for this operation
@@ -11918,6 +12032,8 @@ class CampaignApi
 
     /**
      * Operation updateAdSetAudienceWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/ad-sets/{ad-set-id}/audience
      *
      * @param  string $ad_set_id The ad set ID. (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\AdSetAudienceLinkInputEntityV1 $ad_set_audience_link_input_entity_v1 Ad set-Audience update request. (required)
@@ -12018,6 +12134,8 @@ class CampaignApi
     /**
      * Operation updateAdSetAudienceAsync
      *
+     * /2025-07/marketing-solutions/ad-sets/{ad-set-id}/audience
+     *
      * @param  string $ad_set_id The ad set ID. (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\AdSetAudienceLinkInputEntityV1 $ad_set_audience_link_input_entity_v1 Ad set-Audience update request. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAdSetAudience'] to see the possible values for this operation
@@ -12037,6 +12155,8 @@ class CampaignApi
 
     /**
      * Operation updateAdSetAudienceAsyncWithHttpInfo
+     *
+     * /2025-07/marketing-solutions/ad-sets/{ad-set-id}/audience
      *
      * @param  string $ad_set_id The ad set ID. (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\AdSetAudienceLinkInputEntityV1 $ad_set_audience_link_input_entity_v1 Ad set-Audience update request. (required)
@@ -12204,7 +12324,7 @@ class CampaignApi
     /**
      * Operation updateMarketplaceSellerBudget
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets/{budgetId}
      *
      * @param  string $budget_id Id of the budget (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessageBase $update_seller_budget_message_base  (required)
@@ -12223,7 +12343,7 @@ class CampaignApi
     /**
      * Operation updateMarketplaceSellerBudgetWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets/{budgetId}
      *
      * @param  string $budget_id Id of the budget (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessageBase $update_seller_budget_message_base  (required)
@@ -12324,7 +12444,7 @@ class CampaignApi
     /**
      * Operation updateMarketplaceSellerBudgetAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets/{budgetId}
      *
      * @param  string $budget_id Id of the budget (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessageBase $update_seller_budget_message_base  (required)
@@ -12346,7 +12466,7 @@ class CampaignApi
     /**
      * Operation updateMarketplaceSellerBudgetAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets/{budgetId}
      *
      * @param  string $budget_id Id of the budget (required)
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessageBase $update_seller_budget_message_base  (required)
@@ -12514,7 +12634,7 @@ class CampaignApi
     /**
      * Operation updateMarketplaceSellerBudgets
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessage[] $update_seller_budget_message  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudgets'] to see the possible values for this operation
@@ -12532,7 +12652,7 @@ class CampaignApi
     /**
      * Operation updateMarketplaceSellerBudgetsWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessage[] $update_seller_budget_message  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudgets'] to see the possible values for this operation
@@ -12632,7 +12752,7 @@ class CampaignApi
     /**
      * Operation updateMarketplaceSellerBudgetsAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessage[] $update_seller_budget_message  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudgets'] to see the possible values for this operation
@@ -12653,7 +12773,7 @@ class CampaignApi
     /**
      * Operation updateMarketplaceSellerBudgetsAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/budgets
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\UpdateSellerBudgetMessage[] $update_seller_budget_message  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerBudgets'] to see the possible values for this operation
@@ -12804,9 +12924,9 @@ class CampaignApi
     /**
      * Operation updateMarketplaceSellerCampaign
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns/{sellerCampaignId}
      *
-     * @param  string $seller_campaign_id Id of the existing seller campaign to update (required)
+     * @param  string $seller_campaign_id Composite id of the seller campaign to update in the format &#x60;{sellerId}.{campaignId}&#x60;, e.g. &#x60;2578464.187625&#x60;. (required)
      * @param  float $bid The new bid for the seller campaign. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerCampaign'] to see the possible values for this operation
      *
@@ -12823,9 +12943,9 @@ class CampaignApi
     /**
      * Operation updateMarketplaceSellerCampaignWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns/{sellerCampaignId}
      *
-     * @param  string $seller_campaign_id Id of the existing seller campaign to update (required)
+     * @param  string $seller_campaign_id Composite id of the seller campaign to update in the format &#x60;{sellerId}.{campaignId}&#x60;, e.g. &#x60;2578464.187625&#x60;. (required)
      * @param  float $bid The new bid for the seller campaign. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerCampaign'] to see the possible values for this operation
      *
@@ -12924,9 +13044,9 @@ class CampaignApi
     /**
      * Operation updateMarketplaceSellerCampaignAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns/{sellerCampaignId}
      *
-     * @param  string $seller_campaign_id Id of the existing seller campaign to update (required)
+     * @param  string $seller_campaign_id Composite id of the seller campaign to update in the format &#x60;{sellerId}.{campaignId}&#x60;, e.g. &#x60;2578464.187625&#x60;. (required)
      * @param  float $bid The new bid for the seller campaign. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerCampaign'] to see the possible values for this operation
      *
@@ -12946,9 +13066,9 @@ class CampaignApi
     /**
      * Operation updateMarketplaceSellerCampaignAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns/{sellerCampaignId}
      *
-     * @param  string $seller_campaign_id Id of the existing seller campaign to update (required)
+     * @param  string $seller_campaign_id Composite id of the seller campaign to update in the format &#x60;{sellerId}.{campaignId}&#x60;, e.g. &#x60;2578464.187625&#x60;. (required)
      * @param  float $bid The new bid for the seller campaign. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerCampaign'] to see the possible values for this operation
      *
@@ -12999,7 +13119,7 @@ class CampaignApi
     /**
      * Create request for operation 'updateMarketplaceSellerCampaign'
      *
-     * @param  string $seller_campaign_id Id of the existing seller campaign to update (required)
+     * @param  string $seller_campaign_id Composite id of the seller campaign to update in the format &#x60;{sellerId}.{campaignId}&#x60;, e.g. &#x60;2578464.187625&#x60;. (required)
      * @param  float $bid The new bid for the seller campaign. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerCampaign'] to see the possible values for this operation
      *
@@ -13110,7 +13230,7 @@ class CampaignApi
     /**
      * Operation updateMarketplaceSellerCampaigns
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignUpdate[] $seller_campaign_update  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerCampaigns'] to see the possible values for this operation
@@ -13128,7 +13248,7 @@ class CampaignApi
     /**
      * Operation updateMarketplaceSellerCampaignsWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignUpdate[] $seller_campaign_update  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerCampaigns'] to see the possible values for this operation
@@ -13228,7 +13348,7 @@ class CampaignApi
     /**
      * Operation updateMarketplaceSellerCampaignsAsync
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignUpdate[] $seller_campaign_update  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerCampaigns'] to see the possible values for this operation
@@ -13249,7 +13369,7 @@ class CampaignApi
     /**
      * Operation updateMarketplaceSellerCampaignsAsyncWithHttpInfo
      *
-     * 
+     * /2025-07/marketing-solutions/marketplace-performance-outcomes/seller-campaigns
      *
      * @param  \criteo\api\marketingsolutions\v2025_07\Model\SellerCampaignUpdate[] $seller_campaign_update  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMarketplaceSellerCampaigns'] to see the possible values for this operation

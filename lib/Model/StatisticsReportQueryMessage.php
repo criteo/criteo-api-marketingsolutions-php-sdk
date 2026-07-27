@@ -101,7 +101,7 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
         'ad_set_ids' => true,
 		'ad_set_names' => true,
 		'ad_set_status' => true,
-		'advertiser_ids' => true,
+		'advertiser_ids' => false,
 		'currency' => false,
 		'dimensions' => false,
 		'end_date' => false,
@@ -289,6 +289,9 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
         return self::$openAPIModelName;
     }
 
+    public const AD_SET_STATUS_ACTIVE = 'Active';
+    public const AD_SET_STATUS_NOT_RUNNING = 'NotRunning';
+    public const AD_SET_STATUS_DEAD = 'Dead';
     public const DIMENSIONS_ADSET_ID = 'AdsetId';
     public const DIMENSIONS_ADSET = 'Adset';
     public const DIMENSIONS_ADVERTISER_ID = 'AdvertiserId';
@@ -466,6 +469,7 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     public const METRICS_QUALIFIED_VISITS = 'QualifiedVisits';
     public const METRICS_VISITS = 'Visits';
     public const METRICS_VISITS_PV1_D = 'VisitsPV1D';
+    public const METRICS_VISITS_ALL_PV1D = 'VisitsAllPv1d';
     public const METRICS_ORDER_VALUE_PI = 'OrderValuePi';
     public const METRICS_POST_INSTALL_ORDER_VALUE = 'PostInstallOrderValue';
     public const METRICS_BOUNCE_RATE = 'BounceRate';
@@ -514,17 +518,6 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     public const METRICS_POST_INSTALL_COST_OF_SALE = 'PostInstallCostOfSale';
     public const METRICS_POST_INSTALL_COST_PER_ORDER = 'PostInstallCostPerOrder';
     public const METRICS_RETURN_ON_ADVERTISER_SPENDING_PI = 'ReturnOnAdvertiserSpendingPi';
-    public const METRICS_CAC_CLIENT_ATTRIBUTION = 'CacClientAttribution';
-    public const METRICS_CAC_PC30D = 'CacPc30d';
-    public const METRICS_CAC_PC7D = 'CacPc7d';
-    public const METRICS_CAC_PC1D = 'CacPc1d';
-    public const METRICS_CAC_PV24H = 'CacPv24h';
-    public const METRICS_CAC_PV7D = 'CacPv7d';
-    public const METRICS_CAC_PV14D = 'CacPv14d';
-    public const METRICS_CAC_PV30D = 'CacPv30d';
-    public const METRICS_CAC_PC30_PV24H = 'CacPc30Pv24h';
-    public const METRICS_CAC_PC7D_PV24H = 'CacPc7dPv24h';
-    public const METRICS_CAC_LC30D = 'CacLc30d';
     public const METRICS_POST_INSTALL_ROAS = 'PostInstallRoas';
     public const METRICS_RETURN_ON_ADVERTISER_SPENDING_OFFLINE_PC = 'ReturnOnAdvertiserSpendingOfflinePc';
     public const METRICS_RETURN_ON_ADVERTISER_SPENDING_OFFLINE_PV = 'ReturnOnAdvertiserSpendingOfflinePv';
@@ -550,6 +543,26 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     public const METRICS_VIDEO_AVERAGE_VIEW_RATE = 'VideoAverageViewRate';
     public const METRICS_VIDEO_CPV = 'VideoCpv';
     public const METRICS_VIDEO_CPCV = 'VideoCpcv';
+    public const METRICS_POTENTIAL_USERS = 'PotentialUsers';
+    public const METRICS_RETAILER_MARGIN_EURO = 'RetailerMarginEuro';
+    public const METRICS_PLATFORM_FEE_EURO = 'PlatformFeeEuro';
+    public const METRICS_ALL_IN_MEDIA_COST = 'AllInMediaCost';
+    public const METRICS_NET_MEDIA_COST = 'NetMediaCost';
+    public const METRICS_COS = 'Cos';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAdSetStatusAllowableValues()
+    {
+        return [
+            self::AD_SET_STATUS_ACTIVE,
+            self::AD_SET_STATUS_NOT_RUNNING,
+            self::AD_SET_STATUS_DEAD,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -758,6 +771,7 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
             self::METRICS_QUALIFIED_VISITS,
             self::METRICS_VISITS,
             self::METRICS_VISITS_PV1_D,
+            self::METRICS_VISITS_ALL_PV1D,
             self::METRICS_ORDER_VALUE_PI,
             self::METRICS_POST_INSTALL_ORDER_VALUE,
             self::METRICS_BOUNCE_RATE,
@@ -806,17 +820,6 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
             self::METRICS_POST_INSTALL_COST_OF_SALE,
             self::METRICS_POST_INSTALL_COST_PER_ORDER,
             self::METRICS_RETURN_ON_ADVERTISER_SPENDING_PI,
-            self::METRICS_CAC_CLIENT_ATTRIBUTION,
-            self::METRICS_CAC_PC30D,
-            self::METRICS_CAC_PC7D,
-            self::METRICS_CAC_PC1D,
-            self::METRICS_CAC_PV24H,
-            self::METRICS_CAC_PV7D,
-            self::METRICS_CAC_PV14D,
-            self::METRICS_CAC_PV30D,
-            self::METRICS_CAC_PC30_PV24H,
-            self::METRICS_CAC_PC7D_PV24H,
-            self::METRICS_CAC_LC30D,
             self::METRICS_POST_INSTALL_ROAS,
             self::METRICS_RETURN_ON_ADVERTISER_SPENDING_OFFLINE_PC,
             self::METRICS_RETURN_ON_ADVERTISER_SPENDING_OFFLINE_PV,
@@ -842,6 +845,12 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
             self::METRICS_VIDEO_AVERAGE_VIEW_RATE,
             self::METRICS_VIDEO_CPV,
             self::METRICS_VIDEO_CPCV,
+            self::METRICS_POTENTIAL_USERS,
+            self::METRICS_RETAILER_MARGIN_EURO,
+            self::METRICS_PLATFORM_FEE_EURO,
+            self::METRICS_ALL_IN_MEDIA_COST,
+            self::METRICS_NET_MEDIA_COST,
+            self::METRICS_COS,
         ];
     }
 
@@ -900,12 +909,19 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     {
         $invalidProperties = [];
 
+        if ($this->container['advertiser_ids'] === null) {
+            $invalidProperties[] = "'advertiser_ids' can't be null";
+        }
         if ($this->container['currency'] === null) {
             $invalidProperties[] = "'currency' can't be null";
         }
         if ($this->container['dimensions'] === null) {
             $invalidProperties[] = "'dimensions' can't be null";
         }
+        if ((count($this->container['dimensions']) < 1)) {
+            $invalidProperties[] = "invalid value for 'dimensions', number of items must be greater than or equal to 1.";
+        }
+
         if ($this->container['end_date'] === null) {
             $invalidProperties[] = "'end_date' can't be null";
         }
@@ -952,7 +968,7 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets ad_set_ids
      *
-     * @param string[]|null $ad_set_ids list of adSets ids. If empty, all the adSets will be fetched
+     * @param string[]|null $ad_set_ids Optional list of ad set IDs to filter on. The ad sets must already exist. If empty, all ad sets will be fetched.
      *
      * @return self
      */
@@ -986,7 +1002,7 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets ad_set_names
      *
-     * @param string[]|null $ad_set_names list of adSets names. If empty, all the adSets will be fetched
+     * @param string[]|null $ad_set_names Optional list of ad set names to filter on. If empty, all ad sets will be fetched.
      *
      * @return self
      */
@@ -1020,7 +1036,7 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets ad_set_status
      *
-     * @param string[]|null $ad_set_status list of adSets status. If empty, all the adSets will be fetched
+     * @param string[]|null $ad_set_status Optional list of ad set statuses to filter on. If empty, all ad sets will be fetched.
      *
      * @return self
      */
@@ -1036,6 +1052,15 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        $allowedValues = $this->getAdSetStatusAllowableValues();
+        if (!is_null($ad_set_status) && array_diff($ad_set_status, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'ad_set_status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['ad_set_status'] = $ad_set_status;
 
         return $this;
@@ -1044,7 +1069,7 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets advertiser_ids
      *
-     * @return string|null
+     * @return string
      */
     public function getAdvertiserIds()
     {
@@ -1054,21 +1079,14 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets advertiser_ids
      *
-     * @param string|null $advertiser_ids The comma-separated list of advertiser ids. If empty, all the advertisers in the portfolio will be used
+     * @param string $advertiser_ids List of advertiser IDs to report on, provided as a single comma-separated string (e.g., \"123,456,789\"). The advertisers must already exist. If empty, all advertisers will be used.
      *
      * @return self
      */
     public function setAdvertiserIds($advertiser_ids)
     {
         if (is_null($advertiser_ids)) {
-            array_push($this->openAPINullablesSetToNull, 'advertiser_ids');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('advertiser_ids', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable advertiser_ids cannot be null');
         }
         $this->container['advertiser_ids'] = $advertiser_ids;
 
@@ -1115,7 +1133,7 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets dimensions
      *
-     * @param string[] $dimensions The dimensions for the report.
+     * @param string[] $dimensions List of dimensions for the report. At least one dimension should be provided. <br/><br/> When an ID dimension is requested (e.g., AdsetId), the corresponding name dimension (e.g., Adset) is automatically included, and vice versa. This applies to the following pairs: AdsetId/Adset, AdId/Ad, AdvertiserId/Advertiser, CampaignId/Campaign, CategoryId/Category, CouponId/Coupon, MarketingObjectiveId/MarketingObjective, ChannelId/Channel.
      *
      * @return self
      */
@@ -1132,6 +1150,11 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
                     implode("', '", $allowedValues)
                 )
             );
+        }
+
+
+        if ((count($dimensions) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $dimensions when calling StatisticsReportQueryMessage., number of items must be greater than or equal to 1.');
         }
         $this->container['dimensions'] = $dimensions;
 
@@ -1151,7 +1174,7 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets end_date
      *
-     * @param \DateTime $end_date End date of the report. Date component of ISO 8061 format, any time or timezone component is ignored.
+     * @param \DateTime $end_date End date of the report. Date component of ISO 8601 format, any time or timezone component is ignored.
      *
      * @return self
      */
@@ -1178,7 +1201,7 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets format
      *
-     * @param string|null $format The file format of the generated report
+     * @param string|null $format Optional file format of the generated report.
      *
      * @return self
      */
@@ -1215,7 +1238,7 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets metrics
      *
-     * @param string[] $metrics The list of metrics to report.
+     * @param string[] $metrics List of metrics for the report. Provide at least one metric to return performance data; otherwise, the response will include only dimension-related information.
      *
      * @return self
      */
@@ -1251,7 +1274,7 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets start_date
      *
-     * @param \DateTime $start_date Start date of the report. Date component of ISO 8061 format, any time or timezone component is ignored.
+     * @param \DateTime $start_date Start date of the report. Date component of ISO 8601 format, any time or timezone component is ignored. Must be ≤ endDate.
      *
      * @return self
      */
@@ -1278,7 +1301,7 @@ class StatisticsReportQueryMessage implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets timezone
      *
-     * @param string|null $timezone The timezone used for the report. Timezone Database format (Tz).
+     * @param string|null $timezone Optional timezone used for the report. Timezone Database format (Tz).
      *
      * @return self
      */

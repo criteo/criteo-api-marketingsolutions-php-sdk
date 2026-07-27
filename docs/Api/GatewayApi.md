@@ -4,7 +4,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getCurrentApplication()**](GatewayApi.md#getCurrentApplication) | **GET** /2025-07/marketing-solutions/me |  |
+| [**getCurrentApplication()**](GatewayApi.md#getCurrentApplication) | **GET** /2025-07/marketing-solutions/me | /2025-07/marketing-solutions/me |
 
 
 ## `getCurrentApplication()`
@@ -13,7 +13,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 getCurrentApplication(): \criteo\api\marketingsolutions\v2025_07\Model\ApplicationSummaryModelResponse
 ```
 
-
+/2025-07/marketing-solutions/me
 
 Get information about the currently logged application
 
