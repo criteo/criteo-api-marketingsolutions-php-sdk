@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\experimental\ObjectSerializer;
  * ReadAdSetAttributionConfigurationV26Q1 Class Doc Comment
  *
  * @category Class
- * @description Read model for an ad set&#39;s attribution configuration.                The lookback window is only set for ad sets with an attribution method that is postClick or googleAnalyticsLastClick.  It will be null with any other attribution method.
+ * @description Read model for an ad set&#39;s attribution configuration.                The lookback window is only set for ad sets with an attribution method that is postClick or lastClick.  It will be null with any other attribution method.
  * @package  criteo\api\marketingsolutions\experimental
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -237,8 +237,6 @@ class ReadAdSetAttributionConfigurationV26Q1 implements ModelInterface, ArrayAcc
 
     public const ATTRIBUTION_METHOD_UNKNOWN = 'unknown';
     public const ATTRIBUTION_METHOD_CRITEO_ATTRIBUTION = 'criteoAttribution';
-    public const ATTRIBUTION_METHOD_GOOGLE_ANALYTICS_LAST_CLICK = 'googleAnalyticsLastClick';
-    public const ATTRIBUTION_METHOD_GOOGLE_ANALYTICS_DATA_DRIVEN = 'googleAnalyticsDataDriven';
     public const ATTRIBUTION_METHOD_LAST_CLICK = 'lastClick';
     public const ATTRIBUTION_METHOD_POST_CLICK = 'postClick';
     public const ATTRIBUTION_METHOD_SFTP = 'sftp';
@@ -259,8 +257,6 @@ class ReadAdSetAttributionConfigurationV26Q1 implements ModelInterface, ArrayAcc
         return [
             self::ATTRIBUTION_METHOD_UNKNOWN,
             self::ATTRIBUTION_METHOD_CRITEO_ATTRIBUTION,
-            self::ATTRIBUTION_METHOD_GOOGLE_ANALYTICS_LAST_CLICK,
-            self::ATTRIBUTION_METHOD_GOOGLE_ANALYTICS_DATA_DRIVEN,
             self::ATTRIBUTION_METHOD_LAST_CLICK,
             self::ATTRIBUTION_METHOD_POST_CLICK,
             self::ATTRIBUTION_METHOD_SFTP,
@@ -376,7 +372,7 @@ class ReadAdSetAttributionConfigurationV26Q1 implements ModelInterface, ArrayAcc
     /**
      * Sets attribution_method
      *
-     * @param string|null $attribution_method Ad set attribution method.  This defines how certain events (visits, clicks, sales...) are attributed to the ad set.                Possible values:  - unknown  - criteoAttribution (default attribution method)  - googleAnalyticsLastClick (requires Google Analytics integration)  - postClick  - sftp  - googleAnalytics (requires Google Analytics integration)
+     * @param string|null $attribution_method Ad set attribution method.  This defines how certain events (visits, clicks, sales...) are attributed to the ad set.                Possible values:  - unknown  - criteoAttribution (default attribution method)  - lastClick  - postClick  - sftp  - googleAnalytics (requires Google Analytics integration)
      *
      * @return self
      */
