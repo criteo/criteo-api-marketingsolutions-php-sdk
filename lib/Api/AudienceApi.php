@@ -173,6 +173,8 @@ class AudienceApi
     /**
      * Operation computeAudienceSegmentsSizes
      *
+     * /2025-10/marketing-solutions/audience-segments/compute-sizes
+     *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentComputeSizesInputV1 $audience_segment_compute_sizes_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['computeAudienceSegmentsSizes'] to see the possible values for this operation
      *
@@ -188,6 +190,8 @@ class AudienceApi
 
     /**
      * Operation computeAudienceSegmentsSizesWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audience-segments/compute-sizes
      *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentComputeSizesInputV1 $audience_segment_compute_sizes_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['computeAudienceSegmentsSizes'] to see the possible values for this operation
@@ -287,6 +291,8 @@ class AudienceApi
     /**
      * Operation computeAudienceSegmentsSizesAsync
      *
+     * /2025-10/marketing-solutions/audience-segments/compute-sizes
+     *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentComputeSizesInputV1 $audience_segment_compute_sizes_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['computeAudienceSegmentsSizes'] to see the possible values for this operation
      *
@@ -305,6 +311,8 @@ class AudienceApi
 
     /**
      * Operation computeAudienceSegmentsSizesAsyncWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audience-segments/compute-sizes
      *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentComputeSizesInputV1 $audience_segment_compute_sizes_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['computeAudienceSegmentsSizes'] to see the possible values for this operation
@@ -455,6 +463,8 @@ class AudienceApi
     /**
      * Operation computeAudiencesSizes
      *
+     * /2025-10/marketing-solutions/audiences/compute-sizes
+     *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceComputeSizesInputV1 $audience_compute_sizes_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['computeAudiencesSizes'] to see the possible values for this operation
      *
@@ -470,6 +480,8 @@ class AudienceApi
 
     /**
      * Operation computeAudiencesSizesWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audiences/compute-sizes
      *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceComputeSizesInputV1 $audience_compute_sizes_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['computeAudiencesSizes'] to see the possible values for this operation
@@ -569,6 +581,8 @@ class AudienceApi
     /**
      * Operation computeAudiencesSizesAsync
      *
+     * /2025-10/marketing-solutions/audiences/compute-sizes
+     *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceComputeSizesInputV1 $audience_compute_sizes_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['computeAudiencesSizes'] to see the possible values for this operation
      *
@@ -587,6 +601,8 @@ class AudienceApi
 
     /**
      * Operation computeAudiencesSizesAsyncWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audiences/compute-sizes
      *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceComputeSizesInputV1 $audience_compute_sizes_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['computeAudiencesSizes'] to see the possible values for this operation
@@ -737,6 +753,8 @@ class AudienceApi
     /**
      * Operation createAudienceSegments
      *
+     * /2025-10/marketing-solutions/audience-segments/create
+     *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentBulkCreateInputV1 $audience_segment_bulk_create_input_v1 Segment creation parameter (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAudienceSegments'] to see the possible values for this operation
      *
@@ -752,6 +770,8 @@ class AudienceApi
 
     /**
      * Operation createAudienceSegmentsWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audience-segments/create
      *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentBulkCreateInputV1 $audience_segment_bulk_create_input_v1 Segment creation parameter (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAudienceSegments'] to see the possible values for this operation
@@ -851,6 +871,8 @@ class AudienceApi
     /**
      * Operation createAudienceSegmentsAsync
      *
+     * /2025-10/marketing-solutions/audience-segments/create
+     *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentBulkCreateInputV1 $audience_segment_bulk_create_input_v1 Segment creation parameter (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAudienceSegments'] to see the possible values for this operation
      *
@@ -869,6 +891,8 @@ class AudienceApi
 
     /**
      * Operation createAudienceSegmentsAsyncWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audience-segments/create
      *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentBulkCreateInputV1 $audience_segment_bulk_create_input_v1 Segment creation parameter (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAudienceSegments'] to see the possible values for this operation
@@ -1019,6 +1043,8 @@ class AudienceApi
     /**
      * Operation createAudiences
      *
+     * /2025-10/marketing-solutions/audiences/create
+     *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceBulkCreateInputV1 $audience_bulk_create_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAudiences'] to see the possible values for this operation
      *
@@ -1034,6 +1060,8 @@ class AudienceApi
 
     /**
      * Operation createAudiencesWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audiences/create
      *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceBulkCreateInputV1 $audience_bulk_create_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAudiences'] to see the possible values for this operation
@@ -1133,6 +1161,8 @@ class AudienceApi
     /**
      * Operation createAudiencesAsync
      *
+     * /2025-10/marketing-solutions/audiences/create
+     *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceBulkCreateInputV1 $audience_bulk_create_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAudiences'] to see the possible values for this operation
      *
@@ -1151,6 +1181,8 @@ class AudienceApi
 
     /**
      * Operation createAudiencesAsyncWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audiences/create
      *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceBulkCreateInputV1 $audience_bulk_create_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAudiences'] to see the possible values for this operation
@@ -1301,6 +1333,8 @@ class AudienceApi
     /**
      * Operation deleteAudienceSegments
      *
+     * /2025-10/marketing-solutions/audience-segments/delete
+     *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentBulkDeleteInputV1 $audience_segment_bulk_delete_input_v1 Segment delete request. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAudienceSegments'] to see the possible values for this operation
      *
@@ -1316,6 +1350,8 @@ class AudienceApi
 
     /**
      * Operation deleteAudienceSegmentsWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audience-segments/delete
      *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentBulkDeleteInputV1 $audience_segment_bulk_delete_input_v1 Segment delete request. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAudienceSegments'] to see the possible values for this operation
@@ -1415,6 +1451,8 @@ class AudienceApi
     /**
      * Operation deleteAudienceSegmentsAsync
      *
+     * /2025-10/marketing-solutions/audience-segments/delete
+     *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentBulkDeleteInputV1 $audience_segment_bulk_delete_input_v1 Segment delete request. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAudienceSegments'] to see the possible values for this operation
      *
@@ -1433,6 +1471,8 @@ class AudienceApi
 
     /**
      * Operation deleteAudienceSegmentsAsyncWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audience-segments/delete
      *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentBulkDeleteInputV1 $audience_segment_bulk_delete_input_v1 Segment delete request. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAudienceSegments'] to see the possible values for this operation
@@ -1583,6 +1623,8 @@ class AudienceApi
     /**
      * Operation deleteAudiences
      *
+     * /2025-10/marketing-solutions/audiences/delete
+     *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceBulkDeleteInputV1 $audience_bulk_delete_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAudiences'] to see the possible values for this operation
      *
@@ -1598,6 +1640,8 @@ class AudienceApi
 
     /**
      * Operation deleteAudiencesWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audiences/delete
      *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceBulkDeleteInputV1 $audience_bulk_delete_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAudiences'] to see the possible values for this operation
@@ -1697,6 +1741,8 @@ class AudienceApi
     /**
      * Operation deleteAudiencesAsync
      *
+     * /2025-10/marketing-solutions/audiences/delete
+     *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceBulkDeleteInputV1 $audience_bulk_delete_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAudiences'] to see the possible values for this operation
      *
@@ -1715,6 +1761,8 @@ class AudienceApi
 
     /**
      * Operation deleteAudiencesAsyncWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audiences/delete
      *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceBulkDeleteInputV1 $audience_bulk_delete_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAudiences'] to see the possible values for this operation
@@ -1865,6 +1913,8 @@ class AudienceApi
     /**
      * Operation deleteContactListByAudienceSegment
      *
+     * /2025-10/marketing-solutions/audience-segments/{audience-segment-id}/contact-list
+     *
      * @param  string $audience_segment_id The id of the contact list audience-segment to amend (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteContactListByAudienceSegment'] to see the possible values for this operation
      *
@@ -1880,6 +1930,8 @@ class AudienceApi
 
     /**
      * Operation deleteContactListByAudienceSegmentWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audience-segments/{audience-segment-id}/contact-list
      *
      * @param  string $audience_segment_id The id of the contact list audience-segment to amend (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteContactListByAudienceSegment'] to see the possible values for this operation
@@ -1979,6 +2031,8 @@ class AudienceApi
     /**
      * Operation deleteContactListByAudienceSegmentAsync
      *
+     * /2025-10/marketing-solutions/audience-segments/{audience-segment-id}/contact-list
+     *
      * @param  string $audience_segment_id The id of the contact list audience-segment to amend (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteContactListByAudienceSegment'] to see the possible values for this operation
      *
@@ -1997,6 +2051,8 @@ class AudienceApi
 
     /**
      * Operation deleteContactListByAudienceSegmentAsyncWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audience-segments/{audience-segment-id}/contact-list
      *
      * @param  string $audience_segment_id The id of the contact list audience-segment to amend (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteContactListByAudienceSegment'] to see the possible values for this operation
@@ -2148,6 +2204,8 @@ class AudienceApi
     /**
      * Operation estimateAudienceSegmentsSizes
      *
+     * /2025-10/marketing-solutions/audience-segments/estimate-size
+     *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentEstimateSizeInputV1 $audience_segment_estimate_size_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudienceSegmentsSizes'] to see the possible values for this operation
      *
@@ -2163,6 +2221,8 @@ class AudienceApi
 
     /**
      * Operation estimateAudienceSegmentsSizesWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audience-segments/estimate-size
      *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentEstimateSizeInputV1 $audience_segment_estimate_size_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudienceSegmentsSizes'] to see the possible values for this operation
@@ -2262,6 +2322,8 @@ class AudienceApi
     /**
      * Operation estimateAudienceSegmentsSizesAsync
      *
+     * /2025-10/marketing-solutions/audience-segments/estimate-size
+     *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentEstimateSizeInputV1 $audience_segment_estimate_size_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudienceSegmentsSizes'] to see the possible values for this operation
      *
@@ -2280,6 +2342,8 @@ class AudienceApi
 
     /**
      * Operation estimateAudienceSegmentsSizesAsyncWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audience-segments/estimate-size
      *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentEstimateSizeInputV1 $audience_segment_estimate_size_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudienceSegmentsSizes'] to see the possible values for this operation
@@ -2430,6 +2494,8 @@ class AudienceApi
     /**
      * Operation estimateAudiencesSizes
      *
+     * /2025-10/marketing-solutions/audiences/estimate-size
+     *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceEstimateSizeInputV1 $audience_estimate_size_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudiencesSizes'] to see the possible values for this operation
      *
@@ -2445,6 +2511,8 @@ class AudienceApi
 
     /**
      * Operation estimateAudiencesSizesWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audiences/estimate-size
      *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceEstimateSizeInputV1 $audience_estimate_size_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudiencesSizes'] to see the possible values for this operation
@@ -2544,6 +2612,8 @@ class AudienceApi
     /**
      * Operation estimateAudiencesSizesAsync
      *
+     * /2025-10/marketing-solutions/audiences/estimate-size
+     *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceEstimateSizeInputV1 $audience_estimate_size_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudiencesSizes'] to see the possible values for this operation
      *
@@ -2562,6 +2632,8 @@ class AudienceApi
 
     /**
      * Operation estimateAudiencesSizesAsyncWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audiences/estimate-size
      *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceEstimateSizeInputV1 $audience_estimate_size_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateAudiencesSizes'] to see the possible values for this operation
@@ -2712,6 +2784,8 @@ class AudienceApi
     /**
      * Operation getAudienceSegmentContactListStatistics
      *
+     * /2025-10/marketing-solutions/audience-segments/{audience-segment-id}/contact-list/statistics
+     *
      * @param  string $audience_segment_id The segment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAudienceSegmentContactListStatistics'] to see the possible values for this operation
      *
@@ -2727,6 +2801,8 @@ class AudienceApi
 
     /**
      * Operation getAudienceSegmentContactListStatisticsWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audience-segments/{audience-segment-id}/contact-list/statistics
      *
      * @param  string $audience_segment_id The segment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAudienceSegmentContactListStatistics'] to see the possible values for this operation
@@ -2826,6 +2902,8 @@ class AudienceApi
     /**
      * Operation getAudienceSegmentContactListStatisticsAsync
      *
+     * /2025-10/marketing-solutions/audience-segments/{audience-segment-id}/contact-list/statistics
+     *
      * @param  string $audience_segment_id The segment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAudienceSegmentContactListStatistics'] to see the possible values for this operation
      *
@@ -2844,6 +2922,8 @@ class AudienceApi
 
     /**
      * Operation getAudienceSegmentContactListStatisticsAsyncWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audience-segments/{audience-segment-id}/contact-list/statistics
      *
      * @param  string $audience_segment_id The segment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAudienceSegmentContactListStatistics'] to see the possible values for this operation
@@ -2995,6 +3075,8 @@ class AudienceApi
     /**
      * Operation getAudienceSegmentsInMarketBrands
      *
+     * /2025-10/marketing-solutions/audience-segments/in-market-brands
+     *
      * @param  string $advertiser_id The advertiser ID. (required)
      * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAudienceSegmentsInMarketBrands'] to see the possible values for this operation
@@ -3011,6 +3093,8 @@ class AudienceApi
 
     /**
      * Operation getAudienceSegmentsInMarketBrandsWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audience-segments/in-market-brands
      *
      * @param  string $advertiser_id The advertiser ID. (required)
      * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
@@ -3111,6 +3195,8 @@ class AudienceApi
     /**
      * Operation getAudienceSegmentsInMarketBrandsAsync
      *
+     * /2025-10/marketing-solutions/audience-segments/in-market-brands
+     *
      * @param  string $advertiser_id The advertiser ID. (required)
      * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAudienceSegmentsInMarketBrands'] to see the possible values for this operation
@@ -3130,6 +3216,8 @@ class AudienceApi
 
     /**
      * Operation getAudienceSegmentsInMarketBrandsAsyncWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audience-segments/in-market-brands
      *
      * @param  string $advertiser_id The advertiser ID. (required)
      * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
@@ -3300,6 +3388,8 @@ class AudienceApi
     /**
      * Operation getAudienceSegmentsInMarketInterests
      *
+     * /2025-10/marketing-solutions/audience-segments/in-market-interests
+     *
      * @param  string $advertiser_id The advertiser ID. (required)
      * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAudienceSegmentsInMarketInterests'] to see the possible values for this operation
@@ -3316,6 +3406,8 @@ class AudienceApi
 
     /**
      * Operation getAudienceSegmentsInMarketInterestsWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audience-segments/in-market-interests
      *
      * @param  string $advertiser_id The advertiser ID. (required)
      * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
@@ -3416,6 +3508,8 @@ class AudienceApi
     /**
      * Operation getAudienceSegmentsInMarketInterestsAsync
      *
+     * /2025-10/marketing-solutions/audience-segments/in-market-interests
+     *
      * @param  string $advertiser_id The advertiser ID. (required)
      * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAudienceSegmentsInMarketInterests'] to see the possible values for this operation
@@ -3435,6 +3529,8 @@ class AudienceApi
 
     /**
      * Operation getAudienceSegmentsInMarketInterestsAsyncWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audience-segments/in-market-interests
      *
      * @param  string $advertiser_id The advertiser ID. (required)
      * @param  string $country The ISO 3166-1 alpha-2 country code. (required)
@@ -3605,6 +3701,8 @@ class AudienceApi
     /**
      * Operation searchAudienceSegments
      *
+     * /2025-10/marketing-solutions/audience-segments/search
+     *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentSearchInputV1 $audience_segment_search_input_v1 Segment search filters. (required)
      * @param  int $limit The number of elements to be returned. The default is 50 and the maximum is 100. (optional, default to 50)
      * @param  int $offset The (zero-based) offset into the collection. The default is 0. (optional, default to 0)
@@ -3622,6 +3720,8 @@ class AudienceApi
 
     /**
      * Operation searchAudienceSegmentsWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audience-segments/search
      *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentSearchInputV1 $audience_segment_search_input_v1 Segment search filters. (required)
      * @param  int $limit The number of elements to be returned. The default is 50 and the maximum is 100. (optional, default to 50)
@@ -3723,6 +3823,8 @@ class AudienceApi
     /**
      * Operation searchAudienceSegmentsAsync
      *
+     * /2025-10/marketing-solutions/audience-segments/search
+     *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentSearchInputV1 $audience_segment_search_input_v1 Segment search filters. (required)
      * @param  int $limit The number of elements to be returned. The default is 50 and the maximum is 100. (optional, default to 50)
      * @param  int $offset The (zero-based) offset into the collection. The default is 0. (optional, default to 0)
@@ -3743,6 +3845,8 @@ class AudienceApi
 
     /**
      * Operation searchAudienceSegmentsAsyncWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audience-segments/search
      *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentSearchInputV1 $audience_segment_search_input_v1 Segment search filters. (required)
      * @param  int $limit The number of elements to be returned. The default is 50 and the maximum is 100. (optional, default to 50)
@@ -3923,6 +4027,8 @@ class AudienceApi
     /**
      * Operation searchAudiences
      *
+     * /2025-10/marketing-solutions/audiences/search
+     *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSearchInputV1 $audience_search_input_v1 Audience search filters. (required)
      * @param  int $limit The number of elements to be returned. The default is 50 and the maximum is 100. (optional, default to 50)
      * @param  int $offset The (zero-based) offset into the collection. The default is 0. (optional, default to 0)
@@ -3940,6 +4046,8 @@ class AudienceApi
 
     /**
      * Operation searchAudiencesWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audiences/search
      *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSearchInputV1 $audience_search_input_v1 Audience search filters. (required)
      * @param  int $limit The number of elements to be returned. The default is 50 and the maximum is 100. (optional, default to 50)
@@ -4041,6 +4149,8 @@ class AudienceApi
     /**
      * Operation searchAudiencesAsync
      *
+     * /2025-10/marketing-solutions/audiences/search
+     *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSearchInputV1 $audience_search_input_v1 Audience search filters. (required)
      * @param  int $limit The number of elements to be returned. The default is 50 and the maximum is 100. (optional, default to 50)
      * @param  int $offset The (zero-based) offset into the collection. The default is 0. (optional, default to 0)
@@ -4061,6 +4171,8 @@ class AudienceApi
 
     /**
      * Operation searchAudiencesAsyncWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audiences/search
      *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSearchInputV1 $audience_search_input_v1 Audience search filters. (required)
      * @param  int $limit The number of elements to be returned. The default is 50 and the maximum is 100. (optional, default to 50)
@@ -4241,6 +4353,8 @@ class AudienceApi
     /**
      * Operation updateAudienceSegments
      *
+     * /2025-10/marketing-solutions/audience-segments
+     *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentBulkUpdateInputV1 $audience_segment_bulk_update_input_v1 Segment Update request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAudienceSegments'] to see the possible values for this operation
      *
@@ -4256,6 +4370,8 @@ class AudienceApi
 
     /**
      * Operation updateAudienceSegmentsWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audience-segments
      *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentBulkUpdateInputV1 $audience_segment_bulk_update_input_v1 Segment Update request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAudienceSegments'] to see the possible values for this operation
@@ -4355,6 +4471,8 @@ class AudienceApi
     /**
      * Operation updateAudienceSegmentsAsync
      *
+     * /2025-10/marketing-solutions/audience-segments
+     *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentBulkUpdateInputV1 $audience_segment_bulk_update_input_v1 Segment Update request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAudienceSegments'] to see the possible values for this operation
      *
@@ -4373,6 +4491,8 @@ class AudienceApi
 
     /**
      * Operation updateAudienceSegmentsAsyncWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audience-segments
      *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceSegmentBulkUpdateInputV1 $audience_segment_bulk_update_input_v1 Segment Update request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAudienceSegments'] to see the possible values for this operation
@@ -4523,6 +4643,8 @@ class AudienceApi
     /**
      * Operation updateAudiences
      *
+     * /2025-10/marketing-solutions/audiences
+     *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceBulkUpdateInputV1 $audience_bulk_update_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAudiences'] to see the possible values for this operation
      *
@@ -4538,6 +4660,8 @@ class AudienceApi
 
     /**
      * Operation updateAudiencesWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audiences
      *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceBulkUpdateInputV1 $audience_bulk_update_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAudiences'] to see the possible values for this operation
@@ -4637,6 +4761,8 @@ class AudienceApi
     /**
      * Operation updateAudiencesAsync
      *
+     * /2025-10/marketing-solutions/audiences
+     *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceBulkUpdateInputV1 $audience_bulk_update_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAudiences'] to see the possible values for this operation
      *
@@ -4655,6 +4781,8 @@ class AudienceApi
 
     /**
      * Operation updateAudiencesAsyncWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audiences
      *
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\AudienceBulkUpdateInputV1 $audience_bulk_update_input_v1  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAudiences'] to see the possible values for this operation
@@ -4805,6 +4933,8 @@ class AudienceApi
     /**
      * Operation updateContactListByAudienceSegment
      *
+     * /2025-10/marketing-solutions/audience-segments/{audience-segment-id}/contact-list
+     *
      * @param  string $audience_segment_id The id of the contact list audience-segment to amend (required)
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\ContactlistAmendmentRequest $contactlist_amendment_request contactlist_amendment_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateContactListByAudienceSegment'] to see the possible values for this operation
@@ -4821,6 +4951,8 @@ class AudienceApi
 
     /**
      * Operation updateContactListByAudienceSegmentWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audience-segments/{audience-segment-id}/contact-list
      *
      * @param  string $audience_segment_id The id of the contact list audience-segment to amend (required)
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\ContactlistAmendmentRequest $contactlist_amendment_request (required)
@@ -4921,6 +5053,8 @@ class AudienceApi
     /**
      * Operation updateContactListByAudienceSegmentAsync
      *
+     * /2025-10/marketing-solutions/audience-segments/{audience-segment-id}/contact-list
+     *
      * @param  string $audience_segment_id The id of the contact list audience-segment to amend (required)
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\ContactlistAmendmentRequest $contactlist_amendment_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateContactListByAudienceSegment'] to see the possible values for this operation
@@ -4940,6 +5074,8 @@ class AudienceApi
 
     /**
      * Operation updateContactListByAudienceSegmentAsyncWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/audience-segments/{audience-segment-id}/contact-list
      *
      * @param  string $audience_segment_id The id of the contact list audience-segment to amend (required)
      * @param  \criteo\api\marketingsolutions\v2025_10\Model\ContactlistAmendmentRequest $contactlist_amendment_request (required)

@@ -4,23 +4,23 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createAdvertiserAd()**](CreativeApi.md#createAdvertiserAd) | **POST** /2025-10/marketing-solutions/advertisers/{advertiser-id}/ads |  |
-| [**createAdvertiserCoupon()**](CreativeApi.md#createAdvertiserCoupon) | **POST** /2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons |  |
-| [**createAdvertiserCreative()**](CreativeApi.md#createAdvertiserCreative) | **POST** /2025-10/marketing-solutions/advertisers/{advertiser-id}/creatives |  |
-| [**deleteAd()**](CreativeApi.md#deleteAd) | **DELETE** /2025-10/marketing-solutions/ads/{id} |  |
-| [**deleteAdvertiserCoupon()**](CreativeApi.md#deleteAdvertiserCoupon) | **DELETE** /2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons/{id} |  |
-| [**deleteCreative()**](CreativeApi.md#deleteCreative) | **DELETE** /2025-10/marketing-solutions/creatives/{id} |  |
-| [**editAdvertiserCoupon()**](CreativeApi.md#editAdvertiserCoupon) | **PUT** /2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons/{id} |  |
-| [**editCreative()**](CreativeApi.md#editCreative) | **PUT** /2025-10/marketing-solutions/creatives/{id} |  |
-| [**generateCreativePreview()**](CreativeApi.md#generateCreativePreview) | **POST** /2025-10/marketing-solutions/creatives/{id}/preview |  |
-| [**getAd()**](CreativeApi.md#getAd) | **GET** /2025-10/marketing-solutions/ads/{id} |  |
-| [**getAdvertiserAds()**](CreativeApi.md#getAdvertiserAds) | **GET** /2025-10/marketing-solutions/advertisers/{advertiser-id}/ads |  |
-| [**getAdvertiserCoupon()**](CreativeApi.md#getAdvertiserCoupon) | **GET** /2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons/{id} |  |
-| [**getAdvertiserCouponPreview()**](CreativeApi.md#getAdvertiserCouponPreview) | **GET** /2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons/{id}/preview |  |
-| [**getAdvertiserCouponSupportedSizes()**](CreativeApi.md#getAdvertiserCouponSupportedSizes) | **GET** /2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons-supported-sizes |  |
-| [**getAdvertiserCoupons()**](CreativeApi.md#getAdvertiserCoupons) | **GET** /2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons |  |
-| [**getAdvertiserCreatives()**](CreativeApi.md#getAdvertiserCreatives) | **GET** /2025-10/marketing-solutions/advertisers/{advertiser-id}/creatives |  |
-| [**getCreative()**](CreativeApi.md#getCreative) | **GET** /2025-10/marketing-solutions/creatives/{id} |  |
+| [**createAdvertiserAd()**](CreativeApi.md#createAdvertiserAd) | **POST** /2025-10/marketing-solutions/advertisers/{advertiser-id}/ads | /2025-10/marketing-solutions/advertisers/{advertiser-id}/ads |
+| [**createAdvertiserCoupon()**](CreativeApi.md#createAdvertiserCoupon) | **POST** /2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons | /2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons |
+| [**createAdvertiserCreative()**](CreativeApi.md#createAdvertiserCreative) | **POST** /2025-10/marketing-solutions/advertisers/{advertiser-id}/creatives | /2025-10/marketing-solutions/advertisers/{advertiser-id}/creatives |
+| [**deleteAd()**](CreativeApi.md#deleteAd) | **DELETE** /2025-10/marketing-solutions/ads/{id} | /2025-10/marketing-solutions/ads/{id} |
+| [**deleteAdvertiserCoupon()**](CreativeApi.md#deleteAdvertiserCoupon) | **DELETE** /2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons/{id} | /2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons/{id} |
+| [**deleteCreative()**](CreativeApi.md#deleteCreative) | **DELETE** /2025-10/marketing-solutions/creatives/{id} | /2025-10/marketing-solutions/creatives/{id} |
+| [**editAdvertiserCoupon()**](CreativeApi.md#editAdvertiserCoupon) | **PUT** /2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons/{id} | /2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons/{id} |
+| [**editCreative()**](CreativeApi.md#editCreative) | **PUT** /2025-10/marketing-solutions/creatives/{id} | /2025-10/marketing-solutions/creatives/{id} |
+| [**generateCreativePreview()**](CreativeApi.md#generateCreativePreview) | **POST** /2025-10/marketing-solutions/creatives/{id}/preview | /2025-10/marketing-solutions/creatives/{id}/preview |
+| [**getAd()**](CreativeApi.md#getAd) | **GET** /2025-10/marketing-solutions/ads/{id} | /2025-10/marketing-solutions/ads/{id} |
+| [**getAdvertiserAds()**](CreativeApi.md#getAdvertiserAds) | **GET** /2025-10/marketing-solutions/advertisers/{advertiser-id}/ads | /2025-10/marketing-solutions/advertisers/{advertiser-id}/ads |
+| [**getAdvertiserCoupon()**](CreativeApi.md#getAdvertiserCoupon) | **GET** /2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons/{id} | /2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons/{id} |
+| [**getAdvertiserCouponPreview()**](CreativeApi.md#getAdvertiserCouponPreview) | **GET** /2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons/{id}/preview | /2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons/{id}/preview |
+| [**getAdvertiserCouponSupportedSizes()**](CreativeApi.md#getAdvertiserCouponSupportedSizes) | **GET** /2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons-supported-sizes | /2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons-supported-sizes |
+| [**getAdvertiserCoupons()**](CreativeApi.md#getAdvertiserCoupons) | **GET** /2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons | /2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons |
+| [**getAdvertiserCreatives()**](CreativeApi.md#getAdvertiserCreatives) | **GET** /2025-10/marketing-solutions/advertisers/{advertiser-id}/creatives | /2025-10/marketing-solutions/advertisers/{advertiser-id}/creatives |
+| [**getCreative()**](CreativeApi.md#getCreative) | **GET** /2025-10/marketing-solutions/creatives/{id} | /2025-10/marketing-solutions/creatives/{id} |
 
 
 ## `createAdvertiserAd()`
@@ -29,7 +29,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 createAdvertiserAd($advertiser_id, $resource_input_of_ad_write): \criteo\api\marketingsolutions\v2025_10\Model\ResourceOutcomeOfAd
 ```
 
-
+/2025-10/marketing-solutions/advertisers/{advertiser-id}/ads
 
 Create an Ad
 
@@ -94,7 +94,7 @@ try {
 createAdvertiserCoupon($advertiser_id, $resource_input_of_create_coupon): \criteo\api\marketingsolutions\v2025_10\Model\ResourceOutcomeOfCoupon
 ```
 
-
+/2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons
 
 Create a Coupon
 
@@ -159,7 +159,7 @@ try {
 createAdvertiserCreative($advertiser_id, $resource_input_of_creative_write): \criteo\api\marketingsolutions\v2025_10\Model\ResourceOutcomeOfCreative
 ```
 
-
+/2025-10/marketing-solutions/advertisers/{advertiser-id}/creatives
 
 Create a Creative
 
@@ -224,7 +224,7 @@ try {
 deleteAd($id)
 ```
 
-
+/2025-10/marketing-solutions/ads/{id}
 
 Delete an Ad
 
@@ -286,7 +286,7 @@ void (empty response body)
 deleteAdvertiserCoupon($advertiser_id, $id)
 ```
 
-
+/2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons/{id}
 
 Delete a Coupon
 
@@ -350,7 +350,7 @@ void (empty response body)
 deleteCreative($id)
 ```
 
-
+/2025-10/marketing-solutions/creatives/{id}
 
 Delete a Creative if there are no ads binded to it
 
@@ -412,7 +412,7 @@ void (empty response body)
 editAdvertiserCoupon($advertiser_id, $id, $resource_input_of_update_coupon): \criteo\api\marketingsolutions\v2025_10\Model\ResourceOutcomeOfCoupon
 ```
 
-
+/2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons/{id}
 
 Edit a specific Coupon
 
@@ -479,7 +479,7 @@ try {
 editCreative($id, $resource_input_of_creative_write): \criteo\api\marketingsolutions\v2025_10\Model\ResourceOutcomeOfCreative
 ```
 
-
+/2025-10/marketing-solutions/creatives/{id}
 
 Edit a specific Creative
 
@@ -544,7 +544,7 @@ try {
 generateCreativePreview($id, $height, $width): string
 ```
 
-
+/2025-10/marketing-solutions/creatives/{id}/preview
 
 Get the preview of a specific Creative
 
@@ -611,7 +611,7 @@ try {
 getAd($id): \criteo\api\marketingsolutions\v2025_10\Model\ResourceOutcomeOfAd
 ```
 
-
+/2025-10/marketing-solutions/ads/{id}
 
 Get an Ad with its id
 
@@ -674,7 +674,7 @@ try {
 getAdvertiserAds($advertiser_id, $limit, $offset): \criteo\api\marketingsolutions\v2025_10\Model\ResourceCollectionOutcomeOfAd
 ```
 
-
+/2025-10/marketing-solutions/advertisers/{advertiser-id}/ads
 
 Get the list of self-services Ads for a given advertiser
 
@@ -741,7 +741,7 @@ try {
 getAdvertiserCoupon($advertiser_id, $id): \criteo\api\marketingsolutions\v2025_10\Model\ResourceOutcomeOfCoupon
 ```
 
-
+/2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons/{id}
 
 Get a Coupon with its id
 
@@ -806,7 +806,7 @@ try {
 getAdvertiserCouponPreview($advertiser_id, $id, $height, $width): string
 ```
 
-
+/2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons/{id}/preview
 
 Get the preview of a specific Coupon
 
@@ -875,7 +875,7 @@ try {
 getAdvertiserCouponSupportedSizes($advertiser_id, $ad_set_id): \criteo\api\marketingsolutions\v2025_10\Model\ResourceOutcomeOfCouponSupportedSizes
 ```
 
-
+/2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons-supported-sizes
 
 Get the list of Coupon supported sizes
 
@@ -940,7 +940,7 @@ try {
 getAdvertiserCoupons($advertiser_id, $limit, $offset): \criteo\api\marketingsolutions\v2025_10\Model\ResourceCollectionOutcomeOfCoupon
 ```
 
-
+/2025-10/marketing-solutions/advertisers/{advertiser-id}/coupons
 
 Get the list of self-services Coupons for a given advertiser
 
@@ -1007,7 +1007,7 @@ try {
 getAdvertiserCreatives($advertiser_id, $limit, $offset): \criteo\api\marketingsolutions\v2025_10\Model\ResourceCollectionOutcomeOfCreativeRead
 ```
 
-
+/2025-10/marketing-solutions/advertisers/{advertiser-id}/creatives
 
 Get the list of self-services Creatives for a given advertiser
 
@@ -1074,7 +1074,7 @@ try {
 getCreative($id): \criteo\api\marketingsolutions\v2025_10\Model\ResourceOutcomeOfCreative
 ```
 
-
+/2025-10/marketing-solutions/creatives/{id}
 
 Get a Creative with its id
 

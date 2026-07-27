@@ -4,10 +4,10 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getAdsetReport()**](AnalyticsApi.md#getAdsetReport) | **POST** /2025-10/statistics/report |  |
-| [**getPlacementsReport()**](AnalyticsApi.md#getPlacementsReport) | **POST** /2025-10/placements/report |  |
-| [**getTransactionsReport()**](AnalyticsApi.md#getTransactionsReport) | **POST** /2025-10/transactions/report |  |
-| [**getTransparencyReport()**](AnalyticsApi.md#getTransparencyReport) | **POST** /2025-10/log-level/advertisers/{advertiser-id}/report |  |
+| [**getAdsetReport()**](AnalyticsApi.md#getAdsetReport) | **POST** /2025-10/statistics/report | /2025-10/statistics/report |
+| [**getPlacementsReport()**](AnalyticsApi.md#getPlacementsReport) | **POST** /2025-10/placements/report | /2025-10/placements/report |
+| [**getTransactionsReport()**](AnalyticsApi.md#getTransactionsReport) | **POST** /2025-10/transactions/report | /2025-10/transactions/report |
+| [**getTransparencyReport()**](AnalyticsApi.md#getTransparencyReport) | **POST** /2025-10/log-level/advertisers/{advertiser-id}/report | /2025-10/log-level/advertisers/{advertiser-id}/report |
 
 
 ## `getAdsetReport()`
@@ -16,9 +16,9 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 getAdsetReport($statistics_report_query_message): \SplFileObject
 ```
 
+/2025-10/statistics/report
 
-
-This Statistics endpoint provides adset related data. It is an upgrade of our previous Statistics endpoint, and includes new metrics and customization capabilities.
+This Statistics endpoint provides ad set related data. It is an upgrade of our previous Statistics endpoint, and includes new metrics and customization capabilities.  <br/><br/>  This endpoint supports data retrieval for up to two years in the past.
 
 ### Example
 
@@ -40,7 +40,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$statistics_report_query_message = {"advertiserIds":"123,456,789","adSetIds":["12345","54321"],"adSetNames":["myAdSet1","myAdSet2"],"adSetStatus":["Active"],"dimensions":["CampaignId","Campaign","AdsetId","Adset","AdvertiserId","Advertiser","AdId","Ad","CouponId","Coupon","CategoryId","Category","Hour","Day","Week","Month","Year","Os","Device"],"metrics":["Clicks","Displays","Cpc","Visits"],"currency":"EUR","format":"csv","timezone":"Europe/Paris","startDate":"2025-08-11T00:00:00.0000000+00:00","endDate":"2025-08-14T00:00:00.0000000+00:00"}; // \criteo\api\marketingsolutions\v2025_10\Model\StatisticsReportQueryMessage
+$statistics_report_query_message = {"advertiserIds":"123,456,789","adSetIds":["12345","54321"],"adSetNames":["myAdSet1","myAdSet2"],"adSetStatus":["Active"],"dimensions":["CampaignId","Campaign","AdsetId","Adset","AdvertiserId","Advertiser","AdId","Ad","CouponId","Coupon","CategoryId","Category","Hour","Day","Week","Month","Year","Os","Device"],"metrics":["Clicks","Displays","Cpc","Visits"],"currency":"EUR","format":"csv","timezone":"Europe/Paris","startDate":"2024-01-01T00:00:00.0000000+00:00","endDate":"2024-01-04T00:00:00.0000000+00:00"}; // \criteo\api\marketingsolutions\v2025_10\Model\StatisticsReportQueryMessage
 
 try {
     $result = $apiInstance->getAdsetReport($statistics_report_query_message);
@@ -79,9 +79,9 @@ try {
 getPlacementsReport($placements_report_query_message_list_request): \SplFileObject
 ```
 
+/2025-10/placements/report
 
-
-Your ads are placed in different domains (publishers) and environments (websites and apps). Thanks to the placements endpoint, you can analyse the performances for each publisher, comparing displays, clicks and sales generated.
+Your ads are placed in different domains (publishers) and environments (websites and apps). Thanks to the placements endpoint, you can analyse the performances for each publisher, comparing displays, clicks and sales generated.  <br/><br/>  This endpoint supports data retrieval for up to three months in the past.
 
 ### Example
 
@@ -103,7 +103,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$placements_report_query_message_list_request = {"data":[{"type":"report","attributes":{"advertiserIds":"123,456,789","campaignIds":"111,222,333,444","adsetIds":"135,246,357,468","environment":"Web","placement":"MyPlacement","dimensions":["AdsetId","AdvertiserId","Placement"],"metrics":["Clicks","Displays","Cost"],"currency":"EUR","disclosed":false,"format":"csv","timezone":"Europe/Paris","startDate":"2026-01-02T00:00:00.0000000+02:00","endDate":"2026-01-05T00:00:00.0000000+02:00"}}]}; // \criteo\api\marketingsolutions\v2025_10\Model\PlacementsReportQueryMessageListRequest
+$placements_report_query_message_list_request = {"data":[{"type":"report","attributes":{"advertiserIds":"123,456,789","campaignIds":"111,222,333,444","adsetIds":"135,246,357,468","environment":"Web","placement":"MyPlacement","dimensions":["AdsetId","AdvertiserId","Placement"],"metrics":["Clicks","Displays","Cost"],"currency":"EUR","disclosed":false,"format":"csv","timezone":"Europe/Paris","startDate":"2024-01-01T00:00:00.0000000+00:00","endDate":"2024-01-04T00:00:00.0000000+00:00"}}]}; // \criteo\api\marketingsolutions\v2025_10\Model\PlacementsReportQueryMessageListRequest
 
 try {
     $result = $apiInstance->getPlacementsReport($placements_report_query_message_list_request);
@@ -142,9 +142,9 @@ try {
 getTransactionsReport($transactions_report_query_message_list_request): \SplFileObject
 ```
 
+/2025-10/transactions/report
 
-
-This Transactions endpoint provides transactions id related data.
+This Transactions endpoint provides transactions id related data.  <br/><br/>  This endpoint supports data retrieval for up to two years in the past.
 
 ### Example
 
@@ -166,7 +166,7 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$transactions_report_query_message_list_request = {"data":[{"type":"report","attributes":{"advertiserIds":"123,456,789","eventType":"Display","currency":"EUR","format":"csv","timezone":"Europe/Paris","startDate":"2026-01-02T00:00:00.0000000+02:00","endDate":"2026-01-05T00:00:00.0000000+02:00"}}]}; // \criteo\api\marketingsolutions\v2025_10\Model\TransactionsReportQueryMessageListRequest
+$transactions_report_query_message_list_request = {"data":[{"type":"report","attributes":{"advertiserIds":"123,456,789","eventType":"Display","currency":"EUR","format":"csv","timezone":"Europe/Paris","startDate":"2024-01-01T00:00:00.0000000+00:00","endDate":"2024-01-04T00:00:00.0000000+00:00"}}]}; // \criteo\api\marketingsolutions\v2025_10\Model\TransactionsReportQueryMessageListRequest
 
 try {
     $result = $apiInstance->getTransactionsReport($transactions_report_query_message_list_request);
@@ -205,7 +205,7 @@ try {
 getTransparencyReport($advertiser_id, $transparency_query_message): \criteo\api\marketingsolutions\v2025_10\Model\TransparencyReportListResponse
 ```
 
-
+/2025-10/log-level/advertisers/{advertiser-id}/report
 
 This Statistics endpoint provides publisher data.
 
@@ -229,8 +229,8 @@ $apiInstance = new criteo\api\marketingsolutions\v2025_10\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$advertiser_id = 'advertiser_id_example'; // string | The advertiser id to fetch the transparency data.
-$transparency_query_message = {"shouldDisplayProductIds":false,"startDate":"2025-08-11T00:00:00.0000000+00:00","endDate":"2025-08-14T00:00:00.0000000+00:00"}; // \criteo\api\marketingsolutions\v2025_10\Model\TransparencyQueryMessage | The query message.
+$advertiser_id = 'advertiser_id_example'; // string | The advertiser ID to fetch the transparency data for. The advertiser must already exist. Must be greater than 0.
+$transparency_query_message = {"shouldDisplayProductIds":false,"startDate":"2024-01-01T00:00:00.0000000+00:00","endDate":"2024-01-04T00:00:00.0000000+00:00"}; // \criteo\api\marketingsolutions\v2025_10\Model\TransparencyQueryMessage | The query message.
 
 try {
     $result = $apiInstance->getTransparencyReport($advertiser_id, $transparency_query_message);
@@ -244,7 +244,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **advertiser_id** | **string**| The advertiser id to fetch the transparency data. | |
+| **advertiser_id** | **string**| The advertiser ID to fetch the transparency data for. The advertiser must already exist. Must be greater than 0. | |
 | **transparency_query_message** | [**\criteo\api\marketingsolutions\v2025_10\Model\TransparencyQueryMessage**](../Model/TransparencyQueryMessage.md)| The query message. | [optional] |
 
 ### Return type

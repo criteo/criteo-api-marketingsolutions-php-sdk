@@ -125,6 +125,8 @@ class GatewayApi
     /**
      * Operation getCurrentApplication
      *
+     * /2025-10/marketing-solutions/me
+     *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentApplication'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2025_10\ApiException on non-2xx response
@@ -139,6 +141,8 @@ class GatewayApi
 
     /**
      * Operation getCurrentApplicationWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/me
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentApplication'] to see the possible values for this operation
      *
@@ -237,6 +241,8 @@ class GatewayApi
     /**
      * Operation getCurrentApplicationAsync
      *
+     * /2025-10/marketing-solutions/me
+     *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentApplication'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -254,6 +260,8 @@ class GatewayApi
 
     /**
      * Operation getCurrentApplicationAsyncWithHttpInfo
+     *
+     * /2025-10/marketing-solutions/me
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentApplication'] to see the possible values for this operation
      *
