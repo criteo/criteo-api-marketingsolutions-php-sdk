@@ -125,6 +125,8 @@ class AdvertiserApi
     /**
      * Operation listAdvertisers
      *
+     * /2026-01/advertisers/me
+     *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAdvertisers'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\v2026_01\ApiException on non-2xx response
@@ -139,6 +141,8 @@ class AdvertiserApi
 
     /**
      * Operation listAdvertisersWithHttpInfo
+     *
+     * /2026-01/advertisers/me
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAdvertisers'] to see the possible values for this operation
      *
@@ -237,6 +241,8 @@ class AdvertiserApi
     /**
      * Operation listAdvertisersAsync
      *
+     * /2026-01/advertisers/me
+     *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAdvertisers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -254,6 +260,8 @@ class AdvertiserApi
 
     /**
      * Operation listAdvertisersAsyncWithHttpInfo
+     *
+     * /2026-01/advertisers/me
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAdvertisers'] to see the possible values for this operation
      *

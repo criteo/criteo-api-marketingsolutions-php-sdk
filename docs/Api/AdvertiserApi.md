@@ -4,7 +4,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**listAdvertisers()**](AdvertiserApi.md#listAdvertisers) | **GET** /2026-01/advertisers/me |  |
+| [**listAdvertisers()**](AdvertiserApi.md#listAdvertisers) | **GET** /2026-01/advertisers/me | /2026-01/advertisers/me |
 
 
 ## `listAdvertisers()`
@@ -13,7 +13,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 listAdvertisers(): \criteo\api\marketingsolutions\v2026_01\Model\GetPortfolioResponse
 ```
 
-
+/2026-01/advertisers/me
 
 Fetch the portfolio of Advertisers for this account
 

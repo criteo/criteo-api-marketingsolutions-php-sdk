@@ -143,6 +143,8 @@ class AnalyticsApi
     /**
      * Operation getAdsetReport
      *
+     * /2026-01/statistics/report
+     *
      * @param  \criteo\api\marketingsolutions\v2026_01\Model\StatisticsReportQueryMessage $statistics_report_query_message statistics_report_query_message (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdsetReport'] to see the possible values for this operation
      *
@@ -158,6 +160,8 @@ class AnalyticsApi
 
     /**
      * Operation getAdsetReportWithHttpInfo
+     *
+     * /2026-01/statistics/report
      *
      * @param  \criteo\api\marketingsolutions\v2026_01\Model\StatisticsReportQueryMessage $statistics_report_query_message (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdsetReport'] to see the possible values for this operation
@@ -257,6 +261,8 @@ class AnalyticsApi
     /**
      * Operation getAdsetReportAsync
      *
+     * /2026-01/statistics/report
+     *
      * @param  \criteo\api\marketingsolutions\v2026_01\Model\StatisticsReportQueryMessage $statistics_report_query_message (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdsetReport'] to see the possible values for this operation
      *
@@ -275,6 +281,8 @@ class AnalyticsApi
 
     /**
      * Operation getAdsetReportAsyncWithHttpInfo
+     *
+     * /2026-01/statistics/report
      *
      * @param  \criteo\api\marketingsolutions\v2026_01\Model\StatisticsReportQueryMessage $statistics_report_query_message (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdsetReport'] to see the possible values for this operation
@@ -419,6 +427,8 @@ class AnalyticsApi
     /**
      * Operation getPlacementsReport
      *
+     * /2026-01/placements/report
+     *
      * @param  \criteo\api\marketingsolutions\v2026_01\Model\PlacementsReportQueryMessageListRequest $placements_report_query_message_list_request placements_report_query_message_list_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPlacementsReport'] to see the possible values for this operation
      *
@@ -434,6 +444,8 @@ class AnalyticsApi
 
     /**
      * Operation getPlacementsReportWithHttpInfo
+     *
+     * /2026-01/placements/report
      *
      * @param  \criteo\api\marketingsolutions\v2026_01\Model\PlacementsReportQueryMessageListRequest $placements_report_query_message_list_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPlacementsReport'] to see the possible values for this operation
@@ -533,6 +545,8 @@ class AnalyticsApi
     /**
      * Operation getPlacementsReportAsync
      *
+     * /2026-01/placements/report
+     *
      * @param  \criteo\api\marketingsolutions\v2026_01\Model\PlacementsReportQueryMessageListRequest $placements_report_query_message_list_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPlacementsReport'] to see the possible values for this operation
      *
@@ -551,6 +565,8 @@ class AnalyticsApi
 
     /**
      * Operation getPlacementsReportAsyncWithHttpInfo
+     *
+     * /2026-01/placements/report
      *
      * @param  \criteo\api\marketingsolutions\v2026_01\Model\PlacementsReportQueryMessageListRequest $placements_report_query_message_list_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPlacementsReport'] to see the possible values for this operation
@@ -695,6 +711,8 @@ class AnalyticsApi
     /**
      * Operation getTransactionsReport
      *
+     * /2026-01/transactions/report
+     *
      * @param  \criteo\api\marketingsolutions\v2026_01\Model\TransactionsReportQueryMessageListRequest $transactions_report_query_message_list_request transactions_report_query_message_list_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransactionsReport'] to see the possible values for this operation
      *
@@ -710,6 +728,8 @@ class AnalyticsApi
 
     /**
      * Operation getTransactionsReportWithHttpInfo
+     *
+     * /2026-01/transactions/report
      *
      * @param  \criteo\api\marketingsolutions\v2026_01\Model\TransactionsReportQueryMessageListRequest $transactions_report_query_message_list_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransactionsReport'] to see the possible values for this operation
@@ -809,6 +829,8 @@ class AnalyticsApi
     /**
      * Operation getTransactionsReportAsync
      *
+     * /2026-01/transactions/report
+     *
      * @param  \criteo\api\marketingsolutions\v2026_01\Model\TransactionsReportQueryMessageListRequest $transactions_report_query_message_list_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransactionsReport'] to see the possible values for this operation
      *
@@ -827,6 +849,8 @@ class AnalyticsApi
 
     /**
      * Operation getTransactionsReportAsyncWithHttpInfo
+     *
+     * /2026-01/transactions/report
      *
      * @param  \criteo\api\marketingsolutions\v2026_01\Model\TransactionsReportQueryMessageListRequest $transactions_report_query_message_list_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransactionsReport'] to see the possible values for this operation
@@ -971,7 +995,9 @@ class AnalyticsApi
     /**
      * Operation getTransparencyReport
      *
-     * @param  string $advertiser_id The advertiser id to fetch the transparency data. (required)
+     * /2026-01/log-level/advertisers/{advertiser-id}/report
+     *
+     * @param  string $advertiser_id The advertiser ID to fetch the transparency data for. The advertiser must already exist. Must be greater than 0. (required)
      * @param  \criteo\api\marketingsolutions\v2026_01\Model\TransparencyQueryMessage $transparency_query_message The query message. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransparencyReport'] to see the possible values for this operation
      *
@@ -988,7 +1014,9 @@ class AnalyticsApi
     /**
      * Operation getTransparencyReportWithHttpInfo
      *
-     * @param  string $advertiser_id The advertiser id to fetch the transparency data. (required)
+     * /2026-01/log-level/advertisers/{advertiser-id}/report
+     *
+     * @param  string $advertiser_id The advertiser ID to fetch the transparency data for. The advertiser must already exist. Must be greater than 0. (required)
      * @param  \criteo\api\marketingsolutions\v2026_01\Model\TransparencyQueryMessage $transparency_query_message The query message. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransparencyReport'] to see the possible values for this operation
      *
@@ -1087,7 +1115,9 @@ class AnalyticsApi
     /**
      * Operation getTransparencyReportAsync
      *
-     * @param  string $advertiser_id The advertiser id to fetch the transparency data. (required)
+     * /2026-01/log-level/advertisers/{advertiser-id}/report
+     *
+     * @param  string $advertiser_id The advertiser ID to fetch the transparency data for. The advertiser must already exist. Must be greater than 0. (required)
      * @param  \criteo\api\marketingsolutions\v2026_01\Model\TransparencyQueryMessage $transparency_query_message The query message. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransparencyReport'] to see the possible values for this operation
      *
@@ -1107,7 +1137,9 @@ class AnalyticsApi
     /**
      * Operation getTransparencyReportAsyncWithHttpInfo
      *
-     * @param  string $advertiser_id The advertiser id to fetch the transparency data. (required)
+     * /2026-01/log-level/advertisers/{advertiser-id}/report
+     *
+     * @param  string $advertiser_id The advertiser ID to fetch the transparency data for. The advertiser must already exist. Must be greater than 0. (required)
      * @param  \criteo\api\marketingsolutions\v2026_01\Model\TransparencyQueryMessage $transparency_query_message The query message. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransparencyReport'] to see the possible values for this operation
      *
@@ -1158,7 +1190,7 @@ class AnalyticsApi
     /**
      * Create request for operation 'getTransparencyReport'
      *
-     * @param  string $advertiser_id The advertiser id to fetch the transparency data. (required)
+     * @param  string $advertiser_id The advertiser ID to fetch the transparency data for. The advertiser must already exist. Must be greater than 0. (required)
      * @param  \criteo\api\marketingsolutions\v2026_01\Model\TransparencyQueryMessage $transparency_query_message The query message. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransparencyReport'] to see the possible values for this operation
      *
