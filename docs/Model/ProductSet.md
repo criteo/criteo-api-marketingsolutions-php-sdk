@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **minimum_number_of_products** | **int** | Minimum amount of products that should match the product set to consider it valid.  Greater or equal than one. |
 **name** | **string** | The name of the product set |
 **number_of_products** | **int** | The number of products matching the product set.  Can be null for newly created product set. |
-**rules** | [**\criteo\api\marketingsolutions\preview\Model\ProductSetRule[]**](ProductSetRule.md) | The rules identifying the product belonging to the set |
+**rules** | [**\criteo\api\marketingsolutions\v2027_01\Model\ProductSetRule[]**](ProductSetRule.md) | The rules identifying the product belonging to the set |
 **status** | **string** | The status of the product set |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

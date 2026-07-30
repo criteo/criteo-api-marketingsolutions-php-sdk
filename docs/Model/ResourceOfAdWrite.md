@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | [**\criteo\api\marketingsolutions\preview\Model\AdWrite**](AdWrite.md) |  | [optional]
+**attributes** | [**\criteo\api\marketingsolutions\v2027_01\Model\AdWrite**](AdWrite.md) |  | [optional]
 **id** | **string** | Unique identifier of this resource. | [optional]
 **type** | **string** |  | [optional]
 

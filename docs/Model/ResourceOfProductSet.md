@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | [**\criteo\api\marketingsolutions\preview\Model\ProductSet**](ProductSet.md) |  | [optional]
+**attributes** | [**\criteo\api\marketingsolutions\v2027_01\Model\ProductSet**](ProductSet.md) |  | [optional]
 **id** | **string** |  | [optional]
 **type** | **string** |  | [optional]
 
