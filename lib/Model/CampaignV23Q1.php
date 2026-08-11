@@ -63,6 +63,7 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'goal' => 'string',
         'id' => 'string',
         'name' => 'string',
+        'scheduled_spend_limits' => '\criteo\api\marketingsolutions\preview\Model\CampaignScheduledSpendLimitV23Q1[]',
         'spend_limit' => '\criteo\api\marketingsolutions\preview\Model\CampaignSpendLimitV23Q1'
     ];
 
@@ -79,6 +80,7 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'goal' => null,
         'id' => null,
         'name' => null,
+        'scheduled_spend_limits' => null,
         'spend_limit' => null
     ];
 
@@ -93,6 +95,7 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
 		'goal' => true,
 		'id' => true,
 		'name' => true,
+		'scheduled_spend_limits' => true,
 		'spend_limit' => true
     ];
 
@@ -187,6 +190,7 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'goal' => 'goal',
         'id' => 'id',
         'name' => 'name',
+        'scheduled_spend_limits' => 'scheduledSpendLimits',
         'spend_limit' => 'spendLimit'
     ];
 
@@ -201,6 +205,7 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'goal' => 'setGoal',
         'id' => 'setId',
         'name' => 'setName',
+        'scheduled_spend_limits' => 'setScheduledSpendLimits',
         'spend_limit' => 'setSpendLimit'
     ];
 
@@ -215,6 +220,7 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'goal' => 'getGoal',
         'id' => 'getId',
         'name' => 'getName',
+        'scheduled_spend_limits' => 'getScheduledSpendLimits',
         'spend_limit' => 'getSpendLimit'
     ];
 
@@ -297,6 +303,7 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('goal', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('scheduled_spend_limits', $data ?? [], null);
         $this->setIfExists('spend_limit', $data ?? [], null);
     }
 
@@ -527,6 +534,40 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets scheduled_spend_limits
+     *
+     * @return \criteo\api\marketingsolutions\preview\Model\CampaignScheduledSpendLimitV23Q1[]|null
+     */
+    public function getScheduledSpendLimits()
+    {
+        return $this->container['scheduled_spend_limits'];
+    }
+
+    /**
+     * Sets scheduled_spend_limits
+     *
+     * @param \criteo\api\marketingsolutions\preview\Model\CampaignScheduledSpendLimitV23Q1[]|null $scheduled_spend_limits Spend limits scheduled to become active in the future. Empty when the campaign has no scheduled spend limits.
+     *
+     * @return self
+     */
+    public function setScheduledSpendLimits($scheduled_spend_limits)
+    {
+        if (is_null($scheduled_spend_limits)) {
+            array_push($this->openAPINullablesSetToNull, 'scheduled_spend_limits');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('scheduled_spend_limits', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['scheduled_spend_limits'] = $scheduled_spend_limits;
 
         return $this;
     }

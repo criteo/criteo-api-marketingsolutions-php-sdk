@@ -69,6 +69,7 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'objective' => 'string',
         'schedule' => '\criteo\api\marketingsolutions\preview\Model\ReadAdSetScheduleV26Q1',
+        'scheduled_budgets' => '\criteo\api\marketingsolutions\preview\Model\ReadAdSetScheduledBudgetV26Q1[]',
         'targeting' => '\criteo\api\marketingsolutions\preview\Model\AdSetTargetingV26Q1',
         'video_channel' => 'string'
     ];
@@ -92,6 +93,7 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => null,
         'objective' => null,
         'schedule' => null,
+        'scheduled_budgets' => null,
         'targeting' => null,
         'video_channel' => null
     ];
@@ -113,6 +115,7 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
 		'name' => true,
 		'objective' => true,
 		'schedule' => true,
+		'scheduled_budgets' => true,
 		'targeting' => true,
 		'video_channel' => true
     ];
@@ -214,6 +217,7 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'name',
         'objective' => 'objective',
         'schedule' => 'schedule',
+        'scheduled_budgets' => 'scheduledBudgets',
         'targeting' => 'targeting',
         'video_channel' => 'videoChannel'
     ];
@@ -235,6 +239,7 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'setName',
         'objective' => 'setObjective',
         'schedule' => 'setSchedule',
+        'scheduled_budgets' => 'setScheduledBudgets',
         'targeting' => 'setTargeting',
         'video_channel' => 'setVideoChannel'
     ];
@@ -256,6 +261,7 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'getName',
         'objective' => 'getObjective',
         'schedule' => 'getSchedule',
+        'scheduled_budgets' => 'getScheduledBudgets',
         'targeting' => 'getTargeting',
         'video_channel' => 'getVideoChannel'
     ];
@@ -408,6 +414,7 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('objective', $data ?? [], null);
         $this->setIfExists('schedule', $data ?? [], null);
+        $this->setIfExists('scheduled_budgets', $data ?? [], null);
         $this->setIfExists('targeting', $data ?? [], null);
         $this->setIfExists('video_channel', $data ?? [], null);
     }
@@ -890,6 +897,40 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['schedule'] = $schedule;
+
+        return $this;
+    }
+
+    /**
+     * Gets scheduled_budgets
+     *
+     * @return \criteo\api\marketingsolutions\preview\Model\ReadAdSetScheduledBudgetV26Q1[]|null
+     */
+    public function getScheduledBudgets()
+    {
+        return $this->container['scheduled_budgets'];
+    }
+
+    /**
+     * Sets scheduled_budgets
+     *
+     * @param \criteo\api\marketingsolutions\preview\Model\ReadAdSetScheduledBudgetV26Q1[]|null $scheduled_budgets scheduled_budgets
+     *
+     * @return self
+     */
+    public function setScheduledBudgets($scheduled_budgets)
+    {
+        if (is_null($scheduled_budgets)) {
+            array_push($this->openAPINullablesSetToNull, 'scheduled_budgets');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('scheduled_budgets', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['scheduled_budgets'] = $scheduled_budgets;
 
         return $this;
     }

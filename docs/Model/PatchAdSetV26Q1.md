@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **bidding** | [**\criteo\api\marketingsolutions\preview\Model\PatchAdSetBiddingV26Q1**](PatchAdSetBiddingV26Q1.md) |  | [optional]
 **budget** | [**\criteo\api\marketingsolutions\preview\Model\PatchAdSetBudgetV26Q1**](PatchAdSetBudgetV26Q1.md) |  | [optional]
 **name** | **string** | Name of the ad set. | [optional]
+**scheduled_budget** | [**\criteo\api\marketingsolutions\preview\Model\PatchAdSetScheduledBudgetV26Q1**](PatchAdSetScheduledBudgetV26Q1.md) |  | [optional]
 **scheduling** | [**\criteo\api\marketingsolutions\preview\Model\PatchAdSetSchedulingV26Q1**](PatchAdSetSchedulingV26Q1.md) |  | [optional]
 **targeting** | [**\criteo\api\marketingsolutions\preview\Model\AdSetTargetingV26Q1**](AdSetTargetingV26Q1.md) |  | [optional]
 
