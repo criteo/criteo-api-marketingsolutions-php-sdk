@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **name** | **string** | Name of the ad set | [optional]
 **objective** | **string** | Ad set objective.                Possible values:  - customAction (previously \&quot;Actions\&quot;)  - clicks  - conversions  - displays  - appPromotion (previously \&quot;Installs\&quot;)  - revenue  - storeConversions  - value  - reach (previously \&quot;ViewedImpressions\&quot;)  - visits  - videoViews (previously \&quot;CompletedVideoViews\&quot;) | [optional]
 **schedule** | [**\criteo\api\marketingsolutions\experimental\Model\ReadAdSetScheduleV26Q1**](ReadAdSetScheduleV26Q1.md) |  | [optional]
+**scheduled_budgets** | [**\criteo\api\marketingsolutions\experimental\Model\ReadAdSetScheduledBudgetV26Q1[]**](ReadAdSetScheduledBudgetV26Q1.md) |  | [optional]
 **targeting** | [**\criteo\api\marketingsolutions\experimental\Model\AdSetTargetingV26Q1**](AdSetTargetingV26Q1.md) |  | [optional]
 **video_channel** | **string** |  | [optional]
 

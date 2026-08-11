@@ -62,6 +62,7 @@ class PatchAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'bidding' => '\criteo\api\marketingsolutions\experimental\Model\PatchAdSetBiddingV26Q1',
         'budget' => '\criteo\api\marketingsolutions\experimental\Model\PatchAdSetBudgetV26Q1',
         'name' => 'string',
+        'scheduled_budget' => '\criteo\api\marketingsolutions\experimental\Model\PatchAdSetScheduledBudgetV26Q1',
         'scheduling' => '\criteo\api\marketingsolutions\experimental\Model\PatchAdSetSchedulingV26Q1',
         'targeting' => '\criteo\api\marketingsolutions\experimental\Model\AdSetTargetingV26Q1'
     ];
@@ -78,6 +79,7 @@ class PatchAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'bidding' => null,
         'budget' => null,
         'name' => null,
+        'scheduled_budget' => null,
         'scheduling' => null,
         'targeting' => null
     ];
@@ -92,6 +94,7 @@ class PatchAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
 		'bidding' => false,
 		'budget' => false,
 		'name' => true,
+		'scheduled_budget' => false,
 		'scheduling' => false,
 		'targeting' => true
     ];
@@ -186,6 +189,7 @@ class PatchAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'bidding' => 'bidding',
         'budget' => 'budget',
         'name' => 'name',
+        'scheduled_budget' => 'scheduledBudget',
         'scheduling' => 'scheduling',
         'targeting' => 'targeting'
     ];
@@ -200,6 +204,7 @@ class PatchAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'bidding' => 'setBidding',
         'budget' => 'setBudget',
         'name' => 'setName',
+        'scheduled_budget' => 'setScheduledBudget',
         'scheduling' => 'setScheduling',
         'targeting' => 'setTargeting'
     ];
@@ -214,6 +219,7 @@ class PatchAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'bidding' => 'getBidding',
         'budget' => 'getBudget',
         'name' => 'getName',
+        'scheduled_budget' => 'getScheduledBudget',
         'scheduling' => 'getScheduling',
         'targeting' => 'getTargeting'
     ];
@@ -279,6 +285,7 @@ class PatchAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('bidding', $data ?? [], null);
         $this->setIfExists('budget', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('scheduled_budget', $data ?? [], null);
         $this->setIfExists('scheduling', $data ?? [], null);
         $this->setIfExists('targeting', $data ?? [], null);
     }
@@ -436,6 +443,33 @@ class PatchAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets scheduled_budget
+     *
+     * @return \criteo\api\marketingsolutions\experimental\Model\PatchAdSetScheduledBudgetV26Q1|null
+     */
+    public function getScheduledBudget()
+    {
+        return $this->container['scheduled_budget'];
+    }
+
+    /**
+     * Sets scheduled_budget
+     *
+     * @param \criteo\api\marketingsolutions\experimental\Model\PatchAdSetScheduledBudgetV26Q1|null $scheduled_budget scheduled_budget
+     *
+     * @return self
+     */
+    public function setScheduledBudget($scheduled_budget)
+    {
+        if (is_null($scheduled_budget)) {
+            throw new \InvalidArgumentException('non-nullable scheduled_budget cannot be null');
+        }
+        $this->container['scheduled_budget'] = $scheduled_budget;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * CampaignV23Q1
+ * CampaignScheduledSpendLimitV23Q1
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\experimental\ObjectSerializer;
 
 /**
- * CampaignV23Q1 Class Doc Comment
+ * CampaignScheduledSpendLimitV23Q1 Class Doc Comment
  *
  * @category Class
- * @description Campaign read model                The {id} field is the campaign identifier (string-encoded integer).
+ * @description A campaign spend limit scheduled to become active on the specified \&quot;startDate\&quot;.
  * @package  criteo\api\marketingsolutions\experimental
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
+class CampaignScheduledSpendLimitV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CampaignV23Q1';
+    protected static $openAPIModelName = 'CampaignScheduledSpendLimitV23Q1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +58,11 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'advertiser_id' => 'string',
-        'budget_automation' => '\criteo\api\marketingsolutions\experimental\Model\CampaignBudgetAutomationV23Q1',
-        'goal' => 'string',
         'id' => 'string',
-        'name' => 'string',
-        'scheduled_spend_limits' => '\criteo\api\marketingsolutions\experimental\Model\CampaignScheduledSpendLimitV23Q1[]',
-        'spend_limit' => '\criteo\api\marketingsolutions\experimental\Model\CampaignSpendLimitV23Q1'
+        'spend_limit_amount' => '\criteo\api\marketingsolutions\experimental\Model\NillableDecimal',
+        'spend_limit_renewal' => 'string',
+        'spend_limit_type' => 'string',
+        'start_date' => '\DateTime'
     ];
 
     /**
@@ -75,13 +73,11 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'advertiser_id' => null,
-        'budget_automation' => null,
-        'goal' => null,
         'id' => null,
-        'name' => null,
-        'scheduled_spend_limits' => null,
-        'spend_limit' => null
+        'spend_limit_amount' => null,
+        'spend_limit_renewal' => null,
+        'spend_limit_type' => null,
+        'start_date' => 'date'
     ];
 
     /**
@@ -90,13 +86,11 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'advertiser_id' => true,
-		'budget_automation' => true,
-		'goal' => true,
-		'id' => true,
-		'name' => true,
-		'scheduled_spend_limits' => true,
-		'spend_limit' => true
+        'id' => true,
+		'spend_limit_amount' => true,
+		'spend_limit_renewal' => true,
+		'spend_limit_type' => true,
+		'start_date' => true
     ];
 
     /**
@@ -185,13 +179,11 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'advertiser_id' => 'advertiserId',
-        'budget_automation' => 'budgetAutomation',
-        'goal' => 'goal',
         'id' => 'id',
-        'name' => 'name',
-        'scheduled_spend_limits' => 'scheduledSpendLimits',
-        'spend_limit' => 'spendLimit'
+        'spend_limit_amount' => 'spendLimitAmount',
+        'spend_limit_renewal' => 'spendLimitRenewal',
+        'spend_limit_type' => 'spendLimitType',
+        'start_date' => 'startDate'
     ];
 
     /**
@@ -200,13 +192,11 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'advertiser_id' => 'setAdvertiserId',
-        'budget_automation' => 'setBudgetAutomation',
-        'goal' => 'setGoal',
         'id' => 'setId',
-        'name' => 'setName',
-        'scheduled_spend_limits' => 'setScheduledSpendLimits',
-        'spend_limit' => 'setSpendLimit'
+        'spend_limit_amount' => 'setSpendLimitAmount',
+        'spend_limit_renewal' => 'setSpendLimitRenewal',
+        'spend_limit_type' => 'setSpendLimitType',
+        'start_date' => 'setStartDate'
     ];
 
     /**
@@ -215,13 +205,11 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'advertiser_id' => 'getAdvertiserId',
-        'budget_automation' => 'getBudgetAutomation',
-        'goal' => 'getGoal',
         'id' => 'getId',
-        'name' => 'getName',
-        'scheduled_spend_limits' => 'getScheduledSpendLimits',
-        'spend_limit' => 'getSpendLimit'
+        'spend_limit_amount' => 'getSpendLimitAmount',
+        'spend_limit_renewal' => 'getSpendLimitRenewal',
+        'spend_limit_type' => 'getSpendLimitType',
+        'start_date' => 'getStartDate'
     ];
 
     /**
@@ -265,21 +253,38 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const GOAL_UNSPECIFIED = 'unspecified';
-    public const GOAL_ACQUISITION = 'acquisition';
-    public const GOAL_RETENTION = 'retention';
+    public const SPEND_LIMIT_RENEWAL_UNDEFINED = 'undefined';
+    public const SPEND_LIMIT_RENEWAL_DAILY = 'daily';
+    public const SPEND_LIMIT_RENEWAL_MONTHLY = 'monthly';
+    public const SPEND_LIMIT_RENEWAL_LIFETIME = 'lifetime';
+    public const SPEND_LIMIT_TYPE_CAPPED = 'capped';
+    public const SPEND_LIMIT_TYPE_UNCAPPED = 'uncapped';
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getGoalAllowableValues()
+    public function getSpendLimitRenewalAllowableValues()
     {
         return [
-            self::GOAL_UNSPECIFIED,
-            self::GOAL_ACQUISITION,
-            self::GOAL_RETENTION,
+            self::SPEND_LIMIT_RENEWAL_UNDEFINED,
+            self::SPEND_LIMIT_RENEWAL_DAILY,
+            self::SPEND_LIMIT_RENEWAL_MONTHLY,
+            self::SPEND_LIMIT_RENEWAL_LIFETIME,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSpendLimitTypeAllowableValues()
+    {
+        return [
+            self::SPEND_LIMIT_TYPE_CAPPED,
+            self::SPEND_LIMIT_TYPE_UNCAPPED,
         ];
     }
 
@@ -298,13 +303,11 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('advertiser_id', $data ?? [], null);
-        $this->setIfExists('budget_automation', $data ?? [], null);
-        $this->setIfExists('goal', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('scheduled_spend_limits', $data ?? [], null);
-        $this->setIfExists('spend_limit', $data ?? [], null);
+        $this->setIfExists('spend_limit_amount', $data ?? [], null);
+        $this->setIfExists('spend_limit_renewal', $data ?? [], null);
+        $this->setIfExists('spend_limit_type', $data ?? [], null);
+        $this->setIfExists('start_date', $data ?? [], null);
     }
 
     /**
@@ -334,11 +337,20 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getGoalAllowableValues();
-        if (!is_null($this->container['goal']) && !in_array($this->container['goal'], $allowedValues, true)) {
+        $allowedValues = $this->getSpendLimitRenewalAllowableValues();
+        if (!is_null($this->container['spend_limit_renewal']) && !in_array($this->container['spend_limit_renewal'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'goal', must be one of '%s'",
-                $this->container['goal'],
+                "invalid value '%s' for 'spend_limit_renewal', must be one of '%s'",
+                $this->container['spend_limit_renewal'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getSpendLimitTypeAllowableValues();
+        if (!is_null($this->container['spend_limit_type']) && !in_array($this->container['spend_limit_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'spend_limit_type', must be one of '%s'",
+                $this->container['spend_limit_type'],
                 implode("', '", $allowedValues)
             );
         }
@@ -359,118 +371,6 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets advertiser_id
-     *
-     * @return string|null
-     */
-    public function getAdvertiserId()
-    {
-        return $this->container['advertiser_id'];
-    }
-
-    /**
-     * Sets advertiser_id
-     *
-     * @param string|null $advertiser_id Advertiser id of the campaign (string-encoded integer)
-     *
-     * @return self
-     */
-    public function setAdvertiserId($advertiser_id)
-    {
-        if (is_null($advertiser_id)) {
-            array_push($this->openAPINullablesSetToNull, 'advertiser_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('advertiser_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['advertiser_id'] = $advertiser_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets budget_automation
-     *
-     * @return \criteo\api\marketingsolutions\experimental\Model\CampaignBudgetAutomationV23Q1|null
-     */
-    public function getBudgetAutomation()
-    {
-        return $this->container['budget_automation'];
-    }
-
-    /**
-     * Sets budget_automation
-     *
-     * @param \criteo\api\marketingsolutions\experimental\Model\CampaignBudgetAutomationV23Q1|null $budget_automation budget_automation
-     *
-     * @return self
-     */
-    public function setBudgetAutomation($budget_automation)
-    {
-        if (is_null($budget_automation)) {
-            array_push($this->openAPINullablesSetToNull, 'budget_automation');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('budget_automation', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['budget_automation'] = $budget_automation;
-
-        return $this;
-    }
-
-    /**
-     * Gets goal
-     *
-     * @return string|null
-     */
-    public function getGoal()
-    {
-        return $this->container['goal'];
-    }
-
-    /**
-     * Sets goal
-     *
-     * @param string|null $goal Goal of the campaign                Serialized values are {unspecified}, {acquisition} and {retention}.                Acquisition and retention are defined as follows:  - Acquisition: campaign with the goal of acquiring new customers. The success of an acquisition campaign is measured by the number of new customers it brings.  - Retention: campaign with the goal of retaining existing customers. The success of a retention campaign is measured by the number of existing customers it retains.
-     *
-     * @return self
-     */
-    public function setGoal($goal)
-    {
-        if (is_null($goal)) {
-            array_push($this->openAPINullablesSetToNull, 'goal');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('goal', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $allowedValues = $this->getGoalAllowableValues();
-        if (!is_null($goal) && !in_array($goal, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'goal', must be one of '%s'",
-                    $goal,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['goal'] = $goal;
-
-        return $this;
-    }
-
-    /**
      * Gets id
      *
      * @return string|null
@@ -483,7 +383,7 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string|null $id Id of the entity (duplicate of the parent id).
+     * @param string|null $id Identifier of the scheduled spend limit, for example \"12345\".
      *
      * @return self
      */
@@ -505,103 +405,157 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets name
+     * Gets spend_limit_amount
+     *
+     * @return \criteo\api\marketingsolutions\experimental\Model\NillableDecimal|null
+     */
+    public function getSpendLimitAmount()
+    {
+        return $this->container['spend_limit_amount'];
+    }
+
+    /**
+     * Sets spend_limit_amount
+     *
+     * @param \criteo\api\marketingsolutions\experimental\Model\NillableDecimal|null $spend_limit_amount spend_limit_amount
+     *
+     * @return self
+     */
+    public function setSpendLimitAmount($spend_limit_amount)
+    {
+        if (is_null($spend_limit_amount)) {
+            array_push($this->openAPINullablesSetToNull, 'spend_limit_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('spend_limit_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['spend_limit_amount'] = $spend_limit_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets spend_limit_renewal
      *
      * @return string|null
      */
-    public function getName()
+    public function getSpendLimitRenewal()
     {
-        return $this->container['name'];
+        return $this->container['spend_limit_renewal'];
     }
 
     /**
-     * Sets name
+     * Sets spend_limit_renewal
      *
-     * @param string|null $name Name of the campaign
+     * @param string|null $spend_limit_renewal The period over which the campaign spend limit is applied.  - \"daily\", \"monthly\", and \"lifetime\" are valid when spendLimitType is \"capped\".  - \"undefined\" is returned when spendLimitType is \"uncapped\".
      *
      * @return self
      */
-    public function setName($name)
+    public function setSpendLimitRenewal($spend_limit_renewal)
     {
-        if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
+        if (is_null($spend_limit_renewal)) {
+            array_push($this->openAPINullablesSetToNull, 'spend_limit_renewal');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
+            $index = array_search('spend_limit_renewal', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['name'] = $name;
+        $allowedValues = $this->getSpendLimitRenewalAllowableValues();
+        if (!is_null($spend_limit_renewal) && !in_array($spend_limit_renewal, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'spend_limit_renewal', must be one of '%s'",
+                    $spend_limit_renewal,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['spend_limit_renewal'] = $spend_limit_renewal;
 
         return $this;
     }
 
     /**
-     * Gets scheduled_spend_limits
+     * Gets spend_limit_type
      *
-     * @return \criteo\api\marketingsolutions\experimental\Model\CampaignScheduledSpendLimitV23Q1[]|null
+     * @return string|null
      */
-    public function getScheduledSpendLimits()
+    public function getSpendLimitType()
     {
-        return $this->container['scheduled_spend_limits'];
+        return $this->container['spend_limit_type'];
     }
 
     /**
-     * Sets scheduled_spend_limits
+     * Sets spend_limit_type
      *
-     * @param \criteo\api\marketingsolutions\experimental\Model\CampaignScheduledSpendLimitV23Q1[]|null $scheduled_spend_limits Spend limits scheduled to become active in the future. Empty when the campaign has no scheduled spend limits.
+     * @param string|null $spend_limit_type Controls whether the campaign has a spend limit.  - \"capped\": a spend limit applies, spendLimitAmount.value is non-null, and spendLimitRenewal is \"daily\", \"monthly\", or \"lifetime\".  - \"uncapped\": no spend limit applies, spendLimitAmount.value is null, and spendLimitRenewal is \"undefined\".
      *
      * @return self
      */
-    public function setScheduledSpendLimits($scheduled_spend_limits)
+    public function setSpendLimitType($spend_limit_type)
     {
-        if (is_null($scheduled_spend_limits)) {
-            array_push($this->openAPINullablesSetToNull, 'scheduled_spend_limits');
+        if (is_null($spend_limit_type)) {
+            array_push($this->openAPINullablesSetToNull, 'spend_limit_type');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('scheduled_spend_limits', $nullablesSetToNull);
+            $index = array_search('spend_limit_type', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['scheduled_spend_limits'] = $scheduled_spend_limits;
+        $allowedValues = $this->getSpendLimitTypeAllowableValues();
+        if (!is_null($spend_limit_type) && !in_array($spend_limit_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'spend_limit_type', must be one of '%s'",
+                    $spend_limit_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['spend_limit_type'] = $spend_limit_type;
 
         return $this;
     }
 
     /**
-     * Gets spend_limit
+     * Gets start_date
      *
-     * @return \criteo\api\marketingsolutions\experimental\Model\CampaignSpendLimitV23Q1|null
+     * @return \DateTime|null
      */
-    public function getSpendLimit()
+    public function getStartDate()
     {
-        return $this->container['spend_limit'];
+        return $this->container['start_date'];
     }
 
     /**
-     * Sets spend_limit
+     * Sets start_date
      *
-     * @param \criteo\api\marketingsolutions\experimental\Model\CampaignSpendLimitV23Q1|null $spend_limit spend_limit
+     * @param \DateTime|null $start_date Advertiser-local calendar date when the scheduled spend limit becomes active, for example \"2026-08-01\".
      *
      * @return self
      */
-    public function setSpendLimit($spend_limit)
+    public function setStartDate($start_date)
     {
-        if (is_null($spend_limit)) {
-            array_push($this->openAPINullablesSetToNull, 'spend_limit');
+        if (is_null($start_date)) {
+            array_push($this->openAPINullablesSetToNull, 'start_date');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('spend_limit', $nullablesSetToNull);
+            $index = array_search('start_date', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['spend_limit'] = $spend_limit;
+        $this->container['start_date'] = $start_date;
 
         return $this;
     }
