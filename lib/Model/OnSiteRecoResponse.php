@@ -59,6 +59,7 @@ class OnSiteRecoResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPITypes = [
         'extra_infos' => 'int[]',
+        'impression_id' => 'string',
         'products' => '\criteo\api\marketingsolutions\experimental\Model\RecommendedProduct[]'
     ];
 
@@ -71,6 +72,7 @@ class OnSiteRecoResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPIFormats = [
         'extra_infos' => 'int32',
+        'impression_id' => null,
         'products' => null
     ];
 
@@ -81,6 +83,7 @@ class OnSiteRecoResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static array $openAPINullables = [
         'extra_infos' => true,
+		'impression_id' => true,
 		'products' => true
     ];
 
@@ -171,6 +174,7 @@ class OnSiteRecoResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $attributeMap = [
         'extra_infos' => 'extraInfos',
+        'impression_id' => 'impressionId',
         'products' => 'products'
     ];
 
@@ -181,6 +185,7 @@ class OnSiteRecoResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $setters = [
         'extra_infos' => 'setExtraInfos',
+        'impression_id' => 'setImpressionId',
         'products' => 'setProducts'
     ];
 
@@ -191,6 +196,7 @@ class OnSiteRecoResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $getters = [
         'extra_infos' => 'getExtraInfos',
+        'impression_id' => 'getImpressionId',
         'products' => 'getProducts'
     ];
 
@@ -252,6 +258,7 @@ class OnSiteRecoResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     public function __construct(array $data = null)
     {
         $this->setIfExists('extra_infos', $data ?? [], null);
+        $this->setIfExists('impression_id', $data ?? [], null);
         $this->setIfExists('products', $data ?? [], null);
     }
 
@@ -327,6 +334,40 @@ class OnSiteRecoResponse implements ModelInterface, ArrayAccess, \JsonSerializab
             }
         }
         $this->container['extra_infos'] = $extra_infos;
+
+        return $this;
+    }
+
+    /**
+     * Gets impression_id
+     *
+     * @return string|null
+     */
+    public function getImpressionId()
+    {
+        return $this->container['impression_id'];
+    }
+
+    /**
+     * Sets impression_id
+     *
+     * @param string|null $impression_id Identifier of the recommendation impression, to be used to correlate displays and clicks
+     *
+     * @return self
+     */
+    public function setImpressionId($impression_id)
+    {
+        if (is_null($impression_id)) {
+            array_push($this->openAPINullablesSetToNull, 'impression_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('impression_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['impression_id'] = $impression_id;
 
         return $this;
     }
