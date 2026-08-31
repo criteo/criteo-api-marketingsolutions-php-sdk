@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **description** | [**\criteo\api\marketingsolutions\experimental\Model\NillableString**](NillableString.md) |  | [optional]
+**filter_based** | [**\criteo\api\marketingsolutions\experimental\Model\FilterBasedUpdateV1**](FilterBasedUpdateV1.md) |  | [optional]
 **in_market** | [**\criteo\api\marketingsolutions\experimental\Model\InMarketUpdateV1**](InMarketUpdateV1.md) |  | [optional]
 **location** | [**\criteo\api\marketingsolutions\experimental\Model\LocationUpdateV1**](LocationUpdateV1.md) |  | [optional]
 **lookalike** | [**\criteo\api\marketingsolutions\experimental\Model\LookalikeUpdateV1**](LookalikeUpdateV1.md) |  | [optional]

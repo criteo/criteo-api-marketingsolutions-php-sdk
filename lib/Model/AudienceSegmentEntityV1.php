@@ -63,6 +63,7 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
         'contact_list' => '\criteo\api\marketingsolutions\experimental\Model\ContactListV1',
         'created_at' => '\DateTime',
         'description' => 'string',
+        'filter_based' => '\criteo\api\marketingsolutions\experimental\Model\FilterBasedV1',
         'in_market' => '\criteo\api\marketingsolutions\experimental\Model\InMarketV1',
         'location' => '\criteo\api\marketingsolutions\experimental\Model\LocationV1',
         'lookalike' => '\criteo\api\marketingsolutions\experimental\Model\LookalikeV1',
@@ -86,6 +87,7 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
         'contact_list' => null,
         'created_at' => 'date-time',
         'description' => null,
+        'filter_based' => null,
         'in_market' => null,
         'location' => null,
         'lookalike' => null,
@@ -107,6 +109,7 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
 		'contact_list' => true,
 		'created_at' => true,
 		'description' => true,
+		'filter_based' => true,
 		'in_market' => true,
 		'location' => true,
 		'lookalike' => true,
@@ -208,6 +211,7 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
         'contact_list' => 'contactList',
         'created_at' => 'createdAt',
         'description' => 'description',
+        'filter_based' => 'filterBased',
         'in_market' => 'inMarket',
         'location' => 'location',
         'lookalike' => 'lookalike',
@@ -229,6 +233,7 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
         'contact_list' => 'setContactList',
         'created_at' => 'setCreatedAt',
         'description' => 'setDescription',
+        'filter_based' => 'setFilterBased',
         'in_market' => 'setInMarket',
         'location' => 'setLocation',
         'lookalike' => 'setLookalike',
@@ -250,6 +255,7 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
         'contact_list' => 'getContactList',
         'created_at' => 'getCreatedAt',
         'description' => 'getDescription',
+        'filter_based' => 'getFilterBased',
         'in_market' => 'getInMarket',
         'location' => 'getLocation',
         'lookalike' => 'getLookalike',
@@ -349,6 +355,7 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('contact_list', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('filter_based', $data ?? [], null);
         $this->setIfExists('in_market', $data ?? [], null);
         $this->setIfExists('location', $data ?? [], null);
         $this->setIfExists('lookalike', $data ?? [], null);
@@ -576,6 +583,40 @@ class AudienceSegmentEntityV1 implements ModelInterface, ArrayAccess, \JsonSeria
             }
         }
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets filter_based
+     *
+     * @return \criteo\api\marketingsolutions\experimental\Model\FilterBasedV1|null
+     */
+    public function getFilterBased()
+    {
+        return $this->container['filter_based'];
+    }
+
+    /**
+     * Sets filter_based
+     *
+     * @param \criteo\api\marketingsolutions\experimental\Model\FilterBasedV1|null $filter_based filter_based
+     *
+     * @return self
+     */
+    public function setFilterBased($filter_based)
+    {
+        if (is_null($filter_based)) {
+            array_push($this->openAPINullablesSetToNull, 'filter_based');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('filter_based', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['filter_based'] = $filter_based;
 
         return $this;
     }

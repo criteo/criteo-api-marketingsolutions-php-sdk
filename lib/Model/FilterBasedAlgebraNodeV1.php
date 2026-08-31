@@ -1,6 +1,6 @@
 <?php
 /**
- * AudienceSegmentUpdateEntityV1
+ * FilterBasedAlgebraNodeV1
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\experimental\ObjectSerializer;
 
 /**
- * AudienceSegmentUpdateEntityV1 Class Doc Comment
+ * FilterBasedAlgebraNodeV1 Class Doc Comment
  *
  * @category Class
- * @description Set of rules that defines specific people to target.
+ * @description Boolean algebra tree used to combine filters with And, Or and Not operators.
  * @package  criteo\api\marketingsolutions\experimental
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \JsonSerializable
+class FilterBasedAlgebraNodeV1 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
       *
       * @var string
       */
-    protected static $openAPIModelName = 'AudienceSegmentUpdateEntityV1';
+    protected static $openAPIModelName = 'FilterBasedAlgebraNodeV1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,14 +58,10 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'description' => '\criteo\api\marketingsolutions\experimental\Model\NillableString',
-        'filter_based' => '\criteo\api\marketingsolutions\experimental\Model\FilterBasedUpdateV1',
-        'in_market' => '\criteo\api\marketingsolutions\experimental\Model\InMarketUpdateV1',
-        'location' => '\criteo\api\marketingsolutions\experimental\Model\LocationUpdateV1',
-        'lookalike' => '\criteo\api\marketingsolutions\experimental\Model\LookalikeUpdateV1',
-        'name' => 'string',
-        'prospecting' => '\criteo\api\marketingsolutions\experimental\Model\ProspectingUpdateV1',
-        'retargeting' => '\criteo\api\marketingsolutions\experimental\Model\RetargetingUpdateV1'
+        'and' => '\criteo\api\marketingsolutions\experimental\Model\FilterBasedAlgebraNodeV1[]',
+        'filter' => '\criteo\api\marketingsolutions\experimental\Model\FilterBasedDefinitionV1',
+        'not' => '\criteo\api\marketingsolutions\experimental\Model\FilterBasedAlgebraNodeV1',
+        'or' => '\criteo\api\marketingsolutions\experimental\Model\FilterBasedAlgebraNodeV1[]'
     ];
 
     /**
@@ -76,14 +72,10 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'description' => null,
-        'filter_based' => null,
-        'in_market' => null,
-        'location' => null,
-        'lookalike' => null,
-        'name' => null,
-        'prospecting' => null,
-        'retargeting' => null
+        'and' => null,
+        'filter' => null,
+        'not' => null,
+        'or' => null
     ];
 
     /**
@@ -92,14 +84,10 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'description' => true,
-		'filter_based' => false,
-		'in_market' => false,
-		'location' => false,
-		'lookalike' => false,
-		'name' => false,
-		'prospecting' => false,
-		'retargeting' => false
+        'and' => true,
+		'filter' => true,
+		'not' => true,
+		'or' => true
     ];
 
     /**
@@ -188,14 +176,10 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $attributeMap = [
-        'description' => 'description',
-        'filter_based' => 'filterBased',
-        'in_market' => 'inMarket',
-        'location' => 'location',
-        'lookalike' => 'lookalike',
-        'name' => 'name',
-        'prospecting' => 'prospecting',
-        'retargeting' => 'retargeting'
+        'and' => 'and',
+        'filter' => 'filter',
+        'not' => 'not',
+        'or' => 'or'
     ];
 
     /**
@@ -204,14 +188,10 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $setters = [
-        'description' => 'setDescription',
-        'filter_based' => 'setFilterBased',
-        'in_market' => 'setInMarket',
-        'location' => 'setLocation',
-        'lookalike' => 'setLookalike',
-        'name' => 'setName',
-        'prospecting' => 'setProspecting',
-        'retargeting' => 'setRetargeting'
+        'and' => 'setAnd',
+        'filter' => 'setFilter',
+        'not' => 'setNot',
+        'or' => 'setOr'
     ];
 
     /**
@@ -220,14 +200,10 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $getters = [
-        'description' => 'getDescription',
-        'filter_based' => 'getFilterBased',
-        'in_market' => 'getInMarket',
-        'location' => 'getLocation',
-        'lookalike' => 'getLookalike',
-        'name' => 'getName',
-        'prospecting' => 'getProspecting',
-        'retargeting' => 'getRetargeting'
+        'and' => 'getAnd',
+        'filter' => 'getFilter',
+        'not' => 'getNot',
+        'or' => 'getOr'
     ];
 
     /**
@@ -287,14 +263,10 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('filter_based', $data ?? [], null);
-        $this->setIfExists('in_market', $data ?? [], null);
-        $this->setIfExists('location', $data ?? [], null);
-        $this->setIfExists('lookalike', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('prospecting', $data ?? [], null);
-        $this->setIfExists('retargeting', $data ?? [], null);
+        $this->setIfExists('and', $data ?? [], null);
+        $this->setIfExists('filter', $data ?? [], null);
+        $this->setIfExists('not', $data ?? [], null);
+        $this->setIfExists('or', $data ?? [], null);
     }
 
     /**
@@ -340,224 +312,137 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
 
 
     /**
-     * Gets description
+     * Gets and
      *
-     * @return \criteo\api\marketingsolutions\experimental\Model\NillableString|null
+     * @return \criteo\api\marketingsolutions\experimental\Model\FilterBasedAlgebraNodeV1[]|null
      */
-    public function getDescription()
+    public function getAnd()
     {
-        return $this->container['description'];
+        return $this->container['and'];
     }
 
     /**
-     * Sets description
+     * Sets and
      *
-     * @param \criteo\api\marketingsolutions\experimental\Model\NillableString|null $description description
+     * @param \criteo\api\marketingsolutions\experimental\Model\FilterBasedAlgebraNodeV1[]|null $and And node in the algebra tree.
      *
      * @return self
      */
-    public function setDescription($description)
+    public function setAnd($and)
     {
-        if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
+        if (is_null($and)) {
+            array_push($this->openAPINullablesSetToNull, 'and');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
+            $index = array_search('and', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['description'] = $description;
+        $this->container['and'] = $and;
 
         return $this;
     }
 
     /**
-     * Gets filter_based
+     * Gets filter
      *
-     * @return \criteo\api\marketingsolutions\experimental\Model\FilterBasedUpdateV1|null
+     * @return \criteo\api\marketingsolutions\experimental\Model\FilterBasedDefinitionV1|null
      */
-    public function getFilterBased()
+    public function getFilter()
     {
-        return $this->container['filter_based'];
+        return $this->container['filter'];
     }
 
     /**
-     * Sets filter_based
+     * Sets filter
      *
-     * @param \criteo\api\marketingsolutions\experimental\Model\FilterBasedUpdateV1|null $filter_based filter_based
+     * @param \criteo\api\marketingsolutions\experimental\Model\FilterBasedDefinitionV1|null $filter filter
      *
      * @return self
      */
-    public function setFilterBased($filter_based)
+    public function setFilter($filter)
     {
-        if (is_null($filter_based)) {
-            throw new \InvalidArgumentException('non-nullable filter_based cannot be null');
+        if (is_null($filter)) {
+            array_push($this->openAPINullablesSetToNull, 'filter');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('filter', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['filter_based'] = $filter_based;
+        $this->container['filter'] = $filter;
 
         return $this;
     }
 
     /**
-     * Gets in_market
+     * Gets not
      *
-     * @return \criteo\api\marketingsolutions\experimental\Model\InMarketUpdateV1|null
+     * @return \criteo\api\marketingsolutions\experimental\Model\FilterBasedAlgebraNodeV1|null
      */
-    public function getInMarket()
+    public function getNot()
     {
-        return $this->container['in_market'];
+        return $this->container['not'];
     }
 
     /**
-     * Sets in_market
+     * Sets not
      *
-     * @param \criteo\api\marketingsolutions\experimental\Model\InMarketUpdateV1|null $in_market in_market
+     * @param \criteo\api\marketingsolutions\experimental\Model\FilterBasedAlgebraNodeV1|null $not not
      *
      * @return self
      */
-    public function setInMarket($in_market)
+    public function setNot($not)
     {
-        if (is_null($in_market)) {
-            throw new \InvalidArgumentException('non-nullable in_market cannot be null');
+        if (is_null($not)) {
+            array_push($this->openAPINullablesSetToNull, 'not');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('not', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['in_market'] = $in_market;
+        $this->container['not'] = $not;
 
         return $this;
     }
 
     /**
-     * Gets location
+     * Gets or
      *
-     * @return \criteo\api\marketingsolutions\experimental\Model\LocationUpdateV1|null
+     * @return \criteo\api\marketingsolutions\experimental\Model\FilterBasedAlgebraNodeV1[]|null
      */
-    public function getLocation()
+    public function getOr()
     {
-        return $this->container['location'];
+        return $this->container['or'];
     }
 
     /**
-     * Sets location
+     * Sets or
      *
-     * @param \criteo\api\marketingsolutions\experimental\Model\LocationUpdateV1|null $location location
+     * @param \criteo\api\marketingsolutions\experimental\Model\FilterBasedAlgebraNodeV1[]|null $or Or node in the algebra tree.
      *
      * @return self
      */
-    public function setLocation($location)
+    public function setOr($or)
     {
-        if (is_null($location)) {
-            throw new \InvalidArgumentException('non-nullable location cannot be null');
+        if (is_null($or)) {
+            array_push($this->openAPINullablesSetToNull, 'or');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('or', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['location'] = $location;
-
-        return $this;
-    }
-
-    /**
-     * Gets lookalike
-     *
-     * @return \criteo\api\marketingsolutions\experimental\Model\LookalikeUpdateV1|null
-     */
-    public function getLookalike()
-    {
-        return $this->container['lookalike'];
-    }
-
-    /**
-     * Sets lookalike
-     *
-     * @param \criteo\api\marketingsolutions\experimental\Model\LookalikeUpdateV1|null $lookalike lookalike
-     *
-     * @return self
-     */
-    public function setLookalike($lookalike)
-    {
-        if (is_null($lookalike)) {
-            throw new \InvalidArgumentException('non-nullable lookalike cannot be null');
-        }
-        $this->container['lookalike'] = $lookalike;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name Name of the segment
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets prospecting
-     *
-     * @return \criteo\api\marketingsolutions\experimental\Model\ProspectingUpdateV1|null
-     */
-    public function getProspecting()
-    {
-        return $this->container['prospecting'];
-    }
-
-    /**
-     * Sets prospecting
-     *
-     * @param \criteo\api\marketingsolutions\experimental\Model\ProspectingUpdateV1|null $prospecting prospecting
-     *
-     * @return self
-     */
-    public function setProspecting($prospecting)
-    {
-        if (is_null($prospecting)) {
-            throw new \InvalidArgumentException('non-nullable prospecting cannot be null');
-        }
-        $this->container['prospecting'] = $prospecting;
-
-        return $this;
-    }
-
-    /**
-     * Gets retargeting
-     *
-     * @return \criteo\api\marketingsolutions\experimental\Model\RetargetingUpdateV1|null
-     */
-    public function getRetargeting()
-    {
-        return $this->container['retargeting'];
-    }
-
-    /**
-     * Sets retargeting
-     *
-     * @param \criteo\api\marketingsolutions\experimental\Model\RetargetingUpdateV1|null $retargeting retargeting
-     *
-     * @return self
-     */
-    public function setRetargeting($retargeting)
-    {
-        if (is_null($retargeting)) {
-            throw new \InvalidArgumentException('non-nullable retargeting cannot be null');
-        }
-        $this->container['retargeting'] = $retargeting;
+        $this->container['or'] = $or;
 
         return $this;
     }

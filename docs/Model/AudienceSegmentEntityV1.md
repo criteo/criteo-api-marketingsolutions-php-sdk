@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **contact_list** | [**\criteo\api\marketingsolutions\experimental\Model\ContactListV1**](ContactListV1.md) |  | [optional]
 **created_at** | **\DateTime** | ISO-8601 timestamp in UTC of segment creation (read-only) | [optional]
 **description** | **string** | Description of the segment | [optional]
+**filter_based** | [**\criteo\api\marketingsolutions\experimental\Model\FilterBasedV1**](FilterBasedV1.md) |  | [optional]
 **in_market** | [**\criteo\api\marketingsolutions\experimental\Model\InMarketV1**](InMarketV1.md) |  | [optional]
 **location** | [**\criteo\api\marketingsolutions\experimental\Model\LocationV1**](LocationV1.md) |  | [optional]
 **lookalike** | [**\criteo\api\marketingsolutions\experimental\Model\LookalikeV1**](LookalikeV1.md) |  | [optional]

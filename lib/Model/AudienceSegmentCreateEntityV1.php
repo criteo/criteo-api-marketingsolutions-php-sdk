@@ -61,6 +61,7 @@ class AudienceSegmentCreateEntityV1 implements ModelInterface, ArrayAccess, \Jso
         'advertiser_id' => 'string',
         'contact_list' => 'object',
         'description' => 'string',
+        'filter_based' => '\criteo\api\marketingsolutions\experimental\Model\FilterBasedCreateV1',
         'in_market' => '\criteo\api\marketingsolutions\experimental\Model\InMarketCreateV1',
         'location' => '\criteo\api\marketingsolutions\experimental\Model\LocationCreateV1',
         'lookalike' => '\criteo\api\marketingsolutions\experimental\Model\LookalikeCreateV1',
@@ -80,6 +81,7 @@ class AudienceSegmentCreateEntityV1 implements ModelInterface, ArrayAccess, \Jso
         'advertiser_id' => null,
         'contact_list' => null,
         'description' => null,
+        'filter_based' => null,
         'in_market' => null,
         'location' => null,
         'lookalike' => null,
@@ -97,6 +99,7 @@ class AudienceSegmentCreateEntityV1 implements ModelInterface, ArrayAccess, \Jso
         'advertiser_id' => false,
 		'contact_list' => false,
 		'description' => false,
+		'filter_based' => false,
 		'in_market' => false,
 		'location' => false,
 		'lookalike' => false,
@@ -194,6 +197,7 @@ class AudienceSegmentCreateEntityV1 implements ModelInterface, ArrayAccess, \Jso
         'advertiser_id' => 'advertiserId',
         'contact_list' => 'contactList',
         'description' => 'description',
+        'filter_based' => 'filterBased',
         'in_market' => 'inMarket',
         'location' => 'location',
         'lookalike' => 'lookalike',
@@ -211,6 +215,7 @@ class AudienceSegmentCreateEntityV1 implements ModelInterface, ArrayAccess, \Jso
         'advertiser_id' => 'setAdvertiserId',
         'contact_list' => 'setContactList',
         'description' => 'setDescription',
+        'filter_based' => 'setFilterBased',
         'in_market' => 'setInMarket',
         'location' => 'setLocation',
         'lookalike' => 'setLookalike',
@@ -228,6 +233,7 @@ class AudienceSegmentCreateEntityV1 implements ModelInterface, ArrayAccess, \Jso
         'advertiser_id' => 'getAdvertiserId',
         'contact_list' => 'getContactList',
         'description' => 'getDescription',
+        'filter_based' => 'getFilterBased',
         'in_market' => 'getInMarket',
         'location' => 'getLocation',
         'lookalike' => 'getLookalike',
@@ -296,6 +302,7 @@ class AudienceSegmentCreateEntityV1 implements ModelInterface, ArrayAccess, \Jso
         $this->setIfExists('advertiser_id', $data ?? [], null);
         $this->setIfExists('contact_list', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('filter_based', $data ?? [], null);
         $this->setIfExists('in_market', $data ?? [], null);
         $this->setIfExists('location', $data ?? [], null);
         $this->setIfExists('lookalike', $data ?? [], null);
@@ -429,6 +436,33 @@ class AudienceSegmentCreateEntityV1 implements ModelInterface, ArrayAccess, \Jso
             throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets filter_based
+     *
+     * @return \criteo\api\marketingsolutions\experimental\Model\FilterBasedCreateV1|null
+     */
+    public function getFilterBased()
+    {
+        return $this->container['filter_based'];
+    }
+
+    /**
+     * Sets filter_based
+     *
+     * @param \criteo\api\marketingsolutions\experimental\Model\FilterBasedCreateV1|null $filter_based filter_based
+     *
+     * @return self
+     */
+    public function setFilterBased($filter_based)
+    {
+        if (is_null($filter_based)) {
+            throw new \InvalidArgumentException('non-nullable filter_based cannot be null');
+        }
+        $this->container['filter_based'] = $filter_based;
 
         return $this;
     }
