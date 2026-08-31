@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **advertiser_id** | **string** | Advertiser associated to the segment |
 **contact_list** | **object** | Settings to target users with your contact lists. | [optional]
 **description** | **string** | Description of the segment | [optional]
+**filter_based** | [**\criteo\api\marketingsolutions\preview\Model\FilterBasedCreateV1**](FilterBasedCreateV1.md) |  | [optional]
 **in_market** | [**\criteo\api\marketingsolutions\preview\Model\InMarketCreateV1**](InMarketCreateV1.md) |  | [optional]
 **location** | [**\criteo\api\marketingsolutions\preview\Model\LocationCreateV1**](LocationCreateV1.md) |  | [optional]
 **lookalike** | [**\criteo\api\marketingsolutions\preview\Model\LookalikeCreateV1**](LookalikeCreateV1.md) |  | [optional]

@@ -1,6 +1,6 @@
 <?php
 /**
- * AudienceSegmentUpdateEntityV1
+ * FilterBasedUpdateV1
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * AudienceSegmentUpdateEntityV1 Class Doc Comment
+ * FilterBasedUpdateV1 Class Doc Comment
  *
  * @category Class
- * @description Set of rules that defines specific people to target.
+ * @description Settings to target users based on a combination of filters.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \JsonSerializable
+class FilterBasedUpdateV1 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
       *
       * @var string
       */
-    protected static $openAPIModelName = 'AudienceSegmentUpdateEntityV1';
+    protected static $openAPIModelName = 'FilterBasedUpdateV1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,14 +58,8 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'description' => '\criteo\api\marketingsolutions\preview\Model\NillableString',
-        'filter_based' => '\criteo\api\marketingsolutions\preview\Model\FilterBasedUpdateV1',
-        'in_market' => '\criteo\api\marketingsolutions\preview\Model\InMarketUpdateV1',
-        'location' => '\criteo\api\marketingsolutions\preview\Model\LocationUpdateV1',
-        'lookalike' => '\criteo\api\marketingsolutions\preview\Model\LookalikeUpdateV1',
-        'name' => 'string',
-        'prospecting' => '\criteo\api\marketingsolutions\preview\Model\ProspectingUpdateV1',
-        'retargeting' => '\criteo\api\marketingsolutions\preview\Model\RetargetingUpdateV1'
+        'algebra' => '\criteo\api\marketingsolutions\preview\Model\FilterBasedAlgebraNodeV1',
+        'country_codes' => 'string[]'
     ];
 
     /**
@@ -76,14 +70,8 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'description' => null,
-        'filter_based' => null,
-        'in_market' => null,
-        'location' => null,
-        'lookalike' => null,
-        'name' => null,
-        'prospecting' => null,
-        'retargeting' => null
+        'algebra' => null,
+        'country_codes' => null
     ];
 
     /**
@@ -92,14 +80,8 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'description' => true,
-		'filter_based' => false,
-		'in_market' => false,
-		'location' => false,
-		'lookalike' => false,
-		'name' => false,
-		'prospecting' => false,
-		'retargeting' => false
+        'algebra' => true,
+		'country_codes' => false
     ];
 
     /**
@@ -188,14 +170,8 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $attributeMap = [
-        'description' => 'description',
-        'filter_based' => 'filterBased',
-        'in_market' => 'inMarket',
-        'location' => 'location',
-        'lookalike' => 'lookalike',
-        'name' => 'name',
-        'prospecting' => 'prospecting',
-        'retargeting' => 'retargeting'
+        'algebra' => 'algebra',
+        'country_codes' => 'countryCodes'
     ];
 
     /**
@@ -204,14 +180,8 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $setters = [
-        'description' => 'setDescription',
-        'filter_based' => 'setFilterBased',
-        'in_market' => 'setInMarket',
-        'location' => 'setLocation',
-        'lookalike' => 'setLookalike',
-        'name' => 'setName',
-        'prospecting' => 'setProspecting',
-        'retargeting' => 'setRetargeting'
+        'algebra' => 'setAlgebra',
+        'country_codes' => 'setCountryCodes'
     ];
 
     /**
@@ -220,14 +190,8 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $getters = [
-        'description' => 'getDescription',
-        'filter_based' => 'getFilterBased',
-        'in_market' => 'getInMarket',
-        'location' => 'getLocation',
-        'lookalike' => 'getLookalike',
-        'name' => 'getName',
-        'prospecting' => 'getProspecting',
-        'retargeting' => 'getRetargeting'
+        'algebra' => 'getAlgebra',
+        'country_codes' => 'getCountryCodes'
     ];
 
     /**
@@ -287,14 +251,8 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('filter_based', $data ?? [], null);
-        $this->setIfExists('in_market', $data ?? [], null);
-        $this->setIfExists('location', $data ?? [], null);
-        $this->setIfExists('lookalike', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('prospecting', $data ?? [], null);
-        $this->setIfExists('retargeting', $data ?? [], null);
+        $this->setIfExists('algebra', $data ?? [], null);
+        $this->setIfExists('country_codes', $data ?? [], null);
     }
 
     /**
@@ -340,224 +298,62 @@ class AudienceSegmentUpdateEntityV1 implements ModelInterface, ArrayAccess, \Jso
 
 
     /**
-     * Gets description
+     * Gets algebra
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\NillableString|null
+     * @return \criteo\api\marketingsolutions\preview\Model\FilterBasedAlgebraNodeV1|null
      */
-    public function getDescription()
+    public function getAlgebra()
     {
-        return $this->container['description'];
+        return $this->container['algebra'];
     }
 
     /**
-     * Sets description
+     * Sets algebra
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\NillableString|null $description description
+     * @param \criteo\api\marketingsolutions\preview\Model\FilterBasedAlgebraNodeV1|null $algebra algebra
      *
      * @return self
      */
-    public function setDescription($description)
+    public function setAlgebra($algebra)
     {
-        if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
+        if (is_null($algebra)) {
+            array_push($this->openAPINullablesSetToNull, 'algebra');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
+            $index = array_search('algebra', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['description'] = $description;
+        $this->container['algebra'] = $algebra;
 
         return $this;
     }
 
     /**
-     * Gets filter_based
+     * Gets country_codes
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\FilterBasedUpdateV1|null
+     * @return string[]|null
      */
-    public function getFilterBased()
+    public function getCountryCodes()
     {
-        return $this->container['filter_based'];
+        return $this->container['country_codes'];
     }
 
     /**
-     * Sets filter_based
+     * Sets country_codes
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\FilterBasedUpdateV1|null $filter_based filter_based
+     * @param string[]|null $country_codes Use signals coming from partners from these countries
      *
      * @return self
      */
-    public function setFilterBased($filter_based)
+    public function setCountryCodes($country_codes)
     {
-        if (is_null($filter_based)) {
-            throw new \InvalidArgumentException('non-nullable filter_based cannot be null');
+        if (is_null($country_codes)) {
+            throw new \InvalidArgumentException('non-nullable country_codes cannot be null');
         }
-        $this->container['filter_based'] = $filter_based;
-
-        return $this;
-    }
-
-    /**
-     * Gets in_market
-     *
-     * @return \criteo\api\marketingsolutions\preview\Model\InMarketUpdateV1|null
-     */
-    public function getInMarket()
-    {
-        return $this->container['in_market'];
-    }
-
-    /**
-     * Sets in_market
-     *
-     * @param \criteo\api\marketingsolutions\preview\Model\InMarketUpdateV1|null $in_market in_market
-     *
-     * @return self
-     */
-    public function setInMarket($in_market)
-    {
-        if (is_null($in_market)) {
-            throw new \InvalidArgumentException('non-nullable in_market cannot be null');
-        }
-        $this->container['in_market'] = $in_market;
-
-        return $this;
-    }
-
-    /**
-     * Gets location
-     *
-     * @return \criteo\api\marketingsolutions\preview\Model\LocationUpdateV1|null
-     */
-    public function getLocation()
-    {
-        return $this->container['location'];
-    }
-
-    /**
-     * Sets location
-     *
-     * @param \criteo\api\marketingsolutions\preview\Model\LocationUpdateV1|null $location location
-     *
-     * @return self
-     */
-    public function setLocation($location)
-    {
-        if (is_null($location)) {
-            throw new \InvalidArgumentException('non-nullable location cannot be null');
-        }
-        $this->container['location'] = $location;
-
-        return $this;
-    }
-
-    /**
-     * Gets lookalike
-     *
-     * @return \criteo\api\marketingsolutions\preview\Model\LookalikeUpdateV1|null
-     */
-    public function getLookalike()
-    {
-        return $this->container['lookalike'];
-    }
-
-    /**
-     * Sets lookalike
-     *
-     * @param \criteo\api\marketingsolutions\preview\Model\LookalikeUpdateV1|null $lookalike lookalike
-     *
-     * @return self
-     */
-    public function setLookalike($lookalike)
-    {
-        if (is_null($lookalike)) {
-            throw new \InvalidArgumentException('non-nullable lookalike cannot be null');
-        }
-        $this->container['lookalike'] = $lookalike;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name Name of the segment
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets prospecting
-     *
-     * @return \criteo\api\marketingsolutions\preview\Model\ProspectingUpdateV1|null
-     */
-    public function getProspecting()
-    {
-        return $this->container['prospecting'];
-    }
-
-    /**
-     * Sets prospecting
-     *
-     * @param \criteo\api\marketingsolutions\preview\Model\ProspectingUpdateV1|null $prospecting prospecting
-     *
-     * @return self
-     */
-    public function setProspecting($prospecting)
-    {
-        if (is_null($prospecting)) {
-            throw new \InvalidArgumentException('non-nullable prospecting cannot be null');
-        }
-        $this->container['prospecting'] = $prospecting;
-
-        return $this;
-    }
-
-    /**
-     * Gets retargeting
-     *
-     * @return \criteo\api\marketingsolutions\preview\Model\RetargetingUpdateV1|null
-     */
-    public function getRetargeting()
-    {
-        return $this->container['retargeting'];
-    }
-
-    /**
-     * Sets retargeting
-     *
-     * @param \criteo\api\marketingsolutions\preview\Model\RetargetingUpdateV1|null $retargeting retargeting
-     *
-     * @return self
-     */
-    public function setRetargeting($retargeting)
-    {
-        if (is_null($retargeting)) {
-            throw new \InvalidArgumentException('non-nullable retargeting cannot be null');
-        }
-        $this->container['retargeting'] = $retargeting;
+        $this->container['country_codes'] = $country_codes;
 
         return $this;
     }
