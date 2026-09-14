@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * AdWrite Class Doc Comment
  *
  * @category Class
- * @description Entity to create or update an ad
+ * @description Entity to create an ad
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

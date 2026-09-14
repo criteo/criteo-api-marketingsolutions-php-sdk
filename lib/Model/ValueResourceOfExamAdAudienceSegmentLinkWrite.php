@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\preview\ObjectSerializer;
  * ValueResourceOfExamAdAudienceSegmentLinkWrite Class Doc Comment
  *
  * @category Class
- * @description A value resource exposed by the API.
+ * @description A top-level object that encapsulates a Criteo API response for a single value.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -337,7 +337,7 @@ class ValueResourceOfExamAdAudienceSegmentLinkWrite implements ModelInterface, A
     /**
      * Sets type
      *
-     * @param string|null $type Type of the resource.
+     * @param string|null $type type
      *
      * @return self
      */

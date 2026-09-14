@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **dynamic_attributes** | [**\criteo\api\marketingsolutions\preview\Model\DynamicAttributes**](DynamicAttributes.md) |  | [optional]
 **format** | **string** | The format of the creative | [optional]
 **html_tag_attributes** | [**\criteo\api\marketingsolutions\preview\Model\HtmlTagAttributes**](HtmlTagAttributes.md) |  | [optional]
-**id** | **string** | Unique identifier (duplicate of the parent id). | [optional]
+**id** | **string** |  | [optional]
 **image_attributes** | [**\criteo\api\marketingsolutions\preview\Model\ImageAttributes**](ImageAttributes.md) |  | [optional]
 **name** | **string** | The name of the creative |
 **status** | **string** | The status of the creative |

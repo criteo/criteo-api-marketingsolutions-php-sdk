@@ -64,6 +64,7 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'string',
         'name' => 'string',
         'scheduled_spend_limits' => '\criteo\api\marketingsolutions\preview\Model\CampaignScheduledSpendLimitV23Q1[]',
+        'seller_id' => 'string',
         'spend_limit' => '\criteo\api\marketingsolutions\preview\Model\CampaignSpendLimitV23Q1'
     ];
 
@@ -81,6 +82,7 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => null,
         'name' => null,
         'scheduled_spend_limits' => null,
+        'seller_id' => null,
         'spend_limit' => null
     ];
 
@@ -96,6 +98,7 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
 		'id' => true,
 		'name' => true,
 		'scheduled_spend_limits' => true,
+		'seller_id' => true,
 		'spend_limit' => true
     ];
 
@@ -191,6 +194,7 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'id',
         'name' => 'name',
         'scheduled_spend_limits' => 'scheduledSpendLimits',
+        'seller_id' => 'sellerId',
         'spend_limit' => 'spendLimit'
     ];
 
@@ -206,6 +210,7 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'setId',
         'name' => 'setName',
         'scheduled_spend_limits' => 'setScheduledSpendLimits',
+        'seller_id' => 'setSellerId',
         'spend_limit' => 'setSpendLimit'
     ];
 
@@ -221,6 +226,7 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'getId',
         'name' => 'getName',
         'scheduled_spend_limits' => 'getScheduledSpendLimits',
+        'seller_id' => 'getSellerId',
         'spend_limit' => 'getSpendLimit'
     ];
 
@@ -304,6 +310,7 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('scheduled_spend_limits', $data ?? [], null);
+        $this->setIfExists('seller_id', $data ?? [], null);
         $this->setIfExists('spend_limit', $data ?? [], null);
     }
 
@@ -568,6 +575,40 @@ class CampaignV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['scheduled_spend_limits'] = $scheduled_spend_limits;
+
+        return $this;
+    }
+
+    /**
+     * Gets seller_id
+     *
+     * @return string|null
+     */
+    public function getSellerId()
+    {
+        return $this->container['seller_id'];
+    }
+
+    /**
+     * Sets seller_id
+     *
+     * @param string|null $seller_id Optional marketplace seller id of the campaign (string-encoded long)
+     *
+     * @return self
+     */
+    public function setSellerId($seller_id)
+    {
+        if (is_null($seller_id)) {
+            array_push($this->openAPINullablesSetToNull, 'seller_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('seller_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['seller_id'] = $seller_id;
 
         return $this;
     }

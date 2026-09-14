@@ -58,6 +58,7 @@ class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'ad_delivery_status' => 'string',
         'ad_set_id' => 'string',
         'creative_id' => 'string',
         'description' => 'string',
@@ -76,6 +77,7 @@ class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'ad_delivery_status' => null,
         'ad_set_id' => null,
         'creative_id' => null,
         'description' => null,
@@ -92,7 +94,8 @@ class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'ad_set_id' => true,
+        'ad_delivery_status' => true,
+		'ad_set_id' => true,
 		'creative_id' => true,
 		'description' => true,
 		'end_date' => true,
@@ -188,6 +191,7 @@ class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'ad_delivery_status' => 'adDeliveryStatus',
         'ad_set_id' => 'adSetId',
         'creative_id' => 'creativeId',
         'description' => 'description',
@@ -204,6 +208,7 @@ class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'ad_delivery_status' => 'setAdDeliveryStatus',
         'ad_set_id' => 'setAdSetId',
         'creative_id' => 'setCreativeId',
         'description' => 'setDescription',
@@ -220,6 +225,7 @@ class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'ad_delivery_status' => 'getAdDeliveryStatus',
         'ad_set_id' => 'getAdSetId',
         'creative_id' => 'getCreativeId',
         'description' => 'getDescription',
@@ -271,9 +277,24 @@ class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const AD_DELIVERY_STATUS_LIVE = 'Live';
+    public const AD_DELIVERY_STATUS_PAUSED = 'Paused';
     public const INVENTORY_TYPE_NATIVE = 'Native';
     public const INVENTORY_TYPE_DISPLAY = 'Display';
     public const INVENTORY_TYPE_VIDEO = 'Video';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAdDeliveryStatusAllowableValues()
+    {
+        return [
+            self::AD_DELIVERY_STATUS_LIVE,
+            self::AD_DELIVERY_STATUS_PAUSED,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -304,6 +325,7 @@ class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('ad_delivery_status', $data ?? [], null);
         $this->setIfExists('ad_set_id', $data ?? [], null);
         $this->setIfExists('creative_id', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
@@ -341,6 +363,15 @@ class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getAdDeliveryStatusAllowableValues();
+        if (!is_null($this->container['ad_delivery_status']) && !in_array($this->container['ad_delivery_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'ad_delivery_status', must be one of '%s'",
+                $this->container['ad_delivery_status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         $allowedValues = $this->getInventoryTypeAllowableValues();
         if (!is_null($this->container['inventory_type']) && !in_array($this->container['inventory_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -364,6 +395,50 @@ class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets ad_delivery_status
+     *
+     * @return string|null
+     */
+    public function getAdDeliveryStatus()
+    {
+        return $this->container['ad_delivery_status'];
+    }
+
+    /**
+     * Sets ad_delivery_status
+     *
+     * @param string|null $ad_delivery_status The delivery status of the ad. Possible values are \"Live\" and \"Paused\". This is read-only: use the  dedicated pause and unpause operations to change it.
+     *
+     * @return self
+     */
+    public function setAdDeliveryStatus($ad_delivery_status)
+    {
+        if (is_null($ad_delivery_status)) {
+            array_push($this->openAPINullablesSetToNull, 'ad_delivery_status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ad_delivery_status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getAdDeliveryStatusAllowableValues();
+        if (!is_null($ad_delivery_status) && !in_array($ad_delivery_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'ad_delivery_status', must be one of '%s'",
+                    $ad_delivery_status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['ad_delivery_status'] = $ad_delivery_status;
+
+        return $this;
+    }
 
     /**
      * Gets ad_set_id
@@ -514,7 +589,7 @@ class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string|null $id Unique identifier (duplicate of the parent id).
+     * @param string|null $id id
      *
      * @return self
      */

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **budget_automation** | [**\criteo\api\marketingsolutions\preview\Model\BudgetAutomation**](BudgetAutomation.md) |  | [optional]
 **goal** | **string** | Goal of the campaign                Serialized values are {Unspecified}, {Acquisition} and {Retention}.                Acquisition and retention are defined as follows:  - Acquisition: campaign with the goal of acquiring new customers. The success of an acquisition campaign is measured by the number of new customers it brings.  - Retention: campaign with the goal of retaining existing customers. The success of a retention campaign is measured by the number of existing customers it retains. |
 **name** | **string** | Name of the campaign |
+**seller_id** | **string** | Optional marketplace seller id attached to this campaign (string-encoded long) | [optional]
 **spend_limit** | [**\criteo\api\marketingsolutions\preview\Model\CreateCampaignSpendLimit**](CreateCampaignSpendLimit.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

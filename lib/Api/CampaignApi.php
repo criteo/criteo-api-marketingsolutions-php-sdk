@@ -2323,7 +2323,7 @@ class CampaignApi
     /**
      * Operation disableAdSetTargetingVideoPositioning
      *
-     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positionings/disable
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning/disable
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['disableAdSetTargetingVideoPositioning'] to see the possible values for this operation
@@ -2341,7 +2341,7 @@ class CampaignApi
     /**
      * Operation disableAdSetTargetingVideoPositioningWithHttpInfo
      *
-     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positionings/disable
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning/disable
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['disableAdSetTargetingVideoPositioning'] to see the possible values for this operation
@@ -2441,7 +2441,7 @@ class CampaignApi
     /**
      * Operation disableAdSetTargetingVideoPositioningAsync
      *
-     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positionings/disable
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning/disable
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['disableAdSetTargetingVideoPositioning'] to see the possible values for this operation
@@ -2462,7 +2462,7 @@ class CampaignApi
     /**
      * Operation disableAdSetTargetingVideoPositioningAsyncWithHttpInfo
      *
-     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positionings/disable
+     * /preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning/disable
      *
      * @param  string $ad_set_id Id of the Ad Set (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['disableAdSetTargetingVideoPositioning'] to see the possible values for this operation
@@ -2531,7 +2531,7 @@ class CampaignApi
         }
 
 
-        $resourcePath = '/preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positionings/disable';
+        $resourcePath = '/preview/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning/disable';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

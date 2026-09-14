@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **id** | **string** | Id of the entity (duplicate of the parent id). | [optional]
 **name** | **string** | Name of the campaign | [optional]
 **scheduled_spend_limits** | [**\criteo\api\marketingsolutions\preview\Model\CampaignScheduledSpendLimitV23Q1[]**](CampaignScheduledSpendLimitV23Q1.md) | Spend limits scheduled to become active in the future. Empty when the campaign has no scheduled spend limits. | [optional]
+**seller_id** | **string** | Optional marketplace seller id of the campaign (string-encoded long) | [optional]
 **spend_limit** | [**\criteo\api\marketingsolutions\preview\Model\CampaignSpendLimitV23Q1**](CampaignSpendLimitV23Q1.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
