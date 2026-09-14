@@ -62,6 +62,7 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'budget_automation' => '\criteo\api\marketingsolutions\experimental\Model\BudgetAutomation',
         'goal' => 'string',
         'name' => 'string',
+        'seller_id' => 'string',
         'spend_limit' => '\criteo\api\marketingsolutions\experimental\Model\CreateCampaignSpendLimit'
     ];
 
@@ -77,6 +78,7 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'budget_automation' => null,
         'goal' => null,
         'name' => null,
+        'seller_id' => null,
         'spend_limit' => null
     ];
 
@@ -90,6 +92,7 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
 		'budget_automation' => false,
 		'goal' => false,
 		'name' => true,
+		'seller_id' => true,
 		'spend_limit' => false
     ];
 
@@ -183,6 +186,7 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'budget_automation' => 'budgetAutomation',
         'goal' => 'goal',
         'name' => 'name',
+        'seller_id' => 'sellerId',
         'spend_limit' => 'spendLimit'
     ];
 
@@ -196,6 +200,7 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'budget_automation' => 'setBudgetAutomation',
         'goal' => 'setGoal',
         'name' => 'setName',
+        'seller_id' => 'setSellerId',
         'spend_limit' => 'setSpendLimit'
     ];
 
@@ -209,6 +214,7 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'budget_automation' => 'getBudgetAutomation',
         'goal' => 'getGoal',
         'name' => 'getName',
+        'seller_id' => 'getSellerId',
         'spend_limit' => 'getSpendLimit'
     ];
 
@@ -290,6 +296,7 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('budget_automation', $data ?? [], null);
         $this->setIfExists('goal', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('seller_id', $data ?? [], null);
         $this->setIfExists('spend_limit', $data ?? [], null);
     }
 
@@ -484,6 +491,40 @@ class CreateCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets seller_id
+     *
+     * @return string|null
+     */
+    public function getSellerId()
+    {
+        return $this->container['seller_id'];
+    }
+
+    /**
+     * Sets seller_id
+     *
+     * @param string|null $seller_id Optional marketplace seller id attached to this campaign (string-encoded long)
+     *
+     * @return self
+     */
+    public function setSellerId($seller_id)
+    {
+        if (is_null($seller_id)) {
+            array_push($this->openAPINullablesSetToNull, 'seller_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('seller_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['seller_id'] = $seller_id;
 
         return $this;
     }

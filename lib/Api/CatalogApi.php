@@ -71,6 +71,12 @@ class CatalogApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
+        'getCatalogIngestionReportSummary' => [
+            'application/json',
+        ],
+        'getCatalogIngestionReports' => [
+            'application/json',
+        ],
         'getCatalogMerchantStats' => [
             'application/json',
         ],
@@ -126,6 +132,624 @@ class CatalogApi
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * Operation getCatalogIngestionReportSummary
+     *
+     * /experimental/catalog/ingestion/{ingestion-id}/reports/summary
+     *
+     * @param  string $ingestion_id Identifies the catalog ingestion to report on. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogIngestionReportSummary'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\experimental\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\experimental\Model\CatalogIngestionSummaryResponse
+     */
+    public function getCatalogIngestionReportSummary($ingestion_id, string $contentType = self::contentTypes['getCatalogIngestionReportSummary'][0])
+    {
+        list($response) = $this->getCatalogIngestionReportSummaryWithHttpInfo($ingestion_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getCatalogIngestionReportSummaryWithHttpInfo
+     *
+     * /experimental/catalog/ingestion/{ingestion-id}/reports/summary
+     *
+     * @param  string $ingestion_id Identifies the catalog ingestion to report on. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogIngestionReportSummary'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\experimental\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\experimental\Model\CatalogIngestionSummaryResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCatalogIngestionReportSummaryWithHttpInfo($ingestion_id, string $contentType = self::contentTypes['getCatalogIngestionReportSummary'][0])
+    {
+        $request = $this->getCatalogIngestionReportSummaryRequest($ingestion_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\experimental\Model\CatalogIngestionSummaryResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\experimental\Model\CatalogIngestionSummaryResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\experimental\Model\CatalogIngestionSummaryResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\experimental\Model\CatalogIngestionSummaryResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\experimental\Model\CatalogIngestionSummaryResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getCatalogIngestionReportSummaryAsync
+     *
+     * /experimental/catalog/ingestion/{ingestion-id}/reports/summary
+     *
+     * @param  string $ingestion_id Identifies the catalog ingestion to report on. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogIngestionReportSummary'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCatalogIngestionReportSummaryAsync($ingestion_id, string $contentType = self::contentTypes['getCatalogIngestionReportSummary'][0])
+    {
+        return $this->getCatalogIngestionReportSummaryAsyncWithHttpInfo($ingestion_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getCatalogIngestionReportSummaryAsyncWithHttpInfo
+     *
+     * /experimental/catalog/ingestion/{ingestion-id}/reports/summary
+     *
+     * @param  string $ingestion_id Identifies the catalog ingestion to report on. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogIngestionReportSummary'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCatalogIngestionReportSummaryAsyncWithHttpInfo($ingestion_id, string $contentType = self::contentTypes['getCatalogIngestionReportSummary'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\experimental\Model\CatalogIngestionSummaryResponse';
+        $request = $this->getCatalogIngestionReportSummaryRequest($ingestion_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getCatalogIngestionReportSummary'
+     *
+     * @param  string $ingestion_id Identifies the catalog ingestion to report on. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogIngestionReportSummary'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getCatalogIngestionReportSummaryRequest($ingestion_id, string $contentType = self::contentTypes['getCatalogIngestionReportSummary'][0])
+    {
+
+        // verify the required parameter 'ingestion_id' is set
+        if ($ingestion_id === null || (is_array($ingestion_id) && count($ingestion_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ingestion_id when calling getCatalogIngestionReportSummary'
+            );
+        }
+
+
+        $resourcePath = '/experimental/catalog/ingestion/{ingestion-id}/reports/summary';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($ingestion_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'ingestion-id' . '}',
+                ObjectSerializer::toPathValue($ingestion_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getCatalogIngestionReports
+     *
+     * /experimental/catalog/merchants/{merchant-id}/ingestion/reports
+     *
+     * @param  string $merchant_id Identifies the merchant whose catalog ingestions are reported. (required)
+     * @param  int $limit Maximum number of ingestion reports returned in the page. (optional, default to 25)
+     * @param  int $offset Index of the first ingestion report of the page, used to page through the collection. (optional, default to 0)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogIngestionReports'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\experimental\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\experimental\Model\CatalogIngestionReportListResponse
+     */
+    public function getCatalogIngestionReports($merchant_id, $limit = 25, $offset = 0, string $contentType = self::contentTypes['getCatalogIngestionReports'][0])
+    {
+        list($response) = $this->getCatalogIngestionReportsWithHttpInfo($merchant_id, $limit, $offset, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getCatalogIngestionReportsWithHttpInfo
+     *
+     * /experimental/catalog/merchants/{merchant-id}/ingestion/reports
+     *
+     * @param  string $merchant_id Identifies the merchant whose catalog ingestions are reported. (required)
+     * @param  int $limit Maximum number of ingestion reports returned in the page. (optional, default to 25)
+     * @param  int $offset Index of the first ingestion report of the page, used to page through the collection. (optional, default to 0)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogIngestionReports'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\experimental\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\experimental\Model\CatalogIngestionReportListResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCatalogIngestionReportsWithHttpInfo($merchant_id, $limit = 25, $offset = 0, string $contentType = self::contentTypes['getCatalogIngestionReports'][0])
+    {
+        $request = $this->getCatalogIngestionReportsRequest($merchant_id, $limit, $offset, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\experimental\Model\CatalogIngestionReportListResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\experimental\Model\CatalogIngestionReportListResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\experimental\Model\CatalogIngestionReportListResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\experimental\Model\CatalogIngestionReportListResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\experimental\Model\CatalogIngestionReportListResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getCatalogIngestionReportsAsync
+     *
+     * /experimental/catalog/merchants/{merchant-id}/ingestion/reports
+     *
+     * @param  string $merchant_id Identifies the merchant whose catalog ingestions are reported. (required)
+     * @param  int $limit Maximum number of ingestion reports returned in the page. (optional, default to 25)
+     * @param  int $offset Index of the first ingestion report of the page, used to page through the collection. (optional, default to 0)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogIngestionReports'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCatalogIngestionReportsAsync($merchant_id, $limit = 25, $offset = 0, string $contentType = self::contentTypes['getCatalogIngestionReports'][0])
+    {
+        return $this->getCatalogIngestionReportsAsyncWithHttpInfo($merchant_id, $limit, $offset, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getCatalogIngestionReportsAsyncWithHttpInfo
+     *
+     * /experimental/catalog/merchants/{merchant-id}/ingestion/reports
+     *
+     * @param  string $merchant_id Identifies the merchant whose catalog ingestions are reported. (required)
+     * @param  int $limit Maximum number of ingestion reports returned in the page. (optional, default to 25)
+     * @param  int $offset Index of the first ingestion report of the page, used to page through the collection. (optional, default to 0)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogIngestionReports'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCatalogIngestionReportsAsyncWithHttpInfo($merchant_id, $limit = 25, $offset = 0, string $contentType = self::contentTypes['getCatalogIngestionReports'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\experimental\Model\CatalogIngestionReportListResponse';
+        $request = $this->getCatalogIngestionReportsRequest($merchant_id, $limit, $offset, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getCatalogIngestionReports'
+     *
+     * @param  string $merchant_id Identifies the merchant whose catalog ingestions are reported. (required)
+     * @param  int $limit Maximum number of ingestion reports returned in the page. (optional, default to 25)
+     * @param  int $offset Index of the first ingestion report of the page, used to page through the collection. (optional, default to 0)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogIngestionReports'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getCatalogIngestionReportsRequest($merchant_id, $limit = 25, $offset = 0, string $contentType = self::contentTypes['getCatalogIngestionReports'][0])
+    {
+
+        // verify the required parameter 'merchant_id' is set
+        if ($merchant_id === null || (is_array($merchant_id) && count($merchant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $merchant_id when calling getCatalogIngestionReports'
+            );
+        }
+
+        if ($limit !== null && $limit > 100) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling CatalogApi.getCatalogIngestionReports, must be smaller than or equal to 100.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling CatalogApi.getCatalogIngestionReports, must be bigger than or equal to 1.');
+        }
+        
+
+
+        $resourcePath = '/experimental/catalog/merchants/{merchant-id}/ingestion/reports';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $offset,
+            'offset', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($merchant_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'merchant-id' . '}',
+                ObjectSerializer::toPathValue($merchant_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**

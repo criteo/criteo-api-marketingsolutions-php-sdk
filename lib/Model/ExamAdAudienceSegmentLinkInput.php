@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\experimental\ObjectSerializer;
  * ExamAdAudienceSegmentLinkInput Class Doc Comment
  *
  * @category Class
- * @description A top-level object that encapsulates a Criteo API request for a single value object.
+ * @description A top-level object that encapsulates a Criteo API request for a single value.
  * @package  criteo\api\marketingsolutions\experimental
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

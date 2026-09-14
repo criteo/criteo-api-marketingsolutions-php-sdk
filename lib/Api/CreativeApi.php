@@ -185,7 +185,7 @@ class CreativeApi
      * /experimental/advertisers/{advertiser-id}/ads
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
-     * @param  \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfAdWrite $resource_input_of_ad_write resource_input_of_ad_write (required)
+     * @param  \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfAdWrite $resource_input_of_ad_write The ad information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdvertiserAd'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\experimental\ApiException on non-2xx response
@@ -204,7 +204,7 @@ class CreativeApi
      * /experimental/advertisers/{advertiser-id}/ads
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
-     * @param  \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfAdWrite $resource_input_of_ad_write (required)
+     * @param  \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfAdWrite $resource_input_of_ad_write The ad information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdvertiserAd'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\experimental\ApiException on non-2xx response
@@ -305,7 +305,7 @@ class CreativeApi
      * /experimental/advertisers/{advertiser-id}/ads
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
-     * @param  \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfAdWrite $resource_input_of_ad_write (required)
+     * @param  \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfAdWrite $resource_input_of_ad_write The ad information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdvertiserAd'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -327,7 +327,7 @@ class CreativeApi
      * /experimental/advertisers/{advertiser-id}/ads
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
-     * @param  \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfAdWrite $resource_input_of_ad_write (required)
+     * @param  \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfAdWrite $resource_input_of_ad_write The ad information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdvertiserAd'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -378,7 +378,7 @@ class CreativeApi
      * Create request for operation 'createAdvertiserAd'
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
-     * @param  \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfAdWrite $resource_input_of_ad_write (required)
+     * @param  \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfAdWrite $resource_input_of_ad_write The ad information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdvertiserAd'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -805,7 +805,7 @@ class CreativeApi
      * /experimental/advertisers/{advertiser-id}/creatives
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
-     * @param  \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write resource_input_of_creative_write (required)
+     * @param  \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write The creative information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdvertiserCreative'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\experimental\ApiException on non-2xx response
@@ -824,7 +824,7 @@ class CreativeApi
      * /experimental/advertisers/{advertiser-id}/creatives
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
-     * @param  \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write (required)
+     * @param  \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write The creative information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdvertiserCreative'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\experimental\ApiException on non-2xx response
@@ -925,7 +925,7 @@ class CreativeApi
      * /experimental/advertisers/{advertiser-id}/creatives
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
-     * @param  \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write (required)
+     * @param  \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write The creative information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdvertiserCreative'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -947,7 +947,7 @@ class CreativeApi
      * /experimental/advertisers/{advertiser-id}/creatives
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
-     * @param  \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write (required)
+     * @param  \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write The creative information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdvertiserCreative'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -998,7 +998,7 @@ class CreativeApi
      * Create request for operation 'createAdvertiserCreative'
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
-     * @param  \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write (required)
+     * @param  \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write The creative information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdvertiserCreative'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

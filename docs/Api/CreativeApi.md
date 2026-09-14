@@ -57,7 +57,7 @@ $apiInstance = new criteo\api\marketingsolutions\experimental\Api\CreativeApi(
     $config
 );
 $advertiser_id = 'advertiser_id_example'; // string | The advertiser identifier.
-$resource_input_of_ad_write = new \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfAdWrite(); // \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfAdWrite
+$resource_input_of_ad_write = new \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfAdWrite(); // \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfAdWrite | The ad information.
 
 try {
     $result = $apiInstance->createAdvertiserAd($advertiser_id, $resource_input_of_ad_write);
@@ -72,7 +72,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **advertiser_id** | **string**| The advertiser identifier. | |
-| **resource_input_of_ad_write** | [**\criteo\api\marketingsolutions\experimental\Model\ResourceInputOfAdWrite**](../Model/ResourceInputOfAdWrite.md)|  | |
+| **resource_input_of_ad_write** | [**\criteo\api\marketingsolutions\experimental\Model\ResourceInputOfAdWrite**](../Model/ResourceInputOfAdWrite.md)| The ad information. | |
 
 ### Return type
 
@@ -187,7 +187,7 @@ $apiInstance = new criteo\api\marketingsolutions\experimental\Api\CreativeApi(
     $config
 );
 $advertiser_id = 'advertiser_id_example'; // string | The advertiser identifier.
-$resource_input_of_creative_write = new \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfCreativeWrite(); // \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfCreativeWrite
+$resource_input_of_creative_write = new \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfCreativeWrite(); // \criteo\api\marketingsolutions\experimental\Model\ResourceInputOfCreativeWrite | The creative information.
 
 try {
     $result = $apiInstance->createAdvertiserCreative($advertiser_id, $resource_input_of_creative_write);
@@ -202,7 +202,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **advertiser_id** | **string**| The advertiser identifier. | |
-| **resource_input_of_creative_write** | [**\criteo\api\marketingsolutions\experimental\Model\ResourceInputOfCreativeWrite**](../Model/ResourceInputOfCreativeWrite.md)|  | |
+| **resource_input_of_creative_write** | [**\criteo\api\marketingsolutions\experimental\Model\ResourceInputOfCreativeWrite**](../Model/ResourceInputOfCreativeWrite.md)| The creative information. | |
 
 ### Return type
 

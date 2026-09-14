@@ -11,7 +11,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 | [**deleteCampaignBundleRules()**](CampaignApi.md#deleteCampaignBundleRules) | **DELETE** /experimental/campaigns/{campaignId}/targeting/bundle-rules | /experimental/campaigns/{campaignId}/targeting/bundle-rules |
 | [**deleteCampaignDomainRules()**](CampaignApi.md#deleteCampaignDomainRules) | **DELETE** /experimental/campaigns/{campaignId}/targeting/domain-rules | /experimental/campaigns/{campaignId}/targeting/domain-rules |
 | [**disableAdSetTargetingDealIds()**](CampaignApi.md#disableAdSetTargetingDealIds) | **POST** /experimental/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids/disable | /experimental/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids/disable |
-| [**disableAdSetTargetingVideoPositioning()**](CampaignApi.md#disableAdSetTargetingVideoPositioning) | **POST** /experimental/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positionings/disable | /experimental/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positionings/disable |
+| [**disableAdSetTargetingVideoPositioning()**](CampaignApi.md#disableAdSetTargetingVideoPositioning) | **POST** /experimental/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning/disable | /experimental/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning/disable |
 | [**getAdSet()**](CampaignApi.md#getAdSet) | **GET** /experimental/marketing-solutions/ad-sets/{ad-set-id} | /experimental/marketing-solutions/ad-sets/{ad-set-id} |
 | [**getAdSetCategoryBids()**](CampaignApi.md#getAdSetCategoryBids) | **GET** /experimental/marketing-solutions/ad-sets/{ad-set-id}/category-bids | /experimental/marketing-solutions/ad-sets/{ad-set-id}/category-bids |
 | [**getAdSetTargetingDealIds()**](CampaignApi.md#getAdSetTargetingDealIds) | **GET** /experimental/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids | /experimental/marketing-solutions/ad-sets/{ad-set-id}/targeting/deal-ids |
@@ -499,7 +499,7 @@ try {
 disableAdSetTargetingVideoPositioning($ad_set_id): \criteo\api\marketingsolutions\experimental\Model\AdSetTargetingVideoPositioningDisableResultResponse
 ```
 
-/experimental/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positionings/disable
+/experimental/marketing-solutions/ad-sets/{ad-set-id}/targeting/video-positioning/disable
 
 Disable the Video Positioning Targeting configuration for the ad set whose id is specified
 

@@ -650,7 +650,7 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string|null $id Unique identifier (duplicate of the parent id).
+     * @param string|null $id id
      *
      * @return self
      */
