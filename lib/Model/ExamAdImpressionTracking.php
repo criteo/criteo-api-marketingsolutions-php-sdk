@@ -1,6 +1,6 @@
 <?php
 /**
- * IntegerFilterV1
+ * ExamAdImpressionTracking
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * IntegerFilterV1 Class Doc Comment
+ * ExamAdImpressionTracking Class Doc Comment
  *
  * @category Class
- * @description Filter that compares integers against one or more values.
+ * @description An ad-level impression tracking rule. The rule calls its url when an impression it covers is served. It  applies either to the whole ad (no display size set) or to one display size (displayWidth and displayHeight  both set).
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class IntegerFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
+class ExamAdImpressionTracking implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class IntegerFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'IntegerFilterV1';
+    protected static $openAPIModelName = 'ExamAdImpressionTracking';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,12 @@ class IntegerFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'operator' => 'string',
-        'values' => 'int[]'
+        'binding_id' => 'string',
+        'display_height' => 'int',
+        'display_width' => 'int',
+        'id' => 'string',
+        'url' => 'string',
+        'vendor_id' => 'string'
     ];
 
     /**
@@ -70,8 +74,12 @@ class IntegerFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'operator' => null,
-        'values' => 'int32'
+        'binding_id' => null,
+        'display_height' => 'int32',
+        'display_width' => 'int32',
+        'id' => null,
+        'url' => null,
+        'vendor_id' => null
     ];
 
     /**
@@ -80,8 +88,12 @@ class IntegerFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'operator' => true,
-		'values' => true
+        'binding_id' => true,
+		'display_height' => true,
+		'display_width' => true,
+		'id' => true,
+		'url' => true,
+		'vendor_id' => true
     ];
 
     /**
@@ -170,8 +182,12 @@ class IntegerFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'operator' => 'operator',
-        'values' => 'values'
+        'binding_id' => 'bindingId',
+        'display_height' => 'displayHeight',
+        'display_width' => 'displayWidth',
+        'id' => 'id',
+        'url' => 'url',
+        'vendor_id' => 'vendorId'
     ];
 
     /**
@@ -180,8 +196,12 @@ class IntegerFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'operator' => 'setOperator',
-        'values' => 'setValues'
+        'binding_id' => 'setBindingId',
+        'display_height' => 'setDisplayHeight',
+        'display_width' => 'setDisplayWidth',
+        'id' => 'setId',
+        'url' => 'setUrl',
+        'vendor_id' => 'setVendorId'
     ];
 
     /**
@@ -190,8 +210,12 @@ class IntegerFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'operator' => 'getOperator',
-        'values' => 'getValues'
+        'binding_id' => 'getBindingId',
+        'display_height' => 'getDisplayHeight',
+        'display_width' => 'getDisplayWidth',
+        'id' => 'getId',
+        'url' => 'getUrl',
+        'vendor_id' => 'getVendorId'
     ];
 
     /**
@@ -235,21 +259,6 @@ class IntegerFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const OPERATOR_UNKNOWN = 'Unknown';
-    public const OPERATOR_EQUALS = 'Equals';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getOperatorAllowableValues()
-    {
-        return [
-            self::OPERATOR_UNKNOWN,
-            self::OPERATOR_EQUALS,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -266,8 +275,12 @@ class IntegerFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('operator', $data ?? [], null);
-        $this->setIfExists('values', $data ?? [], null);
+        $this->setIfExists('binding_id', $data ?? [], null);
+        $this->setIfExists('display_height', $data ?? [], null);
+        $this->setIfExists('display_width', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('url', $data ?? [], null);
+        $this->setIfExists('vendor_id', $data ?? [], null);
     }
 
     /**
@@ -297,15 +310,6 @@ class IntegerFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getOperatorAllowableValues();
-        if (!is_null($this->container['operator']) && !in_array($this->container['operator'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'operator', must be one of '%s'",
-                $this->container['operator'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -322,79 +326,205 @@ class IntegerFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets operator
+     * Gets binding_id
      *
      * @return string|null
      */
-    public function getOperator()
+    public function getBindingId()
     {
-        return $this->container['operator'];
+        return $this->container['binding_id'];
     }
 
     /**
-     * Sets operator
+     * Sets binding_id
      *
-     * @param string|null $operator Comparison operator for the integer filter
+     * @param string|null $binding_id Unique ID of the ad the rule belongs to. It always names the ad of the request path, so it can be left  out of a write; when it is sent it must match that ad, and a rule naming another one is refused.
      *
      * @return self
      */
-    public function setOperator($operator)
+    public function setBindingId($binding_id)
     {
-        if (is_null($operator)) {
-            array_push($this->openAPINullablesSetToNull, 'operator');
+        if (is_null($binding_id)) {
+            array_push($this->openAPINullablesSetToNull, 'binding_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('operator', $nullablesSetToNull);
+            $index = array_search('binding_id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $allowedValues = $this->getOperatorAllowableValues();
-        if (!is_null($operator) && !in_array($operator, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'operator', must be one of '%s'",
-                    $operator,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['operator'] = $operator;
+        $this->container['binding_id'] = $binding_id;
 
         return $this;
     }
 
     /**
-     * Gets values
+     * Gets display_height
      *
-     * @return int[]|null
+     * @return int|null
      */
-    public function getValues()
+    public function getDisplayHeight()
     {
-        return $this->container['values'];
+        return $this->container['display_height'];
     }
 
     /**
-     * Sets values
+     * Sets display_height
      *
-     * @param int[]|null $values Integer values to compare against
+     * @param int|null $display_height The height in pixels of the display size this rule applies to. Set it together with displayWidth, and  leave both out for a rule that is not specific to a display size.
      *
      * @return self
      */
-    public function setValues($values)
+    public function setDisplayHeight($display_height)
     {
-        if (is_null($values)) {
-            array_push($this->openAPINullablesSetToNull, 'values');
+        if (is_null($display_height)) {
+            array_push($this->openAPINullablesSetToNull, 'display_height');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('values', $nullablesSetToNull);
+            $index = array_search('display_height', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['values'] = $values;
+        $this->container['display_height'] = $display_height;
+
+        return $this;
+    }
+
+    /**
+     * Gets display_width
+     *
+     * @return int|null
+     */
+    public function getDisplayWidth()
+    {
+        return $this->container['display_width'];
+    }
+
+    /**
+     * Sets display_width
+     *
+     * @param int|null $display_width The width in pixels of the display size this rule applies to. Set it together with displayHeight, and  leave both out for a rule that is not specific to a display size.
+     *
+     * @return self
+     */
+    public function setDisplayWidth($display_width)
+    {
+        if (is_null($display_width)) {
+            array_push($this->openAPINullablesSetToNull, 'display_width');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('display_width', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['display_width'] = $display_width;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id Unique ID of the impression tracking rule. Leave it out to create a rule; send back the ID of an  existing rule to update it. Rules of the ad that are absent from a write request are deleted.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string|null
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string|null $url The url called when an impression covered by this rule is served.
+     *
+     * @return self
+     */
+    public function setUrl($url)
+    {
+        if (is_null($url)) {
+            array_push($this->openAPINullablesSetToNull, 'url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets vendor_id
+     *
+     * @return string|null
+     */
+    public function getVendorId()
+    {
+        return $this->container['vendor_id'];
+    }
+
+    /**
+     * Sets vendor_id
+     *
+     * @param string|null $vendor_id Unique ID of the third party vendor the tracking url belongs to.
+     *
+     * @return self
+     */
+    public function setVendorId($vendor_id)
+    {
+        if (is_null($vendor_id)) {
+            array_push($this->openAPINullablesSetToNull, 'vendor_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('vendor_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['vendor_id'] = $vendor_id;
 
         return $this;
     }

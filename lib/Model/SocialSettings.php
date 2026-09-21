@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdateCoupon
+ * SocialSettings
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * UpdateCoupon Class Doc Comment
+ * SocialSettings Class Doc Comment
  *
  * @category Class
- * @description Entity to edit a Coupon
+ * @description Creative-level social metadata for Meta and TikTok placements.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
+class SocialSettings implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'UpdateCoupon';
+    protected static $openAPIModelName = 'SocialSettings';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'end_date' => 'string',
-        'id' => 'string',
-        'start_date' => 'string'
+        'meta' => '\criteo\api\marketingsolutions\preview\Model\CreativeMetaSetting',
+        'tiktok' => '\criteo\api\marketingsolutions\preview\Model\CreativeTikTokSetting'
     ];
 
     /**
@@ -71,9 +70,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'end_date' => null,
-        'id' => null,
-        'start_date' => null
+        'meta' => null,
+        'tiktok' => null
     ];
 
     /**
@@ -82,9 +80,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'end_date' => true,
-		'id' => true,
-		'start_date' => false
+        'meta' => true,
+		'tiktok' => true
     ];
 
     /**
@@ -173,9 +170,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'end_date' => 'endDate',
-        'id' => 'id',
-        'start_date' => 'startDate'
+        'meta' => 'meta',
+        'tiktok' => 'tiktok'
     ];
 
     /**
@@ -184,9 +180,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'end_date' => 'setEndDate',
-        'id' => 'setId',
-        'start_date' => 'setStartDate'
+        'meta' => 'setMeta',
+        'tiktok' => 'setTiktok'
     ];
 
     /**
@@ -195,9 +190,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'end_date' => 'getEndDate',
-        'id' => 'getId',
-        'start_date' => 'getStartDate'
+        'meta' => 'getMeta',
+        'tiktok' => 'getTiktok'
     ];
 
     /**
@@ -257,9 +251,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('end_date', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('start_date', $data ?? [], null);
+        $this->setIfExists('meta', $data ?? [], null);
+        $this->setIfExists('tiktok', $data ?? [], null);
     }
 
     /**
@@ -289,9 +282,6 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['start_date'] === null) {
-            $invalidProperties[] = "'start_date' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -308,96 +298,69 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets end_date
+     * Gets meta
      *
-     * @return string|null
+     * @return \criteo\api\marketingsolutions\preview\Model\CreativeMetaSetting|null
      */
-    public function getEndDate()
+    public function getMeta()
     {
-        return $this->container['end_date'];
+        return $this->container['meta'];
     }
 
     /**
-     * Sets end_date
+     * Sets meta
      *
-     * @param string|null $end_date The date when when we will stop to show this Coupon. If the end date is not specified (i.e. null) then the Coupon will go on forever  String must be in ISO8601 format
+     * @param \criteo\api\marketingsolutions\preview\Model\CreativeMetaSetting|null $meta meta
      *
      * @return self
      */
-    public function setEndDate($end_date)
+    public function setMeta($meta)
     {
-        if (is_null($end_date)) {
-            array_push($this->openAPINullablesSetToNull, 'end_date');
+        if (is_null($meta)) {
+            array_push($this->openAPINullablesSetToNull, 'meta');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('end_date', $nullablesSetToNull);
+            $index = array_search('meta', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['end_date'] = $end_date;
+        $this->container['meta'] = $meta;
 
         return $this;
     }
 
     /**
-     * Gets id
+     * Gets tiktok
      *
-     * @return string|null
+     * @return \criteo\api\marketingsolutions\preview\Model\CreativeTikTokSetting|null
      */
-    public function getId()
+    public function getTiktok()
     {
-        return $this->container['id'];
+        return $this->container['tiktok'];
     }
 
     /**
-     * Sets id
+     * Sets tiktok
      *
-     * @param string|null $id id
+     * @param \criteo\api\marketingsolutions\preview\Model\CreativeTikTokSetting|null $tiktok tiktok
      *
      * @return self
      */
-    public function setId($id)
+    public function setTiktok($tiktok)
     {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
+        if (is_null($tiktok)) {
+            array_push($this->openAPINullablesSetToNull, 'tiktok');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
+            $index = array_search('tiktok', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets start_date
-     *
-     * @return string
-     */
-    public function getStartDate()
-    {
-        return $this->container['start_date'];
-    }
-
-    /**
-     * Sets start_date
-     *
-     * @param string $start_date The date when the Coupon will be launched  String must be in ISO8601 format
-     *
-     * @return self
-     */
-    public function setStartDate($start_date)
-    {
-        if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
-        }
-        $this->container['start_date'] = $start_date;
+        $this->container['tiktok'] = $tiktok;
 
         return $this;
     }

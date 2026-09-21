@@ -1,10 +1,10 @@
-# # Size
+# # IdFilterV1
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**height** | **int** | The height of the creative, in pixels | [optional]
-**width** | **int** | The width of the creative, in pixels | [optional]
+**operator** | **string** | Comparison operator for the id filter | [optional]
+**values** | **string[]** | Identifiers to compare against | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

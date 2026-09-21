@@ -127,6 +127,7 @@ docs/Model/BatchAcceptedResponse.md
 docs/Model/BehavioralV1.md
 docs/Model/BoostedAdProductSet.md
 docs/Model/BoostingConfigurationRequest.md
+docs/Model/BrandingImageInput.md
 docs/Model/BudgetAutomation.md
 docs/Model/BudgetAutomationConfiguration.md
 docs/Model/CampaignBudgetAutomationV23Q1.md
@@ -171,7 +172,9 @@ docs/Model/CreateImageSlide.md
 docs/Model/CreateProductFilterRequest.md
 docs/Model/CreateProductSetRequest.md
 docs/Model/Creative.md
+docs/Model/CreativeMetaSetting.md
 docs/Model/CreativeRead.md
+docs/Model/CreativeTikTokSetting.md
 docs/Model/CreativeWrite.md
 docs/Model/CriteoApiError.md
 docs/Model/CriteoApiWarning.md
@@ -190,6 +193,8 @@ docs/Model/EntityWrapperOfTargetingEntity.md
 docs/Model/ExamAdAudienceSegmentLink.md
 docs/Model/ExamAdAudienceSegmentLinkInput.md
 docs/Model/ExamAdAudienceSegmentLinkWrite.md
+docs/Model/ExamAdClickTracking.md
+docs/Model/ExamAdImpressionTracking.md
 docs/Model/ExportColumn.md
 docs/Model/ExportMetaData.md
 docs/Model/ExportResult.md
@@ -228,6 +233,7 @@ docs/Model/GenerateTopProductsReportRequestAttributesResource.md
 docs/Model/GetPortfolioResponse.md
 docs/Model/HtmlTagAttributes.md
 docs/Model/HtmlTagWriteAttributes.md
+docs/Model/IdFilterV1.md
 docs/Model/ImageAttributes.md
 docs/Model/ImageSet.md
 docs/Model/ImageSetBase64.md
@@ -245,7 +251,6 @@ docs/Model/InMarketSizeEstimationV1.md
 docs/Model/InMarketUpdateV1.md
 docs/Model/InMarketV1.md
 docs/Model/Installment.md
-docs/Model/IntegerFilterV1.md
 docs/Model/JsonReportRows.md
 docs/Model/JsonReportRowsListResponse.md
 docs/Model/JsonReportRowsResource.md
@@ -254,7 +259,7 @@ docs/Model/LocationCreateV1.md
 docs/Model/LocationSizeEstimationV1.md
 docs/Model/LocationUpdateV1.md
 docs/Model/LocationV1.md
-docs/Model/LongFilterV1.md
+docs/Model/LogoInput.md
 docs/Model/LookalikeCreateV1.md
 docs/Model/LookalikeUpdateV1.md
 docs/Model/LookalikeV1.md
@@ -392,7 +397,15 @@ docs/Model/SetAdSetTargetingDealIdsResource.md
 docs/Model/SetAdSetTargetingVideoPositioning.md
 docs/Model/SetAdSetTargetingVideoPositioningRequest.md
 docs/Model/SetAdSetTargetingVideoPositioningResource.md
+docs/Model/ShowcaseAttributes.md
+docs/Model/ShowcaseBrandingImage.md
+docs/Model/ShowcaseColors.md
+docs/Model/ShowcaseLogo.md
+docs/Model/ShowcaseMetaSetting.md
+docs/Model/ShowcasePriceSettings.md
+docs/Model/ShowcaseWriteAttributes.md
 docs/Model/Size.md
+docs/Model/SocialSettings.md
 docs/Model/StatisticsOkResponse.md
 docs/Model/StatisticsRecord.md
 docs/Model/StatisticsRecordList.md
@@ -429,6 +442,8 @@ docs/Model/ValueResourceOfProductFilterConfig.md
 docs/Model/ValueResourceOutcomeOfBoostedAdProductSet.md
 docs/Model/ValueResourceOutcomeOfExamAdAudienceSegmentLink.md
 docs/Model/ValueResourceOutcomeOfProductFilterConfig.md
+docs/Model/VastTagAttributes.md
+docs/Model/VastTagWriteAttributes.md
 docs/Model/VideoDetail.md
 docs/Model/WriteModelAdSetId.md
 docs/Model/WriteModelPatchAdSetV26Q1.md
@@ -561,6 +576,7 @@ lib/Model/BatchAcceptedResponse.php
 lib/Model/BehavioralV1.php
 lib/Model/BoostedAdProductSet.php
 lib/Model/BoostingConfigurationRequest.php
+lib/Model/BrandingImageInput.php
 lib/Model/BudgetAutomation.php
 lib/Model/BudgetAutomationConfiguration.php
 lib/Model/CampaignBudgetAutomationV23Q1.php
@@ -605,7 +621,9 @@ lib/Model/CreateImageSlide.php
 lib/Model/CreateProductFilterRequest.php
 lib/Model/CreateProductSetRequest.php
 lib/Model/Creative.php
+lib/Model/CreativeMetaSetting.php
 lib/Model/CreativeRead.php
+lib/Model/CreativeTikTokSetting.php
 lib/Model/CreativeWrite.php
 lib/Model/CriteoApiError.php
 lib/Model/CriteoApiWarning.php
@@ -624,6 +642,8 @@ lib/Model/EntityWrapperOfTargetingEntity.php
 lib/Model/ExamAdAudienceSegmentLink.php
 lib/Model/ExamAdAudienceSegmentLinkInput.php
 lib/Model/ExamAdAudienceSegmentLinkWrite.php
+lib/Model/ExamAdClickTracking.php
+lib/Model/ExamAdImpressionTracking.php
 lib/Model/ExportColumn.php
 lib/Model/ExportMetaData.php
 lib/Model/ExportResult.php
@@ -662,6 +682,7 @@ lib/Model/GenerateTopProductsReportRequestAttributesResource.php
 lib/Model/GetPortfolioResponse.php
 lib/Model/HtmlTagAttributes.php
 lib/Model/HtmlTagWriteAttributes.php
+lib/Model/IdFilterV1.php
 lib/Model/ImageAttributes.php
 lib/Model/ImageSet.php
 lib/Model/ImageSetBase64.php
@@ -679,7 +700,6 @@ lib/Model/InMarketSizeEstimationV1.php
 lib/Model/InMarketUpdateV1.php
 lib/Model/InMarketV1.php
 lib/Model/Installment.php
-lib/Model/IntegerFilterV1.php
 lib/Model/JsonReportRows.php
 lib/Model/JsonReportRowsListResponse.php
 lib/Model/JsonReportRowsResource.php
@@ -688,7 +708,7 @@ lib/Model/LocationCreateV1.php
 lib/Model/LocationSizeEstimationV1.php
 lib/Model/LocationUpdateV1.php
 lib/Model/LocationV1.php
-lib/Model/LongFilterV1.php
+lib/Model/LogoInput.php
 lib/Model/LookalikeCreateV1.php
 lib/Model/LookalikeUpdateV1.php
 lib/Model/LookalikeV1.php
@@ -827,7 +847,15 @@ lib/Model/SetAdSetTargetingDealIdsResource.php
 lib/Model/SetAdSetTargetingVideoPositioning.php
 lib/Model/SetAdSetTargetingVideoPositioningRequest.php
 lib/Model/SetAdSetTargetingVideoPositioningResource.php
+lib/Model/ShowcaseAttributes.php
+lib/Model/ShowcaseBrandingImage.php
+lib/Model/ShowcaseColors.php
+lib/Model/ShowcaseLogo.php
+lib/Model/ShowcaseMetaSetting.php
+lib/Model/ShowcasePriceSettings.php
+lib/Model/ShowcaseWriteAttributes.php
 lib/Model/Size.php
+lib/Model/SocialSettings.php
 lib/Model/StatisticsOkResponse.php
 lib/Model/StatisticsRecord.php
 lib/Model/StatisticsRecordList.php
@@ -864,6 +892,8 @@ lib/Model/ValueResourceOfProductFilterConfig.php
 lib/Model/ValueResourceOutcomeOfBoostedAdProductSet.php
 lib/Model/ValueResourceOutcomeOfExamAdAudienceSegmentLink.php
 lib/Model/ValueResourceOutcomeOfProductFilterConfig.php
+lib/Model/VastTagAttributes.php
+lib/Model/VastTagWriteAttributes.php
 lib/Model/VideoDetail.php
 lib/Model/WriteModelAdSetId.php
 lib/Model/WriteModelPatchAdSetV26Q1.php

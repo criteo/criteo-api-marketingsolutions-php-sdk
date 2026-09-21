@@ -58,10 +58,13 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'ad_click_tracking' => '\criteo\api\marketingsolutions\preview\Model\ExamAdClickTracking[]',
+        'ad_impression_tracking' => '\criteo\api\marketingsolutions\preview\Model\ExamAdImpressionTracking[]',
         'ad_set_id' => 'string',
         'creative_id' => 'string',
         'description' => 'string',
         'end_date' => 'string',
+        'id' => 'string',
         'inventory_type' => 'string',
         'name' => 'string',
         'start_date' => 'string'
@@ -75,10 +78,13 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'ad_click_tracking' => null,
+        'ad_impression_tracking' => null,
         'ad_set_id' => null,
         'creative_id' => null,
         'description' => null,
         'end_date' => null,
+        'id' => null,
         'inventory_type' => null,
         'name' => null,
         'start_date' => null
@@ -90,10 +96,13 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'ad_set_id' => false,
+        'ad_click_tracking' => true,
+		'ad_impression_tracking' => true,
+		'ad_set_id' => false,
 		'creative_id' => false,
 		'description' => true,
 		'end_date' => true,
+		'id' => true,
 		'inventory_type' => true,
 		'name' => false,
 		'start_date' => false
@@ -185,10 +194,13 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'ad_click_tracking' => 'adClickTracking',
+        'ad_impression_tracking' => 'adImpressionTracking',
         'ad_set_id' => 'adSetId',
         'creative_id' => 'creativeId',
         'description' => 'description',
         'end_date' => 'endDate',
+        'id' => 'id',
         'inventory_type' => 'inventoryType',
         'name' => 'name',
         'start_date' => 'startDate'
@@ -200,10 +212,13 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'ad_click_tracking' => 'setAdClickTracking',
+        'ad_impression_tracking' => 'setAdImpressionTracking',
         'ad_set_id' => 'setAdSetId',
         'creative_id' => 'setCreativeId',
         'description' => 'setDescription',
         'end_date' => 'setEndDate',
+        'id' => 'setId',
         'inventory_type' => 'setInventoryType',
         'name' => 'setName',
         'start_date' => 'setStartDate'
@@ -215,10 +230,13 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'ad_click_tracking' => 'getAdClickTracking',
+        'ad_impression_tracking' => 'getAdImpressionTracking',
         'ad_set_id' => 'getAdSetId',
         'creative_id' => 'getCreativeId',
         'description' => 'getDescription',
         'end_date' => 'getEndDate',
+        'id' => 'getId',
         'inventory_type' => 'getInventoryType',
         'name' => 'getName',
         'start_date' => 'getStartDate'
@@ -265,8 +283,10 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const INVENTORY_TYPE_DISPLAY = 'Display';
     public const INVENTORY_TYPE_NATIVE = 'Native';
+    public const INVENTORY_TYPE_DISPLAY = 'Display';
+    public const INVENTORY_TYPE_VIDEO = 'Video';
+    public const INVENTORY_TYPE_META = 'Meta';
 
     /**
      * Gets allowable values of the enum
@@ -276,8 +296,10 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     public function getInventoryTypeAllowableValues()
     {
         return [
-            self::INVENTORY_TYPE_DISPLAY,
             self::INVENTORY_TYPE_NATIVE,
+            self::INVENTORY_TYPE_DISPLAY,
+            self::INVENTORY_TYPE_VIDEO,
+            self::INVENTORY_TYPE_META,
         ];
     }
 
@@ -296,10 +318,13 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('ad_click_tracking', $data ?? [], null);
+        $this->setIfExists('ad_impression_tracking', $data ?? [], null);
         $this->setIfExists('ad_set_id', $data ?? [], null);
         $this->setIfExists('creative_id', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('end_date', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('inventory_type', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('start_date', $data ?? [], null);
@@ -367,6 +392,74 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets ad_click_tracking
+     *
+     * @return \criteo\api\marketingsolutions\preview\Model\ExamAdClickTracking[]|null
+     */
+    public function getAdClickTracking()
+    {
+        return $this->container['ad_click_tracking'];
+    }
+
+    /**
+     * Sets ad_click_tracking
+     *
+     * @param \criteo\api\marketingsolutions\preview\Model\ExamAdClickTracking[]|null $ad_click_tracking Optional ad-level click tracking configuration.
+     *
+     * @return self
+     */
+    public function setAdClickTracking($ad_click_tracking)
+    {
+        if (is_null($ad_click_tracking)) {
+            array_push($this->openAPINullablesSetToNull, 'ad_click_tracking');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ad_click_tracking', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['ad_click_tracking'] = $ad_click_tracking;
+
+        return $this;
+    }
+
+    /**
+     * Gets ad_impression_tracking
+     *
+     * @return \criteo\api\marketingsolutions\preview\Model\ExamAdImpressionTracking[]|null
+     */
+    public function getAdImpressionTracking()
+    {
+        return $this->container['ad_impression_tracking'];
+    }
+
+    /**
+     * Sets ad_impression_tracking
+     *
+     * @param \criteo\api\marketingsolutions\preview\Model\ExamAdImpressionTracking[]|null $ad_impression_tracking Optional ad-level impression tracking configuration.
+     *
+     * @return self
+     */
+    public function setAdImpressionTracking($ad_impression_tracking)
+    {
+        if (is_null($ad_impression_tracking)) {
+            array_push($this->openAPINullablesSetToNull, 'ad_impression_tracking');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ad_impression_tracking', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['ad_impression_tracking'] = $ad_impression_tracking;
+
+        return $this;
+    }
 
     /**
      * Gets ad_set_id
@@ -491,6 +584,40 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
      * Gets inventory_type
      *
      * @return string|null
@@ -503,7 +630,7 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets inventory_type
      *
-     * @param string|null $inventory_type The inventory the Ad to be created or updated belongs to. Possible values are \"Display\" and \"Native\". This is optional since this doesn't make sense for every creative type but will throw an error if not set for a dynamic creative.
+     * @param string|null $inventory_type The inventory the Ad to be created or updated belongs to. Possible values are \"Display\", \"Native\",  \"Video\" and \"Meta\". This is optional since it doesn't make sense for every creative type: it is inferred  from the creative for a video creative, and an error is returned if it is not set for a dynamic creative.  \"Meta\" additionally requires the target ad set to be linked to Meta.
      *
      * @return self
      */

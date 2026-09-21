@@ -1,6 +1,6 @@
 <?php
 /**
- * Ad
+ * ExamAdClickTracking
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * Ad Class Doc Comment
+ * ExamAdClickTracking Class Doc Comment
  *
  * @category Class
- * @description An ad is the binding that connects a creative with an ad set
+ * @description An ad-level click tracking rule. A rule wraps the landing url of the clicks it covers with a prefix and a  suffix. It applies either to the whole ad (neither clickZone nor a display size set), to one banner zone  (clickZone set), or to one display size (displayWidth and displayHeight both set).
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
+class ExamAdClickTracking implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Ad';
+    protected static $openAPIModelName = 'ExamAdClickTracking';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,17 +58,16 @@ class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'ad_click_tracking' => '\criteo\api\marketingsolutions\preview\Model\ExamAdClickTracking[]',
-        'ad_delivery_status' => 'string',
-        'ad_impression_tracking' => '\criteo\api\marketingsolutions\preview\Model\ExamAdImpressionTracking[]',
-        'ad_set_id' => 'string',
-        'creative_id' => 'string',
-        'description' => 'string',
-        'end_date' => 'string',
+        'binding_id' => 'string',
+        'click_zone' => 'string',
+        'disable_for_coupons' => 'bool',
+        'disable_landing_url_encode' => 'bool',
+        'disable_macro_url_encode' => 'bool',
+        'display_height' => 'int',
+        'display_width' => 'int',
         'id' => 'string',
-        'inventory_type' => 'string',
-        'name' => 'string',
-        'start_date' => 'string'
+        'url_prefix' => 'string',
+        'url_suffix' => 'string'
     ];
 
     /**
@@ -79,17 +78,16 @@ class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'ad_click_tracking' => null,
-        'ad_delivery_status' => null,
-        'ad_impression_tracking' => null,
-        'ad_set_id' => null,
-        'creative_id' => null,
-        'description' => null,
-        'end_date' => null,
+        'binding_id' => null,
+        'click_zone' => null,
+        'disable_for_coupons' => null,
+        'disable_landing_url_encode' => null,
+        'disable_macro_url_encode' => null,
+        'display_height' => 'int32',
+        'display_width' => 'int32',
         'id' => null,
-        'inventory_type' => null,
-        'name' => null,
-        'start_date' => null
+        'url_prefix' => null,
+        'url_suffix' => null
     ];
 
     /**
@@ -98,17 +96,16 @@ class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'ad_click_tracking' => true,
-		'ad_delivery_status' => true,
-		'ad_impression_tracking' => true,
-		'ad_set_id' => true,
-		'creative_id' => true,
-		'description' => true,
-		'end_date' => true,
+        'binding_id' => true,
+		'click_zone' => true,
+		'disable_for_coupons' => true,
+		'disable_landing_url_encode' => true,
+		'disable_macro_url_encode' => true,
+		'display_height' => true,
+		'display_width' => true,
 		'id' => true,
-		'inventory_type' => true,
-		'name' => true,
-		'start_date' => true
+		'url_prefix' => true,
+		'url_suffix' => true
     ];
 
     /**
@@ -197,17 +194,16 @@ class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'ad_click_tracking' => 'adClickTracking',
-        'ad_delivery_status' => 'adDeliveryStatus',
-        'ad_impression_tracking' => 'adImpressionTracking',
-        'ad_set_id' => 'adSetId',
-        'creative_id' => 'creativeId',
-        'description' => 'description',
-        'end_date' => 'endDate',
+        'binding_id' => 'bindingId',
+        'click_zone' => 'clickZone',
+        'disable_for_coupons' => 'disableForCoupons',
+        'disable_landing_url_encode' => 'disableLandingUrlEncode',
+        'disable_macro_url_encode' => 'disableMacroUrlEncode',
+        'display_height' => 'displayHeight',
+        'display_width' => 'displayWidth',
         'id' => 'id',
-        'inventory_type' => 'inventoryType',
-        'name' => 'name',
-        'start_date' => 'startDate'
+        'url_prefix' => 'urlPrefix',
+        'url_suffix' => 'urlSuffix'
     ];
 
     /**
@@ -216,17 +212,16 @@ class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'ad_click_tracking' => 'setAdClickTracking',
-        'ad_delivery_status' => 'setAdDeliveryStatus',
-        'ad_impression_tracking' => 'setAdImpressionTracking',
-        'ad_set_id' => 'setAdSetId',
-        'creative_id' => 'setCreativeId',
-        'description' => 'setDescription',
-        'end_date' => 'setEndDate',
+        'binding_id' => 'setBindingId',
+        'click_zone' => 'setClickZone',
+        'disable_for_coupons' => 'setDisableForCoupons',
+        'disable_landing_url_encode' => 'setDisableLandingUrlEncode',
+        'disable_macro_url_encode' => 'setDisableMacroUrlEncode',
+        'display_height' => 'setDisplayHeight',
+        'display_width' => 'setDisplayWidth',
         'id' => 'setId',
-        'inventory_type' => 'setInventoryType',
-        'name' => 'setName',
-        'start_date' => 'setStartDate'
+        'url_prefix' => 'setUrlPrefix',
+        'url_suffix' => 'setUrlSuffix'
     ];
 
     /**
@@ -235,17 +230,16 @@ class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'ad_click_tracking' => 'getAdClickTracking',
-        'ad_delivery_status' => 'getAdDeliveryStatus',
-        'ad_impression_tracking' => 'getAdImpressionTracking',
-        'ad_set_id' => 'getAdSetId',
-        'creative_id' => 'getCreativeId',
-        'description' => 'getDescription',
-        'end_date' => 'getEndDate',
+        'binding_id' => 'getBindingId',
+        'click_zone' => 'getClickZone',
+        'disable_for_coupons' => 'getDisableForCoupons',
+        'disable_landing_url_encode' => 'getDisableLandingUrlEncode',
+        'disable_macro_url_encode' => 'getDisableMacroUrlEncode',
+        'display_height' => 'getDisplayHeight',
+        'display_width' => 'getDisplayWidth',
         'id' => 'getId',
-        'inventory_type' => 'getInventoryType',
-        'name' => 'getName',
-        'start_date' => 'getStartDate'
+        'url_prefix' => 'getUrlPrefix',
+        'url_suffix' => 'getUrlSuffix'
     ];
 
     /**
@@ -289,38 +283,33 @@ class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const AD_DELIVERY_STATUS_LIVE = 'Live';
-    public const AD_DELIVERY_STATUS_PAUSED = 'Paused';
-    public const INVENTORY_TYPE_NATIVE = 'Native';
-    public const INVENTORY_TYPE_DISPLAY = 'Display';
-    public const INVENTORY_TYPE_VIDEO = 'Video';
-    public const INVENTORY_TYPE_META = 'Meta';
+    public const CLICK_ZONE_UNKNOWN = 'Unknown';
+    public const CLICK_ZONE_APP_INSTALL = 'AppInstall';
+    public const CLICK_ZONE_COUPON = 'Coupon';
+    public const CLICK_ZONE_LOGO = 'Logo';
+    public const CLICK_ZONE_MAIN = 'Main';
+    public const CLICK_ZONE_PRODUCT = 'Product';
+    public const CLICK_ZONE_STORE = 'Store';
+    public const CLICK_ZONE_VIDEO = 'Video';
+    public const CLICK_ZONE_BRANDING_IMAGE = 'BrandingImage';
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getAdDeliveryStatusAllowableValues()
+    public function getClickZoneAllowableValues()
     {
         return [
-            self::AD_DELIVERY_STATUS_LIVE,
-            self::AD_DELIVERY_STATUS_PAUSED,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getInventoryTypeAllowableValues()
-    {
-        return [
-            self::INVENTORY_TYPE_NATIVE,
-            self::INVENTORY_TYPE_DISPLAY,
-            self::INVENTORY_TYPE_VIDEO,
-            self::INVENTORY_TYPE_META,
+            self::CLICK_ZONE_UNKNOWN,
+            self::CLICK_ZONE_APP_INSTALL,
+            self::CLICK_ZONE_COUPON,
+            self::CLICK_ZONE_LOGO,
+            self::CLICK_ZONE_MAIN,
+            self::CLICK_ZONE_PRODUCT,
+            self::CLICK_ZONE_STORE,
+            self::CLICK_ZONE_VIDEO,
+            self::CLICK_ZONE_BRANDING_IMAGE,
         ];
     }
 
@@ -339,17 +328,16 @@ class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('ad_click_tracking', $data ?? [], null);
-        $this->setIfExists('ad_delivery_status', $data ?? [], null);
-        $this->setIfExists('ad_impression_tracking', $data ?? [], null);
-        $this->setIfExists('ad_set_id', $data ?? [], null);
-        $this->setIfExists('creative_id', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('end_date', $data ?? [], null);
+        $this->setIfExists('binding_id', $data ?? [], null);
+        $this->setIfExists('click_zone', $data ?? [], null);
+        $this->setIfExists('disable_for_coupons', $data ?? [], null);
+        $this->setIfExists('disable_landing_url_encode', $data ?? [], null);
+        $this->setIfExists('disable_macro_url_encode', $data ?? [], null);
+        $this->setIfExists('display_height', $data ?? [], null);
+        $this->setIfExists('display_width', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('inventory_type', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('start_date', $data ?? [], null);
+        $this->setIfExists('url_prefix', $data ?? [], null);
+        $this->setIfExists('url_suffix', $data ?? [], null);
     }
 
     /**
@@ -379,20 +367,11 @@ class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getAdDeliveryStatusAllowableValues();
-        if (!is_null($this->container['ad_delivery_status']) && !in_array($this->container['ad_delivery_status'], $allowedValues, true)) {
+        $allowedValues = $this->getClickZoneAllowableValues();
+        if (!is_null($this->container['click_zone']) && !in_array($this->container['click_zone'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'ad_delivery_status', must be one of '%s'",
-                $this->container['ad_delivery_status'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getInventoryTypeAllowableValues();
-        if (!is_null($this->container['inventory_type']) && !in_array($this->container['inventory_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'inventory_type', must be one of '%s'",
-                $this->container['inventory_type'],
+                "invalid value '%s' for 'click_zone', must be one of '%s'",
+                $this->container['click_zone'],
                 implode("', '", $allowedValues)
             );
         }
@@ -413,249 +392,249 @@ class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets ad_click_tracking
+     * Gets binding_id
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\ExamAdClickTracking[]|null
+     * @return string|null
      */
-    public function getAdClickTracking()
+    public function getBindingId()
     {
-        return $this->container['ad_click_tracking'];
+        return $this->container['binding_id'];
     }
 
     /**
-     * Sets ad_click_tracking
+     * Sets binding_id
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\ExamAdClickTracking[]|null $ad_click_tracking Optional ad-level click tracking configuration.
+     * @param string|null $binding_id Unique ID of the ad the rule belongs to. It always names the ad of the request path, so it can be left  out of a write; when it is sent it must match that ad, and a rule naming another one is refused.
      *
      * @return self
      */
-    public function setAdClickTracking($ad_click_tracking)
+    public function setBindingId($binding_id)
     {
-        if (is_null($ad_click_tracking)) {
-            array_push($this->openAPINullablesSetToNull, 'ad_click_tracking');
+        if (is_null($binding_id)) {
+            array_push($this->openAPINullablesSetToNull, 'binding_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('ad_click_tracking', $nullablesSetToNull);
+            $index = array_search('binding_id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['ad_click_tracking'] = $ad_click_tracking;
+        $this->container['binding_id'] = $binding_id;
 
         return $this;
     }
 
     /**
-     * Gets ad_delivery_status
+     * Gets click_zone
      *
      * @return string|null
      */
-    public function getAdDeliveryStatus()
+    public function getClickZone()
     {
-        return $this->container['ad_delivery_status'];
+        return $this->container['click_zone'];
     }
 
     /**
-     * Sets ad_delivery_status
+     * Sets click_zone
      *
-     * @param string|null $ad_delivery_status The delivery status of the ad. Possible values are \"Live\" and \"Paused\". This is read-only: use the  dedicated pause and unpause operations to change it.
+     * @param string|null $click_zone The banner zone this rule applies to. Leave it out for a rule that is not specific to a zone.  Possible values are \"AppInstall\", \"Coupon\", \"Logo\", \"Main\", \"Product\", \"Store\", \"Video\" and  \"BrandingImage\".
      *
      * @return self
      */
-    public function setAdDeliveryStatus($ad_delivery_status)
+    public function setClickZone($click_zone)
     {
-        if (is_null($ad_delivery_status)) {
-            array_push($this->openAPINullablesSetToNull, 'ad_delivery_status');
+        if (is_null($click_zone)) {
+            array_push($this->openAPINullablesSetToNull, 'click_zone');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('ad_delivery_status', $nullablesSetToNull);
+            $index = array_search('click_zone', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $allowedValues = $this->getAdDeliveryStatusAllowableValues();
-        if (!is_null($ad_delivery_status) && !in_array($ad_delivery_status, $allowedValues, true)) {
+        $allowedValues = $this->getClickZoneAllowableValues();
+        if (!is_null($click_zone) && !in_array($click_zone, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'ad_delivery_status', must be one of '%s'",
-                    $ad_delivery_status,
+                    "Invalid value '%s' for 'click_zone', must be one of '%s'",
+                    $click_zone,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['ad_delivery_status'] = $ad_delivery_status;
+        $this->container['click_zone'] = $click_zone;
 
         return $this;
     }
 
     /**
-     * Gets ad_impression_tracking
+     * Gets disable_for_coupons
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\ExamAdImpressionTracking[]|null
+     * @return bool|null
      */
-    public function getAdImpressionTracking()
+    public function getDisableForCoupons()
     {
-        return $this->container['ad_impression_tracking'];
+        return $this->container['disable_for_coupons'];
     }
 
     /**
-     * Sets ad_impression_tracking
+     * Sets disable_for_coupons
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\ExamAdImpressionTracking[]|null $ad_impression_tracking Optional ad-level impression tracking configuration.
+     * @param bool|null $disable_for_coupons Whether this rule is skipped for clicks on coupons.
      *
      * @return self
      */
-    public function setAdImpressionTracking($ad_impression_tracking)
+    public function setDisableForCoupons($disable_for_coupons)
     {
-        if (is_null($ad_impression_tracking)) {
-            array_push($this->openAPINullablesSetToNull, 'ad_impression_tracking');
+        if (is_null($disable_for_coupons)) {
+            array_push($this->openAPINullablesSetToNull, 'disable_for_coupons');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('ad_impression_tracking', $nullablesSetToNull);
+            $index = array_search('disable_for_coupons', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['ad_impression_tracking'] = $ad_impression_tracking;
+        $this->container['disable_for_coupons'] = $disable_for_coupons;
 
         return $this;
     }
 
     /**
-     * Gets ad_set_id
+     * Gets disable_landing_url_encode
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getAdSetId()
+    public function getDisableLandingUrlEncode()
     {
-        return $this->container['ad_set_id'];
+        return $this->container['disable_landing_url_encode'];
     }
 
     /**
-     * Sets ad_set_id
+     * Sets disable_landing_url_encode
      *
-     * @param string|null $ad_set_id The id of the Ad Set binded to this Ad
+     * @param bool|null $disable_landing_url_encode Whether the landing url is left unencoded when it is substituted into the tracking url.
      *
      * @return self
      */
-    public function setAdSetId($ad_set_id)
+    public function setDisableLandingUrlEncode($disable_landing_url_encode)
     {
-        if (is_null($ad_set_id)) {
-            array_push($this->openAPINullablesSetToNull, 'ad_set_id');
+        if (is_null($disable_landing_url_encode)) {
+            array_push($this->openAPINullablesSetToNull, 'disable_landing_url_encode');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('ad_set_id', $nullablesSetToNull);
+            $index = array_search('disable_landing_url_encode', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['ad_set_id'] = $ad_set_id;
+        $this->container['disable_landing_url_encode'] = $disable_landing_url_encode;
 
         return $this;
     }
 
     /**
-     * Gets creative_id
+     * Gets disable_macro_url_encode
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getCreativeId()
+    public function getDisableMacroUrlEncode()
     {
-        return $this->container['creative_id'];
+        return $this->container['disable_macro_url_encode'];
     }
 
     /**
-     * Sets creative_id
+     * Sets disable_macro_url_encode
      *
-     * @param string|null $creative_id The id of the Creative binded to this Ad
+     * @param bool|null $disable_macro_url_encode Whether url macros are left unencoded when they are substituted into the tracking url.
      *
      * @return self
      */
-    public function setCreativeId($creative_id)
+    public function setDisableMacroUrlEncode($disable_macro_url_encode)
     {
-        if (is_null($creative_id)) {
-            array_push($this->openAPINullablesSetToNull, 'creative_id');
+        if (is_null($disable_macro_url_encode)) {
+            array_push($this->openAPINullablesSetToNull, 'disable_macro_url_encode');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('creative_id', $nullablesSetToNull);
+            $index = array_search('disable_macro_url_encode', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['creative_id'] = $creative_id;
+        $this->container['disable_macro_url_encode'] = $disable_macro_url_encode;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets display_height
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getDescription()
+    public function getDisplayHeight()
     {
-        return $this->container['description'];
+        return $this->container['display_height'];
     }
 
     /**
-     * Sets description
+     * Sets display_height
      *
-     * @param string|null $description The description of the ad
+     * @param int|null $display_height The height in pixels of the display size this rule applies to. Set it together with displayWidth, and  leave both out for a rule that is not specific to a display size.
      *
      * @return self
      */
-    public function setDescription($description)
+    public function setDisplayHeight($display_height)
     {
-        if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
+        if (is_null($display_height)) {
+            array_push($this->openAPINullablesSetToNull, 'display_height');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
+            $index = array_search('display_height', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['description'] = $description;
+        $this->container['display_height'] = $display_height;
 
         return $this;
     }
 
     /**
-     * Gets end_date
+     * Gets display_width
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getEndDate()
+    public function getDisplayWidth()
     {
-        return $this->container['end_date'];
+        return $this->container['display_width'];
     }
 
     /**
-     * Sets end_date
+     * Sets display_width
      *
-     * @param string|null $end_date The date when when we will stop to show this ad. If the end date is not specified (i.e. null) then the ad will go on forever  String must be in ISO8601 format
+     * @param int|null $display_width The width in pixels of the display size this rule applies to. Set it together with displayHeight, and  leave both out for a rule that is not specific to a display size.
      *
      * @return self
      */
-    public function setEndDate($end_date)
+    public function setDisplayWidth($display_width)
     {
-        if (is_null($end_date)) {
-            array_push($this->openAPINullablesSetToNull, 'end_date');
+        if (is_null($display_width)) {
+            array_push($this->openAPINullablesSetToNull, 'display_width');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('end_date', $nullablesSetToNull);
+            $index = array_search('display_width', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['end_date'] = $end_date;
+        $this->container['display_width'] = $display_width;
 
         return $this;
     }
@@ -673,7 +652,7 @@ class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param string|null $id Unique ID of the click tracking rule. Leave it out to create a rule; send back the ID of an existing  rule to update it. Rules of the ad that are absent from a write request are deleted.
      *
      * @return self
      */
@@ -695,113 +674,69 @@ class Ad implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets inventory_type
+     * Gets url_prefix
      *
      * @return string|null
      */
-    public function getInventoryType()
+    public function getUrlPrefix()
     {
-        return $this->container['inventory_type'];
+        return $this->container['url_prefix'];
     }
 
     /**
-     * Sets inventory_type
+     * Sets url_prefix
      *
-     * @param string|null $inventory_type The inventory the Ad belongs to. Possible values are \"Display\", \"Native\", \"Video\" and \"Meta\". This is  optional since it doesn't make sense for every creative type: it is inferred from the creative for a  video creative, and an error is returned if it is not set for a dynamic creative.
+     * @param string|null $url_prefix The url prepended to the landing url of the clicks this rule covers.
      *
      * @return self
      */
-    public function setInventoryType($inventory_type)
+    public function setUrlPrefix($url_prefix)
     {
-        if (is_null($inventory_type)) {
-            array_push($this->openAPINullablesSetToNull, 'inventory_type');
+        if (is_null($url_prefix)) {
+            array_push($this->openAPINullablesSetToNull, 'url_prefix');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('inventory_type', $nullablesSetToNull);
+            $index = array_search('url_prefix', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $allowedValues = $this->getInventoryTypeAllowableValues();
-        if (!is_null($inventory_type) && !in_array($inventory_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'inventory_type', must be one of '%s'",
-                    $inventory_type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['inventory_type'] = $inventory_type;
+        $this->container['url_prefix'] = $url_prefix;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets url_suffix
      *
      * @return string|null
      */
-    public function getName()
+    public function getUrlSuffix()
     {
-        return $this->container['name'];
+        return $this->container['url_suffix'];
     }
 
     /**
-     * Sets name
+     * Sets url_suffix
      *
-     * @param string|null $name The name of the ad
+     * @param string|null $url_suffix The url appended to the landing url of the clicks this rule covers.
      *
      * @return self
      */
-    public function setName($name)
+    public function setUrlSuffix($url_suffix)
     {
-        if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
+        if (is_null($url_suffix)) {
+            array_push($this->openAPINullablesSetToNull, 'url_suffix');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
+            $index = array_search('url_suffix', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets start_date
-     *
-     * @return string|null
-     */
-    public function getStartDate()
-    {
-        return $this->container['start_date'];
-    }
-
-    /**
-     * Sets start_date
-     *
-     * @param string|null $start_date The date when the ad will be launched  String must be in ISO8601 format
-     *
-     * @return self
-     */
-    public function setStartDate($start_date)
-    {
-        if (is_null($start_date)) {
-            array_push($this->openAPINullablesSetToNull, 'start_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('start_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['start_date'] = $start_date;
+        $this->container['url_suffix'] = $url_suffix;
 
         return $this;
     }

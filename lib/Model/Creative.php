@@ -69,7 +69,10 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'string',
         'image_attributes' => '\criteo\api\marketingsolutions\preview\Model\ImageAttributes',
         'name' => 'string',
-        'status' => 'string'
+        'showcase_attributes' => '\criteo\api\marketingsolutions\preview\Model\ShowcaseAttributes',
+        'social_settings' => '\criteo\api\marketingsolutions\preview\Model\SocialSettings',
+        'status' => 'string',
+        'vast_tag_attributes' => '\criteo\api\marketingsolutions\preview\Model\VastTagAttributes'
     ];
 
     /**
@@ -91,7 +94,10 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => null,
         'image_attributes' => null,
         'name' => null,
-        'status' => null
+        'showcase_attributes' => null,
+        'social_settings' => null,
+        'status' => null,
+        'vast_tag_attributes' => null
     ];
 
     /**
@@ -111,7 +117,10 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
 		'id' => true,
 		'image_attributes' => true,
 		'name' => false,
-		'status' => false
+		'showcase_attributes' => true,
+		'social_settings' => true,
+		'status' => false,
+		'vast_tag_attributes' => true
     ];
 
     /**
@@ -211,7 +220,10 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'id',
         'image_attributes' => 'imageAttributes',
         'name' => 'name',
-        'status' => 'status'
+        'showcase_attributes' => 'showcaseAttributes',
+        'social_settings' => 'socialSettings',
+        'status' => 'status',
+        'vast_tag_attributes' => 'vastTagAttributes'
     ];
 
     /**
@@ -231,7 +243,10 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'setId',
         'image_attributes' => 'setImageAttributes',
         'name' => 'setName',
-        'status' => 'setStatus'
+        'showcase_attributes' => 'setShowcaseAttributes',
+        'social_settings' => 'setSocialSettings',
+        'status' => 'setStatus',
+        'vast_tag_attributes' => 'setVastTagAttributes'
     ];
 
     /**
@@ -251,7 +266,10 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'getId',
         'image_attributes' => 'getImageAttributes',
         'name' => 'getName',
-        'status' => 'getStatus'
+        'showcase_attributes' => 'getShowcaseAttributes',
+        'social_settings' => 'getSocialSettings',
+        'status' => 'getStatus',
+        'vast_tag_attributes' => 'getVastTagAttributes'
     ];
 
     /**
@@ -322,7 +340,10 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('image_attributes', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('showcase_attributes', $data ?? [], null);
+        $this->setIfExists('social_settings', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('vast_tag_attributes', $data ?? [], null);
     }
 
     /**
@@ -733,6 +754,74 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets showcase_attributes
+     *
+     * @return \criteo\api\marketingsolutions\preview\Model\ShowcaseAttributes|null
+     */
+    public function getShowcaseAttributes()
+    {
+        return $this->container['showcase_attributes'];
+    }
+
+    /**
+     * Sets showcase_attributes
+     *
+     * @param \criteo\api\marketingsolutions\preview\Model\ShowcaseAttributes|null $showcase_attributes showcase_attributes
+     *
+     * @return self
+     */
+    public function setShowcaseAttributes($showcase_attributes)
+    {
+        if (is_null($showcase_attributes)) {
+            array_push($this->openAPINullablesSetToNull, 'showcase_attributes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('showcase_attributes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['showcase_attributes'] = $showcase_attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets social_settings
+     *
+     * @return \criteo\api\marketingsolutions\preview\Model\SocialSettings|null
+     */
+    public function getSocialSettings()
+    {
+        return $this->container['social_settings'];
+    }
+
+    /**
+     * Sets social_settings
+     *
+     * @param \criteo\api\marketingsolutions\preview\Model\SocialSettings|null $social_settings social_settings
+     *
+     * @return self
+     */
+    public function setSocialSettings($social_settings)
+    {
+        if (is_null($social_settings)) {
+            array_push($this->openAPINullablesSetToNull, 'social_settings');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('social_settings', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['social_settings'] = $social_settings;
+
+        return $this;
+    }
+
+    /**
      * Gets status
      *
      * @return string
@@ -755,6 +844,40 @@ class Creative implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable status cannot be null');
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets vast_tag_attributes
+     *
+     * @return \criteo\api\marketingsolutions\preview\Model\VastTagAttributes|null
+     */
+    public function getVastTagAttributes()
+    {
+        return $this->container['vast_tag_attributes'];
+    }
+
+    /**
+     * Sets vast_tag_attributes
+     *
+     * @param \criteo\api\marketingsolutions\preview\Model\VastTagAttributes|null $vast_tag_attributes vast_tag_attributes
+     *
+     * @return self
+     */
+    public function setVastTagAttributes($vast_tag_attributes)
+    {
+        if (is_null($vast_tag_attributes)) {
+            array_push($this->openAPINullablesSetToNull, 'vast_tag_attributes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('vast_tag_attributes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['vast_tag_attributes'] = $vast_tag_attributes;
 
         return $this;
     }

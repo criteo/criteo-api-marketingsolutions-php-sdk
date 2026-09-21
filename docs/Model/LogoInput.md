@@ -1,10 +1,10 @@
-# # IntegerFilterV1
+# # LogoInput
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**operator** | **string** | Comparison operator for the integer filter | [optional]
-**values** | **int[]** | Integer values to compare against | [optional]
+**base64_string** | **string** | Logo image as a base-64 encoded string. |
+**shape** | **string** | Shape of the logo.  Possible values are \&quot;Horizontal\&quot;, \&quot;Vertical\&quot;, \&quot;Square\&quot;. |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

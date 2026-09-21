@@ -62,6 +62,7 @@ class CreateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'string',
         'end_date' => 'string',
         'format' => 'string',
+        'id' => 'string',
         'images' => '\criteo\api\marketingsolutions\preview\Model\CreateImageSlide[]',
         'landing_page_url' => 'string',
         'name' => 'string',
@@ -83,6 +84,7 @@ class CreateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => null,
         'end_date' => null,
         'format' => null,
+        'id' => null,
         'images' => null,
         'landing_page_url' => null,
         'name' => null,
@@ -102,6 +104,7 @@ class CreateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
 		'description' => true,
 		'end_date' => true,
 		'format' => false,
+		'id' => true,
 		'images' => false,
 		'landing_page_url' => false,
 		'name' => false,
@@ -201,6 +204,7 @@ class CreateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'description',
         'end_date' => 'endDate',
         'format' => 'format',
+        'id' => 'id',
         'images' => 'images',
         'landing_page_url' => 'landingPageUrl',
         'name' => 'name',
@@ -220,6 +224,7 @@ class CreateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'setDescription',
         'end_date' => 'setEndDate',
         'format' => 'setFormat',
+        'id' => 'setId',
         'images' => 'setImages',
         'landing_page_url' => 'setLandingPageUrl',
         'name' => 'setName',
@@ -239,6 +244,7 @@ class CreateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'getDescription',
         'end_date' => 'getEndDate',
         'format' => 'getFormat',
+        'id' => 'getId',
         'images' => 'getImages',
         'landing_page_url' => 'getLandingPageUrl',
         'name' => 'getName',
@@ -324,6 +330,7 @@ class CreateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('end_date', $data ?? [], null);
         $this->setIfExists('format', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('images', $data ?? [], null);
         $this->setIfExists('landing_page_url', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
@@ -563,6 +570,40 @@ class CreateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['format'] = $format;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['id'] = $id;
 
         return $this;
     }

@@ -495,7 +495,7 @@ class CreativeApi
      * /preview/advertisers/{advertiser-id}/coupons
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreateCoupon $resource_input_of_create_coupon resource_input_of_create_coupon (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreateCoupon $resource_input_of_create_coupon The coupon to create. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdvertiserCoupon'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -514,7 +514,7 @@ class CreativeApi
      * /preview/advertisers/{advertiser-id}/coupons
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreateCoupon $resource_input_of_create_coupon (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreateCoupon $resource_input_of_create_coupon The coupon to create. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdvertiserCoupon'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -615,7 +615,7 @@ class CreativeApi
      * /preview/advertisers/{advertiser-id}/coupons
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreateCoupon $resource_input_of_create_coupon (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreateCoupon $resource_input_of_create_coupon The coupon to create. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdvertiserCoupon'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -637,7 +637,7 @@ class CreativeApi
      * /preview/advertisers/{advertiser-id}/coupons
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreateCoupon $resource_input_of_create_coupon (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreateCoupon $resource_input_of_create_coupon The coupon to create. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdvertiserCoupon'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -688,7 +688,7 @@ class CreativeApi
      * Create request for operation 'createAdvertiserCoupon'
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreateCoupon $resource_input_of_create_coupon (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreateCoupon $resource_input_of_create_coupon The coupon to create. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAdvertiserCoupon'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2084,7 +2084,7 @@ class CreativeApi
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $id The Coupon identifier to edit. (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfUpdateCoupon $resource_input_of_update_coupon resource_input_of_update_coupon (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfUpdateCoupon $resource_input_of_update_coupon The new start and end dates of the coupon. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editAdvertiserCoupon'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -2104,7 +2104,7 @@ class CreativeApi
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $id The Coupon identifier to edit. (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfUpdateCoupon $resource_input_of_update_coupon (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfUpdateCoupon $resource_input_of_update_coupon The new start and end dates of the coupon. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editAdvertiserCoupon'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -2206,7 +2206,7 @@ class CreativeApi
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $id The Coupon identifier to edit. (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfUpdateCoupon $resource_input_of_update_coupon (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfUpdateCoupon $resource_input_of_update_coupon The new start and end dates of the coupon. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editAdvertiserCoupon'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2229,7 +2229,7 @@ class CreativeApi
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $id The Coupon identifier to edit. (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfUpdateCoupon $resource_input_of_update_coupon (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfUpdateCoupon $resource_input_of_update_coupon The new start and end dates of the coupon. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editAdvertiserCoupon'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2281,7 +2281,7 @@ class CreativeApi
      *
      * @param  string $advertiser_id The advertiser identifier. (required)
      * @param  string $id The Coupon identifier to edit. (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfUpdateCoupon $resource_input_of_update_coupon (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfUpdateCoupon $resource_input_of_update_coupon The new start and end dates of the coupon. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editAdvertiserCoupon'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2413,7 +2413,7 @@ class CreativeApi
      * /preview/creatives/{id}
      *
      * @param  string $id The creative identifier to edit. (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write resource_input_of_creative_write (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write The complete new attributes of the creative. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editCreative'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -2432,7 +2432,7 @@ class CreativeApi
      * /preview/creatives/{id}
      *
      * @param  string $id The creative identifier to edit. (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write The complete new attributes of the creative. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editCreative'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
@@ -2533,7 +2533,7 @@ class CreativeApi
      * /preview/creatives/{id}
      *
      * @param  string $id The creative identifier to edit. (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write The complete new attributes of the creative. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editCreative'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2555,7 +2555,7 @@ class CreativeApi
      * /preview/creatives/{id}
      *
      * @param  string $id The creative identifier to edit. (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write The complete new attributes of the creative. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editCreative'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2606,7 +2606,7 @@ class CreativeApi
      * Create request for operation 'editCreative'
      *
      * @param  string $id The creative identifier to edit. (required)
-     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreativeWrite $resource_input_of_creative_write The complete new attributes of the creative. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editCreative'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

@@ -1,6 +1,6 @@
 <?php
 /**
- * LongFilterV1
+ * IdFilterV1
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * LongFilterV1 Class Doc Comment
+ * IdFilterV1 Class Doc Comment
  *
  * @category Class
- * @description Filter that compares 64-bit integers against one or more values.
+ * @description Filter that compares identifiers against one or more values.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class LongFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
+class IdFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class LongFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LongFilterV1';
+    protected static $openAPIModelName = 'IdFilterV1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,7 @@ class LongFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'operator' => 'string',
-        'values' => 'int[]'
+        'values' => 'string[]'
     ];
 
     /**
@@ -71,7 +71,7 @@ class LongFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'operator' => null,
-        'values' => 'int64'
+        'values' => null
     ];
 
     /**
@@ -334,7 +334,7 @@ class LongFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets operator
      *
-     * @param string|null $operator Comparison operator for the long filter
+     * @param string|null $operator Comparison operator for the id filter
      *
      * @return self
      */
@@ -368,7 +368,7 @@ class LongFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets values
      *
-     * @return int[]|null
+     * @return string[]|null
      */
     public function getValues()
     {
@@ -378,7 +378,7 @@ class LongFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets values
      *
-     * @param int[]|null $values 64-bit integer values to compare against
+     * @param string[]|null $values Identifiers to compare against
      *
      * @return self
      */

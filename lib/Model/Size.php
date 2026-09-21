@@ -310,7 +310,7 @@ class Size implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets height
      *
-     * @param int|null $height height
+     * @param int|null $height The height of the creative, in pixels
      *
      * @return self
      */
@@ -344,7 +344,7 @@ class Size implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets width
      *
-     * @param int|null $width width
+     * @param int|null $width The width of the creative, in pixels
      *
      * @return self
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdateCoupon
+ * ShowcaseColors
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * UpdateCoupon Class Doc Comment
+ * ShowcaseColors Class Doc Comment
  *
  * @category Class
- * @description Entity to edit a Coupon
+ * @description Colors of the different elements of a Showcase creative.  All values are valid RGB24 hexadecimal colors (e.g. \&quot;#AB00FF\&quot;).
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
+class ShowcaseColors implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'UpdateCoupon';
+    protected static $openAPIModelName = 'ShowcaseColors';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,9 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'end_date' => 'string',
-        'id' => 'string',
-        'start_date' => 'string'
+        'body_text_color' => 'string',
+        'creative_background_color' => 'string',
+        'prices_color' => 'string'
     ];
 
     /**
@@ -71,9 +71,9 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'end_date' => null,
-        'id' => null,
-        'start_date' => null
+        'body_text_color' => null,
+        'creative_background_color' => null,
+        'prices_color' => null
     ];
 
     /**
@@ -82,9 +82,9 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'end_date' => true,
-		'id' => true,
-		'start_date' => false
+        'body_text_color' => false,
+		'creative_background_color' => false,
+		'prices_color' => false
     ];
 
     /**
@@ -173,9 +173,9 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'end_date' => 'endDate',
-        'id' => 'id',
-        'start_date' => 'startDate'
+        'body_text_color' => 'bodyTextColor',
+        'creative_background_color' => 'creativeBackgroundColor',
+        'prices_color' => 'pricesColor'
     ];
 
     /**
@@ -184,9 +184,9 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'end_date' => 'setEndDate',
-        'id' => 'setId',
-        'start_date' => 'setStartDate'
+        'body_text_color' => 'setBodyTextColor',
+        'creative_background_color' => 'setCreativeBackgroundColor',
+        'prices_color' => 'setPricesColor'
     ];
 
     /**
@@ -195,9 +195,9 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'end_date' => 'getEndDate',
-        'id' => 'getId',
-        'start_date' => 'getStartDate'
+        'body_text_color' => 'getBodyTextColor',
+        'creative_background_color' => 'getCreativeBackgroundColor',
+        'prices_color' => 'getPricesColor'
     ];
 
     /**
@@ -257,9 +257,9 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('end_date', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('start_date', $data ?? [], null);
+        $this->setIfExists('body_text_color', $data ?? [], null);
+        $this->setIfExists('creative_background_color', $data ?? [], null);
+        $this->setIfExists('prices_color', $data ?? [], null);
     }
 
     /**
@@ -289,8 +289,14 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['start_date'] === null) {
-            $invalidProperties[] = "'start_date' can't be null";
+        if ($this->container['body_text_color'] === null) {
+            $invalidProperties[] = "'body_text_color' can't be null";
+        }
+        if ($this->container['creative_background_color'] === null) {
+            $invalidProperties[] = "'creative_background_color' can't be null";
+        }
+        if ($this->container['prices_color'] === null) {
+            $invalidProperties[] = "'prices_color' can't be null";
         }
         return $invalidProperties;
     }
@@ -308,96 +314,82 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets end_date
-     *
-     * @return string|null
-     */
-    public function getEndDate()
-    {
-        return $this->container['end_date'];
-    }
-
-    /**
-     * Sets end_date
-     *
-     * @param string|null $end_date The date when when we will stop to show this Coupon. If the end date is not specified (i.e. null) then the Coupon will go on forever  String must be in ISO8601 format
-     *
-     * @return self
-     */
-    public function setEndDate($end_date)
-    {
-        if (is_null($end_date)) {
-            array_push($this->openAPINullablesSetToNull, 'end_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('end_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['end_date'] = $end_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets start_date
+     * Gets body_text_color
      *
      * @return string
      */
-    public function getStartDate()
+    public function getBodyTextColor()
     {
-        return $this->container['start_date'];
+        return $this->container['body_text_color'];
     }
 
     /**
-     * Sets start_date
+     * Sets body_text_color
      *
-     * @param string $start_date The date when the Coupon will be launched  String must be in ISO8601 format
+     * @param string $body_text_color Color of the creative's body text.  A valid RGB24 color in hexadecimal (e.g. \"#AB00FF\").
      *
      * @return self
      */
-    public function setStartDate($start_date)
+    public function setBodyTextColor($body_text_color)
     {
-        if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
+        if (is_null($body_text_color)) {
+            throw new \InvalidArgumentException('non-nullable body_text_color cannot be null');
         }
-        $this->container['start_date'] = $start_date;
+        $this->container['body_text_color'] = $body_text_color;
+
+        return $this;
+    }
+
+    /**
+     * Gets creative_background_color
+     *
+     * @return string
+     */
+    public function getCreativeBackgroundColor()
+    {
+        return $this->container['creative_background_color'];
+    }
+
+    /**
+     * Sets creative_background_color
+     *
+     * @param string $creative_background_color Color of the creative's background.  A valid RGB24 color in hexadecimal (e.g. \"#AB00FF\").
+     *
+     * @return self
+     */
+    public function setCreativeBackgroundColor($creative_background_color)
+    {
+        if (is_null($creative_background_color)) {
+            throw new \InvalidArgumentException('non-nullable creative_background_color cannot be null');
+        }
+        $this->container['creative_background_color'] = $creative_background_color;
+
+        return $this;
+    }
+
+    /**
+     * Gets prices_color
+     *
+     * @return string
+     */
+    public function getPricesColor()
+    {
+        return $this->container['prices_color'];
+    }
+
+    /**
+     * Sets prices_color
+     *
+     * @param string $prices_color Color of the creative's prices.  A valid RGB24 color in hexadecimal (e.g. \"#AB00FF\").
+     *
+     * @return self
+     */
+    public function setPricesColor($prices_color)
+    {
+        if (is_null($prices_color)) {
+            throw new \InvalidArgumentException('non-nullable prices_color cannot be null');
+        }
+        $this->container['prices_color'] = $prices_color;
 
         return $this;
     }

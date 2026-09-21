@@ -34,7 +34,7 @@ createAdvertiserAd($advertiser_id, $resource_input_of_ad_write): \criteo\api\mar
 
 /preview/advertisers/{advertiser-id}/ads
 
-Create an Ad
+Creates an ad by binding an existing creative to an existing ad set of the advertiser, delivering  from the start date given. The creative and the ad set must both belong to that advertiser. Returns  the new ad and its id.
 
 ### Example
 
@@ -99,7 +99,7 @@ createAdvertiserCoupon($advertiser_id, $resource_input_of_create_coupon): \crite
 
 /preview/advertisers/{advertiser-id}/coupons
 
-Create a Coupon
+Creates a coupon on one ad set of the advertiser. The ad set must already carry dynamic display or  HTML ads, and each slide image must match a size that ad set supports, which the supported-sizes  operation lists. Returns the new coupon and its id.
 
 ### Example
 
@@ -122,7 +122,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CreativeApi(
     $config
 );
 $advertiser_id = 'advertiser_id_example'; // string | The advertiser identifier.
-$resource_input_of_create_coupon = new \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreateCoupon(); // \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreateCoupon
+$resource_input_of_create_coupon = new \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreateCoupon(); // \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreateCoupon | The coupon to create.
 
 try {
     $result = $apiInstance->createAdvertiserCoupon($advertiser_id, $resource_input_of_create_coupon);
@@ -137,7 +137,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **advertiser_id** | **string**| The advertiser identifier. | |
-| **resource_input_of_create_coupon** | [**\criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreateCoupon**](../Model/ResourceInputOfCreateCoupon.md)|  | |
+| **resource_input_of_create_coupon** | [**\criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreateCoupon**](../Model/ResourceInputOfCreateCoupon.md)| The coupon to create. | |
 
 ### Return type
 
@@ -164,7 +164,7 @@ createAdvertiserCreative($advertiser_id, $resource_input_of_creative_write): \cr
 
 /preview/advertisers/{advertiser-id}/creatives
 
-Create a Creative
+Creates a creative in the library of one advertiser. The format decides which attributes block must  be filled in, and the dataset must be one of that advertiser's. Returns the new creative, whose id is  what an ad binds to.
 
 ### Example
 
@@ -229,7 +229,7 @@ deleteAd($id)
 
 /preview/ads/{id}
 
-Delete an Ad
+Deletes one ad, which stops it delivering for good. The creative it was bound to is kept and can be  reused; to stop delivery without losing the ad, pause it instead.
 
 ### Example
 
@@ -353,7 +353,7 @@ deleteAdvertiserCoupon($advertiser_id, $id)
 
 /preview/advertisers/{advertiser-id}/coupons/{id}
 
-Delete a Coupon
+Deletes one coupon of an advertiser. A coupon that is already deleted or under review cannot be  deleted.
 
 ### Example
 
@@ -417,7 +417,7 @@ deleteCreative($id)
 
 /preview/creatives/{id}
 
-Delete a Creative if there are no ads binded to it
+Deletes one creative. Every ad bound to it must be deleted or rebound first, and a creative that is  already deleted or under review cannot be deleted.
 
 ### Example
 
@@ -479,7 +479,7 @@ editAdvertiserCoupon($advertiser_id, $id, $resource_input_of_update_coupon): \cr
 
 /preview/advertisers/{advertiser-id}/coupons/{id}
 
-Edit a specific Coupon
+Changes when a coupon runs; only the start and end dates can be edited, and the start date must come  before the end date. The coupon must still be a draft or live coupon that is not yet delivering.
 
 ### Example
 
@@ -503,7 +503,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CreativeApi(
 );
 $advertiser_id = 'advertiser_id_example'; // string | The advertiser identifier.
 $id = 'id_example'; // string | The Coupon identifier to edit.
-$resource_input_of_update_coupon = new \criteo\api\marketingsolutions\preview\Model\ResourceInputOfUpdateCoupon(); // \criteo\api\marketingsolutions\preview\Model\ResourceInputOfUpdateCoupon
+$resource_input_of_update_coupon = new \criteo\api\marketingsolutions\preview\Model\ResourceInputOfUpdateCoupon(); // \criteo\api\marketingsolutions\preview\Model\ResourceInputOfUpdateCoupon | The new start and end dates of the coupon.
 
 try {
     $result = $apiInstance->editAdvertiserCoupon($advertiser_id, $id, $resource_input_of_update_coupon);
@@ -519,7 +519,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **advertiser_id** | **string**| The advertiser identifier. | |
 | **id** | **string**| The Coupon identifier to edit. | |
-| **resource_input_of_update_coupon** | [**\criteo\api\marketingsolutions\preview\Model\ResourceInputOfUpdateCoupon**](../Model/ResourceInputOfUpdateCoupon.md)|  | |
+| **resource_input_of_update_coupon** | [**\criteo\api\marketingsolutions\preview\Model\ResourceInputOfUpdateCoupon**](../Model/ResourceInputOfUpdateCoupon.md)| The new start and end dates of the coupon. | |
 
 ### Return type
 
@@ -546,7 +546,7 @@ editCreative($id, $resource_input_of_creative_write): \criteo\api\marketingsolut
 
 /preview/creatives/{id}
 
-Edit a specific Creative
+Replaces the attributes of one creative: any attribute left out is cleared, so read the creative  first and send it back with your changes applied. The format must be the creative's existing format  and the dataset must stay the one it already belongs to; neither can be changed here. A creative  that is being deployed, archived or deleted cannot be edited.
 
 ### Example
 
@@ -569,7 +569,7 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CreativeApi(
     $config
 );
 $id = 'id_example'; // string | The creative identifier to edit.
-$resource_input_of_creative_write = new \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreativeWrite(); // \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreativeWrite
+$resource_input_of_creative_write = new \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreativeWrite(); // \criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreativeWrite | The complete new attributes of the creative.
 
 try {
     $result = $apiInstance->editCreative($id, $resource_input_of_creative_write);
@@ -584,7 +584,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| The creative identifier to edit. | |
-| **resource_input_of_creative_write** | [**\criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreativeWrite**](../Model/ResourceInputOfCreativeWrite.md)|  | |
+| **resource_input_of_creative_write** | [**\criteo\api\marketingsolutions\preview\Model\ResourceInputOfCreativeWrite**](../Model/ResourceInputOfCreativeWrite.md)| The complete new attributes of the creative. | |
 
 ### Return type
 
@@ -611,7 +611,7 @@ generateCreativePreview($id, $height, $width): string
 
 /preview/creatives/{id}/preview
 
-Get the preview of a specific Creative
+Renders one creative as preview HTML at the size asked for. Only the sizes the creative was built for  can be previewed; when the size does not match, the error lists the ones that can.
 
 ### Example
 
@@ -678,7 +678,7 @@ getAd($id): \criteo\api\marketingsolutions\preview\Model\ResourceOutcomeOfAd
 
 /preview/ads/{id}
 
-Get an Ad with its id
+Reads one ad by its id: the creative and ad set it binds, its schedule and its delivery status. The  id comes from the ad list of the advertiser.
 
 ### Example
 
@@ -804,7 +804,7 @@ getAdvertiserAds($advertiser_id, $limit, $offset): \criteo\api\marketingsolution
 
 /preview/advertisers/{advertiser-id}/ads
 
-Get the list of self-services Ads for a given advertiser
+Lists the ads of one advertiser, each one binding a creative to an ad set. Use it to find an ad id  before reading, pausing, unpausing or deleting a single ad. Page through the ads with limit and  offset.
 
 ### Example
 
@@ -871,7 +871,7 @@ getAdvertiserCoupon($advertiser_id, $id): \criteo\api\marketingsolutions\preview
 
 /preview/advertisers/{advertiser-id}/coupons/{id}
 
-Get a Coupon with its id
+Reads one coupon of an advertiser by its id: its schedule, its slides and the ad set it runs on. The  id comes from the coupon list of the advertiser.
 
 ### Example
 
@@ -936,7 +936,7 @@ getAdvertiserCouponPreview($advertiser_id, $id, $height, $width): string
 
 /preview/advertisers/{advertiser-id}/coupons/{id}/preview
 
-Get the preview of a specific Coupon
+Renders one coupon as preview HTML at the size asked for. The size must be one the coupon's ad set  supports, as listed by the supported-sizes operation.
 
 ### Example
 
@@ -1005,7 +1005,7 @@ getAdvertiserCouponSupportedSizes($advertiser_id, $ad_set_id): \criteo\api\marke
 
 /preview/advertisers/{advertiser-id}/coupons-supported-sizes
 
-Get the list of Coupon supported sizes
+Lists, per coupon format, the sizes an ad set supports. Call it before creating a coupon to pick a  valid slide size; the ad set must already carry dynamic ads.
 
 ### Example
 
@@ -1070,7 +1070,7 @@ getAdvertiserCoupons($advertiser_id, $limit, $offset): \criteo\api\marketingsolu
 
 /preview/advertisers/{advertiser-id}/coupons
 
-Get the list of self-services Coupons for a given advertiser
+Lists the coupons of one advertiser. Use it to find a coupon id before reading, editing, previewing  or deleting a single coupon. Page through the coupons with limit and offset.
 
 ### Example
 
@@ -1137,7 +1137,7 @@ getAdvertiserCreatives($advertiser_id, $limit, $offset): \criteo\api\marketingso
 
 /preview/advertisers/{advertiser-id}/creatives
 
-Get the list of self-services Creatives for a given advertiser
+Lists the creatives in the library of one advertiser. Use it to find a creative id before reading,  editing or previewing a creative, or before binding one to an ad. Page through the library with  limit and offset.
 
 ### Example
 
@@ -1204,7 +1204,7 @@ getCreative($id): \criteo\api\marketingsolutions\preview\Model\ResourceOutcomeOf
 
 /preview/creatives/{id}
 
-Get a Creative with its id
+Reads one creative by its id, with the attributes of its format. Use it to check a creative before  editing it or binding it to an ad.
 
 ### Example
 
