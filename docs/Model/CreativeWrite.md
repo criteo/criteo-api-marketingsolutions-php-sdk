@@ -8,9 +8,13 @@ Name | Type | Description | Notes
 **dataset_id** | **string** | Dataset linked to the Creative |
 **description** | **string** | The description of the creative | [optional]
 **dynamic_write_attributes** | [**\criteo\api\marketingsolutions\experimental\Model\DynamicWriteAttributes**](DynamicWriteAttributes.md) |  | [optional]
-**format** | **string** | The format of the creative  You can use \&quot;Image\&quot;, \&quot; HtmlTag\&quot;, \&quot;Dynamic\&quot; or \&quot;Adaptive\&quot; |
+**format** | **string** | The format of the creative.  You can use \&quot;Image\&quot;, \&quot;HtmlTag\&quot;, \&quot;Dynamic\&quot;, \&quot;Adaptive\&quot;, \&quot;Showcase\&quot; or \&quot;VastTag\&quot; |
 **html_tag_write_attributes** | [**\criteo\api\marketingsolutions\experimental\Model\HtmlTagWriteAttributes**](HtmlTagWriteAttributes.md) |  | [optional]
+**id** | **string** |  | [optional]
 **image_write_attributes** | [**\criteo\api\marketingsolutions\experimental\Model\ImageWriteAttributes**](ImageWriteAttributes.md) |  | [optional]
 **name** | **string** | The name of the creative |
+**showcase_write_attributes** | [**\criteo\api\marketingsolutions\experimental\Model\ShowcaseWriteAttributes**](ShowcaseWriteAttributes.md) |  | [optional]
+**social_settings** | [**\criteo\api\marketingsolutions\experimental\Model\SocialSettings**](SocialSettings.md) |  | [optional]
+**vast_tag_write_attributes** | [**\criteo\api\marketingsolutions\experimental\Model\VastTagWriteAttributes**](VastTagWriteAttributes.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

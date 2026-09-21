@@ -145,8 +145,8 @@ Class | Method | HTTP request | Description
 *CampaignApi* | [**startAdSets**](docs/Api/CampaignApi.md#startadsets) | **POST** /experimental/marketing-solutions/ad-sets/start | /experimental/marketing-solutions/ad-sets/start
 *CampaignApi* | [**stopAdSets**](docs/Api/CampaignApi.md#stopadsets) | **POST** /experimental/marketing-solutions/ad-sets/stop | /experimental/marketing-solutions/ad-sets/stop
 *CampaignApi* | [**updateAdSetAudience**](docs/Api/CampaignApi.md#updateadsetaudience) | **PUT** /experimental/marketing-solutions/ad-sets/{ad-set-id}/audience | /experimental/marketing-solutions/ad-sets/{ad-set-id}/audience
-*CatalogApi* | [**getCatalogIngestionReportSummary**](docs/Api/CatalogApi.md#getcatalogingestionreportsummary) | **GET** /experimental/catalog/ingestion/{ingestion-id}/reports/summary | /experimental/catalog/ingestion/{ingestion-id}/reports/summary
-*CatalogApi* | [**getCatalogIngestionReports**](docs/Api/CatalogApi.md#getcatalogingestionreports) | **GET** /experimental/catalog/merchants/{merchant-id}/ingestion/reports | /experimental/catalog/merchants/{merchant-id}/ingestion/reports
+*CatalogApi* | [**getCatalogIngestionReportSummary**](docs/Api/CatalogApi.md#getcatalogingestionreportsummary) | **GET** /experimental/marketing-solutions/catalog/ingestion/{ingestion-id}/reports/summary | /experimental/marketing-solutions/catalog/ingestion/{ingestion-id}/reports/summary
+*CatalogApi* | [**getCatalogIngestionReports**](docs/Api/CatalogApi.md#getcatalogingestionreports) | **GET** /experimental/marketing-solutions/catalog/merchants/{merchant-id}/ingestion/reports | /experimental/marketing-solutions/catalog/merchants/{merchant-id}/ingestion/reports
 *CatalogApi* | [**getCatalogMerchantStats**](docs/Api/CatalogApi.md#getcatalogmerchantstats) | **GET** /experimental/catalog/stats/merchants/{merchant-id} | /experimental/catalog/stats/merchants/{merchant-id}
 *CatalogApi* | [**getCatalogProductsBatchReport**](docs/Api/CatalogApi.md#getcatalogproductsbatchreport) | **GET** /experimental/catalog/products/batch/report/{operation-token} | /experimental/catalog/products/batch/report/{operation-token}
 *CatalogApi* | [**submitCatalogProductsBatch**](docs/Api/CatalogApi.md#submitcatalogproductsbatch) | **POST** /experimental/catalog/products/batch | /experimental/catalog/products/batch
@@ -305,6 +305,7 @@ Class | Method | HTTP request | Description
  - [BehavioralV1](docs/Model/BehavioralV1.md)
  - [BoostedAdProductSet](docs/Model/BoostedAdProductSet.md)
  - [BoostingConfigurationRequest](docs/Model/BoostingConfigurationRequest.md)
+ - [BrandingImageInput](docs/Model/BrandingImageInput.md)
  - [BudgetAutomation](docs/Model/BudgetAutomation.md)
  - [BudgetAutomationConfiguration](docs/Model/BudgetAutomationConfiguration.md)
  - [CampaignBudgetAutomationV23Q1](docs/Model/CampaignBudgetAutomationV23Q1.md)
@@ -364,7 +365,9 @@ Class | Method | HTTP request | Description
  - [CreateProductFilterRequest](docs/Model/CreateProductFilterRequest.md)
  - [CreateProductSetRequest](docs/Model/CreateProductSetRequest.md)
  - [Creative](docs/Model/Creative.md)
+ - [CreativeMetaSetting](docs/Model/CreativeMetaSetting.md)
  - [CreativeRead](docs/Model/CreativeRead.md)
+ - [CreativeTikTokSetting](docs/Model/CreativeTikTokSetting.md)
  - [CreativeWrite](docs/Model/CreativeWrite.md)
  - [CriteoApiError](docs/Model/CriteoApiError.md)
  - [CriteoApiWarning](docs/Model/CriteoApiWarning.md)
@@ -383,6 +386,8 @@ Class | Method | HTTP request | Description
  - [ExamAdAudienceSegmentLink](docs/Model/ExamAdAudienceSegmentLink.md)
  - [ExamAdAudienceSegmentLinkInput](docs/Model/ExamAdAudienceSegmentLinkInput.md)
  - [ExamAdAudienceSegmentLinkWrite](docs/Model/ExamAdAudienceSegmentLinkWrite.md)
+ - [ExamAdClickTracking](docs/Model/ExamAdClickTracking.md)
+ - [ExamAdImpressionTracking](docs/Model/ExamAdImpressionTracking.md)
  - [ExportColumn](docs/Model/ExportColumn.md)
  - [ExportMetaData](docs/Model/ExportMetaData.md)
  - [ExportResult](docs/Model/ExportResult.md)
@@ -421,6 +426,7 @@ Class | Method | HTTP request | Description
  - [GetPortfolioResponse](docs/Model/GetPortfolioResponse.md)
  - [HtmlTagAttributes](docs/Model/HtmlTagAttributes.md)
  - [HtmlTagWriteAttributes](docs/Model/HtmlTagWriteAttributes.md)
+ - [IdFilterV1](docs/Model/IdFilterV1.md)
  - [ImageAttributes](docs/Model/ImageAttributes.md)
  - [ImageSet](docs/Model/ImageSet.md)
  - [ImageSetBase64](docs/Model/ImageSetBase64.md)
@@ -440,7 +446,6 @@ Class | Method | HTTP request | Description
  - [IngestionStatus](docs/Model/IngestionStatus.md)
  - [IngestionType](docs/Model/IngestionType.md)
  - [Installment](docs/Model/Installment.md)
- - [IntegerFilterV1](docs/Model/IntegerFilterV1.md)
  - [JsonReportRows](docs/Model/JsonReportRows.md)
  - [JsonReportRowsListResponse](docs/Model/JsonReportRowsListResponse.md)
  - [JsonReportRowsResource](docs/Model/JsonReportRowsResource.md)
@@ -449,7 +454,7 @@ Class | Method | HTTP request | Description
  - [LocationSizeEstimationV1](docs/Model/LocationSizeEstimationV1.md)
  - [LocationUpdateV1](docs/Model/LocationUpdateV1.md)
  - [LocationV1](docs/Model/LocationV1.md)
- - [LongFilterV1](docs/Model/LongFilterV1.md)
+ - [LogoInput](docs/Model/LogoInput.md)
  - [LookalikeCreateV1](docs/Model/LookalikeCreateV1.md)
  - [LookalikeUpdateV1](docs/Model/LookalikeUpdateV1.md)
  - [LookalikeV1](docs/Model/LookalikeV1.md)
@@ -598,7 +603,15 @@ Class | Method | HTTP request | Description
  - [SetAdSetTargetingVideoPositioning](docs/Model/SetAdSetTargetingVideoPositioning.md)
  - [SetAdSetTargetingVideoPositioningRequest](docs/Model/SetAdSetTargetingVideoPositioningRequest.md)
  - [SetAdSetTargetingVideoPositioningResource](docs/Model/SetAdSetTargetingVideoPositioningResource.md)
+ - [ShowcaseAttributes](docs/Model/ShowcaseAttributes.md)
+ - [ShowcaseBrandingImage](docs/Model/ShowcaseBrandingImage.md)
+ - [ShowcaseColors](docs/Model/ShowcaseColors.md)
+ - [ShowcaseLogo](docs/Model/ShowcaseLogo.md)
+ - [ShowcaseMetaSetting](docs/Model/ShowcaseMetaSetting.md)
+ - [ShowcasePriceSettings](docs/Model/ShowcasePriceSettings.md)
+ - [ShowcaseWriteAttributes](docs/Model/ShowcaseWriteAttributes.md)
  - [Size](docs/Model/Size.md)
+ - [SocialSettings](docs/Model/SocialSettings.md)
  - [StatisticsOkResponse](docs/Model/StatisticsOkResponse.md)
  - [StatisticsRecord](docs/Model/StatisticsRecord.md)
  - [StatisticsRecordList](docs/Model/StatisticsRecordList.md)
@@ -636,6 +649,8 @@ Class | Method | HTTP request | Description
  - [ValueResourceOutcomeOfBoostedAdProductSet](docs/Model/ValueResourceOutcomeOfBoostedAdProductSet.md)
  - [ValueResourceOutcomeOfExamAdAudienceSegmentLink](docs/Model/ValueResourceOutcomeOfExamAdAudienceSegmentLink.md)
  - [ValueResourceOutcomeOfProductFilterConfig](docs/Model/ValueResourceOutcomeOfProductFilterConfig.md)
+ - [VastTagAttributes](docs/Model/VastTagAttributes.md)
+ - [VastTagWriteAttributes](docs/Model/VastTagWriteAttributes.md)
  - [VideoDetail](docs/Model/VideoDetail.md)
  - [WriteModelAdSetId](docs/Model/WriteModelAdSetId.md)
  - [WriteModelPatchAdSetV26Q1](docs/Model/WriteModelPatchAdSetV26Q1.md)

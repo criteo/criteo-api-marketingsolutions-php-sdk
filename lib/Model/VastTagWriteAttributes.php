@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdateCoupon
+ * VastTagWriteAttributes
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\experimental\ObjectSerializer;
 
 /**
- * UpdateCoupon Class Doc Comment
+ * VastTagWriteAttributes Class Doc Comment
  *
  * @category Class
- * @description Entity to edit a Coupon
+ * @description The attributes specific to create or update a VastTag (VAST tag) creative.  The VAST tag is parsed server-side to derive version, duration, media-file mime types and skippability.
  * @package  criteo\api\marketingsolutions\experimental
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
+class VastTagWriteAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'UpdateCoupon';
+    protected static $openAPIModelName = 'VastTagWriteAttributes';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'end_date' => 'string',
-        'id' => 'string',
-        'start_date' => 'string'
+        'vast_tag_url' => 'string'
     ];
 
     /**
@@ -71,9 +69,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'end_date' => null,
-        'id' => null,
-        'start_date' => null
+        'vast_tag_url' => 'uri'
     ];
 
     /**
@@ -82,9 +78,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'end_date' => true,
-		'id' => true,
-		'start_date' => false
+        'vast_tag_url' => false
     ];
 
     /**
@@ -173,9 +167,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'end_date' => 'endDate',
-        'id' => 'id',
-        'start_date' => 'startDate'
+        'vast_tag_url' => 'vastTagUrl'
     ];
 
     /**
@@ -184,9 +176,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'end_date' => 'setEndDate',
-        'id' => 'setId',
-        'start_date' => 'setStartDate'
+        'vast_tag_url' => 'setVastTagUrl'
     ];
 
     /**
@@ -195,9 +185,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'end_date' => 'getEndDate',
-        'id' => 'getId',
-        'start_date' => 'getStartDate'
+        'vast_tag_url' => 'getVastTagUrl'
     ];
 
     /**
@@ -257,9 +245,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('end_date', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('start_date', $data ?? [], null);
+        $this->setIfExists('vast_tag_url', $data ?? [], null);
     }
 
     /**
@@ -289,8 +275,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['start_date'] === null) {
-            $invalidProperties[] = "'start_date' can't be null";
+        if ($this->container['vast_tag_url'] === null) {
+            $invalidProperties[] = "'vast_tag_url' can't be null";
         }
         return $invalidProperties;
     }
@@ -308,96 +294,28 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets end_date
-     *
-     * @return string|null
-     */
-    public function getEndDate()
-    {
-        return $this->container['end_date'];
-    }
-
-    /**
-     * Sets end_date
-     *
-     * @param string|null $end_date The date when when we will stop to show this Coupon. If the end date is not specified (i.e. null) then the Coupon will go on forever  String must be in ISO8601 format
-     *
-     * @return self
-     */
-    public function setEndDate($end_date)
-    {
-        if (is_null($end_date)) {
-            array_push($this->openAPINullablesSetToNull, 'end_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('end_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['end_date'] = $end_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets start_date
+     * Gets vast_tag_url
      *
      * @return string
      */
-    public function getStartDate()
+    public function getVastTagUrl()
     {
-        return $this->container['start_date'];
+        return $this->container['vast_tag_url'];
     }
 
     /**
-     * Sets start_date
+     * Sets vast_tag_url
      *
-     * @param string $start_date The date when the Coupon will be launched  String must be in ISO8601 format
+     * @param string $vast_tag_url The VAST tag URL (a hosted VAST XML endpoint). This is the only essential input for a VastTag creative.
      *
      * @return self
      */
-    public function setStartDate($start_date)
+    public function setVastTagUrl($vast_tag_url)
     {
-        if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
+        if (is_null($vast_tag_url)) {
+            throw new \InvalidArgumentException('non-nullable vast_tag_url cannot be null');
         }
-        $this->container['start_date'] = $start_date;
+        $this->container['vast_tag_url'] = $vast_tag_url;
 
         return $this;
     }

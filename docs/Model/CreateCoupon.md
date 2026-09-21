@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **description** | **string** | The description of the Coupon | [optional]
 **end_date** | **string** | The date when when we will stop to show this Coupon. If the end date is not specified (i.e. null) then the Coupon will go on forever  String must be in ISO8601 format | [optional]
 **format** | **string** | Format of the Coupon, it can have two values: \&quot;FullFrame\&quot; or \&quot;LogoZone\&quot; |
+**id** | **string** |  | [optional]
 **images** | [**\criteo\api\marketingsolutions\experimental\Model\CreateImageSlide[]**](CreateImageSlide.md) | List of slides containing the images as a base-64 encoded string |
 **landing_page_url** | **string** | Web redirection of the landing page url |
 **name** | **string** | The name of the Coupon |

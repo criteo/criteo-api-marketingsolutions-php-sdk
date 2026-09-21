@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdateCoupon
+ * ExamAdImpressionTracking
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\experimental\ObjectSerializer;
 
 /**
- * UpdateCoupon Class Doc Comment
+ * ExamAdImpressionTracking Class Doc Comment
  *
  * @category Class
- * @description Entity to edit a Coupon
+ * @description An ad-level impression tracking rule. The rule calls its url when an impression it covers is served. It  applies either to the whole ad (no display size set) or to one display size (displayWidth and displayHeight  both set).
  * @package  criteo\api\marketingsolutions\experimental
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
+class ExamAdImpressionTracking implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'UpdateCoupon';
+    protected static $openAPIModelName = 'ExamAdImpressionTracking';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,12 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'end_date' => 'string',
+        'binding_id' => 'string',
+        'display_height' => 'int',
+        'display_width' => 'int',
         'id' => 'string',
-        'start_date' => 'string'
+        'url' => 'string',
+        'vendor_id' => 'string'
     ];
 
     /**
@@ -71,9 +74,12 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'end_date' => null,
+        'binding_id' => null,
+        'display_height' => 'int32',
+        'display_width' => 'int32',
         'id' => null,
-        'start_date' => null
+        'url' => null,
+        'vendor_id' => null
     ];
 
     /**
@@ -82,9 +88,12 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'end_date' => true,
+        'binding_id' => true,
+		'display_height' => true,
+		'display_width' => true,
 		'id' => true,
-		'start_date' => false
+		'url' => true,
+		'vendor_id' => true
     ];
 
     /**
@@ -173,9 +182,12 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'end_date' => 'endDate',
+        'binding_id' => 'bindingId',
+        'display_height' => 'displayHeight',
+        'display_width' => 'displayWidth',
         'id' => 'id',
-        'start_date' => 'startDate'
+        'url' => 'url',
+        'vendor_id' => 'vendorId'
     ];
 
     /**
@@ -184,9 +196,12 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'end_date' => 'setEndDate',
+        'binding_id' => 'setBindingId',
+        'display_height' => 'setDisplayHeight',
+        'display_width' => 'setDisplayWidth',
         'id' => 'setId',
-        'start_date' => 'setStartDate'
+        'url' => 'setUrl',
+        'vendor_id' => 'setVendorId'
     ];
 
     /**
@@ -195,9 +210,12 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'end_date' => 'getEndDate',
+        'binding_id' => 'getBindingId',
+        'display_height' => 'getDisplayHeight',
+        'display_width' => 'getDisplayWidth',
         'id' => 'getId',
-        'start_date' => 'getStartDate'
+        'url' => 'getUrl',
+        'vendor_id' => 'getVendorId'
     ];
 
     /**
@@ -257,9 +275,12 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('end_date', $data ?? [], null);
+        $this->setIfExists('binding_id', $data ?? [], null);
+        $this->setIfExists('display_height', $data ?? [], null);
+        $this->setIfExists('display_width', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('start_date', $data ?? [], null);
+        $this->setIfExists('url', $data ?? [], null);
+        $this->setIfExists('vendor_id', $data ?? [], null);
     }
 
     /**
@@ -289,9 +310,6 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['start_date'] === null) {
-            $invalidProperties[] = "'start_date' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -308,35 +326,103 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets end_date
+     * Gets binding_id
      *
      * @return string|null
      */
-    public function getEndDate()
+    public function getBindingId()
     {
-        return $this->container['end_date'];
+        return $this->container['binding_id'];
     }
 
     /**
-     * Sets end_date
+     * Sets binding_id
      *
-     * @param string|null $end_date The date when when we will stop to show this Coupon. If the end date is not specified (i.e. null) then the Coupon will go on forever  String must be in ISO8601 format
+     * @param string|null $binding_id Unique ID of the ad the rule belongs to. It always names the ad of the request path, so it can be left  out of a write; when it is sent it must match that ad, and a rule naming another one is refused.
      *
      * @return self
      */
-    public function setEndDate($end_date)
+    public function setBindingId($binding_id)
     {
-        if (is_null($end_date)) {
-            array_push($this->openAPINullablesSetToNull, 'end_date');
+        if (is_null($binding_id)) {
+            array_push($this->openAPINullablesSetToNull, 'binding_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('end_date', $nullablesSetToNull);
+            $index = array_search('binding_id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['end_date'] = $end_date;
+        $this->container['binding_id'] = $binding_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets display_height
+     *
+     * @return int|null
+     */
+    public function getDisplayHeight()
+    {
+        return $this->container['display_height'];
+    }
+
+    /**
+     * Sets display_height
+     *
+     * @param int|null $display_height The height in pixels of the display size this rule applies to. Set it together with displayWidth, and  leave both out for a rule that is not specific to a display size.
+     *
+     * @return self
+     */
+    public function setDisplayHeight($display_height)
+    {
+        if (is_null($display_height)) {
+            array_push($this->openAPINullablesSetToNull, 'display_height');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('display_height', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['display_height'] = $display_height;
+
+        return $this;
+    }
+
+    /**
+     * Gets display_width
+     *
+     * @return int|null
+     */
+    public function getDisplayWidth()
+    {
+        return $this->container['display_width'];
+    }
+
+    /**
+     * Sets display_width
+     *
+     * @param int|null $display_width The width in pixels of the display size this rule applies to. Set it together with displayHeight, and  leave both out for a rule that is not specific to a display size.
+     *
+     * @return self
+     */
+    public function setDisplayWidth($display_width)
+    {
+        if (is_null($display_width)) {
+            array_push($this->openAPINullablesSetToNull, 'display_width');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('display_width', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['display_width'] = $display_width;
 
         return $this;
     }
@@ -354,7 +440,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param string|null $id Unique ID of the impression tracking rule. Leave it out to create a rule; send back the ID of an  existing rule to update it. Rules of the ad that are absent from a write request are deleted.
      *
      * @return self
      */
@@ -376,28 +462,69 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets start_date
+     * Gets url
      *
-     * @return string
+     * @return string|null
      */
-    public function getStartDate()
+    public function getUrl()
     {
-        return $this->container['start_date'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets start_date
+     * Sets url
      *
-     * @param string $start_date The date when the Coupon will be launched  String must be in ISO8601 format
+     * @param string|null $url The url called when an impression covered by this rule is served.
      *
      * @return self
      */
-    public function setStartDate($start_date)
+    public function setUrl($url)
     {
-        if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
+        if (is_null($url)) {
+            array_push($this->openAPINullablesSetToNull, 'url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['start_date'] = $start_date;
+        $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets vendor_id
+     *
+     * @return string|null
+     */
+    public function getVendorId()
+    {
+        return $this->container['vendor_id'];
+    }
+
+    /**
+     * Sets vendor_id
+     *
+     * @param string|null $vendor_id Unique ID of the third party vendor the tracking url belongs to.
+     *
+     * @return self
+     */
+    public function setVendorId($vendor_id)
+    {
+        if (is_null($vendor_id)) {
+            array_push($this->openAPINullablesSetToNull, 'vendor_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('vendor_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['vendor_id'] = $vendor_id;
 
         return $this;
     }

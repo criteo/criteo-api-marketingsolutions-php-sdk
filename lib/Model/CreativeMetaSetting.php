@@ -1,6 +1,6 @@
 <?php
 /**
- * IntegerFilterV1
+ * CreativeMetaSetting
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\experimental\ObjectSerializer;
 
 /**
- * IntegerFilterV1 Class Doc Comment
+ * CreativeMetaSetting Class Doc Comment
  *
  * @category Class
- * @description Filter that compares integers against one or more values.
+ * @description Meta social metadata for a creative.
  * @package  criteo\api\marketingsolutions\experimental
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class IntegerFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreativeMetaSetting implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class IntegerFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'IntegerFilterV1';
+    protected static $openAPIModelName = 'CreativeMetaSetting';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,8 @@ class IntegerFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'operator' => 'string',
-        'values' => 'int[]'
+        'call_to_action' => 'string',
+        'headline' => 'string'
     ];
 
     /**
@@ -70,8 +70,8 @@ class IntegerFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'operator' => null,
-        'values' => 'int32'
+        'call_to_action' => null,
+        'headline' => null
     ];
 
     /**
@@ -80,8 +80,8 @@ class IntegerFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'operator' => true,
-		'values' => true
+        'call_to_action' => true,
+		'headline' => true
     ];
 
     /**
@@ -170,8 +170,8 @@ class IntegerFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'operator' => 'operator',
-        'values' => 'values'
+        'call_to_action' => 'callToAction',
+        'headline' => 'headline'
     ];
 
     /**
@@ -180,8 +180,8 @@ class IntegerFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'operator' => 'setOperator',
-        'values' => 'setValues'
+        'call_to_action' => 'setCallToAction',
+        'headline' => 'setHeadline'
     ];
 
     /**
@@ -190,8 +190,8 @@ class IntegerFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'operator' => 'getOperator',
-        'values' => 'getValues'
+        'call_to_action' => 'getCallToAction',
+        'headline' => 'getHeadline'
     ];
 
     /**
@@ -235,21 +235,6 @@ class IntegerFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const OPERATOR_UNKNOWN = 'Unknown';
-    public const OPERATOR_EQUALS = 'Equals';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getOperatorAllowableValues()
-    {
-        return [
-            self::OPERATOR_UNKNOWN,
-            self::OPERATOR_EQUALS,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -266,8 +251,8 @@ class IntegerFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('operator', $data ?? [], null);
-        $this->setIfExists('values', $data ?? [], null);
+        $this->setIfExists('call_to_action', $data ?? [], null);
+        $this->setIfExists('headline', $data ?? [], null);
     }
 
     /**
@@ -297,15 +282,6 @@ class IntegerFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getOperatorAllowableValues();
-        if (!is_null($this->container['operator']) && !in_array($this->container['operator'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'operator', must be one of '%s'",
-                $this->container['operator'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -322,79 +298,69 @@ class IntegerFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets operator
+     * Gets call_to_action
      *
      * @return string|null
      */
-    public function getOperator()
+    public function getCallToAction()
     {
-        return $this->container['operator'];
+        return $this->container['call_to_action'];
     }
 
     /**
-     * Sets operator
+     * Sets call_to_action
      *
-     * @param string|null $operator Comparison operator for the integer filter
+     * @param string|null $call_to_action Call-to-Action for Meta placements.  Possible values: \"BookTravel\", \"ShopNow\", \"LearnMore\", \"SignUp\", \"Download\", \"OpenLink\".  Matched without case sensitivity. The list follows what Meta supports and can change.
      *
      * @return self
      */
-    public function setOperator($operator)
+    public function setCallToAction($call_to_action)
     {
-        if (is_null($operator)) {
-            array_push($this->openAPINullablesSetToNull, 'operator');
+        if (is_null($call_to_action)) {
+            array_push($this->openAPINullablesSetToNull, 'call_to_action');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('operator', $nullablesSetToNull);
+            $index = array_search('call_to_action', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $allowedValues = $this->getOperatorAllowableValues();
-        if (!is_null($operator) && !in_array($operator, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'operator', must be one of '%s'",
-                    $operator,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['operator'] = $operator;
+        $this->container['call_to_action'] = $call_to_action;
 
         return $this;
     }
 
     /**
-     * Gets values
+     * Gets headline
      *
-     * @return int[]|null
+     * @return string|null
      */
-    public function getValues()
+    public function getHeadline()
     {
-        return $this->container['values'];
+        return $this->container['headline'];
     }
 
     /**
-     * Sets values
+     * Sets headline
      *
-     * @param int[]|null $values Integer values to compare against
+     * @param string|null $headline Headline text for Meta placements. Maximum 125 characters.
      *
      * @return self
      */
-    public function setValues($values)
+    public function setHeadline($headline)
     {
-        if (is_null($values)) {
-            array_push($this->openAPINullablesSetToNull, 'values');
+        if (is_null($headline)) {
+            array_push($this->openAPINullablesSetToNull, 'headline');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('values', $nullablesSetToNull);
+            $index = array_search('headline', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['values'] = $values;
+        $this->container['headline'] = $headline;
 
         return $this;
     }

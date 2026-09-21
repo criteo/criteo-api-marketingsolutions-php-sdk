@@ -1,6 +1,6 @@
 <?php
 /**
- * LongFilterV1
+ * LogoInput
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\experimental\ObjectSerializer;
 
 /**
- * LongFilterV1 Class Doc Comment
+ * LogoInput Class Doc Comment
  *
  * @category Class
- * @description Filter that compares 64-bit integers against one or more values.
+ * @description Logo input with shape and base-64 encoded image data.
  * @package  criteo\api\marketingsolutions\experimental
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class LongFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
+class LogoInput implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class LongFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LongFilterV1';
+    protected static $openAPIModelName = 'LogoInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,8 @@ class LongFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'operator' => 'string',
-        'values' => 'int[]'
+        'base64_string' => 'string',
+        'shape' => 'string'
     ];
 
     /**
@@ -70,8 +70,8 @@ class LongFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'operator' => null,
-        'values' => 'int64'
+        'base64_string' => null,
+        'shape' => null
     ];
 
     /**
@@ -80,8 +80,8 @@ class LongFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'operator' => true,
-		'values' => true
+        'base64_string' => false,
+		'shape' => false
     ];
 
     /**
@@ -170,8 +170,8 @@ class LongFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'operator' => 'operator',
-        'values' => 'values'
+        'base64_string' => 'base64String',
+        'shape' => 'shape'
     ];
 
     /**
@@ -180,8 +180,8 @@ class LongFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'operator' => 'setOperator',
-        'values' => 'setValues'
+        'base64_string' => 'setBase64String',
+        'shape' => 'setShape'
     ];
 
     /**
@@ -190,8 +190,8 @@ class LongFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'operator' => 'getOperator',
-        'values' => 'getValues'
+        'base64_string' => 'getBase64String',
+        'shape' => 'getShape'
     ];
 
     /**
@@ -235,21 +235,6 @@ class LongFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const OPERATOR_UNKNOWN = 'Unknown';
-    public const OPERATOR_EQUALS = 'Equals';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getOperatorAllowableValues()
-    {
-        return [
-            self::OPERATOR_UNKNOWN,
-            self::OPERATOR_EQUALS,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -266,8 +251,8 @@ class LongFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('operator', $data ?? [], null);
-        $this->setIfExists('values', $data ?? [], null);
+        $this->setIfExists('base64_string', $data ?? [], null);
+        $this->setIfExists('shape', $data ?? [], null);
     }
 
     /**
@@ -297,15 +282,12 @@ class LongFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getOperatorAllowableValues();
-        if (!is_null($this->container['operator']) && !in_array($this->container['operator'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'operator', must be one of '%s'",
-                $this->container['operator'],
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['base64_string'] === null) {
+            $invalidProperties[] = "'base64_string' can't be null";
         }
-
+        if ($this->container['shape'] === null) {
+            $invalidProperties[] = "'shape' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -322,79 +304,55 @@ class LongFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets operator
+     * Gets base64_string
      *
-     * @return string|null
+     * @return string
      */
-    public function getOperator()
+    public function getBase64String()
     {
-        return $this->container['operator'];
+        return $this->container['base64_string'];
     }
 
     /**
-     * Sets operator
+     * Sets base64_string
      *
-     * @param string|null $operator Comparison operator for the long filter
+     * @param string $base64_string Logo image as a base-64 encoded string.
      *
      * @return self
      */
-    public function setOperator($operator)
+    public function setBase64String($base64_string)
     {
-        if (is_null($operator)) {
-            array_push($this->openAPINullablesSetToNull, 'operator');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('operator', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($base64_string)) {
+            throw new \InvalidArgumentException('non-nullable base64_string cannot be null');
         }
-        $allowedValues = $this->getOperatorAllowableValues();
-        if (!is_null($operator) && !in_array($operator, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'operator', must be one of '%s'",
-                    $operator,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['operator'] = $operator;
+        $this->container['base64_string'] = $base64_string;
 
         return $this;
     }
 
     /**
-     * Gets values
+     * Gets shape
      *
-     * @return int[]|null
+     * @return string
      */
-    public function getValues()
+    public function getShape()
     {
-        return $this->container['values'];
+        return $this->container['shape'];
     }
 
     /**
-     * Sets values
+     * Sets shape
      *
-     * @param int[]|null $values 64-bit integer values to compare against
+     * @param string $shape Shape of the logo.  Possible values are \"Horizontal\", \"Vertical\", \"Square\".
      *
      * @return self
      */
-    public function setValues($values)
+    public function setShape($shape)
     {
-        if (is_null($values)) {
-            array_push($this->openAPINullablesSetToNull, 'values');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('values', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($shape)) {
+            throw new \InvalidArgumentException('non-nullable shape cannot be null');
         }
-        $this->container['values'] = $values;
+        $this->container['shape'] = $shape;
 
         return $this;
     }

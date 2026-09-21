@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdateCoupon
+ * ShowcasePriceSettings
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\experimental\ObjectSerializer;
 
 /**
- * UpdateCoupon Class Doc Comment
+ * ShowcasePriceSettings Class Doc Comment
  *
  * @category Class
- * @description Entity to edit a Coupon
+ * @description Price formatting settings for Showcase creatives.
  * @package  criteo\api\marketingsolutions\experimental
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
+class ShowcasePriceSettings implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'UpdateCoupon';
+    protected static $openAPIModelName = 'ShowcasePriceSettings';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,11 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'end_date' => 'string',
-        'id' => 'string',
-        'start_date' => 'string'
+        'hide_decimals' => 'bool',
+        'price_format' => 'string',
+        'price_format_body' => 'string',
+        'price_text_after' => 'string',
+        'price_text_before' => 'string'
     ];
 
     /**
@@ -71,9 +73,11 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'end_date' => null,
-        'id' => null,
-        'start_date' => null
+        'hide_decimals' => null,
+        'price_format' => null,
+        'price_format_body' => null,
+        'price_text_after' => null,
+        'price_text_before' => null
     ];
 
     /**
@@ -82,9 +86,11 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'end_date' => true,
-		'id' => true,
-		'start_date' => false
+        'hide_decimals' => true,
+		'price_format' => true,
+		'price_format_body' => true,
+		'price_text_after' => true,
+		'price_text_before' => true
     ];
 
     /**
@@ -173,9 +179,11 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'end_date' => 'endDate',
-        'id' => 'id',
-        'start_date' => 'startDate'
+        'hide_decimals' => 'hideDecimals',
+        'price_format' => 'priceFormat',
+        'price_format_body' => 'priceFormatBody',
+        'price_text_after' => 'priceTextAfter',
+        'price_text_before' => 'priceTextBefore'
     ];
 
     /**
@@ -184,9 +192,11 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'end_date' => 'setEndDate',
-        'id' => 'setId',
-        'start_date' => 'setStartDate'
+        'hide_decimals' => 'setHideDecimals',
+        'price_format' => 'setPriceFormat',
+        'price_format_body' => 'setPriceFormatBody',
+        'price_text_after' => 'setPriceTextAfter',
+        'price_text_before' => 'setPriceTextBefore'
     ];
 
     /**
@@ -195,9 +205,11 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'end_date' => 'getEndDate',
-        'id' => 'getId',
-        'start_date' => 'getStartDate'
+        'hide_decimals' => 'getHideDecimals',
+        'price_format' => 'getPriceFormat',
+        'price_format_body' => 'getPriceFormatBody',
+        'price_text_after' => 'getPriceTextAfter',
+        'price_text_before' => 'getPriceTextBefore'
     ];
 
     /**
@@ -257,9 +269,11 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('end_date', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('start_date', $data ?? [], null);
+        $this->setIfExists('hide_decimals', $data ?? [], null);
+        $this->setIfExists('price_format', $data ?? [], null);
+        $this->setIfExists('price_format_body', $data ?? [], null);
+        $this->setIfExists('price_text_after', $data ?? [], null);
+        $this->setIfExists('price_text_before', $data ?? [], null);
     }
 
     /**
@@ -289,9 +303,6 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['start_date'] === null) {
-            $invalidProperties[] = "'start_date' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -308,96 +319,171 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets end_date
+     * Gets hide_decimals
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getEndDate()
+    public function getHideDecimals()
     {
-        return $this->container['end_date'];
+        return $this->container['hide_decimals'];
     }
 
     /**
-     * Sets end_date
+     * Sets hide_decimals
      *
-     * @param string|null $end_date The date when when we will stop to show this Coupon. If the end date is not specified (i.e. null) then the Coupon will go on forever  String must be in ISO8601 format
+     * @param bool|null $hide_decimals Whether to hide decimal values in prices.
      *
      * @return self
      */
-    public function setEndDate($end_date)
+    public function setHideDecimals($hide_decimals)
     {
-        if (is_null($end_date)) {
-            array_push($this->openAPINullablesSetToNull, 'end_date');
+        if (is_null($hide_decimals)) {
+            array_push($this->openAPINullablesSetToNull, 'hide_decimals');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('end_date', $nullablesSetToNull);
+            $index = array_search('hide_decimals', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['end_date'] = $end_date;
+        $this->container['hide_decimals'] = $hide_decimals;
 
         return $this;
     }
 
     /**
-     * Gets id
+     * Gets price_format
      *
      * @return string|null
      */
-    public function getId()
+    public function getPriceFormat()
     {
-        return $this->container['id'];
+        return $this->container['price_format'];
     }
 
     /**
-     * Sets id
+     * Sets price_format
      *
-     * @param string|null $id id
+     * @param string|null $price_format Price format expression used to display product prices.
      *
      * @return self
      */
-    public function setId($id)
+    public function setPriceFormat($price_format)
     {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
+        if (is_null($price_format)) {
+            array_push($this->openAPINullablesSetToNull, 'price_format');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
+            $index = array_search('price_format', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['id'] = $id;
+        $this->container['price_format'] = $price_format;
 
         return $this;
     }
 
     /**
-     * Gets start_date
+     * Gets price_format_body
      *
-     * @return string
+     * @return string|null
      */
-    public function getStartDate()
+    public function getPriceFormatBody()
     {
-        return $this->container['start_date'];
+        return $this->container['price_format_body'];
     }
 
     /**
-     * Sets start_date
+     * Sets price_format_body
      *
-     * @param string $start_date The date when the Coupon will be launched  String must be in ISO8601 format
+     * @param string|null $price_format_body Price format body expression.
      *
      * @return self
      */
-    public function setStartDate($start_date)
+    public function setPriceFormatBody($price_format_body)
     {
-        if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
+        if (is_null($price_format_body)) {
+            array_push($this->openAPINullablesSetToNull, 'price_format_body');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('price_format_body', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['start_date'] = $start_date;
+        $this->container['price_format_body'] = $price_format_body;
+
+        return $this;
+    }
+
+    /**
+     * Gets price_text_after
+     *
+     * @return string|null
+     */
+    public function getPriceTextAfter()
+    {
+        return $this->container['price_text_after'];
+    }
+
+    /**
+     * Sets price_text_after
+     *
+     * @param string|null $price_text_after Text displayed after the price.
+     *
+     * @return self
+     */
+    public function setPriceTextAfter($price_text_after)
+    {
+        if (is_null($price_text_after)) {
+            array_push($this->openAPINullablesSetToNull, 'price_text_after');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('price_text_after', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['price_text_after'] = $price_text_after;
+
+        return $this;
+    }
+
+    /**
+     * Gets price_text_before
+     *
+     * @return string|null
+     */
+    public function getPriceTextBefore()
+    {
+        return $this->container['price_text_before'];
+    }
+
+    /**
+     * Sets price_text_before
+     *
+     * @param string|null $price_text_before Text displayed before the price.
+     *
+     * @return self
+     */
+    public function setPriceTextBefore($price_text_before)
+    {
+        if (is_null($price_text_before)) {
+            array_push($this->openAPINullablesSetToNull, 'price_text_before');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('price_text_before', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['price_text_before'] = $price_text_before;
 
         return $this;
     }

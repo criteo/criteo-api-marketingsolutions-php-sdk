@@ -137,7 +137,7 @@ class CatalogApi
     /**
      * Operation getCatalogIngestionReportSummary
      *
-     * /experimental/catalog/ingestion/{ingestion-id}/reports/summary
+     * /experimental/marketing-solutions/catalog/ingestion/{ingestion-id}/reports/summary
      *
      * @param  string $ingestion_id Identifies the catalog ingestion to report on. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogIngestionReportSummary'] to see the possible values for this operation
@@ -155,7 +155,7 @@ class CatalogApi
     /**
      * Operation getCatalogIngestionReportSummaryWithHttpInfo
      *
-     * /experimental/catalog/ingestion/{ingestion-id}/reports/summary
+     * /experimental/marketing-solutions/catalog/ingestion/{ingestion-id}/reports/summary
      *
      * @param  string $ingestion_id Identifies the catalog ingestion to report on. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogIngestionReportSummary'] to see the possible values for this operation
@@ -255,7 +255,7 @@ class CatalogApi
     /**
      * Operation getCatalogIngestionReportSummaryAsync
      *
-     * /experimental/catalog/ingestion/{ingestion-id}/reports/summary
+     * /experimental/marketing-solutions/catalog/ingestion/{ingestion-id}/reports/summary
      *
      * @param  string $ingestion_id Identifies the catalog ingestion to report on. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogIngestionReportSummary'] to see the possible values for this operation
@@ -276,7 +276,7 @@ class CatalogApi
     /**
      * Operation getCatalogIngestionReportSummaryAsyncWithHttpInfo
      *
-     * /experimental/catalog/ingestion/{ingestion-id}/reports/summary
+     * /experimental/marketing-solutions/catalog/ingestion/{ingestion-id}/reports/summary
      *
      * @param  string $ingestion_id Identifies the catalog ingestion to report on. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogIngestionReportSummary'] to see the possible values for this operation
@@ -345,7 +345,7 @@ class CatalogApi
         }
 
 
-        $resourcePath = '/experimental/catalog/ingestion/{ingestion-id}/reports/summary';
+        $resourcePath = '/experimental/marketing-solutions/catalog/ingestion/{ingestion-id}/reports/summary';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -428,7 +428,7 @@ class CatalogApi
     /**
      * Operation getCatalogIngestionReports
      *
-     * /experimental/catalog/merchants/{merchant-id}/ingestion/reports
+     * /experimental/marketing-solutions/catalog/merchants/{merchant-id}/ingestion/reports
      *
      * @param  string $merchant_id Identifies the merchant whose catalog ingestions are reported. (required)
      * @param  int $limit Maximum number of ingestion reports returned in the page. (optional, default to 25)
@@ -448,7 +448,7 @@ class CatalogApi
     /**
      * Operation getCatalogIngestionReportsWithHttpInfo
      *
-     * /experimental/catalog/merchants/{merchant-id}/ingestion/reports
+     * /experimental/marketing-solutions/catalog/merchants/{merchant-id}/ingestion/reports
      *
      * @param  string $merchant_id Identifies the merchant whose catalog ingestions are reported. (required)
      * @param  int $limit Maximum number of ingestion reports returned in the page. (optional, default to 25)
@@ -550,7 +550,7 @@ class CatalogApi
     /**
      * Operation getCatalogIngestionReportsAsync
      *
-     * /experimental/catalog/merchants/{merchant-id}/ingestion/reports
+     * /experimental/marketing-solutions/catalog/merchants/{merchant-id}/ingestion/reports
      *
      * @param  string $merchant_id Identifies the merchant whose catalog ingestions are reported. (required)
      * @param  int $limit Maximum number of ingestion reports returned in the page. (optional, default to 25)
@@ -573,7 +573,7 @@ class CatalogApi
     /**
      * Operation getCatalogIngestionReportsAsyncWithHttpInfo
      *
-     * /experimental/catalog/merchants/{merchant-id}/ingestion/reports
+     * /experimental/marketing-solutions/catalog/merchants/{merchant-id}/ingestion/reports
      *
      * @param  string $merchant_id Identifies the merchant whose catalog ingestions are reported. (required)
      * @param  int $limit Maximum number of ingestion reports returned in the page. (optional, default to 25)
@@ -654,7 +654,7 @@ class CatalogApi
         
 
 
-        $resourcePath = '/experimental/catalog/merchants/{merchant-id}/ingestion/reports';
+        $resourcePath = '/experimental/marketing-solutions/catalog/merchants/{merchant-id}/ingestion/reports';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

@@ -351,7 +351,7 @@ class ImageSlide implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets slide_urls
      *
-     * @param string[]|null $slide_urls Array of images of the same size uploaded on demostatic.criteo.com when deploying and then static.criteo.net
+     * @param string[]|null $slide_urls Array of images of the same size uploaded on demostatic.criteo.com when deploying and then static.criteo.net
      *
      * @return self
      */

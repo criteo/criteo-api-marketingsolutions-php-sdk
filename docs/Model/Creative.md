@@ -15,6 +15,9 @@ Name | Type | Description | Notes
 **id** | **string** |  | [optional]
 **image_attributes** | [**\criteo\api\marketingsolutions\experimental\Model\ImageAttributes**](ImageAttributes.md) |  | [optional]
 **name** | **string** | The name of the creative |
+**showcase_attributes** | [**\criteo\api\marketingsolutions\experimental\Model\ShowcaseAttributes**](ShowcaseAttributes.md) |  | [optional]
+**social_settings** | [**\criteo\api\marketingsolutions\experimental\Model\SocialSettings**](SocialSettings.md) |  | [optional]
 **status** | **string** | The status of the creative |
+**vast_tag_attributes** | [**\criteo\api\marketingsolutions\experimental\Model\VastTagAttributes**](VastTagAttributes.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

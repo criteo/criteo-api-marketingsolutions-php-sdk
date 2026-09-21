@@ -58,9 +58,9 @@ class FilterBasedDefinitionV1 implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'partner_id' => '\criteo\api\marketingsolutions\experimental\Model\IntegerFilterV1',
+        'partner_id' => '\criteo\api\marketingsolutions\experimental\Model\IdFilterV1',
         'product_category' => '\criteo\api\marketingsolutions\experimental\Model\ProductCategoryFilterV1',
-        'seller_id' => '\criteo\api\marketingsolutions\experimental\Model\LongFilterV1'
+        'seller_id' => '\criteo\api\marketingsolutions\experimental\Model\IdFilterV1'
     ];
 
     /**
@@ -307,7 +307,7 @@ class FilterBasedDefinitionV1 implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets partner_id
      *
-     * @return \criteo\api\marketingsolutions\experimental\Model\IntegerFilterV1|null
+     * @return \criteo\api\marketingsolutions\experimental\Model\IdFilterV1|null
      */
     public function getPartnerId()
     {
@@ -317,7 +317,7 @@ class FilterBasedDefinitionV1 implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets partner_id
      *
-     * @param \criteo\api\marketingsolutions\experimental\Model\IntegerFilterV1|null $partner_id partner_id
+     * @param \criteo\api\marketingsolutions\experimental\Model\IdFilterV1|null $partner_id partner_id
      *
      * @return self
      */
@@ -375,7 +375,7 @@ class FilterBasedDefinitionV1 implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets seller_id
      *
-     * @return \criteo\api\marketingsolutions\experimental\Model\LongFilterV1|null
+     * @return \criteo\api\marketingsolutions\experimental\Model\IdFilterV1|null
      */
     public function getSellerId()
     {
@@ -385,7 +385,7 @@ class FilterBasedDefinitionV1 implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets seller_id
      *
-     * @param \criteo\api\marketingsolutions\experimental\Model\LongFilterV1|null $seller_id seller_id
+     * @param \criteo\api\marketingsolutions\experimental\Model\IdFilterV1|null $seller_id seller_id
      *
      * @return self
      */

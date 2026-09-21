@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdateCoupon
+ * ShowcaseMetaSetting
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\experimental\ObjectSerializer;
 
 /**
- * UpdateCoupon Class Doc Comment
+ * ShowcaseMetaSetting Class Doc Comment
  *
  * @category Class
- * @description Entity to edit a Coupon
+ * @description Creative-level social metadata for Meta placements.
  * @package  criteo\api\marketingsolutions\experimental
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
+class ShowcaseMetaSetting implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'UpdateCoupon';
+    protected static $openAPIModelName = 'ShowcaseMetaSetting';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'end_date' => 'string',
-        'id' => 'string',
-        'start_date' => 'string'
+        'call_to_action' => 'string',
+        'headline' => 'string'
     ];
 
     /**
@@ -71,9 +70,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'end_date' => null,
-        'id' => null,
-        'start_date' => null
+        'call_to_action' => null,
+        'headline' => null
     ];
 
     /**
@@ -82,9 +80,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'end_date' => true,
-		'id' => true,
-		'start_date' => false
+        'call_to_action' => true,
+		'headline' => true
     ];
 
     /**
@@ -173,9 +170,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'end_date' => 'endDate',
-        'id' => 'id',
-        'start_date' => 'startDate'
+        'call_to_action' => 'callToAction',
+        'headline' => 'headline'
     ];
 
     /**
@@ -184,9 +180,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'end_date' => 'setEndDate',
-        'id' => 'setId',
-        'start_date' => 'setStartDate'
+        'call_to_action' => 'setCallToAction',
+        'headline' => 'setHeadline'
     ];
 
     /**
@@ -195,9 +190,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'end_date' => 'getEndDate',
-        'id' => 'getId',
-        'start_date' => 'getStartDate'
+        'call_to_action' => 'getCallToAction',
+        'headline' => 'getHeadline'
     ];
 
     /**
@@ -257,9 +251,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('end_date', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('start_date', $data ?? [], null);
+        $this->setIfExists('call_to_action', $data ?? [], null);
+        $this->setIfExists('headline', $data ?? [], null);
     }
 
     /**
@@ -289,9 +282,6 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['start_date'] === null) {
-            $invalidProperties[] = "'start_date' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -308,96 +298,69 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets end_date
+     * Gets call_to_action
      *
      * @return string|null
      */
-    public function getEndDate()
+    public function getCallToAction()
     {
-        return $this->container['end_date'];
+        return $this->container['call_to_action'];
     }
 
     /**
-     * Sets end_date
+     * Sets call_to_action
      *
-     * @param string|null $end_date The date when when we will stop to show this Coupon. If the end date is not specified (i.e. null) then the Coupon will go on forever  String must be in ISO8601 format
+     * @param string|null $call_to_action Call-to-Action for Meta placements.  Possible values: \"BookTravel\", \"ShopNow\", \"LearnMore\", \"SignUp\", \"Download\", \"OpenLink\".
      *
      * @return self
      */
-    public function setEndDate($end_date)
+    public function setCallToAction($call_to_action)
     {
-        if (is_null($end_date)) {
-            array_push($this->openAPINullablesSetToNull, 'end_date');
+        if (is_null($call_to_action)) {
+            array_push($this->openAPINullablesSetToNull, 'call_to_action');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('end_date', $nullablesSetToNull);
+            $index = array_search('call_to_action', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['end_date'] = $end_date;
+        $this->container['call_to_action'] = $call_to_action;
 
         return $this;
     }
 
     /**
-     * Gets id
+     * Gets headline
      *
      * @return string|null
      */
-    public function getId()
+    public function getHeadline()
     {
-        return $this->container['id'];
+        return $this->container['headline'];
     }
 
     /**
-     * Sets id
+     * Sets headline
      *
-     * @param string|null $id id
+     * @param string|null $headline Headline text for Meta placements.
      *
      * @return self
      */
-    public function setId($id)
+    public function setHeadline($headline)
     {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
+        if (is_null($headline)) {
+            array_push($this->openAPINullablesSetToNull, 'headline');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
+            $index = array_search('headline', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets start_date
-     *
-     * @return string
-     */
-    public function getStartDate()
-    {
-        return $this->container['start_date'];
-    }
-
-    /**
-     * Sets start_date
-     *
-     * @param string $start_date The date when the Coupon will be launched  String must be in ISO8601 format
-     *
-     * @return self
-     */
-    public function setStartDate($start_date)
-    {
-        if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
-        }
-        $this->container['start_date'] = $start_date;
+        $this->container['headline'] = $headline;
 
         return $this;
     }

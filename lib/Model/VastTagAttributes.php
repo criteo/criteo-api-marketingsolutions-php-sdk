@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdateCoupon
+ * VastTagAttributes
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\experimental\ObjectSerializer;
 
 /**
- * UpdateCoupon Class Doc Comment
+ * VastTagAttributes Class Doc Comment
  *
  * @category Class
- * @description Entity to edit a Coupon
+ * @description The attributes specific to VastTag creatives (read model).  Most fields are derived by parsing the VAST tag and are read-only.
  * @package  criteo\api\marketingsolutions\experimental
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
+class VastTagAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'UpdateCoupon';
+    protected static $openAPIModelName = 'VastTagAttributes';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,12 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'end_date' => 'string',
-        'id' => 'string',
-        'start_date' => 'string'
+        'has_vpaid' => 'bool',
+        'is_skippable' => 'bool',
+        'mime_types' => 'string[]',
+        'vast_tag_url' => 'string',
+        'vast_version' => 'string',
+        'video_duration_ms' => 'float'
     ];
 
     /**
@@ -71,9 +74,12 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'end_date' => null,
-        'id' => null,
-        'start_date' => null
+        'has_vpaid' => null,
+        'is_skippable' => null,
+        'mime_types' => null,
+        'vast_tag_url' => null,
+        'vast_version' => null,
+        'video_duration_ms' => 'double'
     ];
 
     /**
@@ -82,9 +88,12 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'end_date' => true,
-		'id' => true,
-		'start_date' => false
+        'has_vpaid' => true,
+		'is_skippable' => true,
+		'mime_types' => true,
+		'vast_tag_url' => true,
+		'vast_version' => true,
+		'video_duration_ms' => true
     ];
 
     /**
@@ -173,9 +182,12 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'end_date' => 'endDate',
-        'id' => 'id',
-        'start_date' => 'startDate'
+        'has_vpaid' => 'hasVpaid',
+        'is_skippable' => 'isSkippable',
+        'mime_types' => 'mimeTypes',
+        'vast_tag_url' => 'vastTagUrl',
+        'vast_version' => 'vastVersion',
+        'video_duration_ms' => 'videoDurationMs'
     ];
 
     /**
@@ -184,9 +196,12 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'end_date' => 'setEndDate',
-        'id' => 'setId',
-        'start_date' => 'setStartDate'
+        'has_vpaid' => 'setHasVpaid',
+        'is_skippable' => 'setIsSkippable',
+        'mime_types' => 'setMimeTypes',
+        'vast_tag_url' => 'setVastTagUrl',
+        'vast_version' => 'setVastVersion',
+        'video_duration_ms' => 'setVideoDurationMs'
     ];
 
     /**
@@ -195,9 +210,12 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'end_date' => 'getEndDate',
-        'id' => 'getId',
-        'start_date' => 'getStartDate'
+        'has_vpaid' => 'getHasVpaid',
+        'is_skippable' => 'getIsSkippable',
+        'mime_types' => 'getMimeTypes',
+        'vast_tag_url' => 'getVastTagUrl',
+        'vast_version' => 'getVastVersion',
+        'video_duration_ms' => 'getVideoDurationMs'
     ];
 
     /**
@@ -257,9 +275,12 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('end_date', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('start_date', $data ?? [], null);
+        $this->setIfExists('has_vpaid', $data ?? [], null);
+        $this->setIfExists('is_skippable', $data ?? [], null);
+        $this->setIfExists('mime_types', $data ?? [], null);
+        $this->setIfExists('vast_tag_url', $data ?? [], null);
+        $this->setIfExists('vast_version', $data ?? [], null);
+        $this->setIfExists('video_duration_ms', $data ?? [], null);
     }
 
     /**
@@ -289,9 +310,6 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['start_date'] === null) {
-            $invalidProperties[] = "'start_date' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -308,96 +326,205 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets end_date
+     * Gets has_vpaid
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getEndDate()
+    public function getHasVpaid()
     {
-        return $this->container['end_date'];
+        return $this->container['has_vpaid'];
     }
 
     /**
-     * Sets end_date
+     * Sets has_vpaid
      *
-     * @param string|null $end_date The date when when we will stop to show this Coupon. If the end date is not specified (i.e. null) then the Coupon will go on forever  String must be in ISO8601 format
+     * @param bool|null $has_vpaid Whether the tag contains a VPAID unit (vpaid y/n). Derived from the tag. VPAID is a deprecated  interactivity standard; this flag is recorded for information but interactive playback is not guaranteed.
      *
      * @return self
      */
-    public function setEndDate($end_date)
+    public function setHasVpaid($has_vpaid)
     {
-        if (is_null($end_date)) {
-            array_push($this->openAPINullablesSetToNull, 'end_date');
+        if (is_null($has_vpaid)) {
+            array_push($this->openAPINullablesSetToNull, 'has_vpaid');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('end_date', $nullablesSetToNull);
+            $index = array_search('has_vpaid', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['end_date'] = $end_date;
+        $this->container['has_vpaid'] = $has_vpaid;
 
         return $this;
     }
 
     /**
-     * Gets id
+     * Gets is_skippable
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getId()
+    public function getIsSkippable()
     {
-        return $this->container['id'];
+        return $this->container['is_skippable'];
     }
 
     /**
-     * Sets id
+     * Sets is_skippable
      *
-     * @param string|null $id id
+     * @param bool|null $is_skippable Whether the video is skippable. Derived from the tag.
      *
      * @return self
      */
-    public function setId($id)
+    public function setIsSkippable($is_skippable)
     {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
+        if (is_null($is_skippable)) {
+            array_push($this->openAPINullablesSetToNull, 'is_skippable');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
+            $index = array_search('is_skippable', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['id'] = $id;
+        $this->container['is_skippable'] = $is_skippable;
 
         return $this;
     }
 
     /**
-     * Gets start_date
+     * Gets mime_types
      *
-     * @return string
+     * @return string[]|null
      */
-    public function getStartDate()
+    public function getMimeTypes()
     {
-        return $this->container['start_date'];
+        return $this->container['mime_types'];
     }
 
     /**
-     * Sets start_date
+     * Sets mime_types
      *
-     * @param string $start_date The date when the Coupon will be launched  String must be in ISO8601 format
+     * @param string[]|null $mime_types The supported media-file mime types (e.g. \"video/mp4\"). Derived from the tag.
      *
      * @return self
      */
-    public function setStartDate($start_date)
+    public function setMimeTypes($mime_types)
     {
-        if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
+        if (is_null($mime_types)) {
+            array_push($this->openAPINullablesSetToNull, 'mime_types');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('mime_types', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['start_date'] = $start_date;
+        $this->container['mime_types'] = $mime_types;
+
+        return $this;
+    }
+
+    /**
+     * Gets vast_tag_url
+     *
+     * @return string|null
+     */
+    public function getVastTagUrl()
+    {
+        return $this->container['vast_tag_url'];
+    }
+
+    /**
+     * Sets vast_tag_url
+     *
+     * @param string|null $vast_tag_url The VAST tag URL (a hosted VAST XML endpoint).
+     *
+     * @return self
+     */
+    public function setVastTagUrl($vast_tag_url)
+    {
+        if (is_null($vast_tag_url)) {
+            array_push($this->openAPINullablesSetToNull, 'vast_tag_url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('vast_tag_url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['vast_tag_url'] = $vast_tag_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets vast_version
+     *
+     * @return string|null
+     */
+    public function getVastVersion()
+    {
+        return $this->container['vast_version'];
+    }
+
+    /**
+     * Sets vast_version
+     *
+     * @param string|null $vast_version The VAST version declared by the tag (e.g. \"4.2\"). Derived from the tag.
+     *
+     * @return self
+     */
+    public function setVastVersion($vast_version)
+    {
+        if (is_null($vast_version)) {
+            array_push($this->openAPINullablesSetToNull, 'vast_version');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('vast_version', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['vast_version'] = $vast_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets video_duration_ms
+     *
+     * @return float|null
+     */
+    public function getVideoDurationMs()
+    {
+        return $this->container['video_duration_ms'];
+    }
+
+    /**
+     * Sets video_duration_ms
+     *
+     * @param float|null $video_duration_ms The video duration in milliseconds. Derived from the tag.
+     *
+     * @return self
+     */
+    public function setVideoDurationMs($video_duration_ms)
+    {
+        if (is_null($video_duration_ms)) {
+            array_push($this->openAPINullablesSetToNull, 'video_duration_ms');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('video_duration_ms', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['video_duration_ms'] = $video_duration_ms;
 
         return $this;
     }

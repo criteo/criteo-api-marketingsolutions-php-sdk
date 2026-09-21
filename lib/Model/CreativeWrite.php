@@ -64,8 +64,12 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         'dynamic_write_attributes' => '\criteo\api\marketingsolutions\experimental\Model\DynamicWriteAttributes',
         'format' => 'string',
         'html_tag_write_attributes' => '\criteo\api\marketingsolutions\experimental\Model\HtmlTagWriteAttributes',
+        'id' => 'string',
         'image_write_attributes' => '\criteo\api\marketingsolutions\experimental\Model\ImageWriteAttributes',
-        'name' => 'string'
+        'name' => 'string',
+        'showcase_write_attributes' => '\criteo\api\marketingsolutions\experimental\Model\ShowcaseWriteAttributes',
+        'social_settings' => '\criteo\api\marketingsolutions\experimental\Model\SocialSettings',
+        'vast_tag_write_attributes' => '\criteo\api\marketingsolutions\experimental\Model\VastTagWriteAttributes'
     ];
 
     /**
@@ -82,8 +86,12 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         'dynamic_write_attributes' => null,
         'format' => null,
         'html_tag_write_attributes' => null,
+        'id' => null,
         'image_write_attributes' => null,
-        'name' => null
+        'name' => null,
+        'showcase_write_attributes' => null,
+        'social_settings' => null,
+        'vast_tag_write_attributes' => null
     ];
 
     /**
@@ -98,8 +106,12 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
 		'dynamic_write_attributes' => false,
 		'format' => false,
 		'html_tag_write_attributes' => false,
+		'id' => true,
 		'image_write_attributes' => false,
-		'name' => false
+		'name' => false,
+		'showcase_write_attributes' => false,
+		'social_settings' => true,
+		'vast_tag_write_attributes' => false
     ];
 
     /**
@@ -194,8 +206,12 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         'dynamic_write_attributes' => 'dynamicWriteAttributes',
         'format' => 'format',
         'html_tag_write_attributes' => 'htmlTagWriteAttributes',
+        'id' => 'id',
         'image_write_attributes' => 'imageWriteAttributes',
-        'name' => 'name'
+        'name' => 'name',
+        'showcase_write_attributes' => 'showcaseWriteAttributes',
+        'social_settings' => 'socialSettings',
+        'vast_tag_write_attributes' => 'vastTagWriteAttributes'
     ];
 
     /**
@@ -210,8 +226,12 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         'dynamic_write_attributes' => 'setDynamicWriteAttributes',
         'format' => 'setFormat',
         'html_tag_write_attributes' => 'setHtmlTagWriteAttributes',
+        'id' => 'setId',
         'image_write_attributes' => 'setImageWriteAttributes',
-        'name' => 'setName'
+        'name' => 'setName',
+        'showcase_write_attributes' => 'setShowcaseWriteAttributes',
+        'social_settings' => 'setSocialSettings',
+        'vast_tag_write_attributes' => 'setVastTagWriteAttributes'
     ];
 
     /**
@@ -226,8 +246,12 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         'dynamic_write_attributes' => 'getDynamicWriteAttributes',
         'format' => 'getFormat',
         'html_tag_write_attributes' => 'getHtmlTagWriteAttributes',
+        'id' => 'getId',
         'image_write_attributes' => 'getImageWriteAttributes',
-        'name' => 'getName'
+        'name' => 'getName',
+        'showcase_write_attributes' => 'getShowcaseWriteAttributes',
+        'social_settings' => 'getSocialSettings',
+        'vast_tag_write_attributes' => 'getVastTagWriteAttributes'
     ];
 
     /**
@@ -271,10 +295,12 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const FORMAT_IMAGE = 'Image';
-    public const FORMAT_HTML_TAG = 'HtmlTag';
     public const FORMAT_DYNAMIC = 'Dynamic';
+    public const FORMAT_HTML_TAG = 'HtmlTag';
+    public const FORMAT_IMAGE = 'Image';
     public const FORMAT_ADAPTIVE = 'Adaptive';
+    public const FORMAT_SHOWCASE = 'Showcase';
+    public const FORMAT_VAST_TAG = 'VastTag';
 
     /**
      * Gets allowable values of the enum
@@ -284,10 +310,12 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     public function getFormatAllowableValues()
     {
         return [
-            self::FORMAT_IMAGE,
-            self::FORMAT_HTML_TAG,
             self::FORMAT_DYNAMIC,
+            self::FORMAT_HTML_TAG,
+            self::FORMAT_IMAGE,
             self::FORMAT_ADAPTIVE,
+            self::FORMAT_SHOWCASE,
+            self::FORMAT_VAST_TAG,
         ];
     }
 
@@ -312,8 +340,12 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('dynamic_write_attributes', $data ?? [], null);
         $this->setIfExists('format', $data ?? [], null);
         $this->setIfExists('html_tag_write_attributes', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('image_write_attributes', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('showcase_write_attributes', $data ?? [], null);
+        $this->setIfExists('social_settings', $data ?? [], null);
+        $this->setIfExists('vast_tag_write_attributes', $data ?? [], null);
     }
 
     /**
@@ -504,7 +536,7 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets format
      *
-     * @param string $format The format of the creative  You can use \"Image\", \" HtmlTag\", \"Dynamic\" or \"Adaptive\"
+     * @param string $format The format of the creative.  You can use \"Image\", \"HtmlTag\", \"Dynamic\", \"Adaptive\", \"Showcase\" or \"VastTag\"
      *
      * @return self
      */
@@ -551,6 +583,40 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable html_tag_write_attributes cannot be null');
         }
         $this->container['html_tag_write_attributes'] = $html_tag_write_attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['id'] = $id;
 
         return $this;
     }
@@ -605,6 +671,94 @@ class CreativeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets showcase_write_attributes
+     *
+     * @return \criteo\api\marketingsolutions\experimental\Model\ShowcaseWriteAttributes|null
+     */
+    public function getShowcaseWriteAttributes()
+    {
+        return $this->container['showcase_write_attributes'];
+    }
+
+    /**
+     * Sets showcase_write_attributes
+     *
+     * @param \criteo\api\marketingsolutions\experimental\Model\ShowcaseWriteAttributes|null $showcase_write_attributes showcase_write_attributes
+     *
+     * @return self
+     */
+    public function setShowcaseWriteAttributes($showcase_write_attributes)
+    {
+        if (is_null($showcase_write_attributes)) {
+            throw new \InvalidArgumentException('non-nullable showcase_write_attributes cannot be null');
+        }
+        $this->container['showcase_write_attributes'] = $showcase_write_attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets social_settings
+     *
+     * @return \criteo\api\marketingsolutions\experimental\Model\SocialSettings|null
+     */
+    public function getSocialSettings()
+    {
+        return $this->container['social_settings'];
+    }
+
+    /**
+     * Sets social_settings
+     *
+     * @param \criteo\api\marketingsolutions\experimental\Model\SocialSettings|null $social_settings social_settings
+     *
+     * @return self
+     */
+    public function setSocialSettings($social_settings)
+    {
+        if (is_null($social_settings)) {
+            array_push($this->openAPINullablesSetToNull, 'social_settings');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('social_settings', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['social_settings'] = $social_settings;
+
+        return $this;
+    }
+
+    /**
+     * Gets vast_tag_write_attributes
+     *
+     * @return \criteo\api\marketingsolutions\experimental\Model\VastTagWriteAttributes|null
+     */
+    public function getVastTagWriteAttributes()
+    {
+        return $this->container['vast_tag_write_attributes'];
+    }
+
+    /**
+     * Sets vast_tag_write_attributes
+     *
+     * @param \criteo\api\marketingsolutions\experimental\Model\VastTagWriteAttributes|null $vast_tag_write_attributes vast_tag_write_attributes
+     *
+     * @return self
+     */
+    public function setVastTagWriteAttributes($vast_tag_write_attributes)
+    {
+        if (is_null($vast_tag_write_attributes)) {
+            throw new \InvalidArgumentException('non-nullable vast_tag_write_attributes cannot be null');
+        }
+        $this->container['vast_tag_write_attributes'] = $vast_tag_write_attributes;
 
         return $this;
     }

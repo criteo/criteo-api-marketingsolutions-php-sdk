@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdateCoupon
+ * IdFilterV1
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\experimental\ObjectSerializer;
 
 /**
- * UpdateCoupon Class Doc Comment
+ * IdFilterV1 Class Doc Comment
  *
  * @category Class
- * @description Entity to edit a Coupon
+ * @description Filter that compares identifiers against one or more values.
  * @package  criteo\api\marketingsolutions\experimental
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
+class IdFilterV1 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'UpdateCoupon';
+    protected static $openAPIModelName = 'IdFilterV1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'end_date' => 'string',
-        'id' => 'string',
-        'start_date' => 'string'
+        'operator' => 'string',
+        'values' => 'string[]'
     ];
 
     /**
@@ -71,9 +70,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'end_date' => null,
-        'id' => null,
-        'start_date' => null
+        'operator' => null,
+        'values' => null
     ];
 
     /**
@@ -82,9 +80,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'end_date' => true,
-		'id' => true,
-		'start_date' => false
+        'operator' => true,
+		'values' => true
     ];
 
     /**
@@ -173,9 +170,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'end_date' => 'endDate',
-        'id' => 'id',
-        'start_date' => 'startDate'
+        'operator' => 'operator',
+        'values' => 'values'
     ];
 
     /**
@@ -184,9 +180,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'end_date' => 'setEndDate',
-        'id' => 'setId',
-        'start_date' => 'setStartDate'
+        'operator' => 'setOperator',
+        'values' => 'setValues'
     ];
 
     /**
@@ -195,9 +190,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'end_date' => 'getEndDate',
-        'id' => 'getId',
-        'start_date' => 'getStartDate'
+        'operator' => 'getOperator',
+        'values' => 'getValues'
     ];
 
     /**
@@ -241,6 +235,21 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const OPERATOR_UNKNOWN = 'Unknown';
+    public const OPERATOR_EQUALS = 'Equals';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOperatorAllowableValues()
+    {
+        return [
+            self::OPERATOR_UNKNOWN,
+            self::OPERATOR_EQUALS,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -257,9 +266,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('end_date', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('start_date', $data ?? [], null);
+        $this->setIfExists('operator', $data ?? [], null);
+        $this->setIfExists('values', $data ?? [], null);
     }
 
     /**
@@ -289,9 +297,15 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['start_date'] === null) {
-            $invalidProperties[] = "'start_date' can't be null";
+        $allowedValues = $this->getOperatorAllowableValues();
+        if (!is_null($this->container['operator']) && !in_array($this->container['operator'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'operator', must be one of '%s'",
+                $this->container['operator'],
+                implode("', '", $allowedValues)
+            );
         }
+
         return $invalidProperties;
     }
 
@@ -308,96 +322,79 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets end_date
+     * Gets operator
      *
      * @return string|null
      */
-    public function getEndDate()
+    public function getOperator()
     {
-        return $this->container['end_date'];
+        return $this->container['operator'];
     }
 
     /**
-     * Sets end_date
+     * Sets operator
      *
-     * @param string|null $end_date The date when when we will stop to show this Coupon. If the end date is not specified (i.e. null) then the Coupon will go on forever  String must be in ISO8601 format
+     * @param string|null $operator Comparison operator for the id filter
      *
      * @return self
      */
-    public function setEndDate($end_date)
+    public function setOperator($operator)
     {
-        if (is_null($end_date)) {
-            array_push($this->openAPINullablesSetToNull, 'end_date');
+        if (is_null($operator)) {
+            array_push($this->openAPINullablesSetToNull, 'operator');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('end_date', $nullablesSetToNull);
+            $index = array_search('operator', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['end_date'] = $end_date;
+        $allowedValues = $this->getOperatorAllowableValues();
+        if (!is_null($operator) && !in_array($operator, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'operator', must be one of '%s'",
+                    $operator,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['operator'] = $operator;
 
         return $this;
     }
 
     /**
-     * Gets id
+     * Gets values
      *
-     * @return string|null
+     * @return string[]|null
      */
-    public function getId()
+    public function getValues()
     {
-        return $this->container['id'];
+        return $this->container['values'];
     }
 
     /**
-     * Sets id
+     * Sets values
      *
-     * @param string|null $id id
+     * @param string[]|null $values Identifiers to compare against
      *
      * @return self
      */
-    public function setId($id)
+    public function setValues($values)
     {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
+        if (is_null($values)) {
+            array_push($this->openAPINullablesSetToNull, 'values');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
+            $index = array_search('values', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets start_date
-     *
-     * @return string
-     */
-    public function getStartDate()
-    {
-        return $this->container['start_date'];
-    }
-
-    /**
-     * Sets start_date
-     *
-     * @param string $start_date The date when the Coupon will be launched  String must be in ISO8601 format
-     *
-     * @return self
-     */
-    public function setStartDate($start_date)
-    {
-        if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
-        }
-        $this->container['start_date'] = $start_date;
+        $this->container['values'] = $values;
 
         return $this;
     }

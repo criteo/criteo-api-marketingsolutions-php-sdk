@@ -59,6 +59,7 @@ class CouponSupportedSizes implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'full_frame' => 'string[]',
+        'id' => 'string',
         'logo_zone' => 'string[]'
     ];
 
@@ -71,6 +72,7 @@ class CouponSupportedSizes implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPIFormats = [
         'full_frame' => null,
+        'id' => null,
         'logo_zone' => null
     ];
 
@@ -81,6 +83,7 @@ class CouponSupportedSizes implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static array $openAPINullables = [
         'full_frame' => true,
+		'id' => true,
 		'logo_zone' => true
     ];
 
@@ -171,6 +174,7 @@ class CouponSupportedSizes implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $attributeMap = [
         'full_frame' => 'fullFrame',
+        'id' => 'id',
         'logo_zone' => 'logoZone'
     ];
 
@@ -181,6 +185,7 @@ class CouponSupportedSizes implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $setters = [
         'full_frame' => 'setFullFrame',
+        'id' => 'setId',
         'logo_zone' => 'setLogoZone'
     ];
 
@@ -191,6 +196,7 @@ class CouponSupportedSizes implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $getters = [
         'full_frame' => 'getFullFrame',
+        'id' => 'getId',
         'logo_zone' => 'getLogoZone'
     ];
 
@@ -252,6 +258,7 @@ class CouponSupportedSizes implements ModelInterface, ArrayAccess, \JsonSerializ
     public function __construct(array $data = null)
     {
         $this->setIfExists('full_frame', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('logo_zone', $data ?? [], null);
     }
 
@@ -327,6 +334,40 @@ class CouponSupportedSizes implements ModelInterface, ArrayAccess, \JsonSerializ
             }
         }
         $this->container['full_frame'] = $full_frame;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['id'] = $id;
 
         return $this;
     }
