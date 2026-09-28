@@ -5,8 +5,10 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**createAllProductsExport()**](AnalyticsApi.md#createAllProductsExport) | **POST** /experimental/marketing-solutions/report/products/export | /experimental/marketing-solutions/report/products/export |
+| [**createMpoProductsExport()**](AnalyticsApi.md#createMpoProductsExport) | **POST** /experimental/marketing-solutions/marketplace-performance-outcomes/stats/product-reports/export | /experimental/marketing-solutions/marketplace-performance-outcomes/stats/product-reports/export |
 | [**createRealtimeProductReport()**](AnalyticsApi.md#createRealtimeProductReport) | **POST** /experimental/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/export | /experimental/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/export |
 | [**downloadAllProductsExport()**](AnalyticsApi.md#downloadAllProductsExport) | **GET** /experimental/marketing-solutions/report/products/{reportId} | /experimental/marketing-solutions/report/products/{reportId} |
+| [**downloadMpoProductsExport()**](AnalyticsApi.md#downloadMpoProductsExport) | **GET** /experimental/marketing-solutions/marketplace-performance-outcomes/stats/product-reports/{reportId} | /experimental/marketing-solutions/marketplace-performance-outcomes/stats/product-reports/{reportId} |
 | [**getAdsetReport()**](AnalyticsApi.md#getAdsetReport) | **POST** /experimental/statistics/report | /experimental/statistics/report |
 | [**getAsyncAdsetReport()**](AnalyticsApi.md#getAsyncAdsetReport) | **POST** /experimental/reports/async-statistics | /experimental/reports/async-statistics |
 | [**getAsyncAudienceReport()**](AnalyticsApi.md#getAsyncAudienceReport) | **POST** /experimental/reports/async-audience-performance | /experimental/reports/async-audience-performance |
@@ -32,7 +34,7 @@ createAllProductsExport($generate_all_products_report_request_attributes_request
 
 /experimental/marketing-solutions/report/products/export
 
-Creates an all-products report export job.  <br />  This endpoint is subject to specific rate limits.
+Creates an all-products report export job. <br /> This endpoint is subject to specific rate limits.
 
 ### Example
 
@@ -87,6 +89,69 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createMpoProductsExport()`
+
+```php
+createMpoProductsExport($product_report_job_request): \criteo\api\marketingsolutions\experimental\Model\ReportJobStatusResponse
+```
+
+/experimental/marketing-solutions/marketplace-performance-outcomes/stats/product-reports/export
+
+Creates an MPO products report export job. <br /> This endpoint is subject to specific rate limits.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\experimental\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\experimental\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\experimental\Api\AnalyticsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$product_report_job_request = {"data":{"type":"ProductReportJob","attributes":{"fileFormat":"json","startDate":"2026-09-01T00:00:00.0000000+00:00","endDate":"2026-09-04T00:00:00.0000000+00:00","advertiserIds":["123"],"campaignIds":["111"],"adSetIds":["135"],"dimensions":["adSetId","sellerId","productId"],"metrics":["impressions","clicks","cost"]}}}; // \criteo\api\marketingsolutions\experimental\Model\ProductReportJobRequest | The MPO products report export request.
+
+try {
+    $result = $apiInstance->createMpoProductsExport($product_report_job_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AnalyticsApi->createMpoProductsExport: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **product_report_job_request** | [**\criteo\api\marketingsolutions\experimental\Model\ProductReportJobRequest**](../Model/ProductReportJobRequest.md)| The MPO products report export request. | [optional] |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\experimental\Model\ReportJobStatusResponse**](../Model/ReportJobStatusResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `createRealtimeProductReport()`
 
 ```php
@@ -95,7 +160,7 @@ createRealtimeProductReport($real_time_product_report_job_request): \criteo\api\
 
 /experimental/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/export
 
-Creates a marketplace performance outcomes realtime report export.  <br />  This endpoint is subject to specific rate limits.
+Creates a marketplace performance outcomes realtime report export. <br /> This endpoint is subject to specific rate limits.
 
 ### Example
 
@@ -158,7 +223,7 @@ downloadAllProductsExport($report_id): \SplFileObject
 
 /experimental/marketing-solutions/report/products/{reportId}
 
-Downloads the generated all-products report export.  <br />  This endpoint is subject to specific rate limits.
+Downloads the generated all-products report export. <br /> This endpoint is subject to specific rate limits.
 
 ### Example
 
@@ -208,6 +273,69 @@ try {
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `downloadMpoProductsExport()`
+
+```php
+downloadMpoProductsExport($report_id): \criteo\api\marketingsolutions\experimental\Model\ProductReportDataResponse
+```
+
+/experimental/marketing-solutions/marketplace-performance-outcomes/stats/product-reports/{reportId}
+
+Downloads the generated MPO products report export. <br /> This endpoint is subject to specific rate limits.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\experimental\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\experimental\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\experimental\Api\AnalyticsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$report_id = 'report_id_example'; // string | The identifier of the MPO products report export.
+
+try {
+    $result = $apiInstance->downloadMpoProductsExport($report_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AnalyticsApi->downloadMpoProductsExport: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **report_id** | **string**| The identifier of the MPO products report export. | |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\experimental\Model\ProductReportDataResponse**](../Model/ProductReportDataResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `text/csv`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -851,7 +979,7 @@ getRealtimeProduct($report_id): \criteo\api\marketingsolutions\experimental\Mode
 
 /experimental/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/{reportId}
 
-Downloads the generated marketplace performance outcomes realtime report export.  <br />  This endpoint is subject to specific rate limits.
+Downloads the generated marketplace performance outcomes realtime report export. <br /> This endpoint is subject to specific rate limits.
 
 ### Example
 

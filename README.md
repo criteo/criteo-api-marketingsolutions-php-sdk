@@ -72,8 +72,10 @@ Class | Method | HTTP request | Description
 *AdvertiserApi* | [**listDatasetsByAdvertiser**](docs/Api/AdvertiserApi.md#listdatasetsbyadvertiser) | **GET** /experimental/advertisers/{advertiser-id}/datasets | /experimental/advertisers/{advertiser-id}/datasets
 *AdvertiserApi* | [**listIndustries**](docs/Api/AdvertiserApi.md#listindustries) | **GET** /experimental/industries | /experimental/industries
 *AnalyticsApi* | [**createAllProductsExport**](docs/Api/AnalyticsApi.md#createallproductsexport) | **POST** /experimental/marketing-solutions/report/products/export | /experimental/marketing-solutions/report/products/export
+*AnalyticsApi* | [**createMpoProductsExport**](docs/Api/AnalyticsApi.md#creatempoproductsexport) | **POST** /experimental/marketing-solutions/marketplace-performance-outcomes/stats/product-reports/export | /experimental/marketing-solutions/marketplace-performance-outcomes/stats/product-reports/export
 *AnalyticsApi* | [**createRealtimeProductReport**](docs/Api/AnalyticsApi.md#createrealtimeproductreport) | **POST** /experimental/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/export | /experimental/marketing-solutions/marketplace-performance-outcomes/stats/realtime-reports/export
 *AnalyticsApi* | [**downloadAllProductsExport**](docs/Api/AnalyticsApi.md#downloadallproductsexport) | **GET** /experimental/marketing-solutions/report/products/{reportId} | /experimental/marketing-solutions/report/products/{reportId}
+*AnalyticsApi* | [**downloadMpoProductsExport**](docs/Api/AnalyticsApi.md#downloadmpoproductsexport) | **GET** /experimental/marketing-solutions/marketplace-performance-outcomes/stats/product-reports/{reportId} | /experimental/marketing-solutions/marketplace-performance-outcomes/stats/product-reports/{reportId}
 *AnalyticsApi* | [**getAdsetReport**](docs/Api/AnalyticsApi.md#getadsetreport) | **POST** /experimental/statistics/report | /experimental/statistics/report
 *AnalyticsApi* | [**getAsyncAdsetReport**](docs/Api/AnalyticsApi.md#getasyncadsetreport) | **POST** /experimental/reports/async-statistics | /experimental/reports/async-statistics
 *AnalyticsApi* | [**getAsyncAudienceReport**](docs/Api/AnalyticsApi.md#getasyncaudiencereport) | **POST** /experimental/reports/async-audience-performance | /experimental/reports/async-audience-performance
@@ -530,6 +532,12 @@ Class | Method | HTTP request | Description
  - [ProductImporterError](docs/Model/ProductImporterError.md)
  - [ProductImporterWarning](docs/Model/ProductImporterWarning.md)
  - [ProductPrice](docs/Model/ProductPrice.md)
+ - [ProductReportData](docs/Model/ProductReportData.md)
+ - [ProductReportDataResource](docs/Model/ProductReportDataResource.md)
+ - [ProductReportDataResponse](docs/Model/ProductReportDataResponse.md)
+ - [ProductReportJob](docs/Model/ProductReportJob.md)
+ - [ProductReportJobRequest](docs/Model/ProductReportJobRequest.md)
+ - [ProductReportJobResource](docs/Model/ProductReportJobResource.md)
  - [ProductSet](docs/Model/ProductSet.md)
  - [ProductSetRule](docs/Model/ProductSetRule.md)
  - [ProductShipping](docs/Model/ProductShipping.md)
@@ -564,6 +572,9 @@ Class | Method | HTTP request | Description
  - [ReportDetailErrors](docs/Model/ReportDetailErrors.md)
  - [ReportDetailWarning](docs/Model/ReportDetailWarning.md)
  - [ReportDetailWarnings](docs/Model/ReportDetailWarnings.md)
+ - [ReportJobStatus](docs/Model/ReportJobStatus.md)
+ - [ReportJobStatusResource](docs/Model/ReportJobStatusResource.md)
+ - [ReportJobStatusResponse](docs/Model/ReportJobStatusResponse.md)
  - [ReportOkResponse](docs/Model/ReportOkResponse.md)
  - [RequestsAdSetId](docs/Model/RequestsAdSetId.md)
  - [RequestsPatchAdSetV26Q1](docs/Model/RequestsPatchAdSetV26Q1.md)
