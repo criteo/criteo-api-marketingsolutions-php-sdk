@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdateCoupon
+ * ProductReportData
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * UpdateCoupon Class Doc Comment
+ * ProductReportData Class Doc Comment
  *
  * @category Class
- * @description Entity to edit a Coupon
+ * @description The generated product report JSON.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
+class ProductReportData implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'UpdateCoupon';
+    protected static $openAPIModelName = 'ProductReportData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,9 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'end_date' => 'string',
-        'id' => 'string',
-        'start_date' => 'string'
+        'columns' => 'string[]',
+        'data' => 'mixed[][]',
+        'rows' => 'int'
     ];
 
     /**
@@ -71,9 +71,9 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'end_date' => null,
-        'id' => null,
-        'start_date' => null
+        'columns' => null,
+        'data' => null,
+        'rows' => 'int32'
     ];
 
     /**
@@ -82,9 +82,9 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'end_date' => true,
-		'id' => true,
-		'start_date' => false
+        'columns' => true,
+		'data' => true,
+		'rows' => true
     ];
 
     /**
@@ -173,9 +173,9 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'end_date' => 'endDate',
-        'id' => 'id',
-        'start_date' => 'startDate'
+        'columns' => 'columns',
+        'data' => 'data',
+        'rows' => 'rows'
     ];
 
     /**
@@ -184,9 +184,9 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'end_date' => 'setEndDate',
-        'id' => 'setId',
-        'start_date' => 'setStartDate'
+        'columns' => 'setColumns',
+        'data' => 'setData',
+        'rows' => 'setRows'
     ];
 
     /**
@@ -195,9 +195,9 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'end_date' => 'getEndDate',
-        'id' => 'getId',
-        'start_date' => 'getStartDate'
+        'columns' => 'getColumns',
+        'data' => 'getData',
+        'rows' => 'getRows'
     ];
 
     /**
@@ -257,9 +257,9 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('end_date', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('start_date', $data ?? [], null);
+        $this->setIfExists('columns', $data ?? [], null);
+        $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('rows', $data ?? [], null);
     }
 
     /**
@@ -289,9 +289,6 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['start_date'] === null) {
-            $invalidProperties[] = "'start_date' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -308,96 +305,103 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets end_date
+     * Gets columns
      *
-     * @return string|null
+     * @return string[]|null
      */
-    public function getEndDate()
+    public function getColumns()
     {
-        return $this->container['end_date'];
+        return $this->container['columns'];
     }
 
     /**
-     * Sets end_date
+     * Sets columns
      *
-     * @param string|null $end_date The date when we will stop showing this coupon, which must come after the start date. If the  end date is not specified (i.e. null) then the coupon will go on forever.  String must be in ISO8601 format, more precisely \"yyyy-MM-ddTHH:mm:ss.fffZ\": a UTC timestamp whose  three millisecond digits and trailing \"Z\" are both required, for example \"2026-10-01T09:00:00.000Z\".  No other ISO8601 layout is accepted, neither a UTC offset such as \"2026-10-01T11:00:00+02:00\" nor a  second-precision \"2026-10-01T09:00:00Z\".  A date that does not fall on a whole hour is rounded up to the next one, so  \"2026-10-01T09:30:00.000Z\" is stored as \"2026-10-01T10:00:00.000Z\".
+     * @param string[]|null $columns Column names
      *
      * @return self
      */
-    public function setEndDate($end_date)
+    public function setColumns($columns)
     {
-        if (is_null($end_date)) {
-            array_push($this->openAPINullablesSetToNull, 'end_date');
+        if (is_null($columns)) {
+            array_push($this->openAPINullablesSetToNull, 'columns');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('end_date', $nullablesSetToNull);
+            $index = array_search('columns', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['end_date'] = $end_date;
+        $this->container['columns'] = $columns;
 
         return $this;
     }
 
     /**
-     * Gets id
+     * Gets data
      *
-     * @return string|null
+     * @return mixed[][]|null
      */
-    public function getId()
+    public function getData()
     {
-        return $this->container['id'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets id
+     * Sets data
      *
-     * @param string|null $id id
+     * @param mixed[][]|null $data Report data
      *
      * @return self
      */
-    public function setId($id)
+    public function setData($data)
     {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
+        if (is_null($data)) {
+            array_push($this->openAPINullablesSetToNull, 'data');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
+            $index = array_search('data', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['id'] = $id;
+        $this->container['data'] = $data;
 
         return $this;
     }
 
     /**
-     * Gets start_date
+     * Gets rows
      *
-     * @return string
+     * @return int|null
      */
-    public function getStartDate()
+    public function getRows()
     {
-        return $this->container['start_date'];
+        return $this->container['rows'];
     }
 
     /**
-     * Sets start_date
+     * Sets rows
      *
-     * @param string $start_date The date when the coupon will be launched. It must be a date in the future, and it must not  move earlier than the start date the coupon already has.  String must be in ISO8601 format, more precisely \"yyyy-MM-ddTHH:mm:ss.fffZ\": a UTC timestamp whose  three millisecond digits and trailing \"Z\" are both required, for example \"2026-10-01T09:00:00.000Z\".  No other ISO8601 layout is accepted, neither a UTC offset such as \"2026-10-01T11:00:00+02:00\" nor a  second-precision \"2026-10-01T09:00:00Z\".  A date that does not fall on a whole hour is rounded up to the next one, so  \"2026-10-01T09:30:00.000Z\" is stored as \"2026-10-01T10:00:00.000Z\".
+     * @param int|null $rows Number of rows reported
      *
      * @return self
      */
-    public function setStartDate($start_date)
+    public function setRows($rows)
     {
-        if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
+        if (is_null($rows)) {
+            array_push($this->openAPINullablesSetToNull, 'rows');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('rows', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['start_date'] = $start_date;
+        $this->container['rows'] = $rows;
 
         return $this;
     }

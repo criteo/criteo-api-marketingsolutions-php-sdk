@@ -292,6 +292,7 @@ class ProductSet implements ModelInterface, ArrayAccess, \JsonSerializable
     public const CLIENT_TYPE_UNKNOWN = 'Unknown';
     public const CLIENT_TYPE_C_GROWTH = 'CGrowth';
     public const CLIENT_TYPE_C_MAX = 'CMax';
+    public const CLIENT_TYPE_GO_ENTERPRISE = 'GoEnterprise';
     public const STATUS_UNKNOWN = 'Unknown';
     public const STATUS_DRAFT = 'Draft';
     public const STATUS_PENDING = 'Pending';
@@ -310,6 +311,7 @@ class ProductSet implements ModelInterface, ArrayAccess, \JsonSerializable
             self::CLIENT_TYPE_UNKNOWN,
             self::CLIENT_TYPE_C_GROWTH,
             self::CLIENT_TYPE_C_MAX,
+            self::CLIENT_TYPE_GO_ENTERPRISE,
         ];
     }
 

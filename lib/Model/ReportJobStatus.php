@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdateCoupon
+ * ReportJobStatus
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * UpdateCoupon Class Doc Comment
+ * ReportJobStatus Class Doc Comment
  *
  * @category Class
- * @description Entity to edit a Coupon
+ * @description Status of a report export job.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
+class ReportJobStatus implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'UpdateCoupon';
+    protected static $openAPIModelName = 'ReportJobStatus';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,9 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'end_date' => 'string',
-        'id' => 'string',
-        'start_date' => 'string'
+        'export_id' => 'string',
+        'message' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -71,9 +71,9 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'end_date' => null,
-        'id' => null,
-        'start_date' => null
+        'export_id' => null,
+        'message' => null,
+        'status' => null
     ];
 
     /**
@@ -82,9 +82,9 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'end_date' => true,
-		'id' => true,
-		'start_date' => false
+        'export_id' => true,
+		'message' => true,
+		'status' => true
     ];
 
     /**
@@ -173,9 +173,9 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'end_date' => 'endDate',
-        'id' => 'id',
-        'start_date' => 'startDate'
+        'export_id' => 'exportId',
+        'message' => 'message',
+        'status' => 'status'
     ];
 
     /**
@@ -184,9 +184,9 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'end_date' => 'setEndDate',
-        'id' => 'setId',
-        'start_date' => 'setStartDate'
+        'export_id' => 'setExportId',
+        'message' => 'setMessage',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -195,9 +195,9 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'end_date' => 'getEndDate',
-        'id' => 'getId',
-        'start_date' => 'getStartDate'
+        'export_id' => 'getExportId',
+        'message' => 'getMessage',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -241,6 +241,25 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const STATUS_PENDING = 'Pending';
+    public const STATUS_DONE = 'Done';
+    public const STATUS_FAILURE = 'Failure';
+    public const STATUS_EXPIRED = 'Expired';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_PENDING,
+            self::STATUS_DONE,
+            self::STATUS_FAILURE,
+            self::STATUS_EXPIRED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -257,9 +276,9 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('end_date', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('start_date', $data ?? [], null);
+        $this->setIfExists('export_id', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
     }
 
     /**
@@ -289,9 +308,15 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['start_date'] === null) {
-            $invalidProperties[] = "'start_date' can't be null";
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'status', must be one of '%s'",
+                $this->container['status'],
+                implode("', '", $allowedValues)
+            );
         }
+
         return $invalidProperties;
     }
 
@@ -308,96 +333,113 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets end_date
+     * Gets export_id
      *
      * @return string|null
      */
-    public function getEndDate()
+    public function getExportId()
     {
-        return $this->container['end_date'];
+        return $this->container['export_id'];
     }
 
     /**
-     * Sets end_date
+     * Sets export_id
      *
-     * @param string|null $end_date The date when we will stop showing this coupon, which must come after the start date. If the  end date is not specified (i.e. null) then the coupon will go on forever.  String must be in ISO8601 format, more precisely \"yyyy-MM-ddTHH:mm:ss.fffZ\": a UTC timestamp whose  three millisecond digits and trailing \"Z\" are both required, for example \"2026-10-01T09:00:00.000Z\".  No other ISO8601 layout is accepted, neither a UTC offset such as \"2026-10-01T11:00:00+02:00\" nor a  second-precision \"2026-10-01T09:00:00Z\".  A date that does not fall on a whole hour is rounded up to the next one, so  \"2026-10-01T09:30:00.000Z\" is stored as \"2026-10-01T10:00:00.000Z\".
+     * @param string|null $export_id ID of the report job
      *
      * @return self
      */
-    public function setEndDate($end_date)
+    public function setExportId($export_id)
     {
-        if (is_null($end_date)) {
-            array_push($this->openAPINullablesSetToNull, 'end_date');
+        if (is_null($export_id)) {
+            array_push($this->openAPINullablesSetToNull, 'export_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('end_date', $nullablesSetToNull);
+            $index = array_search('export_id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['end_date'] = $end_date;
+        $this->container['export_id'] = $export_id;
 
         return $this;
     }
 
     /**
-     * Gets id
+     * Gets message
      *
      * @return string|null
      */
-    public function getId()
+    public function getMessage()
     {
-        return $this->container['id'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets id
+     * Sets message
      *
-     * @param string|null $id id
+     * @param string|null $message Optional informational message (e.g. rows_count=1232)
      *
      * @return self
      */
-    public function setId($id)
+    public function setMessage($message)
     {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
+        if (is_null($message)) {
+            array_push($this->openAPINullablesSetToNull, 'message');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
+            $index = array_search('message', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['id'] = $id;
+        $this->container['message'] = $message;
 
         return $this;
     }
 
     /**
-     * Gets start_date
+     * Gets status
      *
-     * @return string
+     * @return string|null
      */
-    public function getStartDate()
+    public function getStatus()
     {
-        return $this->container['start_date'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets start_date
+     * Sets status
      *
-     * @param string $start_date The date when the coupon will be launched. It must be a date in the future, and it must not  move earlier than the start date the coupon already has.  String must be in ISO8601 format, more precisely \"yyyy-MM-ddTHH:mm:ss.fffZ\": a UTC timestamp whose  three millisecond digits and trailing \"Z\" are both required, for example \"2026-10-01T09:00:00.000Z\".  No other ISO8601 layout is accepted, neither a UTC offset such as \"2026-10-01T11:00:00+02:00\" nor a  second-precision \"2026-10-01T09:00:00Z\".  A date that does not fall on a whole hour is rounded up to the next one, so  \"2026-10-01T09:30:00.000Z\" is stored as \"2026-10-01T10:00:00.000Z\".
+     * @param string|null $status Status of the report job
      *
      * @return self
      */
-    public function setStartDate($start_date)
+    public function setStatus($status)
     {
-        if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
+        if (is_null($status)) {
+            array_push($this->openAPINullablesSetToNull, 'status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['start_date'] = $start_date;
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'status', must be one of '%s'",
+                    $status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }

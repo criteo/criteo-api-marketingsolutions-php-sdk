@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdateCoupon
+ * ProductReportDataResource
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * UpdateCoupon Class Doc Comment
+ * ProductReportDataResource Class Doc Comment
  *
  * @category Class
- * @description Entity to edit a Coupon
+ * @description A value resource exposed by the API.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
+class ProductReportDataResource implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'UpdateCoupon';
+    protected static $openAPIModelName = 'ProductReportDataResource';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'end_date' => 'string',
-        'id' => 'string',
-        'start_date' => 'string'
+        'attributes' => '\criteo\api\marketingsolutions\preview\Model\ProductReportData',
+        'type' => 'string'
     ];
 
     /**
@@ -71,9 +70,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'end_date' => null,
-        'id' => null,
-        'start_date' => null
+        'attributes' => null,
+        'type' => null
     ];
 
     /**
@@ -82,9 +80,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'end_date' => true,
-		'id' => true,
-		'start_date' => false
+        'attributes' => true,
+		'type' => true
     ];
 
     /**
@@ -173,9 +170,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'end_date' => 'endDate',
-        'id' => 'id',
-        'start_date' => 'startDate'
+        'attributes' => 'attributes',
+        'type' => 'type'
     ];
 
     /**
@@ -184,9 +180,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'end_date' => 'setEndDate',
-        'id' => 'setId',
-        'start_date' => 'setStartDate'
+        'attributes' => 'setAttributes',
+        'type' => 'setType'
     ];
 
     /**
@@ -195,9 +190,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'end_date' => 'getEndDate',
-        'id' => 'getId',
-        'start_date' => 'getStartDate'
+        'attributes' => 'getAttributes',
+        'type' => 'getType'
     ];
 
     /**
@@ -257,9 +251,8 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('end_date', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('start_date', $data ?? [], null);
+        $this->setIfExists('attributes', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
     }
 
     /**
@@ -289,9 +282,6 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['start_date'] === null) {
-            $invalidProperties[] = "'start_date' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -308,96 +298,69 @@ class UpdateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets end_date
+     * Gets attributes
      *
-     * @return string|null
+     * @return \criteo\api\marketingsolutions\preview\Model\ProductReportData|null
      */
-    public function getEndDate()
+    public function getAttributes()
     {
-        return $this->container['end_date'];
+        return $this->container['attributes'];
     }
 
     /**
-     * Sets end_date
+     * Sets attributes
      *
-     * @param string|null $end_date The date when we will stop showing this coupon, which must come after the start date. If the  end date is not specified (i.e. null) then the coupon will go on forever.  String must be in ISO8601 format, more precisely \"yyyy-MM-ddTHH:mm:ss.fffZ\": a UTC timestamp whose  three millisecond digits and trailing \"Z\" are both required, for example \"2026-10-01T09:00:00.000Z\".  No other ISO8601 layout is accepted, neither a UTC offset such as \"2026-10-01T11:00:00+02:00\" nor a  second-precision \"2026-10-01T09:00:00Z\".  A date that does not fall on a whole hour is rounded up to the next one, so  \"2026-10-01T09:30:00.000Z\" is stored as \"2026-10-01T10:00:00.000Z\".
+     * @param \criteo\api\marketingsolutions\preview\Model\ProductReportData|null $attributes attributes
      *
      * @return self
      */
-    public function setEndDate($end_date)
+    public function setAttributes($attributes)
     {
-        if (is_null($end_date)) {
-            array_push($this->openAPINullablesSetToNull, 'end_date');
+        if (is_null($attributes)) {
+            array_push($this->openAPINullablesSetToNull, 'attributes');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('end_date', $nullablesSetToNull);
+            $index = array_search('attributes', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['end_date'] = $end_date;
+        $this->container['attributes'] = $attributes;
 
         return $this;
     }
 
     /**
-     * Gets id
+     * Gets type
      *
      * @return string|null
      */
-    public function getId()
+    public function getType()
     {
-        return $this->container['id'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets id
+     * Sets type
      *
-     * @param string|null $id id
+     * @param string|null $type Type of the resource.
      *
      * @return self
      */
-    public function setId($id)
+    public function setType($type)
     {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
+        if (is_null($type)) {
+            array_push($this->openAPINullablesSetToNull, 'type');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
+            $index = array_search('type', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets start_date
-     *
-     * @return string
-     */
-    public function getStartDate()
-    {
-        return $this->container['start_date'];
-    }
-
-    /**
-     * Sets start_date
-     *
-     * @param string $start_date The date when the coupon will be launched. It must be a date in the future, and it must not  move earlier than the start date the coupon already has.  String must be in ISO8601 format, more precisely \"yyyy-MM-ddTHH:mm:ss.fffZ\": a UTC timestamp whose  three millisecond digits and trailing \"Z\" are both required, for example \"2026-10-01T09:00:00.000Z\".  No other ISO8601 layout is accepted, neither a UTC offset such as \"2026-10-01T11:00:00+02:00\" nor a  second-precision \"2026-10-01T09:00:00Z\".  A date that does not fall on a whole hour is rounded up to the next one, so  \"2026-10-01T09:30:00.000Z\" is stored as \"2026-10-01T10:00:00.000Z\".
-     *
-     * @return self
-     */
-    public function setStartDate($start_date)
-    {
-        if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
-        }
-        $this->container['start_date'] = $start_date;
+        $this->container['type'] = $type;
 
         return $this;
     }

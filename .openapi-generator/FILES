@@ -325,6 +325,12 @@ docs/Model/ProductFilterConfig.md
 docs/Model/ProductImporterError.md
 docs/Model/ProductImporterWarning.md
 docs/Model/ProductPrice.md
+docs/Model/ProductReportData.md
+docs/Model/ProductReportDataResource.md
+docs/Model/ProductReportDataResponse.md
+docs/Model/ProductReportJob.md
+docs/Model/ProductReportJobRequest.md
+docs/Model/ProductReportJobResource.md
 docs/Model/ProductSet.md
 docs/Model/ProductSetRule.md
 docs/Model/ProductShipping.md
@@ -358,6 +364,9 @@ docs/Model/ReportDetailError.md
 docs/Model/ReportDetailErrors.md
 docs/Model/ReportDetailWarning.md
 docs/Model/ReportDetailWarnings.md
+docs/Model/ReportJobStatus.md
+docs/Model/ReportJobStatusResource.md
+docs/Model/ReportJobStatusResponse.md
 docs/Model/ReportOkResponse.md
 docs/Model/RequestsAdSetId.md
 docs/Model/RequestsPatchAdSetV26Q1.md
@@ -775,6 +784,12 @@ lib/Model/ProductFilterConfig.php
 lib/Model/ProductImporterError.php
 lib/Model/ProductImporterWarning.php
 lib/Model/ProductPrice.php
+lib/Model/ProductReportData.php
+lib/Model/ProductReportDataResource.php
+lib/Model/ProductReportDataResponse.php
+lib/Model/ProductReportJob.php
+lib/Model/ProductReportJobRequest.php
+lib/Model/ProductReportJobResource.php
 lib/Model/ProductSet.php
 lib/Model/ProductSetRule.php
 lib/Model/ProductShipping.php
@@ -808,6 +823,9 @@ lib/Model/ReportDetailError.php
 lib/Model/ReportDetailErrors.php
 lib/Model/ReportDetailWarning.php
 lib/Model/ReportDetailWarnings.php
+lib/Model/ReportJobStatus.php
+lib/Model/ReportJobStatusResource.php
+lib/Model/ReportJobStatusResponse.php
 lib/Model/ReportOkResponse.php
 lib/Model/RequestsAdSetId.php
 lib/Model/RequestsPatchAdSetV26Q1.php

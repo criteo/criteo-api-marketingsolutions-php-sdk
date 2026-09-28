@@ -516,7 +516,7 @@ class CreateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets end_date
      *
-     * @param string|null $end_date The date when when we will stop to show this Coupon. If the end date is not specified (i.e. null) then the Coupon will go on forever  String must be in ISO8601 format
+     * @param string|null $end_date The date when we will stop showing this coupon, which must come after the start date. If the  end date is not specified (i.e. null) then the coupon will go on forever.  String must be in ISO8601 format, more precisely \"yyyy-MM-ddTHH:mm:ss.fffZ\": a UTC timestamp whose  three millisecond digits and trailing \"Z\" are both required, for example \"2026-10-01T09:00:00.000Z\".  No other ISO8601 layout is accepted, neither a UTC offset such as \"2026-10-01T11:00:00+02:00\" nor a  second-precision \"2026-10-01T09:00:00Z\".  A date that does not fall on a whole hour is rounded up to the next one, so  \"2026-10-01T09:30:00.000Z\" is stored as \"2026-10-01T10:00:00.000Z\".
      *
      * @return self
      */
@@ -807,7 +807,7 @@ class CreateCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets start_date
      *
-     * @param string $start_date The date when the coupon will be launched  String must be in ISO8601 format
+     * @param string $start_date The date when the coupon will be launched. It must be a date in the future.  String must be in ISO8601 format, more precisely \"yyyy-MM-ddTHH:mm:ss.fffZ\": a UTC timestamp whose  three millisecond digits and trailing \"Z\" are both required, for example \"2026-10-01T09:00:00.000Z\".  No other ISO8601 layout is accepted, neither a UTC offset such as \"2026-10-01T11:00:00+02:00\" nor a  second-precision \"2026-10-01T09:00:00Z\".  A date that does not fall on a whole hour is rounded up to the next one, so  \"2026-10-01T09:30:00.000Z\" is stored as \"2026-10-01T10:00:00.000Z\".
      *
      * @return self
      */

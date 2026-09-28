@@ -1,6 +1,6 @@
 <?php
 /**
- * AdWrite
+ * ProductReportJob
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * AdWrite Class Doc Comment
+ * ProductReportJob Class Doc Comment
  *
  * @category Class
- * @description Entity to create an ad
+ * @description This is the message defining the query for the MPO product report (async export).
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
+class ProductReportJob implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'AdWrite';
+    protected static $openAPIModelName = 'ProductReportJob';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,16 +58,14 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'ad_click_tracking' => '\criteo\api\marketingsolutions\preview\Model\ExamAdClickTracking[]',
-        'ad_impression_tracking' => '\criteo\api\marketingsolutions\preview\Model\ExamAdImpressionTracking[]',
-        'ad_set_id' => 'string',
-        'creative_id' => 'string',
-        'description' => 'string',
-        'end_date' => 'string',
-        'id' => 'string',
-        'inventory_type' => 'string',
-        'name' => 'string',
-        'start_date' => 'string'
+        'ad_set_ids' => 'string[]',
+        'advertiser_ids' => 'string[]',
+        'campaign_ids' => 'string[]',
+        'dimensions' => 'string[]',
+        'end_date' => '\DateTime',
+        'file_format' => 'string',
+        'metrics' => 'string[]',
+        'start_date' => '\DateTime'
     ];
 
     /**
@@ -78,16 +76,14 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'ad_click_tracking' => null,
-        'ad_impression_tracking' => null,
-        'ad_set_id' => null,
-        'creative_id' => null,
-        'description' => null,
-        'end_date' => null,
-        'id' => null,
-        'inventory_type' => null,
-        'name' => null,
-        'start_date' => null
+        'ad_set_ids' => null,
+        'advertiser_ids' => null,
+        'campaign_ids' => null,
+        'dimensions' => null,
+        'end_date' => 'date-time',
+        'file_format' => null,
+        'metrics' => null,
+        'start_date' => 'date-time'
     ];
 
     /**
@@ -96,15 +92,13 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'ad_click_tracking' => true,
-		'ad_impression_tracking' => true,
-		'ad_set_id' => false,
-		'creative_id' => false,
-		'description' => true,
-		'end_date' => true,
-		'id' => true,
-		'inventory_type' => true,
-		'name' => false,
+        'ad_set_ids' => true,
+		'advertiser_ids' => false,
+		'campaign_ids' => true,
+		'dimensions' => true,
+		'end_date' => false,
+		'file_format' => true,
+		'metrics' => true,
 		'start_date' => false
     ];
 
@@ -194,15 +188,13 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'ad_click_tracking' => 'adClickTracking',
-        'ad_impression_tracking' => 'adImpressionTracking',
-        'ad_set_id' => 'adSetId',
-        'creative_id' => 'creativeId',
-        'description' => 'description',
+        'ad_set_ids' => 'adSetIds',
+        'advertiser_ids' => 'advertiserIds',
+        'campaign_ids' => 'campaignIds',
+        'dimensions' => 'dimensions',
         'end_date' => 'endDate',
-        'id' => 'id',
-        'inventory_type' => 'inventoryType',
-        'name' => 'name',
+        'file_format' => 'fileFormat',
+        'metrics' => 'metrics',
         'start_date' => 'startDate'
     ];
 
@@ -212,15 +204,13 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'ad_click_tracking' => 'setAdClickTracking',
-        'ad_impression_tracking' => 'setAdImpressionTracking',
-        'ad_set_id' => 'setAdSetId',
-        'creative_id' => 'setCreativeId',
-        'description' => 'setDescription',
+        'ad_set_ids' => 'setAdSetIds',
+        'advertiser_ids' => 'setAdvertiserIds',
+        'campaign_ids' => 'setCampaignIds',
+        'dimensions' => 'setDimensions',
         'end_date' => 'setEndDate',
-        'id' => 'setId',
-        'inventory_type' => 'setInventoryType',
-        'name' => 'setName',
+        'file_format' => 'setFileFormat',
+        'metrics' => 'setMetrics',
         'start_date' => 'setStartDate'
     ];
 
@@ -230,15 +220,13 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'ad_click_tracking' => 'getAdClickTracking',
-        'ad_impression_tracking' => 'getAdImpressionTracking',
-        'ad_set_id' => 'getAdSetId',
-        'creative_id' => 'getCreativeId',
-        'description' => 'getDescription',
+        'ad_set_ids' => 'getAdSetIds',
+        'advertiser_ids' => 'getAdvertiserIds',
+        'campaign_ids' => 'getCampaignIds',
+        'dimensions' => 'getDimensions',
         'end_date' => 'getEndDate',
-        'id' => 'getId',
-        'inventory_type' => 'getInventoryType',
-        'name' => 'getName',
+        'file_format' => 'getFileFormat',
+        'metrics' => 'getMetrics',
         'start_date' => 'getStartDate'
     ];
 
@@ -283,23 +271,44 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const INVENTORY_TYPE_NATIVE = 'Native';
-    public const INVENTORY_TYPE_DISPLAY = 'Display';
-    public const INVENTORY_TYPE_VIDEO = 'Video';
-    public const INVENTORY_TYPE_META = 'Meta';
+    public const DIMENSIONS_ADVERTISER_ID = 'advertiserId';
+    public const DIMENSIONS_PARTNER_ID = 'partnerId';
+    public const DIMENSIONS_CAMPAIGN_ID = 'campaignId';
+    public const DIMENSIONS_AD_SET_ID = 'adSetId';
+    public const DIMENSIONS_SELLER_ID = 'sellerId';
+    public const DIMENSIONS_PRODUCT_ID = 'productId';
+    public const METRICS_CLICKS = 'clicks';
+    public const METRICS_IMPRESSIONS = 'impressions';
+    public const METRICS_COST = 'cost';
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getInventoryTypeAllowableValues()
+    public function getDimensionsAllowableValues()
     {
         return [
-            self::INVENTORY_TYPE_NATIVE,
-            self::INVENTORY_TYPE_DISPLAY,
-            self::INVENTORY_TYPE_VIDEO,
-            self::INVENTORY_TYPE_META,
+            self::DIMENSIONS_ADVERTISER_ID,
+            self::DIMENSIONS_PARTNER_ID,
+            self::DIMENSIONS_CAMPAIGN_ID,
+            self::DIMENSIONS_AD_SET_ID,
+            self::DIMENSIONS_SELLER_ID,
+            self::DIMENSIONS_PRODUCT_ID,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMetricsAllowableValues()
+    {
+        return [
+            self::METRICS_CLICKS,
+            self::METRICS_IMPRESSIONS,
+            self::METRICS_COST,
         ];
     }
 
@@ -318,15 +327,13 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('ad_click_tracking', $data ?? [], null);
-        $this->setIfExists('ad_impression_tracking', $data ?? [], null);
-        $this->setIfExists('ad_set_id', $data ?? [], null);
-        $this->setIfExists('creative_id', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('ad_set_ids', $data ?? [], null);
+        $this->setIfExists('advertiser_ids', $data ?? [], null);
+        $this->setIfExists('campaign_ids', $data ?? [], null);
+        $this->setIfExists('dimensions', $data ?? [], null);
         $this->setIfExists('end_date', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('inventory_type', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('file_format', $data ?? [], 'csv');
+        $this->setIfExists('metrics', $data ?? [], null);
         $this->setIfExists('start_date', $data ?? [], null);
     }
 
@@ -357,24 +364,25 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['ad_set_id'] === null) {
-            $invalidProperties[] = "'ad_set_id' can't be null";
-        }
-        if ($this->container['creative_id'] === null) {
-            $invalidProperties[] = "'creative_id' can't be null";
-        }
-        $allowedValues = $this->getInventoryTypeAllowableValues();
-        if (!is_null($this->container['inventory_type']) && !in_array($this->container['inventory_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'inventory_type', must be one of '%s'",
-                $this->container['inventory_type'],
-                implode("', '", $allowedValues)
-            );
+        if (!is_null($this->container['ad_set_ids']) && (count($this->container['ad_set_ids']) > 10)) {
+            $invalidProperties[] = "invalid value for 'ad_set_ids', number of items must be less than or equal to 10.";
         }
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['advertiser_ids'] === null) {
+            $invalidProperties[] = "'advertiser_ids' can't be null";
         }
+        if ((count($this->container['advertiser_ids']) > 5)) {
+            $invalidProperties[] = "invalid value for 'advertiser_ids', number of items must be less than or equal to 5.";
+        }
+
+        if ((count($this->container['advertiser_ids']) < 1)) {
+            $invalidProperties[] = "invalid value for 'advertiser_ids', number of items must be greater than or equal to 1.";
+        }
+
+        if (!is_null($this->container['campaign_ids']) && (count($this->container['campaign_ids']) > 10)) {
+            $invalidProperties[] = "invalid value for 'campaign_ids', number of items must be less than or equal to 10.";
+        }
+
         if ($this->container['start_date'] === null) {
             $invalidProperties[] = "'start_date' can't be null";
         }
@@ -394,157 +402,154 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets ad_click_tracking
+     * Gets ad_set_ids
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\ExamAdClickTracking[]|null
+     * @return string[]|null
      */
-    public function getAdClickTracking()
+    public function getAdSetIds()
     {
-        return $this->container['ad_click_tracking'];
+        return $this->container['ad_set_ids'];
     }
 
     /**
-     * Sets ad_click_tracking
+     * Sets ad_set_ids
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\ExamAdClickTracking[]|null $ad_click_tracking Optional ad-level click tracking configuration.
+     * @param string[]|null $ad_set_ids The list of ad set ids. Maximum 10.
      *
      * @return self
      */
-    public function setAdClickTracking($ad_click_tracking)
+    public function setAdSetIds($ad_set_ids)
     {
-        if (is_null($ad_click_tracking)) {
-            array_push($this->openAPINullablesSetToNull, 'ad_click_tracking');
+        if (is_null($ad_set_ids)) {
+            array_push($this->openAPINullablesSetToNull, 'ad_set_ids');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('ad_click_tracking', $nullablesSetToNull);
+            $index = array_search('ad_set_ids', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['ad_click_tracking'] = $ad_click_tracking;
+
+        if (!is_null($ad_set_ids) && (count($ad_set_ids) > 10)) {
+            throw new \InvalidArgumentException('invalid value for $ad_set_ids when calling ProductReportJob., number of items must be less than or equal to 10.');
+        }
+        $this->container['ad_set_ids'] = $ad_set_ids;
 
         return $this;
     }
 
     /**
-     * Gets ad_impression_tracking
+     * Gets advertiser_ids
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\ExamAdImpressionTracking[]|null
+     * @return string[]
      */
-    public function getAdImpressionTracking()
+    public function getAdvertiserIds()
     {
-        return $this->container['ad_impression_tracking'];
+        return $this->container['advertiser_ids'];
     }
 
     /**
-     * Sets ad_impression_tracking
+     * Sets advertiser_ids
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\ExamAdImpressionTracking[]|null $ad_impression_tracking Optional ad-level impression tracking configuration.
+     * @param string[] $advertiser_ids The list of advertiser account IDs. Maximum 5, numeric.
      *
      * @return self
      */
-    public function setAdImpressionTracking($ad_impression_tracking)
+    public function setAdvertiserIds($advertiser_ids)
     {
-        if (is_null($ad_impression_tracking)) {
-            array_push($this->openAPINullablesSetToNull, 'ad_impression_tracking');
+        if (is_null($advertiser_ids)) {
+            throw new \InvalidArgumentException('non-nullable advertiser_ids cannot be null');
+        }
+
+        if ((count($advertiser_ids) > 5)) {
+            throw new \InvalidArgumentException('invalid value for $advertiser_ids when calling ProductReportJob., number of items must be less than or equal to 5.');
+        }
+        if ((count($advertiser_ids) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $advertiser_ids when calling ProductReportJob., number of items must be greater than or equal to 1.');
+        }
+        $this->container['advertiser_ids'] = $advertiser_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaign_ids
+     *
+     * @return string[]|null
+     */
+    public function getCampaignIds()
+    {
+        return $this->container['campaign_ids'];
+    }
+
+    /**
+     * Sets campaign_ids
+     *
+     * @param string[]|null $campaign_ids The list of marketing campaign ids. Maximum 10.
+     *
+     * @return self
+     */
+    public function setCampaignIds($campaign_ids)
+    {
+        if (is_null($campaign_ids)) {
+            array_push($this->openAPINullablesSetToNull, 'campaign_ids');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('ad_impression_tracking', $nullablesSetToNull);
+            $index = array_search('campaign_ids', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['ad_impression_tracking'] = $ad_impression_tracking;
 
-        return $this;
-    }
-
-    /**
-     * Gets ad_set_id
-     *
-     * @return string
-     */
-    public function getAdSetId()
-    {
-        return $this->container['ad_set_id'];
-    }
-
-    /**
-     * Sets ad_set_id
-     *
-     * @param string $ad_set_id The id of the Ad Set bound to this Ad
-     *
-     * @return self
-     */
-    public function setAdSetId($ad_set_id)
-    {
-        if (is_null($ad_set_id)) {
-            throw new \InvalidArgumentException('non-nullable ad_set_id cannot be null');
+        if (!is_null($campaign_ids) && (count($campaign_ids) > 10)) {
+            throw new \InvalidArgumentException('invalid value for $campaign_ids when calling ProductReportJob., number of items must be less than or equal to 10.');
         }
-        $this->container['ad_set_id'] = $ad_set_id;
+        $this->container['campaign_ids'] = $campaign_ids;
 
         return $this;
     }
 
     /**
-     * Gets creative_id
+     * Gets dimensions
      *
-     * @return string
+     * @return string[]|null
      */
-    public function getCreativeId()
+    public function getDimensions()
     {
-        return $this->container['creative_id'];
+        return $this->container['dimensions'];
     }
 
     /**
-     * Sets creative_id
+     * Sets dimensions
      *
-     * @param string $creative_id The id of the Creative bound to this Ad
+     * @param string[]|null $dimensions The dimensions of the report. If not included, the default list of dimensions will be used.
      *
      * @return self
      */
-    public function setCreativeId($creative_id)
+    public function setDimensions($dimensions)
     {
-        if (is_null($creative_id)) {
-            throw new \InvalidArgumentException('non-nullable creative_id cannot be null');
-        }
-        $this->container['creative_id'] = $creative_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description The description of the ad
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
+        if (is_null($dimensions)) {
+            array_push($this->openAPINullablesSetToNull, 'dimensions');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
+            $index = array_search('dimensions', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['description'] = $description;
+        $allowedValues = $this->getDimensionsAllowableValues();
+        if (!is_null($dimensions) && array_diff($dimensions, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'dimensions', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['dimensions'] = $dimensions;
 
         return $this;
     }
@@ -552,7 +557,7 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets end_date
      *
-     * @return string|null
+     * @return \DateTime|null
      */
     public function getEndDate()
     {
@@ -562,21 +567,14 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets end_date
      *
-     * @param string|null $end_date The date when we will stop showing this ad, which must come after the start date. If the end  date is not specified (i.e. null) then the ad will go on forever.  String must be in ISO8601 format, more precisely \"yyyy-MM-ddTHH:mm:ss.fffZ\": a UTC timestamp whose  three millisecond digits and trailing \"Z\" are both required, for example \"2026-10-01T09:30:00.000Z\".  No other ISO8601 layout is accepted, neither a UTC offset such as \"2026-10-01T11:30:00+02:00\" nor a  second-precision \"2026-10-01T09:30:00Z\".
+     * @param \DateTime|null $end_date End of the reporting interval. ISO 8601 date-time (UTC). Defaults to the last complete day.
      *
      * @return self
      */
     public function setEndDate($end_date)
     {
         if (is_null($end_date)) {
-            array_push($this->openAPINullablesSetToNull, 'end_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('end_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable end_date cannot be null');
         }
         $this->container['end_date'] = $end_date;
 
@@ -584,106 +582,78 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets id
+     * Gets file_format
      *
      * @return string|null
      */
-    public function getId()
+    public function getFileFormat()
     {
-        return $this->container['id'];
+        return $this->container['file_format'];
     }
 
     /**
-     * Sets id
+     * Sets file_format
      *
-     * @param string|null $id id
+     * @param string|null $file_format The output file format. Supported: csv, json.
      *
      * @return self
      */
-    public function setId($id)
+    public function setFileFormat($file_format)
     {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
+        if (is_null($file_format)) {
+            array_push($this->openAPINullablesSetToNull, 'file_format');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
+            $index = array_search('file_format', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['id'] = $id;
+        $this->container['file_format'] = $file_format;
 
         return $this;
     }
 
     /**
-     * Gets inventory_type
+     * Gets metrics
      *
-     * @return string|null
+     * @return string[]|null
      */
-    public function getInventoryType()
+    public function getMetrics()
     {
-        return $this->container['inventory_type'];
+        return $this->container['metrics'];
     }
 
     /**
-     * Sets inventory_type
+     * Sets metrics
      *
-     * @param string|null $inventory_type The inventory the Ad to be created or updated belongs to. Possible values are \"Display\", \"Native\",  \"Video\" and \"Meta\". This is optional since it doesn't make sense for every creative type: it is inferred  from the creative for a video creative, and an error is returned if it is not set for a dynamic creative.  \"Meta\" additionally requires the target ad set to be linked to Meta.
+     * @param string[]|null $metrics The list of metrics to report. If not included, the default list of metrics will be used.
      *
      * @return self
      */
-    public function setInventoryType($inventory_type)
+    public function setMetrics($metrics)
     {
-        if (is_null($inventory_type)) {
-            array_push($this->openAPINullablesSetToNull, 'inventory_type');
+        if (is_null($metrics)) {
+            array_push($this->openAPINullablesSetToNull, 'metrics');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('inventory_type', $nullablesSetToNull);
+            $index = array_search('metrics', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $allowedValues = $this->getInventoryTypeAllowableValues();
-        if (!is_null($inventory_type) && !in_array($inventory_type, $allowedValues, true)) {
+        $allowedValues = $this->getMetricsAllowableValues();
+        if (!is_null($metrics) && array_diff($metrics, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'inventory_type', must be one of '%s'",
-                    $inventory_type,
+                    "Invalid value for 'metrics', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['inventory_type'] = $inventory_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name The name of the ad
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
+        $this->container['metrics'] = $metrics;
 
         return $this;
     }
@@ -691,7 +661,7 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets start_date
      *
-     * @return string
+     * @return \DateTime
      */
     public function getStartDate()
     {
@@ -701,7 +671,7 @@ class AdWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets start_date
      *
-     * @param string $start_date The date when the ad will be launched. It must be a date in the future.  String must be in ISO8601 format, more precisely \"yyyy-MM-ddTHH:mm:ss.fffZ\": a UTC timestamp whose  three millisecond digits and trailing \"Z\" are both required, for example \"2026-10-01T09:30:00.000Z\".  No other ISO8601 layout is accepted, neither a UTC offset such as \"2026-10-01T11:30:00+02:00\" nor a  second-precision \"2026-10-01T09:30:00Z\".
+     * @param \DateTime $start_date Start of the reporting interval. ISO 8601 date-time (UTC).
      *
      * @return self
      */
