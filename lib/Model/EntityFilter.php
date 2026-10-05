@@ -58,8 +58,6 @@ class EntityFilter implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'active' => 'bool',
-        'read_only' => 'bool',
         'value' => 'string'
     ];
 
@@ -71,8 +69,6 @@ class EntityFilter implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'active' => null,
-        'read_only' => null,
         'value' => null
     ];
 
@@ -82,9 +78,7 @@ class EntityFilter implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'active' => true,
-		'read_only' => true,
-		'value' => true
+        'value' => true
     ];
 
     /**
@@ -173,8 +167,6 @@ class EntityFilter implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'active' => 'active',
-        'read_only' => 'readOnly',
         'value' => 'value'
     ];
 
@@ -184,8 +176,6 @@ class EntityFilter implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'active' => 'setActive',
-        'read_only' => 'setReadOnly',
         'value' => 'setValue'
     ];
 
@@ -195,8 +185,6 @@ class EntityFilter implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'active' => 'getActive',
-        'read_only' => 'getReadOnly',
         'value' => 'getValue'
     ];
 
@@ -257,8 +245,6 @@ class EntityFilter implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('active', $data ?? [], null);
-        $this->setIfExists('read_only', $data ?? [], null);
         $this->setIfExists('value', $data ?? [], null);
     }
 
@@ -303,74 +289,6 @@ class EntityFilter implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets active
-     *
-     * @return bool|null
-     */
-    public function getActive()
-    {
-        return $this->container['active'];
-    }
-
-    /**
-     * Sets active
-     *
-     * @param bool|null $active active
-     *
-     * @return self
-     */
-    public function setActive($active)
-    {
-        if (is_null($active)) {
-            array_push($this->openAPINullablesSetToNull, 'active');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('active', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['active'] = $active;
-
-        return $this;
-    }
-
-    /**
-     * Gets read_only
-     *
-     * @return bool|null
-     */
-    public function getReadOnly()
-    {
-        return $this->container['read_only'];
-    }
-
-    /**
-     * Sets read_only
-     *
-     * @param bool|null $read_only read_only
-     *
-     * @return self
-     */
-    public function setReadOnly($read_only)
-    {
-        if (is_null($read_only)) {
-            array_push($this->openAPINullablesSetToNull, 'read_only');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('read_only', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['read_only'] = $read_only;
-
-        return $this;
-    }
 
     /**
      * Gets value

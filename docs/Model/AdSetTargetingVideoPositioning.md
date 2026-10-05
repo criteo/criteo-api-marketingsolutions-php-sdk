@@ -4,6 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**include_not_rewarded** | **bool** | Should target inventory marked as not rewarded? | [optional]
+**include_rewarded** | **bool** | Should target inventory marked as rewarded? | [optional]
+**include_unknown_rewarded** | **bool** | Should target inventory which rewarded status is unknown? | [optional]
 **playback_method** | **string[]** |  | [optional]
 **skippable** | **string** |  | [optional]
 **video_aspect_ratio** | **string[]** |  | [optional]
