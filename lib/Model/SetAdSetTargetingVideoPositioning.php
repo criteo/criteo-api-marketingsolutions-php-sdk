@@ -58,6 +58,9 @@ class SetAdSetTargetingVideoPositioning implements ModelInterface, ArrayAccess, 
       * @var string[]
       */
     protected static $openAPITypes = [
+        'include_not_rewarded' => 'bool',
+        'include_rewarded' => 'bool',
+        'include_unknown_rewarded' => 'bool',
         'playback_method' => 'string[]',
         'skippable' => 'string',
         'video_aspect_ratio' => 'string[]',
@@ -74,6 +77,9 @@ class SetAdSetTargetingVideoPositioning implements ModelInterface, ArrayAccess, 
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'include_not_rewarded' => null,
+        'include_rewarded' => null,
+        'include_unknown_rewarded' => null,
         'playback_method' => null,
         'skippable' => null,
         'video_aspect_ratio' => null,
@@ -88,7 +94,10 @@ class SetAdSetTargetingVideoPositioning implements ModelInterface, ArrayAccess, 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'playback_method' => false,
+        'include_not_rewarded' => false,
+		'include_rewarded' => false,
+		'include_unknown_rewarded' => false,
+		'playback_method' => false,
 		'skippable' => false,
 		'video_aspect_ratio' => false,
 		'video_in_stream_position' => false,
@@ -182,6 +191,9 @@ class SetAdSetTargetingVideoPositioning implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $attributeMap = [
+        'include_not_rewarded' => 'includeNotRewarded',
+        'include_rewarded' => 'includeRewarded',
+        'include_unknown_rewarded' => 'includeUnknownRewarded',
         'playback_method' => 'playbackMethod',
         'skippable' => 'skippable',
         'video_aspect_ratio' => 'videoAspectRatio',
@@ -196,6 +208,9 @@ class SetAdSetTargetingVideoPositioning implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $setters = [
+        'include_not_rewarded' => 'setIncludeNotRewarded',
+        'include_rewarded' => 'setIncludeRewarded',
+        'include_unknown_rewarded' => 'setIncludeUnknownRewarded',
         'playback_method' => 'setPlaybackMethod',
         'skippable' => 'setSkippable',
         'video_aspect_ratio' => 'setVideoAspectRatio',
@@ -210,6 +225,9 @@ class SetAdSetTargetingVideoPositioning implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $getters = [
+        'include_not_rewarded' => 'getIncludeNotRewarded',
+        'include_rewarded' => 'getIncludeRewarded',
+        'include_unknown_rewarded' => 'getIncludeUnknownRewarded',
         'playback_method' => 'getPlaybackMethod',
         'skippable' => 'getSkippable',
         'video_aspect_ratio' => 'getVideoAspectRatio',
@@ -385,6 +403,9 @@ class SetAdSetTargetingVideoPositioning implements ModelInterface, ArrayAccess, 
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('include_not_rewarded', $data ?? [], null);
+        $this->setIfExists('include_rewarded', $data ?? [], null);
+        $this->setIfExists('include_unknown_rewarded', $data ?? [], null);
         $this->setIfExists('playback_method', $data ?? [], null);
         $this->setIfExists('skippable', $data ?? [], null);
         $this->setIfExists('video_aspect_ratio', $data ?? [], null);
@@ -443,6 +464,87 @@ class SetAdSetTargetingVideoPositioning implements ModelInterface, ArrayAccess, 
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets include_not_rewarded
+     *
+     * @return bool|null
+     */
+    public function getIncludeNotRewarded()
+    {
+        return $this->container['include_not_rewarded'];
+    }
+
+    /**
+     * Sets include_not_rewarded
+     *
+     * @param bool|null $include_not_rewarded Should target inventory marked as not rewarded?
+     *
+     * @return self
+     */
+    public function setIncludeNotRewarded($include_not_rewarded)
+    {
+        if (is_null($include_not_rewarded)) {
+            throw new \InvalidArgumentException('non-nullable include_not_rewarded cannot be null');
+        }
+        $this->container['include_not_rewarded'] = $include_not_rewarded;
+
+        return $this;
+    }
+
+    /**
+     * Gets include_rewarded
+     *
+     * @return bool|null
+     */
+    public function getIncludeRewarded()
+    {
+        return $this->container['include_rewarded'];
+    }
+
+    /**
+     * Sets include_rewarded
+     *
+     * @param bool|null $include_rewarded Should target inventory marked as rewarded?
+     *
+     * @return self
+     */
+    public function setIncludeRewarded($include_rewarded)
+    {
+        if (is_null($include_rewarded)) {
+            throw new \InvalidArgumentException('non-nullable include_rewarded cannot be null');
+        }
+        $this->container['include_rewarded'] = $include_rewarded;
+
+        return $this;
+    }
+
+    /**
+     * Gets include_unknown_rewarded
+     *
+     * @return bool|null
+     */
+    public function getIncludeUnknownRewarded()
+    {
+        return $this->container['include_unknown_rewarded'];
+    }
+
+    /**
+     * Sets include_unknown_rewarded
+     *
+     * @param bool|null $include_unknown_rewarded Should target inventory which rewarded status is unknown?
+     *
+     * @return self
+     */
+    public function setIncludeUnknownRewarded($include_unknown_rewarded)
+    {
+        if (is_null($include_unknown_rewarded)) {
+            throw new \InvalidArgumentException('non-nullable include_unknown_rewarded cannot be null');
+        }
+        $this->container['include_unknown_rewarded'] = $include_unknown_rewarded;
+
+        return $this;
+    }
 
     /**
      * Gets playback_method
