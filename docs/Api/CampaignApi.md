@@ -6,6 +6,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 | ------------- | ------------- | ------------- |
 | [**createAdSet()**](CampaignApi.md#createAdSet) | **POST** /experimental/marketing-solutions/ad-sets | /experimental/marketing-solutions/ad-sets |
 | [**createCampaign()**](CampaignApi.md#createCampaign) | **POST** /experimental/marketing-solutions/campaigns | /experimental/marketing-solutions/campaigns |
+| [**createMarketplaceStatsReport()**](CampaignApi.md#createMarketplaceStatsReport) | **POST** /experimental/marketing-solutions/marketplace-performance-outcomes/stats/report | /experimental/marketing-solutions/marketplace-performance-outcomes/stats/report |
 | [**deleteAdvertiserBundleRules()**](CampaignApi.md#deleteAdvertiserBundleRules) | **DELETE** /experimental/advertisers/{advertiserId}/targeting/bundle-rules | /experimental/advertisers/{advertiserId}/targeting/bundle-rules |
 | [**deleteAdvertiserDomainRules()**](CampaignApi.md#deleteAdvertiserDomainRules) | **DELETE** /experimental/advertisers/{advertiserId}/targeting/domain-rules | /experimental/advertisers/{advertiserId}/targeting/domain-rules |
 | [**deleteCampaignBundleRules()**](CampaignApi.md#deleteCampaignBundleRules) | **DELETE** /experimental/campaigns/{campaignId}/targeting/bundle-rules | /experimental/campaigns/{campaignId}/targeting/bundle-rules |
@@ -165,6 +166,69 @@ try {
 
 - **Content-Type**: `application/json`
 - **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createMarketplaceStatsReport()`
+
+```php
+createMarketplaceStatsReport($seller_report_request_request): \criteo\api\marketingsolutions\experimental\Model\SellerReportDataResponse
+```
+
+/experimental/marketing-solutions/marketplace-performance-outcomes/stats/report
+
+Generates a seller performance report synchronously and returns the report data directly in the response payload.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\experimental\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\experimental\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\experimental\Api\CampaignApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$seller_report_request_request = new \criteo\api\marketingsolutions\experimental\Model\SellerReportRequestRequest(); // \criteo\api\marketingsolutions\experimental\Model\SellerReportRequestRequest | The seller report filters, dimensions, metrics, and output format.
+
+try {
+    $result = $apiInstance->createMarketplaceStatsReport($seller_report_request_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CampaignApi->createMarketplaceStatsReport: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **seller_report_request_request** | [**\criteo\api\marketingsolutions\experimental\Model\SellerReportRequestRequest**](../Model/SellerReportRequestRequest.md)| The seller report filters, dimensions, metrics, and output format. | |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\experimental\Model\SellerReportDataResponse**](../Model/SellerReportDataResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`, `text/csv`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -1377,12 +1441,12 @@ try {
 ## `patchCampaigns()`
 
 ```php
-patchCampaigns($patch_campaign_list_request): \criteo\api\marketingsolutions\experimental\Model\PatchResultCampaignListResponse
+patchCampaigns($patch_campaign_v27_q1_list_request): \criteo\api\marketingsolutions\experimental\Model\PatchResultCampaignV27Q1ListResponse
 ```
 
 /experimental/marketing-solutions/campaigns
 
-Patch a list of Campaigns.                A campaign, or in other words a marketing campaign, is an entity that defines advertising objectives and success criteria.
+Patch a list of Campaigns: name, spend limit, scheduled spend limits and budget automation.  Omitted attributes are left unchanged. When provided, the name must not be empty.                A campaign, or in other words a marketing campaign, is an entity that defines advertising objectives and success criteria.
 
 ### Example
 
@@ -1404,10 +1468,10 @@ $apiInstance = new criteo\api\marketingsolutions\experimental\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$patch_campaign_list_request = new \criteo\api\marketingsolutions\experimental\Model\PatchCampaignListRequest(); // \criteo\api\marketingsolutions\experimental\Model\PatchCampaignListRequest | List of campaigns to patch.
+$patch_campaign_v27_q1_list_request = new \criteo\api\marketingsolutions\experimental\Model\PatchCampaignV27Q1ListRequest(); // \criteo\api\marketingsolutions\experimental\Model\PatchCampaignV27Q1ListRequest | List of campaigns to patch.
 
 try {
-    $result = $apiInstance->patchCampaigns($patch_campaign_list_request);
+    $result = $apiInstance->patchCampaigns($patch_campaign_v27_q1_list_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignApi->patchCampaigns: ', $e->getMessage(), PHP_EOL;
@@ -1418,11 +1482,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **patch_campaign_list_request** | [**\criteo\api\marketingsolutions\experimental\Model\PatchCampaignListRequest**](../Model/PatchCampaignListRequest.md)| List of campaigns to patch. | |
+| **patch_campaign_v27_q1_list_request** | [**\criteo\api\marketingsolutions\experimental\Model\PatchCampaignV27Q1ListRequest**](../Model/PatchCampaignV27Q1ListRequest.md)| List of campaigns to patch. | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\experimental\Model\PatchResultCampaignListResponse**](../Model/PatchResultCampaignListResponse.md)
+[**\criteo\api\marketingsolutions\experimental\Model\PatchResultCampaignV27Q1ListResponse**](../Model/PatchResultCampaignV27Q1ListResponse.md)
 
 ### Authorization
 

@@ -17,6 +17,7 @@ All URIs are relative to https://api.criteo.com, except if the operation defines
 | [**getAudienceSegmentsInMarketBrands()**](AudienceApi.md#getAudienceSegmentsInMarketBrands) | **GET** /experimental/marketing-solutions/audience-segments/in-market-brands | /experimental/marketing-solutions/audience-segments/in-market-brands |
 | [**getAudienceSegmentsInMarketInterests()**](AudienceApi.md#getAudienceSegmentsInMarketInterests) | **GET** /experimental/marketing-solutions/audience-segments/in-market-interests | /experimental/marketing-solutions/audience-segments/in-market-interests |
 | [**modifyAudienceUsersWithAttributes()**](AudienceApi.md#modifyAudienceUsersWithAttributes) | **PATCH** /experimental/marketing-solutions/audiences/{audience-id}/contactlist-attributes | /experimental/marketing-solutions/audiences/{audience-id}/contactlist-attributes |
+| [**recommendSegments()**](AudienceApi.md#recommendSegments) | **POST** /experimental/marketing-solutions/audiences/recommend-segments | /experimental/marketing-solutions/audiences/recommend-segments |
 | [**searchAudienceSegments()**](AudienceApi.md#searchAudienceSegments) | **POST** /experimental/marketing-solutions/audience-segments/search | /experimental/marketing-solutions/audience-segments/search |
 | [**searchAudiences()**](AudienceApi.md#searchAudiences) | **POST** /experimental/marketing-solutions/audiences/search | /experimental/marketing-solutions/audiences/search |
 | [**updateAudienceSegments()**](AudienceApi.md#updateAudienceSegments) | **PATCH** /experimental/marketing-solutions/audience-segments | /experimental/marketing-solutions/audience-segments |
@@ -835,6 +836,69 @@ try {
 ### Return type
 
 [**\criteo\api\marketingsolutions\experimental\Model\ModifyAudienceResponse**](../Model/ModifyAudienceResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `recommendSegments()`
+
+```php
+recommendSegments($recommend_segments_request): \criteo\api\marketingsolutions\experimental\Model\RecommendSegmentsResponse
+```
+
+/experimental/marketing-solutions/audiences/recommend-segments
+
+Recommend audience segments for MarketingSolutions from a freeform brief.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\experimental\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = criteo\api\marketingsolutions\experimental\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new criteo\api\marketingsolutions\experimental\Api\AudienceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$recommend_segments_request = new \criteo\api\marketingsolutions\experimental\Model\RecommendSegmentsRequest(); // \criteo\api\marketingsolutions\experimental\Model\RecommendSegmentsRequest
+
+try {
+    $result = $apiInstance->recommendSegments($recommend_segments_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AudienceApi->recommendSegments: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **recommend_segments_request** | [**\criteo\api\marketingsolutions\experimental\Model\RecommendSegmentsRequest**](../Model/RecommendSegmentsRequest.md)|  | |
+
+### Return type
+
+[**\criteo\api\marketingsolutions\experimental\Model\RecommendSegmentsResponse**](../Model/RecommendSegmentsResponse.md)
 
 ### Authorization
 

@@ -77,6 +77,9 @@ class CampaignApi
         'createCampaign' => [
             'application/json',
         ],
+        'createMarketplaceStatsReport' => [
+            'application/json',
+        ],
         'deleteAdvertiserBundleRules' => [
             'application/json',
         ],
@@ -758,6 +761,296 @@ class CampaignApi
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_campaign_request));
             } else {
                 $httpBody = $create_campaign_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation createMarketplaceStatsReport
+     *
+     * /experimental/marketing-solutions/marketplace-performance-outcomes/stats/report
+     *
+     * @param  \criteo\api\marketingsolutions\experimental\Model\SellerReportRequestRequest $seller_report_request_request The seller report filters, dimensions, metrics, and output format. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceStatsReport'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\experimental\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \criteo\api\marketingsolutions\experimental\Model\SellerReportDataResponse
+     */
+    public function createMarketplaceStatsReport($seller_report_request_request, string $contentType = self::contentTypes['createMarketplaceStatsReport'][0])
+    {
+        list($response) = $this->createMarketplaceStatsReportWithHttpInfo($seller_report_request_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createMarketplaceStatsReportWithHttpInfo
+     *
+     * /experimental/marketing-solutions/marketplace-performance-outcomes/stats/report
+     *
+     * @param  \criteo\api\marketingsolutions\experimental\Model\SellerReportRequestRequest $seller_report_request_request The seller report filters, dimensions, metrics, and output format. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceStatsReport'] to see the possible values for this operation
+     *
+     * @throws \criteo\api\marketingsolutions\experimental\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \criteo\api\marketingsolutions\experimental\Model\SellerReportDataResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createMarketplaceStatsReportWithHttpInfo($seller_report_request_request, string $contentType = self::contentTypes['createMarketplaceStatsReport'][0])
+    {
+        $request = $this->createMarketplaceStatsReportRequest($seller_report_request_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\criteo\api\marketingsolutions\experimental\Model\SellerReportDataResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\criteo\api\marketingsolutions\experimental\Model\SellerReportDataResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\experimental\Model\SellerReportDataResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\criteo\api\marketingsolutions\experimental\Model\SellerReportDataResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\criteo\api\marketingsolutions\experimental\Model\SellerReportDataResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createMarketplaceStatsReportAsync
+     *
+     * /experimental/marketing-solutions/marketplace-performance-outcomes/stats/report
+     *
+     * @param  \criteo\api\marketingsolutions\experimental\Model\SellerReportRequestRequest $seller_report_request_request The seller report filters, dimensions, metrics, and output format. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceStatsReport'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createMarketplaceStatsReportAsync($seller_report_request_request, string $contentType = self::contentTypes['createMarketplaceStatsReport'][0])
+    {
+        return $this->createMarketplaceStatsReportAsyncWithHttpInfo($seller_report_request_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createMarketplaceStatsReportAsyncWithHttpInfo
+     *
+     * /experimental/marketing-solutions/marketplace-performance-outcomes/stats/report
+     *
+     * @param  \criteo\api\marketingsolutions\experimental\Model\SellerReportRequestRequest $seller_report_request_request The seller report filters, dimensions, metrics, and output format. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceStatsReport'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createMarketplaceStatsReportAsyncWithHttpInfo($seller_report_request_request, string $contentType = self::contentTypes['createMarketplaceStatsReport'][0])
+    {
+        $returnType = '\criteo\api\marketingsolutions\experimental\Model\SellerReportDataResponse';
+        $request = $this->createMarketplaceStatsReportRequest($seller_report_request_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createMarketplaceStatsReport'
+     *
+     * @param  \criteo\api\marketingsolutions\experimental\Model\SellerReportRequestRequest $seller_report_request_request The seller report filters, dimensions, metrics, and output format. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMarketplaceStatsReport'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createMarketplaceStatsReportRequest($seller_report_request_request, string $contentType = self::contentTypes['createMarketplaceStatsReport'][0])
+    {
+
+        // verify the required parameter 'seller_report_request_request' is set
+        if ($seller_report_request_request === null || (is_array($seller_report_request_request) && count($seller_report_request_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $seller_report_request_request when calling createMarketplaceStatsReport'
+            );
+        }
+
+
+        $resourcePath = '/experimental/marketing-solutions/marketplace-performance-outcomes/stats/report';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/csv', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($seller_report_request_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($seller_report_request_request));
+            } else {
+                $httpBody = $seller_report_request_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -6397,16 +6690,16 @@ class CampaignApi
      *
      * /experimental/marketing-solutions/campaigns
      *
-     * @param  \criteo\api\marketingsolutions\experimental\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
+     * @param  \criteo\api\marketingsolutions\experimental\Model\PatchCampaignV27Q1ListRequest $patch_campaign_v27_q1_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\experimental\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\experimental\Model\PatchResultCampaignListResponse
+     * @return \criteo\api\marketingsolutions\experimental\Model\PatchResultCampaignV27Q1ListResponse
      */
-    public function patchCampaigns($patch_campaign_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
+    public function patchCampaigns($patch_campaign_v27_q1_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
     {
-        list($response) = $this->patchCampaignsWithHttpInfo($patch_campaign_list_request, $contentType);
+        list($response) = $this->patchCampaignsWithHttpInfo($patch_campaign_v27_q1_list_request, $contentType);
         return $response;
     }
 
@@ -6415,16 +6708,16 @@ class CampaignApi
      *
      * /experimental/marketing-solutions/campaigns
      *
-     * @param  \criteo\api\marketingsolutions\experimental\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
+     * @param  \criteo\api\marketingsolutions\experimental\Model\PatchCampaignV27Q1ListRequest $patch_campaign_v27_q1_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\experimental\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\experimental\Model\PatchResultCampaignListResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\experimental\Model\PatchResultCampaignV27Q1ListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchCampaignsWithHttpInfo($patch_campaign_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
+    public function patchCampaignsWithHttpInfo($patch_campaign_v27_q1_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
     {
-        $request = $this->patchCampaignsRequest($patch_campaign_list_request, $contentType);
+        $request = $this->patchCampaignsRequest($patch_campaign_v27_q1_list_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6463,23 +6756,23 @@ class CampaignApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\criteo\api\marketingsolutions\experimental\Model\PatchResultCampaignListResponse' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\experimental\Model\PatchResultCampaignV27Q1ListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\experimental\Model\PatchResultCampaignListResponse' !== 'string') {
+                        if ('\criteo\api\marketingsolutions\experimental\Model\PatchResultCampaignV27Q1ListResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\experimental\Model\PatchResultCampaignListResponse', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\experimental\Model\PatchResultCampaignV27Q1ListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\criteo\api\marketingsolutions\experimental\Model\PatchResultCampaignListResponse';
+            $returnType = '\criteo\api\marketingsolutions\experimental\Model\PatchResultCampaignV27Q1ListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -6500,7 +6793,7 @@ class CampaignApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\experimental\Model\PatchResultCampaignListResponse',
+                        '\criteo\api\marketingsolutions\experimental\Model\PatchResultCampaignV27Q1ListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6515,15 +6808,15 @@ class CampaignApi
      *
      * /experimental/marketing-solutions/campaigns
      *
-     * @param  \criteo\api\marketingsolutions\experimental\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
+     * @param  \criteo\api\marketingsolutions\experimental\Model\PatchCampaignV27Q1ListRequest $patch_campaign_v27_q1_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCampaignsAsync($patch_campaign_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
+    public function patchCampaignsAsync($patch_campaign_v27_q1_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
     {
-        return $this->patchCampaignsAsyncWithHttpInfo($patch_campaign_list_request, $contentType)
+        return $this->patchCampaignsAsyncWithHttpInfo($patch_campaign_v27_q1_list_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6536,16 +6829,16 @@ class CampaignApi
      *
      * /experimental/marketing-solutions/campaigns
      *
-     * @param  \criteo\api\marketingsolutions\experimental\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
+     * @param  \criteo\api\marketingsolutions\experimental\Model\PatchCampaignV27Q1ListRequest $patch_campaign_v27_q1_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCampaignsAsyncWithHttpInfo($patch_campaign_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
+    public function patchCampaignsAsyncWithHttpInfo($patch_campaign_v27_q1_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
     {
-        $returnType = '\criteo\api\marketingsolutions\experimental\Model\PatchResultCampaignListResponse';
-        $request = $this->patchCampaignsRequest($patch_campaign_list_request, $contentType);
+        $returnType = '\criteo\api\marketingsolutions\experimental\Model\PatchResultCampaignV27Q1ListResponse';
+        $request = $this->patchCampaignsRequest($patch_campaign_v27_q1_list_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6586,19 +6879,19 @@ class CampaignApi
     /**
      * Create request for operation 'patchCampaigns'
      *
-     * @param  \criteo\api\marketingsolutions\experimental\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
+     * @param  \criteo\api\marketingsolutions\experimental\Model\PatchCampaignV27Q1ListRequest $patch_campaign_v27_q1_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchCampaignsRequest($patch_campaign_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
+    public function patchCampaignsRequest($patch_campaign_v27_q1_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
     {
 
-        // verify the required parameter 'patch_campaign_list_request' is set
-        if ($patch_campaign_list_request === null || (is_array($patch_campaign_list_request) && count($patch_campaign_list_request) === 0)) {
+        // verify the required parameter 'patch_campaign_v27_q1_list_request' is set
+        if ($patch_campaign_v27_q1_list_request === null || (is_array($patch_campaign_v27_q1_list_request) && count($patch_campaign_v27_q1_list_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $patch_campaign_list_request when calling patchCampaigns'
+                'Missing the required parameter $patch_campaign_v27_q1_list_request when calling patchCampaigns'
             );
         }
 
@@ -6621,12 +6914,12 @@ class CampaignApi
         );
 
         // for model (json/xml)
-        if (isset($patch_campaign_list_request)) {
+        if (isset($patch_campaign_v27_q1_list_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_campaign_list_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_campaign_v27_q1_list_request));
             } else {
-                $httpBody = $patch_campaign_list_request;
+                $httpBody = $patch_campaign_v27_q1_list_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
