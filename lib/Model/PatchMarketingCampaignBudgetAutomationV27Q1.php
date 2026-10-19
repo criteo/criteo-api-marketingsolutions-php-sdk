@@ -1,6 +1,6 @@
 <?php
 /**
- * PatchCampaignSpendLimit
+ * PatchMarketingCampaignBudgetAutomationV27Q1
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * PatchCampaignSpendLimit Class Doc Comment
+ * PatchMarketingCampaignBudgetAutomationV27Q1 Class Doc Comment
  *
  * @category Class
- * @description Spend limit configuration for a marketing campaign (patch).  Only provided fields are updated; omitted fields are left unchanged.  When spendLimitType is \&quot;capped\&quot;: spendLimitAmount and spendLimitRenewal are required.  When spendLimitType is \&quot;uncapped\&quot;: spendLimitAmount is null and spendLimitRenewal is \&quot;undefined\&quot;.
+ * @description Budget automation, lets users configure budgets once at the campaign level while Criteo dynamically routes spend toward the best-performing ad sets.  Only provided fields are updated; omitted fields are left unchanged.  If \&quot;enabled\&quot; is omitted and only \&quot;budgetConfiguration\&quot; is provided, \&quot;enabled\&quot; defaults to false — budget automation will not be activated.  To activate budget automation, \&quot;enabled\&quot; must be explicitly set to true along with a valid \&quot;budgetConfiguration\&quot;.  To deactivate, set \&quot;enabled\&quot; to false; \&quot;budgetConfiguration\&quot; can be omitted.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSerializable
+class PatchMarketingCampaignBudgetAutomationV27Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PatchCampaignSpendLimit';
+    protected static $openAPIModelName = 'PatchMarketingCampaignBudgetAutomationV27Q1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,8 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'spend_limit_amount' => '\criteo\api\marketingsolutions\preview\Model\NillableDecimal',
-        'spend_limit_renewal' => 'string',
-        'spend_limit_type' => 'string'
+        'budget_configuration' => '\criteo\api\marketingsolutions\preview\Model\PatchBudgetAutomationConfiguration',
+        'enabled' => 'bool'
     ];
 
     /**
@@ -71,9 +70,8 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'spend_limit_amount' => null,
-        'spend_limit_renewal' => null,
-        'spend_limit_type' => null
+        'budget_configuration' => null,
+        'enabled' => null
     ];
 
     /**
@@ -82,9 +80,8 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'spend_limit_amount' => true,
-		'spend_limit_renewal' => true,
-		'spend_limit_type' => true
+        'budget_configuration' => false,
+		'enabled' => false
     ];
 
     /**
@@ -173,9 +170,8 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'spend_limit_amount' => 'spendLimitAmount',
-        'spend_limit_renewal' => 'spendLimitRenewal',
-        'spend_limit_type' => 'spendLimitType'
+        'budget_configuration' => 'budgetConfiguration',
+        'enabled' => 'enabled'
     ];
 
     /**
@@ -184,9 +180,8 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'spend_limit_amount' => 'setSpendLimitAmount',
-        'spend_limit_renewal' => 'setSpendLimitRenewal',
-        'spend_limit_type' => 'setSpendLimitType'
+        'budget_configuration' => 'setBudgetConfiguration',
+        'enabled' => 'setEnabled'
     ];
 
     /**
@@ -195,9 +190,8 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'spend_limit_amount' => 'getSpendLimitAmount',
-        'spend_limit_renewal' => 'getSpendLimitRenewal',
-        'spend_limit_type' => 'getSpendLimitType'
+        'budget_configuration' => 'getBudgetConfiguration',
+        'enabled' => 'getEnabled'
     ];
 
     /**
@@ -241,40 +235,6 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
         return self::$openAPIModelName;
     }
 
-    public const SPEND_LIMIT_RENEWAL_UNDEFINED = 'undefined';
-    public const SPEND_LIMIT_RENEWAL_DAILY = 'daily';
-    public const SPEND_LIMIT_RENEWAL_MONTHLY = 'monthly';
-    public const SPEND_LIMIT_RENEWAL_LIFETIME = 'lifetime';
-    public const SPEND_LIMIT_TYPE_CAPPED = 'capped';
-    public const SPEND_LIMIT_TYPE_UNCAPPED = 'uncapped';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSpendLimitRenewalAllowableValues()
-    {
-        return [
-            self::SPEND_LIMIT_RENEWAL_UNDEFINED,
-            self::SPEND_LIMIT_RENEWAL_DAILY,
-            self::SPEND_LIMIT_RENEWAL_MONTHLY,
-            self::SPEND_LIMIT_RENEWAL_LIFETIME,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSpendLimitTypeAllowableValues()
-    {
-        return [
-            self::SPEND_LIMIT_TYPE_CAPPED,
-            self::SPEND_LIMIT_TYPE_UNCAPPED,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -291,9 +251,8 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('spend_limit_amount', $data ?? [], null);
-        $this->setIfExists('spend_limit_renewal', $data ?? [], null);
-        $this->setIfExists('spend_limit_type', $data ?? [], null);
+        $this->setIfExists('budget_configuration', $data ?? [], null);
+        $this->setIfExists('enabled', $data ?? [], null);
     }
 
     /**
@@ -323,24 +282,6 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getSpendLimitRenewalAllowableValues();
-        if (!is_null($this->container['spend_limit_renewal']) && !in_array($this->container['spend_limit_renewal'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'spend_limit_renewal', must be one of '%s'",
-                $this->container['spend_limit_renewal'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getSpendLimitTypeAllowableValues();
-        if (!is_null($this->container['spend_limit_type']) && !in_array($this->container['spend_limit_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'spend_limit_type', must be one of '%s'",
-                $this->container['spend_limit_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -357,123 +298,55 @@ class PatchCampaignSpendLimit implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets spend_limit_amount
+     * Gets budget_configuration
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\NillableDecimal|null
+     * @return \criteo\api\marketingsolutions\preview\Model\PatchBudgetAutomationConfiguration|null
      */
-    public function getSpendLimitAmount()
+    public function getBudgetConfiguration()
     {
-        return $this->container['spend_limit_amount'];
+        return $this->container['budget_configuration'];
     }
 
     /**
-     * Sets spend_limit_amount
+     * Sets budget_configuration
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\NillableDecimal|null $spend_limit_amount spend_limit_amount
+     * @param \criteo\api\marketingsolutions\preview\Model\PatchBudgetAutomationConfiguration|null $budget_configuration budget_configuration
      *
      * @return self
      */
-    public function setSpendLimitAmount($spend_limit_amount)
+    public function setBudgetConfiguration($budget_configuration)
     {
-        if (is_null($spend_limit_amount)) {
-            array_push($this->openAPINullablesSetToNull, 'spend_limit_amount');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('spend_limit_amount', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($budget_configuration)) {
+            throw new \InvalidArgumentException('non-nullable budget_configuration cannot be null');
         }
-        $this->container['spend_limit_amount'] = $spend_limit_amount;
+        $this->container['budget_configuration'] = $budget_configuration;
 
         return $this;
     }
 
     /**
-     * Gets spend_limit_renewal
+     * Gets enabled
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getSpendLimitRenewal()
+    public function getEnabled()
     {
-        return $this->container['spend_limit_renewal'];
+        return $this->container['enabled'];
     }
 
     /**
-     * Sets spend_limit_renewal
+     * Sets enabled
      *
-     * @param string|null $spend_limit_renewal The period over which the campaign spend limit is applied.  When spendLimitType is \"capped\", this is \"daily\", \"monthly\", or \"lifetime\".  When spendLimitType is \"uncapped\", this is \"undefined\".
+     * @param bool|null $enabled Whether budget automation is active for this marketing campaign.  - true: budget automation is enabled and \"budgetConfiguration\" must be provided with a valid objective.  - false (default when omitted): budget automation is disabled; \"budgetConfiguration\" is ignored if provided.
      *
      * @return self
      */
-    public function setSpendLimitRenewal($spend_limit_renewal)
+    public function setEnabled($enabled)
     {
-        if (is_null($spend_limit_renewal)) {
-            array_push($this->openAPINullablesSetToNull, 'spend_limit_renewal');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('spend_limit_renewal', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($enabled)) {
+            throw new \InvalidArgumentException('non-nullable enabled cannot be null');
         }
-        $allowedValues = $this->getSpendLimitRenewalAllowableValues();
-        if (!is_null($spend_limit_renewal) && !in_array($spend_limit_renewal, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'spend_limit_renewal', must be one of '%s'",
-                    $spend_limit_renewal,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['spend_limit_renewal'] = $spend_limit_renewal;
-
-        return $this;
-    }
-
-    /**
-     * Gets spend_limit_type
-     *
-     * @return string|null
-     */
-    public function getSpendLimitType()
-    {
-        return $this->container['spend_limit_type'];
-    }
-
-    /**
-     * Sets spend_limit_type
-     *
-     * @param string|null $spend_limit_type Controls whether the campaign has a spend limit.  \"capped\" returns a non-null spendLimitAmount.value and a spendLimitRenewal of \"daily\", \"monthly\", or \"lifetime\".  \"uncapped\" returns spendLimitAmount.value as null and spendLimitRenewal as \"undefined\".
-     *
-     * @return self
-     */
-    public function setSpendLimitType($spend_limit_type)
-    {
-        if (is_null($spend_limit_type)) {
-            array_push($this->openAPINullablesSetToNull, 'spend_limit_type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('spend_limit_type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $allowedValues = $this->getSpendLimitTypeAllowableValues();
-        if (!is_null($spend_limit_type) && !in_array($spend_limit_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'spend_limit_type', must be one of '%s'",
-                    $spend_limit_type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['spend_limit_type'] = $spend_limit_type;
+        $this->container['enabled'] = $enabled;
 
         return $this;
     }

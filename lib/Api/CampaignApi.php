@@ -6397,16 +6397,16 @@ class CampaignApi
      *
      * /preview/marketing-solutions/campaigns
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchCampaignV27Q1ListRequest $patch_campaign_v27_q1_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \criteo\api\marketingsolutions\preview\Model\PatchResultCampaignListResponse
+     * @return \criteo\api\marketingsolutions\preview\Model\PatchResultCampaignV27Q1ListResponse
      */
-    public function patchCampaigns($patch_campaign_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
+    public function patchCampaigns($patch_campaign_v27_q1_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
     {
-        list($response) = $this->patchCampaignsWithHttpInfo($patch_campaign_list_request, $contentType);
+        list($response) = $this->patchCampaignsWithHttpInfo($patch_campaign_v27_q1_list_request, $contentType);
         return $response;
     }
 
@@ -6415,16 +6415,16 @@ class CampaignApi
      *
      * /preview/marketing-solutions/campaigns
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchCampaignV27Q1ListRequest $patch_campaign_v27_q1_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\preview\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \criteo\api\marketingsolutions\preview\Model\PatchResultCampaignListResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \criteo\api\marketingsolutions\preview\Model\PatchResultCampaignV27Q1ListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchCampaignsWithHttpInfo($patch_campaign_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
+    public function patchCampaignsWithHttpInfo($patch_campaign_v27_q1_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
     {
-        $request = $this->patchCampaignsRequest($patch_campaign_list_request, $contentType);
+        $request = $this->patchCampaignsRequest($patch_campaign_v27_q1_list_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6463,23 +6463,23 @@ class CampaignApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\criteo\api\marketingsolutions\preview\Model\PatchResultCampaignListResponse' === '\SplFileObject') {
+                    if ('\criteo\api\marketingsolutions\preview\Model\PatchResultCampaignV27Q1ListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\criteo\api\marketingsolutions\preview\Model\PatchResultCampaignListResponse' !== 'string') {
+                        if ('\criteo\api\marketingsolutions\preview\Model\PatchResultCampaignV27Q1ListResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\PatchResultCampaignListResponse', []),
+                        ObjectSerializer::deserialize($content, '\criteo\api\marketingsolutions\preview\Model\PatchResultCampaignV27Q1ListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\criteo\api\marketingsolutions\preview\Model\PatchResultCampaignListResponse';
+            $returnType = '\criteo\api\marketingsolutions\preview\Model\PatchResultCampaignV27Q1ListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -6500,7 +6500,7 @@ class CampaignApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\criteo\api\marketingsolutions\preview\Model\PatchResultCampaignListResponse',
+                        '\criteo\api\marketingsolutions\preview\Model\PatchResultCampaignV27Q1ListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6515,15 +6515,15 @@ class CampaignApi
      *
      * /preview/marketing-solutions/campaigns
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchCampaignV27Q1ListRequest $patch_campaign_v27_q1_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCampaignsAsync($patch_campaign_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
+    public function patchCampaignsAsync($patch_campaign_v27_q1_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
     {
-        return $this->patchCampaignsAsyncWithHttpInfo($patch_campaign_list_request, $contentType)
+        return $this->patchCampaignsAsyncWithHttpInfo($patch_campaign_v27_q1_list_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6536,16 +6536,16 @@ class CampaignApi
      *
      * /preview/marketing-solutions/campaigns
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchCampaignV27Q1ListRequest $patch_campaign_v27_q1_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCampaignsAsyncWithHttpInfo($patch_campaign_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
+    public function patchCampaignsAsyncWithHttpInfo($patch_campaign_v27_q1_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
     {
-        $returnType = '\criteo\api\marketingsolutions\preview\Model\PatchResultCampaignListResponse';
-        $request = $this->patchCampaignsRequest($patch_campaign_list_request, $contentType);
+        $returnType = '\criteo\api\marketingsolutions\preview\Model\PatchResultCampaignV27Q1ListResponse';
+        $request = $this->patchCampaignsRequest($patch_campaign_v27_q1_list_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6586,19 +6586,19 @@ class CampaignApi
     /**
      * Create request for operation 'patchCampaigns'
      *
-     * @param  \criteo\api\marketingsolutions\preview\Model\PatchCampaignListRequest $patch_campaign_list_request List of campaigns to patch. (required)
+     * @param  \criteo\api\marketingsolutions\preview\Model\PatchCampaignV27Q1ListRequest $patch_campaign_v27_q1_list_request List of campaigns to patch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchCampaignsRequest($patch_campaign_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
+    public function patchCampaignsRequest($patch_campaign_v27_q1_list_request, string $contentType = self::contentTypes['patchCampaigns'][0])
     {
 
-        // verify the required parameter 'patch_campaign_list_request' is set
-        if ($patch_campaign_list_request === null || (is_array($patch_campaign_list_request) && count($patch_campaign_list_request) === 0)) {
+        // verify the required parameter 'patch_campaign_v27_q1_list_request' is set
+        if ($patch_campaign_v27_q1_list_request === null || (is_array($patch_campaign_v27_q1_list_request) && count($patch_campaign_v27_q1_list_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $patch_campaign_list_request when calling patchCampaigns'
+                'Missing the required parameter $patch_campaign_v27_q1_list_request when calling patchCampaigns'
             );
         }
 
@@ -6621,12 +6621,12 @@ class CampaignApi
         );
 
         // for model (json/xml)
-        if (isset($patch_campaign_list_request)) {
+        if (isset($patch_campaign_v27_q1_list_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_campaign_list_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_campaign_v27_q1_list_request));
             } else {
-                $httpBody = $patch_campaign_list_request;
+                $httpBody = $patch_campaign_v27_q1_list_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

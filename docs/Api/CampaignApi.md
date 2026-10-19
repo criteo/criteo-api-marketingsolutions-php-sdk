@@ -1377,12 +1377,12 @@ try {
 ## `patchCampaigns()`
 
 ```php
-patchCampaigns($patch_campaign_list_request): \criteo\api\marketingsolutions\preview\Model\PatchResultCampaignListResponse
+patchCampaigns($patch_campaign_v27_q1_list_request): \criteo\api\marketingsolutions\preview\Model\PatchResultCampaignV27Q1ListResponse
 ```
 
 /preview/marketing-solutions/campaigns
 
-Patch a list of Campaigns.                A campaign, or in other words a marketing campaign, is an entity that defines advertising objectives and success criteria.
+Patch a list of Campaigns: name, spend limit, scheduled spend limits and budget automation.  Omitted attributes are left unchanged. When provided, the name must not be empty.                A campaign, or in other words a marketing campaign, is an entity that defines advertising objectives and success criteria.
 
 ### Example
 
@@ -1404,10 +1404,10 @@ $apiInstance = new criteo\api\marketingsolutions\preview\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$patch_campaign_list_request = new \criteo\api\marketingsolutions\preview\Model\PatchCampaignListRequest(); // \criteo\api\marketingsolutions\preview\Model\PatchCampaignListRequest | List of campaigns to patch.
+$patch_campaign_v27_q1_list_request = new \criteo\api\marketingsolutions\preview\Model\PatchCampaignV27Q1ListRequest(); // \criteo\api\marketingsolutions\preview\Model\PatchCampaignV27Q1ListRequest | List of campaigns to patch.
 
 try {
-    $result = $apiInstance->patchCampaigns($patch_campaign_list_request);
+    $result = $apiInstance->patchCampaigns($patch_campaign_v27_q1_list_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignApi->patchCampaigns: ', $e->getMessage(), PHP_EOL;
@@ -1418,11 +1418,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **patch_campaign_list_request** | [**\criteo\api\marketingsolutions\preview\Model\PatchCampaignListRequest**](../Model/PatchCampaignListRequest.md)| List of campaigns to patch. | |
+| **patch_campaign_v27_q1_list_request** | [**\criteo\api\marketingsolutions\preview\Model\PatchCampaignV27Q1ListRequest**](../Model/PatchCampaignV27Q1ListRequest.md)| List of campaigns to patch. | |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\preview\Model\PatchResultCampaignListResponse**](../Model/PatchResultCampaignListResponse.md)
+[**\criteo\api\marketingsolutions\preview\Model\PatchResultCampaignV27Q1ListResponse**](../Model/PatchResultCampaignV27Q1ListResponse.md)
 
 ### Authorization
 

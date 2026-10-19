@@ -1,6 +1,6 @@
 <?php
 /**
- * PatchResultCampaignListResponse
+ * PatchCampaignScheduledSpendLimitUpdateV27Q1
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * PatchResultCampaignListResponse Class Doc Comment
+ * PatchCampaignScheduledSpendLimitUpdateV27Q1 Class Doc Comment
  *
  * @category Class
- * @description List of output resources
+ * @description Scheduled spend-limit update.  Only provided fields are updated; omitted fields are left unchanged. The id is required.  The startDate is an advertiser-local calendar date, for example 2026-09-01.  All scheduled spend limits for the campaign must use the same spendLimitRenewal (periodicity) as the active spend limit.  When spendLimitRenewal is \&quot;monthly\&quot;, startDate must be the first day of the month.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PatchResultCampaignListResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class PatchCampaignScheduledSpendLimitUpdateV27Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PatchResultCampaignListResponse implements ModelInterface, ArrayAccess, \J
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PatchResultCampaignListResponse';
+    protected static $openAPIModelName = 'PatchCampaignScheduledSpendLimitUpdateV27Q1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,11 @@ class PatchResultCampaignListResponse implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\criteo\api\marketingsolutions\preview\Model\PatchResultCampaignReadResource[]',
-        'errors' => '\criteo\api\marketingsolutions\preview\Model\CommonProblem[]',
-        'warnings' => '\criteo\api\marketingsolutions\preview\Model\CommonProblem[]'
+        'id' => 'string',
+        'spend_limit_amount' => '\criteo\api\marketingsolutions\preview\Model\NillableDecimal',
+        'spend_limit_renewal' => 'string',
+        'spend_limit_type' => 'string',
+        'start_date' => '\DateTime'
     ];
 
     /**
@@ -71,9 +73,11 @@ class PatchResultCampaignListResponse implements ModelInterface, ArrayAccess, \J
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null,
-        'errors' => null,
-        'warnings' => null
+        'id' => null,
+        'spend_limit_amount' => null,
+        'spend_limit_renewal' => null,
+        'spend_limit_type' => null,
+        'start_date' => 'date'
     ];
 
     /**
@@ -82,9 +86,11 @@ class PatchResultCampaignListResponse implements ModelInterface, ArrayAccess, \J
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'data' => true,
-		'errors' => true,
-		'warnings' => true
+        'id' => true,
+		'spend_limit_amount' => true,
+		'spend_limit_renewal' => true,
+		'spend_limit_type' => true,
+		'start_date' => true
     ];
 
     /**
@@ -173,9 +179,11 @@ class PatchResultCampaignListResponse implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data',
-        'errors' => 'errors',
-        'warnings' => 'warnings'
+        'id' => 'id',
+        'spend_limit_amount' => 'spendLimitAmount',
+        'spend_limit_renewal' => 'spendLimitRenewal',
+        'spend_limit_type' => 'spendLimitType',
+        'start_date' => 'startDate'
     ];
 
     /**
@@ -184,9 +192,11 @@ class PatchResultCampaignListResponse implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData',
-        'errors' => 'setErrors',
-        'warnings' => 'setWarnings'
+        'id' => 'setId',
+        'spend_limit_amount' => 'setSpendLimitAmount',
+        'spend_limit_renewal' => 'setSpendLimitRenewal',
+        'spend_limit_type' => 'setSpendLimitType',
+        'start_date' => 'setStartDate'
     ];
 
     /**
@@ -195,9 +205,11 @@ class PatchResultCampaignListResponse implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData',
-        'errors' => 'getErrors',
-        'warnings' => 'getWarnings'
+        'id' => 'getId',
+        'spend_limit_amount' => 'getSpendLimitAmount',
+        'spend_limit_renewal' => 'getSpendLimitRenewal',
+        'spend_limit_type' => 'getSpendLimitType',
+        'start_date' => 'getStartDate'
     ];
 
     /**
@@ -241,6 +253,40 @@ class PatchResultCampaignListResponse implements ModelInterface, ArrayAccess, \J
         return self::$openAPIModelName;
     }
 
+    public const SPEND_LIMIT_RENEWAL_UNDEFINED = 'undefined';
+    public const SPEND_LIMIT_RENEWAL_DAILY = 'daily';
+    public const SPEND_LIMIT_RENEWAL_MONTHLY = 'monthly';
+    public const SPEND_LIMIT_RENEWAL_LIFETIME = 'lifetime';
+    public const SPEND_LIMIT_TYPE_CAPPED = 'capped';
+    public const SPEND_LIMIT_TYPE_UNCAPPED = 'uncapped';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSpendLimitRenewalAllowableValues()
+    {
+        return [
+            self::SPEND_LIMIT_RENEWAL_UNDEFINED,
+            self::SPEND_LIMIT_RENEWAL_DAILY,
+            self::SPEND_LIMIT_RENEWAL_MONTHLY,
+            self::SPEND_LIMIT_RENEWAL_LIFETIME,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSpendLimitTypeAllowableValues()
+    {
+        return [
+            self::SPEND_LIMIT_TYPE_CAPPED,
+            self::SPEND_LIMIT_TYPE_UNCAPPED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -257,9 +303,11 @@ class PatchResultCampaignListResponse implements ModelInterface, ArrayAccess, \J
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('data', $data ?? [], null);
-        $this->setIfExists('errors', $data ?? [], null);
-        $this->setIfExists('warnings', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('spend_limit_amount', $data ?? [], null);
+        $this->setIfExists('spend_limit_renewal', $data ?? [], null);
+        $this->setIfExists('spend_limit_type', $data ?? [], null);
+        $this->setIfExists('start_date', $data ?? [], null);
     }
 
     /**
@@ -289,6 +337,27 @@ class PatchResultCampaignListResponse implements ModelInterface, ArrayAccess, \J
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        $allowedValues = $this->getSpendLimitRenewalAllowableValues();
+        if (!is_null($this->container['spend_limit_renewal']) && !in_array($this->container['spend_limit_renewal'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'spend_limit_renewal', must be one of '%s'",
+                $this->container['spend_limit_renewal'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getSpendLimitTypeAllowableValues();
+        if (!is_null($this->container['spend_limit_type']) && !in_array($this->container['spend_limit_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'spend_limit_type', must be one of '%s'",
+                $this->container['spend_limit_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -305,103 +374,191 @@ class PatchResultCampaignListResponse implements ModelInterface, ArrayAccess, \J
 
 
     /**
-     * Gets data
+     * Gets id
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\PatchResultCampaignReadResource[]|null
+     * @return string
      */
-    public function getData()
+    public function getId()
     {
-        return $this->container['data'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets data
+     * Sets id
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\PatchResultCampaignReadResource[]|null $data data
+     * @param string $id Identifier of the scheduled spend limit to update.
      *
      * @return self
      */
-    public function setData($data)
+    public function setId($id)
     {
-        if (is_null($data)) {
-            array_push($this->openAPINullablesSetToNull, 'data');
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('data', $nullablesSetToNull);
+            $index = array_search('id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['data'] = $data;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets errors
+     * Gets spend_limit_amount
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\CommonProblem[]|null
+     * @return \criteo\api\marketingsolutions\preview\Model\NillableDecimal|null
      */
-    public function getErrors()
+    public function getSpendLimitAmount()
     {
-        return $this->container['errors'];
+        return $this->container['spend_limit_amount'];
     }
 
     /**
-     * Sets errors
+     * Sets spend_limit_amount
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\CommonProblem[]|null $errors errors
+     * @param \criteo\api\marketingsolutions\preview\Model\NillableDecimal|null $spend_limit_amount spend_limit_amount
      *
      * @return self
      */
-    public function setErrors($errors)
+    public function setSpendLimitAmount($spend_limit_amount)
     {
-        if (is_null($errors)) {
-            array_push($this->openAPINullablesSetToNull, 'errors');
+        if (is_null($spend_limit_amount)) {
+            array_push($this->openAPINullablesSetToNull, 'spend_limit_amount');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('errors', $nullablesSetToNull);
+            $index = array_search('spend_limit_amount', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['errors'] = $errors;
+        $this->container['spend_limit_amount'] = $spend_limit_amount;
 
         return $this;
     }
 
     /**
-     * Gets warnings
+     * Gets spend_limit_renewal
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\CommonProblem[]|null
+     * @return string|null
      */
-    public function getWarnings()
+    public function getSpendLimitRenewal()
     {
-        return $this->container['warnings'];
+        return $this->container['spend_limit_renewal'];
     }
 
     /**
-     * Sets warnings
+     * Sets spend_limit_renewal
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\CommonProblem[]|null $warnings warnings
+     * @param string|null $spend_limit_renewal The period over which the campaign spend limit is applied.  When spendLimitType is \"capped\", this is \"daily\", \"monthly\", or \"lifetime\".  When spendLimitType is \"uncapped\", this is \"undefined\".
      *
      * @return self
      */
-    public function setWarnings($warnings)
+    public function setSpendLimitRenewal($spend_limit_renewal)
     {
-        if (is_null($warnings)) {
-            array_push($this->openAPINullablesSetToNull, 'warnings');
+        if (is_null($spend_limit_renewal)) {
+            array_push($this->openAPINullablesSetToNull, 'spend_limit_renewal');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('warnings', $nullablesSetToNull);
+            $index = array_search('spend_limit_renewal', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['warnings'] = $warnings;
+        $allowedValues = $this->getSpendLimitRenewalAllowableValues();
+        if (!is_null($spend_limit_renewal) && !in_array($spend_limit_renewal, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'spend_limit_renewal', must be one of '%s'",
+                    $spend_limit_renewal,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['spend_limit_renewal'] = $spend_limit_renewal;
+
+        return $this;
+    }
+
+    /**
+     * Gets spend_limit_type
+     *
+     * @return string|null
+     */
+    public function getSpendLimitType()
+    {
+        return $this->container['spend_limit_type'];
+    }
+
+    /**
+     * Sets spend_limit_type
+     *
+     * @param string|null $spend_limit_type Controls whether the campaign has a spend limit.  \"capped\" returns a non-null spendLimitAmount.value and a spendLimitRenewal of \"daily\", \"monthly\", or \"lifetime\".  \"uncapped\" returns spendLimitAmount.value as null and spendLimitRenewal as \"undefined\".
+     *
+     * @return self
+     */
+    public function setSpendLimitType($spend_limit_type)
+    {
+        if (is_null($spend_limit_type)) {
+            array_push($this->openAPINullablesSetToNull, 'spend_limit_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('spend_limit_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getSpendLimitTypeAllowableValues();
+        if (!is_null($spend_limit_type) && !in_array($spend_limit_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'spend_limit_type', must be one of '%s'",
+                    $spend_limit_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['spend_limit_type'] = $spend_limit_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_date
+     *
+     * @return \DateTime|null
+     */
+    public function getStartDate()
+    {
+        return $this->container['start_date'];
+    }
+
+    /**
+     * Sets start_date
+     *
+     * @param \DateTime|null $start_date Advertiser-local calendar date when the scheduled spend limit becomes active, for example \"2026-09-01\".
+     *
+     * @return self
+     */
+    public function setStartDate($start_date)
+    {
+        if (is_null($start_date)) {
+            array_push($this->openAPINullablesSetToNull, 'start_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('start_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['start_date'] = $start_date;
 
         return $this;
     }

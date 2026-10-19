@@ -1,6 +1,6 @@
 <?php
 /**
- * PatchCampaignListRequest
+ * PatchBudgetAutomationConfiguration
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * PatchCampaignListRequest Class Doc Comment
+ * PatchBudgetAutomationConfiguration Class Doc Comment
  *
  * @category Class
- * @description List of input resources
+ * @description Configuration for budget automation. Only meaningful when \&quot;enabled\&quot; is true.  When \&quot;enabled\&quot; is false or omitted, this field is ignored.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PatchCampaignListRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class PatchBudgetAutomationConfiguration implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PatchCampaignListRequest implements ModelInterface, ArrayAccess, \JsonSeri
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PatchCampaignListRequest';
+    protected static $openAPIModelName = 'PatchBudgetAutomationConfiguration';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,7 @@ class PatchCampaignListRequest implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\criteo\api\marketingsolutions\preview\Model\PatchCampaignWriteResource[]'
+        'ad_set_objectives' => 'string'
     ];
 
     /**
@@ -69,7 +69,7 @@ class PatchCampaignListRequest implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'ad_set_objectives' => null
     ];
 
     /**
@@ -78,7 +78,7 @@ class PatchCampaignListRequest implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'data' => true
+        'ad_set_objectives' => false
     ];
 
     /**
@@ -167,7 +167,7 @@ class PatchCampaignListRequest implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'ad_set_objectives' => 'adSetObjectives'
     ];
 
     /**
@@ -176,7 +176,7 @@ class PatchCampaignListRequest implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'ad_set_objectives' => 'setAdSetObjectives'
     ];
 
     /**
@@ -185,7 +185,7 @@ class PatchCampaignListRequest implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'ad_set_objectives' => 'getAdSetObjectives'
     ];
 
     /**
@@ -229,6 +229,25 @@ class PatchCampaignListRequest implements ModelInterface, ArrayAccess, \JsonSeri
         return self::$openAPIModelName;
     }
 
+    public const AD_SET_OBJECTIVES_CONVERSIONS = 'conversions';
+    public const AD_SET_OBJECTIVES_REVENUE = 'revenue';
+    public const AD_SET_OBJECTIVES_VISITS = 'visits';
+    public const AD_SET_OBJECTIVES_VIDEO_VIEWS = 'videoViews';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAdSetObjectivesAllowableValues()
+    {
+        return [
+            self::AD_SET_OBJECTIVES_CONVERSIONS,
+            self::AD_SET_OBJECTIVES_REVENUE,
+            self::AD_SET_OBJECTIVES_VISITS,
+            self::AD_SET_OBJECTIVES_VIDEO_VIEWS,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -245,7 +264,7 @@ class PatchCampaignListRequest implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('ad_set_objectives', $data ?? [], null);
     }
 
     /**
@@ -275,6 +294,15 @@ class PatchCampaignListRequest implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getAdSetObjectivesAllowableValues();
+        if (!is_null($this->container['ad_set_objectives']) && !in_array($this->container['ad_set_objectives'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'ad_set_objectives', must be one of '%s'",
+                $this->container['ad_set_objectives'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -291,35 +319,38 @@ class PatchCampaignListRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
-     * Gets data
+     * Gets ad_set_objectives
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\PatchCampaignWriteResource[]|null
+     * @return string|null
      */
-    public function getData()
+    public function getAdSetObjectives()
     {
-        return $this->container['data'];
+        return $this->container['ad_set_objectives'];
     }
 
     /**
-     * Sets data
+     * Sets ad_set_objectives
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\PatchCampaignWriteResource[]|null $data data
+     * @param string|null $ad_set_objectives ad_set_objectives
      *
      * @return self
      */
-    public function setData($data)
+    public function setAdSetObjectives($ad_set_objectives)
     {
-        if (is_null($data)) {
-            array_push($this->openAPINullablesSetToNull, 'data');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('data', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($ad_set_objectives)) {
+            throw new \InvalidArgumentException('non-nullable ad_set_objectives cannot be null');
         }
-        $this->container['data'] = $data;
+        $allowedValues = $this->getAdSetObjectivesAllowableValues();
+        if (!in_array($ad_set_objectives, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'ad_set_objectives', must be one of '%s'",
+                    $ad_set_objectives,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['ad_set_objectives'] = $ad_set_objectives;
 
         return $this;
     }

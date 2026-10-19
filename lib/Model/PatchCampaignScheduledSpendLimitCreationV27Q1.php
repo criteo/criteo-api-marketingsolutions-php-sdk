@@ -1,6 +1,6 @@
 <?php
 /**
- * PatchCampaignScheduledSpendLimitUpdate
+ * PatchCampaignScheduledSpendLimitCreationV27Q1
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * PatchCampaignScheduledSpendLimitUpdate Class Doc Comment
+ * PatchCampaignScheduledSpendLimitCreationV27Q1 Class Doc Comment
  *
  * @category Class
- * @description Scheduled spend-limit update.  Updates are full replacements: id, startDate, spendLimitType, and the capped or uncapped spend-limit values must describe the complete desired state.  The startDate is an advertiser-local calendar date, for example 2026-09-01.  All scheduled spend limits for the campaign must use the same spendLimitRenewal as the active spend limit.  When spendLimitRenewal is \&quot;monthly\&quot;, startDate must be the first day of the month.
+ * @description Scheduled spend-limit creation.  The startDate is an advertiser-local calendar date, for example 2026-09-01.  When spendLimitType is \&quot;capped\&quot;: spendLimitAmount and spendLimitRenewal are required.  When spendLimitType is \&quot;uncapped\&quot;: spendLimitAmount.value is null and spendLimitRenewal is \&quot;undefined\&quot;.  All scheduled spend limits for the campaign must use the same spendLimitRenewal (periodicity) as the active spend limit.  When spendLimitRenewal is \&quot;monthly\&quot;, startDate must be the first day of the month.
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PatchCampaignScheduledSpendLimitUpdate implements ModelInterface, ArrayAccess, \JsonSerializable
+class PatchCampaignScheduledSpendLimitCreationV27Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PatchCampaignScheduledSpendLimitUpdate implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PatchCampaignScheduledSpendLimitUpdate';
+    protected static $openAPIModelName = 'PatchCampaignScheduledSpendLimitCreationV27Q1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,6 @@ class PatchCampaignScheduledSpendLimitUpdate implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
         'spend_limit_amount' => '\criteo\api\marketingsolutions\preview\Model\NillableDecimal',
         'spend_limit_renewal' => 'string',
         'spend_limit_type' => 'string',
@@ -73,7 +72,6 @@ class PatchCampaignScheduledSpendLimitUpdate implements ModelInterface, ArrayAcc
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'spend_limit_amount' => null,
         'spend_limit_renewal' => null,
         'spend_limit_type' => null,
@@ -86,8 +84,7 @@ class PatchCampaignScheduledSpendLimitUpdate implements ModelInterface, ArrayAcc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => true,
-		'spend_limit_amount' => true,
+        'spend_limit_amount' => true,
 		'spend_limit_renewal' => true,
 		'spend_limit_type' => true,
 		'start_date' => true
@@ -179,7 +176,6 @@ class PatchCampaignScheduledSpendLimitUpdate implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'spend_limit_amount' => 'spendLimitAmount',
         'spend_limit_renewal' => 'spendLimitRenewal',
         'spend_limit_type' => 'spendLimitType',
@@ -192,7 +188,6 @@ class PatchCampaignScheduledSpendLimitUpdate implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'spend_limit_amount' => 'setSpendLimitAmount',
         'spend_limit_renewal' => 'setSpendLimitRenewal',
         'spend_limit_type' => 'setSpendLimitType',
@@ -205,7 +200,6 @@ class PatchCampaignScheduledSpendLimitUpdate implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'spend_limit_amount' => 'getSpendLimitAmount',
         'spend_limit_renewal' => 'getSpendLimitRenewal',
         'spend_limit_type' => 'getSpendLimitType',
@@ -303,7 +297,6 @@ class PatchCampaignScheduledSpendLimitUpdate implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('spend_limit_amount', $data ?? [], null);
         $this->setIfExists('spend_limit_renewal', $data ?? [], null);
         $this->setIfExists('spend_limit_type', $data ?? [], null);
@@ -337,9 +330,6 @@ class PatchCampaignScheduledSpendLimitUpdate implements ModelInterface, ArrayAcc
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         $allowedValues = $this->getSpendLimitRenewalAllowableValues();
         if (!is_null($this->container['spend_limit_renewal']) && !in_array($this->container['spend_limit_renewal'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -378,40 +368,6 @@ class PatchCampaignScheduledSpendLimitUpdate implements ModelInterface, ArrayAcc
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id Identifier of the scheduled spend limit to update.
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets spend_limit_amount

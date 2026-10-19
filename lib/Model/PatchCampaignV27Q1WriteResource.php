@@ -1,6 +1,6 @@
 <?php
 /**
- * PatchCampaignScheduledSpendLimitDeletion
+ * PatchCampaignV27Q1WriteResource
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * PatchCampaignScheduledSpendLimitDeletion Class Doc Comment
+ * PatchCampaignV27Q1WriteResource Class Doc Comment
  *
  * @category Class
- * @description Scheduled spend-limit deletion.
+ * @description write model data for resources
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PatchCampaignScheduledSpendLimitDeletion implements ModelInterface, ArrayAccess, \JsonSerializable
+class PatchCampaignV27Q1WriteResource implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PatchCampaignScheduledSpendLimitDeletion implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PatchCampaignScheduledSpendLimitDeletion';
+    protected static $openAPIModelName = 'PatchCampaignV27Q1WriteResource';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,9 @@ class PatchCampaignScheduledSpendLimitDeletion implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string'
+        'attributes' => '\criteo\api\marketingsolutions\preview\Model\PatchCampaignV27Q1',
+        'id' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -69,7 +71,9 @@ class PatchCampaignScheduledSpendLimitDeletion implements ModelInterface, ArrayA
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null
+        'attributes' => null,
+        'id' => null,
+        'type' => null
     ];
 
     /**
@@ -78,7 +82,9 @@ class PatchCampaignScheduledSpendLimitDeletion implements ModelInterface, ArrayA
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => true
+        'attributes' => false,
+		'id' => true,
+		'type' => true
     ];
 
     /**
@@ -167,7 +173,9 @@ class PatchCampaignScheduledSpendLimitDeletion implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id'
+        'attributes' => 'attributes',
+        'id' => 'id',
+        'type' => 'type'
     ];
 
     /**
@@ -176,7 +184,9 @@ class PatchCampaignScheduledSpendLimitDeletion implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'attributes' => 'setAttributes',
+        'id' => 'setId',
+        'type' => 'setType'
     ];
 
     /**
@@ -185,7 +195,9 @@ class PatchCampaignScheduledSpendLimitDeletion implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'attributes' => 'getAttributes',
+        'id' => 'getId',
+        'type' => 'getType'
     ];
 
     /**
@@ -245,7 +257,9 @@ class PatchCampaignScheduledSpendLimitDeletion implements ModelInterface, ArrayA
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('attributes', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
     }
 
     /**
@@ -275,9 +289,6 @@ class PatchCampaignScheduledSpendLimitDeletion implements ModelInterface, ArrayA
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -294,9 +305,36 @@ class PatchCampaignScheduledSpendLimitDeletion implements ModelInterface, ArrayA
 
 
     /**
+     * Gets attributes
+     *
+     * @return \criteo\api\marketingsolutions\preview\Model\PatchCampaignV27Q1|null
+     */
+    public function getAttributes()
+    {
+        return $this->container['attributes'];
+    }
+
+    /**
+     * Sets attributes
+     *
+     * @param \criteo\api\marketingsolutions\preview\Model\PatchCampaignV27Q1|null $attributes attributes
+     *
+     * @return self
+     */
+    public function setAttributes($attributes)
+    {
+        if (is_null($attributes)) {
+            throw new \InvalidArgumentException('non-nullable attributes cannot be null');
+        }
+        $this->container['attributes'] = $attributes;
+
+        return $this;
+    }
+
+    /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -306,7 +344,7 @@ class PatchCampaignScheduledSpendLimitDeletion implements ModelInterface, ArrayA
     /**
      * Sets id
      *
-     * @param string $id Identifier of the scheduled spend limit to delete.
+     * @param string|null $id Id of the entity
      *
      * @return self
      */
@@ -323,6 +361,40 @@ class PatchCampaignScheduledSpendLimitDeletion implements ModelInterface, ArrayA
             }
         }
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type Canonical type name of the entity
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }

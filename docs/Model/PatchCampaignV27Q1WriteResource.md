@@ -1,10 +1,10 @@
-# # PatchCampaignWriteResource
+# # PatchCampaignV27Q1WriteResource
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | [**\criteo\api\marketingsolutions\preview\Model\PatchCampaign**](PatchCampaign.md) |  | [optional]
+**attributes** | [**\criteo\api\marketingsolutions\preview\Model\PatchCampaignV27Q1**](PatchCampaignV27Q1.md) |  | [optional]
 **id** | **string** | Id of the entity | [optional]
 **type** | **string** | Canonical type name of the entity | [optional]
 

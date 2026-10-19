@@ -1,6 +1,6 @@
 <?php
 /**
- * PatchCampaignScheduledSpendLimit
+ * PatchResultCampaignV27Q1ReadResource
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * PatchCampaignScheduledSpendLimit Class Doc Comment
+ * PatchResultCampaignV27Q1ReadResource Class Doc Comment
  *
  * @category Class
- * @description Scheduled spend-limit operations for a marketing campaign (patch).  Create, update, and delete operations are applied together by the backend.
+ * @description read model data for resources
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PatchCampaignScheduledSpendLimit implements ModelInterface, ArrayAccess, \JsonSerializable
+class PatchResultCampaignV27Q1ReadResource implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PatchCampaignScheduledSpendLimit implements ModelInterface, ArrayAccess, \
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PatchCampaignScheduledSpendLimit';
+    protected static $openAPIModelName = 'PatchResultCampaignV27Q1ReadResource';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,8 @@ class PatchCampaignScheduledSpendLimit implements ModelInterface, ArrayAccess, \
       * @var string[]
       */
     protected static $openAPITypes = [
-        'scheduled_spend_limit_creations' => '\criteo\api\marketingsolutions\preview\Model\PatchCampaignScheduledSpendLimitCreation[]',
-        'scheduled_spend_limit_deletions' => '\criteo\api\marketingsolutions\preview\Model\PatchCampaignScheduledSpendLimitDeletion[]',
-        'scheduled_spend_limit_updates' => '\criteo\api\marketingsolutions\preview\Model\PatchCampaignScheduledSpendLimitUpdate[]'
+        'id' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -71,9 +70,8 @@ class PatchCampaignScheduledSpendLimit implements ModelInterface, ArrayAccess, \
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'scheduled_spend_limit_creations' => null,
-        'scheduled_spend_limit_deletions' => null,
-        'scheduled_spend_limit_updates' => null
+        'id' => null,
+        'type' => null
     ];
 
     /**
@@ -82,9 +80,8 @@ class PatchCampaignScheduledSpendLimit implements ModelInterface, ArrayAccess, \
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'scheduled_spend_limit_creations' => true,
-		'scheduled_spend_limit_deletions' => true,
-		'scheduled_spend_limit_updates' => true
+        'id' => true,
+		'type' => true
     ];
 
     /**
@@ -173,9 +170,8 @@ class PatchCampaignScheduledSpendLimit implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $attributeMap = [
-        'scheduled_spend_limit_creations' => 'scheduledSpendLimitCreations',
-        'scheduled_spend_limit_deletions' => 'scheduledSpendLimitDeletions',
-        'scheduled_spend_limit_updates' => 'scheduledSpendLimitUpdates'
+        'id' => 'id',
+        'type' => 'type'
     ];
 
     /**
@@ -184,9 +180,8 @@ class PatchCampaignScheduledSpendLimit implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $setters = [
-        'scheduled_spend_limit_creations' => 'setScheduledSpendLimitCreations',
-        'scheduled_spend_limit_deletions' => 'setScheduledSpendLimitDeletions',
-        'scheduled_spend_limit_updates' => 'setScheduledSpendLimitUpdates'
+        'id' => 'setId',
+        'type' => 'setType'
     ];
 
     /**
@@ -195,9 +190,8 @@ class PatchCampaignScheduledSpendLimit implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $getters = [
-        'scheduled_spend_limit_creations' => 'getScheduledSpendLimitCreations',
-        'scheduled_spend_limit_deletions' => 'getScheduledSpendLimitDeletions',
-        'scheduled_spend_limit_updates' => 'getScheduledSpendLimitUpdates'
+        'id' => 'getId',
+        'type' => 'getType'
     ];
 
     /**
@@ -257,9 +251,8 @@ class PatchCampaignScheduledSpendLimit implements ModelInterface, ArrayAccess, \
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('scheduled_spend_limit_creations', $data ?? [], null);
-        $this->setIfExists('scheduled_spend_limit_deletions', $data ?? [], null);
-        $this->setIfExists('scheduled_spend_limit_updates', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
     }
 
     /**
@@ -305,103 +298,69 @@ class PatchCampaignScheduledSpendLimit implements ModelInterface, ArrayAccess, \
 
 
     /**
-     * Gets scheduled_spend_limit_creations
+     * Gets id
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\PatchCampaignScheduledSpendLimitCreation[]|null
+     * @return string|null
      */
-    public function getScheduledSpendLimitCreations()
+    public function getId()
     {
-        return $this->container['scheduled_spend_limit_creations'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets scheduled_spend_limit_creations
+     * Sets id
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\PatchCampaignScheduledSpendLimitCreation[]|null $scheduled_spend_limit_creations Scheduled spend limits to create.
+     * @param string|null $id Id of the entity
      *
      * @return self
      */
-    public function setScheduledSpendLimitCreations($scheduled_spend_limit_creations)
+    public function setId($id)
     {
-        if (is_null($scheduled_spend_limit_creations)) {
-            array_push($this->openAPINullablesSetToNull, 'scheduled_spend_limit_creations');
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('scheduled_spend_limit_creations', $nullablesSetToNull);
+            $index = array_search('id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['scheduled_spend_limit_creations'] = $scheduled_spend_limit_creations;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets scheduled_spend_limit_deletions
+     * Gets type
      *
-     * @return \criteo\api\marketingsolutions\preview\Model\PatchCampaignScheduledSpendLimitDeletion[]|null
+     * @return string|null
      */
-    public function getScheduledSpendLimitDeletions()
+    public function getType()
     {
-        return $this->container['scheduled_spend_limit_deletions'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets scheduled_spend_limit_deletions
+     * Sets type
      *
-     * @param \criteo\api\marketingsolutions\preview\Model\PatchCampaignScheduledSpendLimitDeletion[]|null $scheduled_spend_limit_deletions Scheduled spend limits to delete.
+     * @param string|null $type type
      *
      * @return self
      */
-    public function setScheduledSpendLimitDeletions($scheduled_spend_limit_deletions)
+    public function setType($type)
     {
-        if (is_null($scheduled_spend_limit_deletions)) {
-            array_push($this->openAPINullablesSetToNull, 'scheduled_spend_limit_deletions');
+        if (is_null($type)) {
+            array_push($this->openAPINullablesSetToNull, 'type');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('scheduled_spend_limit_deletions', $nullablesSetToNull);
+            $index = array_search('type', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['scheduled_spend_limit_deletions'] = $scheduled_spend_limit_deletions;
-
-        return $this;
-    }
-
-    /**
-     * Gets scheduled_spend_limit_updates
-     *
-     * @return \criteo\api\marketingsolutions\preview\Model\PatchCampaignScheduledSpendLimitUpdate[]|null
-     */
-    public function getScheduledSpendLimitUpdates()
-    {
-        return $this->container['scheduled_spend_limit_updates'];
-    }
-
-    /**
-     * Sets scheduled_spend_limit_updates
-     *
-     * @param \criteo\api\marketingsolutions\preview\Model\PatchCampaignScheduledSpendLimitUpdate[]|null $scheduled_spend_limit_updates Scheduled spend limits to update.
-     *
-     * @return self
-     */
-    public function setScheduledSpendLimitUpdates($scheduled_spend_limit_updates)
-    {
-        if (is_null($scheduled_spend_limit_updates)) {
-            array_push($this->openAPINullablesSetToNull, 'scheduled_spend_limit_updates');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('scheduled_spend_limit_updates', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['scheduled_spend_limit_updates'] = $scheduled_spend_limit_updates;
+        $this->container['type'] = $type;
 
         return $this;
     }

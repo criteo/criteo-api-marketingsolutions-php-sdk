@@ -1,6 +1,6 @@
 <?php
 /**
- * PatchResultCampaignReadResource
+ * PatchCampaignV27Q1ListRequest
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\preview\ObjectSerializer;
 
 /**
- * PatchResultCampaignReadResource Class Doc Comment
+ * PatchCampaignV27Q1ListRequest Class Doc Comment
  *
  * @category Class
- * @description read model data for resources
+ * @description List of input resources
  * @package  criteo\api\marketingsolutions\preview
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PatchResultCampaignReadResource implements ModelInterface, ArrayAccess, \JsonSerializable
+class PatchCampaignV27Q1ListRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PatchResultCampaignReadResource implements ModelInterface, ArrayAccess, \J
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PatchResultCampaignReadResource';
+    protected static $openAPIModelName = 'PatchCampaignV27Q1ListRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,7 @@ class PatchResultCampaignReadResource implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'type' => 'string'
+        'data' => '\criteo\api\marketingsolutions\preview\Model\PatchCampaignV27Q1WriteResource[]'
     ];
 
     /**
@@ -70,8 +69,7 @@ class PatchResultCampaignReadResource implements ModelInterface, ArrayAccess, \J
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'type' => null
+        'data' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class PatchResultCampaignReadResource implements ModelInterface, ArrayAccess, \J
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => true,
-		'type' => true
+        'data' => true
     ];
 
     /**
@@ -170,8 +167,7 @@ class PatchResultCampaignReadResource implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'type' => 'type'
+        'data' => 'data'
     ];
 
     /**
@@ -180,8 +176,7 @@ class PatchResultCampaignReadResource implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'type' => 'setType'
+        'data' => 'setData'
     ];
 
     /**
@@ -190,8 +185,7 @@ class PatchResultCampaignReadResource implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'type' => 'getType'
+        'data' => 'getData'
     ];
 
     /**
@@ -251,8 +245,7 @@ class PatchResultCampaignReadResource implements ModelInterface, ArrayAccess, \J
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('data', $data ?? [], null);
     }
 
     /**
@@ -298,69 +291,35 @@ class PatchResultCampaignReadResource implements ModelInterface, ArrayAccess, \J
 
 
     /**
-     * Gets id
+     * Gets data
      *
-     * @return string|null
+     * @return \criteo\api\marketingsolutions\preview\Model\PatchCampaignV27Q1WriteResource[]|null
      */
-    public function getId()
+    public function getData()
     {
-        return $this->container['id'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets id
+     * Sets data
      *
-     * @param string|null $id Id of the entity
+     * @param \criteo\api\marketingsolutions\preview\Model\PatchCampaignV27Q1WriteResource[]|null $data data
      *
      * @return self
      */
-    public function setId($id)
+    public function setData($data)
     {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
+        if (is_null($data)) {
+            array_push($this->openAPINullablesSetToNull, 'data');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
+            $index = array_search('data', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            array_push($this->openAPINullablesSetToNull, 'type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['type'] = $type;
+        $this->container['data'] = $data;
 
         return $this;
     }
