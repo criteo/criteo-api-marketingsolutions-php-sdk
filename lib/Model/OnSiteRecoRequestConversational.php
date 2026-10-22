@@ -61,10 +61,12 @@ class OnSiteRecoRequestConversational implements ModelInterface, ArrayAccess, \J
         'ad_id' => 'int',
         'ad_set_id' => 'int',
         'conversation' => '\criteo\api\marketingsolutions\experimental\Model\OnSiteRecoChatMessage[]',
+        'identity_type' => 'string',
         'nb_requested_products' => 'int',
         'partner_id' => 'int',
         'product' => '\criteo\api\marketingsolutions\experimental\Model\ProductContext',
-        'user_id' => 'string'
+        'user_id' => 'string',
+        'user_id_origin' => 'string'
     ];
 
     /**
@@ -78,10 +80,12 @@ class OnSiteRecoRequestConversational implements ModelInterface, ArrayAccess, \J
         'ad_id' => 'int32',
         'ad_set_id' => 'int32',
         'conversation' => null,
+        'identity_type' => null,
         'nb_requested_products' => 'int32',
         'partner_id' => 'int32',
         'product' => null,
-        'user_id' => null
+        'user_id' => null,
+        'user_id_origin' => null
     ];
 
     /**
@@ -93,10 +97,12 @@ class OnSiteRecoRequestConversational implements ModelInterface, ArrayAccess, \J
         'ad_id' => false,
 		'ad_set_id' => false,
 		'conversation' => false,
+		'identity_type' => false,
 		'nb_requested_products' => false,
 		'partner_id' => false,
 		'product' => false,
-		'user_id' => false
+		'user_id' => false,
+		'user_id_origin' => false
     ];
 
     /**
@@ -188,10 +194,12 @@ class OnSiteRecoRequestConversational implements ModelInterface, ArrayAccess, \J
         'ad_id' => 'adId',
         'ad_set_id' => 'adSetId',
         'conversation' => 'conversation',
+        'identity_type' => 'identityType',
         'nb_requested_products' => 'nbRequestedProducts',
         'partner_id' => 'partnerId',
         'product' => 'product',
-        'user_id' => 'userId'
+        'user_id' => 'userId',
+        'user_id_origin' => 'userIdOrigin'
     ];
 
     /**
@@ -203,10 +211,12 @@ class OnSiteRecoRequestConversational implements ModelInterface, ArrayAccess, \J
         'ad_id' => 'setAdId',
         'ad_set_id' => 'setAdSetId',
         'conversation' => 'setConversation',
+        'identity_type' => 'setIdentityType',
         'nb_requested_products' => 'setNbRequestedProducts',
         'partner_id' => 'setPartnerId',
         'product' => 'setProduct',
-        'user_id' => 'setUserId'
+        'user_id' => 'setUserId',
+        'user_id_origin' => 'setUserIdOrigin'
     ];
 
     /**
@@ -218,10 +228,12 @@ class OnSiteRecoRequestConversational implements ModelInterface, ArrayAccess, \J
         'ad_id' => 'getAdId',
         'ad_set_id' => 'getAdSetId',
         'conversation' => 'getConversation',
+        'identity_type' => 'getIdentityType',
         'nb_requested_products' => 'getNbRequestedProducts',
         'partner_id' => 'getPartnerId',
         'product' => 'getProduct',
-        'user_id' => 'getUserId'
+        'user_id' => 'getUserId',
+        'user_id_origin' => 'getUserIdOrigin'
     ];
 
     /**
@@ -265,6 +277,27 @@ class OnSiteRecoRequestConversational implements ModelInterface, ArrayAccess, \J
         return self::$openAPIModelName;
     }
 
+    public const IDENTITY_TYPE_CTO_BUNDLE = 'CtoBundle';
+    public const IDENTITY_TYPE_IDFA = 'Idfa';
+    public const IDENTITY_TYPE_GAID = 'Gaid';
+    public const IDENTITY_TYPE_INTERNAL_USER_ID = 'InternalUserId';
+    public const IDENTITY_TYPE_AGENTIC_USER_ID = 'AgenticUserId';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getIdentityTypeAllowableValues()
+    {
+        return [
+            self::IDENTITY_TYPE_CTO_BUNDLE,
+            self::IDENTITY_TYPE_IDFA,
+            self::IDENTITY_TYPE_GAID,
+            self::IDENTITY_TYPE_INTERNAL_USER_ID,
+            self::IDENTITY_TYPE_AGENTIC_USER_ID,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -284,10 +317,12 @@ class OnSiteRecoRequestConversational implements ModelInterface, ArrayAccess, \J
         $this->setIfExists('ad_id', $data ?? [], null);
         $this->setIfExists('ad_set_id', $data ?? [], null);
         $this->setIfExists('conversation', $data ?? [], null);
+        $this->setIfExists('identity_type', $data ?? [], null);
         $this->setIfExists('nb_requested_products', $data ?? [], null);
         $this->setIfExists('partner_id', $data ?? [], null);
         $this->setIfExists('product', $data ?? [], null);
         $this->setIfExists('user_id', $data ?? [], null);
+        $this->setIfExists('user_id_origin', $data ?? [], null);
     }
 
     /**
@@ -323,6 +358,15 @@ class OnSiteRecoRequestConversational implements ModelInterface, ArrayAccess, \J
         if ($this->container['conversation'] === null) {
             $invalidProperties[] = "'conversation' can't be null";
         }
+        $allowedValues = $this->getIdentityTypeAllowableValues();
+        if (!is_null($this->container['identity_type']) && !in_array($this->container['identity_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'identity_type', must be one of '%s'",
+                $this->container['identity_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['nb_requested_products'] === null) {
             $invalidProperties[] = "'nb_requested_products' can't be null";
         }
@@ -429,6 +473,43 @@ class OnSiteRecoRequestConversational implements ModelInterface, ArrayAccess, \J
     }
 
     /**
+     * Gets identity_type
+     *
+     * @return string|null
+     */
+    public function getIdentityType()
+    {
+        return $this->container['identity_type'];
+    }
+
+    /**
+     * Sets identity_type
+     *
+     * @param string|null $identity_type Type of the user identifier (CtoBundle, Idfa, Gaid, AgenticUserId...) Optional if its type is CtoBundle
+     *
+     * @return self
+     */
+    public function setIdentityType($identity_type)
+    {
+        if (is_null($identity_type)) {
+            throw new \InvalidArgumentException('non-nullable identity_type cannot be null');
+        }
+        $allowedValues = $this->getIdentityTypeAllowableValues();
+        if (!in_array($identity_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'identity_type', must be one of '%s'",
+                    $identity_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['identity_type'] = $identity_type;
+
+        return $this;
+    }
+
+    /**
      * Gets nb_requested_products
      *
      * @return int
@@ -522,7 +603,7 @@ class OnSiteRecoRequestConversational implements ModelInterface, ArrayAccess, \J
     /**
      * Sets user_id
      *
-     * @param string $user_id Used to retrieve user events from Criteo trackers.
+     * @param string $user_id One user identifier: a Criteo bundle, GAID, IDFA, internal user id, or an agentic partner user id.
      *
      * @return self
      */
@@ -532,6 +613,33 @@ class OnSiteRecoRequestConversational implements ModelInterface, ArrayAccess, \J
             throw new \InvalidArgumentException('non-nullable user_id cannot be null');
         }
         $this->container['user_id'] = $user_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_id_origin
+     *
+     * @return string|null
+     */
+    public function getUserIdOrigin()
+    {
+        return $this->container['user_id_origin'];
+    }
+
+    /**
+     * Sets user_id_origin
+     *
+     * @param string|null $user_id_origin When IdentityType is AgenticUserId, the issuer should recognize themselves with their organization name issued by Criteo.
+     *
+     * @return self
+     */
+    public function setUserIdOrigin($user_id_origin)
+    {
+        if (is_null($user_id_origin)) {
+            throw new \InvalidArgumentException('non-nullable user_id_origin cannot be null');
+        }
+        $this->container['user_id_origin'] = $user_id_origin;
 
         return $this;
     }
