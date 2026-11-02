@@ -1,6 +1,6 @@
 <?php
 /**
- * CampaignSearchRequestV23Q1
+ * AdSetSearchInputV27Q1
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\experimental\ObjectSerializer;
 
 /**
- * CampaignSearchRequestV23Q1 Class Doc Comment
+ * AdSetSearchInputV27Q1 Class Doc Comment
  *
  * @category Class
- * @description Request payload for the campaign search endpoint.
+ * @description Multiple filters are combined with an implicit AND operation.  Identifiers are string-encoded integers; invalid values are ignored.  If no filter is provided (both arrays are null or empty), the search returns all accessible campaigns.
  * @package  criteo\api\marketingsolutions\experimental
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CampaignSearchRequestV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
+class AdSetSearchInputV27Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CampaignSearchRequestV23Q1 implements ModelInterface, ArrayAccess, \JsonSe
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CampaignSearchRequestV23Q1';
+    protected static $openAPIModelName = 'AdSetSearchInputV27Q1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,9 @@ class CampaignSearchRequestV23Q1 implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'filters' => '\criteo\api\marketingsolutions\experimental\Model\CampaignSearchFiltersV23Q1'
+        'ad_set_ids' => 'string[]',
+        'advertiser_ids' => 'string[]',
+        'campaign_ids' => 'string[]'
     ];
 
     /**
@@ -69,7 +71,9 @@ class CampaignSearchRequestV23Q1 implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'filters' => null
+        'ad_set_ids' => null,
+        'advertiser_ids' => null,
+        'campaign_ids' => null
     ];
 
     /**
@@ -78,7 +82,9 @@ class CampaignSearchRequestV23Q1 implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'filters' => false
+        'ad_set_ids' => true,
+		'advertiser_ids' => true,
+		'campaign_ids' => true
     ];
 
     /**
@@ -167,7 +173,9 @@ class CampaignSearchRequestV23Q1 implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        'filters' => 'filters'
+        'ad_set_ids' => 'adSetIds',
+        'advertiser_ids' => 'advertiserIds',
+        'campaign_ids' => 'campaignIds'
     ];
 
     /**
@@ -176,7 +184,9 @@ class CampaignSearchRequestV23Q1 implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        'filters' => 'setFilters'
+        'ad_set_ids' => 'setAdSetIds',
+        'advertiser_ids' => 'setAdvertiserIds',
+        'campaign_ids' => 'setCampaignIds'
     ];
 
     /**
@@ -185,7 +195,9 @@ class CampaignSearchRequestV23Q1 implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        'filters' => 'getFilters'
+        'ad_set_ids' => 'getAdSetIds',
+        'advertiser_ids' => 'getAdvertiserIds',
+        'campaign_ids' => 'getCampaignIds'
     ];
 
     /**
@@ -245,7 +257,9 @@ class CampaignSearchRequestV23Q1 implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('filters', $data ?? [], null);
+        $this->setIfExists('ad_set_ids', $data ?? [], null);
+        $this->setIfExists('advertiser_ids', $data ?? [], null);
+        $this->setIfExists('campaign_ids', $data ?? [], null);
     }
 
     /**
@@ -291,28 +305,103 @@ class CampaignSearchRequestV23Q1 implements ModelInterface, ArrayAccess, \JsonSe
 
 
     /**
-     * Gets filters
+     * Gets ad_set_ids
      *
-     * @return \criteo\api\marketingsolutions\experimental\Model\CampaignSearchFiltersV23Q1|null
+     * @return string[]|null
      */
-    public function getFilters()
+    public function getAdSetIds()
     {
-        return $this->container['filters'];
+        return $this->container['ad_set_ids'];
     }
 
     /**
-     * Sets filters
+     * Sets ad_set_ids
      *
-     * @param \criteo\api\marketingsolutions\experimental\Model\CampaignSearchFiltersV23Q1|null $filters filters
+     * @param string[]|null $ad_set_ids Ad set ids to filter on. Ids are string-encoded integers.
      *
      * @return self
      */
-    public function setFilters($filters)
+    public function setAdSetIds($ad_set_ids)
     {
-        if (is_null($filters)) {
-            throw new \InvalidArgumentException('non-nullable filters cannot be null');
+        if (is_null($ad_set_ids)) {
+            array_push($this->openAPINullablesSetToNull, 'ad_set_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ad_set_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['filters'] = $filters;
+        $this->container['ad_set_ids'] = $ad_set_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets advertiser_ids
+     *
+     * @return string[]|null
+     */
+    public function getAdvertiserIds()
+    {
+        return $this->container['advertiser_ids'];
+    }
+
+    /**
+     * Sets advertiser_ids
+     *
+     * @param string[]|null $advertiser_ids Advertiser ids which ad sets belongs to (indirectly via their marketing campaign).  Ids are string-encoded integers.
+     *
+     * @return self
+     */
+    public function setAdvertiserIds($advertiser_ids)
+    {
+        if (is_null($advertiser_ids)) {
+            array_push($this->openAPINullablesSetToNull, 'advertiser_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('advertiser_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['advertiser_ids'] = $advertiser_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaign_ids
+     *
+     * @return string[]|null
+     */
+    public function getCampaignIds()
+    {
+        return $this->container['campaign_ids'];
+    }
+
+    /**
+     * Sets campaign_ids
+     *
+     * @param string[]|null $campaign_ids Campaign ids to filter on. Ids are string-encoded integers.
+     *
+     * @return self
+     */
+    public function setCampaignIds($campaign_ids)
+    {
+        if (is_null($campaign_ids)) {
+            array_push($this->openAPINullablesSetToNull, 'campaign_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['campaign_ids'] = $campaign_ids;
 
         return $this;
     }

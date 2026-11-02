@@ -1,6 +1,6 @@
 <?php
 /**
- * AdSetSearchRequestV26Q1
+ * AdSetDeliveryLimitationsV27Q1
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\experimental\ObjectSerializer;
 
 /**
- * AdSetSearchRequestV26Q1 Class Doc Comment
+ * AdSetDeliveryLimitationsV27Q1 Class Doc Comment
  *
  * @category Class
- * @description request payload of the search endpoint
+ * @description Delivery limitations for an ad set.
  * @package  criteo\api\marketingsolutions\experimental
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
+class AdSetDeliveryLimitationsV27Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'AdSetSearchRequestV26Q1';
+    protected static $openAPIModelName = 'AdSetDeliveryLimitationsV27Q1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,9 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'filters' => '\criteo\api\marketingsolutions\experimental\Model\AdSetSearchFilterV26Q1',
-        'meta' => '\criteo\api\marketingsolutions\experimental\Model\AdSetSearchRequestMetadataV26Q1'
+        'devices' => 'string[]',
+        'environments' => 'string[]',
+        'operating_systems' => 'string[]'
     ];
 
     /**
@@ -70,8 +71,9 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'filters' => null,
-        'meta' => null
+        'devices' => null,
+        'environments' => null,
+        'operating_systems' => null
     ];
 
     /**
@@ -80,8 +82,9 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'filters' => false,
-		'meta' => false
+        'devices' => true,
+		'environments' => true,
+		'operating_systems' => true
     ];
 
     /**
@@ -170,8 +173,9 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'filters' => 'filters',
-        'meta' => 'meta'
+        'devices' => 'devices',
+        'environments' => 'environments',
+        'operating_systems' => 'operatingSystems'
     ];
 
     /**
@@ -180,8 +184,9 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'filters' => 'setFilters',
-        'meta' => 'setMeta'
+        'devices' => 'setDevices',
+        'environments' => 'setEnvironments',
+        'operating_systems' => 'setOperatingSystems'
     ];
 
     /**
@@ -190,8 +195,9 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'filters' => 'getFilters',
-        'meta' => 'getMeta'
+        'devices' => 'getDevices',
+        'environments' => 'getEnvironments',
+        'operating_systems' => 'getOperatingSystems'
     ];
 
     /**
@@ -235,6 +241,57 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
         return self::$openAPIModelName;
     }
 
+    public const DEVICES_OTHER = 'other';
+    public const DEVICES_DESKTOP = 'desktop';
+    public const DEVICES_MOBILE = 'mobile';
+    public const DEVICES_TABLET = 'tablet';
+    public const ENVIRONMENTS_WEB = 'web';
+    public const ENVIRONMENTS_IN_APP = 'inApp';
+    public const OPERATING_SYSTEMS_ANDROID = 'android';
+    public const OPERATING_SYSTEMS_IOS = 'ios';
+    public const OPERATING_SYSTEMS_UNKNOWN = 'unknown';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDevicesAllowableValues()
+    {
+        return [
+            self::DEVICES_OTHER,
+            self::DEVICES_DESKTOP,
+            self::DEVICES_MOBILE,
+            self::DEVICES_TABLET,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getEnvironmentsAllowableValues()
+    {
+        return [
+            self::ENVIRONMENTS_WEB,
+            self::ENVIRONMENTS_IN_APP,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOperatingSystemsAllowableValues()
+    {
+        return [
+            self::OPERATING_SYSTEMS_ANDROID,
+            self::OPERATING_SYSTEMS_IOS,
+            self::OPERATING_SYSTEMS_UNKNOWN,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -251,8 +308,9 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('filters', $data ?? [], null);
-        $this->setIfExists('meta', $data ?? [], null);
+        $this->setIfExists('devices', $data ?? [], null);
+        $this->setIfExists('environments', $data ?? [], null);
+        $this->setIfExists('operating_systems', $data ?? [], null);
     }
 
     /**
@@ -298,55 +356,130 @@ class AdSetSearchRequestV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets filters
+     * Gets devices
      *
-     * @return \criteo\api\marketingsolutions\experimental\Model\AdSetSearchFilterV26Q1|null
+     * @return string[]|null
      */
-    public function getFilters()
+    public function getDevices()
     {
-        return $this->container['filters'];
+        return $this->container['devices'];
     }
 
     /**
-     * Sets filters
+     * Sets devices
      *
-     * @param \criteo\api\marketingsolutions\experimental\Model\AdSetSearchFilterV26Q1|null $filters filters
+     * @param string[]|null $devices List of devices which the ad set should target.                No limitation if the list is empty.
      *
      * @return self
      */
-    public function setFilters($filters)
+    public function setDevices($devices)
     {
-        if (is_null($filters)) {
-            throw new \InvalidArgumentException('non-nullable filters cannot be null');
+        if (is_null($devices)) {
+            array_push($this->openAPINullablesSetToNull, 'devices');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('devices', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['filters'] = $filters;
+        $allowedValues = $this->getDevicesAllowableValues();
+        if (!is_null($devices) && array_diff($devices, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'devices', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['devices'] = $devices;
 
         return $this;
     }
 
     /**
-     * Gets meta
+     * Gets environments
      *
-     * @return \criteo\api\marketingsolutions\experimental\Model\AdSetSearchRequestMetadataV26Q1|null
+     * @return string[]|null
      */
-    public function getMeta()
+    public function getEnvironments()
     {
-        return $this->container['meta'];
+        return $this->container['environments'];
     }
 
     /**
-     * Sets meta
+     * Sets environments
      *
-     * @param \criteo\api\marketingsolutions\experimental\Model\AdSetSearchRequestMetadataV26Q1|null $meta meta
+     * @param string[]|null $environments List of environments which the ad set should target.                No limitation if the list is empty.
      *
      * @return self
      */
-    public function setMeta($meta)
+    public function setEnvironments($environments)
     {
-        if (is_null($meta)) {
-            throw new \InvalidArgumentException('non-nullable meta cannot be null');
+        if (is_null($environments)) {
+            array_push($this->openAPINullablesSetToNull, 'environments');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('environments', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['meta'] = $meta;
+        $allowedValues = $this->getEnvironmentsAllowableValues();
+        if (!is_null($environments) && array_diff($environments, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'environments', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['environments'] = $environments;
+
+        return $this;
+    }
+
+    /**
+     * Gets operating_systems
+     *
+     * @return string[]|null
+     */
+    public function getOperatingSystems()
+    {
+        return $this->container['operating_systems'];
+    }
+
+    /**
+     * Sets operating_systems
+     *
+     * @param string[]|null $operating_systems List of operating systems which the ad set should target.                No limitation if the list is empty.
+     *
+     * @return self
+     */
+    public function setOperatingSystems($operating_systems)
+    {
+        if (is_null($operating_systems)) {
+            array_push($this->openAPINullablesSetToNull, 'operating_systems');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('operating_systems', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getOperatingSystemsAllowableValues();
+        if (!is_null($operating_systems) && array_diff($operating_systems, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'operating_systems', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['operating_systems'] = $operating_systems;
 
         return $this;
     }

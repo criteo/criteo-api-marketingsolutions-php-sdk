@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ad_set_type** | **string** | Type of the ad set.  Not returned when field projection (meta.fields) is used in a search. | [optional]
 **advertiser_id** | **string** | Advertiser id of the campaign this ad set belongs to  This value is a string-encoded integer. | [optional]
 **attribution_configuration** | [**\criteo\api\marketingsolutions\experimental\Model\ReadAdSetAttributionConfigurationV26Q1**](ReadAdSetAttributionConfigurationV26Q1.md) |  | [optional]
 **bidding** | [**\criteo\api\marketingsolutions\experimental\Model\ReadAdSetBiddingV26Q1**](ReadAdSetBiddingV26Q1.md) |  | [optional]
@@ -16,6 +17,7 @@ Name | Type | Description | Notes
 **objective** | **string** | Ad set objective.                Possible values:  - customAction (previously \&quot;Actions\&quot;)  - clicks  - conversions  - displays  - appPromotion (previously \&quot;Installs\&quot;)  - revenue  - storeConversions  - value  - reach (previously \&quot;ViewedImpressions\&quot;)  - visits  - videoViews (previously \&quot;CompletedVideoViews\&quot;) | [optional]
 **schedule** | [**\criteo\api\marketingsolutions\experimental\Model\ReadAdSetScheduleV26Q1**](ReadAdSetScheduleV26Q1.md) |  | [optional]
 **scheduled_budgets** | [**\criteo\api\marketingsolutions\experimental\Model\ReadAdSetScheduledBudgetV26Q1[]**](ReadAdSetScheduledBudgetV26Q1.md) |  | [optional]
+**server_to_server_trackings** | [**\criteo\api\marketingsolutions\experimental\Model\ServerToServerTrackingV26Q1[]**](ServerToServerTrackingV26Q1.md) | MMP / server-to-server tracking URLs. Always present on GET ad-sets/{id} (null when not app retargeting, empty, or unavailable).  Always omitted on search. | [optional]
 **targeting** | [**\criteo\api\marketingsolutions\experimental\Model\AdSetTargetingV26Q1**](AdSetTargetingV26Q1.md) |  | [optional]
 **video_channel** | **string** |  | [optional]
 

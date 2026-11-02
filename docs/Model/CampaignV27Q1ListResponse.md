@@ -1,10 +1,10 @@
-# # ResponsesReadAdSetV26Q1
+# # CampaignV27Q1ListResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\criteo\api\marketingsolutions\experimental\Model\ReadModelReadAdSetV26Q1[]**](ReadModelReadAdSetV26Q1.md) |  | [optional] [readonly]
+**data** | [**\criteo\api\marketingsolutions\experimental\Model\CampaignV27Q1Resource[]**](CampaignV27Q1Resource.md) |  | [optional]
 **errors** | [**\criteo\api\marketingsolutions\experimental\Model\CommonProblem[]**](CommonProblem.md) |  | [optional] [readonly]
 **warnings** | [**\criteo\api\marketingsolutions\experimental\Model\CommonProblem[]**](CommonProblem.md) |  | [optional] [readonly]
 

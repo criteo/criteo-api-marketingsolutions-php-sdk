@@ -1,0 +1,15 @@
+# # CampaignV27Q1
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**advertiser_id** | **string** | Advertiser id of the campaign (string-encoded integer) | [optional]
+**budget_automation** | [**\criteo\api\marketingsolutions\experimental\Model\CampaignBudgetAutomationV27Q1**](CampaignBudgetAutomationV27Q1.md) |  | [optional]
+**goal** | **string** | Goal of the campaign                Serialized values are {unspecified}, {acquisition} and {retention}.                Acquisition and retention are defined as follows:  - Acquisition: campaign with the goal of acquiring new customers. The success of an acquisition campaign is measured by the number of new customers it brings.  - Retention: campaign with the goal of retaining existing customers. The success of a retention campaign is measured by the number of existing customers it retains. | [optional]
+**name** | **string** | Name of the campaign | [optional]
+**scheduled_spend_limits** | [**\criteo\api\marketingsolutions\experimental\Model\CampaignScheduledSpendLimitV27Q1[]**](CampaignScheduledSpendLimitV27Q1.md) | Spend limits scheduled to become active in the future. Empty when the campaign has no scheduled spend limits. | [optional]
+**seller_id** | **string** | Optional marketplace seller id of the campaign (string-encoded long) | [optional]
+**spend_limit** | [**\criteo\api\marketingsolutions\experimental\Model\CampaignSpendLimitV27Q1**](CampaignSpendLimitV27Q1.md) |  | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

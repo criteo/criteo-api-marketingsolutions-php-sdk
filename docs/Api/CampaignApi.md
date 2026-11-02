@@ -2089,7 +2089,7 @@ try {
 ## `searchAdSets()`
 
 ```php
-searchAdSets($ad_set_search_request_v26_q1): \criteo\api\marketingsolutions\experimental\Model\ResponsesReadAdSetV26Q1
+searchAdSets($ad_set_search_request_v27_q1): \criteo\api\marketingsolutions\experimental\Model\ResponsesReadAdSetV27Q1
 ```
 
 /experimental/marketing-solutions/ad-sets/search
@@ -2116,10 +2116,10 @@ $apiInstance = new criteo\api\marketingsolutions\experimental\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ad_set_search_request_v26_q1 = new \criteo\api\marketingsolutions\experimental\Model\AdSetSearchRequestV26Q1(); // \criteo\api\marketingsolutions\experimental\Model\AdSetSearchRequestV26Q1
+$ad_set_search_request_v27_q1 = new \criteo\api\marketingsolutions\experimental\Model\AdSetSearchRequestV27Q1(); // \criteo\api\marketingsolutions\experimental\Model\AdSetSearchRequestV27Q1
 
 try {
-    $result = $apiInstance->searchAdSets($ad_set_search_request_v26_q1);
+    $result = $apiInstance->searchAdSets($ad_set_search_request_v27_q1);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignApi->searchAdSets: ', $e->getMessage(), PHP_EOL;
@@ -2130,11 +2130,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **ad_set_search_request_v26_q1** | [**\criteo\api\marketingsolutions\experimental\Model\AdSetSearchRequestV26Q1**](../Model/AdSetSearchRequestV26Q1.md)|  | [optional] |
+| **ad_set_search_request_v27_q1** | [**\criteo\api\marketingsolutions\experimental\Model\AdSetSearchRequestV27Q1**](../Model/AdSetSearchRequestV27Q1.md)|  | [optional] |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\experimental\Model\ResponsesReadAdSetV26Q1**](../Model/ResponsesReadAdSetV26Q1.md)
+[**\criteo\api\marketingsolutions\experimental\Model\ResponsesReadAdSetV27Q1**](../Model/ResponsesReadAdSetV27Q1.md)
 
 ### Authorization
 
@@ -2152,7 +2152,7 @@ try {
 ## `searchCampaigns()`
 
 ```php
-searchCampaigns($campaign_search_request_v23_q1): \criteo\api\marketingsolutions\experimental\Model\CampaignV23Q1ListResponse
+searchCampaigns($campaign_search_request_v27_q1): \criteo\api\marketingsolutions\experimental\Model\CampaignV27Q1ListResponse
 ```
 
 /experimental/marketing-solutions/campaigns/search
@@ -2179,10 +2179,10 @@ $apiInstance = new criteo\api\marketingsolutions\experimental\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_search_request_v23_q1 = new \criteo\api\marketingsolutions\experimental\Model\CampaignSearchRequestV23Q1(); // \criteo\api\marketingsolutions\experimental\Model\CampaignSearchRequestV23Q1 | Filters for searching for campaigns
+$campaign_search_request_v27_q1 = new \criteo\api\marketingsolutions\experimental\Model\CampaignSearchRequestV27Q1(); // \criteo\api\marketingsolutions\experimental\Model\CampaignSearchRequestV27Q1 | Filters for searching for campaigns
 
 try {
-    $result = $apiInstance->searchCampaigns($campaign_search_request_v23_q1);
+    $result = $apiInstance->searchCampaigns($campaign_search_request_v27_q1);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignApi->searchCampaigns: ', $e->getMessage(), PHP_EOL;
@@ -2193,11 +2193,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_search_request_v23_q1** | [**\criteo\api\marketingsolutions\experimental\Model\CampaignSearchRequestV23Q1**](../Model/CampaignSearchRequestV23Q1.md)| Filters for searching for campaigns | [optional] |
+| **campaign_search_request_v27_q1** | [**\criteo\api\marketingsolutions\experimental\Model\CampaignSearchRequestV27Q1**](../Model/CampaignSearchRequestV27Q1.md)| Filters for searching for campaigns | [optional] |
 
 ### Return type
 
-[**\criteo\api\marketingsolutions\experimental\Model\CampaignV23Q1ListResponse**](../Model/CampaignV23Q1ListResponse.md)
+[**\criteo\api\marketingsolutions\experimental\Model\CampaignV27Q1ListResponse**](../Model/CampaignV27Q1ListResponse.md)
 
 ### Authorization
 

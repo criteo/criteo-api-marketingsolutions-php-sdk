@@ -1,6 +1,6 @@
 <?php
 /**
- * CampaignSearchFiltersV23Q1
+ * NillableAdSetTargetingRuleV27Q1Value
  *
  * PHP version 7.4
  *
@@ -32,16 +32,15 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\experimental\ObjectSerializer;
 
 /**
- * CampaignSearchFiltersV23Q1 Class Doc Comment
+ * NillableAdSetTargetingRuleV27Q1Value Class Doc Comment
  *
  * @category Class
- * @description Filters for searching campaigns.                Multiple filters are combined with an implicit AND operation.  Identifiers are string-encoded integers; invalid values are ignored.  If no filter is provided (both arrays are null or empty), the search returns all accessible campaigns.
  * @package  criteo\api\marketingsolutions\experimental
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CampaignSearchFiltersV23Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
+class NillableAdSetTargetingRuleV27Q1Value implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class CampaignSearchFiltersV23Q1 implements ModelInterface, ArrayAccess, \JsonSe
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CampaignSearchFiltersV23Q1';
+    protected static $openAPIModelName = 'NillableAdSetTargetingRuleV27Q1_value';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +57,8 @@ class CampaignSearchFiltersV23Q1 implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'advertiser_ids' => 'string[]',
-        'campaign_ids' => 'string[]'
+        'operand' => 'string',
+        'values' => 'string[]'
     ];
 
     /**
@@ -70,8 +69,8 @@ class CampaignSearchFiltersV23Q1 implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'advertiser_ids' => null,
-        'campaign_ids' => null
+        'operand' => null,
+        'values' => null
     ];
 
     /**
@@ -80,8 +79,8 @@ class CampaignSearchFiltersV23Q1 implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'advertiser_ids' => true,
-		'campaign_ids' => true
+        'operand' => false,
+		'values' => true
     ];
 
     /**
@@ -170,8 +169,8 @@ class CampaignSearchFiltersV23Q1 implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        'advertiser_ids' => 'advertiserIds',
-        'campaign_ids' => 'campaignIds'
+        'operand' => 'operand',
+        'values' => 'values'
     ];
 
     /**
@@ -180,8 +179,8 @@ class CampaignSearchFiltersV23Q1 implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        'advertiser_ids' => 'setAdvertiserIds',
-        'campaign_ids' => 'setCampaignIds'
+        'operand' => 'setOperand',
+        'values' => 'setValues'
     ];
 
     /**
@@ -190,8 +189,8 @@ class CampaignSearchFiltersV23Q1 implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        'advertiser_ids' => 'getAdvertiserIds',
-        'campaign_ids' => 'getCampaignIds'
+        'operand' => 'getOperand',
+        'values' => 'getValues'
     ];
 
     /**
@@ -235,6 +234,23 @@ class CampaignSearchFiltersV23Q1 implements ModelInterface, ArrayAccess, \JsonSe
         return self::$openAPIModelName;
     }
 
+    public const OPERAND_UNDEFINED = 'undefined';
+    public const OPERAND_IN = 'in';
+    public const OPERAND_NOT_IN = 'notIn';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOperandAllowableValues()
+    {
+        return [
+            self::OPERAND_UNDEFINED,
+            self::OPERAND_IN,
+            self::OPERAND_NOT_IN,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -251,8 +267,8 @@ class CampaignSearchFiltersV23Q1 implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('advertiser_ids', $data ?? [], null);
-        $this->setIfExists('campaign_ids', $data ?? [], null);
+        $this->setIfExists('operand', $data ?? [], null);
+        $this->setIfExists('values', $data ?? [], null);
     }
 
     /**
@@ -282,6 +298,15 @@ class CampaignSearchFiltersV23Q1 implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getOperandAllowableValues();
+        if (!is_null($this->container['operand']) && !in_array($this->container['operand'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'operand', must be one of '%s'",
+                $this->container['operand'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -298,69 +323,72 @@ class CampaignSearchFiltersV23Q1 implements ModelInterface, ArrayAccess, \JsonSe
 
 
     /**
-     * Gets advertiser_ids
+     * Gets operand
      *
-     * @return string[]|null
+     * @return string|null
      */
-    public function getAdvertiserIds()
+    public function getOperand()
     {
-        return $this->container['advertiser_ids'];
+        return $this->container['operand'];
     }
 
     /**
-     * Sets advertiser_ids
+     * Sets operand
      *
-     * @param string[]|null $advertiser_ids Advertiser IDs to filter on (string-encoded integers).
+     * @param string|null $operand operand
      *
      * @return self
      */
-    public function setAdvertiserIds($advertiser_ids)
+    public function setOperand($operand)
     {
-        if (is_null($advertiser_ids)) {
-            array_push($this->openAPINullablesSetToNull, 'advertiser_ids');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('advertiser_ids', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($operand)) {
+            throw new \InvalidArgumentException('non-nullable operand cannot be null');
         }
-        $this->container['advertiser_ids'] = $advertiser_ids;
+        $allowedValues = $this->getOperandAllowableValues();
+        if (!in_array($operand, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'operand', must be one of '%s'",
+                    $operand,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['operand'] = $operand;
 
         return $this;
     }
 
     /**
-     * Gets campaign_ids
+     * Gets values
      *
      * @return string[]|null
      */
-    public function getCampaignIds()
+    public function getValues()
     {
-        return $this->container['campaign_ids'];
+        return $this->container['values'];
     }
 
     /**
-     * Sets campaign_ids
+     * Sets values
      *
-     * @param string[]|null $campaign_ids Campaign IDs to filter on (string-encoded integers).
+     * @param string[]|null $values values
      *
      * @return self
      */
-    public function setCampaignIds($campaign_ids)
+    public function setValues($values)
     {
-        if (is_null($campaign_ids)) {
-            array_push($this->openAPINullablesSetToNull, 'campaign_ids');
+        if (is_null($values)) {
+            array_push($this->openAPINullablesSetToNull, 'values');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('campaign_ids', $nullablesSetToNull);
+            $index = array_search('values', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['campaign_ids'] = $campaign_ids;
+        $this->container['values'] = $values;
 
         return $this;
     }

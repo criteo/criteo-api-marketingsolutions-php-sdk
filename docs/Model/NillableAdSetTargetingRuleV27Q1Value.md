@@ -1,9 +1,10 @@
-# # CampaignSearchRequestV23Q1
+# # NillableAdSetTargetingRuleV27Q1Value
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**filters** | [**\criteo\api\marketingsolutions\experimental\Model\CampaignSearchFiltersV23Q1**](CampaignSearchFiltersV23Q1.md) |  | [optional]
+**operand** | **string** |  | [optional]
+**values** | **string[]** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

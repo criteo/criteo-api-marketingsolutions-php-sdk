@@ -1,6 +1,6 @@
 <?php
 /**
- * CampaignV23Q1ListResponse
+ * AutomatedBudgetConfigurationV27Q1
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\experimental\ObjectSerializer;
 
 /**
- * CampaignV23Q1ListResponse Class Doc Comment
+ * AutomatedBudgetConfigurationV27Q1 Class Doc Comment
  *
  * @category Class
- * @description Data model for a list of response resources
+ * @description Detailed configuration used when campaign budget automation is enabled.
  * @package  criteo\api\marketingsolutions\experimental
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CampaignV23Q1ListResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class AutomatedBudgetConfigurationV27Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CampaignV23Q1ListResponse implements ModelInterface, ArrayAccess, \JsonSer
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CampaignV23Q1ListResponse';
+    protected static $openAPIModelName = 'AutomatedBudgetConfigurationV27Q1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,7 @@ class CampaignV23Q1ListResponse implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\criteo\api\marketingsolutions\experimental\Model\CampaignV23Q1Resource[]',
-        'errors' => '\criteo\api\marketingsolutions\experimental\Model\CommonProblem[]',
-        'warnings' => '\criteo\api\marketingsolutions\experimental\Model\CommonProblem[]'
+        'ad_set_optimization_objective' => 'string'
     ];
 
     /**
@@ -71,9 +69,7 @@ class CampaignV23Q1ListResponse implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null,
-        'errors' => null,
-        'warnings' => null
+        'ad_set_optimization_objective' => null
     ];
 
     /**
@@ -82,9 +78,7 @@ class CampaignV23Q1ListResponse implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'data' => true,
-		'errors' => true,
-		'warnings' => true
+        'ad_set_optimization_objective' => true
     ];
 
     /**
@@ -173,9 +167,7 @@ class CampaignV23Q1ListResponse implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data',
-        'errors' => 'errors',
-        'warnings' => 'warnings'
+        'ad_set_optimization_objective' => 'adSetOptimizationObjective'
     ];
 
     /**
@@ -184,9 +176,7 @@ class CampaignV23Q1ListResponse implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData',
-        'errors' => 'setErrors',
-        'warnings' => 'setWarnings'
+        'ad_set_optimization_objective' => 'setAdSetOptimizationObjective'
     ];
 
     /**
@@ -195,9 +185,7 @@ class CampaignV23Q1ListResponse implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData',
-        'errors' => 'getErrors',
-        'warnings' => 'getWarnings'
+        'ad_set_optimization_objective' => 'getAdSetOptimizationObjective'
     ];
 
     /**
@@ -241,6 +229,25 @@ class CampaignV23Q1ListResponse implements ModelInterface, ArrayAccess, \JsonSer
         return self::$openAPIModelName;
     }
 
+    public const AD_SET_OPTIMIZATION_OBJECTIVE_CONVERSIONS = 'conversions';
+    public const AD_SET_OPTIMIZATION_OBJECTIVE_REVENUE = 'revenue';
+    public const AD_SET_OPTIMIZATION_OBJECTIVE_VISITS = 'visits';
+    public const AD_SET_OPTIMIZATION_OBJECTIVE_VIDEO_VIEWS = 'videoViews';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAdSetOptimizationObjectiveAllowableValues()
+    {
+        return [
+            self::AD_SET_OPTIMIZATION_OBJECTIVE_CONVERSIONS,
+            self::AD_SET_OPTIMIZATION_OBJECTIVE_REVENUE,
+            self::AD_SET_OPTIMIZATION_OBJECTIVE_VISITS,
+            self::AD_SET_OPTIMIZATION_OBJECTIVE_VIDEO_VIEWS,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -257,9 +264,7 @@ class CampaignV23Q1ListResponse implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('data', $data ?? [], null);
-        $this->setIfExists('errors', $data ?? [], null);
-        $this->setIfExists('warnings', $data ?? [], null);
+        $this->setIfExists('ad_set_optimization_objective', $data ?? [], null);
     }
 
     /**
@@ -289,6 +294,15 @@ class CampaignV23Q1ListResponse implements ModelInterface, ArrayAccess, \JsonSer
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getAdSetOptimizationObjectiveAllowableValues();
+        if (!is_null($this->container['ad_set_optimization_objective']) && !in_array($this->container['ad_set_optimization_objective'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'ad_set_optimization_objective', must be one of '%s'",
+                $this->container['ad_set_optimization_objective'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -305,103 +319,45 @@ class CampaignV23Q1ListResponse implements ModelInterface, ArrayAccess, \JsonSer
 
 
     /**
-     * Gets data
+     * Gets ad_set_optimization_objective
      *
-     * @return \criteo\api\marketingsolutions\experimental\Model\CampaignV23Q1Resource[]|null
+     * @return string|null
      */
-    public function getData()
+    public function getAdSetOptimizationObjective()
     {
-        return $this->container['data'];
+        return $this->container['ad_set_optimization_objective'];
     }
 
     /**
-     * Sets data
+     * Sets ad_set_optimization_objective
      *
-     * @param \criteo\api\marketingsolutions\experimental\Model\CampaignV23Q1Resource[]|null $data data
+     * @param string|null $ad_set_optimization_objective Optimization objective used to automate budget allocation across ad sets.  Expected when budgetAutomation.enabled is true.  Possible values are \"conversions\", \"revenue\", \"visits\", and \"videoViews\".
      *
      * @return self
      */
-    public function setData($data)
+    public function setAdSetOptimizationObjective($ad_set_optimization_objective)
     {
-        if (is_null($data)) {
-            array_push($this->openAPINullablesSetToNull, 'data');
+        if (is_null($ad_set_optimization_objective)) {
+            array_push($this->openAPINullablesSetToNull, 'ad_set_optimization_objective');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('data', $nullablesSetToNull);
+            $index = array_search('ad_set_optimization_objective', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['data'] = $data;
-
-        return $this;
-    }
-
-    /**
-     * Gets errors
-     *
-     * @return \criteo\api\marketingsolutions\experimental\Model\CommonProblem[]|null
-     */
-    public function getErrors()
-    {
-        return $this->container['errors'];
-    }
-
-    /**
-     * Sets errors
-     *
-     * @param \criteo\api\marketingsolutions\experimental\Model\CommonProblem[]|null $errors errors
-     *
-     * @return self
-     */
-    public function setErrors($errors)
-    {
-        if (is_null($errors)) {
-            array_push($this->openAPINullablesSetToNull, 'errors');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('errors', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        $allowedValues = $this->getAdSetOptimizationObjectiveAllowableValues();
+        if (!is_null($ad_set_optimization_objective) && !in_array($ad_set_optimization_objective, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'ad_set_optimization_objective', must be one of '%s'",
+                    $ad_set_optimization_objective,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
-        $this->container['errors'] = $errors;
-
-        return $this;
-    }
-
-    /**
-     * Gets warnings
-     *
-     * @return \criteo\api\marketingsolutions\experimental\Model\CommonProblem[]|null
-     */
-    public function getWarnings()
-    {
-        return $this->container['warnings'];
-    }
-
-    /**
-     * Sets warnings
-     *
-     * @param \criteo\api\marketingsolutions\experimental\Model\CommonProblem[]|null $warnings warnings
-     *
-     * @return self
-     */
-    public function setWarnings($warnings)
-    {
-        if (is_null($warnings)) {
-            array_push($this->openAPINullablesSetToNull, 'warnings');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('warnings', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['warnings'] = $warnings;
+        $this->container['ad_set_optimization_objective'] = $ad_set_optimization_objective;
 
         return $this;
     }

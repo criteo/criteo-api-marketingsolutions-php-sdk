@@ -1,6 +1,6 @@
 <?php
 /**
- * ResponsesReadAdSetV26Q1
+ * ReadModelReadAdSetV27Q1
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\experimental\ObjectSerializer;
 
 /**
- * ResponsesReadAdSetV26Q1 Class Doc Comment
+ * ReadModelReadAdSetV27Q1 Class Doc Comment
  *
  * @category Class
- * @description List of output resources
+ * @description read model data for resources
  * @package  criteo\api\marketingsolutions\experimental
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ResponsesReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
+class ReadModelReadAdSetV27Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ResponsesReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ResponsesReadAdSetV26Q1';
+    protected static $openAPIModelName = 'ReadModelReadAdSetV27Q1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,9 @@ class ResponsesReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\criteo\api\marketingsolutions\experimental\Model\ReadModelReadAdSetV26Q1[]',
-        'errors' => '\criteo\api\marketingsolutions\experimental\Model\CommonProblem[]',
-        'warnings' => '\criteo\api\marketingsolutions\experimental\Model\CommonProblem[]'
+        'attributes' => '\criteo\api\marketingsolutions\experimental\Model\ReadAdSetV27Q1',
+        'id' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -71,9 +71,9 @@ class ResponsesReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null,
-        'errors' => null,
-        'warnings' => null
+        'attributes' => null,
+        'id' => null,
+        'type' => null
     ];
 
     /**
@@ -82,9 +82,9 @@ class ResponsesReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'data' => true,
-		'errors' => true,
-		'warnings' => true
+        'attributes' => true,
+		'id' => true,
+		'type' => true
     ];
 
     /**
@@ -173,9 +173,9 @@ class ResponsesReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data',
-        'errors' => 'errors',
-        'warnings' => 'warnings'
+        'attributes' => 'attributes',
+        'id' => 'id',
+        'type' => 'type'
     ];
 
     /**
@@ -184,9 +184,9 @@ class ResponsesReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData',
-        'errors' => 'setErrors',
-        'warnings' => 'setWarnings'
+        'attributes' => 'setAttributes',
+        'id' => 'setId',
+        'type' => 'setType'
     ];
 
     /**
@@ -195,9 +195,9 @@ class ResponsesReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData',
-        'errors' => 'getErrors',
-        'warnings' => 'getWarnings'
+        'attributes' => 'getAttributes',
+        'id' => 'getId',
+        'type' => 'getType'
     ];
 
     /**
@@ -257,9 +257,9 @@ class ResponsesReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('data', $data ?? [], null);
-        $this->setIfExists('errors', $data ?? [], null);
-        $this->setIfExists('warnings', $data ?? [], null);
+        $this->setIfExists('attributes', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
     }
 
     /**
@@ -305,103 +305,103 @@ class ResponsesReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets data
+     * Gets attributes
      *
-     * @return \criteo\api\marketingsolutions\experimental\Model\ReadModelReadAdSetV26Q1[]|null
+     * @return \criteo\api\marketingsolutions\experimental\Model\ReadAdSetV27Q1|null
      */
-    public function getData()
+    public function getAttributes()
     {
-        return $this->container['data'];
+        return $this->container['attributes'];
     }
 
     /**
-     * Sets data
+     * Sets attributes
      *
-     * @param \criteo\api\marketingsolutions\experimental\Model\ReadModelReadAdSetV26Q1[]|null $data data
+     * @param \criteo\api\marketingsolutions\experimental\Model\ReadAdSetV27Q1|null $attributes attributes
      *
      * @return self
      */
-    public function setData($data)
+    public function setAttributes($attributes)
     {
-        if (is_null($data)) {
-            array_push($this->openAPINullablesSetToNull, 'data');
+        if (is_null($attributes)) {
+            array_push($this->openAPINullablesSetToNull, 'attributes');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('data', $nullablesSetToNull);
+            $index = array_search('attributes', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['data'] = $data;
+        $this->container['attributes'] = $attributes;
 
         return $this;
     }
 
     /**
-     * Gets errors
+     * Gets id
      *
-     * @return \criteo\api\marketingsolutions\experimental\Model\CommonProblem[]|null
+     * @return string|null
      */
-    public function getErrors()
+    public function getId()
     {
-        return $this->container['errors'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets errors
+     * Sets id
      *
-     * @param \criteo\api\marketingsolutions\experimental\Model\CommonProblem[]|null $errors errors
+     * @param string|null $id Id of the entity
      *
      * @return self
      */
-    public function setErrors($errors)
+    public function setId($id)
     {
-        if (is_null($errors)) {
-            array_push($this->openAPINullablesSetToNull, 'errors');
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('errors', $nullablesSetToNull);
+            $index = array_search('id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['errors'] = $errors;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets warnings
+     * Gets type
      *
-     * @return \criteo\api\marketingsolutions\experimental\Model\CommonProblem[]|null
+     * @return string|null
      */
-    public function getWarnings()
+    public function getType()
     {
-        return $this->container['warnings'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets warnings
+     * Sets type
      *
-     * @param \criteo\api\marketingsolutions\experimental\Model\CommonProblem[]|null $warnings warnings
+     * @param string|null $type type
      *
      * @return self
      */
-    public function setWarnings($warnings)
+    public function setType($type)
     {
-        if (is_null($warnings)) {
-            array_push($this->openAPINullablesSetToNull, 'warnings');
+        if (is_null($type)) {
+            array_push($this->openAPINullablesSetToNull, 'type');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('warnings', $nullablesSetToNull);
+            $index = array_search('type', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['warnings'] = $warnings;
+        $this->container['type'] = $type;
 
         return $this;
     }

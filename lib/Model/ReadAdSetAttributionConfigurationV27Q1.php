@@ -1,6 +1,6 @@
 <?php
 /**
- * AdSetSearchRequestMetadataV26Q1
+ * ReadAdSetAttributionConfigurationV27Q1
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \criteo\api\marketingsolutions\experimental\ObjectSerializer;
 
 /**
- * AdSetSearchRequestMetadataV26Q1 Class Doc Comment
+ * ReadAdSetAttributionConfigurationV27Q1 Class Doc Comment
  *
  * @category Class
- * @description Optional metadata for searching ad sets
+ * @description Read model for an ad set&#39;s attribution configuration.                The lookback window is only set for ad sets with an attribution method that is postClick or lastClick.  It will be null with any other attribution method.
  * @package  criteo\api\marketingsolutions\experimental
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class AdSetSearchRequestMetadataV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
+class ReadAdSetAttributionConfigurationV27Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class AdSetSearchRequestMetadataV26Q1 implements ModelInterface, ArrayAccess, \J
       *
       * @var string
       */
-    protected static $openAPIModelName = 'AdSetSearchRequestMetadataV26Q1';
+    protected static $openAPIModelName = 'ReadAdSetAttributionConfigurationV27Q1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,8 @@ class AdSetSearchRequestMetadataV26Q1 implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'fields' => 'string[]'
+        'attribution_method' => 'string',
+        'lookback_window' => 'string'
     ];
 
     /**
@@ -69,7 +70,8 @@ class AdSetSearchRequestMetadataV26Q1 implements ModelInterface, ArrayAccess, \J
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'fields' => null
+        'attribution_method' => null,
+        'lookback_window' => null
     ];
 
     /**
@@ -78,7 +80,8 @@ class AdSetSearchRequestMetadataV26Q1 implements ModelInterface, ArrayAccess, \J
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'fields' => true
+        'attribution_method' => true,
+		'lookback_window' => true
     ];
 
     /**
@@ -167,7 +170,8 @@ class AdSetSearchRequestMetadataV26Q1 implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $attributeMap = [
-        'fields' => 'fields'
+        'attribution_method' => 'attributionMethod',
+        'lookback_window' => 'lookbackWindow'
     ];
 
     /**
@@ -176,7 +180,8 @@ class AdSetSearchRequestMetadataV26Q1 implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $setters = [
-        'fields' => 'setFields'
+        'attribution_method' => 'setAttributionMethod',
+        'lookback_window' => 'setLookbackWindow'
     ];
 
     /**
@@ -185,7 +190,8 @@ class AdSetSearchRequestMetadataV26Q1 implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $getters = [
-        'fields' => 'getFields'
+        'attribution_method' => 'getAttributionMethod',
+        'lookback_window' => 'getLookbackWindow'
     ];
 
     /**
@@ -229,41 +235,48 @@ class AdSetSearchRequestMetadataV26Q1 implements ModelInterface, ArrayAccess, \J
         return self::$openAPIModelName;
     }
 
-    public const FIELDS_NAME = 'Name';
-    public const FIELDS_ADVERTISER_ID = 'AdvertiserId';
-    public const FIELDS_DATASET_ID = 'DatasetId';
-    public const FIELDS_CAMPAIGN_ID = 'CampaignId';
-    public const FIELDS_DESTINATION_ENVIRONMENT = 'DestinationEnvironment';
-    public const FIELDS_OBJECTIVE = 'Objective';
-    public const FIELDS_SCHEDULE = 'Schedule';
-    public const FIELDS_BIDDING = 'Bidding';
-    public const FIELDS_TARGETING = 'Targeting';
-    public const FIELDS_BUDGET = 'Budget';
-    public const FIELDS_MEDIA_TYPE = 'MediaType';
-    public const FIELDS_VIDEO_CHANNEL = 'VideoChannel';
-    public const FIELDS_ATTRIBUTION_CONFIGURATION = 'AttributionConfiguration';
+    public const ATTRIBUTION_METHOD_UNKNOWN = 'unknown';
+    public const ATTRIBUTION_METHOD_CRITEO_ATTRIBUTION = 'criteoAttribution';
+    public const ATTRIBUTION_METHOD_LAST_CLICK = 'lastClick';
+    public const ATTRIBUTION_METHOD_POST_CLICK = 'postClick';
+    public const ATTRIBUTION_METHOD_SFTP = 'sftp';
+    public const ATTRIBUTION_METHOD_GOOGLE_ANALYTICS = 'googleAnalytics';
+    public const LOOKBACK_WINDOW_UNKNOWN = 'unknown';
+    public const LOOKBACK_WINDOW__30_M = '30M';
+    public const LOOKBACK_WINDOW__24_H = '24H';
+    public const LOOKBACK_WINDOW__7_D = '7D';
+    public const LOOKBACK_WINDOW__30_D = '30D';
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getFieldsAllowableValues()
+    public function getAttributionMethodAllowableValues()
     {
         return [
-            self::FIELDS_NAME,
-            self::FIELDS_ADVERTISER_ID,
-            self::FIELDS_DATASET_ID,
-            self::FIELDS_CAMPAIGN_ID,
-            self::FIELDS_DESTINATION_ENVIRONMENT,
-            self::FIELDS_OBJECTIVE,
-            self::FIELDS_SCHEDULE,
-            self::FIELDS_BIDDING,
-            self::FIELDS_TARGETING,
-            self::FIELDS_BUDGET,
-            self::FIELDS_MEDIA_TYPE,
-            self::FIELDS_VIDEO_CHANNEL,
-            self::FIELDS_ATTRIBUTION_CONFIGURATION,
+            self::ATTRIBUTION_METHOD_UNKNOWN,
+            self::ATTRIBUTION_METHOD_CRITEO_ATTRIBUTION,
+            self::ATTRIBUTION_METHOD_LAST_CLICK,
+            self::ATTRIBUTION_METHOD_POST_CLICK,
+            self::ATTRIBUTION_METHOD_SFTP,
+            self::ATTRIBUTION_METHOD_GOOGLE_ANALYTICS,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getLookbackWindowAllowableValues()
+    {
+        return [
+            self::LOOKBACK_WINDOW_UNKNOWN,
+            self::LOOKBACK_WINDOW__30_M,
+            self::LOOKBACK_WINDOW__24_H,
+            self::LOOKBACK_WINDOW__7_D,
+            self::LOOKBACK_WINDOW__30_D,
         ];
     }
 
@@ -282,7 +295,8 @@ class AdSetSearchRequestMetadataV26Q1 implements ModelInterface, ArrayAccess, \J
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('fields', $data ?? [], null);
+        $this->setIfExists('attribution_method', $data ?? [], null);
+        $this->setIfExists('lookback_window', $data ?? [], null);
     }
 
     /**
@@ -312,6 +326,24 @@ class AdSetSearchRequestMetadataV26Q1 implements ModelInterface, ArrayAccess, \J
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getAttributionMethodAllowableValues();
+        if (!is_null($this->container['attribution_method']) && !in_array($this->container['attribution_method'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'attribution_method', must be one of '%s'",
+                $this->container['attribution_method'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getLookbackWindowAllowableValues();
+        if (!is_null($this->container['lookback_window']) && !in_array($this->container['lookback_window'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'lookback_window', must be one of '%s'",
+                $this->container['lookback_window'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -328,44 +360,89 @@ class AdSetSearchRequestMetadataV26Q1 implements ModelInterface, ArrayAccess, \J
 
 
     /**
-     * Gets fields
+     * Gets attribution_method
      *
-     * @return string[]|null
+     * @return string|null
      */
-    public function getFields()
+    public function getAttributionMethod()
     {
-        return $this->container['fields'];
+        return $this->container['attribution_method'];
     }
 
     /**
-     * Sets fields
+     * Sets attribution_method
      *
-     * @param string[]|null $fields List of fields to include in the response. If null or omitted, all fields are returned.  When only a subset of fields is projected, non-projected fields will have default values (e.g. null, 0, or enum defaults) which may not reflect the actual ad set state. Do not interpret non-projected fields as meaningful data.
+     * @param string|null $attribution_method Ad set attribution method.  This defines how certain events (visits, clicks, sales...) are attributed to the ad set.                Note: Old Google Analytics attribution methods (lastClickGoogleAnalytics = 2 and googleAnalyticsDataDriven = 3) are not supported anymore. Use the new Google Analytics attribution method instead (googleAnalytics).                Possible values:  - unknown  - criteoAttribution (default attribution method)  - lastClick  - postClick  - sftp  - googleAnalytics (requires Google Analytics integration)
      *
      * @return self
      */
-    public function setFields($fields)
+    public function setAttributionMethod($attribution_method)
     {
-        if (is_null($fields)) {
-            array_push($this->openAPINullablesSetToNull, 'fields');
+        if (is_null($attribution_method)) {
+            array_push($this->openAPINullablesSetToNull, 'attribution_method');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('fields', $nullablesSetToNull);
+            $index = array_search('attribution_method', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $allowedValues = $this->getFieldsAllowableValues();
-        if (!is_null($fields) && array_diff($fields, $allowedValues)) {
+        $allowedValues = $this->getAttributionMethodAllowableValues();
+        if (!is_null($attribution_method) && !in_array($attribution_method, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'fields', must be one of '%s'",
+                    "Invalid value '%s' for 'attribution_method', must be one of '%s'",
+                    $attribution_method,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['fields'] = $fields;
+        $this->container['attribution_method'] = $attribution_method;
+
+        return $this;
+    }
+
+    /**
+     * Gets lookback_window
+     *
+     * @return string|null
+     */
+    public function getLookbackWindow()
+    {
+        return $this->container['lookback_window'];
+    }
+
+    /**
+     * Sets lookback_window
+     *
+     * @param string|null $lookback_window lookback_window
+     *
+     * @return self
+     */
+    public function setLookbackWindow($lookback_window)
+    {
+        if (is_null($lookback_window)) {
+            array_push($this->openAPINullablesSetToNull, 'lookback_window');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('lookback_window', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getLookbackWindowAllowableValues();
+        if (!is_null($lookback_window) && !in_array($lookback_window, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'lookback_window', must be one of '%s'",
+                    $lookback_window,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['lookback_window'] = $lookback_window;
 
         return $this;
     }

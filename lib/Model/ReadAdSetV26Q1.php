@@ -58,6 +58,7 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'ad_set_type' => 'string',
         'advertiser_id' => 'string',
         'attribution_configuration' => '\criteo\api\marketingsolutions\experimental\Model\ReadAdSetAttributionConfigurationV26Q1',
         'bidding' => '\criteo\api\marketingsolutions\experimental\Model\ReadAdSetBiddingV26Q1',
@@ -70,6 +71,7 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'objective' => 'string',
         'schedule' => '\criteo\api\marketingsolutions\experimental\Model\ReadAdSetScheduleV26Q1',
         'scheduled_budgets' => '\criteo\api\marketingsolutions\experimental\Model\ReadAdSetScheduledBudgetV26Q1[]',
+        'server_to_server_trackings' => '\criteo\api\marketingsolutions\experimental\Model\ServerToServerTrackingV26Q1[]',
         'targeting' => '\criteo\api\marketingsolutions\experimental\Model\AdSetTargetingV26Q1',
         'video_channel' => 'string'
     ];
@@ -82,6 +84,7 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'ad_set_type' => null,
         'advertiser_id' => null,
         'attribution_configuration' => null,
         'bidding' => null,
@@ -94,6 +97,7 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'objective' => null,
         'schedule' => null,
         'scheduled_budgets' => null,
+        'server_to_server_trackings' => null,
         'targeting' => null,
         'video_channel' => null
     ];
@@ -104,7 +108,8 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'advertiser_id' => true,
+        'ad_set_type' => true,
+		'advertiser_id' => true,
 		'attribution_configuration' => true,
 		'bidding' => true,
 		'budget' => true,
@@ -116,6 +121,7 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
 		'objective' => true,
 		'schedule' => true,
 		'scheduled_budgets' => true,
+		'server_to_server_trackings' => true,
 		'targeting' => true,
 		'video_channel' => true
     ];
@@ -206,6 +212,7 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'ad_set_type' => 'adSetType',
         'advertiser_id' => 'advertiserId',
         'attribution_configuration' => 'attributionConfiguration',
         'bidding' => 'bidding',
@@ -218,6 +225,7 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'objective' => 'objective',
         'schedule' => 'schedule',
         'scheduled_budgets' => 'scheduledBudgets',
+        'server_to_server_trackings' => 'serverToServerTrackings',
         'targeting' => 'targeting',
         'video_channel' => 'videoChannel'
     ];
@@ -228,6 +236,7 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'ad_set_type' => 'setAdSetType',
         'advertiser_id' => 'setAdvertiserId',
         'attribution_configuration' => 'setAttributionConfiguration',
         'bidding' => 'setBidding',
@@ -240,6 +249,7 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'objective' => 'setObjective',
         'schedule' => 'setSchedule',
         'scheduled_budgets' => 'setScheduledBudgets',
+        'server_to_server_trackings' => 'setServerToServerTrackings',
         'targeting' => 'setTargeting',
         'video_channel' => 'setVideoChannel'
     ];
@@ -250,6 +260,7 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'ad_set_type' => 'getAdSetType',
         'advertiser_id' => 'getAdvertiserId',
         'attribution_configuration' => 'getAttributionConfiguration',
         'bidding' => 'getBidding',
@@ -262,6 +273,7 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'objective' => 'getObjective',
         'schedule' => 'getSchedule',
         'scheduled_budgets' => 'getScheduledBudgets',
+        'server_to_server_trackings' => 'getServerToServerTrackings',
         'targeting' => 'getTargeting',
         'video_channel' => 'getVideoChannel'
     ];
@@ -307,6 +319,9 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const AD_SET_TYPE_STANDARD = 'standard';
+    public const AD_SET_TYPE_APP_RETARGETING = 'appRetargeting';
+    public const AD_SET_TYPE_UNKNOWN = 'unknown';
     public const DESTINATION_ENVIRONMENT_UNDEFINED = 'undefined';
     public const DESTINATION_ENVIRONMENT_WEB = 'web';
     public const DESTINATION_ENVIRONMENT_APP = 'app';
@@ -325,6 +340,20 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     public const OBJECTIVE_VIDEO_VIEWS = 'videoViews';
     public const VIDEO_CHANNEL_OLV = 'olv';
     public const VIDEO_CHANNEL_CTV = 'ctv';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAdSetTypeAllowableValues()
+    {
+        return [
+            self::AD_SET_TYPE_STANDARD,
+            self::AD_SET_TYPE_APP_RETARGETING,
+            self::AD_SET_TYPE_UNKNOWN,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -403,6 +432,7 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('ad_set_type', $data ?? [], null);
         $this->setIfExists('advertiser_id', $data ?? [], null);
         $this->setIfExists('attribution_configuration', $data ?? [], null);
         $this->setIfExists('bidding', $data ?? [], null);
@@ -415,6 +445,7 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('objective', $data ?? [], null);
         $this->setIfExists('schedule', $data ?? [], null);
         $this->setIfExists('scheduled_budgets', $data ?? [], null);
+        $this->setIfExists('server_to_server_trackings', $data ?? [], null);
         $this->setIfExists('targeting', $data ?? [], null);
         $this->setIfExists('video_channel', $data ?? [], null);
     }
@@ -445,6 +476,15 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getAdSetTypeAllowableValues();
+        if (!is_null($this->container['ad_set_type']) && !in_array($this->container['ad_set_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'ad_set_type', must be one of '%s'",
+                $this->container['ad_set_type'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         $allowedValues = $this->getDestinationEnvironmentAllowableValues();
         if (!is_null($this->container['destination_environment']) && !in_array($this->container['destination_environment'], $allowedValues, true)) {
@@ -496,6 +536,50 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets ad_set_type
+     *
+     * @return string|null
+     */
+    public function getAdSetType()
+    {
+        return $this->container['ad_set_type'];
+    }
+
+    /**
+     * Sets ad_set_type
+     *
+     * @param string|null $ad_set_type Type of the ad set.  Not returned when field projection (meta.fields) is used in a search.
+     *
+     * @return self
+     */
+    public function setAdSetType($ad_set_type)
+    {
+        if (is_null($ad_set_type)) {
+            array_push($this->openAPINullablesSetToNull, 'ad_set_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ad_set_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getAdSetTypeAllowableValues();
+        if (!is_null($ad_set_type) && !in_array($ad_set_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'ad_set_type', must be one of '%s'",
+                    $ad_set_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['ad_set_type'] = $ad_set_type;
+
+        return $this;
+    }
 
     /**
      * Gets advertiser_id
@@ -931,6 +1015,40 @@ class ReadAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['scheduled_budgets'] = $scheduled_budgets;
+
+        return $this;
+    }
+
+    /**
+     * Gets server_to_server_trackings
+     *
+     * @return \criteo\api\marketingsolutions\experimental\Model\ServerToServerTrackingV26Q1[]|null
+     */
+    public function getServerToServerTrackings()
+    {
+        return $this->container['server_to_server_trackings'];
+    }
+
+    /**
+     * Sets server_to_server_trackings
+     *
+     * @param \criteo\api\marketingsolutions\experimental\Model\ServerToServerTrackingV26Q1[]|null $server_to_server_trackings MMP / server-to-server tracking URLs. Always present on GET ad-sets/{id} (null when not app retargeting, empty, or unavailable).  Always omitted on search.
+     *
+     * @return self
+     */
+    public function setServerToServerTrackings($server_to_server_trackings)
+    {
+        if (is_null($server_to_server_trackings)) {
+            array_push($this->openAPINullablesSetToNull, 'server_to_server_trackings');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('server_to_server_trackings', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['server_to_server_trackings'] = $server_to_server_trackings;
 
         return $this;
     }
