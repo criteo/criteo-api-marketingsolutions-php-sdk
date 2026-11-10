@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **lookalike_configuration** | [**\criteo\api\marketingsolutions\experimental\Model\LookalikeRecommendationV1**](LookalikeRecommendationV1.md) |  | [optional]
 **segment_id** | **string** |  | [optional]
 **segment_name** | **string** |  | [optional]
-**segment_type** | **string** |  |
+**segment_type** | **string** | Type of recommended segment. |
 **size** | **int** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

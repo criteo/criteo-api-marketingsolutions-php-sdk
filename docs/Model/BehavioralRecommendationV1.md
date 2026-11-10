@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**category** | **string** |  |
+**category** | **string** | Category of a behavioral segment. |
 **country** | **string** |  | [optional]
 **end_date** | **string** |  | [optional]
 **start_date** | **string** |  | [optional]

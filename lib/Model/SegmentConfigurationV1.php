@@ -792,7 +792,7 @@ class SegmentConfigurationV1 implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets segment_type
      *
-     * @param string $segment_type segment_type
+     * @param string $segment_type Type of recommended segment.
      *
      * @return self
      */

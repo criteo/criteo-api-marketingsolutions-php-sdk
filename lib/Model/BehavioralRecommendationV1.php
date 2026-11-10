@@ -357,7 +357,7 @@ class BehavioralRecommendationV1 implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets category
      *
-     * @param string $category category
+     * @param string $category Category of a behavioral segment.
      *
      * @return self
      */

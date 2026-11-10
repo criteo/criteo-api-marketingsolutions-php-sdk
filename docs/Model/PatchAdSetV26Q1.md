@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **name** | **string** | Name of the ad set. | [optional]
 **scheduled_budget** | [**\criteo\api\marketingsolutions\experimental\Model\PatchAdSetScheduledBudgetV26Q1**](PatchAdSetScheduledBudgetV26Q1.md) |  | [optional]
 **scheduling** | [**\criteo\api\marketingsolutions\experimental\Model\PatchAdSetSchedulingV26Q1**](PatchAdSetSchedulingV26Q1.md) |  | [optional]
+**server_to_server_trackings** | [**\criteo\api\marketingsolutions\experimental\Model\ServerToServerTrackingV26Q1[]**](ServerToServerTrackingV26Q1.md) | MMP server-to-server tracking URLs. Only allowed for app retargeting ad sets. Replaces the existing URLs when provided, clears them when empty, and leaves them unchanged when omitted | [optional]
 **targeting** | [**\criteo\api\marketingsolutions\experimental\Model\AdSetTargetingV26Q1**](AdSetTargetingV26Q1.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

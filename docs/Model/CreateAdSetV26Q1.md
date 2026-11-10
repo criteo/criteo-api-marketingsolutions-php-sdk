@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ad_set_type** | **string** | Type of the ad set. Optional, defaults to standard if omitted.  \&quot;unknown\&quot; is read-only and is rejected on create. | [optional]
 **attribution_configuration** | [**\criteo\api\marketingsolutions\experimental\Model\CreateAdSetAttributionConfigurationV26Q1**](CreateAdSetAttributionConfigurationV26Q1.md) |  | [optional]
 **bidding** | [**\criteo\api\marketingsolutions\experimental\Model\CreateAdSetBiddingV26Q1**](CreateAdSetBiddingV26Q1.md) |  |
 **budget** | [**\criteo\api\marketingsolutions\experimental\Model\CreateAdSetBudgetV26Q1**](CreateAdSetBudgetV26Q1.md) |  | [optional]
@@ -13,6 +14,7 @@ Name | Type | Description | Notes
 **name** | **string** | Name of the ad set |
 **objective** | **string** | Objective of the ad set |
 **schedule** | [**\criteo\api\marketingsolutions\experimental\Model\CreateAdSetScheduleV26Q1**](CreateAdSetScheduleV26Q1.md) |  |
+**server_to_server_trackings** | [**\criteo\api\marketingsolutions\experimental\Model\ServerToServerTrackingV26Q1[]**](ServerToServerTrackingV26Q1.md) | MMP server-to-server tracking URLs. Optional, only allowed for app retargeting ad sets. | [optional]
 **targeting** | [**\criteo\api\marketingsolutions\experimental\Model\CreateAdSetTargetingV26Q1**](CreateAdSetTargetingV26Q1.md) |  |
 **tracking_code** | **string** | The click tracking code associated to this Ad Set. |
 

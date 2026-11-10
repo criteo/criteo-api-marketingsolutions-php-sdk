@@ -60,6 +60,7 @@ class RecommendSegmentsRequestAttributes implements ModelInterface, ArrayAccess,
     protected static $openAPITypes = [
         'advertiser_id' => 'string',
         'brief' => 'string',
+        'country' => 'string',
         'nb_segments' => 'int',
         'segment_status_to_recommend' => 'string',
         'segment_types_to_recommend' => 'string[]'
@@ -75,6 +76,7 @@ class RecommendSegmentsRequestAttributes implements ModelInterface, ArrayAccess,
     protected static $openAPIFormats = [
         'advertiser_id' => null,
         'brief' => null,
+        'country' => null,
         'nb_segments' => 'int32',
         'segment_status_to_recommend' => null,
         'segment_types_to_recommend' => null
@@ -88,6 +90,7 @@ class RecommendSegmentsRequestAttributes implements ModelInterface, ArrayAccess,
     protected static array $openAPINullables = [
         'advertiser_id' => false,
 		'brief' => false,
+		'country' => false,
 		'nb_segments' => false,
 		'segment_status_to_recommend' => false,
 		'segment_types_to_recommend' => false
@@ -181,6 +184,7 @@ class RecommendSegmentsRequestAttributes implements ModelInterface, ArrayAccess,
     protected static $attributeMap = [
         'advertiser_id' => 'advertiserId',
         'brief' => 'brief',
+        'country' => 'country',
         'nb_segments' => 'nbSegments',
         'segment_status_to_recommend' => 'segmentStatusToRecommend',
         'segment_types_to_recommend' => 'segmentTypesToRecommend'
@@ -194,6 +198,7 @@ class RecommendSegmentsRequestAttributes implements ModelInterface, ArrayAccess,
     protected static $setters = [
         'advertiser_id' => 'setAdvertiserId',
         'brief' => 'setBrief',
+        'country' => 'setCountry',
         'nb_segments' => 'setNbSegments',
         'segment_status_to_recommend' => 'setSegmentStatusToRecommend',
         'segment_types_to_recommend' => 'setSegmentTypesToRecommend'
@@ -207,6 +212,7 @@ class RecommendSegmentsRequestAttributes implements ModelInterface, ArrayAccess,
     protected static $getters = [
         'advertiser_id' => 'getAdvertiserId',
         'brief' => 'getBrief',
+        'country' => 'getCountry',
         'nb_segments' => 'getNbSegments',
         'segment_status_to_recommend' => 'getSegmentStatusToRecommend',
         'segment_types_to_recommend' => 'getSegmentTypesToRecommend'
@@ -323,6 +329,7 @@ class RecommendSegmentsRequestAttributes implements ModelInterface, ArrayAccess,
     {
         $this->setIfExists('advertiser_id', $data ?? [], null);
         $this->setIfExists('brief', $data ?? [], null);
+        $this->setIfExists('country', $data ?? [], null);
         $this->setIfExists('nb_segments', $data ?? [], 5);
         $this->setIfExists('segment_status_to_recommend', $data ?? [], 'new');
         $this->setIfExists('segment_types_to_recommend', $data ?? [], null);
@@ -395,7 +402,7 @@ class RecommendSegmentsRequestAttributes implements ModelInterface, ArrayAccess,
     /**
      * Sets advertiser_id
      *
-     * @param string|null $advertiser_id Advertiser ID the caller has access to.
+     * @param string|null $advertiser_id [Optional] AdvertiserId this requestor has access to.
      *
      * @return self
      */
@@ -437,6 +444,33 @@ class RecommendSegmentsRequestAttributes implements ModelInterface, ArrayAccess,
     }
 
     /**
+     * Gets country
+     *
+     * @return string|null
+     */
+    public function getCountry()
+    {
+        return $this->container['country'];
+    }
+
+    /**
+     * Sets country
+     *
+     * @param string|null $country [Optional] Country code. Must be a supported country. When `advertiserId` is set, it must also match the country of the advertiser.
+     *
+     * @return self
+     */
+    public function setCountry($country)
+    {
+        if (is_null($country)) {
+            throw new \InvalidArgumentException('non-nullable country cannot be null');
+        }
+        $this->container['country'] = $country;
+
+        return $this;
+    }
+
+    /**
      * Gets nb_segments
      *
      * @return int|null
@@ -449,7 +483,7 @@ class RecommendSegmentsRequestAttributes implements ModelInterface, ArrayAccess,
     /**
      * Sets nb_segments
      *
-     * @param int|null $nb_segments Number of segments to recommend, between 1 and 20 (defaults to 5).
+     * @param int|null $nb_segments Number of segments to recommend, between 1 and 20 (default to 5).
      *
      * @return self
      */
@@ -476,7 +510,7 @@ class RecommendSegmentsRequestAttributes implements ModelInterface, ArrayAccess,
     /**
      * Sets segment_status_to_recommend
      *
-     * @param string|null $segment_status_to_recommend Recommend existing segments or suggest new ones.
+     * @param string|null $segment_status_to_recommend [Optional] Recommend only existing segments or suggest the new ones. Default to new.
      *
      * @return self
      */
@@ -513,7 +547,7 @@ class RecommendSegmentsRequestAttributes implements ModelInterface, ArrayAccess,
     /**
      * Sets segment_types_to_recommend
      *
-     * @param string[]|null $segment_types_to_recommend segment_types_to_recommend
+     * @param string[]|null $segment_types_to_recommend [Optional] Restrict the recommended segment types.
      *
      * @return self
      */

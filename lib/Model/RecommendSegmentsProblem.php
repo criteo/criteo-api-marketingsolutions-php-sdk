@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\experimental\ObjectSerializer;
  * RecommendSegmentsProblem Class Doc Comment
  *
  * @category Class
- * @description A warning or an error raised while processing the request.
+ * @description Common problem object.
  * @package  criteo\api\marketingsolutions\experimental
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -58,8 +58,14 @@ class RecommendSegmentsProblem implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
+        'code' => 'string',
         'detail' => 'string',
-        'title' => 'string'
+        'instance' => 'string',
+        'source' => 'array<string,string>',
+        'stack_trace' => 'string',
+        'title' => 'string',
+        'trace_id' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -70,8 +76,14 @@ class RecommendSegmentsProblem implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'code' => null,
         'detail' => null,
-        'title' => null
+        'instance' => null,
+        'source' => null,
+        'stack_trace' => null,
+        'title' => null,
+        'trace_id' => null,
+        'type' => null
     ];
 
     /**
@@ -80,8 +92,14 @@ class RecommendSegmentsProblem implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'detail' => true,
-		'title' => true
+        'code' => true,
+		'detail' => true,
+		'instance' => true,
+		'source' => true,
+		'stack_trace' => true,
+		'title' => true,
+		'trace_id' => true,
+		'type' => true
     ];
 
     /**
@@ -170,8 +188,14 @@ class RecommendSegmentsProblem implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
+        'code' => 'code',
         'detail' => 'detail',
-        'title' => 'title'
+        'instance' => 'instance',
+        'source' => 'source',
+        'stack_trace' => 'stackTrace',
+        'title' => 'title',
+        'trace_id' => 'traceId',
+        'type' => 'type'
     ];
 
     /**
@@ -180,8 +204,14 @@ class RecommendSegmentsProblem implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
+        'code' => 'setCode',
         'detail' => 'setDetail',
-        'title' => 'setTitle'
+        'instance' => 'setInstance',
+        'source' => 'setSource',
+        'stack_trace' => 'setStackTrace',
+        'title' => 'setTitle',
+        'trace_id' => 'setTraceId',
+        'type' => 'setType'
     ];
 
     /**
@@ -190,8 +220,14 @@ class RecommendSegmentsProblem implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
+        'code' => 'getCode',
         'detail' => 'getDetail',
-        'title' => 'getTitle'
+        'instance' => 'getInstance',
+        'source' => 'getSource',
+        'stack_trace' => 'getStackTrace',
+        'title' => 'getTitle',
+        'trace_id' => 'getTraceId',
+        'type' => 'getType'
     ];
 
     /**
@@ -235,6 +271,33 @@ class RecommendSegmentsProblem implements ModelInterface, ArrayAccess, \JsonSeri
         return self::$openAPIModelName;
     }
 
+    public const TYPE_UNKNOWN = 'unknown';
+    public const TYPE_ACCESS_CONTROL = 'access-control';
+    public const TYPE_AUTHENTICATION = 'authentication';
+    public const TYPE_AUTHORIZATION = 'authorization';
+    public const TYPE_AVAILABILITY = 'availability';
+    public const TYPE_DEPRECATION = 'deprecation';
+    public const TYPE_QUOTA = 'quota';
+    public const TYPE_VALIDATION = 'validation';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_UNKNOWN,
+            self::TYPE_ACCESS_CONTROL,
+            self::TYPE_AUTHENTICATION,
+            self::TYPE_AUTHORIZATION,
+            self::TYPE_AVAILABILITY,
+            self::TYPE_DEPRECATION,
+            self::TYPE_QUOTA,
+            self::TYPE_VALIDATION,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -251,8 +314,14 @@ class RecommendSegmentsProblem implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('code', $data ?? [], null);
         $this->setIfExists('detail', $data ?? [], null);
+        $this->setIfExists('instance', $data ?? [], null);
+        $this->setIfExists('source', $data ?? [], null);
+        $this->setIfExists('stack_trace', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('trace_id', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
     }
 
     /**
@@ -282,6 +351,15 @@ class RecommendSegmentsProblem implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -298,6 +376,40 @@ class RecommendSegmentsProblem implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
+     * Gets code
+     *
+     * @return string|null
+     */
+    public function getCode()
+    {
+        return $this->container['code'];
+    }
+
+    /**
+     * Sets code
+     *
+     * @param string|null $code A machine-readable error code, expressed as a string value.
+     *
+     * @return self
+     */
+    public function setCode($code)
+    {
+        if (is_null($code)) {
+            array_push($this->openAPINullablesSetToNull, 'code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
      * Gets detail
      *
      * @return string|null
@@ -310,7 +422,7 @@ class RecommendSegmentsProblem implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets detail
      *
-     * @param string|null $detail detail
+     * @param string|null $detail A human-readable explanation specific to this occurrence of the problem.
      *
      * @return self
      */
@@ -332,6 +444,108 @@ class RecommendSegmentsProblem implements ModelInterface, ArrayAccess, \JsonSeri
     }
 
     /**
+     * Gets instance
+     *
+     * @return string|null
+     */
+    public function getInstance()
+    {
+        return $this->container['instance'];
+    }
+
+    /**
+     * Sets instance
+     *
+     * @param string|null $instance A URI that identifies the specific occurrence of the problem.
+     *
+     * @return self
+     */
+    public function setInstance($instance)
+    {
+        if (is_null($instance)) {
+            array_push($this->openAPINullablesSetToNull, 'instance');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('instance', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['instance'] = $instance;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
+     *
+     * @return array<string,string>|null
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param array<string,string>|null $source A machine-readable structure to reference to the exact location(s) causing the error(s).
+     *
+     * @return self
+     */
+    public function setSource($source)
+    {
+        if (is_null($source)) {
+            array_push($this->openAPINullablesSetToNull, 'source');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['source'] = $source;
+
+        return $this;
+    }
+
+    /**
+     * Gets stack_trace
+     *
+     * @return string|null
+     */
+    public function getStackTrace()
+    {
+        return $this->container['stack_trace'];
+    }
+
+    /**
+     * Sets stack_trace
+     *
+     * @param string|null $stack_trace 
+     *
+     * @return self
+     */
+    public function setStackTrace($stack_trace)
+    {
+        if (is_null($stack_trace)) {
+            array_push($this->openAPINullablesSetToNull, 'stack_trace');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('stack_trace', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['stack_trace'] = $stack_trace;
+
+        return $this;
+    }
+
+    /**
      * Gets title
      *
      * @return string|null
@@ -344,7 +558,7 @@ class RecommendSegmentsProblem implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets title
      *
-     * @param string|null $title title
+     * @param string|null $title A short human-readable description of the problem type.
      *
      * @return self
      */
@@ -361,6 +575,84 @@ class RecommendSegmentsProblem implements ModelInterface, ArrayAccess, \JsonSeri
             }
         }
         $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets trace_id
+     *
+     * @return string|null
+     */
+    public function getTraceId()
+    {
+        return $this->container['trace_id'];
+    }
+
+    /**
+     * Sets trace_id
+     *
+     * @param string|null $trace_id The request correlation ID this problem comes from.
+     *
+     * @return self
+     */
+    public function setTraceId($trace_id)
+    {
+        if (is_null($trace_id)) {
+            array_push($this->openAPINullablesSetToNull, 'trace_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('trace_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['trace_id'] = $trace_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type The problem's category.
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }

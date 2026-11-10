@@ -362,7 +362,7 @@ class RecommendSegmentsRequestData implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets type
      *
-     * @param string|null $type type
+     * @param string|null $type Type of the data object of a segment recommendation request.
      *
      * @return self
      */

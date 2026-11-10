@@ -64,6 +64,7 @@ class PatchAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'scheduled_budget' => '\criteo\api\marketingsolutions\experimental\Model\PatchAdSetScheduledBudgetV26Q1',
         'scheduling' => '\criteo\api\marketingsolutions\experimental\Model\PatchAdSetSchedulingV26Q1',
+        'server_to_server_trackings' => '\criteo\api\marketingsolutions\experimental\Model\ServerToServerTrackingV26Q1[]',
         'targeting' => '\criteo\api\marketingsolutions\experimental\Model\AdSetTargetingV26Q1'
     ];
 
@@ -81,6 +82,7 @@ class PatchAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => null,
         'scheduled_budget' => null,
         'scheduling' => null,
+        'server_to_server_trackings' => null,
         'targeting' => null
     ];
 
@@ -96,6 +98,7 @@ class PatchAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
 		'name' => true,
 		'scheduled_budget' => false,
 		'scheduling' => false,
+		'server_to_server_trackings' => true,
 		'targeting' => true
     ];
 
@@ -191,6 +194,7 @@ class PatchAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'name',
         'scheduled_budget' => 'scheduledBudget',
         'scheduling' => 'scheduling',
+        'server_to_server_trackings' => 'serverToServerTrackings',
         'targeting' => 'targeting'
     ];
 
@@ -206,6 +210,7 @@ class PatchAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'setName',
         'scheduled_budget' => 'setScheduledBudget',
         'scheduling' => 'setScheduling',
+        'server_to_server_trackings' => 'setServerToServerTrackings',
         'targeting' => 'setTargeting'
     ];
 
@@ -221,6 +226,7 @@ class PatchAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'getName',
         'scheduled_budget' => 'getScheduledBudget',
         'scheduling' => 'getScheduling',
+        'server_to_server_trackings' => 'getServerToServerTrackings',
         'targeting' => 'getTargeting'
     ];
 
@@ -287,6 +293,7 @@ class PatchAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('scheduled_budget', $data ?? [], null);
         $this->setIfExists('scheduling', $data ?? [], null);
+        $this->setIfExists('server_to_server_trackings', $data ?? [], null);
         $this->setIfExists('targeting', $data ?? [], null);
     }
 
@@ -497,6 +504,40 @@ class PatchAdSetV26Q1 implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable scheduling cannot be null');
         }
         $this->container['scheduling'] = $scheduling;
+
+        return $this;
+    }
+
+    /**
+     * Gets server_to_server_trackings
+     *
+     * @return \criteo\api\marketingsolutions\experimental\Model\ServerToServerTrackingV26Q1[]|null
+     */
+    public function getServerToServerTrackings()
+    {
+        return $this->container['server_to_server_trackings'];
+    }
+
+    /**
+     * Sets server_to_server_trackings
+     *
+     * @param \criteo\api\marketingsolutions\experimental\Model\ServerToServerTrackingV26Q1[]|null $server_to_server_trackings MMP server-to-server tracking URLs. Only allowed for app retargeting ad sets. Replaces the existing URLs when provided, clears them when empty, and leaves them unchanged when omitted
+     *
+     * @return self
+     */
+    public function setServerToServerTrackings($server_to_server_trackings)
+    {
+        if (is_null($server_to_server_trackings)) {
+            array_push($this->openAPINullablesSetToNull, 'server_to_server_trackings');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('server_to_server_trackings', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['server_to_server_trackings'] = $server_to_server_trackings;
 
         return $this;
     }
