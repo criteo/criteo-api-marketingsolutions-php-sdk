@@ -86,6 +86,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'display_ads_title' => 'string',
         'display_ads_value' => 'float',
         'energy_efficiency_class' => 'string',
+        'excluded_channels' => 'string[]',
         'excluded_destinations' => 'string[]',
         'expiration_date' => 'string',
         'external_seller_id' => 'string',
@@ -100,6 +101,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'included_destinations' => 'string[]',
         'installment' => '\criteo\api\marketingsolutions\experimental\Model\Installment',
         'is_bundle' => 'bool',
+        'is_buybox' => 'bool',
         'item_group_id' => 'string',
         'kind' => 'string',
         'link' => 'string',
@@ -179,6 +181,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'display_ads_title' => null,
         'display_ads_value' => 'double',
         'energy_efficiency_class' => null,
+        'excluded_channels' => null,
         'excluded_destinations' => null,
         'expiration_date' => null,
         'external_seller_id' => null,
@@ -193,6 +196,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'included_destinations' => null,
         'installment' => null,
         'is_bundle' => null,
+        'is_buybox' => null,
         'item_group_id' => null,
         'kind' => null,
         'link' => null,
@@ -270,6 +274,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
 		'display_ads_title' => false,
 		'display_ads_value' => false,
 		'energy_efficiency_class' => false,
+		'excluded_channels' => false,
 		'excluded_destinations' => false,
 		'expiration_date' => false,
 		'external_seller_id' => false,
@@ -284,6 +289,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
 		'included_destinations' => false,
 		'installment' => false,
 		'is_bundle' => false,
+		'is_buybox' => false,
 		'item_group_id' => false,
 		'kind' => false,
 		'link' => false,
@@ -441,6 +447,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'display_ads_title' => 'displayAdsTitle',
         'display_ads_value' => 'displayAdsValue',
         'energy_efficiency_class' => 'energyEfficiencyClass',
+        'excluded_channels' => 'excludedChannels',
         'excluded_destinations' => 'excludedDestinations',
         'expiration_date' => 'expirationDate',
         'external_seller_id' => 'externalSellerId',
@@ -455,6 +462,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'included_destinations' => 'includedDestinations',
         'installment' => 'installment',
         'is_bundle' => 'isBundle',
+        'is_buybox' => 'isBuybox',
         'item_group_id' => 'itemGroupId',
         'kind' => 'kind',
         'link' => 'link',
@@ -532,6 +540,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'display_ads_title' => 'setDisplayAdsTitle',
         'display_ads_value' => 'setDisplayAdsValue',
         'energy_efficiency_class' => 'setEnergyEfficiencyClass',
+        'excluded_channels' => 'setExcludedChannels',
         'excluded_destinations' => 'setExcludedDestinations',
         'expiration_date' => 'setExpirationDate',
         'external_seller_id' => 'setExternalSellerId',
@@ -546,6 +555,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'included_destinations' => 'setIncludedDestinations',
         'installment' => 'setInstallment',
         'is_bundle' => 'setIsBundle',
+        'is_buybox' => 'setIsBuybox',
         'item_group_id' => 'setItemGroupId',
         'kind' => 'setKind',
         'link' => 'setLink',
@@ -623,6 +633,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'display_ads_title' => 'getDisplayAdsTitle',
         'display_ads_value' => 'getDisplayAdsValue',
         'energy_efficiency_class' => 'getEnergyEfficiencyClass',
+        'excluded_channels' => 'getExcludedChannels',
         'excluded_destinations' => 'getExcludedDestinations',
         'expiration_date' => 'getExpirationDate',
         'external_seller_id' => 'getExternalSellerId',
@@ -637,6 +648,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'included_destinations' => 'getIncludedDestinations',
         'installment' => 'getInstallment',
         'is_bundle' => 'getIsBundle',
+        'is_buybox' => 'getIsBuybox',
         'item_group_id' => 'getItemGroupId',
         'kind' => 'getKind',
         'link' => 'getLink',
@@ -721,17 +733,23 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const CHANNEL_ONLINE = 'online';
+    public const AVAILABILITY_IN_STOCK = 'in_stock';
+    public const AVAILABILITY_OUT_OF_STOCK = 'out_of_stock';
+    public const AVAILABILITY_PREORDER = 'preorder';
+    public const AVAILABILITY_BACKORDER = 'backorder';
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getChannelAllowableValues()
+    public function getAvailabilityAllowableValues()
     {
         return [
-            self::CHANNEL_ONLINE,
+            self::AVAILABILITY_IN_STOCK,
+            self::AVAILABILITY_OUT_OF_STOCK,
+            self::AVAILABILITY_PREORDER,
+            self::AVAILABILITY_BACKORDER,
         ];
     }
 
@@ -778,6 +796,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('display_ads_title', $data ?? [], null);
         $this->setIfExists('display_ads_value', $data ?? [], null);
         $this->setIfExists('energy_efficiency_class', $data ?? [], null);
+        $this->setIfExists('excluded_channels', $data ?? [], null);
         $this->setIfExists('excluded_destinations', $data ?? [], null);
         $this->setIfExists('expiration_date', $data ?? [], null);
         $this->setIfExists('external_seller_id', $data ?? [], null);
@@ -792,6 +811,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('included_destinations', $data ?? [], null);
         $this->setIfExists('installment', $data ?? [], null);
         $this->setIfExists('is_bundle', $data ?? [], null);
+        $this->setIfExists('is_buybox', $data ?? [], null);
         $this->setIfExists('item_group_id', $data ?? [], null);
         $this->setIfExists('kind', $data ?? [], null);
         $this->setIfExists('link', $data ?? [], null);
@@ -862,14 +882,14 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['channel'] === null) {
-            $invalidProperties[] = "'channel' can't be null";
+        if ($this->container['availability'] === null) {
+            $invalidProperties[] = "'availability' can't be null";
         }
-        $allowedValues = $this->getChannelAllowableValues();
-        if (!is_null($this->container['channel']) && !in_array($this->container['channel'], $allowedValues, true)) {
+        $allowedValues = $this->getAvailabilityAllowableValues();
+        if (!is_null($this->container['availability']) && !in_array($this->container['availability'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'channel', must be one of '%s'",
-                $this->container['channel'],
+                "invalid value '%s' for 'availability', must be one of '%s'",
+                $this->container['availability'],
                 implode("', '", $allowedValues)
             );
         }
@@ -1066,7 +1086,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets availability
      *
-     * @return string|null
+     * @return string
      */
     public function getAvailability()
     {
@@ -1076,7 +1096,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets availability
      *
-     * @param string|null $availability Availability status of the item. RECOMMENDED.
+     * @param string $availability Availability status of the item.
      *
      * @return self
      */
@@ -1084,6 +1104,16 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($availability)) {
             throw new \InvalidArgumentException('non-nullable availability cannot be null');
+        }
+        $allowedValues = $this->getAvailabilityAllowableValues();
+        if (!in_array($availability, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'availability', must be one of '%s'",
+                    $availability,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['availability'] = $availability;
 
@@ -1174,7 +1204,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets channel
      *
-     * @return string
+     * @return string|null
      */
     public function getChannel()
     {
@@ -1184,7 +1214,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets channel
      *
-     * @param string $channel The item's channel (online only).
+     * @param string|null $channel The item's channel (online only).
      *
      * @return self
      */
@@ -1192,16 +1222,6 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($channel)) {
             throw new \InvalidArgumentException('non-nullable channel cannot be null');
-        }
-        $allowedValues = $this->getChannelAllowableValues();
-        if (!in_array($channel, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'channel', must be one of '%s'",
-                    $channel,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['channel'] = $channel;
 
@@ -1329,7 +1349,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets custom_attributes
      *
-     * @param \criteo\api\marketingsolutions\experimental\Model\CustomAttribute[]|null $custom_attributes A list of custom (merchant-provided) attributes. This is useful for submitting attributes not explicitly exposed by the API. Declaring attributes explicitly exposed by the API using is forbidden
+     * @param \criteo\api\marketingsolutions\experimental\Model\CustomAttribute[]|null $custom_attributes A list of custom (merchant-provided) attributes. This is useful for submitting attributes not explicitly exposed by the API. Declaring attributes explicitly exposed by the API using this field is forbidden.
      *
      * @return self
      */
@@ -1491,7 +1511,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets description
      *
-     * @param string|null $description Description of the item. RECOMMENDED. (5000 UTF8 characters max).
+     * @param string|null $description Description of the item. RECOMMENDED. (5000 UTF-8 characters max).
      *
      * @return self
      */
@@ -1668,6 +1688,33 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets excluded_channels
+     *
+     * @return string[]|null
+     */
+    public function getExcludedChannels()
+    {
+        return $this->container['excluded_channels'];
+    }
+
+    /**
+     * Sets excluded_channels
+     *
+     * @param string[]|null $excluded_channels List of channels to exclude for this product. Accepted values: PERF_MEDIA, RM_ONSITE, RM_OFFSITE.
+     *
+     * @return self
+     */
+    public function setExcludedChannels($excluded_channels)
+    {
+        if (is_null($excluded_channels)) {
+            throw new \InvalidArgumentException('non-nullable excluded_channels cannot be null');
+        }
+        $this->container['excluded_channels'] = $excluded_channels;
+
+        return $this;
+    }
+
+    /**
      * Gets excluded_destinations
      *
      * @return string[]|null
@@ -1734,7 +1781,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets external_seller_id
      *
-     * @param string|null $external_seller_id The external id of the seller (case sensitive and 50 UTF8 characters max). This information is required by the Criteo Offsite Ads.
+     * @param string|null $external_seller_id The external ID of the seller (case sensitive and 50 UTF-8 characters max). This information is required by the Criteo Offsite Ads.
      *
      * @return self
      */
@@ -1761,7 +1808,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets external_seller_name
      *
-     * @param string|null $external_seller_name The external name of the seller (case sensitive and 50 UTF8 characters max). This information is required by the Criteo Offsite Ads.
+     * @param string|null $external_seller_name The external name of the seller (case sensitive and 750 UTF-8 characters max). This information is required by the Criteo Offsite Ads.
      *
      * @return self
      */
@@ -1950,7 +1997,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets image_link
      *
-     * @param string $image_link URL of an image of the item. Supported formats: PNG, JPEG, GIF. (2000 UTF8 characters max).
+     * @param string $image_link URL of an image of the item. Supported formats: PNG, JPEG, GIF. (2000 UTF-8 characters max).
      *
      * @return self
      */
@@ -2046,6 +2093,33 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets is_buybox
+     *
+     * @return bool|null
+     */
+    public function getIsBuybox()
+    {
+        return $this->container['is_buybox'];
+    }
+
+    /**
+     * Sets is_buybox
+     *
+     * @param bool|null $is_buybox Flag indicating whether this SKU is currently the Buy Box Winner (BBW) on its Product Detail Page.
+     *
+     * @return self
+     */
+    public function setIsBuybox($is_buybox)
+    {
+        if (is_null($is_buybox)) {
+            throw new \InvalidArgumentException('non-nullable is_buybox cannot be null');
+        }
+        $this->container['is_buybox'] = $is_buybox;
+
+        return $this;
+    }
+
+    /**
      * Gets item_group_id
      *
      * @return string|null
@@ -2112,7 +2186,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets link
      *
-     * @param string $link URL directly linking to your item's page on your website. (1000 UTF8 characters max).
+     * @param string $link URL directly linking to your item's page on your website. (2000 UTF-8 characters max).
      *
      * @return self
      */
@@ -2301,7 +2375,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets mobile_link
      *
-     * @param string|null $mobile_link accounts.link to a mobile-optimized version of the landing page.
+     * @param string|null $mobile_link Link to a mobile-optimized version of the landing page.
      *
      * @return self
      */
@@ -2652,7 +2726,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets seller_id
      *
-     * @param string|null $seller_id (Deprecated Field) The external ID of the seller (case sensitive and 50 UTF8 characters max). This information is required by the Criteo Offsite Ads.
+     * @param string|null $seller_id (Deprecated Field) The external ID of the seller (case sensitive and 50 UTF-8 characters max). This information is required by the Criteo Offsite Ads.
      *
      * @return self
      */
@@ -2760,7 +2834,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets shipping_label
      *
-     * @param string|null $shipping_label The shipping label of the product, used to group product in account-level shipping rules.
+     * @param string|null $shipping_label The shipping label of the product, used to group products in account-level shipping rules.
      *
      * @return self
      */
@@ -2868,7 +2942,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets sizes
      *
-     * @param string[]|null $sizes Size of the item. RECOMMENDED. Only one value is allowed. For variants with different sizes, insert a separate product for each size with the same itemGroupId value.
+     * @param string[]|null $sizes Size of the item. RECOMMENDED. For variants with different sizes, insert a separate product for each size with the same itemGroupId value.
      *
      * @return self
      */
@@ -3057,7 +3131,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets title
      *
-     * @param string $title Title of the item. (500 UTF8 characters max).
+     * @param string $title Title of the item. (500 UTF-8 characters max).
      *
      * @return self
      */
@@ -3084,7 +3158,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets transit_time_label
      *
-     * @param string|null $transit_time_label The transit time label of the product, used to group product in account-level transit time tables.
+     * @param string|null $transit_time_label The transit time label of the product, used to group products in account-level transit time tables.
      *
      * @return self
      */

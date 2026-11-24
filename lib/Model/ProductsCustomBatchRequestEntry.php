@@ -61,7 +61,7 @@ class ProductsCustomBatchRequestEntry implements ModelInterface, ArrayAccess, \J
         'batch_id' => 'int',
         'feed_id' => 'string',
         'item_group_id' => 'string',
-        'merchant_id' => 'int',
+        'merchant_id' => 'string',
         'method' => 'string',
         'product' => '\criteo\api\marketingsolutions\experimental\Model\Product',
         'product_id' => 'string'
@@ -78,7 +78,7 @@ class ProductsCustomBatchRequestEntry implements ModelInterface, ArrayAccess, \J
         'batch_id' => 'int64',
         'feed_id' => null,
         'item_group_id' => null,
-        'merchant_id' => 'int32',
+        'merchant_id' => null,
         'method' => null,
         'product' => null,
         'product_id' => null
@@ -429,7 +429,7 @@ class ProductsCustomBatchRequestEntry implements ModelInterface, ArrayAccess, \J
     /**
      * Sets item_group_id
      *
-     * @param string|null $item_group_id Deprecated (providing this information is no more needed, this field will be removed in next release). The itemGroupId of the product to delete. To be defined when the method is delete and the product is a variant.
+     * @param string|null $item_group_id Deprecated (providing this information is no longer needed, this field will be removed in the next release). The itemGroupId of the product to delete. To be defined when the method is delete and the product is a variant.
      *
      * @return self
      */
@@ -446,7 +446,7 @@ class ProductsCustomBatchRequestEntry implements ModelInterface, ArrayAccess, \J
     /**
      * Gets merchant_id
      *
-     * @return int
+     * @return string
      */
     public function getMerchantId()
     {
@@ -456,7 +456,7 @@ class ProductsCustomBatchRequestEntry implements ModelInterface, ArrayAccess, \J
     /**
      * Sets merchant_id
      *
-     * @param int $merchant_id The ID of the managing account. Criteo: the partnerId.
+     * @param string $merchant_id The ID of the managing account. Criteo: the partnerId.
      *
      * @return self
      */

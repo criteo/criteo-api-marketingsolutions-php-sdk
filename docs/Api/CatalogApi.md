@@ -149,7 +149,7 @@ getCatalogMerchantStats($merchant_id, $last_num_hours): \criteo\api\marketingsol
 
 /experimental/catalog/stats/merchants/{merchant-id}
 
-get an stats request
+Get the statistics of the catalog of a merchant over the last `lastNumHours` hours (24 hours by default)
 
 ### Example
 
@@ -171,8 +171,8 @@ $apiInstance = new criteo\api\marketingsolutions\experimental\Api\CatalogApi(
     new GuzzleHttp\Client(),
     $config
 );
-$merchant_id = 'merchant_id_example'; // string | merchant-id to get
-$last_num_hours = 56; // int | the last number of hours
+$merchant_id = 'merchant_id_example'; // string | The id of the merchant whose catalog statistics are requested.
+$last_num_hours = 56; // int | The number of past hours covered by the statistics (1 to 1000, 24 by default).
 
 try {
     $result = $apiInstance->getCatalogMerchantStats($merchant_id, $last_num_hours);
@@ -186,8 +186,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **merchant_id** | **string**| merchant-id to get | |
-| **last_num_hours** | **int**| the last number of hours | [optional] |
+| **merchant_id** | **string**| The id of the merchant whose catalog statistics are requested. | |
+| **last_num_hours** | **int**| The number of past hours covered by the statistics (1 to 1000, 24 by default). | [optional] |
 
 ### Return type
 
@@ -277,7 +277,7 @@ submitCatalogProductsBatch($products_custom_batch_request): \criteo\api\marketin
 
 /experimental/catalog/products/batch
 
-Used to publish a batch of operations to insert, update and deletes products.  The batch is processed asynchronously.The response provides an operationToken which can be used to track  the status of the report of the operation.
+Used to publish a batch of operations to insert, update and delete products.  The batch is processed asynchronously. The response provides an operation id in `operationToken`  which can be used to track the status of the report of the operation.
 
 ### Example
 

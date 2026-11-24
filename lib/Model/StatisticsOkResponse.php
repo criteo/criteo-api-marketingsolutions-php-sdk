@@ -35,7 +35,7 @@ use \criteo\api\marketingsolutions\experimental\ObjectSerializer;
  * StatisticsOkResponse Class Doc Comment
  *
  * @category Class
- * @description The statistics reports
+ * @description The statistics successful reports response
  * @package  criteo\api\marketingsolutions\experimental
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

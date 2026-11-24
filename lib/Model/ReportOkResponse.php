@@ -78,12 +78,12 @@ class ReportOkResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'error_details' => null,
-        'import_request_timestamp' => 'int64',
-        'number_of_products_deleted' => 'int32',
-        'number_of_products_in_the_batch' => 'int32',
-        'number_of_products_upserted' => 'int32',
-        'number_of_products_with_errors' => 'int32',
-        'number_of_products_with_warnings' => 'int32',
+        'import_request_timestamp' => null,
+        'number_of_products_deleted' => null,
+        'number_of_products_in_the_batch' => null,
+        'number_of_products_upserted' => null,
+        'number_of_products_with_errors' => null,
+        'number_of_products_with_warnings' => null,
         'status' => null,
         'warning_details' => null
     ];
@@ -95,12 +95,12 @@ class ReportOkResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'error_details' => false,
-		'import_request_timestamp' => true,
-		'number_of_products_deleted' => true,
-		'number_of_products_in_the_batch' => true,
-		'number_of_products_upserted' => true,
-		'number_of_products_with_errors' => true,
-		'number_of_products_with_warnings' => true,
+		'import_request_timestamp' => false,
+		'number_of_products_deleted' => false,
+		'number_of_products_in_the_batch' => false,
+		'number_of_products_upserted' => false,
+		'number_of_products_with_errors' => false,
+		'number_of_products_with_warnings' => false,
 		'status' => false,
 		'warning_details' => false
     ];
@@ -450,14 +450,7 @@ class ReportOkResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setImportRequestTimestamp($import_request_timestamp)
     {
         if (is_null($import_request_timestamp)) {
-            array_push($this->openAPINullablesSetToNull, 'import_request_timestamp');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('import_request_timestamp', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable import_request_timestamp cannot be null');
         }
         $this->container['import_request_timestamp'] = $import_request_timestamp;
 
@@ -484,14 +477,7 @@ class ReportOkResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setNumberOfProductsDeleted($number_of_products_deleted)
     {
         if (is_null($number_of_products_deleted)) {
-            array_push($this->openAPINullablesSetToNull, 'number_of_products_deleted');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('number_of_products_deleted', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable number_of_products_deleted cannot be null');
         }
         $this->container['number_of_products_deleted'] = $number_of_products_deleted;
 
@@ -518,14 +504,7 @@ class ReportOkResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setNumberOfProductsInTheBatch($number_of_products_in_the_batch)
     {
         if (is_null($number_of_products_in_the_batch)) {
-            array_push($this->openAPINullablesSetToNull, 'number_of_products_in_the_batch');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('number_of_products_in_the_batch', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable number_of_products_in_the_batch cannot be null');
         }
         $this->container['number_of_products_in_the_batch'] = $number_of_products_in_the_batch;
 
@@ -552,14 +531,7 @@ class ReportOkResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setNumberOfProductsUpserted($number_of_products_upserted)
     {
         if (is_null($number_of_products_upserted)) {
-            array_push($this->openAPINullablesSetToNull, 'number_of_products_upserted');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('number_of_products_upserted', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable number_of_products_upserted cannot be null');
         }
         $this->container['number_of_products_upserted'] = $number_of_products_upserted;
 
@@ -586,14 +558,7 @@ class ReportOkResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setNumberOfProductsWithErrors($number_of_products_with_errors)
     {
         if (is_null($number_of_products_with_errors)) {
-            array_push($this->openAPINullablesSetToNull, 'number_of_products_with_errors');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('number_of_products_with_errors', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable number_of_products_with_errors cannot be null');
         }
         $this->container['number_of_products_with_errors'] = $number_of_products_with_errors;
 
@@ -613,21 +578,14 @@ class ReportOkResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets number_of_products_with_warnings
      *
-     * @param string $number_of_products_with_warnings The number of products with Warnings.
+     * @param string $number_of_products_with_warnings The number of products with warnings.
      *
      * @return self
      */
     public function setNumberOfProductsWithWarnings($number_of_products_with_warnings)
     {
         if (is_null($number_of_products_with_warnings)) {
-            array_push($this->openAPINullablesSetToNull, 'number_of_products_with_warnings');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('number_of_products_with_warnings', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable number_of_products_with_warnings cannot be null');
         }
         $this->container['number_of_products_with_warnings'] = $number_of_products_with_warnings;
 
@@ -684,7 +642,7 @@ class ReportOkResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets warning_details
      *
-     * @param \criteo\api\marketingsolutions\experimental\Model\ReportDetailWarnings[] $warning_details The list of Warnings with details.
+     * @param \criteo\api\marketingsolutions\experimental\Model\ReportDetailWarnings[] $warning_details The list of warnings with details.
      *
      * @return self
      */

@@ -757,8 +757,8 @@ class CatalogApi
      *
      * /experimental/catalog/stats/merchants/{merchant-id}
      *
-     * @param  string $merchant_id merchant-id to get (required)
-     * @param  int $last_num_hours the last number of hours (optional)
+     * @param  string $merchant_id The id of the merchant whose catalog statistics are requested. (required)
+     * @param  int $last_num_hours The number of past hours covered by the statistics (1 to 1000, 24 by default). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogMerchantStats'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\experimental\ApiException on non-2xx response
@@ -776,8 +776,8 @@ class CatalogApi
      *
      * /experimental/catalog/stats/merchants/{merchant-id}
      *
-     * @param  string $merchant_id merchant-id to get (required)
-     * @param  int $last_num_hours the last number of hours (optional)
+     * @param  string $merchant_id The id of the merchant whose catalog statistics are requested. (required)
+     * @param  int $last_num_hours The number of past hours covered by the statistics (1 to 1000, 24 by default). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogMerchantStats'] to see the possible values for this operation
      *
      * @throws \criteo\api\marketingsolutions\experimental\ApiException on non-2xx response
@@ -877,8 +877,8 @@ class CatalogApi
      *
      * /experimental/catalog/stats/merchants/{merchant-id}
      *
-     * @param  string $merchant_id merchant-id to get (required)
-     * @param  int $last_num_hours the last number of hours (optional)
+     * @param  string $merchant_id The id of the merchant whose catalog statistics are requested. (required)
+     * @param  int $last_num_hours The number of past hours covered by the statistics (1 to 1000, 24 by default). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogMerchantStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -899,8 +899,8 @@ class CatalogApi
      *
      * /experimental/catalog/stats/merchants/{merchant-id}
      *
-     * @param  string $merchant_id merchant-id to get (required)
-     * @param  int $last_num_hours the last number of hours (optional)
+     * @param  string $merchant_id The id of the merchant whose catalog statistics are requested. (required)
+     * @param  int $last_num_hours The number of past hours covered by the statistics (1 to 1000, 24 by default). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogMerchantStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -950,8 +950,8 @@ class CatalogApi
     /**
      * Create request for operation 'getCatalogMerchantStats'
      *
-     * @param  string $merchant_id merchant-id to get (required)
-     * @param  int $last_num_hours the last number of hours (optional)
+     * @param  string $merchant_id The id of the merchant whose catalog statistics are requested. (required)
+     * @param  int $last_num_hours The number of past hours covered by the statistics (1 to 1000, 24 by default). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogMerchantStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

@@ -62,7 +62,7 @@ class StatisticsRecord implements ModelInterface, ArrayAccess, \JsonSerializable
         'blacklisted' => 'string',
         'deleted' => 'string',
         'displayable' => 'string',
-        'end_date' => '\DateTime',
+        'end_date' => 'string',
         'missing_description' => 'string',
         'missing_image' => 'string',
         'missing_name' => 'string',
@@ -70,7 +70,7 @@ class StatisticsRecord implements ModelInterface, ArrayAccess, \JsonSerializable
         'missing_url' => 'string',
         'non_displayable' => 'string',
         'out_of_stock' => 'string',
-        'start_date' => '\DateTime',
+        'start_date' => 'string',
         'total' => 'string',
         'updated' => 'string',
         'variant' => 'string'
@@ -84,22 +84,22 @@ class StatisticsRecord implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'added' => 'int64',
-        'blacklisted' => 'int64',
-        'deleted' => 'int64',
-        'displayable' => 'int64',
-        'end_date' => 'date-time',
-        'missing_description' => 'int64',
-        'missing_image' => 'int64',
-        'missing_name' => 'int64',
-        'missing_price' => 'int64',
-        'missing_url' => 'int64',
-        'non_displayable' => 'int64',
-        'out_of_stock' => 'int64',
-        'start_date' => 'date-time',
-        'total' => 'int64',
-        'updated' => 'int64',
-        'variant' => 'int64'
+        'added' => null,
+        'blacklisted' => null,
+        'deleted' => null,
+        'displayable' => null,
+        'end_date' => null,
+        'missing_description' => null,
+        'missing_image' => null,
+        'missing_name' => null,
+        'missing_price' => null,
+        'missing_url' => null,
+        'non_displayable' => null,
+        'out_of_stock' => null,
+        'start_date' => null,
+        'total' => null,
+        'updated' => null,
+        'variant' => null
     ];
 
     /**
@@ -554,7 +554,7 @@ class StatisticsRecord implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets end_date
      *
-     * @return \DateTime
+     * @return string
      */
     public function getEndDate()
     {
@@ -564,7 +564,7 @@ class StatisticsRecord implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets end_date
      *
-     * @param \DateTime $end_date End date of streaming products collection
+     * @param string $end_date End date of streaming products collection
      *
      * @return self
      */
@@ -770,7 +770,7 @@ class StatisticsRecord implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets start_date
      *
-     * @return \DateTime
+     * @return string
      */
     public function getStartDate()
     {
@@ -780,7 +780,7 @@ class StatisticsRecord implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets start_date
      *
-     * @param \DateTime $start_date Start date of streaming products collection
+     * @param string $start_date Start date of streaming products collection
      *
      * @return self
      */
